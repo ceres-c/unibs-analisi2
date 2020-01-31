@@ -1,0 +1,57 @@
+\documentclass[a4paper,14pt]{book}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsthm,amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage[pdfencoding=auto]{hyperref}
+\usepackage{mathtools}
+\usepackage{pgfplots}
+
+\begin{document}
+		
+\newtheorem{definition}{Definizione}
+\newtheorem{proposition}{Proposizione}
+\newtheorem{theorem}{Teorema}
+\newtheorem{observation}{Osservazione}
+\newtheorem{corollary}{Corollario}
+\newtheorem{example}{Esempio}
+
+\newcommand{\norm}[1] {\left\|#1\right\|}
+\newcommand{\abs}[1] {\left|#1\right|}
+
+\newcommand{\bbset}[1] {\mathbb{#1}}
+\newcommand{\bbsetn}[2] {\mathbb{#1}^{#2}}
+
+\newcommand{\realintervalopen}[2] {\left]#1,#2\right[}
+\newcommand{\realintervalclose}[2] {\left[#1,#2\right]}
+\newcommand{\realintervalclor}[2] {\left[#1,#2\right]}
+\newcommand{\realintervalolcr}[2] {\left[#1,#2\right]}
+\newcommand{\realfunction}[3]{ #1:#2\to#3}
+\newcommand{\trigonpol}[3] {\frac{a_0}{2}+\sum\limits_{#1=#2}^{#3}a_{#1}cos(#1x)+b_{#1}sin(#1x)}
+
+\newcommand{\dinfty}[2]{d_\infty\left(#1,#2\right)}
+\newcommand{\ddinfty}[3]{\sup\limits_{x\in#3}{\left|f-g\right|}}
+\newcommand{\sse}{\Leftrightarrow}
+
+\author{Mauro Conte}
+\title{Appunti di Analisi 2}
+\date{Agosto 2017}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+\include{./1_spazi_metrici}
+\include{./2_calcolo_differenziale}
+\include{./3_integrali_doppi}
+\include{./4_equazioni_differenziali}
+\include{./5_equazioni_differenziali}
+\include{./6_calcolo_variazioni}
+\include{./7_temi_esame}
+
+\backmatter
+% bibliography, glossary and index would go here.
+
+\end{document}
