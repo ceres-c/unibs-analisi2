@@ -3,18 +3,27 @@
 \section{Preliminari}
 Equazione è un uguaglianza in cui c'è almeno una incognita.\\
 Equazione differenziale è un particolare tipo di equazione e stabilisce una relazione tra la funzione incognita e le sue derivate.In un equazione funzionale si cerca l'uguaglianza di: insieme di arrivo, insieme di partenza, corrispondenza.\\
-Non è necessario sapere il valore della soluzione ma sapere che ne esiste una.????????\\
+Non è necessario sapere il valore della soluzione ma sapere che ne esiste una.????????\\\\
 Equazione differenziale ordinaria:\\
 1- La funzione incognita è funzione di una sola variabile solitamente il tempo.\\
 2- La funzione incognita e le sue derivate sono calcolate allo stesso istante di tempo.\\
 \definition
-Si dice equazione differenziale ordinaria di ordine $n$ nella funzione incognita $x\in \R^k$ un espressione del tipo:\\
+Si dice equazione differenziale ordinaria di ordine $n$ nella funzione incognita $x\in \R^k$ un espressione del tipo:
 $$f(t,x,\overset{\cdot}{x},\ldots,x^{(n)})=0$$
 dove $f:A\to \R^m$, $A\subseteq \R^{1+(1+n)k}$ e $t\in \R$.\\
-Soluzione di questa equazione differenziabile è una qualunque funzione $x:I\to \R^k$ definita su un intervallo $I\subseteq \R$, derivabile $n$ volte in $I$ e tale che $\forall t\in I$\\
+$m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
+\begin{itemize}
+	\item $1 = dim(t)$
+	\item $(1+n)k$
+	\begin{itemize}
+		\item $(1+n)$ il numero totale delle funzioni: $n$ derivate ed $x$ stessa
+		\item $k$ la dimensione dell'insieme di partenza di ogni funzione incognita
+	\end{itemize}
+\end{itemize}
+Soluzione di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ definita su un intervallo $I\subseteq \R$, derivabile $n$ volte in $I$ e tale che $\forall t\in I$\\
 $$ (t,x,\overset{\cdot}{x},\ldots,x^{(n)}) \in A$$
 $$ f(t,x,\overset{\cdot}{x},\ldots,x^{(n)})=0$$
-Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I_m$
+Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$
 \definition
 un'equazione differenziale è in forma normale  se e solo se si presenta nella forma 
 $$x^n = g(t,x,\overset{\cdot}{x},\ldots,x^{n-1}))$$
