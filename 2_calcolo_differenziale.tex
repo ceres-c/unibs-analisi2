@@ -12,13 +12,13 @@ Alcune classi di funzioni $f:A\subseteq\R^n\rightarrow\R^m$ hanno nomi particola
 	\item 
 	$n=1$,$m=1$:$f$ è una funzione reale di una variabile reale;
 	\item 
-	$n=1$,$m>1$:$f$ è una curva in $R^m$ (purché sia almento continua e definita su un intervallo)
+	$n=1$,$m>1$:$f$ è una curva in $R^m$ (purché sia almeno continua e definita su un intervallo)
 	\item 
 	$n>1$,$m=1$:$f$ è un campo scalare
 	\item
 	$n>1$,$m>1$:$f$ è un campo vettoriale
 \end{itemize}
-\section{Derivate Pardiali e Direzionali}
+\section{Derivate Parziali e Direzionali}
 \definition
 sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\AA$, $h,k\in\R$
 chiamo derivata parziale rispetto a $x$ di $f$ in $(x_0,y_0)$ la quantità (se esiste finita)
@@ -33,12 +33,12 @@ dove $(e_1,...,e_n)$ rappresentano la base canonica di $R^n$\\
 \observation le proprietà e le regole di derivazione sono le stesse di Analisi 1
 \definition
 sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\AA$, sia $v\in\R^2 con \left\| v\right\|=1 $
-ciamo derivata nella direzione $v$ della funzione $f$ nel punto $(x_0,y_0)$ il limite (se esiste finito)\\
+diciamo derivata nella direzione $v$ della funzione $f$ nel punto $(x_0,y_0)$ il limite (se esiste finito)\\
 $$D_vf(x_0,y_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv_1,y_0+tv_2)-f(x_0,y_0)}{t}$$
 dove $v_1,v_2$ sono le componenti di $v(v=\begin{bmatrix}v_1\\v_2\end{bmatrix})$
 \definition
 sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\AA$, sia $v\in\R^n con \left\| v\right\|=1 $
-ciamo derivata nella direzione $v$ della funzione $f$ nel punto $x_0$ il limite (se esiste finito)\\
+diciamo derivata nella direzione $v$ della funzione $f$ nel punto $x_0$ il limite (se esiste finito)\\
 $$D_vf(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv)-f(x_0)}{t}$$
 \proposition
 (ANALISI 1): sia $f:A\subseteq \R\rightarrow\R$ e $x_0\in\AA$\\
@@ -66,7 +66,7 @@ $M1$ derivata totale di $f$ in $x_0$,\\
 $M2$ derivata totale di $f$ in $x_0$,\\
 allora $M1=M2$\\
 \begin{proof}
-	poiche $M_1$ e $M_2$ sono derivate totali di $f$ nel punto $x_0$,\\
+	poiché $M_1$ e $M_2$ sono derivate totali di $f$ nel punto $x_0$,\\
 	$f(x_0+h) = f(x_0)+M_1h+o(h)$ per $h\rightarrow 0$\\
 	$f(x_0+h) = f(x_0)+M_2h+o(h)$ per $h\rightarrow 0$\\
 	facendo la differenza membro a membro delle precedenti ottengo che $(M_1-M_2)h=o(h)$ per $h\rightarrow 0$\\
@@ -152,7 +152,7 @@ $\Rightarrow f$ è differenziabile in $(x_0,y_0)$\\
 	$$ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k$$
 	chiamo $\varphi (x) = f(x,y_0)$ quindi $f(x_0+h,y_0)-f(x_0,y_0) = \varphi (x_0+h)-\varphi (x_0)$\\
 	la funzione $\varphi $ è una funzione reale di una variabile reale ed in virtù del teorema di Lagrange $\varphi (x_0+h)-\varphi (x_0) = \varphi^{'}(x_0 + \beta h)h$ per $\beta\in ]0,1[ $, per come definita $\varphi$ si ha che $\varphi^{'}(x_0 + \beta h)h = \partial_{x}f(x_0+\beta h,y_0)h$\\
-	con un rangionamento del tutto analogo si può definire $\varPsi (x) = f(x_0+h,y)$ e si ha che $\varPsi (y_0+h)-\varPsi (y_0) = \varPsi^{'}(y_0 + \alpha k)k = \partial_{y}f(x_0+h,y_0+\alpha k)k$ per $\alpha\in ]0,1[ $\\
+	con un ragionamento del tutto analogo si può definire $\varPsi (x) = f(x_0+h,y)$ e si ha che $\varPsi (y_0+h)-\varPsi (y_0) = \varPsi^{'}(y_0 + \alpha k)k = \partial_{y}f(x_0+h,y_0+\alpha k)k$ per $\alpha\in ]0,1[ $\\
 	Quindi
 	$$ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = $$
 	$$= [\partial_{x}f(x_0+\beta h,y_0)h] + [\partial_{y}f(x_0+h,y_0+\alpha k)k] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = $$
@@ -161,7 +161,7 @@ $\Rightarrow f$ è differenziabile in $(x_0,y_0)$\\
 	
 	$$[\partial_{x}f(x_0+\beta h,y_0)-\partial{x}f(x_0,y_0)] \frac{h}{\sqrt{h^2+k^2}} + [\partial_{y}f(x_0+h,y_0+\alpha k) - \partial{y}f(x_0,y_0)]\frac{k}{\sqrt{h^2+k^2}} $$
 	Le derivate parziali sono continue quindi per $(h,k)\rightarrow (0,0)$ i numeratori tendono a zero\\
-	Inoltre le due franzioni per $(h,k)\rightarrow (0,0)$ sono quantità limitate tra $-1$ e $1$ quindi si può dire che il limite cercato fa 0.
+	Inoltre le due frazioni per $(h,k)\rightarrow (0,0)$ sono quantità limitate tra $-1$ e $1$ quindi si può dire che il limite cercato fa 0.
 \end{proof}
 
 
@@ -173,7 +173,7 @@ $f$ differenziabile in $x_0$, $g$ differenziabile in $x_0$ allora $f+g$ differen
 	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h\rightarrow 0$\\
 	anche $g$ lo è, quindi $g(x_0+h)=g(x_0)+Dg(x_0)h+o(h)$ per $h\rightarrow 0$\\
 	sommando membro a membro si ottiene  $(f+g)(x_0+h)=(f+g)(x_0)+[Df(x_0)+Dg(x_0)]h+o(h)$ per $h\rightarrow 0$\\
-	Questa è la definizione di differenziabilità, allora $f+g$ è differenziable e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
+	Questa è la definizione di differenziabilità, allora $f+g$ è differenziabile e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
 \end{proof}
 
 \proposition
@@ -182,7 +182,7 @@ $f$ differenziabile in $x_0$ allora $\lambda f$ differenziabile in $x_0$ e $D(\l
 \begin{proof}
 	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h\rightarrow 0$\\
 	valuto ora $(\lambda f)(x_0+h)=(\lambda f)(x_0)+\lambda Df(x_0)h+o(h)$ per $h\rightarrow 0$\\
-	Questa è la definizione di differenziabilità, allora $\lambda f$ è differenziable e $D(\lambda f)(x_0) = \lambda Df(x_0)$
+	Questa è la definizione di differenziabilità, allora $\lambda f$ è differenziabile e $D(\lambda f)(x_0) = \lambda Df(x_0)$
 \end{proof}
 
 \proposition
@@ -203,7 +203,7 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 	
 	da rivedere un pochino ....
 	
-	Questa è la definizione di differenziabilità, allora $f\circ g$ è differenziable e $D(f\circ g)(x_0) = Df(g(x_0))Dg(x_0)$
+	Questa è la definizione di differenziabilità, allora $f\circ g$ è differenziabile e $D(f\circ g)(x_0) = Df(g(x_0))Dg(x_0)$
 \end{proof}
 \proposition DERIVATA DEL PRODOTTO
 
@@ -239,12 +239,12 @@ sia $f:A\subseteq \R^n \rightarrow \R^m$, $A$ è aperto convesso e $f\in C^1(A;\
 sia $f:A\subseteq \R^n \rightarrow \R^m$, $A$ è aperto connesso e $f\in C^1(A;\R^m)$ e $Df=0$ allora $f$ è costante su $A$\\
 ..... disegnino e bozza di dimostrazione
 
-\observation vale anche sugli insiemi connessi poiche in questi posso congiungere due qulunque punti con una poligonale interamente contenuta nell'insieme e con i lati paralleli agli assi. Attraverso la formula degli accrescimenti finiti posso calcolare la $f$ nei due estremi passando per tutti gli spigoli della poligonale.(Uno spigolo è un segmento quindi si puòapplicare il teorema precedente)\\
+\observation vale anche sugli insiemi connessi poiché in questi posso congiungere due qualunque punti con una poligonale interamente contenuta nell'insieme e con i lati paralleli agli assi. Attraverso la formula degli accrescimenti finiti posso calcolare la $f$ nei due estremi passando per tutti gli spigoli della poligonale.(Uno spigolo è un segmento quindi si puòapplicare il teorema precedente)\\
 
-si po dire qulcosa sulle funzioni lineari tipo c1, lips ....\\
+si po dire qualcosa sulle funzioni lineari tipo c1, lips ....\\
 
 \section{Derivate Seconde}
-Sia $f:A\subseteq \R^n \rightarrow \R^m$ sappiamo che $Df(x_0)\in Mat(m\times n)$, allora $Df:A\subseteq \R^{n} \rightarrow \R^{m\times n}$ cie\'e la derivata è una funzione a valori in $Mat(m\times n)$, ne segue che $D(D(F)):A\subseteq \R^n \rightarrow \R^{m\times n\times n}$
+Sia $f:A\subseteq \R^n \rightarrow \R^m$ sappiamo che $Df(x_0)\in Mat(m\times n)$, allora $Df:A\subseteq \R^{n} \rightarrow \R^{m\times n}$ cioè la derivata è una funzione a valori in $Mat(m\times n)$, ne segue che $D(D(F)):A\subseteq \R^n \rightarrow \R^{m\times n\times n}$
 \definition
 sia $f:A\subseteq \R^n \rightarrow \R^m$ derivabile parzialmente in $x_0$ lungo $e_i$. Se la funzione $\frac{\partial{f}}{\partial{x_i}}$ è derivabile parzialmente lungo $e_j$ in $x_0$, la quantità $\frac{\partial}{\partial{x_j}}\frac{\partial{f}}{\partial{x_i}}(x_0)$ è la derivata seconda di $f$ in $x_0$ rispetto $x_i,x_j$ e si indica $\frac{\partial^2f}{\partial{x_j}\partial{x_i}}(x_0)$
 \definition
@@ -253,9 +253,9 @@ $f$ differenziabile due volte in $xo \rightleftharpoons f$ è differenziabile in
 \observation
 con la notazione della definizione precedente, $f$ è una funzione definita in un intorno di $x_0$ con valori in $Mat(m\times n)$, spazio identificabile con $R^{m\times n}$
 \observation
-per una funzione scalare $f:A\subseteq \R^n \rightarrow \R$, la derivara prima è un vettore (il gradiente $\nabla$ in $R^{1\times n}$), la derivata seconda è una matrice in $R^{1\times n \times n}$, la derivata terza è una super matrice ...
+per una funzione scalare $f:A\subseteq \R^n \rightarrow \R$, la derivata prima è un vettore (il gradiente $\nabla$ in $R^{1\times n}$), la derivata seconda è una matrice in $R^{1\times n \times n}$, la derivata terza è una super matrice ...
 \definition
-sia $f:A\subseteq \R^n \rightarrow \R$ e $x_0\in\AA$, $f$ ammette tutte le derivate parziali seconde in $x_0$. La matrice di queste derivate seconde si chaiama Matrice Hessiana di $f$ in $x_0$
+sia $f:A\subseteq \R^n \rightarrow \R$ e $x_0\in\AA$, $f$ ammette tutte le derivate parziali seconde in $x_0$. La matrice di queste derivate seconde si chiama Matrice Hessiana di $f$ in $x_0$
 $$H_f(x_0)=D^2f(x_0) = \begin{bmatrix}
 \frac{\partial^2f}{\partial{x_1}\partial{x_1}} && \frac{\partial^2f}{\partial{x_2}\partial{x_1}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_1}} \\
 \frac{\partial^2f}{\partial{x_1}\partial{x_2}} && \frac{\partial^2f}{\partial{x_2}\partial{x_2}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_2}} \\
@@ -358,7 +358,7 @@ L'equazone $f(x,y)=0$ definisce implicitamente una funzione $y=\varphi(x)$ in un
 	\item $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.: $f(x,y)=0$ con $x\in\mathcal{X}$ e $y\in\mathcal{Y} \Leftrightarrow y=\varphi(x)$
 \end{enumerate}
 ESEMPIO:\\
-$m=n=l=1$, $f(x,y)=x^2+y^2+1$, questa equazione non definisce mai una funzione implicita poiche non è mai nulla\\
+$m=n=l=1$, $f(x,y)=x^2+y^2+1$, questa equazione non definisce mai una funzione implicita poiché non è mai nulla\\
 \\
 ESEMPIO:\\
 $m=n=l=1$, $f(x,y)=x^2+y^2-1$\\
@@ -385,7 +385,7 @@ $m=n=l=1$, $f(x,y)=x^2+y^2-1$\\
 \observation
 La stessa definizione può essere riscritta con la $x$ funzione della $y$ poiché a priori non c'è distinzione tra le variabili.
 \proposition (caso lineare)\\
-sia $f:R^n\times \R^m\rightarrow \R^p$ che $(x,y)\rightarrow Ax+By-C$ con $A\in Mat(p \times n), B\in (p \times m), B\in (p \times 1)$. Se $p=m$ cie\'e $B$ è un matrice quadrata, e $det(B)\ne 0$ cie\'e invertibile, allora\\
+sia $f:R^n\times \R^m\rightarrow \R^p$ che $(x,y)\rightarrow Ax+By-C$ con $A\in Mat(p \times n), B\in (p \times m), B\in (p \times 1)$. Se $p=m$ cioè $B$ è un matrice quadrata, e $det(B)\ne 0$ cioè invertibile, allora\\
 $\exists !\varphi : \R^n\rightarrow \R^m$ t.c.: $f(x,y)=0 \Leftrightarrow y=\varphi(x)$
 \begin{proof}
 	$f(x,y)=0\Leftrightarrow Ax+By=-C\Leftrightarrow By=-Ax+C\Leftrightarrow y=-B^{-1}Ax+B^{-1}C = \varphi(x)$
@@ -405,15 +405,15 @@ esistenza della funzione implicita\\
 $\exists \mathcal{X}\subseteq X$ intorno di $x_0$(xstrano aperto)\\
 $\exists \mathcal{Y}\subseteq Y$ intorno di $y_0$(ystrano aperto)\\
 $\exists\varphi$ continua con $\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c. $[\varphi (x_0)=y_0 e] f(x,y)=0, x\in\mathcal{X},y\in\mathcal{Y} \Leftrightarrow y=\varphi(x)$
-unicità di sostanza cio\'e a meno del dominio:\\
+unicità di sostanza cioè a meno del dominio:\\
 se $\varphi_i:\mathcal{X}_i\rightarrow\mathcal{Y}_i$ e $x_0\in\mathcal{X}_i,y_0\in\mathcal{Y}_i$\\
 $f(x_0,y_0)=0 \forall x\in\mathcal{X}_i, y\in \mathcal{Y}\Leftrightarrow y=\varphi_i(x)$ con $i=1,2$\\
 Allora $\forall\in\mathcal{X}\cap\mathcal{X}_1\cap\mathcal{X}_2$ vale $\varphi_1(x)=\varphi_2(x)$
 
 \observation
-Le ipotesi 3 e 4 garantiscono che esiste una approssimazione lineare, l'ipotesi 4 è sensata poiche $y$ e $f$ hanno lo stesso numero di componenti quindi $Dyf$ è un matrice qudrata.\\
+Le ipotesi 3 e 4 garantiscono che esiste una approssimazione lineare, l'ipotesi 4 è sensata poiché $y$ e $f$ hanno lo stesso numero di componenti quindi $Dyf$ è un matrice qudrata.\\
 la funzione $f:X\times Y\rightarrow \R^m$ che $(x,y)\rightarrow f(x,y)$ ??????\\
-cio\'e $\forall x\in X$ (sto fissando una x) $f^x:Y\rightarrow \R^m$ che $y\rightarrow f(x,y)$(sto variando la y), $Df^x\in Mat(m\times m)$
+cioè $\forall x\in X$ (sto fissando una x) $f^x:Y\rightarrow \R^m$ che $y\rightarrow f(x,y)$(sto variando la y), $Df^x\in Mat(m\times m)$
 
 \observation Metodo degli zeri di Newton per troare gli zeri di una funzione o metofo delle tangenti.\\
 \resizebox {\columnwidth} {!} {
@@ -437,7 +437,7 @@ discorso al momento difficile per me....\\
 		\item $T$ è ben definita
 		\item $\forall x \in \overline{B(x_0,r_x)} Tx: \overline{B(x_0,r_x)}\rightarrow\overline{B(y_0,r_y)}$ che $y\rightarrow T(x,y)$,\\
 	\end{enumerate}
-	cio\'e $T$ è una contrazione tale che $\forall x$ esiste un punto fisso, $\forall x$ associo a $y$ una x, e quindi na funzione.\\
+	cioè $T$ è una contrazione tale che $\forall x$ esiste un punto fisso, $\forall x$ associo a $y$ una x, e quindi na funzione.\\
 	$r_x,r_y$ devono essere sufficientemene piccoli per avere tali proprietà e per poterci lavorare sopra.\\
 	Abbiamo che $f(x,y)=0 \Leftrightarrow T(x,y)=y$\\
 	$T(x,y)=y\Leftrightarrow y=y-[D_yF(x_0,y_0)]^{-1}f(x,y)$\\
@@ -551,8 +551,8 @@ $x_0$ è punto di minimo locale relativo per $f \rightleftharpoons \exists r>0: 
 \proposition{Teorema di Fermat}\\
 sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\overset{\circ}A$. Se $x_0$ è punto di massimo(0 minimo) locale per $f$ su $A$ e $f$ è differenziabile in $x_0$ allora $\nabla f(x_0)=0$.
 \begin{proof}
-	Sia $v\in \R^n$ con $\left\| v\right\| =1$, la funzione $F(t)= f(x_0+tv)$ che a $t\rightarrow x_0+tv$ è il moto rettilineo uniforme che passa da $x_0$ all'istante $0$ e si muove con velocità vettore costante $v$. Cio\'e per tempi negativi mi avvicino a $x_0$ al tempo zero si è in $x_0$ e per tempi positivi si allontana da $x_0$. quindi $t=0$ è punto di massimo per $F$, allora $F^{'}(0) = 0$ per il teorema di Fermat di A1.\\
-	Ora abbiamo che $F^{'}(t)=\nabla f(x_0+tv)v$ quindi $F^{'}(0)=\nabla f(x_0)v$ cio\'e $\nabla f(x_0)v=0$.\\
+	Sia $v\in \R^n$ con $\left\| v\right\| =1$, la funzione $F(t)= f(x_0+tv)$ che a $t\rightarrow x_0+tv$ è il moto rettilineo uniforme che passa da $x_0$ all'istante $0$ e si muove con velocità vettore costante $v$. cioè per tempi negativi mi avvicino a $x_0$ al tempo zero si è in $x_0$ e per tempi positivi si allontana da $x_0$. quindi $t=0$ è punto di massimo per $F$, allora $F^{'}(0) = 0$ per il teorema di Fermat di A1.\\
+	Ora abbiamo che $F^{'}(t)=\nabla f(x_0+tv)v$ quindi $F^{'}(0)=\nabla f(x_0)v$ cioè $\nabla f(x_0)v=0$.\\
 	Quindi $\forall v :\left\| v\right\| =1$ vale $\nabla f(x_0)=0$\\
 	OSS:: Vale anche che $D_vf(x_0)=0$
 \end{proof}
@@ -683,11 +683,11 @@ Siano $A\subseteq \R^n, f:A\rightarrow \R$ differenziabile in $(x_0,y_0)\in \ove
 	dove $\theta$ è l'angolo tra $\nabla f(x_0,y_0)$ e $[h k]$ per $||[h k]||$ sufficientemente piccola, l'incremento $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo se $cos( \theta )=1$ ed è minimo se $cos(\theta )=-1$, da cui la tesi.\\ 
 \end{proof}
 \proposition
-siano $f\in C^1(A;R)$ con $A\subseteq \R^2$ e $(x_0,y_0)\in\overset{\circ}{A}$ e $\nabla f(x_0,y_0)\ne 0$[cie\'e stazionario]. Allora $nabla f(x_0,y_0)$ è perpendicolare alla curva di livello passante per .....
+siano $f\in C^1(A;R)$ con $A\subseteq \R^2$ e $(x_0,y_0)\in\overset{\circ}{A}$ e $\nabla f(x_0,y_0)\ne 0$[cioè stazionario]. Allora $nabla f(x_0,y_0)$ è perpendicolare alla curva di livello passante per .....
 \observation
 un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al vettore tangente alla curva in quel punto.
 \begin{proof}
-	La curva di livello è $f(x,y)=f(x_0,y_0)$ cio\'e $f(x,y)-f(x_0,y_0)=0$, per trovare la tangente a questa curva è piu facile se si ha $y=\varphi(x)$\\
+	La curva di livello è $f(x,y)=f(x_0,y_0)$ cioè $f(x,y)-f(x_0,y_0)=0$, per trovare la tangente a questa curva è piu facile se si ha $y=\varphi(x)$\\
 	Usiamo quindi il teorema della funzione implicita, mi serve che $\partial_yf(x_0,y_0)\ne 0$, questa condizione non è assicurata dalle ipotesi, per ipotesi il gradiente è non nulla quindi almeno una delle due componenti è non nulla.\\
 	Inizio con il caso $\partial_yf(x_0,y_0)\ne 0$.\\
 	Il T.F.IMPL. assicura che :\\
@@ -705,7 +705,7 @@ un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al v
 
 \section{Massimi e Minimi Vincolati}
 Spesso la ricerca di punti di massimo o minimo di una funzione $f:A\rightarrow \R, A\subseteq \R^n$ deve essere ristrettaad un sottoinsieme $B\subseteq A$ a causa di eventuali vincoli a cui le variabili indipendenti devono soddisfare. L0insieme $B$ può essere generalmente descritto da una funzione $\varphi :A\rightarrow \R^p$, nel senso che $B=\{x\in A:\varphi (x)\le 0\}$\\
-NOTA::: direi n>1 poiche se ho una sola variabile e la vincolo ...??????? booooo .\\
+NOTA::: direi n>1 poiché se ho una sola variabile e la vincolo ...??????? booooo .\\
 Questo problema è usualmente abbreviato in:
 $$\max\limits_{\varphi \le 0}\quad o \quad\min\limits_{\varphi \le 0}$$
 può essere affrontato in due passi:\\
@@ -720,7 +720,7 @@ Se $(x_0,y_0)$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda
 \observation
 $\lambda$ si chiama "moltiplicatore di lagrange"
 \observation
-Se abbiamo un problema del tipo $\max\limits_{g(x,y)=0}f$ cio\'e il massimo di $f$ sul vincolo $g(x,y)=0$, ci dobbiamo ricondurre ad un sistema del tipo
+Se abbiamo un problema del tipo $\max\limits_{g(x,y)=0}f$ cioè il massimo di $f$ sul vincolo $g(x,y)=0$, ci dobbiamo ricondurre ad un sistema del tipo
 $\begin{cases} \nabla f(x_0,y_0)=\lambda \nabla g(x_0,y_0)\\ g(x_0,y_0)=0 \end{cases}=\begin{cases} \partial_xf(x_0,y_0)=\lambda \partial_xg(x_0,y_0)\\\partial_yf(x_0,y_0)=\lambda \partial_yg(x_0,y_0)\\ g(x_0,y_0)=0 \end{cases}$\\
 3 equazioni in 3 incognite($x,y,\lambda$)\\
 In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lambda g(x,y)$ detta Lagrangiana, i punti stazionari vincolati di $f$ sono punti stazonari liberi della Lagrangiana.\\
@@ -738,9 +738,9 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 	$$=\partial_xf(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\frac{\partial_xg(x_0,\varphi(x_0))}{\partial_yg(x_0,\varphi(x_0))}=$$\\
 	$$=\partial_xf(x_0,\varphi(x_0))\partial_yg(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\partial_xg(x_0,\varphi(x_0))=det\left(\begin{matrix}\partial_xf(x_0,y_0)&&\partial_yf(x_0,y_0)\\\partial_xg(x_0,y_0)&&\partial_yg(x_0,y_0)\end{matrix}\right)=0$$\\
 	questo equivale a dire che i vettori riga della matrice sono paralleli quindi $\exists\alpha\in \R : \nabla f(x_0,y_0)=\lambda\nabla g(x_0,y_0)$.\\
-	Non è uguale scrivere $\exists\alpha\in \R : \nabla g(x_0,y_0)=\lambda\nabla f(x_0,y_0)$ poiche non c'è certezza sul valore di $\nabla f(x_0,y_0)$ che se nullo negherebbe l'ipotesi di $\nabla g(x_0,y_0)\ne 0$\\
+	Non è uguale scrivere $\exists\alpha\in \R : \nabla g(x_0,y_0)=\lambda\nabla f(x_0,y_0)$ poiché non c'è certezza sul valore di $\nabla f(x_0,y_0)$ che se nullo negherebbe l'ipotesi di $\nabla g(x_0,y_0)\ne 0$\\
 	Se guardiamo ora il caso in cui $\partial_yg(x_0,y_0)=0$ e $\partial_xg(x_0,y_0)\ne 0$.\\
-	Seguendo un ragionamento analogo si esplicita $x=\psi(y)$ cos\'i che cercare max(o min) di $f$ ristretta a $g(x,y)=0$ porti a $y\rightarrow f(\psi(y),y)$ 
+	Seguendo un ragionamento analogo si esplicita $x=\psi(y)$ così che cercare max(o min) di $f$ ristretta a $g(x,y)=0$ porti a $y\rightarrow f(\psi(y),y)$ 
 \end{proof}
 \proposition{Teorema dei Moltiplicatori di Lagrange caso generale}
 Sia $A\in \R^n$, $f\in C^1(A;R)$, $g\in C^1(A;R^p)$ con $p<n$(n.vincoli<n.variabili), sia poi $x_0\in\overset{\circ}{A}, g(x_0)=0, Dg (x_0,y_0)$ di rango $p$.\\
@@ -753,11 +753,11 @@ Si ha $F\in C^1(I;R)$ e $F^{'}(x)=f(x)$ $\forall x \in I$
 \proposition
 Sia $A\subseteq \R^n$ un aperto, data $f\in C^0(A\times \R;R)$ la funzione \\
 $\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to & \int_{\alpha}^{\beta}f(x,t)dt \end{array}$\\
-\'e di classe $C^0(R\times \R\times A;R)$
+è di classe $C^0(R\times \R\times A;R)$
 \proposition
 Sia $A\subseteq \R^n$ un aperto, data $f\in C^1(A\times \R;R)$ la funzione \\
 $\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to & \int_{\alpha}^{\beta}f(x,t)dt \end{array}$\\
-\'e di classe $C^1(R\times \R\times A;R)$ ed inoltre, $\forall (\alpha,\beta,x)\in \R\times \R\times A$ e $\forall i=1,\ldots,n$\\
+è di classe $C^1(R\times \R\times A;R)$ ed inoltre, $\forall (\alpha,\beta,x)\in \R\times \R\times A$ e $\forall i=1,\ldots,n$\\
 $$\frac{\partial F}{\partial \alpha}=-f(x,\alpha)$$
 $$\frac{\partial F}{\partial \beta}=f(x,\beta)$$
 $$\frac{\partial F}{\partial x_i}=\int_{\alpha}^{\beta}\frac{\partial F}{\partial x_i}(x,t)dt$$
@@ -765,7 +765,7 @@ $$\nabla F=\int_{\alpha}^{\beta}\nabla f(x,t)dt$$
 \corollary
 Sia $A\subseteq \R^n$ un aperto, date le funzioni $\alpha:x\rightarrow \R, \beta:x\rightarrow \R, f:x\rightarrow \R, $ di classe $C^1$ , la funzione \\
 $\begin{array}{rcl} F: A & \to & \R \\ (x) & \to & \int_{\alpha(x)}^{\beta(x)}f(x,t)dt \end{array}$\\
-\'e di classe $C^1(R\times \R\times A;R)$ ed inoltre, $\forall x_0 \in A$:
+è di classe $C^1(R\times \R\times A;R)$ ed inoltre, $\forall x_0 \in A$:
 $$\nabla F(x_0,y_0)=f(x_0,\beta)\nabla\beta(x_0)-f(x_0,\alpha)\nabla\alpha(x_0)+\int_{\alpha(x_0)}^{\beta(x_0)}\nabla f(x,t)dt$$
 
 

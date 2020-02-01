@@ -4,19 +4,19 @@
 \section{Preliminari}
 \definition
 Si dice spazio metrico un insieme X non vuoto in cui sia definita una
-distanza(metrica), vale a dire una funzione $d: X \times X \rightarrow \R$ con le proprieta:
+distanza(metrica), vale a dire una funzione $d: X \times X \rightarrow \R$ con le proprietà:
 \begin{enumerate}
 	\item $d(x,y)>=0$ $\forall x,y \in X$
 	\item $d(x,y)=0\Leftrightarrow x=$ $\forall x,y \in X$
 	\item $d(x,y)=d(y,x)$ $\forall x,y \in X$ simmetria
-	\item $d(x,y)\le d(x,z)+d(z,y)$ $\forall x,y,z\in X$ disugualianza triangolare 
+	\item $d(x,y)\le d(x,z)+d(z,y)$ $\forall x,y,z\in X$ disuguaglianza triangolare 
 \end{enumerate}
 
 \example
 $$X=\bbsetn{R}{2},\quad d((x_1,y_1),(X_2,y_2))=\sqrt{(x_2-x_1)^2+(y_2-y_1)}$$
 si dimostra che la funzione così definita è una distanza:
 \begin{enumerate}
-	\item $d(x_1,x_2)\ge 0$, è verificata poichè l'argomento della radice è sempre positivo o al più nullo essendo una somma di quadrati, e la radice mantiene le quantità poisitive.
+	\item $d(x_1,x_2)\ge 0$, è verificata poiché l'argomento della radice è sempre positivo o al più nullo essendo una somma di quadrati, e la radice mantiene le quantità positive.
 	\item $d((X_1,y_1),(x_2,y_2))=0\Leftrightarrow \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}=0$\\
 	$\Leftrightarrow (x_2-x_1)^2+(y_2-y_1)^2=0 \Leftrightarrow 
 	\left\{\begin{matrix}
@@ -28,7 +28,7 @@ si dimostra che la funzione così definita è una distanza:
 	y_2=y_1\\
 	\end{matrix}\right.$\\
 	$\Leftrightarrow (x_1,y_1)=(x_2,y_2)$
-	\item invertendo le prime componenti con le seconde, il quadrato non camibia quindi la simmetria è rispettata
+	\item invertendo le prime componenti con le seconde, il quadrato non cambia quindi la simmetria è rispettata
 	\item 
 	DISEGNO TRIANGOLO VETTORI.....
 \end{enumerate}
@@ -58,15 +58,15 @@ $$d_\infty=\sup\limits_{x\in\realintervalclose{a}{b}}\left|g(x)-f(x)\right|$$
 \end{enumerate}
 Si verificano le 4 proprietà di distanza:
 \begin{enumerate}
-	\item Se $\sup = \infty$ non va bene poichè l'insieme di arrivo è $\bbset{R}$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$
+	\item Se $\sup = \infty$ non va bene poiché l'insieme di arrivo è $\bbset{R}$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$
 	\item se e solo se hanno lo stesso dominio e per ogni punto di esso entrambe le funzioni hanno la stessa immagine
 	\item $\dinfty{f}{g}=\ddinfty{f}{g}{\realintervalclose{a}{b}}=\ddinfty{g}{f}{\realintervalclose{a}{b}}=\dinfty{g}{f}$
-	\item $\left| h(x)-f(x) \right|\le\left|h(x)-g(x)\right|+\left|g(x)-f(x)\right| $, applicando il sup la disugualianza resta vera
+	\item $\left| h(x)-f(x) \right|\le\left|h(x)-g(x)\right|+\left|g(x)-f(x)\right| $, applicando il sup la disuguaglianza resta vera
 \end{enumerate}
 \observation 
-Tutto qesto è valido finchè $\realintervalclose{a}{b}$ chiuso e limitato altrimenti non vale più Weierstrass \\
+Tutto questo è valido finché $\realintervalclose{a}{b}$ chiuso e limitato altrimenti non vale più Weierstrass \\
 \\
-UN CONYTROESEMPIO\\
+UN CONTROESEMPIO\\
 \\
 \example
 ferrovia
@@ -116,7 +116,7 @@ $A$ è illimitato $\leftrightharpoons diam(A)$ è infinito ($=\infty$)
 ..\\
 ....\\
 \observation
-Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valvono i viceversa.
+Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgono i viceversa.
 \example 
 .....\\
 ....\\
@@ -217,7 +217,7 @@ ESEMPI:\\
 \begin{enumerate}
 	\item $f: \R \rightarrow \R$ data da $f(x) = \frac{x}{2}$. $f$ è una contrazione.
 	\item $f: [0,2] \rightarrow [0,2]$ data da $f(x) = 1+\frac{x}{2}. f$ è una contrazione
-	\item $f: \R^2 \rightarrow \R^2$ datat da $f(x,y)=\begin{bmatrix} \frac{1}{3}&&0\\0&&\frac{1}{5}\end{bmatrix}$ è una contrazione
+	\item $f: \R^2 \rightarrow \R^2$ data da $f(x,y)=\begin{bmatrix} \frac{1}{3}&&0\\0&&\frac{1}{5}\end{bmatrix}$ è una contrazione
 \end{enumerate}
 
 \proposition

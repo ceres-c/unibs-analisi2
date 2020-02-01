@@ -13,14 +13,14 @@ Qualunque affermazione fatta in riferimento ad una serie va quindi intesa riferi
 \observation
 Successioni e serie di funzioni possono essere viste:
 \begin{enumerate}
-	\item come successioni e seriedipendenti da un paramentro
+	\item come successioni e serie dipendenti da un parametro
 	\item come un mezzo per approssimare funzioni
 	\item come un primo passo verso lo studio di funzioni (a volte dette operatori o funzionali) che a funzioni associano o numeri o altre funzioni. 
 \end{enumerate}
 \section{Tipi Di Convergenza}
 \subsection{Convergenza Puntuale}
 \definition
-Sia $A\subseteq \R$ e $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzionidefinite su $A$ a valori in $ \R$. Sia $B\subseteq A$
+Sia $A\subseteq \R$ e $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni definite su $A$ a valori in $ \R$. Sia $B\subseteq A$
 \begin{description}
 	\item[-] la successione $\left\{f_n:n\mathbb{N}\right\}$ è puntualmente convergente su $B$ se $\forall x \in B$, esiste finito il limite $\lim\limits_{n\to\infty}f_n(x)$. In tal caso la funzione $f:B\to  \R$ definito da $f(x)=\lim\limits_{n\to\infty}f_n(x)$
 	\item[-] la serie $\sum\limits_{n=0}^{\infty}f_n$ è puntualmente convergente su $B$ se $\forall x \in B$, la serie $\sum\limits_{n=0}^{\infty}f_n(x)$ ammette somma finita. In tal caso la funzione $F:B\to  \R$ definito da $F(x)=\sum\limits_{n=0}^{\infty}f_n(x)$ è la somma della serie la serie $\sum\limits_{n=0}^{\infty}f_n$ 
@@ -75,7 +75,7 @@ ESEMPIO:: $f_n(x)=x^n$ con $A\equiv \R$
 \end{center}
 $$\lim\limits_{n\to\infty}x^{n} = \left\{\begin{matrix}+\infty&&x\in\left]1,+\infty\right[\\ 1 && x\in\left\{1\right\}\\0&&x\in\left]-1,1\right[\\\nexists &&x\in\left]-\infty,-1\right] \end{matrix}\right.$$
 $$f_n\overset{p}{\to}f\quad su B=\left]-1,1\right]$$
-\proposition PROPRETÀ P:MONOTONIA\\
+\proposition PROPRIETÀ P:MONOTONIA\\
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
 Se $f_n\overset{p}{\to}f$ su $B$ e se $f_n$ è debolmente crescente su $B$ allora il limite $f$ è debolmente crescente su $B$.
 \begin{proof}
@@ -87,7 +87,7 @@ Se $f_n\overset{p}{\to}f$ su $B$ e se $f_n$ è debolmente crescente su $B$ allor
 	se $f_n$ è strettamente crescente/decrescente con le stesse ipotesi non possiamo concludere che il limite puntuale mantenga la stessa proprietà\\
 	ESEMPIO:: $x^n$ con $x\in\left[0,1\right[$ è strettamente crescente ma il limite putuale è costante uguale a zero.
 \end{proof}
-\proposition PROPRETÀ P:NON NEGATIVA\\
+\proposition PROPRIETÀ P:NON NEGATIVA\\
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
 Se $f_n\overset{p}{\to}f$ su $B$ e se $f_n$ è non negativa su($f_n\ge 0$) $B$ allora il limite $f$ è non negativo($f\ge 0$) su $B$.
 \begin{proof}
@@ -180,12 +180,12 @@ La successione $\left\{f_n:n\in\mathbb{N}\right\}$ soddisfa alla condizione di C
 Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{ f_n:A\to \R:n\in\mathbb{N} \right\}$ una successione di funzioni.\\
 La successione $\left\{ f_n:n\in\mathbb{N} \right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\exists$ una funzione $f:B\to \R$ t.c.: $f_n\overset{u}{\to}f$ su $B$
 \begin{proof}
-	La successione $\left\{ f_n:n\in\mathbb{N}\right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\forall x\in B$ la successione $\left\{ f_n(x) :n\in\mathbb{N} \right\}$ è di Cauchyin $ \R$ allora $\forall x \in B$ la successione $\left\{ f_n(x):n\in\mathbb{N} \right\}$ ha limite in $ \R$.(Cio\'e c\'e il limite puntuale).\\
+	La successione $\left\{ f_n:n\in\mathbb{N}\right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\forall x\in B$ la successione $\left\{ f_n(x) :n\in\mathbb{N} \right\}$ è di Cauchyin $ \R$ allora $\forall x \in B$ la successione $\left\{ f_n(x):n\in\mathbb{N} \right\}$ ha limite in $ \R$.(cioè c'è il limite puntuale).\\
 	Sia $f(x)$ questo limite, $f$ è anche il limite uniforme della successione $\left\{ f_n:n\in\mathbb{N} \right\}$, infatti:
 	$$\forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall h,k>\nu \forall x\in B \quad \left| f_h-f_k \right|<\epsilon$$
 	$$\sup\limits_B\left|f_h(x)-f_k(x)\right|, \forall h,k>\nu$$
 	$$\Rightarrow \left|f_h(x)-f_k\right|<\epsilon,\forall h.k>\nu, \forall x \in B$$
-	a questo punto si passa al limite e la disugualianza diventa debole.
+	a questo punto si passa al limite e la disuguaglianza diventa debole.
 	$$\Rightarrow \lim\limits_{n\to\infty}\left| f_h(x)-f_k(x) \right|\le\epsilon, \forall h>\nu, \forall x\in B$$
 	$$\Rightarrow\left| f_h(x)-f(x) \right|\le\epsilon, \forall h>\nu, \forall x\in B$$
 	$$\Rightarrow\sup\limits_B\left| f_h-f \right|\le\epsilon, \forall h>\nu$$
@@ -213,11 +213,11 @@ Sappiamo che $\forall n\in\mathbb{N}$ e $\forall x\in \left[0,1\right]$ vale che
 Mandando $n$ al limite si ha che $-1\le f_(x)\le 1$.\\
 Inolte $f$ è continua perché limite uniforme di una successione di funzioni continue allora $f\in C$ poiché è una funzione continua compresa tra $-1$ e $1$
 \begin{description}
-	\item[3] $C$ non è compatto, cio\'e esiste almeno una successione dalla quale non è possibie estrarre una sottosuccessione convergente nello stesso spazio.
+	\item[3] $C$ non è compatto, cioè esiste almeno una successione dalla quale non è possibie estrarre una sottosuccessione convergente nello stesso spazio.
 \end{description}
 Se ad esempio $f_n(x) = x^n$\\
 so che $f_n\overset{p}{\to}f$ su $\left[0,1\right]$ e $f(x)=\left\{\begin{matrix}0&&x\in\left[0,1\right]\\1&&x\in\left\{1\right\}\end{matrix}\right.$\\
-Tutta la successione di funzioni $f_n$ converge puntualmente a $f$ quindi se estraggo una sottosuccessione comunque venga scelta questa sottosuccessione converge ancora a $f$ puntualmente. Ma la $f$ non è continua mentre il limite uniforme di funzioni continue \'euna funzione continua allora nessuna sottosuccessione ammette limite uniforme.\\
+Tutta la successione di funzioni $f_n$ converge puntualmente a $f$ quindi se estraggo una sottosuccessione comunque venga scelta questa sottosuccessione converge ancora a $f$ puntualmente. Ma la $f$ non è continua mentre il limite uniforme di funzioni continue è una funzione continua allora nessuna sottosuccessione ammette limite uniforme.\\
 
 ESEMPIO:: OPERATORE DERIVATA 0\\
 $$D$$
@@ -255,7 +255,7 @@ Allora
 	Quindi le $f_n$ convergono puntualmente alla funzione $f(x)$, per la convergenza uniforme calcolo:
 	$$ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\left|f_n(x)-f(x)\right|\le\lim\limits_{n\to+\infty}\left(  \left| f_n(x_0)-f(x_0) \right|+\left|\int_{x_0}^x\left|f_n^{'}(t)-g(t)\right|dt\right| \right)\le$$
 	$$\lim\limits_{n\to+\infty}\left[ \left|f_n(x_0)-f(x_0)\right|+\left|b-a\right|\sup\limits_{\left[a,b\right]}\left|f_n^{'}(x)-g(x)\right| \right] = $$
-	Questo perch'e per ipotesi $f^{'}_n=g$ e il limite fa $0$.
+	Questo perché per ipotesi $f^{'}_n=g$ e il limite fa $0$.
 	Allora $f_n\overset{u}{\to}f$ su $\left[a,b\right]$\\
 	Inoltre si sa che $f_n\in C^1$ allora $f_n^{'}\in C^0$ allora il limite uniforme di funzioni continue è una funzione continua allora $g$ è una funzione continua.\\
 	La $f$ è l'integrale di una funzione continua allora la $f$ è derivabile con derivata continua quindi $f^{'}=g$
@@ -284,7 +284,7 @@ In altre parole questa proposizione afferma che sotto opportune ipotesi
 $$\left(\sum\limits_{n=0}^{+\infty} f_n \right)^{'} =  \sum\limits_{n=0}^{+\infty}f_n^{'}$$
 \definition
 Siano $A\subseteq  \R$ e $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni con $f_n:A\to \R$\\
-$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \rightleftharpoons \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\left|f_n(x)\right|<+\infty$(\'e convergente) 
+$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \rightleftharpoons \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\left|f_n(x)\right|<+\infty$(è convergente) 
 \observation
 la $\sum\limits_{n=0}^{+\infty}\sup\limits_{A}\left|f_n(x)\right|$ è una serie numerica
 \proposition
@@ -302,24 +302,24 @@ $\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$ $\Rightarrow$  $\sum
 Per le serie:\\
 Convergenza Totale $\Rightarrow$ Convergenza Uniforme $\Rightarrow$ Convergenza Puntuale.
 
-\section{Serie di Funzoni Particolari}
+\section{Serie di Funzioni Particolari}
 Questa sezione è dedicata ad alcune tecniche di approssimazione  basate su serie di funzioni particolari\\
 In generale, un'approssimazione si riconduce ad una formula del tipo\\
 $$\left[quantita' da calcolare \right]=\left[ quantita' approssimante \right]+ errore$$
 La qualità dell'approssimazione è descritta dal senso in cui l'errore è piccolo.\\
 \subsection{Serie di Potenze}
 \definition
-Sinao $\left\{a_n:n\in\mathbb{N}\right\}$ una successione con $a_n:\mathbb{N}\to\mathbb{C}$ e $z_0\in\mathbb{C}$.\\
+Siano $\left\{a_n:n\in\mathbb{N}\right\}$ una successione con $a_n:\mathbb{N}\to\mathbb{C}$ e $z_0\in\mathbb{C}$.\\
 Si dice serie di potenze centrata in $z_0 \rightleftharpoons \sum\limits_{n=0}^{+\infty}a_n\left(z-z_0\right)^n$ 
 \observation
-\'e ovvio che in $z=z_0$ si ha convergenza....???? (dire a zero)
+è ovvio che in $z=z_0$ si ha convergenza....???? (dire a zero)
 \observation
-Per semplicità varra considerato il caso $z_0=0$
+Per semplicità verrà considerato il caso $z_0=0$
 ESEMPIO::$\sum\limits_{n=0}^{+\infty}\frac{x^n}{n!}=1+x+\frac{1}{2} x^2+\ldots+\frac{1}{n!}x^n=e^x$ 
 ESEMPIO::$\sum\limits_{n=0}^{+\infty}x^n=1+x+x^2+\ldots+x^n=\frac{1}{1-x}$
 \proposition
 Siano $\left\{a_n:n\in\mathbb{N}\right\}$ una successione in $\mathbb{C}$ e $w\in\mathbb{C}$.\\
-La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cio\'e $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quandi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\left|w\right|$\\
+La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cioè $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quandi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\left|w\right|$\\
 Allora $\forall r$ con $0<r<\left| w \right|$, la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge totalmente in $B(0,r)$\\
 \begin{proof}
 	TIKZPICTURE:::::\\
@@ -352,13 +352,13 @@ Allora $\forall z\in\mathbb{C}$ con $\left|z\right|>\left|w\right|$ la serie di 
 \end{proof}
 \observation
 Come è fatto l'insieme su cui si ha convergenza??\\
-segue da queste due ultime proposizioni che se $\left\{a_n:n\in\mathbb{N}\right\}$ è una sucessione in $\mathbb{C}$ allora l'insieme $\left\{z\in\mathbb{C}:\sum\limits_{n=0}^{+\infty}a_nz^n converge\right\}$ è un cerchio.\\Sulla circonferenza non ci soffermaiamo a capire cosa accade poiché tutto può accadere.
+segue da queste due ultime proposizioni che se $\left\{a_n:n\in\mathbb{N}\right\}$ è una successione in $\mathbb{C}$ allora l'insieme $\left\{z\in\mathbb{C}:\sum\limits_{n=0}^{+\infty}a_nz^n converge\right\}$ è un cerchio.\\Sulla circonferenza non ci soffermaiamo a capire cosa accade poiché tutto può accadere.
 \definition
 Raggio di convergenza della serie $\sum\limits_{n=0}^{+\infty}a_nz^n\rightleftharpoons \rho=\sup\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n converge su B(0,r)\right\}$
 \observation
 Il raggio di convergenza di una serie di potenze può essere $0$, un numero reale positivo o $+\infty$.
 \observation
-una definizione come $\rho=\inf\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n non converge su B(0,r)\right\}$ non sta in piedi poiché questo insieme potrebbe essere vuoto, mentre quello sopra non è mai vuoto, poerché $r=0$ c\'e sempre poiché in $0$ si ha sempre convergenza. Ilsecondo potrebbe essere vuoto perché ci sono serie che convergono su tuttoil piano complesso e quindi non si avrebbe nessun $r$ fuori da quale non sia ha convergenza.\\
+una definizione come $\rho=\inf\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n non converge su B(0,r)\right\}$ non sta in piedi poiché questo insieme potrebbe essere vuoto, mentre quello sopra non è mai vuoto, poerché $r=0$ c'è sempre poiché in $0$ si ha sempre convergenza. Ilsecondo potrebbe essere vuoto perché ci sono serie che convergono su tuttoil piano complesso e quindi non si avrebbe nessun $r$ fuori da quale non sia ha convergenza.\\
 \proposition CRITERIO DELLA RADICE.\\
 Data la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$, sia $l=\lim\limits_{n\to+\infty}\sqrt[n]{\left|a_n\right|}$.\\
 Se questo limite esiste, allora il raggio di convergenza è 
@@ -443,12 +443,12 @@ ESEMPIO:: $x\to\frac{1}{1+x^2}$ è analitica su $\left]-1,1\right[$\\
 \proposition
 Se $f$ è analitica su $\left]-r;r\right[$ per $r\in \R$ e $r>0\Rightarrow f\in C^0(\left]-r,r\right[; \R)$
 \begin{proof}
-	$f$ è analitica  allora posso scriverla come $f=\sum\limits_{n=0}^{+\infty}a_nx^n$ cio\'e la funzione è limite di una serie, se la serie converge totalmente allora converge uniformemente. Il limite uniforme di funzioni continue(in questo caso polinomi) è una funzione continua. Cio\'e la $f$ è continua.
+	$f$ è analitica  allora posso scriverla come $f=\sum\limits_{n=0}^{+\infty}a_nx^n$ cioè la funzione è limite di una serie, se la serie converge totalmente allora converge uniformemente. Il limite uniforme di funzioni continue(in questo caso polinomi) è una funzione continua. cioè la $f$ è continua.
 \end{proof}
 \proposition PROP+PROOF\\
 Sia $f:\left]-r,r\right[\to \R$ e $f$ analitica su $\left]-r,r\right[ \rightleftharpoons f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \Rightarrow$ ho convergenza totale $\Rightarrow$ ho convergenza uniforme di funzioni continue 
 $$\Rightarrow f\in C^0(\left]-r,r\right[; \R),\quad a_0=f(0)$$
-La serie delle derivate $\sum\limits_{n=0}^{+\infty}na_nx^{n-1}$ converge totalmente su $\left]-r,r\right[$ cio\'e
+La serie delle derivate $\sum\limits_{n=0}^{+\infty}na_nx^{n-1}$ converge totalmente su $\left]-r,r\right[$ cioè
 $$\sum\limits_{n=0}^{+\infty}f^{'}(x)=\sum\limits_{n=0}^{+\infty}na_nx^{n-1}\overset{u}{\to}g$$
 $$\sum\limits_{n=0}^{+\infty}fn(0)\to f(0), f_n\in ????????????$$ 
 Allora la serie delle derivate converge alla derivata della serie 
@@ -491,10 +491,10 @@ ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{mat
 	Continuando a derivare  avremmo sempre un rapporto di polinomi che moltiplica un esponenziale, e l'esponenziale vince sempre. quindi fa $0$.
 	itero il ragionamento......\\
 	.......\\
-	\item In (1) abbiamo visto  che tutte le derivate nello zero siannullavano, cio\'e 
+	\item In (1) abbiamo visto  che tutte le derivate nello zero siannullavano, cioè 
 	$$\forall n\in\mathbb{N}, f^{(n)}(0)=0\Rightarrow \sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$$
-	\'e la serie identicamente nulla  che banalmente converge totalmente su tutto $ \R$
-	\item Anche osservandoil grafico è chiaro che la $f$ non è la funzione identicamente nulla cio\'e è diversa dal suo sviluppo in serie
+	è la serie identicamente nulla  che banalmente converge totalmente su tutto $ \R$
+	\item Anche osservandoil grafico è chiaro che la $f$ non è la funzione identicamente nulla cioè è diversa dal suo sviluppo in serie
 	$$f(x)\ne\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$$
 \end{enumerate}
 Il Problema nasce dall'$o(x^n)$ che scriviamo alla fine dello sviluppo n-esimo di questa funzione, perché l'intorno in cui si ha $o(x^n)$ diventa sempre più piccolo.
@@ -515,10 +515,10 @@ Sia $f:\left]-r,r\right[\to \R$
 	\Rightarrow f(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$
 \end{center}
 \observation
-L'ipotesi centrale ............. qui non c'e
+L'ipotesi centrale ............. qui non c'è
 \observation
 Sia $\sum\limits_{n=0}^{+\infty}(z,w)^n$ una serie di potenze in due variabili.\\
-Quando abbiamo due varibili, non si può parlare di raggio di convergenza. Questa serie è una serie geometrica che converge sse $\left|zw\right|<1$. è  difficile parlare di raggio di convergenza  perché essendo $z,w\in\mathbb{C}$, se per una variabile servono due dimensioni per due variili servono quattro dimensioni , e anche se non riusciamo a fare il disegno è evidente chel'insieme su cui la serie converge non è un cerchio(sfera).
+Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Questa serie è una serie geometrica che converge sse $\left|zw\right|<1$. è  difficile parlare di raggio di convergenza  perché essendo $z,w\in\mathbb{C}$, se per una variabile servono due dimensioni per due variabili servono quattro dimensioni , e anche se non riusciamo a fare il disegno è evidente che l'insieme su cui la serie converge non è un cerchio(sfera).
 ESEMPI::
 \begin{description}
 	\item[$\ast$] $e^x=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}x^n$
@@ -557,7 +557,7 @@ $$\lfloor \pi \rfloor=3, \quad \lfloor \sqrt{2} \rfloor = 1 \quad \lfloor -e \rf
 		}
 	\end{tikzpicture}
 \end{center}
-\'e $1$-periodica.
+è $1$-periodica.
 ESEMPIO:: $mant(x)=\text{ mantissa di x } = x- \lfloor x \rfloor$
 \begin{center}
 	\begin{tikzpicture}
@@ -571,22 +571,22 @@ ESEMPIO:: $mant(x)=\text{ mantissa di x } = x- \lfloor x \rfloor$
 	}
 	\end{tikzpicture}
 \end{center}
-\'e $1$-periodica.
+è $1$-periodica.
 \observation
 La funzione costante è $T$-periodica $\forall T>0$, ma non ha un periodo minimo, per questo motivo non la consideriamo.
 \observation
-Sia $f:A\to \R$ $T$-periodica. Allora poissiamo definire $\overline{f}:\overline{A}\to \R$ che sia $2\pi$-periodica data da:
+Sia $f:A\to \R$ $T$-periodica. Allora possiamo definire $\overline{f}:\overline{A}\to \R$ che sia $2\pi$-periodica data da:
 $$x\to f\left(\frac{T}{2\pi}x\right),\quad \overline{A}=\frac{2\pi}{T}A$$
 \proposition
 Siano $A\subseteq \R$, $f:A\to \R$ e $T>0$\\
-$f$ è $T$-periodica $\Rightarrow \forall n\in\mathbb{N}$, $f$ è $nT$-peridica.
+$f$ è $T$-periodica $\Rightarrow \forall n\in\mathbb{N}$, $f$ è $nT$-periodica.
 \proposition
 Sia $f:\left[0,2\pi\right[\to \R \Rightarrow \exists ! \hat{f}: \R\to \R$ t.c.: $\left\{\begin{matrix} \hat{f} 2\pi-periodica\\\hat{f}_{\left|\left[0,2\pi\right]\right.}=f\end{matrix}\right.$ 
 \begin{proof}
 	$\forall x\in \R. \exists ! \hat{x}\in\left[0,2\pi\right[$ t.c.: $x=2\pi\cdot k+\hat{x}$ con $k\in\mathbb{Z}$ e $k=\left[??????\right]$\\
 	$$\hat{f}(x)=f(\hat{x})$$
 \end{proof}
-Cio\'e se noi estendiamo una funzione definita su $\left[0,2\pi\right[$ a tutto $ \R$ otteniamo una funzione unica e periodica.
+cioè se noi estendiamo una funzione definita su $\left[0,2\pi\right[$ a tutto $ \R$ otteniamo una funzione unica e periodica.
 \observation
 Con i polinomi di Taylor ........\\
 ........\\
@@ -603,7 +603,7 @@ Essendo un'approssimazione, si deve aggiungere l'errore. Come è fatto?. Per far
 Date due successioni di numeri reali $\left\{a_n:n\in\mathbb{N}\right\}$,$\left\{b_n:n\in\mathbb{N}\setminus\left\{0\right\}\right\}$, si defininisce serie trigonometrica di coefficienti  $\left\{a_n:n\in\mathbb{N}\right\}$,$\left\{b_n:n\in\mathbb{N}\setminus\left\{0\right\}\right\}$ la serie
 $$\begin{array}{rcl} \mathfrak{F}: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}$$
 LEMMA::\\
-Se $h,k\in\mathbb{N}$ valgono le seguenti ugualianze:
+Se $h,k\in\mathbb{N}$ valgono le seguenti uguaglianze:
 \begin{description}
 	\item[$\ast$] 
 	$\int_{-\pi}^{\pi} cos(hx)cos(kx)=
@@ -704,9 +704,9 @@ La matrice Hessiana di $\varphi$ risulta $$H_{\varphi}=\left[\begin{matrix}
 \vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
 0&&0&&0&&0\ldots&&2\pi
 \end{matrix}\right]$$
-\'e una matrice diagonale quindi si leggono direttamente tutti gli autovalori che sono strettamente positivi quindi la forma quadratica è definita positia ed il punto in questione è un punto di minimo assoluto.
+è una matrice diagonale quindi si leggono direttamente tutti gli autovalori che sono strettamente positivi quindi la forma quadratica è definita positiva ed il punto in questione è un punto di minimo assoluto.
 \definition
-Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, i coefficienti di fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
+Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
 $$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dx$$
 $$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)dx\quad k\in\mathbb{N}\setminus{\left\{0\right\}}$$
 $$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)dx\quad k\in\mathbb{N}\setminus{\left\{0\right\}}$$
@@ -782,7 +782,7 @@ In $R^2$ Ci sono $2$ vettori $\hat{i},\hat{j}$ della base, se $\underline{v}\in 
 Calcolo delle componenti:\\
 $$\underline{v}\cdot \hat{i} = v_1\cdot \hat{i\cdot }\hat{i}+v_2\cdot \hat{j}\cdot \hat{i}=v_1$$
 $$\underline{v}\cdot \hat{j} = v_1\cdot \hat{i}\cdot \hat{j}+v_2\cdot \hat{j}\cdot \hat{j}=v_2$$
-Questo vale perch\'{e} $\hat{i},\hat{j}$ \'{e} una base ortonormale.
+Questo vale perché $\hat{i},\hat{j}$ è una base ortonormale.
 In $R^3$ Ci sono $3$ vettori $\hat{i},\hat{j},\hat{k}$ della base, se $\underline{v}\in \R^3 \Rightarrow \underline{v}=v_1\hat{i}+v_2\hat{j}+v_3\hat{k}$ con $v_1,v_2,v_3$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
 $$ v_1=\underline{v}\cdot \hat{i}\quad v_2=\underline{v}\cdot \hat{j}\quad v_3=\underline{v}\cdot \hat{k}  $$
@@ -838,8 +838,8 @@ $$
 \pi&&0\ne h=k\\
 \end{matrix}\right.
 $$
-Il prodotto scalare di elementi diversi è nullo quindi la base è ortogonale, ma non è ortonormale in queanto il prodotto scalare tra due elementi ddiversi della base non è unitario.(ecco perche gli $\frac{1}{\pi})$ e $\frac{a_0}{2}$)\\
-In generale in geometria non è difficile normalizzare una base, è sufficiente dividere tutti gli elementi per la loro norma. In questo caso decidiamo di non applicare questo ragionamento poiché la norma vale $\sqrt{\pi}$ e se normalizziamo doiamo aggiungere questo temini ......\\
+Il prodotto scalare di elementi diversi è nullo quindi la base è ortogonale, ma non è ortonormale in quanto il prodotto scalare tra due elementi diversi della base non è unitario.(ecco perché gli $\frac{1}{\pi})$ e $\frac{a_0}{2}$)\\
+In generale in geometria non è difficile normalizzare una base, è sufficiente dividere tutti gli elementi per la loro norma. In questo caso decidiamo di non applicare questo ragionamento poiché la norma vale $\sqrt{\pi}$ e se normalizziamo dobbiamo aggiungere questo termini ......\\
 Il prodotto scalare in $C^0$ è molto legato alla $d_2$ infatti:
 $$\left\|f\right\|_2=\sqrt{\left<f,f\right>}=\sqrt{\int_{-\pi}^{\pi}f(x)\cdot f(x)dx}\sqrt{\int_{-\pi}^{\pi}\left[f(x)\right]^2dx}$$ 
 Continuano le analogie:\\
@@ -864,7 +864,7 @@ e serie di Fourier
 $$ F_f(x)= \frac{4}{\pi}\sum\limits_{k=0}^{+\infty}\frac{sin(2h+1)x}{2h+1} $$
 questa serie converge puntualmente in $0$ ma $F_f(0)\ne f(0)$\\
 
-ESEMPIO:: DUe funzioni diverse possono avere gli stessi coefficienti di Fourier:
+ESEMPIO:: Due funzioni diverse possono avere gli stessi coefficienti di Fourier:
 $$\begin{array}{rcl} f: \left[-\pi,\pi\right] & \to &  \R \\
 x & \to & \left\{\begin{matrix} -1 && x<0\\0&&x= 0\\1&&x>0 \end{matrix}\right.\end{array}$$
 $$\begin{array}{rcl} g: \left[-\pi,\pi\right] & \to &  \R \\
@@ -880,7 +880,7 @@ $$\varphi(x)=\frac{\alpha_0}{2}+\sum\limits_{n=}^{+\infty}\left(\alpha_ncos(nx)+
 Allora
 $$ F(x)=(f+\varphi)(x)=\frac{A_0}{2}+\sum\limits_{n=}^{+\infty}\left(A_ncos(nx)+B_nsin(nx)\right)$$
 con $A_n=a_n+\alpha_n$. $B_n=b_n+\beta_n$.
-Cio\'e i coefficienti di Fourier dipendono linearmente dalla funzione.\\
+cioè i coefficienti di Fourier dipendono linearmente dalla funzione.\\
 Esempio::: $B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)dx=\frac{1}{\pi}\int_{-\pi}^{\pi}(f(x)+\varphi(x))sin(3x)dx=$\\
 $\frac{1}{\pi}\left[\int_{-\pi}^{\pi}f(x)sin(3x)dx+\int_{-\pi}^{\pi}\varphi(x)sin(3x)dx\right]=b_3+\beta_3$\\
 Sia $f(x)=\frac{a_0}{2}+\sum\liminf_{n=1}^{+\infty}\left(a_ncos(nx)+b_ncos(nx)\right)$ allora $F=4f=\frac{A_0}{2}+\sum\limits_{n=1}^{+\infty}\left(A_ncos(nx)+B_ncos(nx)\right)$ con $A_n=4a_n$, $B_n=4b_n$\\
@@ -915,7 +915,7 @@ $$ \lim\limits_{x\to\overline{x}^{-}}=\frac{f(x)-f(\overline{x}-)}{x-\overline{x
 $$ \lim\limits_{x\to\overline{x}^{+}}=\frac{f(x)-f(\overline{x}+)}{x-\overline{x}} $$
 Allora:\\
 La serie di Fourier di $f$ converge puntualmente in $\overline{x}$ e $F_f(\overline{x})=\frac{f(\overline{x}-)-\overline{x}+}{2}$ (che è il punto medio del salto.)
-\observation NIENTE CUSPIDI E NIENTE TANGENZE VERICALI.
+\observation NIENTE CUSPIDI E NIENTE TANGENZE VERTICALI.
 
 \corollary
 Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$,\\
@@ -935,7 +935,7 @@ Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$.Se:\\
 	
 \end{description}
 Allora\\
-Laserie di Fourier $F_f$ di $f$ converge a $f$ uniformemente su $\realintervalclose{-\pi}{\pi}$
+La serie di Fourier $F_f$ di $f$ converge a $f$ uniformemente su $\realintervalclose{-\pi}{\pi}$
 \corollary
 Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, e $f\in C^1(\realintervalclose{-\pi}{\pi}; \R)$.\\
 Allora la serie di Fourier di $F_f$ di $f$ converge uniformemente a $f$ su $\realintervalclose{-\pi}{\pi}$.
