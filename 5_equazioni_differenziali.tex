@@ -35,7 +35,7 @@ in generale un problema si dice BEN POSTO o BEN POSTO NEL SENSO DI HADAMARD ogni
 \begin{enumerate}
 	\item esisste
 	\item è unica
-	\item dipende con continuit\'a dai dati
+	\item dipende con continuità dai dati
 \end{enumerate} 
 \definition
 si diche problema di Cauchy del primo ordine il problema di determinare una soluzione di un equazione differenziale ordinaria del primo ordine soddisfacente ad una condizione iniziale.\\
@@ -48,9 +48,9 @@ Soluzione di un problema di Cauchy è una funzione $x:J\to \R^n$ che sia soluzio
 \observation
 la condizione $x(t_0)=x_0$ viene abitualmente chiamata condizione iniziale nonostante la definizione di soluzione richieda che la stessa sia definita in un intervallo contenente $t_0$ nella sua parte interna. In molte applicazioni delle equazioni differenziali ordinare $t_0$ è proprio l'inizio dell'intervallo in cui si cerca la soluzione. I risultati seguenti continuano a valere con piccole modifiche alle dimostrazioni.??????????
 \section{La Legge di Malthus}
-Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocit\'a di crescita della popolazione è proporzionale alla prpolazione stessa.\\
+Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla prpolazione stessa.\\
 $$\overset{\cdot}{x}=k\cdot x$$
-dove $x$ è il numero di membri della popolazione e $k$ è una costante positiva legata alla prolificit\'a della specie in esame, generalmente calcolaa come differenza tra i tassi di natalit\'a e di mortalit\'a.\\
+dove $x$ è il numero di membri della popolazione e $k$ è una costante positiva legata alla prolificità della specie in esame, generalmente calcolaa come differenza tra i tassi di natalità e di mortalità.\\
 Il problema di Cauchy è quindi $\left\{\begin{matrix}\overset{\cdot}{x}=k\cdot x\\x(0)=0\end{matrix}\right.$ con $x\in \R, k>0 $ e $ x_0=0$
 
 \begin{center}
@@ -85,9 +85,9 @@ blablabla ....\\
 .......\\
 Limiti di questo modello:
 \begin{description}
-	\item[-] la variabile $x$ dovrebbe variare in $N$, poich\'e una popolazione ha un numer intero di elementi.
+	\item[-] la variabile $x$ dovrebbe variare in $N$, poiché una popolazione ha un numer intero di elementi.
 	\item[-] In molte specie è verosimile che il numero di nati al tempo $t$ dipenda dalla popolazione presente ad un tempo precedente $x(t-T), T>0$
-	\item[-] Suppore che una popolazione abbia per sempre a disposizione risorse sufficienti pu\'o non essere realistico
+	\item[-] Suppore che una popolazione abbia per sempre a disposizione risorse sufficienti può non essere realistico
 	\item[-] Questo modello va bene quando si considereano intervalli di tempo molto lunghi.
 \end{description}
 
@@ -98,14 +98,14 @@ Siano $I\subseteq \R$ un intervallo aperto, .....????...., ogni funzione $f\in C
 \begin{proof}
 	sia $x\in A \Leftarrow \exists B(x_0,r)\subseteq A$ con $r>0$, anche $\overline{B(x_0,r)}\subseteq A$ scelto $r$ abbastanza piccolo, allora $\left\| f(t,x_2)-f(t,x_1)\right\|le\sup\limits_{(t,x)\in I\times \overline{B(x_0,r)}}\left\| Df() \right\|\left\| x_2-x_1 \right\|  $ per la formula degli ccrescimenti finiti.  
 \end{proof}
-\subsection{Esistenza e Unicit\'a}
+\subsection{Esistenza e Unicità}
 \proposition{Teorema di Peano}
 Si consideri ilseguente problema di Cauchy: $\left\{\begin{matrix}\overset{\cdot}{x}=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
 \begin{enumerate}
 	\item $I\subseteq \R$ intervallo, $A\subseteq \R^n, t_0\in \overset{\circ}{I}, x_0\in \overset{\circ}{A}$
 	\item $f\in C^0(I\times A;R^n)$
 \end{enumerate}
-Allora esiste una soluzione, cio\'e $\exists J\subseteq I$ intervallo e $\exists \varphi:J\to \R^n$ con le propriet\'a:
+Allora esiste una soluzione, cio\'e $\exists J\subseteq I$ intervallo e $\exists \varphi:J\to \R^n$ con le proprietà:
 \begin{description}
 	\item[-] $J\subseteq I, \varphi(J)\subseteq A$
 	\item[-] $t_0 \in \overset{\circ}{J}, \varphi(t_0)=x_0$
@@ -150,15 +150,15 @@ $$\int\limits_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{|x|}}dx} = t$$
 valuto ora il caso $x>=0$ quindi $|x|=x$
 $$ \int\limits_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}dx} = 2\sqrt{x} = t$$ 
 la soluzione cercata è quindi $x(t)=\frac{1}{4}t^2$, 
-estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata \'e: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$ 
+estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata è: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$ 
 Abbiamo trovato che per la condizione iniziale $x_0=0$ il sistema ammette due soluzioni, si riesce estendere la soluzione a invinite funzioni.
 $$\varphi(x)= \left\{\begin{matrix}-\frac{1}{4}(t-a)^2&&t<a,\\0&&t\in[a,b]\\+\frac{1}{4}(t-b)^2&&t>0\end{matrix}\right.$$
 infatti:
 $$\varphi^{'}(t) = \left\{\begin{matrix}-\frac{1}{8}(t-a)&&t<a,\\0&&t\in[a,b]\\+\frac{1}{8}(t-b)&&t>0\end{matrix}\right.$$ $$\left\{\begin{matrix}-\frac{1}{8}(t-a)=\frac{-\frac{1}{4}(t-a)^2}{	\sqrt{-\frac{1}{4}(t-a)^2}}&&t<a,\\0=0&&t\in[a,b]\\+\frac{1}{8}(t-b)=\frac{\frac{1}{4}(t-b)^2}{\sqrt{\frac{1}{4}(t-b)^2}}&&t>0\end{matrix}\right. = ....????? sistema $$
 Abbiamo quindi trovato infinite soluzioni.\\
 Questo esempio per sottolineare che il teorema di peano non garantisce l'unicit'a della soluzione
-ESEMPIO CONTINUIT\'A è IPOTESI NECESSARIA\\
-Questo esempio mostra che se non c'è continuti'\'a, pu\'o?????????? non esserci la soluzione.\\
+ESEMPIO CONTINUITà è IPOTESI NECESSARIA\\
+Questo esempio mostra che se non c'è continuti'à, può?????????? non esserci la soluzione.\\
 Dato il seguente problema di Cauchy: $\left\{\begin{matrix}
 \overset{\cdot}{x} = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
 x(0)=0
@@ -175,9 +175,9 @@ x(0)=0
 	\end{tikzpicture}% pic 1
 \end{center}
 
-$x(t)=0$ soddisfa la condizione iniziale ma ovviamente nn pu\'o essere soluzione del problema poich\'e per $x\ne 0$ si ha che $\overset{\cdot}{x}=\pm 1$ che non è la derivata della funzione nulla.\\
-partendo sempre dalla condizione iniziale si pu\'o ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $\overset{\cdot}{x}(0)=-1$\\
-se invece si ipotizza che decresce da $0$ si ottiene che la funzione assume valori negativi, anche questo è un assurdo poich\'e la derivata per valori negativi della funzione è positiva.\\
+$x(t)=0$ soddisfa la condizione iniziale ma ovviamente nn può essere soluzione del problema poiché per $x\ne 0$ si ha che $\overset{\cdot}{x}=\pm 1$ che non è la derivata della funzione nulla.\\
+partendo sempre dalla condizione iniziale si può ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $\overset{\cdot}{x}(0)=-1$\\
+se invece si ipotizza che decresce da $0$ si ottiene che la funzione assume valori negativi, anche questo è un assurdo poiché la derivata per valori negativi della funzione è positiva.\\
 Precisiamo che se il problema fosse stato $\left\{\begin{matrix}
 \overset{\cdot}{x} = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
 x(0)=-3\end{matrix}\right.$ allora la funzione $\varphi(x)=-x+3$ sarebbe stata soluzione nell'intervallo $J=\left] -\infty,0 \right[ $
@@ -198,14 +198,14 @@ con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
 Allora:
 \begin{enumerate}
 	\item Esistenza\\
-	$\exists J\subseteq I, \exists\varphi : J \to \R^n$ con le propriet\'a\\
+	$\exists J\subseteq I, \exists\varphi : J \to \R^n$ con le proprietà\\
 	$\varphi soluzione:
 	\left\{
 	\begin{matrix}
 	\ast && J\subseteq I, \varphi(J)\subseteq{A}\\
 	\ast && t_o\in\overset{\circ}{J}, \varphi(t_0)=x_0\\
 	\ast && \varphi derivabile, \overset{\cdot}{\varphi}(t)=f(t,\varphi(t)) \quad\forall t\in J\end{matrix}\right.$
-	\item Unicit\'a\\
+	\item Unicità\\
 	Se $\exists J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists \varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni, cio\'e\\
 	$\varphi_1,\varphi_2 soluzione:
 	\left\{
@@ -215,7 +215,7 @@ Allora:
 	\ast && \varphi_1,\varphi_2 derivabili, \overset{\cdot}{\varphi_1}(t)=f(t,\varphi_1(t)) \quad\forall t\in J_1
 	\overset{\cdot}{\varphi_2}(t)=f(t,\varphi_2(t)) \quad\forall t\in J_2
 	\end{matrix}\right.$
-	Si pu\'o osservare che $J_1\cap J_2$ è non vuoto poic\'e entambi gli insiemi contengono $t_0$ nella loro parte interna.\\
+	Si può osservare che $J_1\cap J_2$ è non vuoto poic\'e entambi gli insiemi contengono $t_0$ nella loro parte interna.\\
 	Allora $\forall t \in(J_1\cap J_2)$ vale $\varphi_1(t)=\varphi_2(t)$,cio\'e se esistono due soluzioni ovunque entrambe siano definite esse coincidono..\\
 	\item Dipendenza Continua Dai Dati\\
 	Si considerino i problemi di Cauchy che hanno la condizione iniziale nello stesso istante:
@@ -243,7 +243,7 @@ Allora:
 L'equazione integrale 
 $$x(t)=x_0+\int\limits_{t_0}^{t}f(\tau,x(\tau))d\tau$$
 viene spesso denominata EQUAZIONE DI VOLTERRA.\\
-Questa equazione ha senso anche per alcune funzioni $f$ non non continue ma solo misurabilinel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicit\'a (locali/globali) l'ipotesi "$f$ continua" pu\'o essere sostituita da "$f$ continua tratti in $t, \forall x$, continua in $x$ e limitata"
+Questa equazione ha senso anche per alcune funzioni $f$ non non continue ma solo misurabilinel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicità (locali/globali) l'ipotesi "$f$ continua" può essere sostituita da "$f$ continua tratti in $t, \forall x$, continua in $x$ e limitata"
 \observation
 la norma dell'integrale è minore uguale dell'integrale della norma.
 \proposition LEMMA DI GRONWALL\\
@@ -271,16 +271,16 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	Abbiamo raggiunto un problem di npunto fisso ($x=Tx$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrzione. Per poter applicare il Teorema delle contrazioni serve che nlo spazio di partenza e di arrivo siano uguali e chiamiamo $\mathcal{X}$.\\
 	$\begin{array}{rcl} T: \mathcal{X} & \to & \mathcal{X} \end{array}$ t.c.: $y(t)=(Tx)(t)=x_0+\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$
 	Bisogna quindi scegliere l'insieme $\mathcal{X}$. è un insieme di funzioni, in cui l'equivalenza sopra deve avere senso, cio\'e serve $x$ continua per avere l'equivalenza con il problema di Cauchy, quindi $\mathcal{X}=C^0(\ldots)$.\\
-	Inoltre volendo una soluzione del problema di Cauchy, la funzione $x(penso sia y(t)=x)$ deve essere definita almeno su un intervallo contenente $t_0$ nella sua parte interna, non interessa l'estensione di tale intevallo quindi si pu\'o scegliere $\left[t_0-\delta,t_0+\delta\right]$, inoltre deve avere valori in un insieme con $x_0$ nella sua parte interna, $\overline{B(x_0,r)}$. Quindi $\mathcal{X}=C^0(\left[t_0-\delta,t_0+\delta\right];\overline{B(x_0,r)})$\\
+	Inoltre volendo una soluzione del problema di Cauchy, la funzione $x(penso sia y(t)=x)$ deve essere definita almeno su un intervallo contenente $t_0$ nella sua parte interna, non interessa l'estensione di tale intevallo quindi si può scegliere $\left[t_0-\delta,t_0+\delta\right]$, inoltre deve avere valori in un insieme con $x_0$ nella sua parte interna, $\overline{B(x_0,r)}$. Quindi $\mathcal{X}=C^0(\left[t_0-\delta,t_0+\delta\right];\overline{B(x_0,r)})$\\
 	Per $\delta, r$ abbastanza piccoli si ha $\left[t_0-\delta,t_0+\delta\right]\subseteq I$, $\overline{B(x_0,r)}\subseteq A$, quindi adesso il problema è quello di determinare $\delta, r$.\\
 	Per poter applicare il teorema delle contrazioni:
 	\begin{description}
-		\item[a-] $Tx$ definita (possibilit\'a di calcolarla)
+		\item[a-] $Tx$ definita (possibilità di calcolarla)
 		\item[b-] $Tx\in\mathcal{X}$ (insiemi di partenza e arrivo)
 		\item[c-] $Tx$ contrazione
 		\item[d-] $\mathcal{X}$ completo
 	\end{description}
-	Se tutti questi punti sono soddisfatti, si pu\'o trovare $x=Tx$, cio\'e una $x$ che soddisfa l'equazione integrale e di conseguenza, per equivalenza, soluzione del problema di Cauchy.  
+	Se tutti questi punti sono soddisfatti, si può trovare $x=Tx$, cio\'e una $x$ che soddisfa l'equazione integrale e di conseguenza, per equivalenza, soluzione del problema di Cauchy.  
 	\begin{description}
 		\item[a-] $Tx$ definita significa poter calcolare l'integrale,per poter calcolare l'integrale devo poter calcolare la $f$, per calcolare la $f$ ho bisogno che $\tau$ e $x(\tau)$ stiano dentro gli insiemi su cui è definita la $f$, cio\'e $I,A$, per essere sicuri di non uscire dall'intervallo:
 		$$\delta>0\quad t.c:\quad \left[t_0-\delta,t_0+\delta\right]\subseteq I$$
@@ -291,8 +291,8 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		.... qualchosa che non comprendo.... $C^0$\\
 		Resta da verificare che $Tx$ è a valori nella sfera, cio\'e che 
 		$$(Tx)(t) \in \overline{B(x_0,r)}$$
-		Valuto la distanza tra $(Tx)(t)$ e $x_0$. La differenza tra la posizione al tempo $t$ e al tempo $t_0$, questa distanza pu'\o essere controllata con la velocit\'a e il tempo per cui il punto dsi è mosso.\\
-		Chiamata $V$ la massima velocit\'a alla quale pu\'o muoversi il punto, $V=\sup\limits{(t_0\times X_0)\in (\left[to+\delta,t_0-\delta\right]\times\overline{B(x_0,r)})}=\left\{\left\|f(t,x(t))\right\|\right\}$ che è il sup della norma di f, cio\'e dei moduli dei vettori velocit\'a, questo esiste sempre finito, non $\infty$ poich\'e $f$ è continua, la norma è continua , $t$ varia in un chiuso e limitato, $x_0$ varia in un chiuso e limitato, quindi stiamo calcolando  il sup di una funzione continua su un chiuso e limitato allora per il teorema di Weierstrass $V=\max\limits{(t_0\times X_0)\in (\left[to+\delta,t_0-\delta\right]\times\overline{B(x_0,r)})}=\left\{\left\|f(t,x(t))\right\|\right\}$\\
+		Valuto la distanza tra $(Tx)(t)$ e $x_0$. La differenza tra la posizione al tempo $t$ e al tempo $t_0$, questa distanza pu'\o essere controllata con la velocità e il tempo per cui il punto dsi è mosso.\\
+		Chiamata $V$ la massima velocità alla quale può muoversi il punto, $V=\sup\limits{(t_0\times X_0)\in (\left[to+\delta,t_0-\delta\right]\times\overline{B(x_0,r)})}=\left\{\left\|f(t,x(t))\right\|\right\}$ che è il sup della norma di f, cio\'e dei moduli dei vettori velocità, questo esiste sempre finito, non $\infty$ poiché $f$ è continua, la norma è continua , $t$ varia in un chiuso e limitato, $x_0$ varia in un chiuso e limitato, quindi stiamo calcolando  il sup di una funzione continua su un chiuso e limitato allora per il teorema di Weierstrass $V=\max\limits{(t_0\times X_0)\in (\left[to+\delta,t_0-\delta\right]\times\overline{B(x_0,r)})}=\left\{\left\|f(t,x(t))\right\|\right\}$\\
 		Non potendo modificare $V, \delta$ poniamo una restrizione su $r$:$V\delta < r$, da cui $\delta < r\cdot V$
 		
 		$$\left\|(Tx)(t) - x_0 \right\| = \left\| \int_{t_0}^t(f(\tau,x(\tau)))d\tau \right\| \le \left|\int_{t_0}^t \left\| f(\tau,x(\tau)) \right\|d\tau \right|\le$$
@@ -301,7 +301,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		quidi $\left\|(Tx)(t) - x_0 \right\|$ è minore di $r$ scelto $\delta$ opportunamente piccolo. 
 		\item[c-] Se $Tx$ è una contrazione deve valere che
 		$$\left\| Tx_2 - Tx_1\right\|_{C^0}\le K\left\|x_2-x_1\right\|_{C^0}\quad k\in\left[0,1\right[\quad\forall t\in\left[t_0-\delta,t_0+\delta\right]$$
-		con $\left\|Tx_2-Tx_1\right\|_{c^0}=\sup\limits_{t\in\left[t_0-\delta,t_0+\delta\right]}\left\| (Tx_2)(t) - (Tx_1)(t)\right\|$, partendo da questa utilizzando prima la definizione di $f$ poi la linearit\'a dell'integrale ....lipsh f... propriet\'a
+		con $\left\|Tx_2-Tx_1\right\|_{c^0}=\sup\limits_{t\in\left[t_0-\delta,t_0+\delta\right]}\left\| (Tx_2)(t) - (Tx_1)(t)\right\|$, partendo da questa utilizzando prima la definizione di $f$ poi la linearità dell'integrale ....lipsh f... proprietà
 		$$\left\| (Tx_2)(t) - (Tx_1)(t)\right\|=$$
 		$$\left\| x_0+\int_{t_0}^t f(\tau,x_2(\tau)) d\tau - \left(x_0+\int_{t_0}^t f(\tau,x_1(\tau)) d\tau\right) \right\|=$$
 		$$\left\| \int_{t_0}^t f(\tau,x_2(\tau))-f(\tau,x_1(\tau)) d\tau \right\|\le$$
@@ -314,10 +314,10 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		$$ \left\| Tx_1 - Tx_2 \right\|_{C^0(\left[t_0-\delta,t_0+\delta\right];R^n)}\le L\delta\left\|x_1-x_2\right\|_{C^0(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
 		A questo punto scelto $\delta$ t.c. $L\delta<1$ ad esempio $\delta=\frac{1}{2L}$ cos\'i ottengo che per $\delta$ opportuno $Tx$ è una contrazione.		
 		\item[d-] Bisogna mostrare che $\mathcal{X}$ è completo.\\
-		Supponiamo che $\mathcal{X}\subseteq C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$, questo insieme è completo rispetto alla metrica $d_\infty=d_{C^0}$, allora se abbiamo una successione $x_n$ di Cauchy in $\mathcal{X}$ lo è anche su $C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$, allora $\exists x_\infty\in C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$ con $x_n\to x_\infty$ per $n\to\infty$, ma poich\'e $\forall t \in\left[t_0-\delta,to+\delta\right]$ $x_\infty(t)=\lim\limits_{n\to\infty}x_n(t)$ e visto che $\forall t,\forall n\quad \left\| x_n(t)-x_0\right\|\le r$ anche al limite vale $\left\| x_{\infty}(t)-x_0\right\|\le r \Rightarrow x_\infty\in\mathcal{X}$ cio\'e $\mathcal{X}$ è completo.
+		Supponiamo che $\mathcal{X}\subseteq C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$, questo insieme è completo rispetto alla metrica $d_\infty=d_{C^0}$, allora se abbiamo una successione $x_n$ di Cauchy in $\mathcal{X}$ lo è anche su $C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$, allora $\exists x_\infty\in C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$ con $x_n\to x_\infty$ per $n\to\infty$, ma poiché $\forall t \in\left[t_0-\delta,to+\delta\right]$ $x_\infty(t)=\lim\limits_{n\to\infty}x_n(t)$ e visto che $\forall t,\forall n\quad \left\| x_n(t)-x_0\right\|\le r$ anche al limite vale $\left\| x_{\infty}(t)-x_0\right\|\le r \Rightarrow x_\infty\in\mathcal{X}$ cio\'e $\mathcal{X}$ è completo.
 	\end{description}
 	Possimao a questo punto applicare il teorema delle Contrazioni allora $T$ ha un unico punto fisso allora l'equazione integrale ha un unica soluzione allora esiste la soluzione del problema di Cauchy e su $\left[t_0-\delta,t_0+\delta\right]$ possiamo gia dire che la soluzione  è unica.\\
-	MA QUANTO CAZZO è LUNGA FORSE SONO A MET\'A\\
+	MA QUANTO CAZZO è LUNGA FORSE SONO A METà\\
 	\begin{center}
 		\begin{tikzpicture}[scale=2]
 		\draw[->] (-0.5,0) -- (2,0) node[anchor=north west] {$t$};
@@ -334,17 +334,17 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		\end{tikzpicture}% pic 1
 	\end{center}
 	FINIRE DISEGNO......\\
-	OSS:: Passando da (a-), (d-) abbiamo ristretto sempre pi\'u il range di valori che $\delta, r$ possono assumere, cos\'i che alla fine è rimasto un intervallo sul quale è applicabile il teorema delle Contrazioni.\\
+	OSS:: Passando da (a-), (d-) abbiamo ristretto sempre più il range di valori che $\delta, r$ possono assumere, cos\'i che alla fine è rimasto un intervallo sul quale è applicabile il teorema delle Contrazioni.\\
 	Abbiamo trovato un intervallo $\left[t_0-\delta,t_0+\delta\right]$ in cui la soluzione esiste. Adesso osserviamo cosa accade prima a destra e poi a sinitra dell'intervallo con un ragionamento analogo.\\
-	Soluzioni che sono coincidenti(cio\'e unica) in un intervallo possono non esserlo al difuori dello stesso. Cauchy locale ci assicura che questo non pu\'o succedere.\\
+	Soluzioni che sono coincidenti(cio\'e unica) in un intervallo possono non esserlo al difuori dello stesso. Cauchy locale ci assicura che questo non può succedere.\\
 	Sia per assurdo $t_M$ l'ultimo istante fino a cui $\varphi_1,\varphi_2$ coincidono, cio\'e: $t_M = \sup \left\{t\in I:t\ge t_0, \varphi_1(\tau)=\varphi_2(\tau), \forall \tau \in \left[t_0,t\right[\right\}$.\\
 	Cerchiamo di mostrare o che non c\'e o che è alla fine dell'intervallo $I$.\\
 	Sesi considera il problema di Cauchy:
 	$\left\{\begin{matrix}\overset{\cdot}{x}=f(t,x(t))\\x(t_M)=x_{t_M}\end{matrix}\right.$. Possiamo applicare quanto trovato per il punto uno della tesi, cio\'e esiste un intervallo contenente $t_M$ nella sua parte interna in cui la soluzione esiste ed è unica.\\
-	OSS:: $t_M$ esiste sempre poich\'e è il $sup$ di un insieme non vuoto, inoltre $t_M\ge t_0+\delta$ è certamente $t_M\in \overline{I}$\\
-	Possono verificarsi due casi, o $t_M$ è sul bordo di $I$ ed in questo caso la dimostrazione è finita poich\'e fino al bordo dell'intervallo le soluzioni coincidono.
-	Oppure $T_M$ è nella parte interna dell'intervallo quindi $t_m\ne\sup I\Rightarrow t_M\in\overset{\circ}{I}$, e se è u n punto interno per l'intervallo allora è anche un punto di accumulazione per lo stesso, è quindi possibile calcolare $\lim\limits_{t\to t_M^{-}}\varphi_1(t)\quad\lim\limits_{t\to t_M^{-}}\varphi_2(t)$ ma entrambi i limiti devono essere uguali a $x_M$ poich\'e sia $\varphi_1,\varphi_2$ sono soluzioni al problema  di Cauchy e devono quindi soddisfare la condizione iniziale, anche perché fino a $t_M$ le due soluzioni coincidono e quindi il loro limite deve essere lo stesso.\\
-	Riguardo $x_M$ si pu\'o dire che:
+	OSS:: $t_M$ esiste sempre poiché è il $sup$ di un insieme non vuoto, inoltre $t_M\ge t_0+\delta$ è certamente $t_M\in \overline{I}$\\
+	Possono verificarsi due casi, o $t_M$ è sul bordo di $I$ ed in questo caso la dimostrazione è finita poiché fino al bordo dell'intervallo le soluzioni coincidono.
+	Oppure $T_M$ è nella parte interna dell'intervallo quindi $t_m\ne\sup I\Rightarrow t_M\in\overset{\circ}{I}$, e se è u n punto interno per l'intervallo allora è anche un punto di accumulazione per lo stesso, è quindi possibile calcolare $\lim\limits_{t\to t_M^{-}}\varphi_1(t)\quad\lim\limits_{t\to t_M^{-}}\varphi_2(t)$ ma entrambi i limiti devono essere uguali a $x_M$ poiché sia $\varphi_1,\varphi_2$ sono soluzioni al problema  di Cauchy e devono quindi soddisfare la condizione iniziale, anche perché fino a $t_M$ le due soluzioni coincidono e quindi il loro limite deve essere lo stesso.\\
+	Riguardo $x_M$ si può dire che:
 	\begin{enumerate}
 		\item se $x_M = A\Rightarrow$ le soluzioni coincidono fino alla fine dell'insieme $A$.
 		\item se $x_m\in\overset{\circ}{A}$ abbiamo esattamente le ipotesi del teorema di Cauchy locale, per quanto visto si ha necessariamente che:\\
@@ -362,19 +362,19 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	\left\|\varphi(t)-\psi(t)\right\|=
 	\left\|  x_0+\int_{t_0}^t f(\tau,\varphi(\tau))d\tau - y_0 - \int_{t_0}^t g(\tau,\psi(\tau))d\tau\right\|
 	$$
-	linearit\'a integrale disugualianza norama... modulo per i differenziali ....\\
+	linearità integrale disugualianza norama... modulo per i differenziali ....\\
 	$$ \left\| x_0-y_0\right\|+\left| \int_{t_0}^{t} \left\| f(\tau,\varphi(\tau))-g(\tau,\psi(\tau)) \right\|d\tau \right|\le$$
-	adesso all'interno dell'integrale aggiungo e tolgo la quantit\'a $f(\tau,\psi(\tau))$ e applico la disugualianza triangolare riarrangiando i termini
+	adesso all'interno dell'integrale aggiungo e tolgo la quantità $f(\tau,\psi(\tau))$ e applico la disugualianza triangolare riarrangiando i termini
 	$$ \left\| x_0-y_0\right\|+\left| \int_{t_0}^{t} \left\| f(\tau,\varphi(\tau))-f(\tau,\psi(\tau))\right\|+\left\|f(\tau,\psi(\tau))-g(\tau,\psi(\tau)) \right\|d\tau \right|\le$$
 	$$ \left\| x_0-y_0\right\| + \left\| f-g\right\|_{c^0}\left|t-t_0\right| +\left| \int_{t_0}^{t} L\left\|\varphi(\tau)-\psi(\tau)\right\| d\tau \right|$$
-	per comodit\'a restringiamo la trattazione al caso $t>t_0$ sparisce il modulo. Rscrivo il primo e l'ultimo membro della disugualianza
+	per comodità restringiamo la trattazione al caso $t>t_0$ sparisce il modulo. Rscrivo il primo e l'ultimo membro della disugualianza
 	$$ \left\|\varphi(t)-\psi(t)\right\|\le  \left[ \left\| x_0-y_0\right\| + \delta\left\| f-g\right\|_{c^0}\right] +\left| \int_{t_0}^{t} L\left\|\varphi(\tau)-\psi(\tau)\right\| d\tau \right|$$
 	$$ \left( \delta(t)\le\delta_0+\int_{t_0}^t \kappa(\tau)\delta(\tau)d\tau \right)::Gronwall$$
 	$$ \left\| \varphi(t)-\psi(t)\right\|\le\left[\left\|x_0-y_0\right\|+\delta\left\|f-g\right\|_{C^0}\right]+e^{L\left|t-t_0\right|}$$
 	QUESTO TEOREMA è TROPPO DA PRO.
 \end{proof}
 ESEMPIO: DECADIMENTO RADIOATTIVO\\
-Il decadimento di una sostanza radioattiva è ben descritto da $\overset{\cdot}{x}=-k\cdot x$ dove $x$ è la quantit\'a di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\
+Il decadimento di una sostanza radioattiva è ben descritto da $\overset{\cdot}{x}=-k\cdot x$ dove $x$ è la quantità di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\
 ...........\\
 ESEMPIO: LEGGE DEL CALORE DI NEWTON\\
 ......\\
@@ -382,7 +382,7 @@ ESEMPIO: CRESCITA LOGISTICA\\
 ......\\
 \section{Teoria Globale}
 \proposition
-Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, sia $f:A\subseteq X\to Y$. Se $f$ è uniformemente continua su $A$ allora $\exists ! \overline{f}:\overline{A}\to Y$ t.c. $\overline{f}_{\left|A\right.}=f$. Cio\'e $f$ pu\'o essere estesa in modo unico alla chiusura dell'insieme $A$.
+Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, sia $f:A\subseteq X\to Y$. Se $f$ è uniformemente continua su $A$ allora $\exists ! \overline{f}:\overline{A}\to Y$ t.c. $\overline{f}_{\left|A\right.}=f$. Cio\'e $f$ può essere estesa in modo unico alla chiusura dell'insieme $A$.
 \definition
 Una funzione $f:I\times \R^n\to \R^n$ con $I$ intervallo in $R$ si dice sub lineare se esistonop due costanti posirive $A$ e $B$ t.c.: $\forall t \in I$ 
 $$ \left\| f(t,x) \right\|\le A + B\left\|x\right\|$$\\
@@ -418,22 +418,22 @@ allora il problema di Cauchy $\left\{\begin{matrix}\overset{\cdot}{x}=f(t,x)\\x(
 \begin{proof}
 	DISEGNO...\\
 	Il teorema di Cauchy Locale assicura che  la soluzione esiste unica su un intervallo centrato all'istante iniziale.
-	Bisogna dimostrazre che la soluzioe pu\'o essere estesa a tutto l'intervallo. Questo nn si pu\'o fare in due casi:
+	Bisogna dimostrazre che la soluzioe può essere estesa a tutto l'intervallo. Questo nn si può fare in due casi:
 	\begin{enumerate}
 		\item c'è un asintoto verticale
-		\item oscilla tanto che a un certo punto non va pi\'u avanti
+		\item oscilla tanto che a un certo punto non va più avanti
 	\end{enumerate}
-	Quindi i casi in cui la soluzione non si pu\'o estendere su tutto l'intervallo sono quelli in cui non esiste il limite della soluzione. Quindi dobbiamo evitare tali comportamenti.\\
+	Quindi i casi in cui la soluzione non si può estendere su tutto l'intervallo sono quelli in cui non esiste il limite della soluzione. Quindi dobbiamo evitare tali comportamenti.\\
 	Ragionamento da $t_0$ in avanti.\\
 	Sia $T=sum\left\{t\in I :\exists soluzione su \left[ t_0,t \right[ \right\}$ cio\'e prendo l'estremo superiore dei tempi per cui c'è una soluzione.
 	Se $T= sup I$ o $T=+\infty$ abbiamo la tesi.\\
-	Se $T$ finito con $T<sup I$, dimostrando che la derivata della soluzione è limitata si escludono i casi in cui l'estensione della soluzione non si pu\'o fare.
-	quindi bisogna mostrare $\overset{\cdot}{x} = f(t,x)$ è limitata sull'insieme dove pu\'o arrivare la $x$\\
+	Se $T$ finito con $T<sup I$, dimostrando che la derivata della soluzione è limitata si escludono i casi in cui l'estensione della soluzione non si può fare.
+	quindi bisogna mostrare $\overset{\cdot}{x} = f(t,x)$ è limitata sull'insieme dove può arrivare la $x$\\
 	Sia ora $\varphi$ soluzione del problema di Cauchy:
 	$$ \varphi(t) = x_0 + \int_{t_0}^tf(\tau,x(\tau))d\tau$$
 	Valuto allora\\
-	$\left\|\varphi(t)\right\|\le \left\|x_0\right\| + \left|\int_{t_0}^tf(\tau,\varphi(\tau))d\tau\right|=\left\|x_0\right\| + \int_{t_0}^t\left\|f(\tau,\varphi(\tau))\right\|d\tau$ poich\'e $t\in\left[t_0,T\right[$\\
-	$\left\|\varphi(t)\right\|\le \left\|x_0\right\| + \int_{t_0}^t\left(A+B\left\|\varphi(\tau)\right\|\right)d\tau$ poich\'e f è sublineare.\\
+	$\left\|\varphi(t)\right\|\le \left\|x_0\right\| + \left|\int_{t_0}^tf(\tau,\varphi(\tau))d\tau\right|=\left\|x_0\right\| + \int_{t_0}^t\left\|f(\tau,\varphi(\tau))\right\|d\tau$ poiché $t\in\left[t_0,T\right[$\\
+	$\left\|\varphi(t)\right\|\le \left\|x_0\right\| + \int_{t_0}^t\left(A+B\left\|\varphi(\tau)\right\|\right)d\tau$ poiché f è sublineare.\\
 	$\left\|\varphi(t)\right\|\le \left\|x_0\right\| + A(T-t_0)+\int_{t_0}^t B\left\|\varphi(\tau)\right\|d\tau$\\
 	...\\
 	applico ilGronwall e risulta che
@@ -452,12 +452,12 @@ allora il problema di Cauchy $\left\{\begin{matrix}\overset{\cdot}{x}=f(t,x)\\x(
 		\left[ 
 		\left\|x_0\right\| A \left(T-t_0\right)
 		\right]e^{B\left(T-t_0\right)}\right)}
-	$ è un insieme compatto poich\'e chiuso e limitato in $R^n$, $\varphi$ è limitata, la $f$ limitata, allora $\overset{\cdot}{\varphi}$ limitata allora $\varphi$ lipshitziana allora $\varphi$ uniformemente continua.\\
+	$ è un insieme compatto poiché chiuso e limitato in $R^n$, $\varphi$ è limitata, la $f$ limitata, allora $\overset{\cdot}{\varphi}$ limitata allora $\varphi$ lipshitziana allora $\varphi$ uniformemente continua.\\
 		Allora esiste finito $\lim\limits_{t\to T^{-}}\varphi(t)=X$. Ora possono verificarsi due casi:\\
 	\begin{enumerate}
 		\item Se $T=\sup I \Rightarrow$ dimostrazione conclusa
 		\item Se $T<\sup I \Rightarrow$ posso considerare il problema di Cauchy \\
-		$\left\{ \begin{matrix} \overset{\cdot}{x}=f(t,x)\\x(T)=X \end{matrix} \right.$ Questo è un assurdo poich\'e arriveremmo a trovare una soluzione definita oltre il tempo $T$. Questo nega la scelta fatta a inizio dimostrazione.
+		$\left\{ \begin{matrix} \overset{\cdot}{x}=f(t,x)\\x(T)=X \end{matrix} \right.$ Questo è un assurdo poiché arriveremmo a trovare una soluzione definita oltre il tempo $T$. Questo nega la scelta fatta a inizio dimostrazione.
 		\end{enumerate}
 \end{proof}
 \section{Equazioni Autonome}
@@ -509,7 +509,7 @@ x^{(n-1)}(t_0)=c_{n-1}\\
 \end{matrix}\right.$$
 ammette soluzine unica definita su tutto l'intervallo $I$.
 \begin{proof}
-	Un'equazione differenziale lineare di ordine $n$ pu\'o essere trasfprmato in un sistema di equazioni al primo ordine.
+	Un'equazione differenziale lineare di ordine $n$ può essere trasfprmato in un sistema di equazioni al primo ordine.
 	Introduciamo la variabile $X\in\mathbb{C^n}$ ed il dato iniziale $C\in\mathbb{C^n}$
 	$$\left[\begin{matrix} X_1\\X_2\\\ldots\\X_{n-1}\\X_n \end{matrix}\right] = \left[\begin{matrix} x\\\overset{\cdot}{x}\\\ldots\\ x^{(n-1)}\\x^{(n)} \end{matrix}\right]\quad\quad\left[\begin{matrix} C_1\\C_2\\\ldots\\C_{n-1}\\C_{n} \end{matrix}\right] = \left[\begin{matrix} c_0\\c_1\\\ldots\\ c_{n-2}\\c_{n-1} \end{matrix}\right]$$
 	il problrma di Cauchy per l'equazione lineare diventa:
@@ -540,7 +540,7 @@ L: C^n(I;\mathbb{C}) & \to & C^0(I;\mathbb{C}) \\
 x & \to & x^{(n)}+\sum\limits_{k=1}^{n-1}a_k(t)x^{(k)} \\ 
 \end{array}$\'e lineare
 \begin{proof}
-	La linearit\'a di $L$ equivale a:
+	La linearità di $L$ equivale a:
 	$$ \begin{matrix}L(x_1+x_2)=L(x_1)+L(x_2) && \forall x_1,x_2\in C^n(I;\mathbb{C})\\L(\lambda\cdot x)=\lambda\cdot L(x) && \forall\lambda\in\mathbb{C}, \forall x\in C^n(I;\mathbb{C})\end{matrix} $$
 	Entrambe le condizioni  seguono dalle regole di derivazione.
 \end{proof}
@@ -563,7 +563,7 @@ $$x^{(n)}(t)=\left(\lambda^nt+n\lambda^{n-1}\right)e^{\lambda t}$$
 \proposition
 Data l'equazione 
 $$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1\overset{\cdot}{x}+a_0x=b$$
-$x(t)=te^{\lambda t}$ risolve l'eqauzione omogenea $\Leftrightarrow$ $\lambda$ è soluzione dell'equazione caratteristica con molteplicit\'a almeno ??????????.
+$x(t)=te^{\lambda t}$ risolve l'eqauzione omogenea $\Leftrightarrow$ $\lambda$ è soluzione dell'equazione caratteristica con molteplicità almeno ??????????.
 
 
 
