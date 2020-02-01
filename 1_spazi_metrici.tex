@@ -4,7 +4,7 @@
 \section{Preliminari}
 \definition
 Si dice spazio metrico un insieme X non vuoto in cui sia definita una
-distanza(metrica), vale a dire una funzione $d: X \times X \rightarrow R$ con le proprieta:
+distanza(metrica), vale a dire una funzione $d: X \times X \rightarrow \R$ con le proprieta:
 \begin{enumerate}
 	\item $d(x,y)>=0$ $\forall x,y \in X$
 	\item $d(x,y)=0\Leftrightarrow x=$ $\forall x,y \in X$
@@ -14,9 +14,9 @@ distanza(metrica), vale a dire una funzione $d: X \times X \rightarrow R$ con le
 
 \example
 $$X=\bbsetn{R}{2},\quad d((x_1,y_1),(X_2,y_2))=\sqrt{(x_2-x_1)^2+(y_2-y_1)}$$
-si dimostra che la funzione cos\'i definita \'e una distanza:
+si dimostra che la funzione così definita è una distanza:
 \begin{enumerate}
-	\item $d(x_1,x_2)\ge 0$, \'e verificata poich\'e l'argomento della radice \'e sempre positivo o al pi\'u nullo essendo una somma di quadrati, e la radice mantiene le quantit\'a poisitive.
+	\item $d(x_1,x_2)\ge 0$, è verificata poichè l'argomento della radice è sempre positivo o al più nullo essendo una somma di quadrati, e la radice mantiene le quantità poisitive.
 	\item $d((X_1,y_1),(x_2,y_2))=0\Leftrightarrow \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}=0$\\
 	$\Leftrightarrow (x_2-x_1)^2+(y_2-y_1)^2=0 \Leftrightarrow 
 	\left\{\begin{matrix}
@@ -28,15 +28,15 @@ si dimostra che la funzione cos\'i definita \'e una distanza:
 	y_2=y_1\\
 	\end{matrix}\right.$\\
 	$\Leftrightarrow (x_1,y_1)=(x_2,y_2)$
-	\item invertendo le prime componenti con le seconde, il quadrato non camibia quindi la simmetria \'e rispettata
+	\item invertendo le prime componenti con le seconde, il quadrato non camibia quindi la simmetria è rispettata
 	\item 
 	DISEGNO TRIANGOLO VETTORI.....
 \end{enumerate}
 
 \example
 $$X=\bbset{R},\quad d(x_1,x_2)=\left| x_2-x_1 \right|$$
-Le  propriet\'a 1,2,3 sono soddisfatte per le propriet\'a del modulo.\\
-La propriet\'a 4 si pu\'o dimostrare: $d(x_1,x_3)=\left|x_3-x_1\right|\le\left|x_3-x_2\right|+\left|x_2-x_1\right|=d(x_3,x_2)+d(x_2,x_1)$
+Le  proprietà 1,2,3 sono soddisfatte per le proprietà del modulo.\\
+La proprietà 4 si può dimostrare: $d(x_1,x_3)=\left|x_3-x_1\right|\le\left|x_3-x_2\right|+\left|x_2-x_1\right|=d(x_3,x_2)+d(x_2,x_1)$
 
 \example
 $$X=\bbsetn{R}{3}\quad d({x_1,y_1,z_1),(x_2,y_2,z_2)}$$
@@ -53,18 +53,18 @@ $$X=C^0(\realintervalclose{a}{b},\bbset{R}),a,b\in\bbset{R}, a<b$$
 $$d_\infty=\sup\limits_{x\in\realintervalclose{a}{b}}\left|g(x)-f(x)\right|$$
 \begin{enumerate}
 	\item $X$ contiene infiniti elementi(funzioni)
-	\item $d_\infty$ \'e detta distanza uniforme o distanza della convergenza infinita o distanza della convergenza uniforme
+	\item $d_\infty$ è detta distanza uniforme o distanza della convergenza infinita o distanza della convergenza uniforme
 	\item DISEGNO
 \end{enumerate}
-Si verificano le 4 propriet\'a di distanza:
+Si verificano le 4 proprietà di distanza:
 \begin{enumerate}
-	\item Se $\sup = \infty$ non va bene poich\'e l'insieme di arrivo \'e $\bbset{R}$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$
+	\item Se $\sup = \infty$ non va bene poichè l'insieme di arrivo è $\bbset{R}$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$
 	\item se e solo se hanno lo stesso dominio e per ogni punto di esso entrambe le funzioni hanno la stessa immagine
 	\item $\dinfty{f}{g}=\ddinfty{f}{g}{\realintervalclose{a}{b}}=\ddinfty{g}{f}{\realintervalclose{a}{b}}=\dinfty{g}{f}$
 	\item $\left| h(x)-f(x) \right|\le\left|h(x)-g(x)\right|+\left|g(x)-f(x)\right| $, applicando il sup la disugualianza resta vera
 \end{enumerate}
 \observation 
-Tutto qesto \'e valido finch\'e $\realintervalclose{a}{b}$ chiuso e limitato altrimenti non vale pi\'u Weierstrass \\
+Tutto qesto è valido finchè $\realintervalclose{a}{b}$ chiuso e limitato altrimenti non vale più Weierstrass \\
 \\
 UN CONYTROESEMPIO\\
 \\
@@ -94,21 +94,21 @@ $$X=C^0(\realintervalclose{a}{b},\bbset{R}), a,b\in\bbset{R}, a<b$$
 $$d_2=\sqrt{\int_a^b\left[g(x)-f(x)\right]^2d(x)}$$
 
 \proposition
-Sia $(X,d)$ s.m. e $A\subseteq X$ e $A\ne \emptyset$, sia $\begin{array}{rcl} d_{|A} : A\times A & \to & \mathbb{R} \\ (x,y) & \to & d(x,y) \end{array} \Rightarrow (A,d_{|A})$ \'e uno spazio metrico
+Sia $(X,d)$ s.m. e $A\subseteq X$ e $A\ne \emptyset$, sia $\begin{array}{rcl} d_{|A} : A\times A & \to & \mathbb{R} \\ (x,y) & \to & d(x,y) \end{array} \Rightarrow (A,d_{|A})$ è uno spazio metrico
 \begin{proof}
 	........
 \end{proof}
 
 \definition
-Un insieme \'e finito se il numero dei suoi elementi \'e finito
+Un insieme è finito se il numero dei suoi elementi è finito
 \definition
-Un insieme \'e infinito se non \'e finito
+Un insieme è infinito se non è finito
 \definition
 Sia $(X,d)$s.m., $A\subseteq X$, $A\ne \emptyset$ si definisce diametro di A: $$diam(A)=\sup\limits_{x,y\in A}d(x,y)$$
 \definition
-$A$ \'e limitato $\leftrightharpoons diam(A)$ \'e finito ($\in\bbset{R}$)
+$A$ è limitato $\leftrightharpoons diam(A)$ è finito ($\in\bbset{R}$)
 \definition
-$A$ \'e illimitato $\leftrightharpoons diam(A)$ \'e infinito ($=\infty$)
+$A$ è illimitato $\leftrightharpoons diam(A)$ è infinito ($=\infty$)
 \example
 ...\\
 ...\\
@@ -116,7 +116,7 @@ $A$ \'e illimitato $\leftrightharpoons diam(A)$ \'e infinito ($=\infty$)
 ..\\
 ....\\
 \observation
-Ogni insieme finito \'e limitato e ogni insieme illimitato \'e infinito. Non valvono i viceversa.
+Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valvono i viceversa.
 \example 
 .....\\
 ....\\
@@ -126,11 +126,11 @@ Ogni insieme finito \'e limitato e ogni insieme illimitato \'e infinito. Non val
 ....\\
 
 \definition
-$X$ \'e uno spazio (vettoriale) normato sul campo $\bbset{K}$ se:
+$X$ è uno spazio (vettoriale) normato sul campo $\bbset{K}$ se:
 \begin{description}
-	\item[$\bullet$] $X$ \'e uno spazio vettoriale sul campo $\bbset{K}$
-	\item[$\bullet$] se \'e definita una norma su $X$, ovvero una funzione\\
-	$\left\| \cdot \right\|:X\to\bbset{R}$ con le seguenti propriet\'a:
+	\item[$\bullet$] $X$ è uno spazio vettoriale sul campo $\bbset{K}$
+	\item[$\bullet$] se è definita una norma su $X$, ovvero una funzione\\
+	$\left\| \cdot \right\|:X\to\bbset{R}$ con le seguenti proprietà:
 	\begin{enumerate}
 		\item $\forall x\in X,\quad\norm{x}\ge0$
 		\item $\forall x\in X,\quad\norm(x)=0\sse x=0$
@@ -151,8 +151,8 @@ $$X=\bbset{C}\quad\norm{x}=\abs{x}$$
 $$X=C^0(\realintervalclose{a}{b},R)\quad\norm{f}\sup\limits_{x\in\realintervalclose{a}{b}}\abs{f}$$
 
 \proposition
-Sia $X$ uni spazio normato allora $(X,d)$ \'e uno spazio metrico con $\begin{array}{rcl} d : X\times X & \to & \mathbb{R} \\ (x_1,x_2) & \to & \norm(x_1-x_2) \end{array}$\\
-Inoltre per la distanza cos\'i definita valgono le seguenti propriet\'a:
+Sia $X$ uni spazio normato allora $(X,d)$ è uno spazio metrico con $\begin{array}{rcl} d : X\times X & \to & \mathbb{R} \\ (x_1,x_2) & \to & \norm(x_1-x_2) \end{array}$\\
+Inoltre per la distanza così definita valgono le seguenti proprietà:
 \begin{enumerate}
 	\item INVARIANZA PER TRASLAZIONI
 	$$\forall x_1,x_2,x_3\in X \quad d(x_1,x_2)=d(x_1+x_3,x_2+x_3)$$
@@ -160,7 +160,7 @@ Inoltre per la distanza cos\'i definita valgono le seguenti propriet\'a:
 	$$ \forall x_1,x_2\in X, \lambda\in\bbset{R}\quad d(\lambda x_1,\lambda x_2)=\abs{\lambda}d(x_1,x_2)$$
 \end{enumerate}
 \begin{proof}
-	Per dimostrare che \'e uno spazio metrico si dimostra che valgono le propriet\'a di distanza
+	Per dimostrare che è uno spazio metrico si dimostra che valgono le proprietà di distanza
 	\begin{enumerate}
 		\item
 		\item
@@ -176,11 +176,11 @@ $$B(x_0,r)=\left\{ x\in X : d(x,y)<r  \right\}$$
 se $r=0\Rightarrow B(x_0,r)=\emptyset$\\
 se $r>0\Rightarrow x_0\in B(x_0,r)$
 \example
-In $\bbset{R}$ con $d_E$, $B(x_0,r)$ \'e un intervallo simmetrico centrato in $x_0$
+In $\bbset{R}$ con $d_E$, $B(x_0,r)$ è un intervallo simmetrico centrato in $x_0$
 \example
-In $\bbsetn{R}{2}$ con $d_E$, $B(x_0,r)$ \'e una un cerchio con centro in $x_0$
+In $\bbsetn{R}{2}$ con $d_E$, $B(x_0,r)$ è una un cerchio con centro in $x_0$
 \example
-In $\bbsetn{R}{3}$ con $d_E$, $B(x_0,r)$ \'e una sfera con centro in $x_0$
+In $\bbsetn{R}{3}$ con $d_E$, $B(x_0,r)$ è una sfera con centro in $x_0$
 \example
 \example
 
@@ -190,7 +190,7 @@ $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 
 
 \section{...}
-\section{Limiti e Continuit\'a}
+\section{Limiti e Continuità}
 \definition
 Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l\in{Y}$ \\
 $\lim\limits_x\rightarrow{x_0} = l \rightleftharpoons \forall{\epsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x\ne{x_0} : d_y(f(x),l)<\epsilon$
@@ -207,21 +207,21 @@ $\exists K \in [0, 1[ $ tale che $\forall x^{'},x^{''}\in X$ vale
 $d(Tx^{''}, T x^{'})\le Kd(x^{''}, x^{'}).$\\
 
 
-Una contrazione \'e quindi una funzione con insieme di partenza e di arrivo coincidenti e
+Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e
 Lipschitziana con costante di Lipschitz strettamente minore di 1.
 E generalmente inutile considerare contrazioni definite tra spazi diversi. Data una funzione
-$T: X\rightarrow Y$ Lipschitziana, \'e sempre possibile riscalare la distanza in uno dei due spazi X o Y
+$T: X\rightarrow Y$ Lipschitziana, è sempre possibile riscalare la distanza in uno dei due spazi X o Y
 per ottenere una costante di Lipschitz minore di 1.
 
 ESEMPI:\\
 \begin{enumerate}
-	\item $f: R \rightarrow R$ data da $f(x) = \frac{x}{2}$. $f$ \'e una contrazione.
-	\item $f: [0,2] \rightarrow [0,2]$ data da $f(x) = 1+\frac{x}{2}. f$ \'e una contrazione
-	\item $f: R^2 \rightarrow R^2$ datat da $f(x,y)=\begin{bmatrix} \frac{1}{3}&&0\\0&&\frac{1}{5}\end{bmatrix}$ \'e una contrazione
+	\item $f: \R \rightarrow \R$ data da $f(x) = \frac{x}{2}$. $f$ è una contrazione.
+	\item $f: [0,2] \rightarrow [0,2]$ data da $f(x) = 1+\frac{x}{2}. f$ è una contrazione
+	\item $f: \R^2 \rightarrow \R^2$ datat da $f(x,y)=\begin{bmatrix} \frac{1}{3}&&0\\0&&\frac{1}{5}\end{bmatrix}$ è una contrazione
 \end{enumerate}
 
 \proposition
-Sia $(X, d)$ uno spazio metrico, siano $f,g:X\rightarrow X$ due contrazioni in $X \Rightarrow f\circ g$ \'e una contrazione
+Sia $(X, d)$ uno spazio metrico, siano $f,g:X\rightarrow X$ due contrazioni in $X \Rightarrow f\circ g$ è una contrazione
 \begin{proof}
 	Sappiamo che\\
 	$$\forall x^{'},x^{''}\in X, d(fx^{''}, fx^{'})\le K_fd(x^{''}, x^{'}).$$
@@ -230,10 +230,10 @@ Sia $(X, d)$ uno spazio metrico, siano $f,g:X\rightarrow X$ due contrazioni in $
 \end{proof}
 
 \proposition
-Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in R^n$ vale $\left\| Df(x)\right\|  < k$, allora $f$ \'e una contrazione.
+Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$ vale $\left\| Df(x)\right\|  < k$, allora $f$ è una contrazione.
 
 \theorem
-Sia $(X, d)$ uno spazio metrico completo in cui \'e definita una contrazione
+Sia $(X, d)$ uno spazio metrico completo in cui è definita una contrazione
 $T: X \rightarrow X$. Allora esiste un unico punto fisso di $T$ in $X$.
 \begin{proof}
 	Costruisco una successione di elementi di $X$ nel seguente modo:\\
@@ -242,21 +242,21 @@ $T: X \rightarrow X$. Allora esiste un unico punto fisso di $T$ in $X$.
 	$x_2 = T(x_1)$\\\\
 	...\\
 	$x_n = T(x_{n-1})$\\
-	La successione ${x_n: n \in N }$ cos\'i costruita \'e una successione di Cauchy. Infatti, presi $n, m \in N$ con $m > n$ si ha:
+	La successione ${x_n: n \in N }$ così costruita è una successione di Cauchy. Infatti, presi $n, m \in N$ con $m > n$ si ha:
 	$$d(x_{m},x_{n}) = d(Tx_{m-1},x_{n-1}) \le Kd(x_{m-1},x_{n-1})=$$
 	$$=Kd(x_{m-1},x_{n-1}) = Kd(Tx_{m-2},x_{n-2}) \le K^2d(x_{m-2},x_{n-2})=$$
 	$$=...=$$
 	$$=...=K^nd(x_{m-n},x_{0})\le$$
 	$$\le K^{n}\sum\limits_0^{m-n+1}(d(x_{m-n-i},x_{m-n-i-1}))=$$
 	$$\le \sum\limits_0^{m-n+1}(d(Tx_{m-n-i-1},Tx_{m-n-i-2}))$$
-	per ogni termine di questa sommatoria si pu\'o applicare lo stesso ragionamento
+	per ogni termine di questa sommatoria si può applicare lo stesso ragionamento
 	$$\le K^{n}\sum\limits_0^{m-n+1}(K^{m-n-2}d(Tx_{0},x_{0}))=$$
 	$$\le K^{n}d(Tx_{0},x_{0})\sum\limits_0^{m-n+1}K^{m-n-2}=K^n\frac{1-K^{m-n-1}}{1-K}d(Tx_{0},x_{0}) \le \frac{K^n}{1-K}d(Tx_{0},x_{0})$$
 	Ho quindi trovato che $d(x_{m},x_{n})\le\frac{K^n}{1-K}d(Tx_{0},x_{0})$\\
-	L’ultima espressione ottenuta pu\'o essere resa arbitrariamente piccola (in modulo) pur di
+	L’ultima espressione ottenuta può essere resa arbitrariamente piccola (in modulo) pur di
 	prendere $n$, e quindi anche $m$, sufficientemente elevato. La completezza di $X$ implica quindi
-	che esiste il limite $\lim\limits_{n\rightarrow +\infty}xn$. Sia $x^*$ questo limite. $x^*$ \'e un punto fisso per $T$. Infatti, grazie
-	alla continuit\'a di $T$:
+	che esiste il limite $\lim\limits_{n\rightarrow +\infty}xn$. Sia $x^*$ questo limite. $x^*$ è un punto fisso per $T$. Infatti, grazie
+	alla continuità di $T$:
 	$$T(x^*)=T{\lim\limits_{n\rightarrow +\infty}xn}$$
 
 	
