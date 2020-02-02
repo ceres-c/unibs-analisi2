@@ -82,7 +82,7 @@ $X\ne \emptyset,\quad d(x,y)= \left\{\begin{matrix}0&&x=y\\0&&1\ne y\end{matrix}
 \example
 $$X=\bbsetn{R}{2}$$
 $$x=(x_1,x_2), y=(y_1,y_2)$$
-$$d^{'}(x,y)=\left| x_1-y-1 \right|+\left|x_2-y-2\right|$$
+$$d'(x,y)=\left| x_1-y-1 \right|+\left|x_2-y-2\right|$$
 ...\\
 
 \example
@@ -196,15 +196,15 @@ Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazion
 $\lim\limits_x\rightarrow{x_0} = l \rightleftharpoons \forall{\epsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x\ne{x_0} : d_y(f(x),l)<\epsilon$
 
 \proposition
-Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l^{'}\in{Y}$,$l^{''}\in{Y}$  \\
+Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l'\in{Y}$,$l''\in{Y}$  \\
 
 \section{Il Teorema delle Contrazioni}
 \definition
 Sia $(X, d)$ uno spazio metrico. Si dice contrazione una funzione
 $T: X \rightarrow X$ soddisfacente a:\\
 
-$\exists K \in [0, 1[ $ tale che $\forall x^{'},x^{''}\in X$ vale
-$d(Tx^{''}, T x^{'})\le Kd(x^{''}, x^{'}).$\\
+$\exists K \in [0, 1[ $ tale che $\forall x',x''\in X$ vale
+$d(Tx'', T x')\le Kd(x'', x').$\\
 
 
 Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e
@@ -224,9 +224,9 @@ ESEMPI:\\
 Sia $(X, d)$ uno spazio metrico, siano $f,g:X\rightarrow X$ due contrazioni in $X \Rightarrow f\circ g$ è una contrazione
 \begin{proof}
 	Sappiamo che\\
-	$$\forall x^{'},x^{''}\in X, d(fx^{''}, fx^{'})\le K_fd(x^{''}, x^{'}).$$
-	$$\forall x^{'},x^{''}\in X, d(gx^{''}, gx^{'})\le K_gd(x^{''}, x^{'}).$$
-	$f\circ g=f(g(x))$, quindi presi $x^{'},x^{''}\in X$ si ha che: $$d(fg(x^{''}), fg(x^{'}))\le K_fd(g(x^{''}), g(x^{'}))\le K_fK_gd(x^{''},x^{'}).$$
+	$$\forall x',x''\in X, d(fx'', fx')\le K_fd(x'', x').$$
+	$$\forall x',x''\in X, d(gx'', gx')\le K_gd(x'', x').$$
+	$f\circ g=f(g(x))$, quindi presi $x',x''\in X$ si ha che: $$d(fg(x''), fg(x'))\le K_fd(g(x''), g(x'))\le K_fK_gd(x'',x').$$
 \end{proof}
 
 \proposition

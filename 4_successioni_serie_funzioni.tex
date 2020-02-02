@@ -239,26 +239,26 @@ Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\left\{
 \begin{enumerate}
 	\item $\forall n\in\mathbb{N}, f_n\in C^1(\left[a,b\right]; \R)$
 	\item $\exists x_0\in\left[a,b\right]: \lim\limits_{n\to\infty}f_n(x_0)=l\in \R$
-	\item $\exists g \in C^0(\left[a,b\right]; \R):f^{'}_n\overset{u}{\to}g$ su $\left[a,b\right]$
+	\item $\exists g \in C^0(\left[a,b\right]; \R):f'_n\overset{u}{\to}g$ su $\left[a,b\right]$
 \end{enumerate}
 Allora
 \begin{enumerate}
 	\item $\exists f\in C^1(\left[a,b\right]; \R)$
 	\item $f_n\overset{u}{\to}f$ su $\left[a,b\right]$
-	\item $f^{'}(x)=g(x)$ $\forall x\in\left[a,b\right]$
+	\item $f'(x)=g(x)$ $\forall x\in\left[a,b\right]$
 \end{enumerate}
 \begin{proof}
 	Per il teorema fondamentale del calcolo integrale
-	$$f_n(x)=f_n(x_0)+\int_{x_0}^{x}f_n^{'}(t)dt$$
+	$$f_n(x)=f_n(x_0)+\int_{x_0}^{x}f_n'(t)dt$$
 	per $n\to\infty$
 	$$f(x)=l+\int_{x_0}^{x}g(t)dt$$
 	Quindi le $f_n$ convergono puntualmente alla funzione $f(x)$, per la convergenza uniforme calcolo:
-	$$ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\left|f_n(x)-f(x)\right|\le\lim\limits_{n\to+\infty}\left(  \left| f_n(x_0)-f(x_0) \right|+\left|\int_{x_0}^x\left|f_n^{'}(t)-g(t)\right|dt\right| \right)\le$$
-	$$\lim\limits_{n\to+\infty}\left[ \left|f_n(x_0)-f(x_0)\right|+\left|b-a\right|\sup\limits_{\left[a,b\right]}\left|f_n^{'}(x)-g(x)\right| \right] = $$
-	Questo perché per ipotesi $f^{'}_n=g$ e il limite fa $0$.
+	$$ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\left|f_n(x)-f(x)\right|\le\lim\limits_{n\to+\infty}\left(  \left| f_n(x_0)-f(x_0) \right|+\left|\int_{x_0}^x\left|f_n'(t)-g(t)\right|dt\right| \right)\le$$
+	$$\lim\limits_{n\to+\infty}\left[ \left|f_n(x_0)-f(x_0)\right|+\left|b-a\right|\sup\limits_{\left[a,b\right]}\left|f_n'(x)-g(x)\right| \right] = $$
+	Questo perché per ipotesi $f'_n=g$ e il limite fa $0$.
 	Allora $f_n\overset{u}{\to}f$ su $\left[a,b\right]$\\
-	Inoltre si sa che $f_n\in C^1$ allora $f_n^{'}\in C^0$ allora il limite uniforme di funzioni continue è una funzione continua allora $g$ è una funzione continua.\\
-	La $f$ è l'integrale di una funzione continua allora la $f$ è derivabile con derivata continua quindi $f^{'}=g$
+	Inoltre si sa che $f_n\in C^1$ allora $f_n'\in C^0$ allora il limite uniforme di funzioni continue è una funzione continua allora $g$ è una funzione continua.\\
+	La $f$ è l'integrale di una funzione continua allora la $f$ è derivabile con derivata continua quindi $f'=g$
 \end{proof}
 \observation
 Necessaria l'ipotesi $f_n(x_0)\to l$.......
@@ -277,11 +277,11 @@ Allora
 \begin{enumerate}
 	\item $\exists f\in C^1(\left[a,b\right]; \R)$
 	\item $\sum\limits_{n=0}^{+\infty}f_n\overset{u}{\to}f$ su $\left[a,b\right]$
-	\item $f^{'}(x)=g(x)$ $\forall x\in\left[a,b\right]$
+	\item $f'(x)=g(x)$ $\forall x\in\left[a,b\right]$
 \end{enumerate}
 \observation
 In altre parole questa proposizione afferma che sotto opportune ipotesi
-$$\left(\sum\limits_{n=0}^{+\infty} f_n \right)^{'} =  \sum\limits_{n=0}^{+\infty}f_n^{'}$$
+$$\left(\sum\limits_{n=0}^{+\infty} f_n \right)' =  \sum\limits_{n=0}^{+\infty}f_n'$$
 \definition
 Siano $A\subseteq  \R$ e $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni con $f_n:A\to \R$\\
 $\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \rightleftharpoons \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\left|f_n(x)\right|<+\infty$(è convergente) 
@@ -449,10 +449,10 @@ Se $f$ è analitica su $\left]-r;r\right[$ per $r\in \R$ e $r>0\Rightarrow f\in 
 Sia $f:\left]-r,r\right[\to \R$ e $f$ analitica su $\left]-r,r\right[ \rightleftharpoons f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \Rightarrow$ ho convergenza totale $\Rightarrow$ ho convergenza uniforme di funzioni continue 
 $$\Rightarrow f\in C^0(\left]-r,r\right[; \R),\quad a_0=f(0)$$
 La serie delle derivate $\sum\limits_{n=0}^{+\infty}na_nx^{n-1}$ converge totalmente su $\left]-r,r\right[$ cioè
-$$\sum\limits_{n=0}^{+\infty}f^{'}(x)=\sum\limits_{n=0}^{+\infty}na_nx^{n-1}\overset{u}{\to}g$$
+$$\sum\limits_{n=0}^{+\infty}f'(x)=\sum\limits_{n=0}^{+\infty}na_nx^{n-1}\overset{u}{\to}g$$
 $$\sum\limits_{n=0}^{+\infty}fn(0)\to f(0), f_n\in ????????????$$ 
 Allora la serie delle derivate converge alla derivata della serie 
-$$\Rightarrow \in C^1(\left]-r,r\right[; \R),\quad a_1=f^{'}(0)$$ 
+$$\Rightarrow \in C^1(\left]-r,r\right[; \R),\quad a_1=f'(0)$$ 
 Questo ragionmento può essere ripetuto:
 $$\Rightarrow \forall k\in\mathbb{N},\quad f\in C^k(\left]-r,+r\right[),\quad a_k=k!f^{(k)}(0)$$
 e analogamente
@@ -484,7 +484,7 @@ ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{mat
 \begin{enumerate}
 	\item Vediamo se è $C^0$, quindi calcolo $\lim\limits_{x\to 0^{+}}f(x)=\lim\limits_{x\to 0^{-}}f(x)=0=f(0)\Rightarrow f\in C^0( \R; \R)$.\\
 	Ora calcoliamo la derivata fuori dallo zero, ne facciamo il limite per $x\to 0$ da destra e da sinitra e vediamo cosa succede.\\
-	Se $x\ne 0$, $f^{'}(x)=\frac{2}{x^3}e^{-\frac{1}{x^3}}$ e $\lim\limits_{x\to 0^{+}}f^{'}(x)=\lim\limits_{x\to 0^{-}} = 0\Rightarrow f\in C^1( \R; \R)$\\
+	Se $x\ne 0$, $f'(x)=\frac{2}{x^3}e^{-\frac{1}{x^3}}$ e $\lim\limits_{x\to 0^{+}}f'(x)=\lim\limits_{x\to 0^{-}} = 0\Rightarrow f\in C^1( \R; \R)$\\
 	..........\\
 	ancora una derivata.......\\
 	..........\\
@@ -928,7 +928,7 @@ Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$.Se:\\
 	\item[$\ast$] $\exists x_1,x_2,\ldots,x_n\in\realintervalclose{-\pi}{\pi}$ t.c.:
 	\begin{description}
 		\item[-] $f$ è derivabile in $x$
-		\item[-] $f^{'}$ continua in $x$
+		\item[-] $f'$ continua in $x$
 	\end{description}
 	\item[$\ast$] $\forall i=1,2,\ldots,n$ e $\forall x\in\realintervalclose{-\pi}{\pi}$ esistono finiti
 	$$\lim\limits_{x\to x_i^{-}}\frac{f(x)-f(x_i-)}{x-x_i}\qquad \lim\limits_{x\to x_i^{+}}\frac{f(x)-f(x_i+)}{x-x_i}$$

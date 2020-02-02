@@ -63,8 +63,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \definition
 si dice problema di Cauchy del primo ordine il problema di determinare una soluzione di un equazione differenziale ordinaria del primo ordine soddisfacente ad una condizione iniziale.\\
 c'è una nota sul ben posto.......\\
-$$\left\{\begin{matrix}
-\dot{x}=f(t,x)\\x(t_0)=x_0
+$$\left\{\begin{matrix}x'=f(t,x)\\x(t_0)=x_0
 \end{matrix}\right.$$
 Dove $f:J\times A\to \R^n$, $J\subseteq \R$ è un intervallo, $t_0\in\circdot{J}$, $A\in \R^n$, $x_0\in\circdot{A}$.\\
 Soluzione di un problema di Cauchy è una funzione $x:J\to \R^n$ che sia soluzione dell'equazione differenziale $ x'=f(t,x)$ definita in un intervallo $I$ contenente $t_0$ nella sua parte interna, $I\subseteq J$, tale che $x(t_0)=x_0$ e $x(I)\subseteq A$, e x derivabile.
@@ -98,9 +97,9 @@ Il problema di Cauchy è quindi $\left\{\begin{matrix} x'=k\cdot x\\x(0)=0\end{m
 	\draw node[anchor=north] at (0.5,0) {$x_0$};
 	\draw node[anchor=north] at (1,0) {$x_0+h$};
 	\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
-	\draw node[anchor=east] at (0,0.5) {$ x'^{'} $};
-	\draw node[anchor=east] at (0,1) {$ x'^{''} $};
-	\draw node[anchor=east] at (0,1.5) {$ x'^{'''}$};
+	\draw node[anchor=east] at (0,0.5) {$ x'' $};
+	\draw node[anchor=east] at (0,1) {$ x''' $};
+	\draw node[anchor=east] at (0,1.5) {$ x''''$};
 	
 	\end{tikzpicture}% pic 1
 	\qquad % <----------------- SPACE BETWEEN PICTURES
@@ -139,7 +138,7 @@ Allora esiste una soluzione, cioè $\exists J\subseteq I$ intervallo e $\exists 
 \begin{description}
 	\item[-] $J\subseteq I, \varphi(J)\subseteq A$
 	\item[-] $t_0 \in \circdot{J}, \varphi(t_0)=x_0$
-	\item[-] $\varphi$ derivabile e $\varphi^{'}(t)=f(t,\varphi(t))$
+	\item[-] $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
 \end{description}
 \observation 
 ?????????????????????????????????????????????\\
@@ -161,9 +160,9 @@ $\left\{\begin{matrix} x'=\sqrt{|x|}\\x(0)=x_0\end{matrix}\right.$
 	%\draw node[anchor=north] at (0.5,0) {$x_0$};
 	%\draw node[anchor=north] at (1,0) {$x_0+h$};
 	%\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
-	%\draw node[anchor=east] at (0,0.5) {$ x'^{'} $};
-	%\draw node[anchor=east] at (0,1) {$ x'^{''} $};
-	%\draw node[anchor=east] at (0,1.5) {$ x'^{'''}$};
+	%\draw node[anchor=east] at (0,0.5) {$ x'' $};
+	%\draw node[anchor=east] at (0,1) {$ x''' $};
+	%\draw node[anchor=east] at (0,1.5) {$ x''''$};
 	
 	\end{tikzpicture}% pic 1
 	\qquad % <----------------- SPACE BETWEEN PICTURES
@@ -184,13 +183,13 @@ estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata �
 Abbiamo trovato che per la condizione iniziale $x_0=0$ il sistema ammette due soluzioni, si riesce estendere la soluzione a invinite funzioni.
 $$\varphi(x)= \left\{\begin{matrix}-\frac{1}{4}(t-a)^2&&t<a,\\0&&t\in[a,b]\\+\frac{1}{4}(t-b)^2&&t>0\end{matrix}\right.$$
 infatti:
-$$\varphi^{'}(t) = \left\{\begin{matrix}-\frac{1}{8}(t-a)&&t<a,\\0&&t\in[a,b]\\+\frac{1}{8}(t-b)&&t>0\end{matrix}\right.$$ $$\left\{\begin{matrix}-\frac{1}{8}(t-a)=\frac{-\frac{1}{4}(t-a)^2}{	\sqrt{-\frac{1}{4}(t-a)^2}}&&t<a,\\0=0&&t\in[a,b]\\+\frac{1}{8}(t-b)=\frac{\frac{1}{4}(t-b)^2}{\sqrt{\frac{1}{4}(t-b)^2}}&&t>0\end{matrix}\right. = ....????? sistema $$
+$$\varphi'(t) = \left\{\begin{matrix}-\frac{1}{8}(t-a)&&t<a,\\0&&t\in[a,b]\\+\frac{1}{8}(t-b)&&t>0\end{matrix}\right.$$ $$\left\{\begin{matrix}-\frac{1}{8}(t-a)=\frac{-\frac{1}{4}(t-a)^2}{	\sqrt{-\frac{1}{4}(t-a)^2}}&&t<a,\\0=0&&t\in[a,b]\\+\frac{1}{8}(t-b)=\frac{\frac{1}{4}(t-b)^2}{\sqrt{\frac{1}{4}(t-b)^2}}&&t>0\end{matrix}\right. = ....????? sistema $$
 Abbiamo quindi trovato infinite soluzioni.\\
 Questo esempio per sottolineare che il teorema di Peano non garantisce l'unicità della soluzione
 ESEMPIO CONTINUITÀ è IPOTESI NECESSARIA\\
 Questo esempio mostra che se non c'è continuità, può?????????? non esserci la soluzione.\\
 Dato il seguente problema di Cauchy: $\left\{\begin{matrix}
-\dot{x} = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
+x' = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
 x(0)=0
 \end{matrix}\right.$\\
 \begin{center}
@@ -209,14 +208,14 @@ $x(t)=0$ soddisfa la condizione iniziale ma ovviamente non può essere soluzione
 partendo sempre dalla condizione iniziale si può ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $ x'(0)=-1$\\
 se invece si ipotizza che decresce da $0$ si ottiene che la funzione assume valori negativi, anche questo è un assurdo poiché la derivata per valori negativi della funzione è positiva.\\
 Precisiamo che se il problema fosse stato $\left\{\begin{matrix}
-\dot{x} = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
+x' = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
 x(0)=-3\end{matrix}\right.$ allora la funzione $\varphi(x)=-x+3$ sarebbe stata soluzione nell'intervallo $J=\left] -\infty,0 \right[ $
 \proposition{Teorema di Cauchy Locale}
 In sostanza si dimostra che il problema di Cauchy è ben posto nel senso di Hadamard.\\
 Si consideri il problema di Cauchy: 
 $\left\{
 \begin{matrix}
-\dot{x}=f(t,x)\\x(t_0)=x_0
+x'=f(t,x)\\x(t_0)=x_0
 \end{matrix}
 \right.$\\
 con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
@@ -282,7 +281,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 \begin{proof}
 	sia $\delta_0 > 0$. Sia $\Delta(t)=\delta_0+\int\limits_a^t\kappa(\tau)\delta(\tau)d\tau$.\\
 	Vale per ipotesi che $\delta(t)\le\Delta(t)=\delta_0+\int\limits_a^t\kappa(\tau)\delta(\tau)d\tau$\\
-	Sfruttando la derivata di $ln(\Delta(t))$ si ottiene $\frac{d}{dt}(ln(\Delta(t)))= \frac{\Delta^{'}(t)}{\Delta(t)}=\frac{\kappa(t)\delta(t)}{\Delta(t)}$, ed il termine $\frac{\delta(t)}{\Delta(t)}\le 1$, Integrando il primo e l'ultimo termine
+	Sfruttando la derivata di $ln(\Delta(t))$ si ottiene $\frac{d}{dt}(ln(\Delta(t)))= \frac{\Delta'(t)}{\Delta(t)}=\frac{\kappa(t)\delta(t)}{\Delta(t)}$, ed il termine $\frac{\delta(t)}{\Delta(t)}\le 1$, Integrando il primo e l'ultimo termine
 	$$\int\limits_a^t\left( \frac{d}{dt}\left(ln(\Delta(t))\right) \right)\le\int\limits_a^t\kappa(\tau)d\tau$$
 	$$ln(\Delta(t))\le ln(\delta_0)+\int\limits_a^t\kappa(\tau)d\tau$$
 	$$ \Delta(t)\le\delta_0e^{\int\limits_a^t\kappa(\tau)d\tau} $$
@@ -545,7 +544,7 @@ ammette soluzione unica definita su tutto l'intervallo $I$.
 	il problema di Cauchy per l'equazione lineare diventa:
 	$$
 	\left\{
-	\left[\begin{matrix} X_1^{'}\\X_2^{'}\\\ldots\\X_{n-1}^{'}\\X_n^{'} \end{matrix}\right]
+	\left[\begin{matrix} X_1'\\X_2'\\\ldots\\X_{n-1}'\\X_n' \end{matrix}\right]
 	=
 	\left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]
 	\\

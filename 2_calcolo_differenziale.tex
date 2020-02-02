@@ -151,8 +151,8 @@ $\Rightarrow f$ è differenziabile in $(x_0,y_0)$\\
 	riscrivo tale quantità seguendo il percorso D,A
 	$$ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k$$
 	chiamo $\varphi (x) = f(x,y_0)$ quindi $f(x_0+h,y_0)-f(x_0,y_0) = \varphi (x_0+h)-\varphi (x_0)$\\
-	la funzione $\varphi $ è una funzione reale di una variabile reale ed in virtù del teorema di Lagrange $\varphi (x_0+h)-\varphi (x_0) = \varphi^{'}(x_0 + \beta h)h$ per $\beta\in ]0,1[ $, per come definita $\varphi$ si ha che $\varphi^{'}(x_0 + \beta h)h = \partial_{x}f(x_0+\beta h,y_0)h$\\
-	con un ragionamento del tutto analogo si può definire $\varPsi (x) = f(x_0+h,y)$ e si ha che $\varPsi (y_0+h)-\varPsi (y_0) = \varPsi^{'}(y_0 + \alpha k)k = \partial_{y}f(x_0+h,y_0+\alpha k)k$ per $\alpha\in ]0,1[ $\\
+	la funzione $\varphi $ è una funzione reale di una variabile reale ed in virtù del teorema di Lagrange $\varphi (x_0+h)-\varphi (x_0) = \varphi'(x_0 + \beta h)h$ per $\beta\in ]0,1[ $, per come definita $\varphi$ si ha che $\varphi'(x_0 + \beta h)h = \partial_{x}f(x_0+\beta h,y_0)h$\\
+	con un ragionamento del tutto analogo si può definire $\varPsi (x) = f(x_0+h,y)$ e si ha che $\varPsi (y_0+h)-\varPsi (y_0) = \varPsi'(y_0 + \alpha k)k = \partial_{y}f(x_0+h,y_0+\alpha k)k$ per $\alpha\in ]0,1[ $\\
 	Quindi
 	$$ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = $$
 	$$= [\partial_{x}f(x_0+\beta h,y_0)h] + [\partial_{y}f(x_0+h,y_0+\alpha k)k] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = $$
@@ -220,7 +220,7 @@ $$\left\| AB \right\| \le \left\| A \right\| \left\| B \right\|  $$
 \begin{proof}
 	sia $F:[0,1]\rightarrow \R$ che $t\rightarrow f(tx_1+(1-t)x_0)$\\
 	%moltiplicando per $v\in \R^m$ ottengo una funzione in $\R^m$\\
-	La funzione $F$ è una funzione reale di variabile reale , posso quindi applicare il teorema di Lagrange $F(1)-F(0)=F^{'}(\theta)1$ quindi $f(x_1)-f(x_0) = Df(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
+	La funzione $F$ è una funzione reale di variabile reale , posso quindi applicare il teorema di Lagrange $F(1)-F(0)=F'(\theta)1$ quindi $f(x_1)-f(x_0) = Df(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
 	scelto $v\in \R^m$ con $v = \frac{f(x_1)-f(x_0)}{\left\| f(x_1)-f(x_0)\right\| }$ moltiplico entrambi i membri per $v$ si ottiene $v(f(x_1)-f(x_0)) = vDf(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
 	... da finire per bene
 \end{proof}
@@ -312,30 +312,30 @@ $\exists \partial^2_{xy}f(x,y)$ e $\exists \partial^2_{yx}f(x,y)$ in un intorno 
 	L'idea è quella di calcolare $q$ in due modi diversi e osservare che le due scritture rappresentano la stessa quntità quindi sono uguali.\\
 	$$q=[f(x_0+h,y_0+k)-f(x_0+h,y_0)]-[f(x_0,y_0+k)-f(x_0,y_0)]$$
 	scelgo una funzione $\varphi(h)=f(x_0+h,y_0+k)-f(x_0+h,y_0)$
-	$$q=\varphi(h)-\varphi(0) = \varphi^{'}(\alpha^{'} h)h$$
-	valida per $\alpha^{'}\in ]0,1[$ e $\varphi^{'}(h)=\partial_{x}f(x_0+h,y_0+k)-\partial_{x}f(x_0+h,y_0)$
-	$$q = [\partial_{x}f(x_0+\alpha^{'}h,y_0+k)-\partial_{x}f(x_0\alpha^{'}h+,y_0)]h$$
+	$$q=\varphi(h)-\varphi(0) = \varphi'(\alpha' h)h$$
+	valida per $\alpha'\in ]0,1[$ e $\varphi'(h)=\partial_{x}f(x_0+h,y_0+k)-\partial_{x}f(x_0+h,y_0)$
+	$$q = [\partial_{x}f(x_0+\alpha'h,y_0+k)-\partial_{x}f(x_0\alpha'h+,y_0)]h$$
 	scelgo una funzione $\varPhi(k)=\partial{x}f(x_0+h,y_0+k)$
-	$$q=[\varPhi(k)-\varPhi(0)]h=\varPhi^{'}(\beta^{'}k)hk$$
-	valida per $\beta^{'}\in ]0,1[$ e $\varPhi^{'}(k)=\partial_{y}\partial_{x}f(x_0+\alpha^{'}h,y_0+k)$
-	$$q = \partial^2_{xy}f(x_0+\alpha^{'}h,y_0+\beta^{'}k)hk$$
+	$$q=[\varPhi(k)-\varPhi(0)]h=\varPhi'(\beta'k)hk$$
+	valida per $\beta'\in ]0,1[$ e $\varPhi'(k)=\partial_{y}\partial_{x}f(x_0+\alpha'h,y_0+k)$
+	$$q = \partial^2_{xy}f(x_0+\alpha'h,y_0+\beta'k)hk$$
 	Ma $q$ può anche essere calcolata in un secondo modo
 	$$q=[f(x_0+h,y_0+k)-f(x_0,y_0+k)]-[f(x_0+h,y_0)-f(x_0,y_0)]$$
 	scelgo una funzione $\psi(k)=f(x_0+h,y_0+k)-f(x_0,y_0+k)$
-	$$q=\psi(k)-\varphi(0) = \psi^{'}(\alpha^{''}k)k$$
-	valida per $\alpha^{''}\in ]0,1[$ e $\psi^{'}(k)=\partial_{y}f(x_0+h,y_0+k)-\partial_{y}f(x_0,y_0+k)$
-	$$q = [\partial_{y}f(x_0+h,y_0+\alpha^{''}k)-\partial_{y}f(x_0,y_0+\alpha^{''}k)]k$$
-	scelgo una funzione $\Psi(h)=\partial{y}f(x_0+h,y_0+\alpha^{''}k)$
-	$$q=[\Psi(h)-\varPhi(0)]k=\Psi^{'}(\beta^{''}k)hk$$
-	valida per $\beta^{''}\in ]0,1[$ e $\Psi^{'}(h)=\partial_{x}\partial_{y}f(x_0+h,y_0+\beta^{''}k)$
-	$$q = \partial^2_{xy}f(x_0+\alpha^{''}h,y_0+\beta^{''}k)hk$$
+	$$q=\psi(k)-\varphi(0) = \psi'(\alpha''k)k$$
+	valida per $\alpha''\in ]0,1[$ e $\psi'(k)=\partial_{y}f(x_0+h,y_0+k)-\partial_{y}f(x_0,y_0+k)$
+	$$q = [\partial_{y}f(x_0+h,y_0+\alpha''k)-\partial_{y}f(x_0,y_0+\alpha''k)]k$$
+	scelgo una funzione $\Psi(h)=\partial{y}f(x_0+h,y_0+\alpha''k)$
+	$$q=[\Psi(h)-\varPhi(0)]k=\Psi'(\beta''k)hk$$
+	valida per $\beta''\in ]0,1[$ e $\Psi'(h)=\partial_{x}\partial_{y}f(x_0+h,y_0+\beta''k)$
+	$$q = \partial^2_{xy}f(x_0+\alpha''h,y_0+\beta''k)hk$$
 	Abbiamo quindi trovato che 
-	$$ \partial^2_{xy}f(x_0+\alpha^{'}h,y_0+\beta^{'}k)hk = \partial^2_{xy}f(x_0+\alpha^{''}h,y_0+\beta^{''}k)hk$$
+	$$ \partial^2_{xy}f(x_0+\alpha'h,y_0+\beta'k)hk = \partial^2_{xy}f(x_0+\alpha''h,y_0+\beta''k)hk$$
 	Ci sarebbe un disegno ...\\
 	...\\
-	Abbiamo trovato che le derivate parziali seconde miste coincidono in due punti ad esempio quelli segnati con il cerchio, poiché $\alpha^{'},\alpha^{''},\beta{'},\beta^{''}$ li abbiamo scelti in $]0,1[$\\
+	Abbiamo trovato che le derivate parziali seconde miste coincidono in due punti ad esempio quelli segnati con il cerchio, poiché $\alpha',\alpha'',\beta{'},\beta''$ li abbiamo scelti in $]0,1[$\\
 	poiché $h,k$ li abbiamo scelti del tutto arbitrari allora facciamo il limite e poiché le due quantità sono uguali allora sono uguali anche i limiti.\\
-	allora per $(h,k)\rightarrow (0,0)$ anche $\alpha^{'},\alpha^{''},\beta{'},\beta^{''}$ cambiano ma essendo limitati tra $]0,1[$ moltiplicandoli oer una quantità che tende a zero fa tutto zero.\\
+	allora per $(h,k)\rightarrow (0,0)$ anche $\alpha',\alpha'',\beta{'},\beta''$ cambiano ma essendo limitati tra $]0,1[$ moltiplicandoli oer una quantità che tende a zero fa tutto zero.\\
 	Usando la continuità, per $(h,k)\rightarrow (0,0)$ ottengo $\partial^2_{xy}f(x_0,y_0)=\partial^2_{yx}f(x_0,y_0)$
 \end{proof}
 \observation
@@ -423,7 +423,7 @@ cioè $\forall x\in X$ (sto fissando una x) $f^x:Y\rightarrow \R^m$ che $y\right
 \draw[domain=-1:4,smooth,variable=\x,blue] plot ({\x},{(1/8)*(\x*\x)-(\x)+1.9});
 \end{tikzpicture}
 }\\
-Scelgo un punto $y_0$ ne prendo il valore sulla curva, disegno la tangente e chiamo $y_1$ l'intersezione con l'asse $y$. Itero il processo $y_n+1=y_n\frac{f(y_n)}{f^{'}(y_n)}$\\
+Scelgo un punto $y_0$ ne prendo il valore sulla curva, disegno la tangente e chiamo $y_1$ l'intersezione con l'asse $y$. Itero il processo $y_n+1=y_n\frac{f(y_n)}{f'(y_n)}$\\
 discorso al momento difficile per me....\\
 \begin{proof}
 	Dobbiamo partire da $f(x,y)=0$ arrivare a $y=\varphi(x)$,vogliamo applicare un raginamento simile a quello della Metodo di Newton, passando però per il concetto di punto fisso, il teorema delle Contrazioni ci assicura che esiste unico.\\
@@ -506,18 +506,18 @@ $\Rightarrow $ si ha:\\
 \begin{enumerate}
 	\item $\exists \varphi: \mathcal{X}\rightarrow\mathcal{Y}$ definita implicitamente da $f(x_0,y_0)=0$
 	\item $\varphi\in C^0(\mathcal{X},\mathcal{Y})$
-	\item $\varphi$ è derivabile e $\varphi^{'}(x)=-[\partial_yf(x,\varphi(x))]^{-1}\partial_xf(x,\varphi(x))$
+	\item $\varphi$ è derivabile e $\varphi'(x)=-[\partial_yf(x,\varphi(x))]^{-1}\partial_xf(x,\varphi(x))$
 \end{enumerate}
 \begin{proof}
 	$f(x,y)=0\Leftrightarrow y=\varphi(x)$, derivando $D(f(x,\varphi(x)))=0$\\
-	$\partial_xf(x,\varphi(x))+\partial_yf(x,\varphi(x))\varphi^{'}(x)=0$\\
-	allora $\varphi^{'}(x) = -\frac{\partial_xf(x,\varphi(x))}{\partial_yf(x,\varphi(x))}$
+	$\partial_xf(x,\varphi(x))+\partial_yf(x,\varphi(x))\varphi'(x)=0$\\
+	allora $\varphi'(x) = -\frac{\partial_xf(x,\varphi(x))}{\partial_yf(x,\varphi(x))}$
 \end{proof}
 \observation Non essendoci motivo per preferire la $x$ alla $y$ o viceversa, esiste anche una versione di questo teorema  in  cui le ipotesi sono le stesse eccetto l'ultima che diventa $\partial_xf(x_0,y_0)\ne 0$
 \begin{enumerate}
 	\item $\exists \psi: \mathcal{Y}\rightarrow\mathcal{X}$ definita implicitamente da $f(x,y)=0$
 	\item $\psi\in C^0(\mathcal{Y},\mathcal{X})$
-	\item $\psi$ è derivabile e $\psi^{'}(y)=-[\partial_xf(\psi(y),y)]^{-1}\partial_yf(\psi(y),y)$
+	\item $\psi$ è derivabile e $\psi'(y)=-[\partial_xf(\psi(y),y)]^{-1}\partial_yf(\psi(y),y)$
 \end{enumerate}
 Qualche esempio qui\\
 \section{Il Teorema della funzione Inversa}
@@ -551,8 +551,8 @@ $x_0$ è punto di minimo locale relativo per $f \rightleftharpoons \exists r>0: 
 \proposition{Teorema di Fermat}\\
 sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$. Se $x_0$ è punto di massimo(0 minimo) locale per $f$ su $A$ e $f$ è differenziabile in $x_0$ allora $\nabla f(x_0)=0$.
 \begin{proof}
-	Sia $v\in \R^n$ con $\left\| v\right\| =1$, la funzione $F(t)= f(x_0+tv)$ che a $t\rightarrow x_0+tv$ è il moto rettilineo uniforme che passa da $x_0$ all'istante $0$ e si muove con velocità vettore costante $v$. cioè per tempi negativi mi avvicino a $x_0$ al tempo zero si è in $x_0$ e per tempi positivi si allontana da $x_0$. quindi $t=0$ è punto di massimo per $F$, allora $F^{'}(0) = 0$ per il teorema di Fermat di A1.\\
-	Ora abbiamo che $F^{'}(t)=\nabla f(x_0+tv)v$ quindi $F^{'}(0)=\nabla f(x_0)v$ cioè $\nabla f(x_0)v=0$.\\
+	Sia $v\in \R^n$ con $\left\| v\right\| =1$, la funzione $F(t)= f(x_0+tv)$ che a $t\rightarrow x_0+tv$ è il moto rettilineo uniforme che passa da $x_0$ all'istante $0$ e si muove con velocità vettore costante $v$. cioè per tempi negativi mi avvicino a $x_0$ al tempo zero si è in $x_0$ e per tempi positivi si allontana da $x_0$. quindi $t=0$ è punto di massimo per $F$, allora $F'(0) = 0$ per il teorema di Fermat di A1.\\
+	Ora abbiamo che $F'(t)=\nabla f(x_0+tv)v$ quindi $F'(0)=\nabla f(x_0)v$ cioè $\nabla f(x_0)v=0$.\\
 	Quindi $\forall v :\left\| v\right\| =1$ vale $\nabla f(x_0)=0$\\
 	OSS:: Vale anche che $D_vf(x_0)=0$
 \end{proof}
@@ -693,10 +693,10 @@ un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al v
 	Il T.F.IMPL. assicura che :\\
 	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
 	$f(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \Leftrightarrow y=\varphi(x)$\\
-	La retta tangente in $x_0$ a $y=\varphi(x)$ è $y=y_0+\varphi^{'}(x_0)(x-x_0)$\\
-	questo vuole dire che un vettore tangente a $y=\varphi(x)$ in $(x_0,y_0)$ è $\begin{bmatrix}1\\\varphi^{'}(x_0)\end{bmatrix}$.\\
+	La retta tangente in $x_0$ a $y=\varphi(x)$ è $y=y_0+\varphi'(x_0)(x-x_0)$\\
+	questo vuole dire che un vettore tangente a $y=\varphi(x)$ in $(x_0,y_0)$ è $\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix}$.\\
 	... calcolo il prodotto scalare\\
-	$$\nabla f(x_0,y_0)\begin{bmatrix}1\\\varphi^{'}(x_0)\end{bmatrix} = \begin{bmatrix}\partial_x f(x_0,y_0)&&\partial_y f(x_0,y_0)\end{bmatrix}\begin{bmatrix}1\\-\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}\end{bmatrix} =$$ 
+	$$\nabla f(x_0,y_0)\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} = \begin{bmatrix}\partial_x f(x_0,y_0)&&\partial_y f(x_0,y_0)\end{bmatrix}\begin{bmatrix}1\\-\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}\end{bmatrix} =$$ 
 	$$=\partial_x f(x_0,y_0) -\partial_y f(x_0,y_0)\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}=0$$
 	Allora il graadiente è perpendicolare alla curva di livello.\\
 	Guardiamo ora al caso in cui $\partial_yf(x_0,y_0)= 0$ e $\partial_xf(x_0,y_0)\ne 0$ quindi il gradiente è non nullo.\\
@@ -732,9 +732,9 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 	$g(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \Leftrightarrow y=\varphi(x)$\\
 	Osserviamo che dire $(x_0,y_0)$ di massimo o minimo per $f$ ristretta a $g(x,y)=0\Leftrightarrow x_0$ è di massimo o di minimo per la funzione $x\rightarrow f(x,\varphi(x))$.\\
 	Per il teorema di Fermat $\left.\frac{d}{dx}(f(x,\varphi(x)))\right\|_{x=x_0}=0$, punto stazionario ha derivata nulla, e la derivata di quella funzione in $x_0$ è:
-	$$\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi^{'}(x_0)$$ 
+	$$\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)$$ 
 	allora
-	$$0=\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi^{'}(x_0)=$$
+	$$0=\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)=$$
 	$$=\partial_xf(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\frac{\partial_xg(x_0,\varphi(x_0))}{\partial_yg(x_0,\varphi(x_0))}=$$\\
 	$$=\partial_xf(x_0,\varphi(x_0))\partial_yg(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\partial_xg(x_0,\varphi(x_0))=det\left(\begin{matrix}\partial_xf(x_0,y_0)&&\partial_yf(x_0,y_0)\\\partial_xg(x_0,y_0)&&\partial_yg(x_0,y_0)\end{matrix}\right)=0$$\\
 	questo equivale a dire che i vettori riga della matrice sono paralleli quindi $\exists\alpha\in \R : \nabla f(x_0,y_0)=\lambda\nabla g(x_0,y_0)$.\\
@@ -749,7 +749,7 @@ Se $x_0$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda_1,\ld
 \proposition{Teorema Fondamentale del Calcolo Integrale}
 Sia $I\subseteq \R$ un intervallo e sia $x_0\in I$. Data $f\in c^0(I;R)$ la funzione:\\
 $\begin{array}{rcl} F: I & \to & \R \\ x & \to & \int_{x_0}^{x}f(t)dt \end{array}$\\
-Si ha $F\in C^1(I;R)$ e $F^{'}(x)=f(x)$ $\forall x \in I$
+Si ha $F\in C^1(I;R)$ e $F'(x)=f(x)$ $\forall x \in I$
 \proposition
 Sia $A\subseteq \R^n$ un aperto, data $f\in C^0(A\times \R;R)$ la funzione \\
 $\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to & \int_{\alpha}^{\beta}f(x,t)dt \end{array}$\\
