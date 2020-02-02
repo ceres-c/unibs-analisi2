@@ -10,6 +10,7 @@
 \usepackage{mathtools}
 \usepackage{pgfplots}
 \usepackage{accents}
+\usepackage{xparse}
 
 \begin{document}
 		
@@ -56,6 +57,18 @@
 \newcommand{\rvect}[1]{\begin{bmatrix} #1 \end{bmatrix}}
 
 \newcommand{\circdot}[1]{\accentset{\circ}{#1}}
+
+\DeclareDocumentCommand{\funcdef}{m m o m o s o}{ % This command allows formal function definition and require xparse
+  \begin{array}{r@{\ }c@{\,}c@{\,}l}
+    #1:
+  & \IfNoValueTF{#3}{#4}{#3}
+  & \to & #4 \\
+  & #2
+  & \mapsto
+  & \IfNoValueTF{#5}{#1(#2)}{#5}
+    \IfNoValueTF{#7}{}{\mathrel{:=}#7}
+  \end{array}
+}
 
 \author{Mauro Conte, Federico Cerutti}
 \title{Appunti di Analisi 2}

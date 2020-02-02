@@ -41,7 +41,7 @@ un'equazione differenziale è in forma normale  se e solo se si presenta nella f
 $$x^{(n)} = g(t,x, x',\ldots,x^{(n-1)})$$
 \observation
 lo studio di un'equazione differenziale ordinaria in forma non normale inizia generalmente con l'utilizzo del Teorema della Funzione Implicita insieme ai teoremi sulle equazioni differenziali ordinarie in forma normale
-\proposition
+\proposition\label{prop:equaz_n_equival_1}
 ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$, cioè in cui compaiono solamente derivate prime.
 \begin{proof}
 	Data l'equazione
@@ -60,27 +60,71 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	introduco $ X'=\begin{bmatrix} x'\\ x''\end{bmatrix}$ e $X=\begin{bmatrix}x\\ x'\end{bmatrix}$\\
 	quindi $ X'=f(t,X)$
 \end{example}
-\definition
-si dice problema di Cauchy del primo ordine il problema di determinare una soluzione di un equazione differenziale ordinaria del primo ordine soddisfacente ad una condizione iniziale.\\
-c'è una nota sul ben posto.......\\
-$$\left\{\begin{matrix}x'=f(t,x)\\x(t_0)=x_0
-\end{matrix}\right.$$
-Dove $f:J\times A\to \R^n$, $J\subseteq \R$ è un intervallo, $t_0\in\circdot{J}$, $A\in \R^n$, $x_0\in\circdot{A}$.\\
-Soluzione di un problema di Cauchy è una funzione $x:J\to \R^n$ che sia soluzione dell'equazione differenziale $ x'=f(t,x)$ definita in un intervallo $I$ contenente $t_0$ nella sua parte interna, $I\subseteq J$, tale che $x(t_0)=x_0$ e $x(I)\subseteq A$, e x derivabile.
+\begin{definition}
+	\label{def:prob_cauchy_ord_1}
+	si dice problema di Cauchy del primo ordine il problema di determinare una soluzione di un'equazione differenziale ordinaria del primo ordine, soddisfacente ad una condizione iniziale.
+	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
+	Dove $f:J\times A\to \R^n$, $J\subseteq \R$ è un intervallo, $t_0\in\circdot{J}$, $A\subseteq \R^n$, $x_0\in\circdot{A}$.\\
+	Soluzione di un problema di Cauchy è una funzione $x:I\to \R^n$, definita in un intervallo $I$ contenente $t_0$ nella sua parte interna, quindi $t_0\in I\subseteq J$.\\
+	Tale funzione $x$ è soluzione dell'equazione differenziale $x'=f(t,x)$ ed è tale che:
+	\begin{enumerate}
+		\item $x(t_0)=x_0$
+		\item $x(I)\subseteq A$
+		\item $x$ derivabile
+	\end{enumerate}
+\end{definition}
+\note
+La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la definizione \ref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione, ma i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
+\begin{definition}
+	soluzione massimale di un problema di Cauchy è una soluzione $$x_M:I_M\mapsto R^k$$ tale che nessun'altra soluzione della stessa equazione possa essere definita in un intervallo $I$ con $I_M \subset I$. Quindi è la soluzione definita sull'intervallo maggiore possibile.
+\end{definition}
+\begin{definition}
+	si dice problema di Cauchy di ordine $n$ il seguente problema:\\
+	Determinare una soluzione di un'equazione differenziale ordinaria di ordine $n$ soddisfacente a $n$ condizioni iniziali:
+	$$\begin{cases}
+		x^{(n)}=f(t,x,x',\dotsc,x^{(n-1)})\\
+		x(t_0)=\alpha_0\\
+		x'(t_0)=\alpha_1\\
+		\vdots\\
+		x^{(n-1)}(t_0)=\alpha_{n-1}
+	\end{cases}$$
+\end{definition}
+\note
+Le condizioni iniziali devono essere assegnate tutte nello steso istante.
+\begin{example}
+	il problema di Cauchy $$\begin{cases}x'=x\\x(0)=1\end{cases}$$
+	ammette, tra le altre, anche le seguenti soluzioni, tecnicamente distinte tra loro
+	$$\funcdef{f_1}t[\realintervalclose{-1}{1}]{\R}[e^t] \qquad \funcdef{f_2}t[\realintervalclose{-2}{10}]{\R}[e^t]$$
+	La soluzione massimale è
+	$$\funcdef{f_M}t[\R]{\R}[e^t]$$
+	con intervallo di partenza $\R$, avente evidentemente diametro maggiore possibile.
+\end{example}
+\begin{proposition}
+	ogni problema di Cauchy di ordine $n$ è equivalente ad un problema di Cauchy del primo ordine
+	\begin{proof}
+		Dalla \ref{prop:equaz_n_equival_1}
+	\end{proof}
+\end{proposition}
+
 \observation
-la condizione $x(t_0)=x_0$ viene abitualmente chiamata condizione iniziale nonostante la definizione di soluzione richieda che la stessa sia definita in un intervallo contenente $t_0$ nella sua parte interna. In molte applicazioni delle equazioni differenziali ordinare $t_0$ è proprio l'inizio dell'intervallo in cui si cerca la soluzione. I risultati seguenti continuano a valere con piccole modifiche alle dimostrazioni.??????????
-\observation
-in generale un problema si dice BEN POSTO o BEN POSTO NEL SENSO DI HADAMARD ogniqualvolta:
+in generale un problema si dice \textbf{ben posto} o \textbf{ben posto nel senso di Hadamard} ogniqualvolta la soluzione:
 \begin{enumerate}
 	\item esiste
 	\item è unica
 	\item dipende con continuità dai dati
 \end{enumerate} 
 \section{La Legge di Malthus}
-Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.\\
+Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.
 $$ x'=k\cdot x$$
 dove $x$ è il numero di membri della popolazione e $k$ è una costante positiva legata alla prolificità della specie in esame, generalmente calcolata come differenza tra i tassi di natalità e di mortalità.\\
-Il problema di Cauchy è quindi $\left\{\begin{matrix} x'=k\cdot x\\x(0)=0\end{matrix}\right.$ con $x\in \R, k>0 $ e $ x_0=0$
+Il problema di Cauchy è quindi
+$$\begin{cases}
+	x'=k\cdot x\\
+	x(t_0)=x_0\\
+\end{cases}$$
+con $x\in \R, k>0 $ e $ x_0=0$ % TODO questo va messo a fianco del sistema
+
+$\left\{\begin{matrix} x'=k\cdot x\\x(0)=0\end{matrix}\right.$ con $x\in \R, k>0 $ e $ x_0=0$ % TODO regex matta per fare sistemi
 
 \begin{center}
 	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
