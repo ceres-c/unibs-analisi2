@@ -9,13 +9,13 @@ x & \to & \int_{a}^b f(t,x(t), x'(t))dt\end{array}$$
 eventualmente soggetti a vincoli sui valori $x(a)$ e $x(b)$ o sul valore di un integrale del tipo $\int_a^b \varphi(x(t))dt$.\\
 Dove:
 $$\realfunction{f}{\realintervalclose{a}{b}\times\mathbb{R}^n\times\mathbb{R}^n}{\mathbb{R}}$$
-$$X=\left\{x\in C^1(\realintervalclose{a}{b});\mathbb{R}^n\text{ t.c.: }x(a)=x_a, x(b)=x_b \right\},\text{ con }x_a,x_b\in\mathbb{R}^n$$
+$$X=\left\{x\in \cntclass{1}(\realintervalclose{a}{b});\mathbb{R}^n\text{ t.c.: }x(a)=x_a, x(b)=x_b \right\},\text{ con }x_a,x_b\in\mathbb{R}^n$$
 \proposition
-Sia $f\in C^1(A\times\mathbb{R};\mathbb{R})$ con $a\subseteq\mathbb{R}^n$\\
+Sia $f\in \cntclass{1}(A\times\mathbb{R};\mathbb{R})$ con $a\subseteq\mathbb{R}^n$\\
 Se $\begin{array}{ccc} F: \mathbb{R}\times\mathbb{R}\times A & \to & \mathbb{R} \\
 x & \to & \int_{\alpha}^\beta f(x,t)dt\end{array}$
 Allora:
-$$ F\in C^1$$
+$$ F\in \cntclass{1}$$
 $$ \partial_\alpha F(\alpha,\beta,x)=-f(x,\alpha)$$
 $$ \partial_\beta F(\alpha,\beta,x)=f(x,\beta)$$
 $$ \nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)dt$$
@@ -36,12 +36,12 @@ per il teorema del valore medio differenziale(accrescimenti finiti)
 $$\sum\limits_{i=1}^{N}\left\|  \gamma'(t_i)(t_i-t_{i-1})\right\| =??$$
 $$\int_{a}^{b}\left\|  \gamma'(t) \right\| dt$$
 \proposition
-Se $\gamma\in C^1(\realintervalclose{a}{b};\mathbb{R}^n)\Rightarrow l(\gamma)=\int_a^b\left\| \gamma'(t)\right\|dt$
+Se $\gamma\in \cntclass{1}(\realintervalclose{a}{b};\mathbb{R}^n)\Rightarrow l(\gamma)=\int_a^b\left\| \gamma'(t)\right\|dt$
 \observation
 Se $\gamma$ è la traiettoria di un punto materiale,allora $\left\|\gamma\right\|$ è la norma della velocità istantanea, e quindi $l(\gamma)$ è lo spazio che si percorre, cioè l'integrale della velocità valutato tra $t??????t_i$ due istanti di tempo entro i quali si mantiene tale velocità.
 \observation
 Nel caso specifico sarà:
-$$ X=\left\{ x\in C^1(\left[a,b\right];\mathbb{R}2): x(a)=A, x(b)=B \right\} $$
+$$ X=\left\{ x\in \cntclass{1}(\left[a,b\right];\mathbb{R}2): x(a)=A, x(b)=B \right\} $$
 $$\begin{array}{ccc} 
 F: X & \to & \mathbb{R} \\
 x & \to & \int_{a}^b \left\| x'(t)\right\|dt
@@ -52,7 +52,7 @@ f: \left[a,b\right]\times\mathbb{R}^2\times\mathbb{R}^2 & \to & \mathbb{R} \\
 \end{array}$$
 \section{L'Equazione di Eulero}
 LEMMA:::LEMMA FONDAMENTALE DEL CALCOLO DELLE VARIAZIONI\\
-Sia $f\in C^0(\left[0,1\right];\mathbb{R})$ t.c.: $\forall v\in C^0(\left[0,1\right];\mathbb{R})$ con $v(0)=v(1)=0$ si abbia $\int_0^1 f(x)v(x)dx=0$\\
+Sia $f\in \cntclass{0}(\left[0,1\right];\mathbb{R})$ t.c.: $\forall v\in \cntclass{0}(\left[0,1\right];\mathbb{R})$ con $v(0)=v(1)=0$ si abbia $\int_0^1 f(x)v(x)dx=0$\\
 Allora $f(x)\equiv 0\forall x\in\left[0,1\right]$ 
 \begin{proof}
 	\begin{center}
@@ -88,14 +88,14 @@ Allora $f(x)\equiv 0\forall x\in\left[0,1\right]$
 \observation
 Questo lemma è concettualmente analogo al Teorema di Fermat nel capitolo delle derivate.
 \corollary LEMMA CASO VETTORIALE.\\
-Sia $f\in C^0(\left[a,b\right];\mathbb{R}^n)$ tale che $\forall v\in C^0(\left[a,b\right];\mathbb{R}^n)$ con $v(0)=v(1)=0$ si abbia $\int_0^1f(x)\bullet v(x)dx=0$ allora $f(x)\equiv 0$ $\forall x\in \left[0,1\right]$.
+Sia $f\in \cntclass{0}(\left[a,b\right];\mathbb{R}^n)$ tale che $\forall v\in \cntclass{0}(\left[a,b\right];\mathbb{R}^n)$ con $v(0)=v(1)=0$ si abbia $\int_0^1f(x)\bullet v(x)dx=0$ allora $f(x)\equiv 0$ $\forall x\in \left[0,1\right]$.
 \begin{proof}
 	Per questa dimostrazione si osservano componente per componente.\\
 	$\forall i=1,2,\ldots,n$ scelgo $v_j(x)=\left\{\begin{matrix}0&&j\ne i\\v_i(x)&&j=i \end{matrix}\right.$\\
 	A questo punto applico il lemma fondamentale alla componente $i$-esima $f_i$ di $f$.
 \end{proof}
 \corollary
-Sia $f\in C^0(\left[a,b\right];\mathbb{R})$ e $k\in\mathbb{N}$ tale che $\forall v\in C^k(\left[a,b\right];\mathbb{R}^n)$ con $v(0)=v(1)=0$ si abbia $\int_0^1f(x)v(x)dx=0$ allora $f(x)\equiv 0$ $\forall x\in \left[0,1\right]$.
+Sia $f\in \cntclass{0}(\left[a,b\right];\mathbb{R})$ e $k\in\mathbb{N}$ tale che $\forall v\in \cntclass{k}(\left[a,b\right];\mathbb{R}^n)$ con $v(0)=v(1)=0$ si abbia $\int_0^1f(x)v(x)dx=0$ allora $f(x)\equiv 0$ $\forall x\in \left[0,1\right]$.
 \begin{proof}
 	\begin{tikzpicture}[scale=1]
 		\draw[->] (0,0) -- (1.2,0) node[anchor=north west] {$x$};
@@ -109,16 +109,16 @@ Sia $f\in C^0(\left[a,b\right];\mathbb{R})$ e $k\in\mathbb{N}$ tale che $\forall
 		\draw[domain=0.8:1,smooth,red,variable=\x] plot ({\x},{0});
 		\draw[domain=0:1,smooth,blue,variable=\x] plot ({\x},{ e^(-((\x-0.5)*10)^2) });
 	\end{tikzpicture}
-	\'E sempre lo stesso lemma con l'aggiunta che la funzione $v$ sia di classe $C^k$.\\
+	\'E sempre lo stesso lemma con l'aggiunta che la funzione $v$ sia di classe $\cntclass{k}$.\\
 	Se si chiama $u$ la funzione blu e $v$ la funzione rossa abbiamo:
 	$$\int_0^1 f(x)u(x)dx>0$$
-	Se $v$ è un po più regolare , prendiamo $v=u^(k+1)(x)$. cioè se vogliamo $v\in C^k$ prendiamo.....\\
+	Se $v$ è un po più regolare , prendiamo $v=u^(k+1)(x)$. cioè se vogliamo $v\in \cntclass{k}$ prendiamo.....\\
 	LA DINMOSTRAZIONE E A ME INCOMPRENSIBILE.
 \end{proof}
 
 \theorem EQUAZIONE DI EULERO.\\
-Sia $f\in C^2\left(\left[a,b\right]\times\mathbb{R}^n\times\mathbb{R}^n;\mathbb{R}\right)$ con $a,b\in\mathbb{R}$ e $a<b$.\\
-Sia $X=\left\{x\in C^2\left(\left[a,b\right];\mathbb{R}^n\right): x(a)=A, x(b)=B\right\}$ con $A,B\in\mathbb{R}^n$.\\
+Sia $f\in \cntclass{2}\left(\left[a,b\right]\times\mathbb{R}^n\times\mathbb{R}^n;\mathbb{R}\right)$ con $a,b\in\mathbb{R}$ e $a<b$.\\
+Sia $X=\left\{x\in \cntclass{2}\left(\left[a,b\right];\mathbb{R}^n\right): x(a)=A, x(b)=B\right\}$ con $A,B\in\mathbb{R}^n$.\\
 Sia $\begin{array}{ccc} F: X & \to & \mathbb{R} \\
 x & \to & \int_{a}^b f(t,x(t), x'(t))dt\end{array}$.\\
 Se la funzione $x_\ast\in X$ è t.c. $F(x_\ast)=\max\left\{F(x):x\in X \right\}$ [o min]\\
@@ -128,7 +128,7 @@ Questa ultima equzione è l'equazione di Eulero-Lagrange del Funzionale $F$ o a 
 	 Sia $\varphi(h)=F(x_\ast+hv)$, dove $x_\ast\in X$ e $x_\ast+hv\in X$, con $h$ piccolo.\\
 	 L'equazione di Eulero-Lagrange in apparenza complicata è analoga ad un equazione di analisi1 del tipo $f'=0$ oppure in analisi due a $\nabla f=0$. solo che ora sono cavoli amari.\\
 	 Come si sceglie la variazione $v$ in modo che $x_\ast+hv\in X$, con $h$ piccolo.\\
-	 $X$ è l'insieme delle funzioni di $C^2$, si sa che $x_\ast\in C^2$, una scelta opportuna di $v$ è $v\in C^2(\left]a,b\right[;\mathbb{R}^n)$.\\
+	 $X$ è l'insieme delle funzioni di $\cntclass{2}$, si sa che $x_\ast\in \cntclass{2}$, una scelta opportuna di $v$ è $v\in \cntclass{2}(\left]a,b\right[;\mathbb{R}^n)$.\\
 	 Inotre deve essere che $ x_\ast(a)+hv(a)=A$ e  $x_\ast(b)+hv(b)=B$ per restare dentro l'insieme $X$.
 	 Quindi $v(a)=v(b)=0$.
 	 $h$ è uno scalare e per ipotesi si sa che $F(x_\ast)$ è punto di massimo, quindi si conclude che $h=0$ è punto di massimo per la funzione $\varphi$.\\

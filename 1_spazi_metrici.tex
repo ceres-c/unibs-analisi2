@@ -34,7 +34,7 @@ si dimostra che la funzione così definita è una distanza:
 \end{enumerate}
 
 \example
-$$X=\bbset{R},\quad d(x_1,x_2)=\left| x_2-x_1 \right|$$
+$$X=\R,\quad d(x_1,x_2)=\left| x_2-x_1 \right|$$
 Le  proprietà 1,2,3 sono soddisfatte per le proprietà del modulo.\\
 La proprietà 4 si può dimostrare: $d(x_1,x_3)=\left|x_3-x_1\right|\le\left|x_3-x_2\right|+\left|x_2-x_1\right|=d(x_3,x_2)+d(x_2,x_1)$
 
@@ -49,7 +49,7 @@ $$d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{y_i-x_i}^2}$$
 Analogo al primo esempio
 
 \example
-$$X=C^0(\realintervalclose{a}{b},\bbset{R}),a,b\in\bbset{R}, a<b$$
+$$X=\cntclass{0}(\realintervalclose{a}{b},\R),a,b\in\R, a<b$$
 $$d_\infty=\sup\limits_{x\in\realintervalclose{a}{b}}\left|g(x)-f(x)\right|$$
 \begin{enumerate}
 	\item $X$ contiene infiniti elementi(funzioni)
@@ -58,7 +58,7 @@ $$d_\infty=\sup\limits_{x\in\realintervalclose{a}{b}}\left|g(x)-f(x)\right|$$
 \end{enumerate}
 Si verificano le 4 proprietà di distanza:
 \begin{enumerate}
-	\item Se $\sup = \infty$ non va bene poiché l'insieme di arrivo è $\bbset{R}$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$
+	\item Se $\sup = \infty$ non va bene poiché l'insieme di arrivo è $\R$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$
 	\item se e solo se hanno lo stesso dominio e per ogni punto di esso entrambe le funzioni hanno la stessa immagine
 	\item $\dinfty{f}{g}=\ddinfty{f}{g}{\realintervalclose{a}{b}}=\ddinfty{g}{f}{\realintervalclose{a}{b}}=\dinfty{g}{f}$
 	\item $\left| h(x)-f(x) \right|\le\left|h(x)-g(x)\right|+\left|g(x)-f(x)\right| $, applicando il sup la disuguaglianza resta vera
@@ -87,10 +87,10 @@ $$d'(x,y)=\left| x_1-y-1 \right|+\left|x_2-y-2\right|$$
 
 \example
 \example
-$$X=C^0(\realintervalclose{0}{1},\bbset{R})$$
+$$X=\cntclass{0}(\realintervalclose{0}{1},\R)$$
 $$d_2=\int_0^1\left|g(x)-f(x)\right|d(x)$$
 \example
-$$X=C^0(\realintervalclose{a}{b},\bbset{R}), a,b\in\bbset{R}, a<b$$
+$$X=\cntclass{0}(\realintervalclose{a}{b},\R), a,b\in\R, a<b$$
 $$d_2=\sqrt{\int_a^b\left[g(x)-f(x)\right]^2d(x)}$$
 
 \proposition
@@ -106,7 +106,7 @@ Un insieme è infinito se non è finito
 \definition
 Sia $(X,d)$s.m., $A\subseteq X$, $A\ne \emptyset$ si definisce diametro di A: $$diam(A)=\sup\limits_{x,y\in A}d(x,y)$$
 \definition
-$A$ è limitato $\leftrightharpoons diam(A)$ è finito ($\in\bbset{R}$)
+$A$ è limitato $\leftrightharpoons diam(A)$ è finito ($\in\R$)
 \definition
 $A$ è illimitato $\leftrightharpoons diam(A)$ è infinito ($=\infty$)
 \example
@@ -130,7 +130,7 @@ $X$ è uno spazio (vettoriale) normato sul campo $\bbset{K}$ se:
 \begin{description}
 	\item[$\bullet$] $X$ è uno spazio vettoriale sul campo $\bbset{K}$
 	\item[$\bullet$] se è definita una norma su $X$, ovvero una funzione\\
-	$\left\| \cdot \right\|:X\to\bbset{R}$ con le seguenti proprietà:
+	$\left\| \cdot \right\|:X\to\R$ con le seguenti proprietà:
 	\begin{enumerate}
 		\item $\forall x\in X,\quad\norm{x}\ge0$
 		\item $\forall x\in X,\quad\norm(x)=0\sse x=0$
@@ -140,7 +140,7 @@ $X$ è uno spazio (vettoriale) normato sul campo $\bbset{K}$ se:
 \end{description}
 
 \example
-$$X=\bbset{R}\quad\norm{x}=\abs{x}$$
+$$X=\R\quad\norm{x}=\abs{x}$$
 \example
 $$X=\bbsetn{R}{2}\quad\norm{\left[\begin{matrix}x\\y+\end{matrix}\right]}=\sqrt{x^2+y^2}$$
 \example
@@ -148,7 +148,7 @@ $$X=\bbsetn{R}{n}\quad x\equiv(x_1,\ldots,x_n)\quad \norm{x}=\sqrt{\sum\limits_{
 \example
 $$X=\bbset{C}\quad\norm{x}=\abs{x}$$
 \example
-$$X=C^0(\realintervalclose{a}{b},R)\quad\norm{f}\sup\limits_{x\in\realintervalclose{a}{b}}\abs{f}$$
+$$X=\cntclass{0}(\realintervalclose{a}{b},\R)\quad\norm{f}\sup\limits_{x\in\realintervalclose{a}{b}}\abs{f}$$
 
 \proposition
 Sia $X$ uni spazio normato allora $(X,d)$ è uno spazio metrico con $\begin{array}{rcl} d : X\times X & \to & \mathbb{R} \\ (x_1,x_2) & \to & \norm(x_1-x_2) \end{array}$\\
@@ -157,7 +157,7 @@ Inoltre per la distanza così definita valgono le seguenti proprietà:
 	\item INVARIANZA PER TRASLAZIONI
 	$$\forall x_1,x_2,x_3\in X \quad d(x_1,x_2)=d(x_1+x_3,x_2+x_3)$$
 	\item POSITIVAMENTE OMOGENEA
-	$$ \forall x_1,x_2\in X, \lambda\in\bbset{R}\quad d(\lambda x_1,\lambda x_2)=\abs{\lambda}d(x_1,x_2)$$
+	$$ \forall x_1,x_2\in X, \lambda\in\R\quad d(\lambda x_1,\lambda x_2)=\abs{\lambda}d(x_1,x_2)$$
 \end{enumerate}
 \begin{proof}
 	Per dimostrare che è uno spazio metrico si dimostra che valgono le proprietà di distanza
@@ -176,7 +176,7 @@ $$B(x_0,r)=\left\{ x\in X : d(x,y)<r  \right\}$$
 se $r=0\Rightarrow B(x_0,r)=\emptyset$\\
 se $r>0\Rightarrow x_0\in B(x_0,r)$
 \example
-In $\bbset{R}$ con $d_E$, $B(x_0,r)$ è un intervallo simmetrico centrato in $x_0$
+In $\R$ con $d_E$, $B(x_0,r)$ è un intervallo simmetrico centrato in $x_0$
 \example
 In $\bbsetn{R}{2}$ con $d_E$, $B(x_0,r)$ è una un cerchio con centro in $x_0$
 \example
@@ -185,7 +185,7 @@ In $\bbsetn{R}{3}$ con $d_E$, $B(x_0,r)$ è una sfera con centro in $x_0$
 \example
 
 \definition
-Siano $(X,d_1)$ e $(X,d_2)$ spazi metrici. $d_1$ e $d_2$ sono equivalenti $\leftrightharpoons \exists c,C\in\bbset{R}, c_1>0, c_2>0$ t.c:
+Siano $(X,d_1)$ e $(X,d_2)$ spazi metrici. $d_1$ e $d_2$ sono equivalenti $\leftrightharpoons \exists c,C\in\R, c_1>0, c_2>0$ t.c:
 $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 
 

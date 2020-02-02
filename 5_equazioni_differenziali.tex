@@ -177,7 +177,7 @@ Limiti di questo modello:
 La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$
 
 \proposition
-Siano $I\subseteq \R$ un intervallo aperto ed $A\subseteq \R^n$ un aperto. Ogni funzione $f\in \cntclass{1}{I\times A}{R^n}$ è localmente lipschitziana??? ..... uniformemente rispetto a $t\in I$.
+Siano $I\subseteq \R$ un intervallo aperto ed $A\subseteq \R^n$ un aperto. Ogni funzione $f\in \cntclass{1}(I\times A,R^n)$ è localmente lipschitziana??? ..... uniformemente rispetto a $t\in I$.
 \begin{proof}
 	sia $x\in A \Leftarrow \exists B(x_0,r)\subseteq A$ con $r>0$, anche $\overline{B(x_0,r)}\subseteq A$ scelto $r$ abbastanza piccolo, allora $\left\| f(t,x_2)-f(t,x_1)\right\|le\sup\limits_{(t,x)\in I\times \overline{B(x_0,r)}}\left\| Df() \right\|\left\| x_2-x_1 \right\|  $ per la formula degli accrescimenti finiti.  
 \end{proof}
@@ -186,7 +186,7 @@ Siano $I\subseteq \R$ un intervallo aperto ed $A\subseteq \R^n$ un aperto. Ogni 
 Si consideri il seguente problema di Cauchy: $\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
 \begin{enumerate}
 	\item $I\subseteq \R$ intervallo, $A\subseteq \R^n, t_0\in \circdot{I}, x_0\in \circdot{A}$
-	\item $f\in C^0(I\times A;R^n)$
+	\item $f\in \cntclass{0}(I\times A;R^n)$
 \end{enumerate}
 Allora esiste una soluzione, cioè $\exists J\subseteq I$ intervallo e $\exists \varphi:J\to \R^n$ con le proprietà:
 \begin{description}
@@ -275,7 +275,7 @@ x'=f(t,x)\\x(t_0)=x_0
 con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
 \begin{enumerate}
 	\item $I\subseteq \R^n$ intervallo, $t_0\in \circdot{I}, A\subseteq \R^n, x_0\in \circdot{A}$ 
-	\item $f\in C^0(I\times A; \R^n)$ queste prime due ipotesi garantiscono l'esistenza, Thm. Peano.
+	\item $f\in \cntclass{0}(I\times A; \R^n)$ queste prime due ipotesi garantiscono l'esistenza, Thm. Peano.
 	\item $f$ è localmente Lipschitziana in $x\in A$ uniformemente rispetto a $t\in I$
 \end{enumerate}
 Allora:
@@ -318,9 +318,9 @@ Allora:
 	$$ 
 	\left\| \varphi(t)-\psi(t) \right\| 
 	\le 
-	(\left\| x_0-y_0 \right\|+\delta\left\| f-g \right\|_{C^0})e^{L|t-t_0|}  
+	(\left\| x_0-y_0 \right\|+\delta\left\| f-g \right\|_{\cntclass{0}})e^{L|t-t_0|}  
 	$$
-	dove $\left\| f-g \right\|_{C^0}=\sup\limits_{I\times A}\left\|f(t,x)-g(t,x)\right\|$
+	dove $\left\| f-g \right\|_{\cntclass{0}}=\sup\limits_{I\times A}\left\|f(t,x)-g(t,x)\right\|$
 \end{enumerate}
 \observation
 L'equazione integrale 
@@ -353,8 +353,8 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	$\begin{array}{rcl} T: ? & \to & ? \\ x & \to & Tx \end{array}$, con $y(t)=x_0+\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$\\
 	Abbiamo raggiunto un problema di punto fisso ($x=Tx$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il Teorema delle contrazioni serve che lo spazio di partenza e di arrivo siano uguali e chiamiamo $\mathcal{X}$.\\
 	$\begin{array}{rcl} T: \mathcal{X} & \to & \mathcal{X} \end{array}$ t.c.: $y(t)=(Tx)(t)=x_0+\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$
-	Bisogna quindi scegliere l'insieme $\mathcal{X}$. è un insieme di funzioni, in cui l'equivalenza sopra deve avere senso, cioè serve $x$ continua per avere l'equivalenza con il problema di Cauchy, quindi $\mathcal{X}=C^0(\ldots)$.\\
-	Inoltre volendo una soluzione del problema di Cauchy, la funzione $x(penso sia y(t)=x)$ deve essere definita almeno su un intervallo contenente $t_0$ nella sua parte interna, non interessa l'estensione di tale intervallo quindi si può scegliere $\left[t_0-\delta,t_0+\delta\right]$, inoltre deve avere valori in un insieme con $x_0$ nella sua parte interna, $\overline{B(x_0,r)}$. Quindi $\mathcal{X}=C^0(\left[t_0-\delta,t_0+\delta\right];\overline{B(x_0,r)})$\\
+	Bisogna quindi scegliere l'insieme $\mathcal{X}$. è un insieme di funzioni, in cui l'equivalenza sopra deve avere senso, cioè serve $x$ continua per avere l'equivalenza con il problema di Cauchy, quindi $\mathcal{X}=\cntclass{0}(\ldots)$.\\
+	Inoltre volendo una soluzione del problema di Cauchy, la funzione $x(penso sia y(t)=x)$ deve essere definita almeno su un intervallo contenente $t_0$ nella sua parte interna, non interessa l'estensione di tale intervallo quindi si può scegliere $\left[t_0-\delta,t_0+\delta\right]$, inoltre deve avere valori in un insieme con $x_0$ nella sua parte interna, $\overline{B(x_0,r)}$. Quindi $\mathcal{X}=\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];\overline{B(x_0,r)})$\\
 	Per $\delta, r$ abbastanza piccoli si ha $\left[t_0-\delta,t_0+\delta\right]\subseteq I$, $\overline{B(x_0,r)}\subseteq A$, quindi adesso il problema è quello di determinare $\delta, r$.\\
 	Per poter applicare il teorema delle contrazioni:
 	\begin{description}
@@ -368,10 +368,10 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		\item[a-] $Tx$ definita significa poter calcolare l'integrale,per poter calcolare l'integrale devo poter calcolare la $f$, per calcolare la $f$ ho bisogno che $\tau$ e $x(\tau)$ stiano dentro gli insiemi su cui è definita la $f$, cioè $I,A$, per essere sicuri di non uscire dall'intervallo:
 		$$\delta>0\quad t.c:\quad \left[t_0-\delta,t_0+\delta\right]\subseteq I$$
 		OSS:: Se si cambiano $\delta, r$ con valori minori tutto vale ancora.\\
-		OSS:: Per il problema x derivabile -> integrale  ... mi sosto in $C^0$
-		\item[b-] $Tx$ deve appartenere a $\mathcal{X}$. L'insieme $\mathcal{X}$ sostanzialmente pone tre vincoli a $Tx$: deve essere $C^0$, definita in $\left[t_o-\delta;t_0+\delta\right]$ a valori in $\overline{B(x_0,r)}$.\\
+		OSS:: Per il problema x derivabile -> integrale  ... mi sosto in $\cntclass{0}$
+		\item[b-] $Tx$ deve appartenere a $\mathcal{X}$. L'insieme $\mathcal{X}$ sostanzialmente pone tre vincoli a $Tx$: deve essere $\cntclass{0}$, definita in $\left[t_o-\delta;t_0+\delta\right]$ a valori in $\overline{B(x_0,r)}$.\\
 		Per iniziare si verifica che sia definita in $\left[t_o-\delta;t_0+\delta\right]$\\
-		.... qualcosa che non comprendo.... $C^0$\\
+		.... qualcosa che non comprendo.... $\cntclass{0}$\\
 		Resta da verificare che $Tx$ è a valori nella sfera, cioè che 
 		$$(Tx)(t) \in \overline{B(x_0,r)}$$
 		Valuto la distanza tra $(Tx)(t)$ e $x_0$. La differenza tra la posizione al tempo $t$ e al tempo $t_0$, questa distanza può essere controllata con la velocità e il tempo per cui il punto si è mosso.\\
@@ -383,21 +383,21 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		....aggiunto il modulo per $t<t_0$ e $t>t_0$ non lo si sa a priori\\
 		quindi $\left\|(Tx)(t) - x_0 \right\|$ è minore di $r$ scelto $\delta$ opportunamente piccolo. 
 		\item[c-] Se $Tx$ è una contrazione deve valere che
-		$$\left\| Tx_2 - Tx_1\right\|_{C^0}\le K\left\|x_2-x_1\right\|_{C^0}\quad k\in\left[0,1\right[\quad\forall t\in\left[t_0-\delta,t_0+\delta\right]$$
+		$$\left\| Tx_2 - Tx_1\right\|_{\cntclass{0}}\le K\left\|x_2-x_1\right\|_{\cntclass{0}}\quad k\in\left[0,1\right[\quad\forall t\in\left[t_0-\delta,t_0+\delta\right]$$
 		con $\left\|Tx_2-Tx_1\right\|_{c^0}=\sup\limits_{t\in\left[t_0-\delta,t_0+\delta\right]}\left\| (Tx_2)(t) - (Tx_1)(t)\right\|$, partendo da questa utilizzando prima la definizione di $f$ poi la linearità dell'integrale ....lipsh f... proprietà
 		$$\left\| (Tx_2)(t) - (Tx_1)(t)\right\|=$$
 		$$\left\| x_0+\int_{t_0}^t f(\tau,x_2(\tau)) d\tau - \left(x_0+\int_{t_0}^t f(\tau,x_1(\tau)) d\tau\right) \right\|=$$
 		$$\left\| \int_{t_0}^t f(\tau,x_2(\tau))-f(\tau,x_1(\tau)) d\tau \right\|\le$$
 		$$\left| \int_{t_0}^t \left\|f(\tau,x_2(\tau))-f(\tau,x_1(\tau))\right\| d\tau \right|\le$$
 		$$\left| \int_{t_0}^t L\left\|x_2(\tau)-x_1(\tau)\right\| d\tau \right|\le$$
-		$$L\left| \int_{t_0}^t \left\|x_2-x_1\right\|_{C^0(\left[t_0-\delta,t_0+\delta\right];R^n)} d\tau \right|=$$
-		$$L\cdot \left\| x_2-x_1 \right\|_{C^0(\left[t_0-\delta,t_0+\delta\right];R^n)}\left|t-t_0\right|\le$$
-		$$L\delta\left\|x-x_0\right\|_{C^0(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
-		cioè $\forall t \in \left[t_0-\delta,t_0+\delta\right]$ vale che $\left\|(Tx_2)(t)-(Tx_1)(t)\right\|\le L\delta\left\|x_1-x_2\right\|_{C^0(\left[t_0-\delta,t_0+\delta\right];R^n)}$ e poiché è vero $\forall t \Rightarrow $ passando all'estremo superiore
-		$$ \left\| Tx_1 - Tx_2 \right\|_{C^0(\left[t_0-\delta,t_0+\delta\right];R^n)}\le L\delta\left\|x_1-x_2\right\|_{C^0(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
+		$$L\left| \int_{t_0}^t \left\|x_2-x_1\right\|_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)} d\tau \right|=$$
+		$$L\cdot \left\| x_2-x_1 \right\|_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\left|t-t_0\right|\le$$
+		$$L\delta\left\|x-x_0\right\|_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
+		cioè $\forall t \in \left[t_0-\delta,t_0+\delta\right]$ vale che $\left\|(Tx_2)(t)-(Tx_1)(t)\right\|\le L\delta\left\|x_1-x_2\right\|_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$ e poiché è vero $\forall t \Rightarrow $ passando all'estremo superiore
+		$$ \left\| Tx_1 - Tx_2 \right\|_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\le L\delta\left\|x_1-x_2\right\|_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
 		A questo punto scelto $\delta$ t.c. $L\delta<1$ ad esempio $\delta=\frac{1}{2L}$ così ottengo che per $\delta$ opportuno $Tx$ è una contrazione.		
 		\item[d-] Bisogna mostrare che $\mathcal{X}$ è completo.\\
-		Supponiamo che $\mathcal{X}\subseteq C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$, questo insieme è completo rispetto alla metrica $d_\infty=d_{C^0}$, allora se abbiamo una successione $x_n$ di Cauchy in $\mathcal{X}$ lo è anche su $C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$, allora $\exists x_\infty\in C^0(\left[t_0-\delta,t_0+\delta\right];R^n)$ con $x_n\to x_\infty$ per $n\to\infty$, ma poiché $\forall t \in\left[t_0-\delta,to+\delta\right]$ $x_\infty(t)=\lim\limits_{n\to\infty}x_n(t)$ e visto che $\forall t,\forall n\quad \left\| x_n(t)-x_0\right\|\le r$ anche al limite vale $\left\| x_{\infty}(t)-x_0\right\|\le r \Rightarrow x_\infty\in\mathcal{X}$ cioè $\mathcal{X}$ è completo.
+		Supponiamo che $\mathcal{X}\subseteq \cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)$, questo insieme è completo rispetto alla metrica $d_\infty=d_{\cntclass{0}}$, allora se abbiamo una successione $x_n$ di Cauchy in $\mathcal{X}$ lo è anche su $\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)$, allora $\exists x_\infty\in \cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)$ con $x_n\to x_\infty$ per $n\to\infty$, ma poiché $\forall t \in\left[t_0-\delta,to+\delta\right]$ $x_\infty(t)=\lim\limits_{n\to\infty}x_n(t)$ e visto che $\forall t,\forall n\quad \left\| x_n(t)-x_0\right\|\le r$ anche al limite vale $\left\| x_{\infty}(t)-x_0\right\|\le r \Rightarrow x_\infty\in\mathcal{X}$ cioè $\mathcal{X}$ è completo.
 	\end{description}
 	Possimao a questo punto applicare il teorema delle Contrazioni allora $T$ ha un unico punto fisso allora l'equazione integrale ha un unica soluzione allora esiste la soluzione del problema di Cauchy e su $\left[t_0-\delta,t_0+\delta\right]$ possiamo gia dire che la soluzione  è unica.\\
 	MA QUANTO CAZZO è LUNGA FORSE SONO A METà\\
@@ -453,7 +453,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	per comodità restringiamo la trattazione al caso $t>t_0$ sparisce il modulo. Riscrivo il primo e l'ultimo membro della disuguaglianza
 	$$ \left\|\varphi(t)-\psi(t)\right\|\le  \left[ \left\| x_0-y_0\right\| + \delta\left\| f-g\right\|_{c^0}\right] +\left| \int_{t_0}^{t} L\left\|\varphi(\tau)-\psi(\tau)\right\| d\tau \right|$$
 	$$ \left( \delta(t)\le\delta_0+\int_{t_0}^t \kappa(\tau)\delta(\tau)d\tau \right)::Gronwall$$
-	$$ \left\| \varphi(t)-\psi(t)\right\|\le\left[\left\|x_0-y_0\right\|+\delta\left\|f-g\right\|_{C^0}\right]+e^{L\left|t-t_0\right|}$$
+	$$ \left\| \varphi(t)-\psi(t)\right\|\le\left[\left\|x_0-y_0\right\|+\delta\left\|f-g\right\|_{\cntclass{0}}\right]+e^{L\left|t-t_0\right|}$$
 	QUESTO TEOREMA è TROPPO DA PRO.
 \end{proof}
 ESEMPIO: DECADIMENTO RADIOATTIVO\\
@@ -493,7 +493,7 @@ Diciamo sublineare se il grafico non si impenna.\\
 Data la funzione $f:I\times \R^n\to \R^n$, se:
 \begin{enumerate}
 	\item $I\subseteq \R$ è un intervallo, con $t_0\in\circdot{R^n}$
-	\item $f\in C^0(I\times \R^n;R^n)$
+	\item $f\in \cntclass{0}(I\times \R^n;R^n)$
 	\item $f$ è localmente Lipschitziana in $x\in \R^n$ uniformemente rispetto $t\in I$
 	\item $f$ è sublineare
 \end{enumerate}
@@ -582,7 +582,7 @@ Sia $I\subseteq\mathbb{R}$ un intervallo e $n\in N$. Date le $n+1$ funzioni $a_0
 $$x^{(n)}+a_{n-1}(t)\cdot x^{(n-1)}+\ldots+a_1(t)\cdot x'+a_0(t)x=f(t)$$
 Se $f\equiv 0 $ l'equazione si dice omogenea.
 \proposition
-sia $I$ un intervallo compatto e tale che $\circdot{I}\ne \emptyset$ siano $a_0,a_1,\ldots,a_{n-1},f\in C^0(I;\mathbb{C})$. Allora $\forall t_0\in\circdot{I}$ e $c_0,c_1,\ldots,c_{n-1}\in\mathbb{C}$ il problema di Cauchy 
+sia $I$ un intervallo compatto e tale che $\circdot{I}\ne \emptyset$ siano $a_0,a_1,\ldots,a_{n-1},f\in \cntclass{0}(I;\mathbb{C})$. Allora $\forall t_0\in\circdot{I}$ e $c_0,c_1,\ldots,c_{n-1}\in\mathbb{C}$ il problema di Cauchy 
 $$ \left\{\begin{matrix}[]
 x^{(n)}=-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t)\\
 x(t_0)=c_0\\
@@ -593,7 +593,7 @@ x^{(n-1)}(t_0)=c_{n-1}\\
 ammette soluzione unica definita su tutto l'intervallo $I$.
 \begin{proof}
 	Un'equazione differenziale lineare di ordine $n$ può essere trasformato in un sistema di equazioni al primo ordine.
-	Introduciamo la variabile $X\in\mathbb{C^n}$ ed il dato iniziale $C\in\mathbb{C^n}$
+	Introduciamo la variabile $X\in\mathbb{\cntclass{n}}$ ed il dato iniziale $C\in\mathbb{\cntclass{n}}$
 	$$\left[\begin{matrix} X_1\\X_2\\\ldots\\X_{n-1}\\X_n \end{matrix}\right] = \left[\begin{matrix} x\\ x'\\\ldots\\ x^{(n-1)}\\x^{(n)} \end{matrix}\right]\quad\quad\left[\begin{matrix} C_1\\C_2\\\ldots\\C_{n-1}\\C_{n} \end{matrix}\right] = \left[\begin{matrix} c_0\\c_1\\\ldots\\ c_{n-2}\\c_{n-1} \end{matrix}\right]$$
 	il problema di Cauchy per l'equazione lineare diventa:
 	$$
@@ -619,12 +619,12 @@ La locuzione lineare è giustificata dalla proposizione seguente.
 \proposition
 Sia $I\subseteq \R$ un intervallo e $n\in\mathbb{N}$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1},f:I\to\mathbb{C}$,l'operatore 
 $\begin{array}{rcl} 
-L: C^n(I;\mathbb{C}) & \to & C^0(I;\mathbb{C}) \\
+L: \cntclass{n}(I;\mathbb{C}) & \to & \cntclass{0}(I;\mathbb{C}) \\
 x & \to & x^{(n)}+\sum\limits_{k=1}^{n-1}a_k(t)x^{(k)} \\ 
 \end{array}$è lineare
 \begin{proof}
 	La linearità di $L$ equivale a:
-	$$ \begin{matrix}L(x_1+x_2)=L(x_1)+L(x_2) && \forall x_1,x_2\in C^n(I;\mathbb{C})\\L(\lambda\cdot x)=\lambda\cdot L(x) && \forall\lambda\in\mathbb{C}, \forall x\in C^n(I;\mathbb{C})\end{matrix} $$
+	$$ \begin{matrix}L(x_1+x_2)=L(x_1)+L(x_2) && \forall x_1,x_2\in \cntclass{n}(I;\mathbb{C})\\L(\lambda\cdot x)=\lambda\cdot L(x) && \forall\lambda\in\mathbb{C}, \forall x\in \cntclass{n}(I;\mathbb{C})\end{matrix} $$
 	Entrambe le condizioni  seguono dalle regole di derivazione.
 \end{proof}
 \section{Equazioni Lineari a Coefficienti Costanti}

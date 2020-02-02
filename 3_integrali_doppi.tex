@@ -27,28 +27,28 @@ Queste formule permettono di ricondurre il calcolo di integrali doppi a quello d
 \end{tikzpicture}\\
 Se:\\
 $a,b\in \R$ con $a<b$\\
-$\alpha,\beta\in C^0([a,b];R), \forall x\in[a,b] \alpha(x)\le\beta(x)$\\
+$\alpha,\beta\in \cntclass{0}([a,b];R), \forall x\in[a,b] \alpha(x)\le\beta(x)$\\
 $A=\{(x,y)\in \R^2: x\in [a,b] $e$ y\in [\alpha(x),\beta(x)] \}$\\
-$f\in C^0(A;R)$\\
+$f\in \cntclass{0}(A;R)$\\
 Allora\\
 $\iint_Af(x,y)dxdy=\int_a^b\left(\int_{\alpha(x)}^{\beta{x}}f(x,y)dy\right)dx$\\
 Analogamente.\\
 ALTRO GRAFICO....\\
 Se:\\
 $c,d\in \R$ con $c<d$\\
-$\gamma,\delta\in C^0([a,b];R), \forall y\in[c,d] \gamma(y)\le\delta(y)$\\
+$\gamma,\delta\in \cntclass{0}([a,b];R), \forall y\in[c,d] \gamma(y)\le\delta(y)$\\
 $A=\{(x,y)\in \R^2: x\in [c,d] $e$ x\in [\gamma(y),\delta(y)] \}$\\
-$f\in C^0(A;R)$\\
+$f\in \cntclass{0}(A;R)$\\
 Allora\\
 $\iint_Af(x,y)dxdy=\int_c^d\left(\int_{\gamma(y)}^{\delta{y}}f(x,y)dx\right)dy$
 \section{Cambiamento di Variabili}
 Se:\\
 $A\subseteq \R^2$\\
-$\varPhi\in C^1(A;R^2)$
+$\varPhi\in \cntclass{1}(A;R^2)$
 $\varPhi$ è invertibile
-$\varPhi^{-1}\in C^1(\varPhi(A);R^2)$\\
+$\varPhi^{-1}\in \cntclass{1}(\varPhi(A);R^2)$\\
 $det(D\varPhi)\ne 0$ su $A$\\
-$f\in C^0(\varPhi(A);R^2)$\\
+$f\in \cntclass{0}(\varPhi(A);R^2)$\\
 Allora:\\
 $$ \iint_{\varPhi(A)}f(x,y)dxdy=\iint_A((f\circ g)(u,v))|det(D\varPhi(u,v))|dudv$$
 La quantità $det(D\varPhi)$ è spesso chiamato DETERMINANTE JACOBIANO (o semplicemente JACOBIANO) della trasformazione $\varPhi$\\
