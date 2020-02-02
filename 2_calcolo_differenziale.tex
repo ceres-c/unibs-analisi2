@@ -186,8 +186,8 @@ $f$ differenziabile in $x_0$ allora $\lambda f$ differenziabile in $x_0$ e $D(\l
 \end{proof}
 
 \proposition
-Sia $g: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\overset{\circ}{A}$\\
-Sia $f: B\subseteq \R^m \rightarrow \R^p$ e $g(x_0)\in\overset{\circ}{B}$\\
+Sia $g: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$\\
+Sia $f: B\subseteq \R^m \rightarrow \R^p$ e $g(x_0)\in\circdot{B}$\\
 $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ differenziabile in $x_0$ e $D(f\circ g)(x_0) = Df(g(x_0))*Dg(x_0)$
 \begin{proof}
 	$g$ è differenziabile in $x_0$, allora $g(x_0+h)=f(x_0)+Dg(x_0)h+o(h)$ per $h\rightarrow 0$\\
@@ -211,7 +211,7 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 \definition
 Siano $x_0,x_1\in \R^n$, si dice segmento di estremi $x_0$ e $x_1$ l'insieme $S={tx_1+(1-t)x_0 : t\in[0,1]}$
 \proposition{Formula degli accrescimenti finiti}\\
-Sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0,x_1\in\overset{\circ}{A}$, $S$ il segmento di estremi $x_0,x_1$, sia $f\in C^1(A,\R^m)$ allora $\left\| f(x_1)-f(x_0) \right\|\le \sup\limits_{x\in S}\left\|Df(x)\right\|\left\|x_1-x_0\right\|$
+Sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0,x_1\in\circdot{A}$, $S$ il segmento di estremi $x_0,x_1$, sia $f\in C^1(A,\R^m)$ allora $\left\| f(x_1)-f(x_0) \right\|\le \sup\limits_{x\in S}\left\|Df(x)\right\|\left\|x_1-x_0\right\|$
 \observation
 $\left\| A \right\|$ con $A\in Mat(n\times m)$,  $\left\| A \right\|=\sup\limits_{\left\| x \right\|=1: x\in \R^n}\left\| Ax \right\| = \sup\limits_{x\in \R^n \textbackslash \{0\}}\frac{\left\| Ax \right\| }{\left\| x \right\| } $ questa è chiamata norma operativa\\
 NOTA:\\
@@ -350,7 +350,7 @@ sdadsadsfsdasdfasdfasdfafewrgvregrgbreqeragerwawfer...\\
 
 \section{Il Teorema della funzione Implicita}
 \definition
-sia $X\in \R^n$ e $Y\in \R^m$, $f:X\times Y\to \mathbb\R^l$, $x_0\in \overset{\circ}{X}$, $y_0\in \overset{\circ}{Y}$.\\
+sia $X\in \R^n$ e $Y\in \R^m$, $f:X\times Y\to \mathbb\R^l$, $x_0\in \circdot{X}$, $y_0\in \circdot{Y}$.\\
 L'equazone $f(x,y)=0$ definisce implicitamente una funzione $y=\varphi(x)$ in un intorno di $(x_0,y_0) \rightleftharpoons$
 \begin{enumerate}
 	\item $f(x_0,y_0)=0$, rappresenta un punto di partenza 
@@ -392,7 +392,7 @@ $\exists !\varphi : \R^n\rightarrow \R^m$ t.c.: $f(x,y)=0 \Leftrightarrow y=\var
 \end{proof}
 \proposition
 Sia $f:X\times Y\rightarrow \R^m$ con $X\in \R^n, Y\in \R^m$\\
-Preso un punto $(x_0,y_0)$ con $x_0\in \overset{\circ}{X}$,$y_0\in \overset{\circ}{Y}$\\
+Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
 se:
 \begin{enumerate}
 	\item $f$ continua in $X\times Y$
@@ -472,7 +472,7 @@ discorso al momento difficile per me....\\
 \end{proof}
 \proposition
 Sia $f:X\times Y\rightarrow \R^m$ con $X\in \R^n, Y\in \R^m$\\
-Preso un punto $(x_0,y_0)$ con $x_0\in \overset{\circ}{X}$,$y_0\in \overset{\circ}{Y}$\\
+Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
 se:
 \begin{enumerate}
 	\item $f(x_0,y_0)=0$
@@ -495,7 +495,7 @@ $\Rightarrow $ si ha:\\
 
 \proposition CASO N=1, M=1\\
 Sia $f:X\times Y\rightarrow \R$ con $X\in \R, Y\in \R$\\
-Preso un punto $(x_0,y_0)$ con $x_0\in \overset{\circ}{X}$,$y_0\in \overset{\circ}{Y}$\\
+Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
 se:
 \begin{enumerate}
 	\item $f(x_0,y_0)=0$
@@ -525,8 +525,8 @@ Data una funzione f, poterla invertire  ...... unico modo l'equazione (o sistema
 \proposition(Teorema della funzione inversa caso lineare)\\
 Sia $f:R^n\in \R^m$ data da $f(x)=Mx$ e $M\in Mat(m\times n)$, $f$ è invertibile $\Leftrightarrow n=m$ e $detM\ne 0$
 \proposition(caso generale)\\
-sia $f:A\rightarrow \R^n$ con $A\in \R^n$, $f\in C^1(A,R^n)$, $x_0\in \overset{\circ}A$ e $Df(x_0)$ invertibile.\\
-Allora $\exists\mathcal{X}\in A,\exists\mathcal{Y}\in \R^n$, $\exists\varphi\mathcal{Y}\rightarrow\mathcal{X}$ con la proprietà $f(x)=y\Leftrightarrow x=\varphi(y)$ con $x\in\overset{\circ}{\mathcal{X}}$ e $y\in\overset{\circ}{\mathcal{Y}}$ e $\varphi\in C^1(\mathcal{Y},\mathcal{X})$ e $D\varphi(y)=[Df(x)]^{-1}$\\
+sia $f:A\rightarrow \R^n$ con $A\in \R^n$, $f\in C^1(A,R^n)$, $x_0\in \circdot{A}$ e $Df(x_0)$ invertibile.\\
+Allora $\exists\mathcal{X}\in A,\exists\mathcal{Y}\in \R^n$, $\exists\varphi\mathcal{Y}\rightarrow\mathcal{X}$ con la proprietà $f(x)=y\Leftrightarrow x=\varphi(y)$ con $x\in\circdot{\mathcal{X}}$ e $y\in\circdot{\mathcal{Y}}$ e $\varphi\in C^1(\mathcal{Y},\mathcal{X})$ e $D\varphi(y)=[Df(x)]^{-1}$\\
 \begin{proof}
 	$f(x)=y\Leftrightarrow f(x)-y=0$. Allora introduco $F:A\times \R^n\rightarrow \R^n$ data da $F(x,y)=f(x)-y$.\\
 	Studio $F(x,y)=0$ per ottenere $x=\varphi(y)$.\\
@@ -549,7 +549,7 @@ $x_0$ è punto di massimo locale relativo per $f \rightleftharpoons \exists r>0:
 $x_0$ è punto di minimo locale relativo per $f \rightleftharpoons \exists r>0: f(x_0)=\min\limits_{x\in B(x_0,r)}f(x)$ con $B(x_0,r)\subseteq A$\\
 \subsection{Condizioni Necessarie}
 \proposition{Teorema di Fermat}\\
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\overset{\circ}A$. Se $x_0$ è punto di massimo(0 minimo) locale per $f$ su $A$ e $f$ è differenziabile in $x_0$ allora $\nabla f(x_0)=0$.
+sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$. Se $x_0$ è punto di massimo(0 minimo) locale per $f$ su $A$ e $f$ è differenziabile in $x_0$ allora $\nabla f(x_0)=0$.
 \begin{proof}
 	Sia $v\in \R^n$ con $\left\| v\right\| =1$, la funzione $F(t)= f(x_0+tv)$ che a $t\rightarrow x_0+tv$ è il moto rettilineo uniforme che passa da $x_0$ all'istante $0$ e si muove con velocità vettore costante $v$. cioè per tempi negativi mi avvicino a $x_0$ al tempo zero si è in $x_0$ e per tempi positivi si allontana da $x_0$. quindi $t=0$ è punto di massimo per $F$, allora $F^{'}(0) = 0$ per il teorema di Fermat di A1.\\
 	Ora abbiamo che $F^{'}(t)=\nabla f(x_0+tv)v$ quindi $F^{'}(0)=\nabla f(x_0)v$ cioè $\nabla f(x_0)v=0$.\\
@@ -557,7 +557,7 @@ sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\overset{\circ}A$. Se $x_0$ è pu
 	OSS:: Vale anche che $D_vf(x_0)=0$
 \end{proof}
 \definition
-sia $f:A\subseteq r^n\rightarrow \R$, $x_0\in\overset{\circ}{A}$\\
+sia $f:A\subseteq r^n\rightarrow \R$, $x_0\in\circdot{A}$\\
 $x_0$ è punto stazionario .... $\rightleftharpoons$ $f$ è differenziabile in $x_0$ e $\nabla f($ ......
 \observation
 nel caso $n=2, m=1, \nabla f(x_0,y_0)=[\partial_xf(x_0,y_0), \partial_yf(x_0,y_0)]$ ..... i punti stazionari sono quelli che ......parziali.
@@ -627,14 +627,14 @@ Questo perché se dobbiamo valutare il segno dell'incremento della f ci servono 
 $$f(x)-f(x_0)=\nabla f(x_0)(x-x_0)+\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\left\|x-x_0\right\|^2)$$
 max e min dove $\nabla f(x_0)=0$ per Fermat, l'o piccolo è trascurabile, allora il segno della derivata dipende dalla forma quadratica al secondo membro.
 \proposition
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\overset{\circ}{A}$.\\
+sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
 $f\in C^2(A;R)$ e $x_0$ punto di massimo locale per $f$ su $A\Rightarrow\nabla f(x_0)=0$ e $H_f(x_0)$ è semidefinita negativa.
 \begin{proof}
 	$f(x)-f(x_0)=\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\left\|x-x_0\right\|^2)$ poiché $f\in C^2$\\
 	il primo termine è negativo poiché per ipotesi $x_0$ è punto di massimo locale, ne segue che il termine $(x-x_0)^TH_f(x_0)(x-x_0)$ non può essere positivo. 
 \end{proof} 
 \proposition
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\overset{\circ}{A}$.\\
+sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
 $f\in C^2(A;R)$ e $x_0$ punto di minimo locale per $f$ su $A\Rightarrow\nabla f(x_0)=0$ e $H_f(x_0)$ è semidefinita positiva.
 \begin{proof}
 	$f(x)-f(x_0)=\frac{1}{2}(x-x_0)^TH_f(x-x_0)+o(\left\|x-x_0\right\|^2)$ poiché $f\in C^2$\\
@@ -644,7 +644,7 @@ $f\in C^2(A;R)$ e $x_0$ punto di minimo locale per $f$ su $A\Rightarrow\nabla f(
 
 \subsection{Condizioni Sufficienti}
 \proposition
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\overset{\circ}{A}$.\\
+sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
 $f\in C^2(A;R)$, $\nabla f(x_0)=0$,$H_f(X_0)$ è definita negativa $\Rightarrow x_0$ è un punto di massimo locale per $f$
 \begin{proof}
 	$f\in C^2$ quindi possiamo scrivere:\\
@@ -653,7 +653,7 @@ $f\in C^2(A;R)$, $\nabla f(x_0)=0$,$H_f(X_0)$ è definita negativa $\Rightarrow 
 	Sappiamo che $H_f$ è definita negativa per ipotesi, allora $h^TH_f(x_0)h\le -m\left\|x_0\right\|$ allora $f(x_0+h)-f(x_0)<0$ e quindi $x_0$ è punto di massimo locale per $f$.
 \end{proof} 
 \proposition
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\overset{\circ}{A}$.\\
+sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
 $f\in C^2(A;R)$, $\nabla f(x_0)=0$,$H_f(X_0)$ è definita positiva $\Rightarrow x_0$ è un punto di minimo locale per $f$
 \begin{proof}
 	$f\in C^2$ quindi possiamo scrivere:\\
@@ -667,7 +667,7 @@ QUALCHE DISEGNO E SPIEGAZIONE.....
 Sia $A\subseteq \R^2$ e $f:A\rightarrow \R$\\
 La suferficie $z=f(x,y)$ è il grafico di $f$, è unsottoinsieme di $R^3$\\
 Se $c\in \R$, la curva di livello $c$ di $f$ è l'insieme $f^{-1}(c)\{(x,y)\in A: f(x,y)=c\}$\\
-Se $f$ 	'e differenziabile in $(x_0,y_0)\in\overset{\circ}{A}$ il piano tangente alla superficie $z=f(x,y)$ in $(x_0,y_0)$ ha equazione:\\
+Se $f$ 	'e differenziabile in $(x_0,y_0)\in\circdot{A}$ il piano tangente alla superficie $z=f(x,y)$ in $(x_0,y_0)$ ha equazione:\\
 $$z=f(x_0,y_0)+\nabla f(x_0,y_0)\begin{bmatrix}(x-x0)\\(y-y_0)\end{bmatrix}$$ 
 $$z=f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+\partial_yf(x_0,y_0)(y-y_0)$$
 \observation
@@ -675,7 +675,7 @@ geometricamente, il gradiente di una funzione indica la direzione di $R^n$ in cu
 \observation 
 osservazione col grafico che al momento non faccio.
 \proposition
-Siano $A\subseteq \R^n, f:A\rightarrow \R$ differenziabile in $(x_0,y_0)\in \overset{\circ}{A}$, l'incremento di $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo quando $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda >0$ ed è minimo con $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda <0$
+Siano $A\subseteq \R^n, f:A\rightarrow \R$ differenziabile in $(x_0,y_0)\in \circdot{A}$, l'incremento di $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo quando $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda >0$ ed è minimo con $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda <0$
 \begin{proof}
 	so che posso approssimare la funzione quindi posso scrivere:\\
 	$f(x_0+h,y_0+k)-f(x_0,y_0)=\nabla f(x_0,y_0)\begin{bmatrix}h\\k\end{bmatrix}+o(\sqrt{h^2+k^2})$=
@@ -683,7 +683,7 @@ Siano $A\subseteq \R^n, f:A\rightarrow \R$ differenziabile in $(x_0,y_0)\in \ove
 	dove $\theta$ è l'angolo tra $\nabla f(x_0,y_0)$ e $[h k]$ per $||[h k]||$ sufficientemente piccola, l'incremento $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo se $cos( \theta )=1$ ed è minimo se $cos(\theta )=-1$, da cui la tesi.\\ 
 \end{proof}
 \proposition
-siano $f\in C^1(A;R)$ con $A\subseteq \R^2$ e $(x_0,y_0)\in\overset{\circ}{A}$ e $\nabla f(x_0,y_0)\ne 0$[cioè stazionario]. Allora $nabla f(x_0,y_0)$ è perpendicolare alla curva di livello passante per .....
+siano $f\in C^1(A;R)$ con $A\subseteq \R^2$ e $(x_0,y_0)\in\circdot{A}$ e $\nabla f(x_0,y_0)\ne 0$[cioè stazionario]. Allora $nabla f(x_0,y_0)$ è perpendicolare alla curva di livello passante per .....
 \observation
 un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al vettore tangente alla curva in quel punto.
 \begin{proof}
@@ -691,7 +691,7 @@ un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al v
 	Usiamo quindi il teorema della funzione implicita, mi serve che $\partial_yf(x_0,y_0)\ne 0$, questa condizione non è assicurata dalle ipotesi, per ipotesi il gradiente è non nulla quindi almeno una delle due componenti è non nulla.\\
 	Inizio con il caso $\partial_yf(x_0,y_0)\ne 0$.\\
 	Il T.F.IMPL. assicura che :\\
-	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\overset{\circ}{\mathcal{X}}, y_0\in\overset{\circ}{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
+	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
 	$f(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \Leftrightarrow y=\varphi(x)$\\
 	La retta tangente in $x_0$ a $y=\varphi(x)$ è $y=y_0+\varphi^{'}(x_0)(x-x_0)$\\
 	questo vuole dire che un vettore tangente a $y=\varphi(x)$ in $(x_0,y_0)$ è $\begin{bmatrix}1\\\varphi^{'}(x_0)\end{bmatrix}$.\\
@@ -713,9 +713,9 @@ può essere affrontato in due passi:\\
 	\item ricerca dei punti di estremo di $f$ interni a $B$, problema gia affrontato.
 	\item ricerca dei punti di estremo di $f$ sul bordo di $B$, affrontiamo ora.
 \end{enumerate}
-Sotto opportune condizioni su $\varphi$, infatti, $\overset{\circ}{B} = \{x\in A:\varphi(x)<0\}$ e $\partial B\{x\in A:\varphi(x)=0\}$
+Sotto opportune condizioni su $\varphi$, infatti, $\circdot{B} = \{x\in A:\varphi(x)<0\}$ e $\partial B\{x\in A:\varphi(x)=0\}$
 \proposition{Teorema dei Moltiplicatori di Lagrange}
-Siano $f,g:A\subseteq \R^2\rightarrow \R, (x_0,y_0)\in\overset{\circ}{A}, g(x_0,y_0)=0, f,g\in C^1(A;R)$, $\nabla g (x_0,y_0)\ne 0$\\
+Siano $f,g:A\subseteq \R^2\rightarrow \R, (x_0,y_0)\in\circdot{A}, g(x_0,y_0)=0, f,g\in C^1(A;R)$, $\nabla g (x_0,y_0)\ne 0$\\
 Se $(x_0,y_0)$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda in \R$ t.c: $\nabla f(x_0,y_0) = \lambda g(x_0,y_0)$ (all fin fine posso dire che sono paralleli).\\
 \observation
 $\lambda$ si chiama "moltiplicatore di lagrange"
@@ -728,7 +728,7 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 	Sappiamo che $\nabla g(x_0,y_0)\ne$ quindi $\begin{bmatrix}\partial_xg(x_0,y_0) &&\partial_yg(x_0,y_0)\end{bmatrix}\ne\begin{bmatrix}0&&0\end{bmatrix}$ quindi o $\partial_xg(x_0,y_0)\ne 0$ o $\partial_yg(x_0,y_0)\ne 0$.
 	Mettiamoci nel caso in cui $\partial_yg(x_0,y_0)\ne 0$,\\
     Per il teorema della funzione implicita ho che :\\
-	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\overset{\circ}{\mathcal{X}}, y_0\in\overset{\circ}{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
+	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
 	$g(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \Leftrightarrow y=\varphi(x)$\\
 	Osserviamo che dire $(x_0,y_0)$ di massimo o minimo per $f$ ristretta a $g(x,y)=0\Leftrightarrow x_0$ è di massimo o di minimo per la funzione $x\rightarrow f(x,\varphi(x))$.\\
 	Per il teorema di Fermat $\left.\frac{d}{dx}(f(x,\varphi(x)))\right\|_{x=x_0}=0$, punto stazionario ha derivata nulla, e la derivata di quella funzione in $x_0$ è:
@@ -743,7 +743,7 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 	Seguendo un ragionamento analogo si esplicita $x=\psi(y)$ così che cercare max(o min) di $f$ ristretta a $g(x,y)=0$ porti a $y\rightarrow f(\psi(y),y)$ 
 \end{proof}
 \proposition{Teorema dei Moltiplicatori di Lagrange caso generale}
-Sia $A\in \R^n$, $f\in C^1(A;R)$, $g\in C^1(A;R^p)$ con $p<n$(n.vincoli<n.variabili), sia poi $x_0\in\overset{\circ}{A}, g(x_0)=0, Dg (x_0,y_0)$ di rango $p$.\\
+Sia $A\in \R^n$, $f\in C^1(A;R)$, $g\in C^1(A;R^p)$ con $p<n$(n.vincoli<n.variabili), sia poi $x_0\in\circdot{A}, g(x_0)=0, Dg (x_0,y_0)$ di rango $p$.\\
 Se $x_0$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda_1,\ldots,\lambda_p in \R$ t.c: $\nabla f(x_0,y_0) = \sum\limits_{i=1}^{p}\lambda_i\nabla g(x_0,y_0)$\\
 \section{Derivate e Integrali}
 \proposition{Teorema Fondamentale del Calcolo Integrale}
