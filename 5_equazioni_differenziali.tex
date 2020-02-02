@@ -72,7 +72,10 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		\item $x(I)\subseteq A$
 		\item $x$ derivabile
 	\end{enumerate}
+	Quindi il problema di Cauchy aggiunge un vincolo ad un'equazione differenziale, così si isola una singola soluzione
 \end{definition}
+\note
+Si considera un intervallo perché l'idea è di studiare l'andamento nel tempo e sarebbe difficile far previsioni con "buchi" di tempo
 \note
 La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la definizione \ref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione, ma i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
 \begin{definition}
@@ -121,10 +124,8 @@ Il problema di Cauchy è quindi
 $$\begin{cases}
 	x'=k\cdot x\\
 	x(t_0)=x_0\\
-\end{cases}$$
-con $x\in \R, k>0 $ e $ x_0=0$ % TODO questo va messo a fianco del sistema
-
-$\left\{\begin{matrix} x'=k\cdot x\\x(0)=0\end{matrix}\right.$ con $x\in \R, k>0 $ e $ x_0=0$ % TODO regex matta per fare sistemi
+\end{cases}
+\qquad\text{con $x\in \R, k>0 $ e $ x_0=0$}$$
 
 \begin{center}
 	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
@@ -157,17 +158,26 @@ $\left\{\begin{matrix} x'=k\cdot x\\x(0)=0\end{matrix}\right.$ con $x\in \R, k>0
 blablabla ....\\
 .......\\
 Limiti di questo modello:
-\begin{description}
-	\item[-] la variabile $x$ dovrebbe variare in $N$, poiché una popolazione ha un numero intero di elementi.
-	\item[-] In molte specie è verosimile che il numero di nati al tempo $t$ dipenda dalla popolazione presente ad un tempo precedente $x(t-T), T>0$
-	\item[-] Supporre che una popolazione abbia per sempre a disposizione risorse sufficienti può non essere realistico
-	\item[-] Questo modello va bene quando si considerano intervalli di tempo molto lunghi.
-\end{description}
+\begin{itemize}
+	\item la variabile $x$ dovrebbe variare in $\N$, poiché una popolazione ha un numero intero di elementi.
+	\item In molte specie è verosimile che il numero di nati al tempo $t$ dipenda dalla popolazione presente ad un tempo precedente $x(t-T), T>0$
+	\item Supporre che una popolazione abbia per sempre a disposizione risorse sufficienti può non essere realistico
+	\item Questo modello va bene quando si considerano intervalli di tempo molto lunghi.
+\end{itemize}
 
 \section{Teoria Locale}
-\definition Una funzione $f:I\times A\to \R^{?}$ .... $A=A\circdot{A}\subseteq \R^n$, si dice localmente lipschitziana??? .... uniformemente rispetto a $t$ se $$\forall X_0 \in A, \exists ???? : \forall x_1,x_2 \in B(x_0,r)\cap A, \forall t\in I, .......$$
+\begin{definition}
+	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{localmente lipshitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
+	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
+	vale che
+	$$\Vert f(t,x_2)-f(t,x_1)\Vert\leq L\cdot\Vert x_2-x_1\Vert\qquad o, ugualmente\qquad\frac{\Vert f(t,x_2)-f(t,x_1)\Vert}{\Vert x_2-x_1\Vert}\leq L$$
+	La lipschitzianità (\textbf{lips.}), in parole povere, valuta il rapporto tra incremento della $f$ e delle $x$ è minore di un valore fisso $L$
+\end{definition}
+\note
+La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$
+
 \proposition
-Siano $I\subseteq \R$ un intervallo aperto, .....????...., ogni funzione $f\in C^1(I,R^n)$ è localmente lipschitziana??? ..... uniformemente rispetto a $t\in I$.
+Siano $I\subseteq \R$ un intervallo aperto ed $A\subseteq \R^n$ un aperto. Ogni funzione $f\in \cntclass{1}{I\times A}{R^n}$ è localmente lipschitziana??? ..... uniformemente rispetto a $t\in I$.
 \begin{proof}
 	sia $x\in A \Leftarrow \exists B(x_0,r)\subseteq A$ con $r>0$, anche $\overline{B(x_0,r)}\subseteq A$ scelto $r$ abbastanza piccolo, allora $\left\| f(t,x_2)-f(t,x_1)\right\|le\sup\limits_{(t,x)\in I\times \overline{B(x_0,r)}}\left\| Df() \right\|\left\| x_2-x_1 \right\|  $ per la formula degli accrescimenti finiti.  
 \end{proof}

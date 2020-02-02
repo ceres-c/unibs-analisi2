@@ -38,8 +38,14 @@
 \newcommand{\norm}[1] {\left\|#1\right\|}
 \newcommand{\abs}[1] {\left|#1\right|}
 
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\bbset}[1] {\mathbb{#1}}
 \newcommand{\bbsetn}[2] {\mathbb{#1}^{#2}}
+
+\newcommand{\bfset}[1] {\mathbf{#1}}
+
+\newcommand{\cntclass}[3] {\mathbf{C^{#1}}(#2,#3)} % Command for continuity classes
 
 \newcommand{\realintervalopen}[2] {\left]#1,#2\right[}
 \newcommand{\realintervalclose}[2] {\left[#1,#2\right]}
@@ -52,13 +58,13 @@
 \newcommand{\ddinfty}[3]{\sup\limits_{x\in#3}{\left|f-g\right|}}
 \newcommand{\sse}{\Leftrightarrow}
 
-\newcommand{\R}{\mathbb{R}}
-
 \newcommand{\rvect}[1]{\begin{bmatrix} #1 \end{bmatrix}}
 
 \newcommand{\circdot}[1]{\accentset{\circ}{#1}}
 
-\DeclareDocumentCommand{\funcdef}{m m o m o s o}{ % This command allows formal function definition and require xparse
+\DeclareDocumentCommand{\funcdef}{m m o m o s o}{
+  % This command allows formal function definition and require xparse
+  % Taken from https://tex.stackexchange.com/questions/149705/defining-a-macro-with-three-optional-arguments-in-the-form-newmacroabcd
   \begin{array}{r@{\ }c@{\,}c@{\,}l}
     #1:
   & \IfNoValueTF{#3}{#4}{#3}
