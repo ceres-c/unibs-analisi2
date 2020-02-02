@@ -5,9 +5,9 @@ Equazione è un uguaglianza in cui c'è almeno una incognita.\\
 Equazione differenziale è un particolare tipo di equazione e stabilisce una relazione tra la funzione incognita e le sue derivate.In un equazione funzionale si cerca l'uguaglianza di: insieme di arrivo, insieme di partenza, corrispondenza.\\
 Non è necessario sapere il valore della soluzione ma sapere che ne esiste una.????????\\\\
 Equazione differenziale ordinaria:\\
-1- La funzione incognita è funzione di una sola variabile solitamente il tempo.\\
+1- La funzione incognita è funzione di una sola variabile, solitamente il tempo.\\
 2- La funzione incognita e le sue derivate sono calcolate allo stesso istante di tempo.\\
-\definition
+\definition\label{def:equaz_diff}
 Si dice equazione differenziale ordinaria di ordine $n$ nella funzione incognita $x\in \R^k$ un espressione del tipo:
 $$f(t,x,\overset{\cdot}{x},\ldots,x^{(n)})=0$$
 dove $f:A\to \R^m$, $A\subseteq \R^{1+(1+n)k}$ e $t\in \R$.\\
@@ -24,21 +24,36 @@ Soluzione di questa equazione differenziale è una qualunque funzione $x:I\to \R
 $$ (t,x,\overset{\cdot}{x},\ldots,x^{(n)}) \in A$$
 $$ f(t,x,\overset{\cdot}{x},\ldots,x^{(n)})=0$$
 Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$
+\note
+dalla definizione \ref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
+\exercise
+La soluzione di un'equazione differenziale ordinaria non può avere 3 asintoti.
+\begin{exercise_answer}
+	La soluzione $x$ è funzione continua. In quanto continua non può avere più di 2 asintoti verticali e in quanto funzione non può avere più di 2 asintoti orizzontali.
+\end{exercise_answer}
 \definition
 un'equazione differenziale è in forma normale  se e solo se si presenta nella forma 
-$$x^n = g(t,x,\overset{\cdot}{x},\ldots,x^{n-1}))$$
+$$x^{(n)} = g(t,x,\overset{\cdot}{x},\ldots,x^{(n-1)})$$
 \observation
 lo studio di un'equazione differenziale ordinaria in forma non normale inizia generalmente con l'utilizzo del Teorema della Funzione Implicita insieme ai teoremi sulle equazioni differenziali ordinarie in forma normale
-\observation
-illeggibile
 \proposition
-ogni equazione differenziale ordinaria  in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$.\\
+ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$, cioè in cui compaiono solamente derivate prime.
 \begin{proof}
-CASO n=2\\
-abbiamo che $\overset{\cdot\cdot}{x}=f(t,x,\overset{\cdot}{x})$\\
-introduco $\overset{\cdot}{X}=\begin{bmatrix}\overset{\cdot}{x}\\\overset{\cdot\cdot}{x}\end{bmatrix}$ e $X=\begin{bmatrix}x\\\overset{\cdot}{x}\end{bmatrix}$\\
-quindi $\overset{\cdot}{X}=f(t,X)$
-\end{proof} 
+	Data l'equazione
+	$$x^{(n)} = g(t,x,\overset{\cdot}{x},\overset{\cdot\cdot}{x},\ldots,x^{(n-1)})$$
+	sia $y$ il vettore $y = \rvect{x & \overset{\cdot}{x} & \overset{\cdot\cdot}{x} & \ldots & x^{(n-1)}}$. Abbiamo ora che le componenti del vettore sono
+	$$y_1=x\qquad y_2=\overset{\cdot}{x}\qquad y_3=\overset{\cdot\cdot}{x}\qquad \ldots\qquad y_n=x^{(n-1)}$$
+	ed al contempo
+	$$y_1'=\overset{\cdot}{x}=y_2\qquad y_2'=\overset{\cdot\cdot}{x}=y_3\qquad y_3'=\overset{\cdot\cdot\cdot}{x}=y_4\qquad\ldots\qquad y_{n-1}'=x^{(n-1)}=y_n$$
+	Cioè, differenziando l'$i-esimo$ elemento (funzione) del vettore $y$, mi "sposto" all'elemento (funzione) $i+1$ di $y$.\\Quindi l'equazione può essere scritta come il seguente sistema del primo ordine
+	$$\begin{cases}y_1'\quad=\quad y_2\\y_2'\quad=\quad y_3\\\vdots\\y_n'\quad=\quad g(t, y_1, y_2,\dots,y_n)\end{cases}$$
+\end{proof}
+\begin{example}
+	CASO n=2\\
+	abbiamo che $\overset{\cdot\cdot}{x}=f(t,x,\overset{\cdot}{x})$\\
+	introduco $\overset{\cdot}{X}=\begin{bmatrix}\overset{\cdot}{x}\\\overset{\cdot\cdot}{x}\end{bmatrix}$ e $X=\begin{bmatrix}x\\\overset{\cdot}{x}\end{bmatrix}$\\
+	quindi $\overset{\cdot}{X}=f(t,X)$
+\end{example}
 \observation
 in generale un problema si dice BEN POSTO o BEN POSTO NEL SENSO DI HADAMARD ogniqualvolta:
 \begin{enumerate}

@@ -18,6 +18,20 @@
 \newtheorem{observation}{Osservazione}
 \newtheorem{corollary}{Corollario}
 \newtheorem{example}{Esempio}
+\newtheorem{exercise}{Esercizio}
+\newtheorem*{note}{Nota}
+
+\newtheoremstyle{exercise_answer}
+  {} % space above answer
+  {} % space below answer
+  {\itshape\small\addtolength{\leftskip}{1em}} % body font and position
+  { } % space to indent the head
+  {\bfseries} % head font
+  {.} % punctuation between head and body
+  { } % space after theorem head; " " = normal interword space
+  { } % Manually specify head
+\theoremstyle{exercise_answer}
+\newtheorem*{exercise_answer}{Soluzione}
 
 \newcommand{\norm}[1] {\left\|#1\right\|}
 \newcommand{\abs}[1] {\left|#1\right|}
@@ -37,6 +51,8 @@
 \newcommand{\sse}{\Leftrightarrow}
 
 \newcommand{\R}{\mathbb{R}}
+
+\newcommand{\rvect}[1]{\begin{bmatrix} #1 \end{bmatrix}}
 
 \author{Mauro Conte, Federico Cerutti}
 \title{Appunti di Analisi 2}
