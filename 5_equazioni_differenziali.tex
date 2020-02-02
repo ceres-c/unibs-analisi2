@@ -9,7 +9,7 @@ Equazione differenziale ordinaria:\\
 2- La funzione incognita e le sue derivate sono calcolate allo stesso istante di tempo.\\
 \definition\label{def:equaz_diff}
 Si dice equazione differenziale ordinaria di ordine $n$ nella funzione incognita $x\in \R^k$ un espressione del tipo:
-$$f(t,x,\dot{x},\ldots,x^{(n)})=0$$
+$$f(t,x, x',\ldots,x^{(n)})=0$$
 dove $f:A\to \R^m$, $A\subseteq \R^{1+(1+n)k}$ e $t\in \R$.\\
 $m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
 \begin{itemize}
@@ -21,13 +21,13 @@ $m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di parte
 	\end{itemize}
 \end{itemize}
 Soluzione di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ definita su un intervallo $I\subseteq \R$, derivabile $n$ volte in $I$ e tale che $\forall t\in I$\\
-$$ (t,x,\dot{x},\ldots,x^{(n)}) \in A$$
-$$ f(t,x,\dot{x},\ldots,x^{(n)})=0$$
+$$ (t,x, x',\ldots,x^{(n)}) \in A$$
+$$ f(t,x, x',\ldots,x^{(n)})=0$$
 Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$
 \note
 Un'equazione differenziale ammette, in generale, infinite soluzioni.
 \begin{example}
-	Presa l'equazione differenziale $\dot{x}=1$, essa è risolta da $x(t) = t + \alpha$ per ogni $\alpha\in\R$
+	Presa l'equazione differenziale $ x'=1$, essa è risolta da $x(t) = t + \alpha$ per ogni $\alpha\in\R$
 \end{example}
 \note
 dalla definizione \ref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
@@ -38,27 +38,27 @@ La soluzione di un'equazione differenziale ordinaria non può avere 3 asintoti.
 \end{exercise_answer}
 \definition
 un'equazione differenziale è in forma normale  se e solo se si presenta nella forma 
-$$x^{(n)} = g(t,x,\dot{x},\ldots,x^{(n-1)})$$
+$$x^{(n)} = g(t,x, x',\ldots,x^{(n-1)})$$
 \observation
 lo studio di un'equazione differenziale ordinaria in forma non normale inizia generalmente con l'utilizzo del Teorema della Funzione Implicita insieme ai teoremi sulle equazioni differenziali ordinarie in forma normale
 \proposition
 ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$, cioè in cui compaiono solamente derivate prime.
 \begin{proof}
 	Data l'equazione
-	$$x^{(n)} = g(t,x,\dot{x},\ddot{x},\ldots,x^{(n-1)})$$
-	sia $y$ il vettore $y = \rvect{x & \dot{x} & \ddot{x} & \ldots & x^{(n-1)}}$. Abbiamo ora che le componenti del vettore sono
-	$$y_1=x\qquad y_2=\dot{x}\qquad y_3=\ddot{x}\qquad \ldots\qquad y_n=x^{(n-1)}$$
+	$$x^{(n)} = g(t,x, x', x'',\ldots,x^{(n-1)})$$
+	sia $y$ il vettore $y = \rvect{x &  x' &  x'' & \ldots & x^{(n-1)}}$. Abbiamo ora che le componenti del vettore sono
+	$$y_1=x\qquad y_2= x'\qquad y_3= x''\qquad \ldots\qquad y_n=x^{(n-1)}$$
 	ed al contempo
-	$$y_1'=\dot{x}=y_2\qquad y_2'=\ddot{x}=y_3\qquad y_3'=\dddot{x}=y_4\qquad\ldots\qquad y_{n-1}'=x^{(n-1)}=y_n$$
+	$$y_1'= x'=y_2\qquad y_2'= x''=y_3\qquad y_3'= x'''=y_4\qquad\ldots\qquad y_{n-1}'=x^{(n-1)}=y_n$$
 	Cioè, differenziando l'$i-esimo$ elemento (funzione) del vettore $y$, mi "sposto" all'elemento (funzione) $i+1$ di $y$. A questo punto tutti gli elementi di $y$ sono equazioni differenziali del primo ordine.\\
 	Quindi l'equazione può essere scritta come il seguente sistema del primo ordine
 	$$\begin{cases}y_1'\quad=\quad y_2\\y_2'\quad=\quad y_3\\\vdots\\y_n'\quad=\quad g(t, y_1, y_2,\dots,y_n)\end{cases}$$
 \end{proof}
 \begin{example}
 	CASO n=2\\
-	abbiamo che $\ddot{x}=f(t,x,\dot{x})$\\
-	introduco $\dot{X}=\begin{bmatrix}\dot{x}\\\ddot{x}\end{bmatrix}$ e $X=\begin{bmatrix}x\\\dot{x}\end{bmatrix}$\\
-	quindi $\dot{X}=f(t,X)$
+	abbiamo che $ x''=f(t,x, x')$\\
+	introduco $ X'=\begin{bmatrix} x'\\ x''\end{bmatrix}$ e $X=\begin{bmatrix}x\\ x'\end{bmatrix}$\\
+	quindi $ X'=f(t,X)$
 \end{example}
 \definition
 si dice problema di Cauchy del primo ordine il problema di determinare una soluzione di un equazione differenziale ordinaria del primo ordine soddisfacente ad una condizione iniziale.\\
@@ -67,7 +67,7 @@ $$\left\{\begin{matrix}
 \dot{x}=f(t,x)\\x(t_0)=x_0
 \end{matrix}\right.$$
 Dove $f:J\times A\to \R^n$, $J\subseteq \R$ è un intervallo, $t_0\in\circdot{J}$, $A\in \R^n$, $x_0\in\circdot{A}$.\\
-Soluzione di un problema di Cauchy è una funzione $x:J\to \R^n$ che sia soluzione dell'equazione differenziale $\dot{x}=f(t,x)$ definita in un intervallo $I$ contenente $t_0$ nella sua parte interna, $I\subseteq J$, tale che $x(t_0)=x_0$ e $x(I)\subseteq A$, e x derivabile.
+Soluzione di un problema di Cauchy è una funzione $x:J\to \R^n$ che sia soluzione dell'equazione differenziale $ x'=f(t,x)$ definita in un intervallo $I$ contenente $t_0$ nella sua parte interna, $I\subseteq J$, tale che $x(t_0)=x_0$ e $x(I)\subseteq A$, e x derivabile.
 \observation
 la condizione $x(t_0)=x_0$ viene abitualmente chiamata condizione iniziale nonostante la definizione di soluzione richieda che la stessa sia definita in un intervallo contenente $t_0$ nella sua parte interna. In molte applicazioni delle equazioni differenziali ordinare $t_0$ è proprio l'inizio dell'intervallo in cui si cerca la soluzione. I risultati seguenti continuano a valere con piccole modifiche alle dimostrazioni.??????????
 \observation
@@ -79,16 +79,16 @@ in generale un problema si dice BEN POSTO o BEN POSTO NEL SENSO DI HADAMARD ogni
 \end{enumerate} 
 \section{La Legge di Malthus}
 Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.\\
-$$\dot{x}=k\cdot x$$
+$$ x'=k\cdot x$$
 dove $x$ è il numero di membri della popolazione e $k$ è una costante positiva legata alla prolificità della specie in esame, generalmente calcolata come differenza tra i tassi di natalità e di mortalità.\\
-Il problema di Cauchy è quindi $\left\{\begin{matrix}\dot{x}=k\cdot x\\x(0)=0\end{matrix}\right.$ con $x\in \R, k>0 $ e $ x_0=0$
+Il problema di Cauchy è quindi $\left\{\begin{matrix} x'=k\cdot x\\x(0)=0\end{matrix}\right.$ con $x\in \R, k>0 $ e $ x_0=0$
 
 \begin{center}
 	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
 	\pgfmathsetmacro\MAX{2}
 	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$\dot{x}$};
-	\draw[domain=-2:2,smooth,variable=\x] plot ({\x},{\x}) node {$\dot{x}=kx$};
+	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
+	\draw[domain=-2:2,smooth,variable=\x] plot ({\x},{\x}) node {$ x'=kx$};
 	\draw node at (0.5,0) {$|$};
 	\draw node at (1,0) {$|$};
 	\draw node at (1.5,0) {$|$};
@@ -98,9 +98,9 @@ Il problema di Cauchy è quindi $\left\{\begin{matrix}\dot{x}=k\cdot x\\x(0)=0\e
 	\draw node[anchor=north] at (0.5,0) {$x_0$};
 	\draw node[anchor=north] at (1,0) {$x_0+h$};
 	\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
-	\draw node[anchor=east] at (0,0.5) {$\dot{x}^{'} $};
-	\draw node[anchor=east] at (0,1) {$\dot{x}^{''} $};
-	\draw node[anchor=east] at (0,1.5) {$\dot{x}^{'''}$};
+	\draw node[anchor=east] at (0,0.5) {$ x'^{'} $};
+	\draw node[anchor=east] at (0,1) {$ x'^{''} $};
+	\draw node[anchor=east] at (0,1.5) {$ x'^{'''}$};
 	
 	\end{tikzpicture}% pic 1
 	\qquad % <----------------- SPACE BETWEEN PICTURES
@@ -130,7 +130,7 @@ Siano $I\subseteq \R$ un intervallo aperto, .....????...., ogni funzione $f\in C
 \end{proof}
 \subsection{Esistenza e Unicità}
 \proposition{Teorema di Peano}
-Si consideri il seguente problema di Cauchy: $\left\{\begin{matrix}\dot{x}=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
+Si consideri il seguente problema di Cauchy: $\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
 \begin{enumerate}
 	\item $I\subseteq \R$ intervallo, $A\subseteq \R^n, t_0\in \circdot{I}, x_0\in \circdot{A}$
 	\item $f\in C^0(I\times A;R^n)$
@@ -144,12 +144,12 @@ Allora esiste una soluzione, cioè $\exists J\subseteq I$ intervallo e $\exists 
 \observation 
 ?????????????????????????????????????????????\\
 ESEMPIO Il Baffo/Pennello di Peano\\
-$\left\{\begin{matrix}\dot{x}=\sqrt{|x|}\\x(0)=x_0\end{matrix}\right.$
+$\left\{\begin{matrix} x'=\sqrt{|x|}\\x(0)=x_0\end{matrix}\right.$
 \begin{center}
 	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
 	\pgfmathsetmacro\MAX{2}
 	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$\dot{x}$};
+	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
 	\draw[domain=0:2,smooth,variable=\x] plot ({\x},{(\x)^(1/2)});
 	\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{(-\x)^(1/2)});
 	%\draw node at (0.5,0) {$|$};
@@ -161,9 +161,9 @@ $\left\{\begin{matrix}\dot{x}=\sqrt{|x|}\\x(0)=x_0\end{matrix}\right.$
 	%\draw node[anchor=north] at (0.5,0) {$x_0$};
 	%\draw node[anchor=north] at (1,0) {$x_0+h$};
 	%\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
-	%\draw node[anchor=east] at (0,0.5) {$\dot{x}^{'} $};
-	%\draw node[anchor=east] at (0,1) {$\dot{x}^{''} $};
-	%\draw node[anchor=east] at (0,1.5) {$\dot{x}^{'''}$};
+	%\draw node[anchor=east] at (0,0.5) {$ x'^{'} $};
+	%\draw node[anchor=east] at (0,1) {$ x'^{''} $};
+	%\draw node[anchor=east] at (0,1.5) {$ x'^{'''}$};
 	
 	\end{tikzpicture}% pic 1
 	\qquad % <----------------- SPACE BETWEEN PICTURES
@@ -174,8 +174,8 @@ $\left\{\begin{matrix}\dot{x}=\sqrt{|x|}\\x(0)=x_0\end{matrix}\right.$
 	\end{tikzpicture}% pic 2
 \end{center}
 Se $x_0 = 0$ ho che $\varphi(t)=0$ è soluzione $\forall t$\\
-Ma $\dot{x} = \sqrt{|x|}$ è anche un'equazione a variabili separabili quindi risolvibile.\\
-$$\frac{\dot{x}}{\sqrt{|x|}}=1 \Rightarrow \int\limits_{0}^{t}{\frac{\dot{x}}{\sqrt{|x|}}dt} = t$$
+Ma $ x' = \sqrt{|x|}$ è anche un'equazione a variabili separabili quindi risolvibile.\\
+$$\frac{ x'}{\sqrt{|x|}}=1 \Rightarrow \int\limits_{0}^{t}{\frac{ x'}{\sqrt{|x|}}dt} = t$$
 $$\int\limits_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{|x|}}dx} = t$$
 valuto ora il caso $x>=0$ quindi $|x|=x$
 $$ \int\limits_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}dx} = 2\sqrt{x} = t$$ 
@@ -197,7 +197,7 @@ x(0)=0
 	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
 	\pgfmathsetmacro\MAX{2}
 	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$\dot{x}$};
+	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
 	\draw[domain=0:2,smooth,variable=\x] plot ({\x},{1});
 	\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{-1});
 	\draw node at (0,-1) {$\bullet$};
@@ -205,8 +205,8 @@ x(0)=0
 	\end{tikzpicture}% pic 1
 \end{center}
 
-$x(t)=0$ soddisfa la condizione iniziale ma ovviamente non può essere soluzione del problema poiché per $x\ne 0$ si ha che $\dot{x}=\pm 1$ che non è la derivata della funzione nulla.\\
-partendo sempre dalla condizione iniziale si può ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $\dot{x}(0)=-1$\\
+$x(t)=0$ soddisfa la condizione iniziale ma ovviamente non può essere soluzione del problema poiché per $x\ne 0$ si ha che $ x'=\pm 1$ che non è la derivata della funzione nulla.\\
+partendo sempre dalla condizione iniziale si può ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $ x'(0)=-1$\\
 se invece si ipotizza che decresce da $0$ si ottiene che la funzione assume valori negativi, anche questo è un assurdo poiché la derivata per valori negativi della funzione è positiva.\\
 Precisiamo che se il problema fosse stato $\left\{\begin{matrix}
 \dot{x} = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
@@ -234,7 +234,7 @@ Allora:
 	\begin{matrix}
 	\ast && J\subseteq I, \varphi(J)\subseteq{A}\\
 	\ast && t_o\in\circdot{J}, \varphi(t_0)=x_0\\
-	\ast && \varphi derivabile, \dot{\varphi}(t)=f(t,\varphi(t)) \quad\forall t\in J\end{matrix}\right.$
+	\ast && \varphi derivabile,  \varphi'(t)=f(t,\varphi(t)) \quad\forall t\in J\end{matrix}\right.$
 	\item Unicità\\
 	Se $\exists J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists \varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni, cioè\\
 	$\varphi_1,\varphi_2 soluzione:
@@ -242,8 +242,8 @@ Allora:
 	\begin{matrix}
 	\ast && J_1\subseteq I,J_2\subseteq I, \varphi_1(J_1)\subseteq{A},\varphi_2(J_2)\subseteq{A}\\
 	\ast && t_o\in\circdot{J_1},t_o\in\circdot{J_2} \varphi_1(t_0)=x_0, \varphi_2(t_0)=x_0\\
-	\ast && \varphi_1,\varphi_2 derivabili, \dot{\varphi_1}(t)=f(t,\varphi_1(t)) \quad\forall t\in J_1
-	\dot{\varphi_2}(t)=f(t,\varphi_2(t)) \quad\forall t\in J_2
+	\ast && \varphi_1,\varphi_2 derivabili,  \varphi_1'(t)=f(t,\varphi_1(t)) \quad\forall t\in J_1
+	 \varphi_2'(t)=f(t,\varphi_2(t)) \quad\forall t\in J_2
 	\end{matrix}\right.$
 	Si può osservare che $J_1\cap J_2$ è non vuoto poiché entrambi gli insiemi contengono $t_0$ nella loro parte interna.\\
 	Allora $\forall t \in(J_1\cap J_2)$ vale $\varphi_1(t)=\varphi_2(t)$,cioè se esistono due soluzioni ovunque entrambe siano definite esse coincidono..\\
@@ -252,12 +252,12 @@ Allora:
 	$$ 
 	(1)\left\{
 	\begin{matrix}
-	\dot{x}=f(t,x)\\x(t_0)=x_0
+	 x'=f(t,x)\\x(t_0)=x_0
 	\end{matrix}
 	\right.\quad
 	(2)\left\{
 	\begin{matrix}
-	\dot{y}=g(t,y)\\y(t_0)=y_0
+	 y'=g(t,y)\\y(t_0)=y_0
 	\end{matrix}
 	\right.
 	$$
@@ -294,7 +294,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	Cauchy Locale:\\
 	L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso.Prima di tutto serve una relazione che dal problema di Cauchy ci permetta di ottenere $x$ in funzione di qualcosa che dipenda da $x$.\\
 	Integrando ambi i membri della prima equazione del problema di ottiene:
-	$$\int\limits_{t_0}^t(\dot{x})d\tau=\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$$
+	$$\int\limits_{t_0}^t( x')d\tau=\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$$
 	$$x(t)=x_0+\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$$
 	$T$ è una funzione del tipo:
 	$\begin{array}{rcl} T: ? & \to & ? \\ x & \to & Tx \end{array}$, con $y(t)=x_0+\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$\\
@@ -370,7 +370,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	Sia per assurdo $t_M$ l'ultimo istante fino a cui $\varphi_1,\varphi_2$ coincidono, cioè: $t_M = \sup \left\{t\in I:t\ge t_0, \varphi_1(\tau)=\varphi_2(\tau), \forall \tau \in \left[t_0,t\right[\right\}$.\\
 	Cerchiamo di mostrare o che non c'è o che è alla fine dell'intervallo $I$.\\
 	Se si considera il problema di Cauchy:
-	$\left\{\begin{matrix}\dot{x}=f(t,x(t))\\x(t_M)=x_{t_M}\end{matrix}\right.$. Possiamo applicare quanto trovato per il punto uno della tesi, cioè esiste un intervallo contenente $t_M$ nella sua parte interna in cui la soluzione esiste ed è unica.\\
+	$\left\{\begin{matrix} x'=f(t,x(t))\\x(t_M)=x_{t_M}\end{matrix}\right.$. Possiamo applicare quanto trovato per il punto uno della tesi, cioè esiste un intervallo contenente $t_M$ nella sua parte interna in cui la soluzione esiste ed è unica.\\
 	OSS:: $t_M$ esiste sempre poiché è il $sup$ di un insieme non vuoto, inoltre $t_M\ge t_0+\delta$ è certamente $t_M\in \overline{I}$\\
 	Possono verificarsi due casi, o $t_M$ è sul bordo di $I$ ed in questo caso la dimostrazione è finita poiché fino al bordo dell'intervallo le soluzioni coincidono.
 	Oppure $T_M$ è nella parte interna dell'intervallo quindi $t_m\ne\sup I\Rightarrow t_M\in\circdot{I}$, e se è u n punto interno per l'intervallo allora è anche un punto di accumulazione per lo stesso, è quindi possibile calcolare $\lim\limits_{t\to t_M^{-}}\varphi_1(t)\quad\lim\limits_{t\to t_M^{-}}\varphi_2(t)$ ma entrambi i limiti devono essere uguali a $x_M$ poiché sia $\varphi_1,\varphi_2$ sono soluzioni al problema  di Cauchy e devono quindi soddisfare la condizione iniziale, anche perché fino a $t_M$ le due soluzioni coincidono e quindi il loro limite deve essere lo stesso.\\
@@ -383,7 +383,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	Applicando il ragionamento fino a quando non si raggiungono i bordi di $I$ e di $A$ abbiamo dimostrato che se esistono più soluzioni allora queste coincidono dove sono definite entrambe.\\
 	FATTO IL SECONDO PUNTO DEL TEOREMA.\\
 	Dati
-	$$(P_f):\left\{\begin{matrix}\dot{x}=f(t,x(t))\\x(t_0)=x_{0}\end{matrix}\right.\quad	(P_g):\left\{\begin{matrix}\dot{y}=f(g,y(t))\\y(t_0)=y_{0}\end{matrix}\right.$$
+	$$(P_f):\left\{\begin{matrix} x'=f(t,x(t))\\x(t_0)=x_{0}\end{matrix}\right.\quad	(P_g):\left\{\begin{matrix} y'=f(g,y(t))\\y(t_0)=y_{0}\end{matrix}\right.$$
 	Siano $\varphi$ soluzione di $P_f$, $\psi$ soluzione di $P_g$, bisogna stimare quanto queste due soluzioni di due problemi con la condizione iniziale allo stesso istante distano.
 	$$\varphi:\left[t_0-\delta_f,t_0+\delta_f\right]\to \R^n$$
 	$$\psi:\left[t_0-\delta_g,t_0+\delta_g\right]\to \R^n$$
@@ -404,7 +404,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	QUESTO TEOREMA è TROPPO DA PRO.
 \end{proof}
 ESEMPIO: DECADIMENTO RADIOATTIVO\\
-Il decadimento di una sostanza radioattiva è ben descritto da $\dot{x}=-k\cdot x$ dove $x$ è la quantità di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\
+Il decadimento di una sostanza radioattiva è ben descritto da $ x'=-k\cdot x$ dove $x$ è la quantità di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\
 ...........\\
 ESEMPIO: LEGGE DEL CALORE DI NEWTON\\
 ......\\
@@ -444,7 +444,7 @@ Data la funzione $f:I\times \R^n\to \R^n$, se:
 	\item $f$ è localmente Lipschitziana in $x\in \R^n$ uniformemente rispetto $t\in I$
 	\item $f$ è sublineare
 \end{enumerate}
-allora il problema di Cauchy $\left\{\begin{matrix}\dot{x}=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ ammette un'unica soluzione definita sull'intervallo $I$.
+allora il problema di Cauchy $\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ ammette un'unica soluzione definita sull'intervallo $I$.
 \begin{proof}
 	DISEGNO...\\
 	Il teorema di Cauchy Locale assicura che  la soluzione esiste unica su un intervallo centrato all'istante iniziale.
@@ -458,7 +458,7 @@ allora il problema di Cauchy $\left\{\begin{matrix}\dot{x}=f(t,x)\\x(t_0)=x_0\en
 	Sia $T=sum\left\{t\in I :\exists soluzione su \left[ t_0,t \right[ \right\}$ cioè prendo l'estremo superiore dei tempi per cui c'è una soluzione.
 	Se $T= sup I$ o $T=+\infty$ abbiamo la tesi.\\
 	Se $T$ finito con $T<sup I$, dimostrando che la derivata della soluzione è limitata si escludono i casi in cui l'estensione della soluzione non si può fare.
-	quindi bisogna mostrare $\dot{x} = f(t,x)$ è limitata sull'insieme dove può arrivare la $x$\\
+	quindi bisogna mostrare $ x' = f(t,x)$ è limitata sull'insieme dove può arrivare la $x$\\
 	Sia ora $\varphi$ soluzione del problema di Cauchy:
 	$$ \varphi(t) = x_0 + \int_{t_0}^tf(\tau,x(\tau))d\tau$$
 	Valuto allora\\
@@ -482,12 +482,12 @@ allora il problema di Cauchy $\left\{\begin{matrix}\dot{x}=f(t,x)\\x(t_0)=x_0\en
 		\left[ 
 		\left\|x_0\right\| A \left(T-t_0\right)
 		\right]e^{B\left(T-t_0\right)}\right)}
-	$ è un insieme compatto poiché chiuso e limitato in $R^n$, $\varphi$ è limitata, la $f$ limitata, allora $\dot{\varphi}$ limitata allora $\varphi$ lipshitziana allora $\varphi$ uniformemente continua.\\
+	$ è un insieme compatto poiché chiuso e limitato in $R^n$, $\varphi$ è limitata, la $f$ limitata, allora $ \varphi'$ limitata allora $\varphi$ lipshitziana allora $\varphi$ uniformemente continua.\\
 		Allora esiste finito $\lim\limits_{t\to T^{-}}\varphi(t)=X$. Ora possono verificarsi due casi:\\
 	\begin{enumerate}
 		\item Se $T=\sup I \Rightarrow$ dimostrazione conclusa
 		\item Se $T<\sup I \Rightarrow$ posso considerare il problema di Cauchy \\
-		$\left\{ \begin{matrix} \dot{x}=f(t,x)\\x(T)=X \end{matrix} \right.$ Questo è un assurdo poiché arriveremmo a trovare una soluzione definita oltre il tempo $T$. Questo nega la scelta fatta a inizio dimostrazione.
+		$\left\{ \begin{matrix}  x'=f(t,x)\\x(T)=X \end{matrix} \right.$ Questo è un assurdo poiché arriveremmo a trovare una soluzione definita oltre il tempo $T$. Questo nega la scelta fatta a inizio dimostrazione.
 		\end{enumerate}
 \end{proof}
 \section{Equazioni Autonome}
@@ -497,22 +497,22 @@ Un'equazione differenziale ordinaria in forma normale si dice autonoma sse la va
 Tipicamente, le equazioni differenziali ordinarie autonome modellizzano sistemi isolati.
 \observation Invarianza per traslazione temporale.\\
 Non è importante ai fini dello studio dell'equazione l'istante iniziale, ma solo la lunghezza dell'intervallo.
-Se  $x=\varphi(t)$ risolve $\left\{ \begin{matrix} \dot{x} = f(x)\\x(t_0)=x_0 \end{matrix} \right.$\\
-Allora $x=\varphi(t+t_0)$ risolve $\left\{ \begin{matrix} \dot{x} = f(x)\\x(0)=x_0 \end{matrix} \right.$\\
+Se  $x=\varphi(t)$ risolve $\left\{ \begin{matrix}  x' = f(x)\\x(t_0)=x_0 \end{matrix} \right.$\\
+Allora $x=\varphi(t+t_0)$ risolve $\left\{ \begin{matrix}  x' = f(x)\\x(0)=x_0 \end{matrix} \right.$\\
 \begin{proof}
 	Sia $\psi(t)=\varphi(t_0+t)$\\
-	$\dot{\psi}(t)=\dot{\phi}(t_0+t)=f(\varphi(t_0+t))=f(\psi(t))$\\
+	$ \psi'(t)= \phi'(t_0+t)=f(\varphi(t_0+t))=f(\psi(t))$\\
 	$\psi(0)=\varphi(t_0)=x_0$ 
 \end{proof}
 \proposition Teorema dell'energia cinetica\\
 Un punto materiale non vincolato $P$ di massa $m$ si muove sotto l'azione di una forza $F$ che dipende solo dalla posizione di $P$. Allora la variazione di energia cinetica di $P$ è uguale al lavoro compiuto su $P$ da questa forza.
 \begin{proof}
 	sia $\underline{x}=(x,y,z)$ la terna delle coordinate di $P$. Per il Secondo Principio della Dinamica e per quanto assunto sulla forza $F$, il moto di $P$ è descritto dall'equazione(vettoriale) differenziale ordinaria del secondo ordine:\\
-	$$m\ddot{\underline{x}}=F(\underline{x})$$
-	$$m\ddot{\underline{x}}\cdot\dot{\underline{x}}=F(\underline{x})\dot{\underline{x}}$$
-	$$\frac{1}{2}m\frac{d}{dt}\left(\left(\dot{\underline{x}}\right)^2\right)=F(\underline{x})\dot{\underline{x}}$$
-	$$\int_{0}^t\frac{1}{2}m\frac{d}{dt}\left(\left(\dot{\underline{x}}(\tau)\right)^2\right)d\tau=\int_{0}^tF(\underline{x}(\tau))\cdot\dot{\underline{x}(\tau)}d\tau$$
-	$$\frac{1}{2}m\left(\dot{x}(t)\right)^2-\frac{1}{2}m\left(\dot{x}(0)\right)^2 = \int_{x(0)}^{x(t)}F(\xi)d\xi$$
+	$$m \underline{x''}=F(\underline{x})$$
+	$$m \underline{x''}\cdot \underline{x'}=F(\underline{x}) \underline{x'}$$
+	$$\frac{1}{2}m\frac{d}{dt}\left(\left( \underline{x'}\right)^2\right)=F(\underline{x}) \underline{x'}$$
+	$$\int_{0}^t\frac{1}{2}m\frac{d}{dt}\left(\left( \underline{x'}(\tau)\right)^2\right)d\tau=\int_{0}^tF(\underline{x}(\tau))\cdot \underline{x'(\tau)}d\tau$$
+	$$\frac{1}{2}m\left( x'(t)\right)^2-\frac{1}{2}m\left( x'(0)\right)^2 = \int_{x(0)}^{x(t)}F(\xi)d\xi$$
 	L'ultimo integrale è calcolato lungo la traiettoria di $P$.
 \end{proof}
 ESEMPIO:: Il Lancio di un Paracadutista\\
@@ -526,7 +526,7 @@ ESEMPIO:: CADUTA IN UN LIQUIDO\\
 \section{Equazioni Differenziali Ordinarie}
 \definition
 Sia $I\subseteq\mathbb{R}$ un intervallo e $n\in N$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1}, f:I\to\mathbb{C}$ si dice equazione differenziale ordinaria lineare di ordine $n$, l'equazione differenziale:
-$$x^{(n)}+a_{n-1}(t)\cdot x^{(n-1)}+\ldots+a_1(t)\cdot\dot{x}+a_0(t)x=f(t)$$
+$$x^{(n)}+a_{n-1}(t)\cdot x^{(n-1)}+\ldots+a_1(t)\cdot x'+a_0(t)x=f(t)$$
 Se $f\equiv 0 $ l'equazione si dice omogenea.
 \proposition
 sia $I$ un intervallo compatto e tale che $\circdot{I}\ne \emptyset$ siano $a_0,a_1,\ldots,a_{n-1},f\in C^0(I;\mathbb{C})$. Allora $\forall t_0\in\circdot{I}$ e $c_0,c_1,\ldots,c_{n-1}\in\mathbb{C}$ il problema di Cauchy 
@@ -541,7 +541,7 @@ ammette soluzione unica definita su tutto l'intervallo $I$.
 \begin{proof}
 	Un'equazione differenziale lineare di ordine $n$ può essere trasformato in un sistema di equazioni al primo ordine.
 	Introduciamo la variabile $X\in\mathbb{C^n}$ ed il dato iniziale $C\in\mathbb{C^n}$
-	$$\left[\begin{matrix} X_1\\X_2\\\ldots\\X_{n-1}\\X_n \end{matrix}\right] = \left[\begin{matrix} x\\\dot{x}\\\ldots\\ x^{(n-1)}\\x^{(n)} \end{matrix}\right]\quad\quad\left[\begin{matrix} C_1\\C_2\\\ldots\\C_{n-1}\\C_{n} \end{matrix}\right] = \left[\begin{matrix} c_0\\c_1\\\ldots\\ c_{n-2}\\c_{n-1} \end{matrix}\right]$$
+	$$\left[\begin{matrix} X_1\\X_2\\\ldots\\X_{n-1}\\X_n \end{matrix}\right] = \left[\begin{matrix} x\\ x'\\\ldots\\ x^{(n-1)}\\x^{(n)} \end{matrix}\right]\quad\quad\left[\begin{matrix} C_1\\C_2\\\ldots\\C_{n-1}\\C_{n} \end{matrix}\right] = \left[\begin{matrix} c_0\\c_1\\\ldots\\ c_{n-2}\\c_{n-1} \end{matrix}\right]$$
 	il problema di Cauchy per l'equazione lineare diventa:
 	$$
 	\left\{
@@ -577,14 +577,14 @@ x & \to & x^{(n)}+\sum\limits_{k=1}^{n-1}a_k(t)x^{(k)} \\
 \section{Equazioni Lineari a Coefficienti Costanti}
 \definition
 Dati i coefficienti $a_0,a_1,\ldots,a_{n-1},b\in\mathbb{C}$, si dice equazione differenziale ordinaria lineare di ordine $n$ a coefficienti costanti l'equazione differenziale
-$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1\dot{x}+a_0x=b$$
+$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
 se $b=0$ l'equazione si dice omogenea. La sua Equazione caratteristica è l'equazione algebrica
 $$\lambda^n+a_{n-1}\lambda^{n+1}+\ldots+a_1\lambda+a_0=0$$ 
 \observation
 Nella risoluzione di equazioni differenziali lineari la funzione esponenziale $t\to e^{\lambda t}$ riveste un ruolo molto particolare. Questa funzione è un autovalore dell'operatore di derivazione $D$ relativo all'autovalore, risolve infatti $\lambda$:$Dx=\lambda\cdot x$ 
 \proposition
 Data l'equazione
-$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1\dot{x}+a_0x=b$$
+$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
 $x(t)=e^{\lambda t}$ risolve l'equazione omogenea $\Leftrightarrow$ $\lambda$ è soluzione dell'equazione caratteristica.\\
 
 LEMMA:: Sia $x(t)=t\cdot e^{\lambda\cdot t}$. Allora , per ogni $n\in\mathbb{N}, n\ge 1$
@@ -592,7 +592,7 @@ $$x^{(n)}(t)=\left(\lambda^nt+n\lambda^{n-1}\right)e^{\lambda t}$$
 ???????????????NON L?HO CAPITA BENE.......................\\
 \proposition
 Data l'equazione 
-$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1\dot{x}+a_0x=b$$
+$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
 $x(t)=te^{\lambda t}$ risolve l'equazione omogenea $\Leftrightarrow$ $\lambda$ è soluzione dell'equazione caratteristica con molteplicità almeno ??????????.
 
 
