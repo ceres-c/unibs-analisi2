@@ -32,46 +32,47 @@ $$f_n\overset{p}{\to}f\quad su A$$
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
 Se $f_n\overset{p}{\to}f$ su $B$ e se $f_n$ ha la proprietà $P$ allora il limite $f$ ha la proprietà $P$.\\
 
-ESEMPIO::$f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
-$\lim\limits_{n\to\infty}f_n(x)=\lim\limits_{n\to\infty}\frac{1}{n}sin(x)=0\quad\forall x \in A \Rightarrow f_n\overset{p}{0}$ su $A$.
+\example $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
+$\lim\limits_{n\to\infty}f_n(x)=\lim\limits_{n\to\infty}\frac{1}{n}sin(x)=0\quad\forall x \in A \Rightarrow f_n\overset{p}{\to}0$ su $A$.
 
-ESEMPIO::$f_n(x)=e^{nx}$ con $A\equiv \R$
+\example$f_n(x)=e^{nx}$ con $A\equiv \R$
 \begin{center}
-\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-\draw[->] (-5,0) -- (5,0) node[anchor=north west] {$x$};
-\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$f_n(x)$};
-\clip (-5,-2) rectangle (5,2);
-\draw[domain=-5:5,smooth,variable=\x] plot ({\x},{1});
-\draw (2,{ln(2)},2) node[right] {$f_0$};
-\draw[domain=-5:5,smooth,variable=\x] plot ({\x},{e^(\x)});
-\draw (2,{ln(2)},2) node[right] {$f_1$};
-\draw[domain=-5:1,smooth,variable=\x] plot ({\x},{e^(2*\x)});
-\draw ({ln(2)},2) node[right] {$f_2$};
-\draw[domain=-5:1,smooth,variable=\x] plot ({\x},{e^(3*\x)});
-\draw ({ln(2)},2) node[right] {$f_3$};
-\end{tikzpicture}% pic 1
-SISTEMARE GRAFICO(NOMI FN)
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[
+			xlabel={$x$},ylabel={$y$},
+			axis lines=middle,
+			samples=41,grid,thick,
+			domain=-1:1,
+			ymin=-1,ymax=4,
+			legend pos=outer north east ]
+			\addplot+[no marks] {1}; \addlegendentry{$1$}
+			\addplot+[no marks] {e^x}; \addlegendentry{$e^x$} 
+			\addplot+[no marks]{e^(2*x)}; \addlegendentry{$e^{2x}$}
+			\addplot+[no marks]{e^(3*x)}; \addlegendentry{$e^{3x}$}
+			\end{axis}
+	\end{tikzpicture}
 \end{center}
 $$\lim\limits_{n\to\infty}e^{nx} = \left\{\begin{matrix} 0 && x<0\\1&&x=0\\\infty&&x>0 \end{matrix}\right.$$
 $$f_n\overset{p}{\to}f\quad su B=\left]-\infty,0\right]$$
 \observation
 La continuità non passa al limite come proprietà $P$
-ESEMPIO:: $f_n(x)=x^n$ con $A\equiv \R$
+
+\example $f_n(x)=x^n$ con $A\equiv \R$
 \begin{center}
-	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-	\draw[->] (-5,0) -- (5,0) node[anchor=north west] {$x$};
-	\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$f_n(x)$};
-	\clip (-5,-2) rectangle (5,2);
-	\draw[domain=-5:5,smooth,variable=\x] plot ({\x},{1});
-	\draw (2,{ln(2)},2) node[right] {$f_0$};
-	\draw[domain=-5:5,smooth,variable=\x] plot ({\x},{(\x)});
-	\draw (2,{ln(2)},2) node[right] {$f_1$};
-	\draw[domain=-5:5,smooth,variable=\x] plot ({\x},{(\x)*(\x)});
-	\draw (2,{ln(2)},2) node[right] {$f_2$};
-	\draw[domain=-5:5,smooth,variable=\x] plot ({\x},{(\x)*(\x)*(\x)});
-	\draw (2,{ln(2)},2) node[right] {$f_3$};
-	\end{tikzpicture}% pic 1
-	SISTEMARE GRAFICO(NOMI FN)
+	\begin{tikzpicture}[scale=1]
+		\begin{axis}[
+			xlabel={$x$},ylabel={$y$},
+			axis lines=middle,
+			samples=41,grid,thick,
+			domain=-2:2,
+			ymin=-2,ymax=2,
+			legend pos=outer north east ]
+			\addplot+[no marks] {1}; \addlegendentry{$1$}
+			\addplot+[no marks] {x}; \addlegendentry{$x$}
+			\addplot+[no marks] {x^2}; \addlegendentry{$x^2$}
+			\addplot+[no marks] {x^3}; \addlegendentry{$x^3$}
+			\end{axis}
+	\end{tikzpicture}
 \end{center}
 $$\lim\limits_{n\to\infty}x^{n} = \left\{\begin{matrix}+\infty&&x\in\left]1,+\infty\right[\\ 1 && x\in\left\{1\right\}\\0&&x\in\left]-1,1\right[\\\nexists &&x\in\left]-\infty,-1\right] \end{matrix}\right.$$
 $$f_n\overset{p}{\to}f\quad su B=\left]-1,1\right]$$
@@ -79,25 +80,26 @@ $$f_n\overset{p}{\to}f\quad su B=\left]-1,1\right]$$
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
 Se $f_n\overset{p}{\to}f$ su $B$ e se $f_n$ è debolmente crescente su $B$ allora il limite $f$ è debolmente crescente su $B$.
 \begin{proof}
-	Dire che $f_n$ è debolmente crescente su $B$ significa che $$\forall x_1,x_2\in B, x_1\le x_2 \Rightarrow fn(x_1)\le f_n(x_2)$$
-	se mando $n\to\infty$ ho che $f(x_1)\le f(x_2)$, questo perché siamo nell'insieme $B$ dovei limiti puntuali esistono
-	\observation
-	Questo vale anche nel caso di funzioni debolmente decrescenti
-	\observation
-	se $f_n$ è strettamente crescente/decrescente con le stesse ipotesi non possiamo concludere che il limite puntuale mantenga la stessa proprietà\\
-	ESEMPIO:: $x^n$ con $x\in\left[0,1\right[$ è strettamente crescente ma il limite putuale è costante uguale a zero.
+	Dire che $f_n$ è debolmente crescente su $B$ significa che $$\forall x_1,x_2\in B \quad x_1\le x_2 \Rightarrow fn(x_1)\le f_n(x_2)$$
+	se si fa tendere $n\to\infty$ si ha che $f(x_1)\le f(x_2)$, e questo nell'insieme $B$ dove i limiti puntuali delle funzioni esistono per ipotesi
 \end{proof}
+\observation
+Questo vale anche nel caso di funzioni debolmente decrescenti
+\observation
+se $f_n$ è strettamente crescente/decrescente con le stesse ipotesi non possiamo concludere che il limite puntuale mantenga la stessa proprietà\\
+\example $x^n$ con $x\in\left[0,1\right[$ è strettamente crescente ma il limite putuale è costante uguale a zero.
 \proposition PROPRIETÀ P:NON NEGATIVA\\
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
-Se $f_n\overset{p}{\to}f$ su $B$ e se $f_n$ è non negativa su($f_n\ge 0$) $B$ allora il limite $f$ è non negativo($f\ge 0$) su $B$.
+Se $f_n\overset{p}{\to}f$ su $B$ e se $f_n$ è non negativa, $f_n\ge 0$, su $B$ allora il limite $f$ è non negativo, $f\ge 0$, su $B$.
 \begin{proof}
  	Sappiamo che $f(x)=\lim\limits_{n\to\infty}f_n(x)$ $\forall x\in B$.
  	Ma $f_n$ è una successione di valori non negativi quindi il limite esiste ed è non negativo.
-	\observation
-	Questo vale anche nel caso di funzioni non positive
-	\observation
-	Questa proposizione non può essere estesa al caso di funzioni strettamente positive/negative.
 \end{proof}
+\observation
+Questo vale anche nel caso di funzioni non positive
+\observation
+Questa proposizione non può essere estesa al caso di funzioni strettamente positive/negative.\\
+\example $	-\frac{e^x}{n}$ con $x\in\left[0,1\right[$ è strettamente negativa ma il limite è costante uguale a zero.
 \proposition
 Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. sia $f:B\to \R$ una funzione\\
 $f_n\overset{p}{\to}f$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\forall \epsilon >0,\exists\nu\in\mathbb{N}:\forall n>\nu \quad \left|f_n(x)-f(x)\right|\le \epsilon$
@@ -105,7 +107,7 @@ $f_n\overset{p}{\to}f$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\fo
 	direttamene dalla definizione...
 \end{proof}
 \proposition
-Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. sia $F:B\to \R$ una funzione\\
+Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. Sia $F:B\to \R$ una funzione\\
 $\sum\limits_{n=0}^{\infty}f_n\overset{p}{\to}F$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\forall \epsilon >0,\exists\nu\in\mathbb{N}:\forall n>\nu \quad \left|\sum\limits_{k=0}^{\infty}f_k(x)-F(x)\right|\le \epsilon$
 \begin{proof}
 	direttamene dalla definizione...
@@ -118,19 +120,19 @@ Siano $A\subseteq \R$, $B\subseteq A$, $\left\{f_n:n\in\mathbb{N}\right\}$ una s
 	\item[-] La successione $\left\{f_n:n\in\mathbb{N}\right\}$ è uniformemente convergente su $B$ se esiste una funzione $f:B\to \R$ t.c.:
 	$$\lim\limits_{n\to\infty} \sup\limits_{x\in B}\left|f_n(x)-f(x)\right|=0$$
 	la funzione $f$ è il limite uniforme della successione $fn$
-	\item[-] La serie $\sum\limits_{n=0}*{\infty}f_n$ è uniformemente convergente su $B$ se esiste una funzione $F:B\to \R$ t.c.:
-	$$\lim\limits_{n\to\infty} \sup\limits_{x\in B}\left|F(x)-\sup\limits_{k=0}^{n}f_:k(x)\right|=0$$
+	\item[-] La serie $\sum\limits_{n=0}^{\infty}f_n$ è uniformemente convergente su $B$ se esiste una funzione $F:B\to \R$ t.c.:
+	$$\lim\limits_{n\to\infty} \sup\limits_{x\in B}\left|F(x)-\sup\limits_{n=0}f_n(x)\right|=0$$
 	la funzione $F$ è il limite uniforme della serie $\sum\limits_{n=0}^{\infty}f_n$ 
 \end{description}
 \observation
-LA convergenza uniforme su $B$ della successione $f_n$ verso $f$ è indicatacon
-$$f_n\overset{u}{\to}f\quad su B$$
+La convergenza uniforme su $B$ della successione $f_n$ verso $f$ è indicata con
+$$f_n\overset{u}{\to}f\quad su \quad B$$
 \observation
 la covergenza uniforme equivale alla convergenza rispetto alla distanza $d_{C^0}(f,g)=\sup\limits_{x\in A}\left|g(x)-f(x)\right|$ ogniqualvolta questa distanza è definita.\\
 Questa distanza può essere definita attraverso la norma $\left\| f\right\|_{c^0}=\sup\limits_{x\in A}\left|f\right|$
 \proposition
 sia $f_n:n\in\mathbb{N}$ con $f:A\subseteq \R\to \R$ e $f:B\subseteq A \to  \R$\\
-$f_n\overset{u}{\to}f$ su $B$ per$n\to\infty \Leftrightarrow \forall\epsilon >0, \exists\nu\in\mathbb{N}$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\left| f_n(x)-f(x)\right\|\le\epsilon$
+$f_n\overset{u}{\to}f$ su $B$ per$n\to\infty \Leftrightarrow \forall\epsilon >0, \exists\nu\in\mathbb{N}$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\left| f_n(x)-f(x)\right|\le\epsilon$
 \proposition
 sia $f_n:n\in\mathbb{N}$ con $f:A\subseteq \R\to \R$ e $F:B\subseteq A \to  \R$\\
 $\sum\limits_{n=0}^{\infty}f_n\overset{u}{\to}F$ su $B\Leftrightarrow \forall\epsilon >0, \exists\nu\in\mathbb{N}$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\left| F(x)-\sum\limits_{k=0}^{n}f_k(x)\right|\le\epsilon$
@@ -147,29 +149,36 @@ Se $fn\overset{u}{\to}f$ su $B$ allora $fn\overset{p}{\to}f$ su $B$.
 Sia $f_n:A\subseteq \R\to \R$ e $\overline{f},f:B\subseteq A\to \R$\\
 se $f_n\overset{u}{\to}f$ su $B$ e $f_n\overset{u}{\to}\overline{f}$ su $B$ allora $f=\overline{f}$
 \begin{proof}
-	$f_n\overset{u}{\to}f$ e $f_n\overset{u}{\to}\overline{f}$, quindi è anche vero che $f_n\overset{p}{\to}f$ e $f_n\overset{p}{\to}\overline{f}$ ma il limite puntuale è unico poiché è il limite di una successione. Allora $f=\overline{f}$
+	$f_n\overset{u}{\to}f$ e $f_n\overset{u}{\to}\overline{f}$, quindi è anche vero che $f_n\overset{p}{\to}f$ e $f_n\overset{p}{\to}\overline{f}$ ma il limite puntuale è unico poichè è il limite di una successione. Allora $f=\overline{f}$
 \end{proof}
-ESEMPIO:: $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
+\example $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
 Abbiamo gia calcolato che $f_n\overset{p}{\to}0$ su $A$.\\
 Sia ha anche convergenza uniforme :\\
-$$\lim\limits_{n\to\infty}\sup{ \R}\left|f_n(x)-0\right| = \lim\limits_{n\to\infty}\sup{ \R}\left|\frac{1}{n}sin(x)\right|$$
-Osserve che $\left|asin(x)\right|\le\left|a\right|$ quindi 
-$$\lim\limits_{n\to\infty}\sup{ \R}\left|\frac{1}{n}sin(x)\right|\le\lim\limits_{n\to\infty}\frac{1}{n}=0$$
+$$\lim\limits_{n\to\infty}\sup{ \R}\left|f_n(x)-0\right| = \lim\limits_{n\to\infty}\sup\limits_{ \R}\left|\frac{1}{n}sin(x)\right|$$
+Osservo che $\left|asin(x)\right|\le\left|a\right|$ quindi 
+$$\lim\limits_{n\to\infty}\sup\limits_{ \R}\left|\frac{1}{n}sin(x)\right|\le\lim\limits_{n\to\infty}\frac{1}{n}=0$$
 Allora $f_n\overset{u}{\to}f$ su $A$
-ESEMPIO:: $f_n(x)=sin\left(\frac{1}{n}x\right)$ con $A\equiv \R$
+
+\example $f_n(x)=sin\left(\frac{1}{n}x\right)$ con $A\equiv \R$
 ..........\\
 ..........\\
 \proposition
 Siano $A\subseteq \R$, $\left\{f_n:A\to \R:n\in\mathbb{N}\right\}$ una successione di funzioni e $f:A\to \R$\\
-$f_n\overset{u}{\to}f$ su $A$ e $f_n\in C^0(A; \R) \forall n\in\mathbb{N}$ allora $f\in C^0(A; \R)$
+$f_n\overset{u}{\to}f$ su $A$ e $f_n\in C^0(A; \R)\,\,\forall n\in\mathbb{N}$ allora $f\in C^0(A; \R)$
 \begin{proof}
 	DISEGNO\\
 	DISEGNO\\
 	DISEGNO\\
 	DISEGNO\\
 	GIURO CHE LA FAROò
+	(a distanza di tre anni non son sicurissimo che lo farò)
 \end{proof}
-ESEMPIO:: $f_n(x)=\sqrt{x^2+\frac{1}{n}}$ con $A\equiv \R$
+\example $f_n(x)=\sqrt{x^2+\frac{1}{n}}$ con $A\equiv \R$\\
+%$f_n$ è continua $\forall n$ perchè compositione di funzioni continue.\\
+%Il limite puntuale di questa successione di funzioni è $f\left( x \right)=\left|x\right|$ su $A$\\
+%Si può verificare che $f\left(x\right)=\left|x\right|$ è anche limite uniforme su $A$ poichè
+%$$ \lim\limits_{n\to\infty}\sup\limits_{x\in A} \left|\sqrt{x^2+\frac{1}{n}}-\left|x\right|\right| $$
+%analizzando il contenuto del modulo si trova che la sua derivata vale $\frac{1}{2\sqrt{x^2+\frac{1}{n}}}-sgn\left(x\right)$ che si annulla in $x=\pm\sqrt{\frac{1}{4}-\frac{1}{n}}$
 ..........\\
 ..........\\
 \definition
@@ -305,7 +314,7 @@ Convergenza Totale $\Rightarrow$ Convergenza Uniforme $\Rightarrow$ Convergenza 
 \section{Serie di Funzioni Particolari}
 Questa sezione è dedicata ad alcune tecniche di approssimazione  basate su serie di funzioni particolari\\
 In generale, un'approssimazione si riconduce ad una formula del tipo\\
-$$\left[quantita' da calcolare \right]=\left[ quantita' approssimante \right]+ errore$$
+$$\left[\text{quantità da calcolare}\right]=\left[\text{quantità approssimante}\right]+ errore$$
 La qualità dell'approssimazione è descritta dal senso in cui l'errore è piccolo.\\
 \subsection{Serie di Potenze}
 \definition
