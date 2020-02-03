@@ -21,11 +21,15 @@ $m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di parte
 	\end{itemize}
 \end{itemize}
 Soluzione di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ definita su un intervallo $I\subseteq \R$, derivabile $n$ volte in $I$ e tale che $\forall t\in I$\\
-$$ (t,x, x',\ldots,x^{(n)}) \in A$$
-$$ f(t,x, x',\ldots,x^{(n)})=0$$
+$$(t,x, x',\ldots,x^{(n)}) \in A$$
+$$f(t,x, x',\ldots,x^{(n)})=0$$
 Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$
 \begin{note}
 	Un'equazione differenziale ammette, in generale, infinite soluzioni.
+\end{note}
+\begin{note}
+	\label{note:diff_eq_sol_definition_set}
+	La soluzione di un'equazione differenziale può, analiticamente, essere definita su un intervallo $J\supset I$ ($I$ intervallo di definizione della funz. differenziale $f$). Non ha però senso considerare il suo comportamento al di fuori di $I$, in quanto non ha valore dal punto di vista del sistema. Per questo motivo $J$ sarà sempre considerato $J\subseteq I$
 \end{note}
 \begin{example}
 	Presa l'equazione differenziale $ x'=1$, essa è risolta da $x(t) = t + \alpha$ per ogni $\alpha\in\R$
@@ -120,7 +124,7 @@ in generale un problema si dice \textbf{ben posto} o \textbf{ben posto nel senso
 	\item esiste
 	\item è unica
 	\item dipende con continuità dai dati
-\end{enumerate} 
+\end{enumerate}
 \section{La Legge di Malthus}
 Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.
 $$ x'=k\cdot x$$
@@ -181,73 +185,87 @@ Limiti di questo modello:
 \begin{note}
 	La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$. Quindi la $f$ rimane lips. in modo uniforme al variare di $t$ (cioè $\forall t\in I$), ma questo non è garantito $\forall x\in A$, solo per $x_1,x_2 \in (B(x_0,r)\cap A)$.
 \end{note}
+\begin{example}
+	La funzione $f:\R\mapsto\R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \ref{def:fun_lips}
+\end{example}
+\begin{proposition}
+	Siano $I\subseteq \R$ un intervallo aperto ed $A\subseteq \R^n$ un aperto. Ogni funzione $f\in \cntclass{1}(I\times A,R^n)$ è loc. lips in $x\in A$ uniformemente rispetto a $t\in I$.
+	\begin{proof}
+		sia $x\in A \Rightarrow \exists B(x_0,r)\subseteq A$ (per definizione di 
+		\hyperref[def:aperto]{aperto}) con $r>0$, anche $\overline{B(x_0,r)}\subseteq A$ scelto $r$ abbastanza piccolo, allora $\norm{f(t,x_2)-f(t,x_1)}\le\sup\limits_{(t,x)\in I\times \overline{B(x_0,r)}}\norm{Df()}\norm{x_2-x_1}  $ per la formula degli \hyperref[thm:accresc_fin]{accrescimenti finiti}.
+		% TODO da rivedere
+	\end{proof}
+\end{proposition}
 
-% TODO Continuare da qui
-
-\proposition
-Siano $I\subseteq \R$ un intervallo aperto ed $A\subseteq \R^n$ un aperto. Ogni funzione $f\in \cntclass{1}(I\times A,R^n)$ è localmente lipschitziana??? ..... uniformemente rispetto a $t\in I$.
-\begin{proof}
-	sia $x\in A \Leftarrow \exists B(x_0,r)\subseteq A$ con $r>0$, anche $\overline{B(x_0,r)}\subseteq A$ scelto $r$ abbastanza piccolo, allora $\norm{f(t,x_2)-f(t,x_1)}le\sup\limits_{(t,x)\in I\times \overline{B(x_0,r)}}\norm{Df()}\norm{x_2-x_1}  $ per la formula degli accrescimenti finiti.  
-\end{proof}
 \subsection{Esistenza e Unicità}
-\proposition{Teorema di Peano}
-Si consideri il seguente problema di Cauchy: $\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
-\begin{enumerate}
-	\item $I\subseteq \R$ intervallo, $A\subseteq \R^n, t_0\in \circdot{I}, x_0\in \circdot{A}$
-	\item $f\in \cntclass{0}(I\times A;R^n)$
-\end{enumerate}
-Allora esiste una soluzione, cioè $\exists J\subseteq I$ intervallo e $\exists \varphi:J\to \R^n$ con le proprietà:
-\begin{description}
-	\item[-] $J\subseteq I, \varphi(J)\subseteq A$
-	\item[-] $t_0 \in \circdot{J}, \varphi(t_0)=x_0$
-	\item[-] $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
-\end{description}
-\observation 
-?????????????????????????????????????????????\\
-ESEMPIO Il Baffo/Pennello di Peano\\
-$\left\{\begin{matrix} x'=\sqrt{\abs{x}}\\x(0)=x_0\end{matrix}\right.$
-\begin{center}
-	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-	\pgfmathsetmacro\MAX{2}
-	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
-	\draw[domain=0:2,smooth,variable=\x] plot ({\x},{(\x)^(1/2)});
-	\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{(-\x)^(1/2)});
-	%\draw node at (0.5,0) {$|$};
-	%\draw node at (1,0) {$|$};
-	%\draw node at (1.5,0) {$|$};
-	%\draw node at (0,0.5) {$-$};
-	%\draw node at (0,1) {$-$};
-	%\draw node at (0,1.5) {$-$};
-	%\draw node[anchor=north] at (0.5,0) {$x_0$};
-	%\draw node[anchor=north] at (1,0) {$x_0+h$};
-	%\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
-	%\draw node[anchor=east] at (0,0.5) {$ x'' $};
-	%\draw node[anchor=east] at (0,1) {$ x''' $};
-	%\draw node[anchor=east] at (0,1.5) {$ x''''$};
-	
-	\end{tikzpicture}% pic 1
-	\qquad % <----------------- SPACE BETWEEN PICTURES
-	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-	\pgfmathsetmacro\MAX{2}
-	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {t};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {x};
-	\end{tikzpicture}% pic 2
-\end{center}
-Se $x_0 = 0$ ho che $\varphi(t)=0$ è soluzione $\forall t$\\
-Ma $ x' = \sqrt{\abs{x}}$ è anche un'equazione a variabili separabili quindi risolvibile.\\
-$$\frac{ x'}{\sqrt{\abs{x}}}=1 \Rightarrow \int\limits_{0}^{t}{\frac{ x'}{\sqrt{\abs{x}}}dt} = t$$
-$$\int\limits_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{\abs{x}}}dx} = t$$
-valuto ora il caso $x>=0$ quindi $\abs{x}=x$
-$$ \int\limits_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}dx} = 2\sqrt{x} = t$$ 
-la soluzione cercata è quindi $x(t)=\frac{1}{4}t^2$, 
-estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata è: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$ 
-Abbiamo trovato che per la condizione iniziale $x_0=0$ il sistema ammette due soluzioni, si riesce estendere la soluzione a invinite funzioni.
-$$\varphi(x)= \left\{\begin{matrix}-\frac{1}{4}(t-a)^2&&t<a,\\0&&t\in[a,b]\\+\frac{1}{4}(t-b)^2&&t>0\end{matrix}\right.$$
-infatti:
-$$\varphi'(t) = \left\{\begin{matrix}-\frac{1}{8}(t-a)&&t<a,\\0&&t\in[a,b]\\+\frac{1}{8}(t-b)&&t>0\end{matrix}\right.$$ $$\left\{\begin{matrix}-\frac{1}{8}(t-a)=\frac{-\frac{1}{4}(t-a)^2}{	\sqrt{-\frac{1}{4}(t-a)^2}}&&t<a,\\0=0&&t\in[a,b]\\+\frac{1}{8}(t-b)=\frac{\frac{1}{4}(t-b)^2}{\sqrt{\frac{1}{4}(t-b)^2}}&&t>0\end{matrix}\right. = ....????? sistema $$
-Abbiamo quindi trovato infinite soluzioni.\\
-Questo esempio per sottolineare che il teorema di Peano non garantisce l'unicità della soluzione
+\begin{proposition}[Teorema di Peano]
+	Si consideri il seguente problema di Cauchy:
+	$$\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$$
+	con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
+	\begin{enumerate}
+		\item $t_0\in \circdot{I}, x_0\in \circdot{A}$
+		\item $f\in \cntclass{0}(I\times A;R^n)$
+	\end{enumerate}
+	inoltre $I\subseteq \R$ intervallo e $A\subseteq \R^n$, in quanto \hyperref[def:prob_cauchy_ord_1]{problema di Cauchy}.\\
+	Allora esiste un $\delta>0$ tale che esiste soluzione $x:J\mapsto A$ del problema di Cauchy con $J=\realintervalclose{t_0-\delta}{t_0+\delta}$.
+	\begin{note}
+		$\delta$ è un valore arbitrario che serve ad identificare l'intervallo $I$ a cui appartiene $t_0$
+	\end{note}
+	\noindent Inoltre:
+	\begin{itemize}
+		\item come da nota \ref{note:diff_eq_sol_definition_set}, $J\subseteq I$, dunque $\varphi(J)\subseteq A$
+		\item $\varphi(t_0)=x_0$
+		\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
+	\end{itemize} 
+	\begin{proof}
+		Non richiesta
+	\end{proof}
+\end{proposition}
+\begin{example}[Il Baffo/Pennello di Peano]
+	$$\left\{\begin{matrix} x'=\sqrt{\abs{x}}\\x(0)=x_0\end{matrix}\right.$$
+	\begin{center}
+		\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
+		\pgfmathsetmacro\MAX{2}
+		\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
+		\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
+		\draw[domain=0:2,smooth,variable=\x] plot ({\x},{(\x)^(1/2)});
+		\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{(-\x)^(1/2)});
+		%\draw node at (0.5,0) {$|$};
+		%\draw node at (1,0) {$|$};
+		%\draw node at (1.5,0) {$|$};
+		%\draw node at (0,0.5) {$-$};
+		%\draw node at (0,1) {$-$};
+		%\draw node at (0,1.5) {$-$};
+		%\draw node[anchor=north] at (0.5,0) {$x_0$};
+		%\draw node[anchor=north] at (1,0) {$x_0+h$};
+		%\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
+		%\draw node[anchor=east] at (0,0.5) {$ x'' $};
+		%\draw node[anchor=east] at (0,1) {$ x''' $};
+		%\draw node[anchor=east] at (0,1.5) {$ x''''$};
+		
+		\end{tikzpicture}% pic 1
+		\qquad % <----------------- SPACE BETWEEN PICTURES
+		\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
+		\pgfmathsetmacro\MAX{2}
+		\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {t};
+		\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {x};
+		\end{tikzpicture}% pic 2
+	\end{center}
+	Se $x_0 = 0$ ho che $\varphi(t)=0$ è soluzione $\forall t$\\
+	Ma $ x' = \sqrt{\abs{x}}$ è anche un'equazione a variabili separabili quindi risolvibile.\\
+	$$\frac{x}{\sqrt{\abs{x}}}=1 \Rightarrow \int_{0}^{t}{\frac{ x'}{\sqrt{\abs{x}}}dt} = t$$
+	$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{\abs{x}}}dx} = t$$
+	valuto ora il caso $x>=0$ quindi $\abs{x}=x$
+	$$ \int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}dx} = 2\sqrt{x} = t$$ 
+	La soluzione cercata è quindi $x(t)=\frac{1}{4}t^2$, estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata è: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$ 
+	Abbiamo trovato che per la condizione iniziale $x_0=0$ il sistema ammette due soluzioni, si riesce estendere la soluzione a infinite funzioni.
+	$$\varphi(x)= \left\{\begin{matrix}-\frac{1}{4}(t-a)^2&&t<a,\\0&&t\in[a,b]\\+\frac{1}{4}(t-b)^2&&t>b\end{matrix}\right.$$
+	infatti:
+	$$\varphi'(t) = \left\{\begin{matrix}-\frac{1}{8}(t-a)&&t<a,\\0&&t\in[a,b]\\+\frac{1}{8}(t-b)&&t>b\end{matrix}\right.$$ $$\left\{\begin{matrix}-\frac{1}{8}(t-a)=\frac{-\frac{1}{4}(t-a)^2}{	\sqrt{-\frac{1}{4}(t-a)^2}}&&t<a,\\0=0&&t\in[a,b]\\+\frac{1}{8}(t-b)=\frac{\frac{1}{4}(t-b)^2}{\sqrt{\frac{1}{4}(t-b)^2}}&&t>b\end{matrix}\right. = ....????? sistema $$
+	Abbiamo quindi trovato infinite soluzioni.\\
+	Questo esempio per sottolineare che il teorema di Peano non garantisce l'unicità della soluzione
+\end{example}
+
 ESEMPIO CONTINUITÀ è IPOTESI NECESSARIA\\
 Questo esempio mostra che se non c'è continuità, può?????????? non esserci la soluzione.\\
 Dato il seguente problema di Cauchy: $\left\{\begin{matrix}
@@ -266,7 +284,7 @@ x(0)=0
 	\end{tikzpicture}% pic 1
 \end{center}
 
-$x(t)=0$ soddisfa la condizione iniziale ma ovviamente non può essere soluzione del problema poiché per $x\ne 0$ si ha che $ x'=\pm 1$ che non è la derivata della funzione nulla.\\
+\noindent $x(t)=0$ soddisfa la condizione iniziale ma ovviamente non può essere soluzione del problema poiché per $x\ne 0$ si ha che $ x'=\pm 1$ che non è la derivata della funzione nulla.\\
 partendo sempre dalla condizione iniziale si può ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $ x'(0)=-1$\\
 se invece si ipotizza che decresce da $0$ si ottiene che la funzione assume valori negativi, anche questo è un assurdo poiché la derivata per valori negativi della funzione è positiva.\\
 Precisiamo che se il problema fosse stato $\left\{\begin{matrix}
@@ -323,44 +341,40 @@ Allora:
 	\right.
 	$$
 	con $f,g:I\times A \to \R^n$ soddisfacenti le ipotesi allora esiste un $\delta >0$ tale che sull'intervallo $\left[ t_0-\delta,t_0+\delta \right]$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \left[t_0-\delta,t_0+\delta\right]$ vale:
-	$$ 
-	\norm{\varphi(t)-\psi(t)} 
-	\le 
-	(\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}  
-	$$
+	$$\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}$$
 	dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
 \end{enumerate}
 \observation
 L'equazione integrale 
-$$x(t)=x_0+\int\limits_{t_0}^{t}f(\tau,x(\tau))d\tau$$
+$$x(t)=x_0+\int_{t_0}^{t}f(\tau,x(\tau))d\tau$$
 viene spesso denominata EQUAZIONE DI VOLTERRA.\\
 Questa equazione ha senso anche per alcune funzioni $f$ non non continue ma solo misurabili nel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicità (locali/globali) l'ipotesi "$f$ continua" può essere sostituita da "$f$ continua tratti in $t, \forall x$, continua in $x$ e limitata"
 \observation
 la norma dell'integrale è minore uguale dell'integrale della norma.
 \proposition LEMMA DI GRONWALL\\
-Dati $a,b\in \R$ con $a\le b$ siano $\delta_0\in \left[ 0;+\infty \right]$ e $\delta,\kappa:\left[a,b\right]\to \R$ funzioni continue su $\left[a,b\right]$ con $\delta(t)\ge 0$,$\kappa(t)\ge 0 \quad \forall t\in\left[ a,b\right] $ e $\delta(t)\le \delta_0+\int\limits_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$Allora $$\delta(t)\le\delta_0e^{\int\limits_a^t\kappa(\tau)d\tau}$$
+Dati $a,b\in \R$ con $a\le b$ siano $\delta_0\in \left[ 0;+\infty \right]$ e $\delta,\kappa:\left[a,b\right]\to \R$ funzioni continue su $\left[a,b\right]$ con $\delta(t)\ge 0$,$\kappa(t)\ge 0 \quad \forall t\in\left[ a,b\right] $ e $\delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$Allora $$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)d\tau}$$
 Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integrale) ad una stima esplicita 
 \begin{proof}
-	sia $\delta_0 > 0$. Sia $\Delta(t)=\delta_0+\int\limits_a^t\kappa(\tau)\delta(\tau)d\tau$.\\
-	Vale per ipotesi che $\delta(t)\le\Delta(t)=\delta_0+\int\limits_a^t\kappa(\tau)\delta(\tau)d\tau$\\
+	sia $\delta_0 > 0$. Sia $\Delta(t)=\delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$.\\
+	Vale per ipotesi che $\delta(t)\le\Delta(t)=\delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$\\
 	Sfruttando la derivata di $ln(\Delta(t))$ si ottiene $\frac{d}{dt}(ln(\Delta(t)))= \frac{\Delta'(t)}{\Delta(t)}=\frac{\kappa(t)\delta(t)}{\Delta(t)}$, ed il termine $\frac{\delta(t)}{\Delta(t)}\le 1$, Integrando il primo e l'ultimo termine
-	$$\int\limits_a^t\left( \frac{d}{dt}\left(ln(\Delta(t))\right) \right)\le\int\limits_a^t\kappa(\tau)d\tau$$
-	$$ln(\Delta(t))\le ln(\delta_0)+\int\limits_a^t\kappa(\tau)d\tau$$
-	$$ \Delta(t)\le\delta_0e^{\int\limits_a^t\kappa(\tau)d\tau} $$
+	$$\int_{a}^{t}\left( \frac{d}{dt}\left(ln(\Delta(t))\right) \right)\le\int_{a}^{t}\kappa(\tau)d\tau$$
+	$$ln(\Delta(t))\le ln(\delta_0)+\int_{a}^{t}\kappa(\tau)d\tau$$
+	$$ \Delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)d\tau} $$
 	Da cui la tesi.
-	Se $\delta_0=0$, ponendo $\Delta(t)=\epsilon+\int\limits_a^t\kappa(\tau)\delta(\tau)d\tau$ si ottiene $\delta(t)\epsilon$ ................... e il mio cervello sta bruciando
+	Se $\delta_0=0$, ponendo $\Delta(t)=\epsilon+\int_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$ si ottiene $\delta(t)\epsilon$ ................... e il mio cervello sta bruciando
 \end{proof}
 
 \begin{proof}
 	Cauchy Locale:\\
 	L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso.Prima di tutto serve una relazione che dal problema di Cauchy ci permetta di ottenere $x$ in funzione di qualcosa che dipenda da $x$.\\
 	Integrando ambi i membri della prima equazione del problema di ottiene:
-	$$\int\limits_{t_0}^t( x')d\tau=\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$$
-	$$x(t)=x_0+\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$$
+	$$\int_{t_0}^{t}( x')d\tau=\int_{t_0}^{t}(f(\tau,x(\tau)))d\tau$$
+	$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))d\tau$$
 	$T$ è una funzione del tipo:
-	$\begin{array}{rcl} T: ? & \to & ? \\ x & \to & Tx \end{array}$, con $y(t)=x_0+\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$\\
+	$\begin{array}{rcl} T: ? & \to & ? \\ x & \to & Tx \end{array}$, con $y(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))d\tau$\\
 	Abbiamo raggiunto un problema di punto fisso ($x=Tx$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il Teorema delle contrazioni serve che lo spazio di partenza e di arrivo siano uguali e chiamiamo $\mathcal{X}$.\\
-	$\begin{array}{rcl} T: \mathcal{X} & \to & \mathcal{X} \end{array}$ t.c.: $y(t)=(Tx)(t)=x_0+\int\limits_{t_0}^t(f(\tau,x(\tau)))d\tau$
+	$\begin{array}{rcl} T: \mathcal{X} & \to & \mathcal{X} \end{array}$ t.c.: $y(t)=(Tx)(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))d\tau$
 	Bisogna quindi scegliere l'insieme $\mathcal{X}$. è un insieme di funzioni, in cui l'equivalenza sopra deve avere senso, cioè serve $x$ continua per avere l'equivalenza con il problema di Cauchy, quindi $\mathcal{X}=\cntclass{0}(\ldots)$.\\
 	Inoltre volendo una soluzione del problema di Cauchy, la funzione $x(penso sia y(t)=x)$ deve essere definita almeno su un intervallo contenente $t_0$ nella sua parte interna, non interessa l'estensione di tale intervallo quindi si può scegliere $\left[t_0-\delta,t_0+\delta\right]$, inoltre deve avere valori in un insieme con $x_0$ nella sua parte interna, $\overline{B(x_0,r)}$. Quindi $\mathcal{X}=\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];\overline{B(x_0,r)})$\\
 	Per $\delta, r$ abbastanza piccoli si ha $\left[t_0-\delta,t_0+\delta\right]\subseteq I$, $\overline{B(x_0,r)}\subseteq A$, quindi adesso il problema è quello di determinare $\delta, r$.\\

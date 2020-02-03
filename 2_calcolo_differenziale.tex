@@ -210,20 +210,24 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 \section{La Formula degli Accrescimenti Finiti}
 \definition
 Siano $x_0,x_1\in \R^n$, si dice segmento di estremi $x_0$ e $x_1$ l'insieme $S={tx_1+(1-t)x_0 : t\in[0,1]}$
-\proposition{Formula degli accrescimenti finiti}\\
-Sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0,x_1\in\circdot{A}$, $S$ il segmento di estremi $x_0,x_1$, sia $f\in \cntclass{1}(A,\R^m)$ allora $\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$
-\observation
-$\norm{A}$ con $A\in Mat(n\times m)$,  $\norm{A}=\sup\limits_{\norm{x}=1: x\in \R^n}\norm{Ax} = \sup\limits_{x\in \R^n \textbackslash \{0\}}\frac{\norm{Ax} }{\norm{x} } $ questa è chiamata norma operativa\\
-NOTA:\\
-$$\norm{Ax} \le \norm{A} \norm{x}  $$
-$$\norm{AB} \le \norm{A} \norm{B}  $$
-\begin{proof}
-	sia $F:[0,1]\rightarrow \R$ che $t\rightarrow f(tx_1+(1-t)x_0)$\\
-	%moltiplicando per $v\in \R^m$ ottengo una funzione in $\R^m$\\
-	La funzione $F$ è una funzione reale di variabile reale , posso quindi applicare il teorema di Lagrange $F(1)-F(0)=F'(\theta)1$ quindi $f(x_1)-f(x_0) = Df(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
-	scelto $v\in \R^m$ con $v = \frac{f(x_1)-f(x_0)}{\norm{f(x_1)-f(x_0)} }$ moltiplico entrambi i membri per $v$ si ottiene $v(f(x_1)-f(x_0)) = vDf(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
-	... da finire per bene
-\end{proof}
+\begin{theorem}[Formula degli accrescimenti finiti]
+	\label{thm:accresc_fin}
+	Sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0,x_1\in\circdot{A}$, $S$ il segmento di estremi $x_0,x_1$, sia $f\in \cntclass{1}(A,\R^m)$ allora $\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$
+	\begin{observation}
+		$\norm{A}$ con $A\in Mat(n\times m)$,  $\norm{A}=\sup\limits_{\norm{x}=1: x\in \R^n}\norm{Ax} = \sup\limits_{x\in \R^n \textbackslash \{0\}}\frac{\norm{Ax} }{\norm{x} } $ questa è chiamata norma operativa
+	\end{observation}
+	\begin{note}
+		$$\norm{Ax} \le \norm{A} \norm{x}  $$
+		$$\norm{AB} \le \norm{A} \norm{B}  $$
+	\end{note}
+	\begin{proof}
+		sia $F:[0,1]\rightarrow \R$ che $t\rightarrow f(tx_1+(1-t)x_0)$\\
+		%moltiplicando per $v\in \R^m$ ottengo una funzione in $\R^m$\\
+		La funzione $F$ è una funzione reale di variabile reale , posso quindi applicare il teorema di Lagrange $F(1)-F(0)=F'(\theta)1$ quindi $f(x_1)-f(x_0) = Df(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
+		scelto $v\in \R^m$ con $v = \frac{f(x_1)-f(x_0)}{\norm{f(x_1)-f(x_0)} }$ moltiplico entrambi i membri per $v$ si ottiene $v(f(x_1)-f(x_0)) = vDf(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
+		... da finire per bene
+	\end{proof}
+\end{theorem}
 \definition
 Sia $C\in \R^n$, $C$ è convesso $\rightleftharpoons$ $\forall x_0,x_1\in C$ anche $S_(x_0,x_1) = \{tx_1+(1-t)x_0 : t\in[0,1]\}\subseteq C$ù
 
