@@ -32,12 +32,12 @@ dove $(e_1,...,e_n)$ rappresentano la base canonica di $R^n$\\
 \observation nella prima definizione la derivata è un valore reale mentre nella seconda è un vettore di $R^m$\\
 \observation le proprietà e le regole di derivazione sono le stesse di Analisi 1
 \definition
-sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\AA$, sia $v\in\R^2 con \left\| v\right\|=1 $
+sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\AA$, sia $v\in\R^2 con \norm{v}=1 $
 diciamo derivata nella direzione $v$ della funzione $f$ nel punto $(x_0,y_0)$ il limite (se esiste finito)\\
 $$D_vf(x_0,y_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv_1,y_0+tv_2)-f(x_0,y_0)}{t}$$
 dove $v_1,v_2$ sono le componenti di $v(v=\begin{bmatrix}v_1\\v_2\end{bmatrix})$
 \definition
-sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\AA$, sia $v\in\R^n con \left\| v\right\|=1 $
+sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\AA$, sia $v\in\R^n con \norm{v}=1 $
 diciamo derivata nella direzione $v$ della funzione $f$ nel punto $x_0$ il limite (se esiste finito)\\
 $$D_vf(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv)-f(x_0)}{t}$$
 \proposition
@@ -53,13 +53,13 @@ sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\AA$ \\
 $f$ è differenziabile in $x_0\rightleftharpoons$ $\exists M\in Mat(mxn) : f(x_0+h) = f(x_0)+Mh+o(h)$ per $h\rightarrow 0$ 
 \definition
 siano $f,g : A\subseteq \R^n\rightarrow \R^m$ e $x_0$ di accumulazione per A \\
-$f=o(g)$ per $x\rightarrow x_0 \rightleftharpoons \lim\limits_{x->x_0}\frac{\left\| f(x)\right\| }{\left\| g(x)\right\| }$
+$f=o(g)$ per $x\rightarrow x_0 \rightleftharpoons \lim\limits_{x->x_0}\frac{\norm{f(x)} }{\norm{g(x)} }$
 \definition
 sia $f:A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)\in\AA$ \\
 $f$ è differenziabile in $(x_0,y_0)\rightleftharpoons$ $f(x_0+h,y_0+k) = f(x_0)+m_1h+m_2k+o(\sqrt{h^2+k^2})$ per $(h,k)\rightarrow (0,0)$
 \definition
 siano $f,g : :A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)$ di accumulazione per $A$ \\
-$f=o(g)$ per $(x,y)\rightarrow (x_0,y_0) \rightleftharpoons \lim\limits_{(x,y)->(x_0,y_0)}\frac{\left\| f(x,y)\right\| }{\left\| g(x,y)\right\| }$
+$f=o(g)$ per $(x,y)\rightarrow (x_0,y_0) \rightleftharpoons \lim\limits_{(x,y)->(x_0,y_0)}\frac{\norm{f(x,y)} }{\norm{g(x,y)} }$
 \proposition{(Unicità della derivata totale)}
 sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0\in\AA$, $M_1$,$M_2\in Mat(mxn)$\\
 $M1$ derivata totale di $f$ in $x_0$,\\
@@ -71,7 +71,7 @@ allora $M1=M2$\\
 	$f(x_0+h) = f(x_0)+M_2h+o(h)$ per $h\rightarrow 0$\\
 	facendo la differenza membro a membro delle precedenti ottengo che $(M_1-M_2)h=o(h)$ per $h\rightarrow 0$\\
 	Scelto $h=te_i$, dove $e_i$ è un vettore della base canonica, si ottiene $(M_1-M_2)te_i=o(h)$ quindi\\
-	$\lim\limits_{t\rightarrow 0}\frac{(M_1-M_2)te_i}{t\left\| e_i\right\| } = \lim\limits_{t\rightarrow 0}(M_1-M_2)e_i = 0$, poiché $e_i$ è un vettore non nullo deve essere $(M_1-M_2)=0$ quindi $M_1 = M_2$\\
+	$\lim\limits_{t\rightarrow 0}\frac{(M_1-M_2)te_i}{t\norm{e_i} } = \lim\limits_{t\rightarrow 0}(M_1-M_2)e_i = 0$, poiché $e_i$ è un vettore non nullo deve essere $(M_1-M_2)=0$ quindi $M_1 = M_2$\\
 \end{proof}
 \observation
 L'ultima riga della dimostrazione dice che le applicazioni lineari $M_1$ e $M_2$ hanno le stesse immagini sui vettori della base canonica, quindi coincidono.
@@ -211,17 +211,17 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 \definition
 Siano $x_0,x_1\in \R^n$, si dice segmento di estremi $x_0$ e $x_1$ l'insieme $S={tx_1+(1-t)x_0 : t\in[0,1]}$
 \proposition{Formula degli accrescimenti finiti}\\
-Sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0,x_1\in\circdot{A}$, $S$ il segmento di estremi $x_0,x_1$, sia $f\in \cntclass{1}(A,\R^m)$ allora $\left\| f(x_1)-f(x_0) \right\|\le \sup\limits_{x\in S}\left\|Df(x)\right\|\left\|x_1-x_0\right\|$
+Sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0,x_1\in\circdot{A}$, $S$ il segmento di estremi $x_0,x_1$, sia $f\in \cntclass{1}(A,\R^m)$ allora $\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$
 \observation
-$\left\| A \right\|$ con $A\in Mat(n\times m)$,  $\left\| A \right\|=\sup\limits_{\left\| x \right\|=1: x\in \R^n}\left\| Ax \right\| = \sup\limits_{x\in \R^n \textbackslash \{0\}}\frac{\left\| Ax \right\| }{\left\| x \right\| } $ questa è chiamata norma operativa\\
+$\norm{A}$ con $A\in Mat(n\times m)$,  $\norm{A}=\sup\limits_{\norm{x}=1: x\in \R^n}\norm{Ax} = \sup\limits_{x\in \R^n \textbackslash \{0\}}\frac{\norm{Ax} }{\norm{x} } $ questa è chiamata norma operativa\\
 NOTA:\\
-$$\left\| Ax \right\| \le \left\| A \right\| \left\| x \right\|  $$
-$$\left\| AB \right\| \le \left\| A \right\| \left\| B \right\|  $$
+$$\norm{Ax} \le \norm{A} \norm{x}  $$
+$$\norm{AB} \le \norm{A} \norm{B}  $$
 \begin{proof}
 	sia $F:[0,1]\rightarrow \R$ che $t\rightarrow f(tx_1+(1-t)x_0)$\\
 	%moltiplicando per $v\in \R^m$ ottengo una funzione in $\R^m$\\
 	La funzione $F$ è una funzione reale di variabile reale , posso quindi applicare il teorema di Lagrange $F(1)-F(0)=F'(\theta)1$ quindi $f(x_1)-f(x_0) = Df(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
-	scelto $v\in \R^m$ con $v = \frac{f(x_1)-f(x_0)}{\left\| f(x_1)-f(x_0)\right\| }$ moltiplico entrambi i membri per $v$ si ottiene $v(f(x_1)-f(x_0)) = vDf(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
+	scelto $v\in \R^m$ con $v = \frac{f(x_1)-f(x_0)}{\norm{f(x_1)-f(x_0)} }$ moltiplico entrambi i membri per $v$ si ottiene $v(f(x_1)-f(x_0)) = vDf(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
 	... da finire per bene
 \end{proof}
 \definition
@@ -443,21 +443,21 @@ discorso al momento difficile per me....\\
 	$T(x,y)=y\Leftrightarrow y=y-[D_yF(x_0,y_0)]^{-1}f(x,y)$\\
 	$[D_yF(x_0,y_0)]^{-1}f(x,y)\Leftrightarrow f(x,y)=0$\\
 	Per verificare che $T$ è una contrazione ne stimo la norma\\
-	$\left\| T(x,y_2)-T(x,y_1) \right\| \le \sup\limits_{\widetilde{y}\in segmento}\left\| D_yT(x,\widetilde{y})\right\|\left\| y_2-y_1 \right\| $  accrescimenti finiti.\\
+	$\norm{T(x,y_2)-T(x,y_1)} \le \sup\limits_{\widetilde{y}\in segmento}\norm{D_yT(x,\widetilde{y})}\norm{y_2-y_1} $  accrescimenti finiti.\\
 	Poichè le sfere sono insiemi convessi è stato possibile applicare il Teorema degli accresscimenti finiti.\\
 	Presa $T(x,y) = y-[D_yf(x_0,y_0)]^{-1}f(x,y)$, la derivo rispetto a $y$:
 	$$D_yT(x,y)= I_\R^m-[D_yf(x_0,y_0)]^{-1}D_yf(x,y) = $$
 	$$=[D_yf(x_0,y_0)]^{-1}][D_yf(x_0,y_0)-D_yf(x,y)]$$
 	Osserviamo che abbiamo ottenuto una matrice come costante moltiplicativa, al secondo membro abbiamo la differenza di due valori di una funzione, che per ipotesi è una funzione continua ($D_yf(x,y)$ continua), allora per $r_x$ e $r_y$ sufficientemente piccoli ho che:\\
-	$\left\| D_yT(x,y) \right\| \le \frac{1}{2}$, è scelto questo valore poiché è comodo al fine di dimostrare la contrazione...\\
-	$$\left\| D_yT(x,y)\right\| \le \left\| D_yf(x_0,y_0)]^{-1}\right\| \left\| D_yf(x_0,y_0)-D_yf(x,y)\right\|\le\frac{1}{2} $$  
-	$$\left\| T(x,y_2)-T(x,y_1)\right\|\le\frac{1}{2}\left\|y_2-y_1\right\| $$
+	$\norm{D_yT(x,y)} \le \frac{1}{2}$, è scelto questo valore poiché è comodo al fine di dimostrare la contrazione...\\
+	$$\norm{D_yT(x,y)} \le \norm{D_yf(x_0,y_0)]^{-1}} \norm{D_yf(x_0,y_0)-D_yf(x,y)}\le\frac{1}{2} $$  
+	$$\norm{T(x,y_2)-T(x,y_1)}\le\frac{1}{2}\norm{y_2-y_1} $$
 	Se dimostriamo che $T$ è ben definita abbiamo dimostrato che $T$ è una contrazione.\\
 	Per verificare che $T$ è en definita bisogna mostrare che $T(x,y)\subseteq\overline{B(y_0,r_y)}$ quindi si mostra che la distanza tra $T(x,y)$ e il centro è minore di $r_y$
-	$$\left\| T(x,y) - y_0\right\|\le\left\| T(x,y)-T(x,y_0)\right\|+\left\|T(x,y_0)-y_0\right\| \le$$
-	$$\le\frac{1}{2}\left\|y-y_0\right\|+\left\|y_0-[D_yf(x_0,y_0)]^{-1}f(x,y_0)-y_0\right\|\le$$
-	$$\le\frac{1}{2}\left\|y-y_0\right\|+\left\|[D_yf(x_0,y_0)]^{-1}\right\| \left\|f(x,y_0)-0\right\|\le$$
-	$$\le\frac{1}{2}\left\|y-y_0\right\|+\left\|[D_yf(x_0,y_0)]^{-1}\right\| \left\|f(x,y_0)-f(x_0,y_0)\right\|\le$$
+	$$\norm{T(x,y) - y_0}\le\norm{T(x,y)-T(x,y_0)}+\norm{T(x,y_0)-y_0} \le$$
+	$$\le\frac{1}{2}\norm{y-y_0}+\norm{y_0-[D_yf(x_0,y_0)]^{-1}f(x,y_0)-y_0}\le$$
+	$$\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-0}\le$$
+	$$\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-f(x_0,y_0)}\le$$
 	$$\le\frac{1}{2}r_y+\frac{1}{2}r_y\le r_y$$
 	Allora $T$ è ben definita perché $T(x,y)\in\overline{B(y_0,r_y)}$.\\
 	In conclusione con $\mathcal{X}=\overline{B(x_0,r_x)}$ e $\mathcal{Y}=\overline{B(y_0,r_y)}$ ho che $T:\mathcal{X}\times\mathcal{Y}\rightarrow\mathcal{Y}$ è tale che $\forall x\in\mathcal{X}$ la funzione $y\rightarrow T(x,y)$ è una contrazione e $\overline{B(y_0,r_y)}$ è completo.\\
@@ -551,9 +551,9 @@ $x_0$ è punto di minimo locale relativo per $f \rightleftharpoons \exists r>0: 
 \proposition{Teorema di Fermat}\\
 sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$. Se $x_0$ è punto di massimo(0 minimo) locale per $f$ su $A$ e $f$ è differenziabile in $x_0$ allora $\nabla f(x_0)=0$.
 \begin{proof}
-	Sia $v\in \R^n$ con $\left\| v\right\| =1$, la funzione $F(t)= f(x_0+tv)$ che a $t\rightarrow x_0+tv$ è il moto rettilineo uniforme che passa da $x_0$ all'istante $0$ e si muove con velocità vettore costante $v$. cioè per tempi negativi mi avvicino a $x_0$ al tempo zero si è in $x_0$ e per tempi positivi si allontana da $x_0$. quindi $t=0$ è punto di massimo per $F$, allora $F'(0) = 0$ per il teorema di Fermat di A1.\\
+	Sia $v\in \R^n$ con $\norm{v} =1$, la funzione $F(t)= f(x_0+tv)$ che a $t\rightarrow x_0+tv$ è il moto rettilineo uniforme che passa da $x_0$ all'istante $0$ e si muove con velocità vettore costante $v$. cioè per tempi negativi mi avvicino a $x_0$ al tempo zero si è in $x_0$ e per tempi positivi si allontana da $x_0$. quindi $t=0$ è punto di massimo per $F$, allora $F'(0) = 0$ per il teorema di Fermat di A1.\\
 	Ora abbiamo che $F'(t)=\nabla f(x_0+tv)v$ quindi $F'(0)=\nabla f(x_0)v$ cioè $\nabla f(x_0)v=0$.\\
-	Quindi $\forall v :\left\| v\right\| =1$ vale $\nabla f(x_0)=0$\\
+	Quindi $\forall v :\norm{v} =1$ vale $\nabla f(x_0)=0$\\
 	OSS:: Vale anche che $D_vf(x_0)=0$
 \end{proof}
 \definition
@@ -592,17 +592,17 @@ se $Q$ è una forma quadratica, allora\\
 	\end{itemize}
 \end{proof}
 \proposition
-se $q$ è una forma quadratica $\Rightarrow\exists M\ge 0: |q(x)|\le M\left\| x \right\|^2$ $\forall x\in \R^n$
+se $q$ è una forma quadratica $\Rightarrow\exists M\ge 0: \abs{q(x)}\le M\norm{x}^2$ $\forall x\in \R^n$
 \begin{proof}
-	per $x\ne 0$ $\left| q(x)\right| =\left| q\left(\left\| x\right\| \frac{1}{\left\| x\right\| }x\right) \right| = \left\|x\right\|^2\left|q\left(\frac{1}{\left\|x\right\|}x\right)\right|\le$\\
-	$\le\left(\sup\limits_{\left\|x\right\|=1}\left|q(x)\right|\right)\left\|x\right\|^2=\le\left(\max\limits_{\left\|x\right\|=1}\left|q(x)\right|\right)\left\|x\right\|^2=M\left\|x\right\|^2$
+	per $x\ne 0$ $\abs{q(x)} =\abs{q\left(\norm{x} \frac{1}{\norm{x} }x\right)} = \norm{x}^2\abs{q\left(\frac{1}{\norm{x}}x\right)}\le$\\
+	$\le\left(\sup\limits_{\norm{x}=1}\abs{q(x)}\right)\norm{x}^2=\le\left(\max\limits_{\norm{x}=1}\abs{q(x)}\right)\norm{x}^2=M\norm{x}^2$
 \end{proof}
 \proposition
-Sia $q$ una forma quadratica, se $q(x)=o(\left\|x\right\|^2)$ per $x\rightarrow 0 \Rightarrow q\equiv 0$
+Sia $q$ una forma quadratica, se $q(x)=o(\norm{x}^2)$ per $x\rightarrow 0 \Rightarrow q\equiv 0$
 \begin{proof}
-	sia $x\in \R^n$ con $\left\|x\right\|=1$ e $t>0$.\\
-	$q(x)=\frac{1}{t^2}$, $q(tx)=\frac{q(tx)}{\left\|tx\right\|^2}\rightarrow 0$ per $t\rightarrow 0$ per ipotesi.\\
-	Allora $\forall x$ con $\left\|x\right\|$ vale $q(x)=0$ e allora $\forall x\ne 0, q(x)=q\left(\frac{1}{\left\|x\right\|}x\right)\left\|x\right\|^2$
+	sia $x\in \R^n$ con $\norm{x}=1$ e $t>0$.\\
+	$q(x)=\frac{1}{t^2}$, $q(tx)=\frac{q(tx)}{\norm{tx}^2}\rightarrow 0$ per $t\rightarrow 0$ per ipotesi.\\
+	Allora $\forall x$ con $\norm{x}$ vale $q(x)=0$ e allora $\forall x\ne 0, q(x)=q\left(\frac{1}{\norm{x}}x\right)\norm{x}^2$
 \end{proof}
 \definition
 Sia $q:R^n\rightarrow \R$ una forma quadratica\\
@@ -613,10 +613,10 @@ Sia $q:R^n\rightarrow \R$ una forma quadratica\\
 	\item $q$ è semidefinita negativa $\rightleftharpoons \forall x\in \R^n$ $q(x)\le0 [Q\le0]$
 \end{itemize}
 \proposition
-Sia $q:R^n\rightarrow \R$ una forma quadratica, se $q$ è definita positiva $\Rightarrow \exists m>0: \forall x \in \R^n, q(x)\ge m\left\|x\right\|^2$
+Sia $q:R^n\rightarrow \R$ una forma quadratica, se $q$ è definita positiva $\Rightarrow \exists m>0: \forall x \in \R^n, q(x)\ge m\norm{x}^2$
 \begin{proof}
 	Noto che $q(\lambda x)=\lambda^2q(x)$\\
-	$q(x)=q\left(\frac{1}{\left\|x\right\|}x\left\|x\right\|^2\right)\ge\min\limits_{\left\|x\right\|=1}q(\lambda)\left\|x\right\|^2$
+	$q(x)=q\left(\frac{1}{\norm{x}}x\norm{x}^2\right)\ge\min\limits_{\norm{x}=1}q(\lambda)\norm{x}^2$
 \end{proof}
 Ora dobbiamo cercare di capire se $q$ è definita positiva\\
 Ad esempio: $Q=\begin{bmatrix}1&&0&&0\\0&&-1&&0\\0&&0&&0\end{bmatrix}$ è facile capire che è semodefinita positiva poiché è in diagonale, quindi la prima cosa da fare è trovare una forma diagonale per $Q$\\
@@ -624,20 +624,20 @@ un procedimento pratico e veloce è il seguente:\\
 $$Q=\begin{bmatrix}q_{11}&&q_{12}&&q_{13}&&\ldots\\q_{21}&&q_{22}&&q_{23}&&\ldots\\q_{31}&&q_{32}&&q_{33}&&\ldots\\\vdots&&\vdots&&\vdots&&\ddots\end{bmatrix}\rightarrow\begin{bmatrix}\lambda_{1}&&0&&0&&\ldots\\0&&\lambda_{2}&&0&&\ldots\\0&&0&&\lambda_{3}&&\ldots\\\vdots&&\vdots&&\vdots&&\ddots\end{bmatrix}$$
 $$\lambda=q_{11},\quad\lambda_{2}=\frac{detQ_2}{q_11}\quad\lambda_{3}=\frac{detQ_3}{detQ_2}\quad ...\quad \lambda_{i}=\frac{detQ_i}{detQ_{i-1}}$$
 Questo perché se dobbiamo valutare il segno dell'incremento della f ci servono le variazioni sulle quadriche. Se $f$ è $\cntclass{2}$ scrivo lo sviluppo di Taylor al secondo ordine:\\
-$$f(x)-f(x_0)=\nabla f(x_0)(x-x_0)+\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\left\|x-x_0\right\|^2)$$
+$$f(x)-f(x_0)=\nabla f(x_0)(x-x_0)+\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\norm{x-x_0}^2)$$
 max e min dove $\nabla f(x_0)=0$ per Fermat, l'o piccolo è trascurabile, allora il segno della derivata dipende dalla forma quadratica al secondo membro.
 \proposition
 sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
 $f\in \cntclass{2}(A;R)$ e $x_0$ punto di massimo locale per $f$ su $A\Rightarrow\nabla f(x_0)=0$ e $H_f(x_0)$ è semidefinita negativa.
 \begin{proof}
-	$f(x)-f(x_0)=\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\left\|x-x_0\right\|^2)$ poiché $f\in \cntclass{2}$\\
+	$f(x)-f(x_0)=\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\norm{x-x_0}^2)$ poiché $f\in \cntclass{2}$\\
 	il primo termine è negativo poiché per ipotesi $x_0$ è punto di massimo locale, ne segue che il termine $(x-x_0)^TH_f(x_0)(x-x_0)$ non può essere positivo. 
 \end{proof} 
 \proposition
 sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
 $f\in \cntclass{2}(A;R)$ e $x_0$ punto di minimo locale per $f$ su $A\Rightarrow\nabla f(x_0)=0$ e $H_f(x_0)$ è semidefinita positiva.
 \begin{proof}
-	$f(x)-f(x_0)=\frac{1}{2}(x-x_0)^TH_f(x-x_0)+o(\left\|x-x_0\right\|^2)$ poiché $f\in \cntclass{2}$\\
+	$f(x)-f(x_0)=\frac{1}{2}(x-x_0)^TH_f(x-x_0)+o(\norm{x-x_0}^2)$ poiché $f\in \cntclass{2}$\\
 	il primo termine è positivo poiché per ipotesi $x_0$ è punto di minimo locale, ne segue che il termine $(x-x_0)^TH_f(x-x_0)$ non può essere negativo. 
 \end{proof} 
 
@@ -648,16 +648,16 @@ sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
 $f\in \cntclass{2}(A;R)$, $\nabla f(x_0)=0$,$H_f(X_0)$ è definita negativa $\Rightarrow x_0$ è un punto di massimo locale per $f$
 \begin{proof}
 	$f\in \cntclass{2}$ quindi possiamo scrivere:\\
-	$f(x_+h)-f(x_0)=\nabla f(x_0)h+\frac{1}{2}(h)^TH_f(x_0)+o(\left\|h\right\|^2)$ per $h\rightarrow 0$\\
-	$f(x_+h)-f(x_0)=\frac{1}{2}(h)^TH_f(x_0)+o(\left\|h\right\|^2)$ per $h\rightarrow 0$\\
-	Sappiamo che $H_f$ è definita negativa per ipotesi, allora $h^TH_f(x_0)h\le -m\left\|x_0\right\|$ allora $f(x_0+h)-f(x_0)<0$ e quindi $x_0$ è punto di massimo locale per $f$.
+	$f(x_+h)-f(x_0)=\nabla f(x_0)h+\frac{1}{2}(h)^TH_f(x_0)+o(\norm{h}^2)$ per $h\rightarrow 0$\\
+	$f(x_+h)-f(x_0)=\frac{1}{2}(h)^TH_f(x_0)+o(\norm{h}^2)$ per $h\rightarrow 0$\\
+	Sappiamo che $H_f$ è definita negativa per ipotesi, allora $h^TH_f(x_0)h\le -m\norm{x_0}$ allora $f(x_0+h)-f(x_0)<0$ e quindi $x_0$ è punto di massimo locale per $f$.
 \end{proof} 
 \proposition
 sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
 $f\in \cntclass{2}(A;R)$, $\nabla f(x_0)=0$,$H_f(X_0)$ è definita positiva $\Rightarrow x_0$ è un punto di minimo locale per $f$
 \begin{proof}
 	$f\in \cntclass{2}$ quindi possiamo scrivere:\\
-	$f(x_+h)-f(x_0)=\nabla f(x_0)h+\frac{1}{2}(h)^TH_f(x_0)+o(\left\|h\right\|^2)$ per $h\rightarrow 0$\\
+	$f(x_+h)-f(x_0)=\nabla f(x_0)h+\frac{1}{2}(h)^TH_f(x_0)+o(\norm{h}^2)$ per $h\rightarrow 0$\\
 	...........\\
 	...........\\
 \end{proof} 
@@ -679,7 +679,7 @@ Siano $A\subseteq \R^n, f:A\rightarrow \R$ differenziabile in $(x_0,y_0)\in \cir
 \begin{proof}
 	so che posso approssimare la funzione quindi posso scrivere:\\
 	$f(x_0+h,y_0+k)-f(x_0,y_0)=\nabla f(x_0,y_0)\begin{bmatrix}h\\k\end{bmatrix}+o(\sqrt{h^2+k^2})$=
-	$=\left\| \nabla f(x_0,y_0) \right\|\left\|\begin{bmatrix}h k\end{bmatrix}\right\|cos(\theta)+o(\sqrt{h^2+k^2})$\\
+	$=\norm{\nabla f(x_0,y_0)}\norm{\begin{bmatrix}h k\end{bmatrix}}cos(\theta)+o(\sqrt{h^2+k^2})$\\
 	dove $\theta$ è l'angolo tra $\nabla f(x_0,y_0)$ e $[h k]$ per $||[h k]||$ sufficientemente piccola, l'incremento $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo se $cos( \theta )=1$ ed è minimo se $cos(\theta )=-1$, da cui la tesi.\\ 
 \end{proof}
 \proposition

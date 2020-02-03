@@ -102,13 +102,13 @@ Questa proposizione non può essere estesa al caso di funzioni strettamente posi
 \example $	-\frac{e^x}{n}$ con $x\in\left[0,1\right[$ è strettamente negativa ma il limite è costante uguale a zero.
 \proposition
 Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. sia $f:B\to \R$ una funzione\\
-$f_n\overset{p}{\to}f$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\forall \epsilon >0,\exists\nu\in\mathbb{N}:\forall n>\nu \quad \left|f_n(x)-f(x)\right|\le \epsilon$
+$f_n\overset{p}{\to}f$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\forall \epsilon >0,\exists\nu\in\mathbb{N}:\forall n>\nu \quad \abs{f_n(x)-f(x)}\le \epsilon$
 \begin{proof}
 	direttamene dalla definizione...
 \end{proof}
 \proposition
 Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. Sia $F:B\to \R$ una funzione\\
-$\sum\limits_{n=0}^{\infty}f_n\overset{p}{\to}F$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\forall \epsilon >0,\exists\nu\in\mathbb{N}:\forall n>\nu \quad \left|\sum\limits_{k=0}^{\infty}f_k(x)-F(x)\right|\le \epsilon$
+$\sum\limits_{n=0}^{\infty}f_n\overset{p}{\to}F$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\forall \epsilon >0,\exists\nu\in\mathbb{N}:\forall n>\nu \quad \abs{\sum\limits_{k=0}^{\infty}f_k(x)-F(x)}\le \epsilon$
 \begin{proof}
 	direttamene dalla definizione...
 \end{proof}
@@ -118,24 +118,24 @@ $\sum\limits_{n=0}^{\infty}f_n\overset{p}{\to}F$ su $B$ per $n\to\infty \Leftrig
 Siano $A\subseteq \R$, $B\subseteq A$, $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni definite su $A$ a  valori in $ \R$.
 \begin{description}
 	\item[-] La successione $\left\{f_n:n\in\mathbb{N}\right\}$ è uniformemente convergente su $B$ se esiste una funzione $f:B\to \R$ t.c.:
-	$$\lim\limits_{n\to\infty} \sup\limits_{x\in B}\left|f_n(x)-f(x)\right|=0$$
+	$$\lim\limits_{n\to\infty} \sup\limits_{x\in B}\abs{f_n(x)-f(x)}=0$$
 	la funzione $f$ è il limite uniforme della successione $fn$
 	\item[-] La serie $\sum\limits_{n=0}^{\infty}f_n$ è uniformemente convergente su $B$ se esiste una funzione $F:B\to \R$ t.c.:
-	$$\lim\limits_{n\to\infty} \sup\limits_{x\in B}\left|F(x)-\sup\limits_{n=0}f_n(x)\right|=0$$
+	$$\lim\limits_{n\to\infty} \sup\limits_{x\in B}\abs{F(x)-\sup\limits_{n=0}f_n(x)}=0$$
 	la funzione $F$ è il limite uniforme della serie $\sum\limits_{n=0}^{\infty}f_n$ 
 \end{description}
 \observation
 La convergenza uniforme su $B$ della successione $f_n$ verso $f$ è indicata con
 $$f_n\overset{u}{\to}f\quad su \quad B$$
 \observation
-la covergenza uniforme equivale alla convergenza rispetto alla distanza $d_{\cntclass{0}}(f,g)=\sup\limits_{x\in A}\left|g(x)-f(x)\right|$ ogniqualvolta questa distanza è definita.\\
-Questa distanza può essere definita attraverso la norma $\left\| f\right\|_{c^0}=\sup\limits_{x\in A}\left|f\right|$
+la covergenza uniforme equivale alla convergenza rispetto alla distanza $d_{\cntclass{0}}(f,g)=\sup\limits_{x\in A}\abs{g(x)-f(x)}$ ogniqualvolta questa distanza è definita.\\
+Questa distanza può essere definita attraverso la norma $\norm{f}_{c^0}=\sup\limits_{x\in A}\abs{f}$
 \proposition
 sia $f_n:n\in\mathbb{N}$ con $f:A\subseteq \R\to \R$ e $f:B\subseteq A \to  \R$\\
-$f_n\overset{u}{\to}f$ su $B$ per$n\to\infty \Leftrightarrow \forall\epsilon >0, \exists\nu\in\mathbb{N}$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\left| f_n(x)-f(x)\right|\le\epsilon$
+$f_n\overset{u}{\to}f$ su $B$ per$n\to\infty \Leftrightarrow \forall\epsilon >0, \exists\nu\in\mathbb{N}$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{f_n(x)-f(x)}\le\epsilon$
 \proposition
 sia $f_n:n\in\mathbb{N}$ con $f:A\subseteq \R\to \R$ e $F:B\subseteq A \to  \R$\\
-$\sum\limits_{n=0}^{\infty}f_n\overset{u}{\to}F$ su $B\Leftrightarrow \forall\epsilon >0, \exists\nu\in\mathbb{N}$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\left| F(x)-\sum\limits_{k=0}^{n}f_k(x)\right|\le\epsilon$
+$\sum\limits_{n=0}^{\infty}f_n\overset{u}{\to}F$ su $B\Leftrightarrow \forall\epsilon >0, \exists\nu\in\mathbb{N}$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{F(x)-\sum\limits_{k=0}^{n}f_k(x)}\le\epsilon$
 \observation
 La differenza tra queste due proposizioni e le due proposizioni analoghe nel caso di convergenza puntuale giustifica il fatto che la continuità non passa al limite puntuale. Infatti qui $\nu$ dipende solo dalla scelta di $\epsilon$ e le $x$ si guardano tutte insieme, prima invece $\nu$ dipendeva oltre che alla $\epsilon$ anche dalla $x$ questo porta a osservare le $x$ una alla volta.
 \proposition Relazione tra convergenza uniforme e puntuale.\\
@@ -143,7 +143,7 @@ Sia $f_n:A\subseteq \R\to \R$ e $f:B\subseteq A\to \R$\\
 Se $fn\overset{u}{\to}f$ su $B$ allora $fn\overset{p}{\to}f$ su $B$.
 \begin{proof}
 	se $f_n\overset{u}{\to}f$ su $b$ allora vale che:
-	$\forall\epsilon, \exists\nu : \forall n>\nu, \forall x\in B $ vale $\left|f_n(x)-f(x)\right|\le\epsilon$ in questo modo si trova un $\nu$ che soddisfa la condizione $\forall x \in B$ quindi $\forall x\in B, \forall\epsilon, \exists\nu : \forall n>\nu $ vale $\left|f_n(x)-f(x)\right|\le\epsilon$ quindi $f_n\overset{p}{\to}f$ su B
+	$\forall\epsilon, \exists\nu : \forall n>\nu, \forall x\in B $ vale $\abs{f_n(x)-f(x)}\le\epsilon$ in questo modo si trova un $\nu$ che soddisfa la condizione $\forall x \in B$ quindi $\forall x\in B, \forall\epsilon, \exists\nu : \forall n>\nu $ vale $\abs{f_n(x)-f(x)}\le\epsilon$ quindi $f_n\overset{p}{\to}f$ su B
 \end{proof}
 \proposition
 Sia $f_n:A\subseteq \R\to \R$ e $\overline{f},f:B\subseteq A\to \R$\\
@@ -154,9 +154,9 @@ se $f_n\overset{u}{\to}f$ su $B$ e $f_n\overset{u}{\to}\overline{f}$ su $B$ allo
 \example $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
 Abbiamo gia calcolato che $f_n\overset{p}{\to}0$ su $A$.\\
 Sia ha anche convergenza uniforme :\\
-$$\lim\limits_{n\to\infty}\sup{ \R}\left|f_n(x)-0\right| = \lim\limits_{n\to\infty}\sup\limits_{ \R}\left|\frac{1}{n}sin(x)\right|$$
-Osservo che $\left|asin(x)\right|\le\left|a\right|$ quindi 
-$$\lim\limits_{n\to\infty}\sup\limits_{ \R}\left|\frac{1}{n}sin(x)\right|\le\lim\limits_{n\to\infty}\frac{1}{n}=0$$
+$$\lim\limits_{n\to\infty}\sup{ \R}\abs{f_n(x)-0} = \lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}$$
+Osservo che $\abs{asin(x)}\le\abs{a}$ quindi 
+$$\lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}\le\lim\limits_{n\to\infty}\frac{1}{n}=0$$
 Allora $f_n\overset{u}{\to}f$ su $A$
 
 \example $f_n(x)=sin\left(\frac{1}{n}x\right)$ con $A\equiv \R$
@@ -175,15 +175,15 @@ $f_n\overset{u}{\to}f$ su $A$ e $f_n\in \cntclass{0}(A; \R)\,\,\forall n\in\math
 \end{proof}
 \example $f_n(x)=\sqrt{x^2+\frac{1}{n}}$ con $A\equiv \R$\\
 %$f_n$ è continua $\forall n$ perchè compositione di funzioni continue.\\
-%Il limite puntuale di questa successione di funzioni è $f\left( x \right)=\left|x\right|$ su $A$\\
-%Si può verificare che $f\left(x\right)=\left|x\right|$ è anche limite uniforme su $A$ poichè
-%$$ \lim\limits_{n\to\infty}\sup\limits_{x\in A} \left|\sqrt{x^2+\frac{1}{n}}-\left|x\right|\right| $$
+%Il limite puntuale di questa successione di funzioni è $f\left( x \right)=\abs{x}$ su $A$\\
+%Si può verificare che $f\left(x\right)=\abs{x}$ è anche limite uniforme su $A$ poichè
+%$$ \lim\limits_{n\to\infty}\sup\limits_{x\in A} \abs{\sqrt{x^2+\frac{1}{n}}-\left|x}\right| $$
 %analizzando il contenuto del modulo si trova che la sua derivata vale $\frac{1}{2\sqrt{x^2+\frac{1}{n}}}-sgn\left(x\right)$ che si annulla in $x=\pm\sqrt{\frac{1}{4}-\frac{1}{n}}$
 ..........\\
 ..........\\
 \definition
 Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{f_n:A\to \R:n\in\mathbb{N}\right\}$ una successione di funzioni.\\
-La successione $\left\{f_n:n\in\mathbb{N}\right\}$ soddisfa alla condizione di Cauchy per la convergenzauniforme su $B \rightleftharpoons \forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall n,m>\nu, \forall x \in B$ vale $\left| f_n(n)-f_m(x) \right|<\epsilon$
+La successione $\left\{f_n:n\in\mathbb{N}\right\}$ soddisfa alla condizione di Cauchy per la convergenzauniforme su $B \rightleftharpoons \forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall n,m>\nu, \forall x \in B$ vale $\abs{f_n(n)-f_m(x)}<\epsilon$
 \proposition
 (Una successione di Cauchy per la convergenza uniforme è uniformemente convergente).\\
 Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{ f_n:A\to \R:n\in\mathbb{N} \right\}$ una successione di funzioni.\\
@@ -191,17 +191,17 @@ La successione $\left\{ f_n:n\in\mathbb{N} \right\}$ soddisfa alla condizione di
 \begin{proof}
 	La successione $\left\{ f_n:n\in\mathbb{N}\right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\forall x\in B$ la successione $\left\{ f_n(x) :n\in\mathbb{N} \right\}$ è di Cauchyin $ \R$ allora $\forall x \in B$ la successione $\left\{ f_n(x):n\in\mathbb{N} \right\}$ ha limite in $ \R$.(cioè c'è il limite puntuale).\\
 	Sia $f(x)$ questo limite, $f$ è anche il limite uniforme della successione $\left\{ f_n:n\in\mathbb{N} \right\}$, infatti:
-	$$\forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall h,k>\nu \forall x\in B \quad \left| f_h-f_k \right|<\epsilon$$
-	$$\sup\limits_B\left|f_h(x)-f_k(x)\right|, \forall h,k>\nu$$
-	$$\Rightarrow \left|f_h(x)-f_k\right|<\epsilon,\forall h.k>\nu, \forall x \in B$$
+	$$\forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall h,k>\nu \forall x\in B \quad \abs{f_h-f_k}<\epsilon$$
+	$$\sup\limits_B\abs{f_h(x)-f_k(x)}, \forall h,k>\nu$$
+	$$\Rightarrow \abs{f_h(x)-f_k}<\epsilon,\forall h.k>\nu, \forall x \in B$$
 	a questo punto si passa al limite e la disuguaglianza diventa debole.
-	$$\Rightarrow \lim\limits_{n\to\infty}\left| f_h(x)-f_k(x) \right|\le\epsilon, \forall h>\nu, \forall x\in B$$
-	$$\Rightarrow\left| f_h(x)-f(x) \right|\le\epsilon, \forall h>\nu, \forall x\in B$$
-	$$\Rightarrow\sup\limits_B\left| f_h-f \right|\le\epsilon, \forall h>\nu$$
+	$$\Rightarrow \lim\limits_{n\to\infty}\abs{f_h(x)-f_k(x)}\le\epsilon, \forall h>\nu, \forall x\in B$$
+	$$\Rightarrow\abs{f_h(x)-f(x)}\le\epsilon, \forall h>\nu, \forall x\in B$$
+	$$\Rightarrow\sup\limits_B\abs{f_h-f}\le\epsilon, \forall h>\nu$$
 	$$\Rightarrow f_n\overset{u}{\to}f\quad su B$$
 \end{proof}
 \proposition
-Sia $A$ un compatto in $ \R$. In $\cntclass{0}(A; \R)$ sia $d_{\cntclass{0}}=\sup_A\left| g(x)-f(x) \right|$. Allora $\left( \cntclass{0}\left(A; \R\right);d_{\cntclass{0}}\right)$ è uno spazio metrico completo.
+Sia $A$ un compatto in $ \R$. In $\cntclass{0}(A; \R)$ sia $d_{\cntclass{0}}=\sup_A\abs{g(x)-f(x)}$. Allora $\left( \cntclass{0}\left(A; \R\right);d_{\cntclass{0}}\right)$ è uno spazio metrico completo.
 \begin{proof}
 	prendo $f_n\in \cntclass{0}(A; \R)$ successione di Cauchy in $\cntclass{0}(A; \R)$
 	$f_n$ sono di Cauchy rispetto alla convergenza uniforme su $A$
@@ -211,7 +211,7 @@ Sia $A$ un compatto in $ \R$. In $\cntclass{0}(A; \R)$ sia $d_{\cntclass{0}}=\su
 \end{proof}
 ESEMPIO:: In dimensione finita non vi è differenza tra "chiuso e limitato" e "compatto", in dimensione infinita cambiamo molte cose.
 Prensiamo un insieme chiuso e limitato ma non compatto.\\
-In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_\infty(f,g)=\sup_{\left[0,1\right]}\left|g(x)-f(x)\right|$, prendiamo l'insieme $C=\overline{B(0,1)}=\left\{f\in \cntclass{0}(\left[0,1\right]; \R):\left|f(x)\right|\le 1, \forall x \in\left[0,1\right]\right\}$
+In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_\infty(f,g)=\sup_{\left[0,1\right]}\abs{g(x)-f(x)}$, prendiamo l'insieme $C=\overline{B(0,1)}=\left\{f\in \cntclass{0}(\left[0,1\right]; \R):\abs{f(x)}\le 1, \forall x \in\left[0,1\right]\right\}$
 \begin{description}
 	\item[1] $C$ è limitato: ha diametro finito.
 	\item[2] $C$ è chiuso: contiene tutti i sui punti di accumualazione
@@ -262,8 +262,8 @@ Allora
 	per $n\to\infty$
 	$$f(x)=l+\int_{x_0}^{x}g(t)dt$$
 	Quindi le $f_n$ convergono puntualmente alla funzione $f(x)$, per la convergenza uniforme calcolo:
-	$$ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\left|f_n(x)-f(x)\right|\le\lim\limits_{n\to+\infty}\left(  \left| f_n(x_0)-f(x_0) \right|+\left|\int_{x_0}^x\left|f_n'(t)-g(t)\right|dt\right| \right)\le$$
-	$$\lim\limits_{n\to+\infty}\left[ \left|f_n(x_0)-f(x_0)\right|+\left|b-a\right|\sup\limits_{\left[a,b\right]}\left|f_n'(x)-g(x)\right| \right] = $$
+	$$ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\abs{f_n(x)-f(x)}\le\lim\limits_{n\to+\infty}(\abs{f_n(x_0)-f(x_0)}+\abs{\int_{x_0}^x \abs{f_n'(t)-g(t)}dt})\le$$
+	$$\lim\limits_{n\to+\infty}\left[ \abs{f_n(x_0)-f(x_0)}+\abs{b-a}\sup\limits_{\left[a,b\right]}\abs{f_n'(x)-g(x)} \right] = $$
 	Questo perché per ipotesi $f'_n=g$ e il limite fa $0$.
 	Allora $f_n\overset{u}{\to}f$ su $\left[a,b\right]$\\
 	Inoltre si sa che $f_n\in \cntclass{1}$ allora $f_n'\in \cntclass{0}$ allora il limite uniforme di funzioni continue è una funzione continua allora $g$ è una funzione continua.\\
@@ -293,18 +293,18 @@ In altre parole questa proposizione afferma che sotto opportune ipotesi
 $$\left(\sum\limits_{n=0}^{+\infty} f_n \right)' =  \sum\limits_{n=0}^{+\infty}f_n'$$
 \definition
 Siano $A\subseteq  \R$ e $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni con $f_n:A\to \R$\\
-$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \rightleftharpoons \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\left|f_n(x)\right|<+\infty$(è convergente) 
+$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \rightleftharpoons \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}<+\infty$(è convergente) 
 \observation
-la $\sum\limits_{n=0}^{+\infty}\sup\limits_{A}\left|f_n(x)\right|$ è una serie numerica
+la $\sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}$ è una serie numerica
 \proposition
 Siano $A\subseteq \R$ e $\left\{f_n:n\in\mathbb{N}\right\}$ una successione di funzioni con $f_n:A\to \R$\\
 $\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$ $\Rightarrow$  $\sum\limits_{n=0}^{+\infty}f_n$ converge uniformemente su $A$
 \begin{proof}
 	$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$\\
-	$\Rightarrow \sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\left|f_n(x)\right|<+\infty$\\
-	$\Rightarrow \forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall n,m\in\mathbb{N}$ con $m>n>\nu$ vale $\sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\left|f_n\right|<\epsilon$\\
-	$\Rightarrow \forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall n,m\in\mathbb{N}$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\sum\limits_{n=0}^{+\infty}\left|f_n\right|<\epsilon$\\
-	$\Rightarrow \forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall n,m\in\mathbb{N}$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\left|\sum\limits_{n=0}^{+\infty}f_n\right|<\epsilon$\\
+	$\Rightarrow \sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\abs{f_n(x)}<+\infty$\\
+	$\Rightarrow \forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall n,m\in\mathbb{N}$ con $m>n>\nu$ vale $\sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\abs{f_n}<\epsilon$\\
+	$\Rightarrow \forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall n,m\in\mathbb{N}$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\sum\limits_{n=0}^{+\infty}\abs{f_n}<\epsilon$\\
+	$\Rightarrow \forall\epsilon>0, \exists\nu\in\mathbb{N}: \forall n,m\in\mathbb{N}$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\abs{\sum\limits_{n=0}^{+\infty}f_n}<\epsilon$\\
 	$\Rightarrow \sum\limits_{n=0}^{+\infty}f_n$ soddisfa la condizione di Cauchy per la convergenza uniforme su $A$.
 \end{proof}
 \observation
@@ -328,25 +328,25 @@ ESEMPIO::$\sum\limits_{n=0}^{+\infty}\frac{x^n}{n!}=1+x+\frac{1}{2} x^2+\ldots+\
 ESEMPIO::$\sum\limits_{n=0}^{+\infty}x^n=1+x+x^2+\ldots+x^n=\frac{1}{1-x}$
 \proposition
 Siano $\left\{a_n:n\in\mathbb{N}\right\}$ una successione in $\mathbb{C}$ e $w\in\mathbb{C}$.\\
-La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cioè $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quandi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\left|w\right|$\\
-Allora $\forall r$ con $0<r<\left| w \right|$, la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge totalmente in $B(0,r)$\\
+La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cioè $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quandi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\abs{w}$\\
+Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge totalmente in $B(0,r)$\\
 \begin{proof}
 	TIKZPICTURE:::::\\
-	devo dimostrare che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\left|a_nz^n\right|<+\infty$.\\
+	devo dimostrare che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\abs{a_nz^n}<+\infty$.\\
 	E\' facile vedere che $a_nz^n=a_nw^n\left(\frac{z}{w}\right)^n$.\\
 	Quindi passando al modulo e poi al sup si ottiene.\\
-	$$\sup\limits_{B(0,r)}\left|a_nz^n\right|=\sup\limits_{B(0,r)}\left|a_nw^n\right|\left|\frac{z}{w} \right|^n\le$$
+	$$\sup\limits_{B(0,r)}\abs{a_nz^n}=\sup\limits_{B(0,r)}\abs{a_nw^n}\abs{\frac{z}{w}}^n\le$$
 	Siccome $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge  quindi il suo termine generale tende a $0$.\\
-	$$\le\sup\limits_{B(0,r)}\left|\frac{z}{w}\right\|^n\le\left(\frac{r}{\left|w\right|}\right)^n $$
-	per ipotesi $r<\left|w\right|$ e questo è il termine generale di una serie geometrica convergente.\\
-	Ne segue che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\left|a_nz^n\right|$ è maggiorato da $\left( \frac{r}{\left|w\right|}\right)^n$ e quindi la serie converge totalmente.
+	$$\le\sup\limits_{B(0,r)}\abs{\frac{z}{w}}^n\le\left(\frac{r}{\abs{w}}\right)^n $$
+	per ipotesi $r<\abs{w}$ e questo è il termine generale di una serie geometrica convergente.\\
+	Ne segue che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\abs{a_nz^n}$ è maggiorato da $\left( \frac{r}{\abs{w}}\right)^n$ e quindi la serie converge totalmente.
 \end{proof}
 \observation
 Una volta che abbiamo la convergenza totale abbiamo anche quella uniforme.
 \proposition la non convergenza in un punto implica la non convergenza fuori dal cerchio\\
 Sia ${a_n:n\in\mathbb{N}}$ una successione a valori in $\mathbb{C}$\\
 La serie $\sum\limits_{n=0}^{+\infty}a_nz^n$ non  converge in $w$\\
-Allora $\forall z\in\mathbb{C}$ con $\left|z\right|>\left|w\right|$ la serie di potenze $\sum\limits_{n=0}^{+\infty}$ non converge in $z$
+Allora $\forall z\in\mathbb{C}$ con $\abs{z}>\abs{w}$ la serie di potenze $\sum\limits_{n=0}^{+\infty}$ non converge in $z$
 \begin{proof}
 	\begin{center}
 		\begin{tikzpicture}[scale=1]
@@ -357,7 +357,7 @@ Allora $\forall z\in\mathbb{C}$ con $\left|z\right|>\left|w\right|$ la serie di 
 		\draw (0,0) circle (0.8cm);
 		\end{tikzpicture}
 	\end{center}
-	Se per assurdo la serie converge in $z\Rightarrow$ per il teorema precedente  avremmo convergenza in ogni sfera con raggio minore di $\left|\frac{1}{z}\right|$. e quindi anche in $w$ questo nega l'ipotesi.ASSURDO.
+	Se per assurdo la serie converge in $z\Rightarrow$ per il teorema precedente  avremmo convergenza in ogni sfera con raggio minore di $\abs{\frac{1}{z}}$. e quindi anche in $w$ questo nega l'ipotesi.ASSURDO.
 \end{proof}
 \observation
 Come è fatto l'insieme su cui si ha convergenza??\\
@@ -369,7 +369,7 @@ Il raggio di convergenza di una serie di potenze può essere $0$, un numero real
 \observation
 una definizione come $\rho=\inf\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n non converge su B(0,r)\right\}$ non sta in piedi poiché questo insieme potrebbe essere vuoto, mentre quello sopra non è mai vuoto, poerché $r=0$ c'è sempre poiché in $0$ si ha sempre convergenza. Ilsecondo potrebbe essere vuoto perché ci sono serie che convergono su tuttoil piano complesso e quindi non si avrebbe nessun $r$ fuori da quale non sia ha convergenza.\\
 \proposition CRITERIO DELLA RADICE.\\
-Data la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$, sia $l=\lim\limits_{n\to+\infty}\sqrt[n]{\left|a_n\right|}$.\\
+Data la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$, sia $l=\lim\limits_{n\to+\infty}\sqrt[n]{\abs{a_n}}$.\\
 Se questo limite esiste, allora il raggio di convergenza è 
 $\rho =
 	\begin{cases}
@@ -389,7 +389,7 @@ $\rho =
 \end{cases}
 $
 ESEMPIO::$e^z=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}z^n$\\
-$a_n=\frac{1}{n!} ...  \left|\frac{a_{n+1}}{a_n} \right|=\frac{\frac{1}{(n+1)!}}{\frac{1}{n!}}=\frac{n!}{(n+1)!}=\frac{1}{n+1}\overset{n\to+\infty}{\to}0 \Rightarrow \rho=+\infty$\\
+$a_n=\frac{1}{n!} ...  \abs{\frac{a_{n+1}}{a_n}}=\frac{\frac{1}{(n+1)!}}{\frac{1}{n!}}=\frac{n!}{(n+1)!}=\frac{1}{n+1}\overset{n\to+\infty}{\to}0 \Rightarrow \rho=+\infty$\\
 ESEMPIO::$sin(z)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^nz^{2n+1}}{(2n+1)!}$ quindi 
 $a_n =
 \begin{cases}
@@ -422,7 +422,7 @@ ESEMPIO:: $\sum\limits_{n=0}^{+\infty}z^n=\frac{1}{1-z}$ con $\rho=1$
 ESEMPIO:: Sia $f(x)=\frac{1}{1+x^2}=\frac{1}{1-(-x^2)} = \sum\limits_{n=0}^{+\infty}(-x^2)^n=\sum\limits_{n=0}^{+\infty}(-1)^nx^{2n}$\\
 QUI GRAFICO ..............\\
 ..........................\\
-Questa serieconverge esclusivamente per $\left|x\right|<1$, mentre la funzione $f$ è definita su tutto $ \R$, $f\in \cntclass{\infty}( \R; \R)$\\
+Questa serieconverge esclusivamente per $\abs{x}<1$, mentre la funzione $f$ è definita su tutto $ \R$, $f\in \cntclass{\infty}( \R; \R)$\\
 In $\mathbb{C}$, lafunzione $f(z)=\frac{1}{1+z^2}$ è la somma della serie $\sum\limits_{n=0}^{+\infty}(-1)^nz^{2n}$ che ha raggio di convergenza  $\rho=1$. Infatti, $f(z)$ è singolare sia in $z=i$ sia in $z=-i$.\\
 ALTRO GRAFICO::::::::::::::::\\
 ................................\\
@@ -519,7 +519,7 @@ Sia $f:\left]-r,r\right[\to \R$
 \begin{center}
 	$\left.\begin{matrix}
 	f\in \cntclass{\infty}(\left]-r,r\right[; \R)\\
-	\exists H,K >0 :\forall n\in\mathbb{N} \sup\limits_{\left]-r,r\right[}\left|f^{(n)}(x)\right|\le HK^n\\
+	\exists H,K >0 :\forall n\in\mathbb{N} \sup\limits_{\left]-r,r\right[}\abs{f^{(n)}(x)}\le HK^n\\
 	\end{matrix}\right\}
 	\Rightarrow f(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$
 \end{center}
@@ -527,7 +527,7 @@ Sia $f:\left]-r,r\right[\to \R$
 L'ipotesi centrale ............. qui non c'è
 \observation
 Sia $\sum\limits_{n=0}^{+\infty}(z,w)^n$ una serie di potenze in due variabili.\\
-Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Questa serie è una serie geometrica che converge sse $\left|zw\right|<1$. è  difficile parlare di raggio di convergenza  perché essendo $z,w\in\mathbb{C}$, se per una variabile servono due dimensioni per due variabili servono quattro dimensioni , e anche se non riusciamo a fare il disegno è evidente che l'insieme su cui la serie converge non è un cerchio(sfera).
+Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Questa serie è una serie geometrica che converge sse $\abs{zw}<1$. è  difficile parlare di raggio di convergenza  perché essendo $z,w\in\mathbb{C}$, se per una variabile servono due dimensioni per due variabili servono quattro dimensioni , e anche se non riusciamo a fare il disegno è evidente che l'insieme su cui la serie converge non è un cerchio(sfera).
 ESEMPI::
 \begin{description}
 	\item[$\ast$] $e^x=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}x^n$
@@ -540,7 +540,7 @@ ESEMPI::
 	\item[$\ast$] $arctan(1+x)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^{n}}{2n+1}x^{(2n+1)}$
 	\item[$\ast$] $\frac{1}{1+x^2}=\sum\limits_{n=0}^{+\infty}(-1)^nx^2n$
 	\item[$\ast$] $\sum\limits_{n=0}^{+\infty}\frac{1}{n^\lambda}=\left\{\begin{matrix}\text{converge sse } \lambda >1\\ \text{diverge sse } \lambda \le 1 \end{matrix}\right.$
-	\item[$\ast$] $\sum\limits_{n=0}^{+\infty}q^n=\left\{\begin{matrix}\text{converge sse } |q|<1, S=\frac{1}{1-x}\\ \text{diverge sse } |q|>1\text{ o }q=1\\\nexists \text{ sse } x=-1 \end{matrix}\right.$
+	\item[$\ast$] $\sum\limits_{n=0}^{+\infty}q^n=\left\{\begin{matrix}\text{converge sse } \abs{q}<1, S=\frac{1}{1-x}\\ \text{diverge sse } \abs{q}>1\text{ o }q=1\\\nexists \text{ sse } x=-1 \end{matrix}\right.$
 \end{description}
 
 
@@ -850,7 +850,7 @@ $$
 Il prodotto scalare di elementi diversi è nullo quindi la base è ortogonale, ma non è ortonormale in quanto il prodotto scalare tra due elementi diversi della base non è unitario.(ecco perché gli $\frac{1}{\pi})$ e $\frac{a_0}{2}$)\\
 In generale in geometria non è difficile normalizzare una base, è sufficiente dividere tutti gli elementi per la loro norma. In questo caso decidiamo di non applicare questo ragionamento poiché la norma vale $\sqrt{\pi}$ e se normalizziamo dobbiamo aggiungere questo termini ......\\
 Il prodotto scalare in $\cntclass{0}$ è molto legato alla $d_2$ infatti:
-$$\left\|f\right\|_2=\sqrt{\left<f,f\right>}=\sqrt{\int_{-\pi}^{\pi}f(x)\cdot f(x)dx}\sqrt{\int_{-\pi}^{\pi}\left[f(x)\right]^2dx}$$ 
+$$\norm{f}_2=\sqrt{\left<f,f\right>}=\sqrt{\int_{-\pi}^{\pi}f(x)\cdot f(x)dx}\sqrt{\int_{-\pi}^{\pi}\left[f(x)\right]^2dx}$$ 
 Continuano le analogie:\\
 In $ \R^2$ ........\\
 In $ \R^3$ .........\\

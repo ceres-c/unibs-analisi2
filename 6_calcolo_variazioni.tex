@@ -24,31 +24,31 @@ Sia $I\in\mathbb{R}$ un intervallo. Curva su $I$ $\mathbb{R}\rightleftharpoons$ 
 \observation
 $\gamma(I)$ si chiama supporto della curva,ed 1'e certamente connesso.(una funzione continua manda intervalli connessi in connessi)
 \definition
-Sia $\realfunction{\gamma}{\realintervalclose{a}{b}}{\mathbb{R}}^n$ una curva, lunghezza della curva $\rightleftharpoons l(\gamma)=\sup\left\{\sum\limits_{i=1}^{N}\left\|\gamma(t_i)-\gamma(t_{i-1})\right\|: N\in\mathbb{N}\,N>1,t_0=a,t_N=b,t_{i-1}<t_i, i=1,2,\ldots,N \right\}$ 
+Sia $\realfunction{\gamma}{\realintervalclose{a}{b}}{\mathbb{R}}^n$ una curva, lunghezza della curva $\rightleftharpoons l(\gamma)=\sup\left\{\sum\limits_{i=1}^{N}\norm{\gamma(t_i)-\gamma(t_{i-1})}: N\in\mathbb{N}\,N>1,t_0=a,t_N=b,t_{i-1}<t_i, i=1,2,\ldots,N \right\}$ 
 cioè prendo una curva e la approssimo con una spezzata, la più lunga di tutte le poligonali è la lunghezza della curva.\\
 DISEGNO\\
 DISEGNO\\
 \definition
 Una curva $\realfunction{\gamma}{\realintervalclose{a}{b}}{\mathbb{R}^n}$ si dice rettificabile $\rightleftharpoons f(\gamma)<+\infty$
 \observation
-$$\sum\limits_{i=1}^{N}\left\| \gamma(t_i)-\gamma(t_{i-1}) \right\| $$
+$$\sum\limits_{i=1}^{N}\norm{\gamma(t_i)-\gamma(t_{i-1})} $$
 per il teorema del valore medio differenziale(accrescimenti finiti)
-$$\sum\limits_{i=1}^{N}\left\|  \gamma'(t_i)(t_i-t_{i-1})\right\| =??$$
-$$\int_{a}^{b}\left\|  \gamma'(t) \right\| dt$$
+$$\sum\limits_{i=1}^{N}\norm{ \gamma'(t_i)(t_i-t_{i-1})} =??$$
+$$\int_{a}^{b}\norm{ \gamma'(t)} dt$$
 \proposition
-Se $\gamma\in \cntclass{1}(\realintervalclose{a}{b};\mathbb{R}^n)\Rightarrow l(\gamma)=\int_a^b\left\| \gamma'(t)\right\|dt$
+Se $\gamma\in \cntclass{1}(\realintervalclose{a}{b};\mathbb{R}^n)\Rightarrow l(\gamma)=\int_a^b\norm{\gamma'(t)}dt$
 \observation
-Se $\gamma$ è la traiettoria di un punto materiale,allora $\left\|\gamma\right\|$ è la norma della velocità istantanea, e quindi $l(\gamma)$ è lo spazio che si percorre, cioè l'integrale della velocità valutato tra $t??????t_i$ due istanti di tempo entro i quali si mantiene tale velocità.
+Se $\gamma$ è la traiettoria di un punto materiale,allora $\norm{\gamma}$ è la norma della velocità istantanea, e quindi $l(\gamma)$ è lo spazio che si percorre, cioè l'integrale della velocità valutato tra $t??????t_i$ due istanti di tempo entro i quali si mantiene tale velocità.
 \observation
 Nel caso specifico sarà:
 $$ X=\left\{ x\in \cntclass{1}(\left[a,b\right];\mathbb{R}2): x(a)=A, x(b)=B \right\} $$
 $$\begin{array}{ccc} 
 F: X & \to & \mathbb{R} \\
-x & \to & \int_{a}^b \left\| x'(t)\right\|dt
+x & \to & \int_{a}^b \norm{x'(t)}dt
 \end{array}$$
 $$\begin{array}{ccc} 
 f: \left[a,b\right]\times\mathbb{R}^2\times\mathbb{R}^2 & \to & \mathbb{R} \\
-(t,x, x') & \to &  \left\| x'(t)\right\|
+(t,x, x') & \to &  \norm{x'(t)}
 \end{array}$$
 \section{L'Equazione di Eulero}
 LEMMA:::LEMMA FONDAMENTALE DEL CALCOLO DELLE VARIAZIONI\\
@@ -73,8 +73,8 @@ Allora $f(x)\equiv 0\forall x\in\left[0,1\right]$
 	Osservo che se $x_0=1$ allora $\exists\overline{x}_0\in\left]0,1\right[$ t.c. $f(\overline{x}_0)\ne 0$\\
 	Entrambe le osservazioni per la continuità di $f$, significa che se $x_0$ è un punto in cui la $f>0$ allora per la continuità della funzione anche li vicino si hanno valori maggiori di zero.\\
 	Quindi si può pensare $x_0\in\left]0,1\right[$.\\
-	Allora $\exists a,b\in\left]0,1\right[$ t.c. $x_0\in\left]a,b\right[ e \forall x\in\left]a,b\right[$ vale che $\left|f(x)\right|\ge\left|f(x_0)\right|$ sempre per la continuità di $f$.\\
-	Pensiamo $f(x_0)>0$ in questo modo $\left|f(x_0)\right|=f(x_0)$ e scegliamo la funzione $v(x)$ come disegnata: $v(x)=\left\{\begin{matrix}
+	Allora $\exists a,b\in\left]0,1\right[$ t.c. $x_0\in\left]a,b\right[ e \forall x\in\left]a,b\right[$ vale che $\abs{f(x)}\ge\abs{f(x_0)}$ sempre per la continuità di $f$.\\
+	Pensiamo $f(x_0)>0$ in questo modo $\abs{f(x_0)}=f(x_0)$ e scegliamo la funzione $v(x)$ come disegnata: $v(x)=\left\{\begin{matrix}
 	0&&x\le x_0-\delta\\
 	\frac{x}{\delta}-\frac{x_0-\delta}{\delta}&& x_0-\delta<x<x_0\\
 	1&& x=x_0\\

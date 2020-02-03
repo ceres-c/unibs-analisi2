@@ -34,9 +34,9 @@ si dimostra che la funzione così definita è una distanza:
 \end{enumerate}
 
 \example
-$$X=\R,\quad d(x_1,x_2)=\left| x_2-x_1 \right|$$
+$$X=\R,\quad d(x_1,x_2)=\abs{x_2-x_1}$$
 Le  proprietà 1,2,3 sono soddisfatte per le proprietà del modulo.\\
-La proprietà 4 si può dimostrare: $d(x_1,x_3)=\left|x_3-x_1\right|\le\left|x_3-x_2\right|+\left|x_2-x_1\right|=d(x_3,x_2)+d(x_2,x_1)$
+La proprietà 4 si può dimostrare: $d(x_1,x_3)=\abs{x_3-x_1}\le\abs{x_3-x_2}+\abs{x_2-x_1}=d(x_3,x_2)+d(x_2,x_1)$
 
 \example
 $$X=\bbsetn{R}{3}\quad d({x_1,y_1,z_1),(x_2,y_2,z_2)}$$
@@ -50,7 +50,7 @@ Analogo al primo esempio
 
 \example
 $$X=\cntclass{0}(\realintervalclose{a}{b},\R),a,b\in\R, a<b$$
-$$d_\infty=\sup\limits_{x\in\realintervalclose{a}{b}}\left|g(x)-f(x)\right|$$
+$$d_\infty=\sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)}$$
 \begin{enumerate}
 	\item $X$ contiene infiniti elementi(funzioni)
 	\item $d_\infty$ è detta distanza uniforme o distanza della convergenza infinita o distanza della convergenza uniforme
@@ -61,7 +61,7 @@ Si verificano le 4 proprietà di distanza:
 	\item Se $\sup = \infty$ non va bene poiché l'insieme di arrivo è $\R$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$
 	\item se e solo se hanno lo stesso dominio e per ogni punto di esso entrambe le funzioni hanno la stessa immagine
 	\item $\dinfty{f}{g}=\ddinfty{f}{g}{\realintervalclose{a}{b}}=\ddinfty{g}{f}{\realintervalclose{a}{b}}=\dinfty{g}{f}$
-	\item $\left| h(x)-f(x) \right|\le\left|h(x)-g(x)\right|+\left|g(x)-f(x)\right| $, applicando il sup la disuguaglianza resta vera
+	\item $\abs{h(x)-f(x)}\le\abs{h(x)-g(x)}+\abs{g(x)-f(x)} $, applicando il sup la disuguaglianza resta vera
 \end{enumerate}
 \observation 
 Tutto questo è valido finché $\realintervalclose{a}{b}$ chiuso e limitato altrimenti non vale più Weierstrass \\
@@ -82,13 +82,13 @@ $X\ne \emptyset,\quad d(x,y)= \left\{\begin{matrix}0&&x=y\\0&&1\ne y\end{matrix}
 \example
 $$X=\bbsetn{R}{2}$$
 $$x=(x_1,x_2), y=(y_1,y_2)$$
-$$d'(x,y)=\left| x_1-y-1 \right|+\left|x_2-y-2\right|$$
+$$d'(x,y)=\abs{x_1-y-1}+\abs{x_2-y-2}$$
 ...\\
 
 \example
 \example
 $$X=\cntclass{0}(\realintervalclose{0}{1},\R)$$
-$$d_2=\int_0^1\left|g(x)-f(x)\right|d(x)$$
+$$d_2=\int_0^1\abs{g(x)-f(x)}d(x)$$
 \example
 $$X=\cntclass{0}(\realintervalclose{a}{b},\R), a,b\in\R, a<b$$
 $$d_2=\sqrt{\int_a^b\left[g(x)-f(x)\right]^2d(x)}$$
@@ -130,12 +130,12 @@ $X$ è uno spazio (vettoriale) normato sul campo $\bbset{K}$ se:
 \begin{description}
 	\item[$\bullet$] $X$ è uno spazio vettoriale sul campo $\bbset{K}$
 	\item[$\bullet$] se è definita una norma su $X$, ovvero una funzione\\
-	$\left\| \cdot \right\|:X\to\R$ con le seguenti proprietà:
+	$\norm{\cdot}:X\to\R$ con le seguenti proprietà:
 	\begin{enumerate}
 		\item $\forall x\in X,\quad\norm{x}\ge0$
-		\item $\forall x\in X,\quad\norm(x)=0\sse x=0$
+		\item $\forall x\in X,\quad\norm{x}=0\sse x=0$
 		\item $\forall x,y\in X,\quad\norm{x+y}\le\norm{x}+\norm{y}$
-		\item $\forall x\in X,\lambda\in\bbset{K},\quad\norm{\lambda x}=\left|\lambda\right|\norm{x}$
+		\item $\forall x\in X,\lambda\in\bbset{K},\quad\norm{\lambda x}=\abs{\lambda}\cdot\norm{x}$
 	\end{enumerate}
 \end{description}
 
@@ -230,7 +230,7 @@ Sia $(X, d)$ uno spazio metrico, siano $f,g:X\rightarrow X$ due contrazioni in $
 \end{proof}
 
 \proposition
-Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$ vale $\left\| Df(x)\right\|  < k$, allora $f$ è una contrazione.
+Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$ vale $\norm{Df(x)}  < k$, allora $f$ è una contrazione.
 
 \theorem
 Sia $(X, d)$ uno spazio metrico completo in cui è definita una contrazione
