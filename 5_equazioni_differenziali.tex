@@ -24,13 +24,15 @@ Soluzione di questa equazione differenziale è una qualunque funzione $x:I\to \R
 $$ (t,x, x',\ldots,x^{(n)}) \in A$$
 $$ f(t,x, x',\ldots,x^{(n)})=0$$
 Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$
-\note
-Un'equazione differenziale ammette, in generale, infinite soluzioni.
+\begin{note}
+	Un'equazione differenziale ammette, in generale, infinite soluzioni.
+\end{note}
 \begin{example}
 	Presa l'equazione differenziale $ x'=1$, essa è risolta da $x(t) = t + \alpha$ per ogni $\alpha\in\R$
 \end{example}
-\note
-dalla definizione \ref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
+\begin{note}
+	dalla definizione \ref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
+\end{note}
 \exercise
 La soluzione di un'equazione differenziale ordinaria non può avere 3 asintoti.
 \begin{exercise_answer}
@@ -74,10 +76,12 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	\end{enumerate}
 	Quindi il problema di Cauchy aggiunge un vincolo ad un'equazione differenziale, così si isola una singola soluzione
 \end{definition}
-\note
-Si considera un intervallo perché l'idea è di studiare l'andamento nel tempo e sarebbe difficile far previsioni con "buchi" di tempo
-\note
-La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la definizione \ref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione, ma i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
+\begin{note}
+	Si considera un intervallo perché l'idea è di studiare l'andamento nel tempo e sarebbe difficile far previsioni con "buchi" di tempo
+\end{note}
+\begin{note}
+	La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la definizione \ref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione, ma i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
+\end{note}
 \begin{definition}
 	soluzione massimale di un problema di Cauchy è una soluzione $$x_M:I_M\mapsto R^k$$ tale che nessun'altra soluzione della stessa equazione possa essere definita in un intervallo $I$ con $I_M \subset I$. Quindi è la soluzione definita sull'intervallo maggiore possibile.
 \end{definition}
@@ -92,8 +96,9 @@ La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado
 		x^{(n-1)}(t_0)=\alpha_{n-1}
 	\end{cases}$$
 \end{definition}
-\note
-Le condizioni iniziali devono essere assegnate tutte nello steso istante.
+\begin{note}
+	Le condizioni iniziali devono essere assegnate tutte nello steso istante.
+\end{note}
 \begin{example}
 	il problema di Cauchy $$\begin{cases}x'=x\\x(0)=1\end{cases}$$
 	ammette, tra le altre, anche le seguenti soluzioni, tecnicamente distinte tra loro
@@ -173,8 +178,9 @@ Limiti di questo modello:
 	$$\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L$$
 	La lipschitzianità (\textbf{lips.}), in parole povere, valuta il rapporto tra incremento della $f$ e delle $x$ è minore di un valore fisso $L$
 \end{definition}
-\note
-La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$
+\begin{note}
+	La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$. Quindi la $f$ rimane lips. in modo uniforme al variare di $t$ (cioè $\forall t\in I$), ma questo non è garantito $\forall x\in A$, solo per $x_1,x_2 \in (B(x_0,r)\cap A)$.
+\end{note}
 
 % TODO Continuare da qui
 
