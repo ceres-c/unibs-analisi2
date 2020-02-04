@@ -28,15 +28,15 @@ Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x
 	Un'equazione differenziale ammette, in generale, infinite soluzioni.
 \end{note}
 \begin{note}
-	\label{note:diff_eq_sol_definition_set}
+	\hypertarget{note:diff_eq_sol_definition_set}
 	La soluzione di un'equazione differenziale può, analiticamente, essere definita su un intervallo $J\supset I$ ($I$ intervallo di definizione della funz. differenziale $f$). Non ha però senso considerare il suo comportamento al di fuori di $I$, in quanto non ha valore dal punto di vista del sistema. Per questo motivo $J$ sarà sempre considerato $J\subseteq I$
+\end{note}
+\begin{note}
+	dalla definizione \ref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
 \end{note}
 \begin{example}
 	Presa l'equazione differenziale $ x'=1$, essa è risolta da $x(t) = t + \alpha$ per ogni $\alpha\in\R$
 \end{example}
-\begin{note}
-	dalla definizione \ref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
-\end{note}
 \exercise
 La soluzione di un'equazione differenziale ordinaria non può avere 3 asintoti.
 \begin{exercise_answer}
@@ -185,6 +185,10 @@ Limiti di questo modello:
 \begin{note}
 	La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$. Quindi la $f$ rimane lips. in modo uniforme al variare di $t$ (cioè $\forall t\in I$), ma questo non è garantito $\forall x\in A$, solo per $x_1,x_2 \in (B(x_0,r)\cap A)$.
 \end{note}
+\begin{note}
+	\hypertarget{note:if_lips_then_loclips}
+	Se $f$ \textbf{lips} su $A\implies f$ \textbf{loc. lips.} su A
+\end{note}
 \begin{example}
 	La funzione $f:\R\mapsto\R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \ref{def:fun_lips}
 \end{example}
@@ -199,6 +203,7 @@ Limiti di questo modello:
 
 \subsection{Esistenza e Unicità}
 \begin{proposition}[Teorema di Peano]
+	\label{teo:peano}
 	Si consideri il seguente problema di Cauchy:
 	$$\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$$
 	con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
@@ -213,15 +218,15 @@ Limiti di questo modello:
 	\end{note}
 	\noindent Inoltre:
 	\begin{itemize}
-		\item come da nota \ref{note:diff_eq_sol_definition_set}, $J\subseteq I$, dunque $\varphi(J)\subseteq A$
+		\item $J\subseteq I$ da \hyperref{note:diff_eq_sol_definition_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
 		\item $\varphi(t_0)=x_0$
 		\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
-	\end{itemize} 
+	\end{itemize}
 	\begin{proof}
 		Non richiesta
 	\end{proof}
 \end{proposition}
-\begin{example}[Il Baffo/Pennello di Peano]
+\begin{example}[Il Baffo/Pennello di Peano] % TODO da rivedere
 	$$\left\{\begin{matrix} x'=\sqrt{\abs{x}}\\x(0)=x_0\end{matrix}\right.$$
 	\begin{center}
 		\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
@@ -252,12 +257,12 @@ Limiti di questo modello:
 		\end{tikzpicture}% pic 2
 	\end{center}
 	Se $x_0 = 0$ ho che $\varphi(t)=0$ è soluzione $\forall t$\\
-	Ma $ x' = \sqrt{\abs{x}}$ è anche un'equazione a variabili separabili quindi risolvibile.\\
-	$$\frac{x}{\sqrt{\abs{x}}}=1 \Rightarrow \int_{0}^{t}{\frac{ x'}{\sqrt{\abs{x}}}dt} = t$$
-	$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{\abs{x}}}dx} = t$$
-	valuto ora il caso $x>=0$ quindi $\abs{x}=x$
-	$$ \int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}dx} = 2\sqrt{x} = t$$ 
-	La soluzione cercata è quindi $x(t)=\frac{1}{4}t^2$, estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata è: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$ 
+	Ma $x' = \sqrt{\abs{x}}$ è anche un'equazione a variabili separabili, quindi risolvibile.
+	$$\frac{x}{\sqrt{\abs{x}}}=1 \Rightarrow \int_{0}^{t}{\frac{ x'}{\sqrt{\abs{x}}}\integrald{t}} = t$$
+	$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{\abs{x}}}\integrald{x}} = t$$
+	valuto ora il caso $x\geq0$, quindi $\abs{x}=x$
+	$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}\integrald{x}} = 2\sqrt{x} = t$$
+	La soluzione cercata è quindi $x(t)=\frac{1}{4}t^2$, estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata è: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$
 	Abbiamo trovato che per la condizione iniziale $x_0=0$ il sistema ammette due soluzioni, si riesce estendere la soluzione a infinite funzioni.
 	$$\varphi(x)= \left\{\begin{matrix}-\frac{1}{4}(t-a)^2&&t<a,\\0&&t\in[a,b]\\+\frac{1}{4}(t-b)^2&&t>b\end{matrix}\right.$$
 	infatti:
@@ -265,116 +270,115 @@ Limiti di questo modello:
 	Abbiamo quindi trovato infinite soluzioni.\\
 	Questo esempio per sottolineare che il teorema di Peano non garantisce l'unicità della soluzione
 \end{example}
+\begin{example}[Continuità ed ipotesi necessaria] % TODO da rivedere
+	Questo esempio mostra che se non c'è continuità, può?????????? non esserci la soluzione.\\
+	Dato il seguente problema di Cauchy: $\left\{\begin{matrix}
+	x' = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
+	x(0)=0
+	\end{matrix}\right.$\\
+	\begin{center}
+		\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
+		\pgfmathsetmacro\MAX{2}
+		\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
+		\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
+		\draw[domain=0:2,smooth,variable=\x] plot ({\x},{1});
+		\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{-1});
+		\draw node at (0,-1) {$\bullet$};
+		\draw node at (0,1) {$\circ$};
+		\end{tikzpicture}% pic 1
+	\end{center}
 
-ESEMPIO CONTINUITÀ è IPOTESI NECESSARIA\\
-Questo esempio mostra che se non c'è continuità, può?????????? non esserci la soluzione.\\
-Dato il seguente problema di Cauchy: $\left\{\begin{matrix}
-x' = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
-x(0)=0
-\end{matrix}\right.$\\
-\begin{center}
-	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-	\pgfmathsetmacro\MAX{2}
-	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
-	\draw[domain=0:2,smooth,variable=\x] plot ({\x},{1});
-	\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{-1});
-	\draw node at (0,-1) {$\bullet$};
-	\draw node at (0,1) {$\circ$};
-	\end{tikzpicture}% pic 1
-\end{center}
+	\noindent $x(t)=0$ soddisfa la condizione iniziale ma ovviamente non può essere soluzione del problema poiché per $x\ne 0$ si ha che $ x'=\pm 1$ che non è la derivata della funzione nulla.\\
+	partendo sempre dalla condizione iniziale si può ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $ x'(0)=-1$\\
+	se invece si ipotizza che decresce da $0$ si ottiene che la funzione assume valori negativi, anche questo è un assurdo poiché la derivata per valori negativi della funzione è positiva.\\
+	Precisiamo che se il problema fosse stato $\left\{\begin{matrix}
+	x' = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
+	x(0)=-3\end{matrix}\right.$ allora la funzione $\varphi(x)=-x+3$ sarebbe stata soluzione nell'intervallo $J=\left] -\infty,0 \right[ $
+\end{example}
 
-\noindent $x(t)=0$ soddisfa la condizione iniziale ma ovviamente non può essere soluzione del problema poiché per $x\ne 0$ si ha che $ x'=\pm 1$ che non è la derivata della funzione nulla.\\
-partendo sempre dalla condizione iniziale si può ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $ x'(0)=-1$\\
-se invece si ipotizza che decresce da $0$ si ottiene che la funzione assume valori negativi, anche questo è un assurdo poiché la derivata per valori negativi della funzione è positiva.\\
-Precisiamo che se il problema fosse stato $\left\{\begin{matrix}
-x' = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
-x(0)=-3\end{matrix}\right.$ allora la funzione $\varphi(x)=-x+3$ sarebbe stata soluzione nell'intervallo $J=\left] -\infty,0 \right[ $
-\proposition{Teorema di Cauchy Locale}
-In sostanza si dimostra che il problema di Cauchy è ben posto nel senso di Hadamard.\\
-Si consideri il problema di Cauchy: 
-$\left\{
-\begin{matrix}
-x'=f(t,x)\\x(t_0)=x_0
-\end{matrix}
-\right.$\\
-con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
-\begin{enumerate}
-	\item $I\subseteq \R^n$ intervallo, $t_0\in \circdot{I}, A\subseteq \R^n, x_0\in \circdot{A}$ 
-	\item $f\in \cntclass{0}(I\times A; \R^n)$ queste prime due ipotesi garantiscono l'esistenza, Thm. Peano.
-	\item $f$ è localmente Lipschitziana in $x\in A$ uniformemente rispetto a $t\in I$
-\end{enumerate}
-Allora:
-\begin{enumerate}
-	\item Esistenza\\
-	$\exists J\subseteq I, \exists\varphi : J \to \R^n$ con le proprietà\\
-	$\varphi soluzione:
-	\left\{
-	\begin{matrix}
-	\ast && J\subseteq I, \varphi(J)\subseteq{A}\\
-	\ast && t_o\in\circdot{J}, \varphi(t_0)=x_0\\
-	\ast && \varphi derivabile,  \varphi'(t)=f(t,\varphi(t)) \quad\forall t\in J\end{matrix}\right.$
-	\item Unicità\\
-	Se $\exists J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists \varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni, cioè\\
-	$\varphi_1,\varphi_2 soluzione:
-	\left\{
-	\begin{matrix}
-	\ast && J_1\subseteq I,J_2\subseteq I, \varphi_1(J_1)\subseteq{A},\varphi_2(J_2)\subseteq{A}\\
-	\ast && t_o\in\circdot{J_1},t_o\in\circdot{J_2} \varphi_1(t_0)=x_0, \varphi_2(t_0)=x_0\\
-	\ast && \varphi_1,\varphi_2 derivabili,  \varphi_1'(t)=f(t,\varphi_1(t)) \quad\forall t\in J_1
-	 \varphi_2'(t)=f(t,\varphi_2(t)) \quad\forall t\in J_2
-	\end{matrix}\right.$
-	Si può osservare che $J_1\cap J_2$ è non vuoto poiché entrambi gli insiemi contengono $t_0$ nella loro parte interna.\\
-	Allora $\forall t \in(J_1\cap J_2)$ vale $\varphi_1(t)=\varphi_2(t)$,cioè se esistono due soluzioni ovunque entrambe siano definite esse coincidono..\\
-	\item Dipendenza Continua Dai Dati\\
-	Si considerino i problemi di Cauchy che hanno la condizione iniziale nello stesso istante:
-	$$ 
-	(1)\left\{
-	\begin{matrix}
-	 x'=f(t,x)\\x(t_0)=x_0
-	\end{matrix}
-	\right.\quad
-	(2)\left\{
-	\begin{matrix}
-	 y'=g(t,y)\\y(t_0)=y_0
-	\end{matrix}
-	\right.
-	$$
-	con $f,g:I\times A \to \R^n$ soddisfacenti le ipotesi allora esiste un $\delta >0$ tale che sull'intervallo $\left[ t_0-\delta,t_0+\delta \right]$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \left[t_0-\delta,t_0+\delta\right]$ vale:
-	$$\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}$$
-	dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
-\end{enumerate}
+\begin{theorem}[Teorema di Cauchy Locale]
+	\label{teo:cau_locale}
+	In sostanza si dimostra che il problema di Cauchy è ben posto nel senso di Hadamard.\\
+	Si consideri il problema di Cauchy:
+	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
+	con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
+	\begin{enumerate}
+		\item $t_0\in \circdot{I}, x_0\in \circdot{A}$. Inoltre da \ref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
+		\item $f\in \cntclass{0}(I\times A; \R^n)$ 
+		\item $f$ è localmente Lipschitziana in $x\in A$ uniformemente rispetto a $t\in I$
+	\end{enumerate}
+	\begin{note}
+		Le prime due ipotesi garantiscono l'esistenza, grazie al Thm. di Peano. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
+	\end{note}
+	Allora ho i seguenti risultati:
+	\begin{enumerate}
+		\item \textbf{Esistenza} (da \ref{teo:peano}): $\exists \delta>0$ con cui si identifica un $J=\realintervalclose{t_0-\delta}{t_0+\delta}$, inoltre $\exists\,\varphi : J \to \R^n$ soluzione con le proprietà date da Peano:
+		\begin{itemize}
+			\item $J\subseteq I$ da \hyperref{note:diff_eq_sol_definition_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
+			\item $\varphi(t_0)=x_0$
+			\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
+		\end{itemize}
+		\item \textbf{Unicità}\\
+		Se $\exists\,J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists\,\varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni con le seguenti proprietà
+		\begin{itemize}
+			\item $J_1\subseteq I$, $J_2\subseteq I$ da \hyperref{note:diff_eq_sol_definition_set}{nota definizione 47}, dunque $\varphi_1(J_1)\subseteq A$ e $\varphi_2(J_2)\subseteq A$
+			\item $\varphi_1(t_0)=x_0,\,\varphi_2(t_0)=x_0$
+			\item $\varphi_1,\varphi_2$ derivabili e
+				$\begin{cases}
+					\varphi_1'(t)=f(t,\varphi_1(t))\,\forall t \in J_1\\
+					\varphi_2'(t)=f(t,\varphi_2(t))\,\forall t \in J_2
+				\end{cases}$
+				NB. Non è effettivamente sistema
+		\end{itemize}
+		\begin{note}
+			Si può osservare che, sicuramente, $J_1\cap J_2\neq\emptyset$, poiché entrambi gli insiemi contengono almeno $t_0$ nella loro parte interna.		
+		\end{note}
+		Allora $\varphi_1(t)=\varphi_2(t)$ $\forall t \in(J_1\cap J_2)$\\
+		Cioè, se esistono due soluzioni, allora esse coincidono ovunque siano entrambe definite.
+		\item \textbf{Dipendenza Continua Dai Dati}\\
+		Si considerino i seguenti problemi di Cauchy con condizione iniziale individuata nello stesso istante:
+		$$(1)\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\qquad
+		(2)\begin{cases}y'=g(t,y)\\y(t_0)=y_0\end{cases}$$
+		con $f,g:I\times A \to \R^n$ e soddisfacenti le ipotesi di questo teorema.\\
+		Allora esiste un $\delta >0$ tale che sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \realintervalclose{t_0-\delta}{t_0+\delta}$ vale:
+		$$\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}$$
+		dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
+	\end{enumerate}
+\end{theorem}
+\begin{note}
+	Si ricorda la nota \hyperlink{note:if_lips_then_loclips}{alla definizione di locale lipschitzianità}
+\end{note}
 \observation
 L'equazione integrale 
-$$x(t)=x_0+\int_{t_0}^{t}f(\tau,x(\tau))d\tau$$
+$$x(t)=x_0+\int_{t_0}^{t}f(\tau,x(\tau))\integrald{\tau}$$
 viene spesso denominata EQUAZIONE DI VOLTERRA.\\
 Questa equazione ha senso anche per alcune funzioni $f$ non non continue ma solo misurabili nel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicità (locali/globali) l'ipotesi "$f$ continua" può essere sostituita da "$f$ continua tratti in $t, \forall x$, continua in $x$ e limitata"
 \observation
 la norma dell'integrale è minore uguale dell'integrale della norma.
 \proposition LEMMA DI GRONWALL\\
-Dati $a,b\in \R$ con $a\le b$ siano $\delta_0\in \left[ 0;+\infty \right]$ e $\delta,\kappa:\left[a,b\right]\to \R$ funzioni continue su $\left[a,b\right]$ con $\delta(t)\ge 0$,$\kappa(t)\ge 0 \quad \forall t\in\left[ a,b\right] $ e $\delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$Allora $$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)d\tau}$$
+Dati $a,b\in \R$ con $a\le b$ siano $\delta_0\in \left[ 0;+\infty \right]$ e $\delta,\kappa:\left[a,b\right]\to \R$ funzioni continue su $\left[a,b\right]$ con $\delta(t)\ge 0$,$\kappa(t)\ge 0 \quad \forall t\in\left[ a,b\right] $ e $\delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$Allora $$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}}$$
 Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integrale) ad una stima esplicita 
 \begin{proof}
-	sia $\delta_0 > 0$. Sia $\Delta(t)=\delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$.\\
-	Vale per ipotesi che $\delta(t)\le\Delta(t)=\delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$\\
-	Sfruttando la derivata di $ln(\Delta(t))$ si ottiene $\frac{d}{dt}(ln(\Delta(t)))= \frac{\Delta'(t)}{\Delta(t)}=\frac{\kappa(t)\delta(t)}{\Delta(t)}$, ed il termine $\frac{\delta(t)}{\Delta(t)}\le 1$, Integrando il primo e l'ultimo termine
-	$$\int_{a}^{t}\left( \frac{d}{dt}\left(ln(\Delta(t))\right) \right)\le\int_{a}^{t}\kappa(\tau)d\tau$$
-	$$ln(\Delta(t))\le ln(\delta_0)+\int_{a}^{t}\kappa(\tau)d\tau$$
-	$$ \Delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)d\tau} $$
+	sia $\delta_0 > 0$. Sia $\Delta(t)=\delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$.\\
+	Vale per ipotesi che $\delta(t)\le\Delta(t)=\delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$\\
+	Sfruttando la derivata di $ln(\Delta(t))$ si ottiene $\frac{d}{\integrald{t}}(ln(\Delta(t)))= \frac{\Delta'(t)}{\Delta(t)}=\frac{\kappa(t)\delta(t)}{\Delta(t)}$, ed il termine $\frac{\delta(t)}{\Delta(t)}\le 1$, Integrando il primo e l'ultimo termine
+	$$\int_{a}^{t}\left( \frac{d}{\integrald{t}}\left(ln(\Delta(t))\right) \right)\le\int_{a}^{t}\kappa(\tau)\integrald{\tau}$$
+	$$ln(\Delta(t))\le ln(\delta_0)+\int_{a}^{t}\kappa(\tau)\integrald{\tau}$$
+	$$ \Delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}} $$
 	Da cui la tesi.
-	Se $\delta_0=0$, ponendo $\Delta(t)=\epsilon+\int_{a}^{t}\kappa(\tau)\delta(\tau)d\tau$ si ottiene $\delta(t)\epsilon$ ................... e il mio cervello sta bruciando
+	Se $\delta_0=0$, ponendo $\Delta(t)=\epsilon+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$ si ottiene $\delta(t)\epsilon$ ................... e il mio cervello sta bruciando
 \end{proof}
 
 \begin{proof}
 	Cauchy Locale:\\
 	L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso.Prima di tutto serve una relazione che dal problema di Cauchy ci permetta di ottenere $x$ in funzione di qualcosa che dipenda da $x$.\\
 	Integrando ambi i membri della prima equazione del problema di ottiene:
-	$$\int_{t_0}^{t}( x')d\tau=\int_{t_0}^{t}(f(\tau,x(\tau)))d\tau$$
-	$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))d\tau$$
+	$$\int_{t_0}^{t}( x')\integrald{\tau}=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
+	$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
 	$T$ è una funzione del tipo:
-	$\begin{array}{rcl} T: ? & \to & ? \\ x & \to & Tx \end{array}$, con $y(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))d\tau$\\
+	$\begin{array}{rcl} T: ? & \to & ? \\ x & \to & Tx \end{array}$, con $y(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$\\
 	Abbiamo raggiunto un problema di punto fisso ($x=Tx$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il Teorema delle contrazioni serve che lo spazio di partenza e di arrivo siano uguali e chiamiamo $\mathcal{X}$.\\
-	$\begin{array}{rcl} T: \mathcal{X} & \to & \mathcal{X} \end{array}$ t.c.: $y(t)=(Tx)(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))d\tau$
+	$\begin{array}{rcl} T: \mathcal{X} & \to & \mathcal{X} \end{array}$ t.c.: $y(t)=(Tx)(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$
 	Bisogna quindi scegliere l'insieme $\mathcal{X}$. è un insieme di funzioni, in cui l'equivalenza sopra deve avere senso, cioè serve $x$ continua per avere l'equivalenza con il problema di Cauchy, quindi $\mathcal{X}=\cntclass{0}(\ldots)$.\\
 	Inoltre volendo una soluzione del problema di Cauchy, la funzione $x(penso sia y(t)=x)$ deve essere definita almeno su un intervallo contenente $t_0$ nella sua parte interna, non interessa l'estensione di tale intervallo quindi si può scegliere $\left[t_0-\delta,t_0+\delta\right]$, inoltre deve avere valori in un insieme con $x_0$ nella sua parte interna, $\overline{B(x_0,r)}$. Quindi $\mathcal{X}=\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];\overline{B(x_0,r)})$\\
 	Per $\delta, r$ abbastanza piccoli si ha $\left[t_0-\delta,t_0+\delta\right]\subseteq I$, $\overline{B(x_0,r)}\subseteq A$, quindi adesso il problema è quello di determinare $\delta, r$.\\
@@ -400,19 +404,19 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		Chiamata $V$ la massima velocità alla quale può muoversi il punto, $V=\sup\limits{(t_0\times X_0)\in (\left[to+\delta,t_0-\delta\right]\times\overline{B(x_0,r)})}=\left\{\norm{f(t,x(t))}\right\}$ che è il sup della norma di f, cioè dei moduli dei vettori velocità, questo esiste sempre finito, non $\infty$ poiché $f$ è continua, la norma è continua , $t$ varia in un chiuso e limitato, $x_0$ varia in un chiuso e limitato, quindi stiamo calcolando  il sup di una funzione continua su un chiuso e limitato allora per il teorema di Weierstrass $V=\max\limits{(t_0\times X_0)\in (\left[to+\delta,t_0-\delta\right]\times\overline{B(x_0,r)})}=\left\{\norm{f(t,x(t))}\right\}$\\
 		Non potendo modificare $V, \delta$ poniamo una restrizione su $r$:$V\delta < r$, da cui $\delta < r\cdot V$
 		
-		$$\norm{(Tx)(t) - x_0} = \norm{\int_{t_0}^t(f(\tau,x(\tau)))d\tau} \le \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}d\tau}\le$$
-		$$\le\abs{\int_{t_0}^t V\cdot d\tau}=V\abs{t-t_0}\le V\delta<r$$
+		$$\norm{(Tx)(t) - x_0} = \norm{\int_{t_0}^t(f(\tau,x(\tau)))\integrald{\tau}} \le \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau}}\le$$
+		$$\le\abs{\int_{t_0}^t V\cdot \integrald{\tau}}=V\abs{t-t_0}\le V\delta<r$$
 		....aggiunto il modulo per $t<t_0$ e $t>t_0$ non lo si sa a priori\\
 		quindi $\norm{(Tx)(t) - x_0}$ è minore di $r$ scelto $\delta$ opportunamente piccolo. 
 		\item[c-] Se $Tx$ è una contrazione deve valere che
 		$$\norm{Tx_2 - Tx_1}_{\cntclass{0}}\le K\norm{x_2-x_1}_{\cntclass{0}}\quad k\in\left[0,1\right[\quad\forall t\in\left[t_0-\delta,t_0+\delta\right]$$
 		con $\norm{Tx_2-Tx_1}_{c^0}=\sup\limits_{t\in\left[t_0-\delta,t_0+\delta\right]}\norm{(Tx_2)(t) - (Tx_1)(t)}$, partendo da questa utilizzando prima la definizione di $f$ poi la linearità dell'integrale ....lipsh f... proprietà
 		$$\norm{(Tx_2)(t) - (Tx_1)(t)}=$$
-		$$\norm{x_0+\int_{t_0}^t f(\tau,x_2(\tau)) d\tau - \left(x_0+\int_{t_0}^t f(\tau,x_1(\tau)) d\tau\right)}=$$
-		$$\norm{\int_{t_0}^t f(\tau,x_2(\tau))-f(\tau,x_1(\tau)) d\tau}\le$$
-		$$\abs{\int_{t_0}^t \norm{f(\tau,x_2(\tau))-f(\tau,x_1(\tau))} d\tau}\le$$
-		$$\abs{\int_{t_0}^t L\norm{x_2(\tau)-x_1(\tau)} d\tau}\le$$
-		$$L\abs{\int_{t_0}^t \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)} d\tau}=$$
+		$$\norm{x_0+\int_{t_0}^t f(\tau,x_2(\tau)) \integrald{\tau} - \left(x_0+\int_{t_0}^t f(\tau,x_1(\tau)) \integrald{\tau}\right)}=$$
+		$$\norm{\int_{t_0}^t f(\tau,x_2(\tau))-f(\tau,x_1(\tau)) \integrald{\tau}}\le$$
+		$$\abs{\int_{t_0}^t \norm{f(\tau,x_2(\tau))-f(\tau,x_1(\tau))} \integrald{\tau}}\le$$
+		$$\abs{\int_{t_0}^t L\norm{x_2(\tau)-x_1(\tau)} \integrald{\tau}}\le$$
+		$$L\abs{\int_{t_0}^t \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)} \integrald{\tau}}=$$
 		$$L\cdot \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\abs{t-t_0}\le$$
 		$$L\delta\norm{x-x_0}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
 		cioè $\forall t \in \left[t_0-\delta,t_0+\delta\right]$ vale che $\norm{(Tx_2)(t)-(Tx_1)(t)}\le L\delta\norm{x_1-x_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$ e poiché è vero $\forall t \Rightarrow $ passando all'estremo superiore
@@ -465,16 +469,16 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	chiamo $\delta=\min{\delta_f,\delta_g}$ che sicuramente soddisfa entrambe. Per stimare la distanza tra le soluzioni valuto:
 	$$
 	\norm{\varphi(t)-\psi(t)}=
-	\norm{ x_0+\int_{t_0}^t f(\tau,\varphi(\tau))d\tau - y_0 - \int_{t_0}^t g(\tau,\psi(\tau))d\tau}
+	\norm{ x_0+\int_{t_0}^t f(\tau,\varphi(\tau))\integrald{\tau} - y_0 - \int_{t_0}^t g(\tau,\psi(\tau))\integrald{\tau}}
 	$$
 	linearità integrale disuguaglianza norma... modulo per i differenziali ....\\
-	$$ \norm{x_0-y_0}+\abs{\int_{t_0}^{t} \norm{f(\tau,\varphi(\tau))-g(\tau,\psi(\tau))}d\tau}\le$$
+	$$ \norm{x_0-y_0}+\abs{\int_{t_0}^{t} \norm{f(\tau,\varphi(\tau))-g(\tau,\psi(\tau))}\integrald{\tau}}\le$$
 	adesso all'interno dell'integrale aggiungo e tolgo la quantità $f(\tau,\psi(\tau))$ e applico la disuguaglianza triangolare riarrangiando i termini
-	$$ \norm{x_0-y_0}+\abs{\int_{t_0}^{t} \norm{f(\tau,\varphi(\tau))-f(\tau,\psi(\tau))}+\norm{f(\tau,\psi(\tau))-g(\tau,\psi(\tau))}d\tau}\le$$
-	$$ \norm{x_0-y_0} + \norm{f-g}_{c^0}\abs{t-t_0} +\abs{\int_{t_0}^{t} L\norm{\varphi(\tau)-\psi(\tau)} d\tau}$$
+	$$ \norm{x_0-y_0}+\abs{\int_{t_0}^{t} \norm{f(\tau,\varphi(\tau))-f(\tau,\psi(\tau))}+\norm{f(\tau,\psi(\tau))-g(\tau,\psi(\tau))}\integrald{\tau}}\le$$
+	$$ \norm{x_0-y_0} + \norm{f-g}_{c^0}\abs{t-t_0} +\abs{\int_{t_0}^{t} L\norm{\varphi(\tau)-\psi(\tau)} \integrald{\tau}}$$
 	per comodità restringiamo la trattazione al caso $t>t_0$ sparisce il modulo. Riscrivo il primo e l'ultimo membro della disuguaglianza
-	$$ \norm{\varphi(t)-\psi(t)}\le  \left[ \norm{x_0-y_0} + \delta\norm{f-g}_{c^0}\right] +\abs{\int_{t_0}^{t} L\norm{\varphi(\tau)-\psi(\tau)} d\tau}$$
-	$$ \left( \delta(t)\le\delta_0+\int_{t_0}^t \kappa(\tau)\delta(\tau)d\tau \right)::Gronwall$$
+	$$ \norm{\varphi(t)-\psi(t)}\le  \left[ \norm{x_0-y_0} + \delta\norm{f-g}_{c^0}\right] +\abs{\int_{t_0}^{t} L\norm{\varphi(\tau)-\psi(\tau)} \integrald{\tau}}$$
+	$$ \left( \delta(t)\le\delta_0+\int_{t_0}^t \kappa(\tau)\delta(\tau)\integrald{\tau} \right)::Gronwall$$
 	$$ \norm{\varphi(t)-\psi(t)}\le\left[\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}}\right]+e^{L\abs{t-t_0}}$$
 	QUESTO TEOREMA è TROPPO DA PRO.
 \end{proof}
@@ -535,11 +539,11 @@ allora il problema di Cauchy $\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{ma
 	Se $T$ finito con $T<sup I$, dimostrando che la derivata della soluzione è limitata si escludono i casi in cui l'estensione della soluzione non si può fare.
 	quindi bisogna mostrare $ x' = f(t,x)$ è limitata sull'insieme dove può arrivare la $x$\\
 	Sia ora $\varphi$ soluzione del problema di Cauchy:
-	$$ \varphi(t) = x_0 + \int_{t_0}^tf(\tau,x(\tau))d\tau$$
+	$$ \varphi(t) = x_0 + \int_{t_0}^tf(\tau,x(\tau))\integrald{\tau}$$
 	Valuto allora\\
-	$\norm{\varphi(t)}\le \norm{x_0} + \abs{\int_{t_0}^tf(\tau,\varphi(\tau))d\tau}=\norm{x_0} + \int_{t_0}^t\norm{f(\tau,\varphi(\tau))}d\tau$ poiché $t\in\left[t_0,T\right[$\\
-	$\norm{\varphi(t)}\le \norm{x_0} + \int_{t_0}^t\left(A+B\norm{\varphi(\tau)}\right)d\tau$ poiché f è sublineare.\\
-	$\norm{\varphi(t)}\le \norm{x_0} + A(T-t_0)+\int_{t_0}^t B\norm{\varphi(\tau)}d\tau$\\
+	$\norm{\varphi(t)}\le \norm{x_0} + \abs{\int_{t_0}^tf(\tau,\varphi(\tau))\integrald{\tau}}=\norm{x_0} + \int_{t_0}^t\norm{f(\tau,\varphi(\tau))}\integrald{\tau}$ poiché $t\in\left[t_0,T\right[$\\
+	$\norm{\varphi(t)}\le \norm{x_0} + \int_{t_0}^t\left(A+B\norm{\varphi(\tau)}\right)\integrald{\tau}$ poiché f è sublineare.\\
+	$\norm{\varphi(t)}\le \norm{x_0} + A(T-t_0)+\int_{t_0}^t B\norm{\varphi(\tau)}\integrald{\tau}$\\
 	...\\
 	applico il Gronwall e risulta che
 	$$\norm{\varphi(t)}\le\left(\norm{x_0}+A(t-t_0)\right)e^{B(t-t_0)}\le\left(\norm{x_0}+A(t-t_0)\right)e^{B(T-t_0)}$$	
@@ -585,8 +589,8 @@ Un punto materiale non vincolato $P$ di massa $m$ si muove sotto l'azione di una
 	sia $\underline{x}=(x,y,z)$ la terna delle coordinate di $P$. Per il Secondo Principio della Dinamica e per quanto assunto sulla forza $F$, il moto di $P$ è descritto dall'equazione(vettoriale) differenziale ordinaria del secondo ordine:\\
 	$$m \underline{x''}=F(\underline{x})$$
 	$$m \underline{x''}\cdot \underline{x'}=F(\underline{x}) \underline{x'}$$
-	$$\frac{1}{2}m\frac{d}{dt}\left(\left( \underline{x'}\right)^2\right)=F(\underline{x}) \underline{x'}$$
-	$$\int_{0}^t\frac{1}{2}m\frac{d}{dt}\left(\left( \underline{x'}(\tau)\right)^2\right)d\tau=\int_{0}^tF(\underline{x}(\tau))\cdot \underline{x'(\tau)}d\tau$$
+	$$\frac{1}{2}m\frac{d}{\integrald{t}}\left(\left( \underline{x'}\right)^2\right)=F(\underline{x}) \underline{x'}$$
+	$$\int_{0}^t\frac{1}{2}m\frac{d}{\integrald{t}}\left(\left( \underline{x'}(\tau)\right)^2\right)\integrald{\tau}=\int_{0}^tF(\underline{x}(\tau))\cdot \underline{x'(\tau)}\integrald{\tau}$$
 	$$\frac{1}{2}m\left( x'(t)\right)^2-\frac{1}{2}m\left( x'(0)\right)^2 = \int_{x(0)}^{x(t)}F(\xi)d\xi$$
 	L'ultimo integrale è calcolato lungo la traiettoria di $P$.
 \end{proof}

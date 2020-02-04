@@ -239,10 +239,10 @@ $$I$$
 
 \proposition
 fissati $a,b\in \R$ con $a<b$ se la successione $\left\{f_n:n\in\mathbb{N}\right\}$ in $\cntclass{0}(\left[a,b\right], \R)\overset{u}{\to}f$ su $\left[a,b\right]$\\
-$f_n$ e $f$ sono integrabili secondo Rimmmmmmmn allora lasuccessione $\left\{\int_a^bf_n(x)dx:n\in\mathbb{N}\right\}$ converge a $\int_a^bf(x)dx$
+$f_n$ e $f$ sono integrabili secondo Rimmmmmmmn allora lasuccessione $\left\{\int_a^bf_n(x)\integrald{x}:n\in\mathbb{N}\right\}$ converge a $\int_a^bf(x)\integrald{x}$
 \observation
 La convergenzauniforme passa sotto il segno di integrale 
-$$\int_a^b\left(\lim\limits_{n\to\infty}fn\right)(x)dx=\lim\limits_{n\to\infty}\left(\int_a^bfn(x)dx\right)$$
+$$\int_a^b\left(\lim\limits_{n\to\infty}fn\right)(x)\integrald{x}=\lim\limits_{n\to\infty}\left(\int_a^bfn(x)\integrald{x}\right)$$
 \proposition convergono le derivare allora convergono le funzioni\\
 Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\left\{f_n:n\in\mathbb{N}\right\}$ con $f_n:\left[a,b\right]\to \R$
 \begin{enumerate}
@@ -258,11 +258,11 @@ Allora
 \end{enumerate}
 \begin{proof}
 	Per il teorema fondamentale del calcolo integrale
-	$$f_n(x)=f_n(x_0)+\int_{x_0}^{x}f_n'(t)dt$$
+	$$f_n(x)=f_n(x_0)+\int_{x_0}^{x}f_n'(t)\integrald{t}$$
 	per $n\to\infty$
-	$$f(x)=l+\int_{x_0}^{x}g(t)dt$$
+	$$f(x)=l+\int_{x_0}^{x}g(t)\integrald{t}$$
 	Quindi le $f_n$ convergono puntualmente alla funzione $f(x)$, per la convergenza uniforme calcolo:
-	$$ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\abs{f_n(x)-f(x)}\le\lim\limits_{n\to+\infty}(\abs{f_n(x_0)-f(x_0)}+\abs{\int_{x_0}^x \abs{f_n'(t)-g(t)}dt})\le$$
+	$$ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\abs{f_n(x)-f(x)}\le\lim\limits_{n\to+\infty}(\abs{f_n(x_0)-f(x_0)}+\abs{\int_{x_0}^x \abs{f_n'(t)-g(t)}\integrald{t}})\le$$
 	$$\lim\limits_{n\to+\infty}\left[ \abs{f_n(x_0)-f(x_0)}+\abs{b-a}\sup\limits_{\left[a,b\right]}\abs{f_n'(x)-g(x)} \right] = $$
 	Questo perché per ipotesi $f'_n=g$ e il limite fa $0$.
 	Allora $f_n\overset{u}{\to}f$ su $\left[a,b\right]$\\
@@ -630,47 +630,47 @@ ESERCIZIO:: IL POLINOMIO DI FOURIER FORNISCE LA MIGLIORE APPROSSIMAZIONE NEL SEN
 Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, quale è la funzione a lei più vicina nel senso della distanza quadratica?\\
 Fisso $N\in\mathbb{N}$ e prendo il polinomio trigonometrico di grado $N$
 $$p_N(x)=\trigonpol{n}{1}{N}$$
-con $a_0,a_1,\ldots,a_n,b_1,\ldots,b_n\in \R$, il problema è quello di minimizzare $d_2(f,p_n)$ quindi un problema di minimo. Stiamo cercando i coefficienti del polinomio trigonometrico quindi studiamo una funzione $\varphi(a_0,a_1,\ldots,a_N,b_1,\ldots,b_N) = \sqrt{\int_{-\pi}^{\pi}\left[f(x)-p_n(x)\right]^2}dx$.\\
+con $a_0,a_1,\ldots,a_n,b_1,\ldots,b_n\in \R$, il problema è quello di minimizzare $d_2(f,p_n)$ quindi un problema di minimo. Stiamo cercando i coefficienti del polinomio trigonometrico quindi studiamo una funzione $\varphi(a_0,a_1,\ldots,a_N,b_1,\ldots,b_N) = \sqrt{\int_{-\pi}^{\pi}\left[f(x)-p_n(x)\right]^2}\integrald{x}$.\\
 Essendo la funzione radice quadrata monotona crescente ne studiamo solo il radicando:
 $$\varphi(a_0,a_1,\ldots,a_N,b_1,\ldots,b_N)=\int_{-\pi}^{\pi}\left[\trigonpol{n}{1}{N}-f(x)\right]^2dx$$
 \observation
 con $f\in \cntclass{1}$:
-$$F(\alpha,\beta,x)=\int_{\alpha}^{\beta}f(x,t)dt$$
-$$\partial_\alpha F(\alpha,\beta,x)=-f(x,\alpha)dt$$
-$$\partial_\beta F(\alpha,\beta,x)=f(x,\beta)dt$$
-$$\nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)dt$$
+$$F(\alpha,\beta,x)=\int_{\alpha}^{\beta}f(x,t)\integrald{t}$$
+$$\partial_\alpha F(\alpha,\beta,x)=-f(x,\alpha)\integrald{t}$$
+$$\partial_\beta F(\alpha,\beta,x)=f(x,\beta)\integrald{t}$$
+$$\nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)\integrald{t}$$
 Qudindi applicando al nostro caso otteniamo
-$$\partial_{a_0}\varphi = \int_{-\pi}^{\pi}\partial_{a_0}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)dx=$$
-$$ = \int_{-\pi}^{\pi} \frac{1}{2}2\left(\trigonpol{n}{1}{N}-f(x)\right)dx=$$
-$$ =  \int_{-\pi}^{\pi} \frac{a_0}{2}dx + $$
-$$\int_{-\pi}^{\pi} a_1cos(x)dx +
+$$\partial_{a_0}\varphi = \int_{-\pi}^{\pi}\partial_{a_0}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=$$
+$$ = \int_{-\pi}^{\pi} \frac{1}{2}2\left(\trigonpol{n}{1}{N}-f(x)\right)\integrald{x}=$$
+$$ =  \int_{-\pi}^{\pi} \frac{a_0}{2}\integrald{x} + $$
+$$\int_{-\pi}^{\pi} a_1cos(x)\integrald{x} +
 \ldots + 
-\int_{-\pi}^{\pi} a_Ncos(Nx)dx + $$
-$$\int_{-\pi}^{\pi} b_1sin(x)dx +
+\int_{-\pi}^{\pi} a_Ncos(Nx)\integrald{x} + $$
+$$\int_{-\pi}^{\pi} b_1sin(x)\integrald{x} +
 \ldots + 
-\int_{-\pi}^{\pi} b_Nsin(Nx)dx - $$
-$$ \int_{-\pi}^{\pi} f(x)dx = $$
+\int_{-\pi}^{\pi} b_Nsin(Nx)\integrald{x} - $$
+$$ \int_{-\pi}^{\pi} f(x)\integrald{x} = $$
 L'integrale di una sinusoide su un multiplo intero del periodo è $0$ quindi
-$$=\pi a_0-\int_{-\pi}^{\pi}f(x)dx$$
+$$=\pi a_0-\int_{-\pi}^{\pi}f(x)\integrald{x}$$
 Calcolando direttamente anche le derivate seconde si ottiene che
 $$\partial^2_{a_0a_0}=\pi\quad\partial^2_{a_0a_n}=0\quad\partial^2_{a_0b_n}=0\quad\forall n=1,\ldots,N$$
 
-$$\partial_{a_k}\varphi = \int_{-\pi}^{\pi}\partial_{a_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)dx=$$
-$$ = \int_{-\pi}^{\pi} 2cos(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]dx=$$
-$$ =  \cancel{\int_{-\pi}^{\pi} a_0cos(kx)dx} + $$
-$$\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)cos(kx)dx} +
+$$\partial_{a_k}\varphi = \int_{-\pi}^{\pi}\partial_{a_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=$$
+$$ = \int_{-\pi}^{\pi} 2cos(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]\integrald{x}=$$
+$$ =  \cancel{\int_{-\pi}^{\pi} a_0cos(kx)\integrald{x}} + $$
+$$\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)cos(kx)\integrald{x}} +
 \ldots + 
-\int_{-\pi}^{\pi} 2a_kcos(kx)cos(kx)dx
+\int_{-\pi}^{\pi} 2a_kcos(kx)cos(kx)\integrald{x}
 \ldots + 
-\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)cos(kx)dx} + $$
-$$\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)cos(kx)dx} +
+\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)cos(kx)\integrald{x}} + $$
+$$\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)cos(kx)\integrald{x}} +
 \ldots + 
-\cancel{\int_{-\pi}^{\pi} 2b_ksin(kx)cos(kx)}dx
+\cancel{\int_{-\pi}^{\pi} 2b_ksin(kx)cos(kx)}\integrald{x}
 \ldots + 
-\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)cos(kx)dx} - $$
-$$\int_{-\pi}^{\pi} 2f(x)cos(kx)dx = $$
+\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)cos(kx)\integrald{x}} - $$
+$$\int_{-\pi}^{\pi} 2f(x)cos(kx)\integrald{x} = $$
 E anche applicando il lemma
-$$=2\pi\left[a_k-\int_{-\pi}^{\pi}f(x)cos(kx)dx\right]$$
+$$=2\pi\left[a_k-\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\right]$$
 Calcolando direttamente anche le derivate seconde si ottiene che
 $$\partial^2_{a_ka_0}=\pi\quad\partial^2_{a_ka_n}=
 \left\{\begin{matrix}
@@ -678,22 +678,22 @@ $$\partial^2_{a_ka_0}=\pi\quad\partial^2_{a_ka_n}=
 \end{matrix}\right.
 \quad\partial^2_{a_kb_n}=0\quad\forall n=1,\ldots,N$$
 
-$$\partial_{b_k}\varphi = \int_{-\pi}^{\pi}\partial_{b_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)dx=$$
-$$ = \int_{-\pi}^{\pi} 2sin(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]dx=$$
-$$ =  \cancel{\int_{-\pi}^{\pi} a_0sin(kx)dx} + $$
-$$\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)sin(kx)dx} +
+$$\partial_{b_k}\varphi = \int_{-\pi}^{\pi}\partial_{b_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=$$
+$$ = \int_{-\pi}^{\pi} 2sin(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]\integrald{x}=$$
+$$ =  \cancel{\int_{-\pi}^{\pi} a_0sin(kx)\integrald{x}} + $$
+$$\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)sin(kx)\integrald{x}} +
 \ldots + 
-\cancel{\int_{-\pi}^{\pi} 2a_kcos(kx)sin(kx)}dx
+\cancel{\int_{-\pi}^{\pi} 2a_kcos(kx)sin(kx)}\integrald{x}
 \ldots + 
-\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)sin(kx)dx} + $$
-$$\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)sin(kx)dx} +
+\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)sin(kx)\integrald{x}} + $$
+$$\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)sin(kx)\integrald{x}} +
 \ldots + 
-\int_{-\pi}^{\pi} 2b_ksin(kx)sin(kx)dx
+\int_{-\pi}^{\pi} 2b_ksin(kx)sin(kx)\integrald{x}
 \ldots + 
-\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)sin(kx)dx} - $$
-$$\int_{-\pi}^{\pi} 2f(x)sin(kx)dx = $$
+\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)sin(kx)\integrald{x}} - $$
+$$\int_{-\pi}^{\pi} 2f(x)sin(kx)\integrald{x} = $$
 E anche applicando il lemma
-$$=2\pi\left[b_k-\int_{-\pi}^{\pi}f(x)cos(kx)dx\right]$$
+$$=2\pi\left[b_k-\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\right]$$
 Calcolando direttamente anche le derivate seconde si ottiene che
 $$\partial^2_{b_ka_0}=\pi\quad\partial^2_{b_ka_n}=
 \left\{\begin{matrix}
@@ -702,9 +702,9 @@ $$\partial^2_{b_ka_0}=\pi\quad\partial^2_{b_ka_n}=
 \quad\partial^2_{b_kb_n}=0\quad\forall n=1,\ldots,N$$
 Si verifica la condizione $\nabla\varphi = 0$ con
 \begin{description}
-	\item[$\ast$] $a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dx$
-	\item[$\ast$] $a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)dx$
-	\item[$\ast$] $b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)dx$
+	\item[$\ast$] $a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}$
+	\item[$\ast$] $a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}$
+	\item[$\ast$] $b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}$
 \end{description}
 La matrice Hessiana di $\varphi$ risulta $$H_{\varphi}=\left[\begin{matrix}
 \pi&&0&&0&&\ldots&&0\\
@@ -716,55 +716,55 @@ La matrice Hessiana di $\varphi$ risulta $$H_{\varphi}=\left[\begin{matrix}
 è una matrice diagonale quindi si leggono direttamente tutti gli autovalori che sono strettamente positivi quindi la forma quadratica è definita positiva ed il punto in questione è un punto di minimo assoluto.
 \definition
 Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
-$$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dx$$
-$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)dx\quad k\in\mathbb{N}\setminus{\left\{0\right\}}$$
-$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)dx\quad k\in\mathbb{N}\setminus{\left\{0\right\}}$$
+$$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}$$
+$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\quad k\in\mathbb{N}\setminus{\left\{0\right\}}$$
+$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}\quad k\in\mathbb{N}\setminus{\left\{0\right\}}$$
 La serie di Fourier di $f$ è
 $$\trigonpol{k}{1}{+\infty}$$
 \proposition
 Sia $\realfunction{F}{\realintervalclose{-\pi}{\pi}}{ \R}$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\mathbb{N}\right\}$ e $\left\{a_n:n\in\mathbb{N}\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e 
-$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)cos(kx)dx\quad k\in\mathbb{N}$$
-$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)dx\quad k\in\mathbb{N}\setminus{\left\{0\right\}}$$
+$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)cos(kx)\integrald{x}\quad k\in\mathbb{N}$$
+$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)\integrald{x}\quad k\in\mathbb{N}\setminus{\left\{0\right\}}$$
 ESEMPIO+DIMOSTRAZIONE:::\\
 sia $f(x)=\trigonpol{n}{1}{+\infty}$. Allora:\\
-$$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dx=\frac{1}{\pi}\int_{-\pi}^{\pi}\trigonpol{n}{1}{+\infty}dx=$$
+$$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}\trigonpol{n}{1}{+\infty}\integrald{x}=$$
 $$ 
 = \frac{1}{\pi}\int_{-\pi}^{\pi}\frac{a_0}{2} +
-\frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} a_ncos(nx)\right)dx + 
-\frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} b_ncos(nx)\right)dx
+\frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} a_ncos(nx)\right)\integrald{x} + 
+\frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} b_ncos(nx)\right)\integrald{x}
 $$
 Poiché si ha convergenza uniforme si può portare l'integrale dentro la sommatoria.
 $$ 
 = \frac{1}{\pi}\int_{-\pi}^{\pi}\frac{a_0}{2} +
-\cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} a_ncos(nx)dx} + 
-\cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} b_ncos(nx)dx}=
+\cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} a_ncos(nx)\integrald{x}} + 
+\cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} b_ncos(nx)\integrald{x}}=
 $$
 $$=\frac{1}{\pi}\frac{a_0}{2}\left(\pi-(-\pi)\right)=a_0$$
 
 
-$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)dx=$$
+$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}=$$
 $$\frac{1}{\pi}\left[
-\cancel{\int_{-\pi}^{\pi}\frac{a_0}{2}cos(kx)dx}+
-\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}a_ncos(nx)cos(kx)\right)dx+
-\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}b_nsin(nx)cos(kx)\right)dx}
+\cancel{\int_{-\pi}^{\pi}\frac{a_0}{2}cos(kx)\integrald{x}}+
+\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}a_ncos(nx)cos(kx)\right)\integrald{x}+
+\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}b_nsin(nx)cos(kx)\right)\integrald{x}}
 \right]=$$
 $$\frac{1}{\pi}\left[
-\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{k-1} a_ncos(nx)cos(kx)\right)dx}+
-\int_{-\pi}^{\pi}a_kcos(kx)cos(kx)dx+
-\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=k+1}^{+\infty}a_ncos(nx)cos(kx)\right)}dx
+\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{k-1} a_ncos(nx)cos(kx)\right)\integrald{x}}+
+\int_{-\pi}^{\pi}a_kcos(kx)cos(kx)\integrald{x}+
+\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=k+1}^{+\infty}a_ncos(nx)cos(kx)\right)}\integrald{x}
 \right]=$$
 $$=\frac{1}{\pi}\pi a_k=a_k$$
 
-$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)dx=$$
+$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}=$$
 $$\frac{1}{\pi}\left[
-\cancel{\int_{-\pi}^{\pi}\frac{a_0}{2}sin(kx)dx}+
-\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}a_ncos(nx)sin(kx)\right)dx+
-\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}b_nsin(nx)sin(kx)\right)dx}
+\cancel{\int_{-\pi}^{\pi}\frac{a_0}{2}sin(kx)\integrald{x}}+
+\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}a_ncos(nx)sin(kx)\right)\integrald{x}+
+\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}b_nsin(nx)sin(kx)\right)\integrald{x}}
 \right]=$$
 $$\frac{1}{\pi}\left[
-\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{k-1} a_ncos(nx)sin(kx)\right)dx}+
-\int_{-\pi}^{\pi}a_kcos(kx)sin(kx)dx+
-\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=k+1}^{+\infty}a_ncos(nx)sin(kx)\right)}dx
+\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{k-1} a_ncos(nx)sin(kx)\right)\integrald{x}}+
+\int_{-\pi}^{\pi}a_kcos(kx)sin(kx)\integrald{x}+
+\cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=k+1}^{+\infty}a_ncos(nx)sin(kx)\right)}\integrald{x}
 \right]=$$
 $$=\frac{1}{\pi}\pi b_k=b_k$$
 \observation
@@ -816,19 +816,19 @@ Si possono osservare due cose:
 	\item Sono tutte funzioni linearmente indipendenti, poiché l'unica combinazione lineare di questi elementi che da l'elemento nullo è quella a coefficenti tutti nulli.
 \end{enumerate}
 \definition
-Il prodotto scalare in $\cntclass{0} \rightleftharpoons \left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)dx$
+Il prodotto scalare in $\cntclass{0} \rightleftharpoons \left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)\integrald{x}$
 Altre simbologie usate sono: $ f\bullet g $, $(f|g)$
 \observation linearità\\
-$$\left<(\alpha\cdot f+\beta\cdot g), h \right>= \int_{-\pi}^{pi} (\alpha\cdot f(x)+\beta\cdot g(x))\cdot h(x) dx=$$
-$$=\int_{-\pi}^{pi} \left[\alpha\cdot f(x)\cdot h(x)+\beta\cdot g(x)\cdot h(x) \right]dx= $$
-$$=\alpha\int_{-\pi}^{pi} \cdot f(x)\cdot h(x) dx+\beta\int_{-\pi}^{pi} \cdot g(x)\cdot h(x) dx =$$
+$$\left<(\alpha\cdot f+\beta\cdot g), h \right>= \int_{-\pi}^{pi} (\alpha\cdot f(x)+\beta\cdot g(x))\cdot h(x) \integrald{x}=$$
+$$=\int_{-\pi}^{pi} \left[\alpha\cdot f(x)\cdot h(x)+\beta\cdot g(x)\cdot h(x) \right]\integrald{x}= $$
+$$=\alpha\int_{-\pi}^{pi} \cdot f(x)\cdot h(x) \integrald{x}+\beta\int_{-\pi}^{pi} \cdot g(x)\cdot h(x) \integrald{x} =$$
 $$\alpha\left<f,h\right>+\beta\left<g,h\right>$$
 
 Ripetiamolo stesso ragionamento applicato in $ \R^2, \R^3,$ e $ \R^n$ per ricavare le componenti, possiamo fare questo perché abbiamo una base e abbiamo definito un prodotto scalare.\\
 Se $f(x)=\trigonpol{n}{1}{+\infty} \Rightarrow $
 $$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dxs=\frac{1}{\pi}\left<f,c_0\right> $$
-$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)dx=\frac{1}{\pi}\left<f,c_k\right> $$
-$$b_k\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)dx=\frac{1}{\pi}\left<f,s_k\right>$$
+$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}=\frac{1}{\pi}\left<f,c_k\right> $$
+$$b_k\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}=\frac{1}{\pi}\left<f,s_k\right>$$
 Quindi come prima le componenti di un vettore si ottengono moltiplicando(prodotto scalare) il vettore per gli elementi della base.\\
 PER IL LEMMA:\\
 $$
@@ -850,7 +850,7 @@ $$
 Il prodotto scalare di elementi diversi è nullo quindi la base è ortogonale, ma non è ortonormale in quanto il prodotto scalare tra due elementi diversi della base non è unitario.(ecco perché gli $\frac{1}{\pi})$ e $\frac{a_0}{2}$)\\
 In generale in geometria non è difficile normalizzare una base, è sufficiente dividere tutti gli elementi per la loro norma. In questo caso decidiamo di non applicare questo ragionamento poiché la norma vale $\sqrt{\pi}$ e se normalizziamo dobbiamo aggiungere questo termini ......\\
 Il prodotto scalare in $\cntclass{0}$ è molto legato alla $d_2$ infatti:
-$$\norm{f}_2=\sqrt{\left<f,f\right>}=\sqrt{\int_{-\pi}^{\pi}f(x)\cdot f(x)dx}\sqrt{\int_{-\pi}^{\pi}\left[f(x)\right]^2dx}$$ 
+$$\norm{f}_2=\sqrt{\left<f,f\right>}=\sqrt{\int_{-\pi}^{\pi}f(x)\cdot f(x)\integrald{x}}\sqrt{\int_{-\pi}^{\pi}\left[f(x)\right]^2dx}$$ 
 Continuano le analogie:\\
 In $ \R^2$ ........\\
 In $ \R^3$ .........\\
@@ -890,11 +890,11 @@ Allora
 $$ F(x)=(f+\varphi)(x)=\frac{A_0}{2}+\sum\limits_{n=}^{+\infty}\left(A_ncos(nx)+B_nsin(nx)\right)$$
 con $A_n=a_n+\alpha_n$. $B_n=b_n+\beta_n$.
 cioè i coefficienti di Fourier dipendono linearmente dalla funzione.\\
-Esempio::: $B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)dx=\frac{1}{\pi}\int_{-\pi}^{\pi}(f(x)+\varphi(x))sin(3x)dx=$\\
-$\frac{1}{\pi}\left[\int_{-\pi}^{\pi}f(x)sin(3x)dx+\int_{-\pi}^{\pi}\varphi(x)sin(3x)dx\right]=b_3+\beta_3$\\
+Esempio::: $B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}(f(x)+\varphi(x))sin(3x)\integrald{x}=$\\
+$\frac{1}{\pi}\left[\int_{-\pi}^{\pi}f(x)sin(3x)\integrald{x}+\int_{-\pi}^{\pi}\varphi(x)sin(3x)\integrald{x}\right]=b_3+\beta_3$\\
 Sia $f(x)=\frac{a_0}{2}+\sum\liminf_{n=1}^{+\infty}\left(a_ncos(nx)+b_ncos(nx)\right)$ allora $F=4f=\frac{A_0}{2}+\sum\limits_{n=1}^{+\infty}\left(A_ncos(nx)+B_ncos(nx)\right)$ con $A_n=4a_n$, $B_n=4b_n$\\
 ESEMPIO
-Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)dx=\frac{1}{\pi}\int_{-\pi}^{\pi}4f(x)sin(3x)dx=4b_3$\\
+Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}4f(x)sin(3x)\integrald{x}=4b_3$\\
 \definition
 Siano $a,b\in \R$ con $a<b$, una funzione $\realfunction{f}{\realintervalclose{a}{b}}{ \R}\rightleftharpoons f$ è continua a tratti se esiste un numero finito di punti $x_1,x_2,\ldots,x_n$ t.c.:\\
 \begin{enumerate}
