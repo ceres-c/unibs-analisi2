@@ -176,6 +176,7 @@ Limiti di questo modello:
 
 \section{Teoria Locale}
 \begin{definition}
+	\label{def:loc_lips}
 	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{localmente lipshitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
 	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
 	vale che
@@ -189,17 +190,21 @@ Limiti di questo modello:
 	\hypertarget{note:if_lips_then_loclips}
 	Se $f$ \textbf{lips} su $A\implies f$ \textbf{loc. lips.} su A
 \end{note}
+\begin{proposition}
+	\label{prop:fc1_loc_lips}
+	Siano $I\subseteq \R$ un intervallo aperto e $A\subseteq \R^n$ un aperto. Ogni funzione $f\in\cntclass{1}(I\times A;\R^n)$ è loc. lips. in $x\in A$ uniformemente rispetto a $t\in I$
+	\begin{proof}
+		Il prodotto cartesiano $I\times A$, essendo prodotto cartesiano di aperti in $\R^n$ con metrica euclidea (si suppone sia in uso questa metrica), è a sua volta un aperto. Questo risultato è dovuto alla definizione stessa del prodotto cartesiano di $\R$ con metrica euclidea.\\
+		% TODO proposizione poligonale capitolo 1. Magari anche proposizione prodotto cartesiano di aperti = aperto.
+		Chiamiamo ora $S=I\times A$ l'insieme di partenza della $f$. Grazie alla \ref{prop:polig_cong_aperto} sappiamo che esiste una poligonale interamente contenuta in $S$ congiungente due qualunque punti dell'aperto $S$.\\
+		È ora possibile applicare il \ref{thm:accresc_fin} ad uno qualunque dei segmenti formanti la poligonale appena individuata. Vale quindi la
+		$$\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$$
+		che è direttamente comparabile alla definizione di locale lipschitzianità \ref{def:loc_lips} della funzione in ciascuno dei segmenti della poligonale, da cui la tesi.
+	\end{proof}
+\end{proposition}
 \begin{example}
 	La funzione $f:\R\mapsto\R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \ref{def:fun_lips}
 \end{example}
-\begin{proposition}
-	Siano $I\subseteq \R$ un intervallo aperto ed $A\subseteq \R^n$ un aperto. Ogni funzione $f\in \cntclass{1}(I\times A,R^n)$ è loc. lips in $x\in A$ uniformemente rispetto a $t\in I$.
-	\begin{proof}
-		sia $x\in A \Rightarrow \exists B(x_0,r)\subseteq A$ (per definizione di 
-		\hyperref[def:aperto]{aperto}) con $r>0$, anche $\overline{B(x_0,r)}\subseteq A$ scelto $r$ abbastanza piccolo, allora $\norm{f(t,x_2)-f(t,x_1)}\le\sup\limits_{(t,x)\in I\times \overline{B(x_0,r)}}\norm{Df()}\norm{x_2-x_1}  $ per la formula degli \hyperref[thm:accresc_fin]{accrescimenti finiti}.
-		% TODO da rivedere
-	\end{proof}
-\end{proposition}
 
 \subsection{Esistenza e Unicità}
 \begin{proposition}[Teorema di Peano]
@@ -310,6 +315,9 @@ Limiti di questo modello:
 	\begin{note}
 		Le prime due ipotesi garantiscono l'esistenza, grazie al Thm. di Peano. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
 	\end{note}
+	\begin{note}
+		Per verificare l'ultima ipotesi si ricordino \ref{prop:fc1_loc_lips} e \hyperlink{note:if_lips_then_loclips}{se $f$ \textbf{lips.} $\implies f$ \textbf{loc. lips.}}
+	\end{note}
 	Allora ho i seguenti risultati:
 	\begin{enumerate}
 		\item \textbf{Esistenza} (da \ref{teo:peano}): $\exists \delta>0$ con cui si identifica un $J=\realintervalclose{t_0-\delta}{t_0+\delta}$, inoltre $\exists\,\varphi : J \to \R^n$ soluzione con le proprietà date da Peano:
@@ -345,9 +353,6 @@ Limiti di questo modello:
 		dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
 	\end{enumerate}
 \end{theorem}
-\begin{note}
-	Si ricorda la nota \hyperlink{note:if_lips_then_loclips}{alla definizione di locale lipschitzianità}
-\end{note}
 \observation
 L'equazione integrale 
 $$x(t)=x_0+\int_{t_0}^{t}f(\tau,x(\tau))\integrald{\tau}$$

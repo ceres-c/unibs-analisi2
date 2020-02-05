@@ -20,28 +20,28 @@ Alcune classi di funzioni $f:A\subseteq\R^n\rightarrow\R^m$ hanno nomi particola
 \end{itemize}
 \section{Derivate Parziali e Direzionali}
 \definition
-sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\AA$, $h,k\in\R$
+sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\circdot{A}$, $h,k\in\R$
 chiamo derivata parziale rispetto a $x$ di $f$ in $(x_0,y_0)$ la quantità (se esiste finita)
 $$\partial_xf(x_0,y_0) = \lim\limits_{h\rightarrow{0}}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}$$
 chiamo derivata parziale rispetto a $y$ di $f$ in $(x_0,y_0)$ la quantità (se esiste finita)
 $$\partial_yf(x_0,y_0) = \lim\limits_{h\rightarrow{0}}\frac{f(x_0,y_0+k)-f(x_0,y_0)}{h}$$
 \definition
-sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\AA$, $i=1,...,n$
+sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\circdot{A}$, $i=1,...,n$
 $$\partial_if(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+te_i)-f(x_0)}{t}$$
 dove $(e_1,...,e_n)$ rappresentano la base canonica di $R^n$\\
 \observation nella prima definizione la derivata è un valore reale mentre nella seconda è un vettore di $R^m$\\
 \observation le proprietà e le regole di derivazione sono le stesse di Analisi 1
 \definition
-sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\AA$, sia $v\in\R^2 con \norm{v}=1 $
+sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\circdot{A}$, sia $v\in\R^2 con \norm{v}=1 $
 diciamo derivata nella direzione $v$ della funzione $f$ nel punto $(x_0,y_0)$ il limite (se esiste finito)\\
 $$D_vf(x_0,y_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv_1,y_0+tv_2)-f(x_0,y_0)}{t}$$
 dove $v_1,v_2$ sono le componenti di $v(v=\begin{bmatrix}v_1\\v_2\end{bmatrix})$
 \definition
-sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\AA$, sia $v\in\R^n con \norm{v}=1 $
+sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\circdot{A}$, sia $v\in\R^n con \norm{v}=1 $
 diciamo derivata nella direzione $v$ della funzione $f$ nel punto $x_0$ il limite (se esiste finito)\\
 $$D_vf(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv)-f(x_0)}{t}$$
 \proposition
-(ANALISI 1): sia $f:A\subseteq \R\rightarrow\R$ e $x_0\in\AA$\\
+(ANALISI 1): sia $f:A\subseteq \R\rightarrow\R$ e $x_0\in\circdot{A}$\\
 $f$ è differenziabile $\Leftrightarrow$ $\exists m\in \R $ t.c. $f(x_0+h)=f(x_0)+mh+o(h)$ per $h\rightarrow 0$
 ...\\
 ...\\
@@ -49,19 +49,19 @@ $f$ è differenziabile $\Leftrightarrow$ $\exists m\in \R $ t.c. $f(x_0+h)=f(x_0
 
 \section{Derivata Totale}
 \definition
-sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\AA$ \\
+sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\circdot{A}$ \\
 $f$ è differenziabile in $x_0\rightleftharpoons$ $\exists M\in Mat(mxn) : f(x_0+h) = f(x_0)+Mh+o(h)$ per $h\rightarrow 0$ 
 \definition
 siano $f,g : A\subseteq \R^n\rightarrow \R^m$ e $x_0$ di accumulazione per A \\
 $f=o(g)$ per $x\rightarrow x_0 \rightleftharpoons \lim\limits_{x->x_0}\frac{\norm{f(x)} }{\norm{g(x)} }$
 \definition
-sia $f:A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)\in\AA$ \\
+sia $f:A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)\in\circdot{A}$ \\
 $f$ è differenziabile in $(x_0,y_0)\rightleftharpoons$ $f(x_0+h,y_0+k) = f(x_0)+m_1h+m_2k+o(\sqrt{h^2+k^2})$ per $(h,k)\rightarrow (0,0)$
 \definition
 siano $f,g : :A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)$ di accumulazione per $A$ \\
 $f=o(g)$ per $(x,y)\rightarrow (x_0,y_0) \rightleftharpoons \lim\limits_{(x,y)->(x_0,y_0)}\frac{\norm{f(x,y)} }{\norm{g(x,y)} }$
 \proposition{(Unicità della derivata totale)}
-sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0\in\AA$, $M_1$,$M_2\in Mat(mxn)$\\
+sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0\in\circdot{A}$, $M_1$,$M_2\in Mat(mxn)$\\
 $M1$ derivata totale di $f$ in $x_0$,\\
 $M2$ derivata totale di $f$ in $x_0$,\\
 allora $M1=M2$\\
@@ -77,7 +77,7 @@ allora $M1=M2$\\
 L'ultima riga della dimostrazione dice che le applicazioni lineari $M_1$ e $M_2$ hanno le stesse immagini sui vettori della base canonica, quindi coincidono.
 
 \proposition
-sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0\in\AA$\\
+sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0\in\circdot{A}$\\
 $f$ è differenziabile in $x_0$ $\Rightarrow$ $f$ è continua in $x_0$\\
 DIMOSTRAZIONE\\
 
@@ -90,13 +90,13 @@ DIMOSTRAZIONE\\
 
 
 \theorem{Differenziale Totale}
-sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\AA$.\\
+sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\circdot{A}$.\\
 $\exists \partial_{i}f(x)\;\forall i=1,...,n definite \forall x$ in un intorno di $x_0$\\
 $\partial{i}f$ è continua in $x_0$\\
 $\Rightarrow f$ è differenziabile in $x_0$\\
 
 \theorem{Differenziale Totale}
-sia $f:A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)\in\AA$.\\
+sia $f:A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)\in\circdot{A}$.\\
 $\exists \partial_{x}f(x,y)$ e $\exists \partial_{y}f(x,y)$ definite $\forall x$ in un intorno di $(x_0,y_0)$\\
 $\partial_{x}f(x,y)$ e $\exists \partial_{y}f(x,y)$ continue in $x_0$\\
 $\Rightarrow f$ è differenziabile in $(x_0,y_0)$\\
@@ -167,7 +167,7 @@ $\Rightarrow f$ è differenziabile in $(x_0,y_0)$\\
 
 \section{Regole di Derivazione}
 \proposition
-Siano $f,g: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\AA$\\
+Siano $f,g: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$\\
 $f$ differenziabile in $x_0$, $g$ differenziabile in $x_0$ allora $f+g$ differenziabile in $x_0$ e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
 \begin{proof}
 	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h\rightarrow 0$\\
@@ -177,7 +177,7 @@ $f$ differenziabile in $x_0$, $g$ differenziabile in $x_0$ allora $f+g$ differen
 \end{proof}
 
 \proposition
-Sia $f: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\AA$ e $\lambda\in \R$\\
+Sia $f: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$ e $\lambda\in \R$\\
 $f$ differenziabile in $x_0$ allora $\lambda f$ differenziabile in $x_0$ e $D(\lambda f)(x_0) = \lambda Df(x_0)$
 \begin{proof}
 	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h\rightarrow 0$\\
@@ -214,7 +214,7 @@ Siano $x_0,x_1\in \R^n$, si dice segmento di estremi $x_0$ e $x_1$ l'insieme $S=
 	\label{thm:accresc_fin}
 	Sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0,x_1\in\circdot{A}$, $S$ il segmento di estremi $x_0,x_1$, sia $f\in \cntclass{1}(A,\R^m)$ allora $\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$
 	\begin{observation}
-		$\norm{A}$ con $A\in Mat(n\times m)$,  $\norm{A}=\sup\limits_{\norm{x}=1: x\in \R^n}\norm{Ax} = \sup\limits_{x\in \R^n \textbackslash \{0\}}\frac{\norm{Ax} }{\norm{x} } $ questa è chiamata norma operativa
+		$\norm{A}$ con $A\in Mat(n\times m)$,  $\norm{A}=\sup\limits_{\norm{x}=1: x\in \R^n}\norm{Ax} = \sup\limits_{x\in \R^n \setminus \{0\}}\frac{\norm{Ax} }{\norm{x} } $ questa è chiamata norma operativa
 	\end{observation}
 	\begin{note}
 		$$\norm{Ax} \le \norm{A} \norm{x}  $$
@@ -252,14 +252,14 @@ Sia $f:A\subseteq \R^n \rightarrow \R^m$ sappiamo che $Df(x_0)\in Mat(m\times n)
 \definition
 sia $f:A\subseteq \R^n \rightarrow \R^m$ derivabile parzialmente in $x_0$ lungo $e_i$. Se la funzione $\frac{\partial{f}}{\partial{x_i}}$ è derivabile parzialmente lungo $e_j$ in $x_0$, la quantità $\frac{\partial}{\partial{x_j}}\frac{\partial{f}}{\partial{x_i}}(x_0)$ è la derivata seconda di $f$ in $x_0$ rispetto $x_i,x_j$ e si indica $\frac{\partial^2f}{\partial{x_j}\partial{x_i}}(x_0)$
 \definition
-sia $f:A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\AA$\\
+sia $f:A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$\\
 $f$ differenziabile due volte in $xo \rightleftharpoons f$ è differenziabile in un intorno di $x_0$ e $f$ è differenziabile in $x_0$
 \observation
 con la notazione della definizione precedente, $f$ è una funzione definita in un intorno di $x_0$ con valori in $Mat(m\times n)$, spazio identificabile con $R^{m\times n}$
 \observation
 per una funzione scalare $f:A\subseteq \R^n \rightarrow \R$, la derivata prima è un vettore (il gradiente $\nabla$ in $R^{1\times n}$), la derivata seconda è una matrice in $R^{1\times n \times n}$, la derivata terza è una super matrice ...
 \definition
-sia $f:A\subseteq \R^n \rightarrow \R$ e $x_0\in\AA$, $f$ ammette tutte le derivate parziali seconde in $x_0$. La matrice di queste derivate seconde si chiama Matrice Hessiana di $f$ in $x_0$
+sia $f:A\subseteq \R^n \rightarrow \R$ e $x_0\in\circdot{A}$, $f$ ammette tutte le derivate parziali seconde in $x_0$. La matrice di queste derivate seconde si chiama Matrice Hessiana di $f$ in $x_0$
 $$H_f(x_0)=D^2f(x_0) = \begin{bmatrix}
 \frac{\partial^2f}{\partial{x_1}\partial{x_1}} && \frac{\partial^2f}{\partial{x_2}\partial{x_1}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_1}} \\
 \frac{\partial^2f}{\partial{x_1}\partial{x_2}} && \frac{\partial^2f}{\partial{x_2}\partial{x_2}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_2}} \\
@@ -273,12 +273,12 @@ ESEMPI:\\
 
 \section{Il Lemma di Schwarz}
 \proposition
-sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in \AA$. Fino ...\\
+sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\circdot{A}$. Fino ...\\
 $\exists \partial^2_{ij}f(x)$ e $\exists \partial^2_{ji}f(x)$ in un intorno di $x_0$ e continue in $x_0 \Rightarrow$ ....\\
 
 CASO n=2 m=1
 \proposition
-sia $f:A\subseteq \R^2\rightarrow \R^1$ e $(x_0,y_0)\in \AA$. .....\\
+sia $f:A\subseteq \R^2\rightarrow \R^1$ e $(x_0,y_0)\in\circdot{A}$. .....\\
 $\exists \partial^2_{xy}f(x,y)$ e $\exists \partial^2_{yx}f(x,y)$ in un intorno di $(x_0,Y_0)$ e continue in $(x_0,y_0) \Rightarrow$ ....\\
 \begin{proof}
 	prendo una quantità $q=f(x_0+h,y_0+k)-f(x_0+h,y_0)-f(x_0,y_0+k)+f(x_0,y_0)$\\
