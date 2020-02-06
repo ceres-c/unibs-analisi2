@@ -244,36 +244,32 @@ Sia $(X, d)$ uno spazio metrico, siano $f,g:X\rightarrow X$ due contrazioni in $
 \proposition
 Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$ vale $\norm{Df(x)}  < k$, allora $f$ è una contrazione.
 
-\theorem
-Sia $(X, d)$ uno spazio metrico completo in cui è definita una contrazione
-$T: X \rightarrow X$. Allora esiste un unico punto fisso di $T$ in $X$.
-\begin{proof}
-	Costruisco una successione di elementi di $X$ nel seguente modo:\\
-	scelgo $x_0\in X$,\\
-	$x_1 = T(x_0)$\\
-	$x_2 = T(x_1)$\\\\
-	...\\
-	$x_n = T(x_{n-1})$\\
-	La successione ${x_n: n \in N }$ così costruita è una successione di Cauchy. Infatti, presi $n, m \in N$ con $m > n$ si ha:
-	$$d(x_{m},x_{n}) = d(Tx_{m-1},x_{n-1}) \le Kd(x_{m-1},x_{n-1})=$$
-	$$=Kd(x_{m-1},x_{n-1}) = Kd(Tx_{m-2},x_{n-2}) \le K^2d(x_{m-2},x_{n-2})=$$
-	$$=...=$$
-	$$=...=K^nd(x_{m-n},x_{0})\le$$
-	$$\le K^{n}\sum\limits_0^{m-n+1}(d(x_{m-n-i},x_{m-n-i-1}))=$$
-	$$\le \sum\limits_0^{m-n+1}(d(Tx_{m-n-i-1},Tx_{m-n-i-2}))$$
-	per ogni termine di questa sommatoria si può applicare lo stesso ragionamento
-	$$\le K^{n}\sum\limits_0^{m-n+1}(K^{m-n-2}d(Tx_{0},x_{0}))=$$
-	$$\le K^{n}d(Tx_{0},x_{0})\sum\limits_0^{m-n+1}K^{m-n-2}=K^n\frac{1-K^{m-n-1}}{1-K}d(Tx_{0},x_{0}) \le \frac{K^n}{1-K}d(Tx_{0},x_{0})$$
-	Ho quindi trovato che $d(x_{m},x_{n})\le\frac{K^n}{1-K}d(Tx_{0},x_{0})$\\
-	L’ultima espressione ottenuta può essere resa arbitrariamente piccola (in modulo) pur di
-	prendere $n$, e quindi anche $m$, sufficientemente elevato. La completezza di $X$ implica quindi
-	che esiste il limite $\lim\limits_{n\rightarrow +\infty}xn$. Sia $x^*$ questo limite. $x^*$ è un punto fisso per $T$. Infatti, grazie
-	alla continuità di $T$:
-	$$T(x^*)=T{\lim\limits_{n\rightarrow +\infty}xn}$$
-
-	
-	
-	
-	
-\end{proof} 
-
+\begin{theorem}
+	\label{teo:contrazioni}
+	Sia $(X, d)$ uno spazio metrico completo in cui è definita una contrazione
+	$T: X \rightarrow X$. Allora esiste un unico punto fisso di $T$ in $X$.
+	\begin{proof}
+		Costruisco una successione di elementi di $X$ nel seguente modo:\\
+		scelgo $x_0\in X$,\\
+		$x_1 = T(x_0)$\\
+		$x_2 = T(x_1)$\\\\
+		...\\
+		$x_n = T(x_{n-1})$\\
+		La successione ${x_n: n \in N }$ così costruita è una successione di Cauchy. Infatti, presi $n, m \in N$ con $m > n$ si ha:
+		$$d(x_{m},x_{n}) = d(Tx_{m-1},x_{n-1}) \le Kd(x_{m-1},x_{n-1})=$$
+		$$=Kd(x_{m-1},x_{n-1}) = Kd(Tx_{m-2},x_{n-2}) \le K^2d(x_{m-2},x_{n-2})=$$
+		$$=...=$$
+		$$=...=K^nd(x_{m-n},x_{0})\le$$
+		$$\le K^{n}\sum\limits_0^{m-n+1}(d(x_{m-n-i},x_{m-n-i-1}))=$$
+		$$\le \sum\limits_0^{m-n+1}(d(Tx_{m-n-i-1},Tx_{m-n-i-2}))$$
+		per ogni termine di questa sommatoria si può applicare lo stesso ragionamento
+		$$\le K^{n}\sum\limits_0^{m-n+1}(K^{m-n-2}d(Tx_{0},x_{0}))=$$
+		$$\le K^{n}d(Tx_{0},x_{0})\sum\limits_0^{m-n+1}K^{m-n-2}=K^n\frac{1-K^{m-n-1}}{1-K}d(Tx_{0},x_{0}) \le \frac{K^n}{1-K}d(Tx_{0},x_{0})$$
+		Ho quindi trovato che $d(x_{m},x_{n})\le\frac{K^n}{1-K}d(Tx_{0},x_{0})$\\
+		L’ultima espressione ottenuta può essere resa arbitrariamente piccola (in modulo) pur di
+		prendere $n$, e quindi anche $m$, sufficientemente elevato. La completezza di $X$ implica quindi
+		che esiste il limite $\lim\limits_{n\rightarrow +\infty}xn$. Sia $x^*$ questo limite. $x^*$ è un punto fisso per $T$. Infatti, grazie
+		alla continuità di $T$:
+		$$T(x^*)=T{\lim\limits_{n\rightarrow +\infty}xn}$$
+	\end{proof}
+\end{theorem}

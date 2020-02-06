@@ -27,8 +27,7 @@ Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x
 \begin{note}
 	Un'equazione differenziale ammette, in generale, infinite soluzioni.
 \end{note}
-\begin{note}
-	\hypertarget{note:diff_eq_sol_definition_set}
+\begin{note} \hypertarget{note:diff_eq_sol_definit_set}{}
 	La soluzione di un'equazione differenziale può, analiticamente, essere definita su un intervallo $J\supset I$ ($I$ intervallo di definizione della funz. differenziale $f$). Non ha però senso considerare il suo comportamento al di fuori di $I$, in quanto non ha valore dal punto di vista del sistema. Per questo motivo $J$ sarà sempre considerato $J\subseteq I$
 \end{note}
 \begin{note}
@@ -117,14 +116,33 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		Dalla \ref{prop:equaz_n_equival_1}
 	\end{proof}
 \end{proposition}
+\begin{definition}[Equazione di Volterra]
+	\label{def:equaz_volterra}
+	Ogni problema di Cauchy del primo ordine con secondo membro continuo
+	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
+	è equivalente ad un'equazione integrale del tipo
+	$$x(t)=x_0+\int_{t_0}^{t}f(\tau,x(\tau))\integrald{\tau}$$
+	Questa equazione viene denominata \textbf{equazione integrale di Volterra}.
+	\begin{proof}
+		Integrando ambo i membri della prima equazione del problema di ottiene:
+		$$\int_{t_0}^{t}( x')\integrald{\tau}=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
+		$$x(t)-x(t_0)=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
+		$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
+	\end{proof}
+	\begin{note}
+		Questa equazione ha senso anche per alcune funzioni $f$ non non continue, ma solo misurabili nel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicità (locali/globali) l'ipotesi ``$f$ continua'' può essere sostituita da ``$f$ continua a tratti in $t, \forall x$, continua in $x$ e limitata''.
+	\end{note}
+\end{definition}
 
-\observation
-in generale un problema si dice \textbf{ben posto} o \textbf{ben posto nel senso di Hadamard} ogniqualvolta la soluzione:
-\begin{enumerate}
-	\item esiste
-	\item è unica
-	\item dipende con continuità dai dati
-\end{enumerate}
+\begin{observation}
+	in generale un problema si dice \textbf{ben posto} o \textbf{ben posto nel senso di Hadamard} ogniqualvolta la soluzione:
+	\begin{enumerate}
+		\item esiste
+		\item è unica
+		\item dipende con continuità dai dati
+	\end{enumerate}
+\end{observation}
+
 \section{La Legge di Malthus}
 Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.
 $$ x'=k\cdot x$$
@@ -181,7 +199,7 @@ Limiti di questo modello:
 	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
 	vale che
 	$$\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L$$
-	La lipschitzianità (\textbf{lips.}), in parole povere, valuta il rapporto tra incremento della $f$ e delle $x$ è minore di un valore fisso $L$
+	Una funzione è uniformemente lipschitziana (\textbf{unif. lips.}) se, in parole povere, è possibile individuare un intervallo $I$ in cui il rapporto tra incremento del valore della $f$ e delle $x$ è minore di un valore fisso $L$ 
 \end{definition}
 \begin{note}
 	La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$. Quindi la $f$ rimane lips. in modo uniforme al variare di $t$ (cioè $\forall t\in I$), ma questo non è garantito $\forall x\in A$, solo per $x_1,x_2 \in (B(x_0,r)\cap A)$.
@@ -195,9 +213,9 @@ Limiti di questo modello:
 	Siano $I\subseteq \R$ un intervallo aperto e $A\subseteq \R^n$ un aperto. Ogni funzione $f\in\cntclass{1}(I\times A;\R^n)$ è loc. lips. in $x\in A$ uniformemente rispetto a $t\in I$
 	\begin{proof}
 		Il prodotto cartesiano $I\times A$, essendo prodotto cartesiano di aperti in $\R^n$ con metrica euclidea (si suppone sia in uso questa metrica), è a sua volta un aperto. Questo risultato è dovuto alla definizione stessa del prodotto cartesiano di $\R$ con metrica euclidea.\\
-		% TODO proposizione poligonale capitolo 1. Magari anche proposizione prodotto cartesiano di aperti = aperto.
+		% TODO scrivere proposizione poligonale capitolo 1. Magari anche proposizione prodotto cartesiano di aperti = aperto.
 		Chiamiamo ora $S=I\times A$ l'insieme di partenza della $f$. Grazie alla \ref{prop:polig_cong_aperto} sappiamo che esiste una poligonale interamente contenuta in $S$ congiungente due qualunque punti dell'aperto $S$.\\
-		È ora possibile applicare il \ref{thm:accresc_fin} ad uno qualunque dei segmenti formanti la poligonale appena individuata. Vale quindi la
+		È ora possibile applicare il \ref{teo:accresc_fin} ad uno qualunque dei segmenti formanti la poligonale appena individuata. Vale quindi la
 		$$\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$$
 		che è direttamente comparabile alla definizione di locale lipschitzianità \ref{def:loc_lips} della funzione in ciascuno dei segmenti della poligonale, da cui la tesi.
 	\end{proof}
@@ -223,7 +241,7 @@ Limiti di questo modello:
 	\end{note}
 	\noindent Inoltre:
 	\begin{itemize}
-		\item $J\subseteq I$ da \hyperref{note:diff_eq_sol_definition_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
+		\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
 		\item $\varphi(t_0)=x_0$
 		\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
 	\end{itemize}
@@ -322,14 +340,14 @@ Limiti di questo modello:
 	\begin{enumerate}
 		\item \textbf{Esistenza} (da \ref{teo:peano}): $\exists \delta>0$ con cui si identifica un $J=\realintervalclose{t_0-\delta}{t_0+\delta}$, inoltre $\exists\,\varphi : J \to \R^n$ soluzione con le proprietà date da Peano:
 		\begin{itemize}
-			\item $J\subseteq I$ da \hyperref{note:diff_eq_sol_definition_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
+			\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
 			\item $\varphi(t_0)=x_0$
 			\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
 		\end{itemize}
 		\item \textbf{Unicità}\\
 		Se $\exists\,J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists\,\varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni con le seguenti proprietà
 		\begin{itemize}
-			\item $J_1\subseteq I$, $J_2\subseteq I$ da \hyperref{note:diff_eq_sol_definition_set}{nota definizione 47}, dunque $\varphi_1(J_1)\subseteq A$ e $\varphi_2(J_2)\subseteq A$
+			\item $J_1\subseteq I$, $J_2\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi_1(J_1)\subseteq A$ e $\varphi_2(J_2)\subseteq A$
 			\item $\varphi_1(t_0)=x_0,\,\varphi_2(t_0)=x_0$
 			\item $\varphi_1,\varphi_2$ derivabili e
 				$\begin{cases}
@@ -339,11 +357,11 @@ Limiti di questo modello:
 				NB. Non è effettivamente sistema
 		\end{itemize}
 		\begin{note}
-			Si può osservare che, sicuramente, $J_1\cap J_2\neq\emptyset$, poiché entrambi gli insiemi contengono almeno $t_0$ nella loro parte interna.		
+			Si può osservare che, sicuramente, $J_1\cap J_2\neq\emptyset$, poiché entrambi gli insiemi contengono almeno $t_0$ nella loro parte interna.
 		\end{note}
 		Allora $\varphi_1(t)=\varphi_2(t)$ $\forall t \in(J_1\cap J_2)$\\
 		Cioè, se esistono due soluzioni, allora esse coincidono ovunque siano entrambe definite.
-		\item \textbf{Dipendenza Continua Dai Dati}\\
+		\item \textbf{Dipendenza continua dai dati}\\
 		Si considerino i seguenti problemi di Cauchy con condizione iniziale individuata nello stesso istante:
 		$$(1)\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\qquad
 		(2)\begin{cases}y'=g(t,y)\\y(t_0)=y_0\end{cases}$$
@@ -351,15 +369,17 @@ Limiti di questo modello:
 		Allora esiste un $\delta >0$ tale che sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \realintervalclose{t_0-\delta}{t_0+\delta}$ vale:
 		$$\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}$$
 		dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
+		\begin{note}
+			Questo significa che, con problemi diversi tra loro, se ($x_0$ e $y_0$), ($f$ e $g$) sono vicine tra loro ("a coppie"), allora sono vicine anche le soluzioni, ma per $t$ vicine.
+			Pensando $t$ come tempo, cioè una delle applicazioni più classiche, questo implica che non si possano fare previsioni a lungo termine con sistemi diversi.
+		\end{note}
 	\end{enumerate}
 \end{theorem}
-\observation
-L'equazione integrale 
-$$x(t)=x_0+\int_{t_0}^{t}f(\tau,x(\tau))\integrald{\tau}$$
-viene spesso denominata EQUAZIONE DI VOLTERRA.\\
-Questa equazione ha senso anche per alcune funzioni $f$ non non continue ma solo misurabili nel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicità (locali/globali) l'ipotesi "$f$ continua" può essere sostituita da "$f$ continua tratti in $t, \forall x$, continua in $x$ e limitata"
-\observation
-la norma dell'integrale è minore uguale dell'integrale della norma.
+\begin{note}
+	Norma dell'integrale $\leq$ integrale della norma.
+	$$\norm{\int{\cdot}\integrald{\cdot}}\leq\int{\norm{\cdot}\integrald{\cdot}}$$
+\end{note}
+
 \proposition LEMMA DI GRONWALL\\
 Dati $a,b\in \R$ con $a\le b$ siano $\delta_0\in \left[ 0;+\infty \right]$ e $\delta,\kappa:\left[a,b\right]\to \R$ funzioni continue su $\left[a,b\right]$ con $\delta(t)\ge 0$,$\kappa(t)\ge 0 \quad \forall t\in\left[ a,b\right] $ e $\delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$Allora $$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}}$$
 Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integrale) ad una stima esplicita 
@@ -371,18 +391,52 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	$$ln(\Delta(t))\le ln(\delta_0)+\int_{a}^{t}\kappa(\tau)\integrald{\tau}$$
 	$$ \Delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}} $$
 	Da cui la tesi.
-	Se $\delta_0=0$, ponendo $\Delta(t)=\epsilon+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$ si ottiene $\delta(t)\epsilon$ ................... e il mio cervello sta bruciando
+	Se $\delta_0=0$, ponendo $\Delta(t)=\epsilon+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$ si ottiene $\delta(t)\epsilon$
 \end{proof}
 
-\begin{proof}
-	Cauchy Locale:\\
-	L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso.Prima di tutto serve una relazione che dal problema di Cauchy ci permetta di ottenere $x$ in funzione di qualcosa che dipenda da $x$.\\
-	Integrando ambi i membri della prima equazione del problema di ottiene:
-	$$\int_{t_0}^{t}( x')\integrald{\tau}=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
+\begin{proof}(\textbf{Tesi 2})
+	\begin{note}
+		L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso.
+	\end{note}
+	\noindent Prima di tutto serve una relazione che, dal problema di Cauchy, ci permetta di ottenere $x$ in funzione di qualcosa che dipenda da $x$. % ?????
+	Da \ref{def:equaz_volterra} sappiamo che la prima equazione del problema in ipotesi corrisponde all'integrale
 	$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
-	$T$ è una funzione del tipo:
-	$\begin{array}{rcl} T: ? & \to & ? \\ x & \to & Tx \end{array}$, con $y(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$\\
-	Abbiamo raggiunto un problema di punto fisso ($x=Tx$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il Teorema delle contrazioni serve che lo spazio di partenza e di arrivo siano uguali e chiamiamo $\mathcal{X}$.\\
+	Definiamo quindi $T$, funzione del tipo
+	$$\funcdef{\textrm{$T$}}{(T(x))(t)}{X}[x_0+\int_{t_0}^tf(\tau,x(\tau))\integrald{\tau}]$$
+	Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} serve che lo spazio di partenza e di arrivo corrispondano.\\
+	Prendiamo:
+	\begin{itemize}
+		\item $\delta_1>0$ tale che $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\subseteq I$
+		\item $\rho>0$ tale che $\overline{B(x_0,\rho)}\subseteq A$
+		\item $L$ costante di Lipshitz di $f$ in $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\times\overline{B(x_0,\rho)}$. È possibile individuare $L$ in quanto $f$ loc. lips. per ipotesi in $I\times A$, e dunque \textbf{loc. lips. in sottointervalli/insiemi}
+	\end{itemize}
+	Sia ora
+	$$V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}$$
+	V è massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \ref{prop:int_compatto}). % TODO in cap. 1, prop 2.35: compatto <=> chiuso+limtato (intervallo)
+	Indica il massimo di $f$ una volta che sia stata limitata nell'insieme di partenza\\ 
+	Definiamo dunque un generico $\delta>0$
+	$$\delta<\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}}$$
+	\begin{itemize}
+		\item $\delta_1$ è raggio di un generico intervallo incluso in $I$ di partenza
+		\item $\frac{\rho}{V}$ è rapporto tra il raggio di $\overline{B(x_0,\rho)}$, palla interamente contenuta in $A$, e $V$, valore massimo di $f$ ridotta all'intervallo di cui sopra e alla palla $\overline{B}$. Questo rapporto rappresenta il reciproco del massimo di $f$ "rispetto al raggio" di $\overline{B}$, cioè una "metrica" di quanto sia piccolo $\rho$ rispetto a $\sup f$ limitata.
+		\item $1/L = \frac{\norm{x_2-x_1}}{\norm{f(t,x_2)-f(t,x_1)}}$ dalla \ref{def:loc_lips}, perché $f$ loc. lips. per ipotesi. Dà un'idea di quanto vari la $x$ rispetto alla variazione della $f(x)$
+	\end{itemize}
+	Questo $\delta$, dunque, rappresenta, dal punto di vista concettuale, quale sia la più restrittiva ($\min$) tra tutte le possibili variazioni della $f(x)$ rispetto alla $x$.\\
+	A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
+	$$X = \brackets{g\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}$$
+	$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X$ per la \ref{prop:compl_dist_conv}. Trovato questo spazio, possiamo passare al punto chiave della dimostrazione.\\
+	% TODO bisogna modificare le frasi precedenti riprendendo da sotto ed integrando le informazioni. Quanto scritto fino ad ora si sovrappone a quel che si trova sotto, ma ci son osservazioni differenti che non devono andare perse.
+
+
+
+
+
+
+
+
+
+
+	Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} serve che lo spazio di partenza e di arrivo siano lo stesso, chiamiamolo $\mathcal{X}$.\\
 	$\begin{array}{rcl} T: \mathcal{X} & \to & \mathcal{X} \end{array}$ t.c.: $y(t)=(Tx)(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$
 	Bisogna quindi scegliere l'insieme $\mathcal{X}$. è un insieme di funzioni, in cui l'equivalenza sopra deve avere senso, cioè serve $x$ continua per avere l'equivalenza con il problema di Cauchy, quindi $\mathcal{X}=\cntclass{0}(\ldots)$.\\
 	Inoltre volendo una soluzione del problema di Cauchy, la funzione $x(penso sia y(t)=x)$ deve essere definita almeno su un intervallo contenente $t_0$ nella sua parte interna, non interessa l'estensione di tale intervallo quindi si può scegliere $\left[t_0-\delta,t_0+\delta\right]$, inoltre deve avere valori in un insieme con $x_0$ nella sua parte interna, $\overline{B(x_0,r)}$. Quindi $\mathcal{X}=\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];\overline{B(x_0,r)})$\\
