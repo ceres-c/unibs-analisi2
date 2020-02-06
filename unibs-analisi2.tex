@@ -34,17 +34,9 @@
 \theoremstyle{note}
 \newtheorem*{note}{Nota}
 
-\newtheoremstyle{exercise_answer}
-  {} % space above answer
-  {} % space below answer
-  {\itshape\small\addtolength{\leftskip}{1em}} % body font and position
-  { } % space to indent the head
-  {\bfseries} % head font
-  {.} % punctuation between head and body
-  { } % space after theorem head; " " = normal interword space
-  { } % Manually specify head
-\theoremstyle{exercise_answer}
-\newtheorem*{exercise_answer}{Soluzione}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Soluzione]}
+  {\end{proof}}
 
 \newcommand{\norm}[1] {\left\|#1\right\|}
 \newcommand{\abs}[1] {\left|#1\right|}
@@ -76,6 +68,9 @@
 \newcommand{\rvect}[1]{\begin{bmatrix} #1 \end{bmatrix}}
 
 \newcommand{\circdot}[1]{\accentset{\circ}{#1}}
+
+% Append the following to an equation in in align* blocks to allow tagging single eq.
+\newcommand*{\tageq}{\refstepcounter{equation}\tag{\theequation}}
 
 \DeclareDocumentCommand{\funcdef}{m m o m o s o}{
   % This command allows formal function definition and require xparse

@@ -38,9 +38,9 @@ Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x
 \end{example}
 \exercise
 La soluzione di un'equazione differenziale ordinaria non può avere 3 asintoti.
-\begin{exercise_answer}
+\begin{solution}
 	La soluzione $x$ è funzione continua. In quanto continua non può avere più di 2 asintoti verticali e in quanto funzione non può avere più di 2 asintoti orizzontali.
-\end{exercise_answer}
+\end{solution}
 \definition
 un'equazione differenziale è in forma normale  se e solo se si presenta nella forma 
 $$x^{(n)} = g(t,x, x',\ldots,x^{(n-1)})$$
@@ -130,6 +130,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
 	\end{proof}
 	\begin{note}
+		\hypertarget{note:volterra_non_cont}
 		Questa equazione ha senso anche per alcune funzioni $f$ non non continue, ma solo misurabili nel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicità (locali/globali) l'ipotesi ``$f$ continua'' può essere sostituita da ``$f$ continua a tratti in $t, \forall x$, continua in $x$ e limitata''.
 	\end{note}
 \end{definition}
@@ -396,13 +397,15 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 
 \begin{proof}(\textbf{Tesi 2})
 	\begin{note}
-		L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso.
+		L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso mediante una funzione avente come parametro $x$ stesso.
 	\end{note}
-	\noindent Prima di tutto serve una relazione che, dal problema di Cauchy, ci permetta di ottenere $x$ in funzione di qualcosa che dipenda da $x$. % ?????
 	Da \ref{def:equaz_volterra} sappiamo che la prima equazione del problema in ipotesi corrisponde all'integrale
 	$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
 	Definiamo quindi $T$, funzione del tipo
-	$$\funcdef{\textrm{$T$}}{(T(x))(t)}{X}[x_0+\int_{t_0}^tf(\tau,x(\tau))\integrald{\tau}]$$
+	\begin{equation}
+		\label{equaz:cauch_proof_T}
+		\funcdef{\textrm{$T$}}{(T(x))(t)}{X}[x_0+\int_{t_0}^tf(\tau,x(\tau))\integrald{\tau}]		
+	\end{equation}
 	Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} serve che lo spazio di partenza e di arrivo corrispondano.\\
 	Prendiamo:
 	\begin{itemize}
@@ -412,19 +415,73 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	\end{itemize}
 	Sia ora
 	$$V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}$$
-	V è massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \ref{prop:int_compatto}). % TODO in cap. 1, prop 2.35: compatto <=> chiuso+limtato (intervallo)
-	Indica il massimo di $f$ una volta che sia stata limitata nell'insieme di partenza\\ 
-	Definiamo dunque un generico $\delta>0$
-	$$\delta<\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}}$$
+	\begin{note}
+		V è il massimo valore assunto dalla derivata prima ($x'=f(t,x))$) di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \ref{prop:int_compatto}).\\% TODO in cap. 1, prop 2.35: compatto <=> chiuso+limtato (intervallo)
+	\end{note}
+	\noindent Definiamo dunque un generico $\delta>0$
+	$$\delta<\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}}$$
+	\begin{note}
+		$\delta$ è strettamente minore del $\min$ perché poi servirà a trovare una contrazione, dunque dovrò avere sicuramente $\delta L < 1$
+	\end{note}
 	\begin{itemize}
-		\item $\delta_1$ è raggio di un generico intervallo incluso in $I$ di partenza
-		\item $\frac{\rho}{V}$ è rapporto tra il raggio di $\overline{B(x_0,\rho)}$, palla interamente contenuta in $A$, e $V$, valore massimo di $f$ ridotta all'intervallo di cui sopra e alla palla $\overline{B}$. Questo rapporto rappresenta il reciproco del massimo di $f$ "rispetto al raggio" di $\overline{B}$, cioè una "metrica" di quanto sia piccolo $\rho$ rispetto a $\sup f$ limitata.
+		\item $\delta_1$ è raggio di un generico intervallo incluso in $I$ di partenza. $\delta$ deve essere minore di $\delta_1$ in quanto non è possibile uscire dall'intervallo $I$
+		\item $\frac{\rho}{V}$ è rapporto tra il raggio di $\overline{B(x_0,\rho)}$, sfera interamente contenuta in $A$, e $V$, valore massimo di $f$ ridotta all'intervallo di cui sopra e alla sfera $\overline{B}$.\\
+		Considerando il reciproco $\frac{V}{\rho}$, possiamo vederlo come una sorta di nuova costante di lips., riportata ad un intervallo più piccolo, non dipendente però da $\Delta f(x)$, ma dal valore di $f(x)$ stessa.
 		\item $1/L = \frac{\norm{x_2-x_1}}{\norm{f(t,x_2)-f(t,x_1)}}$ dalla \ref{def:loc_lips}, perché $f$ loc. lips. per ipotesi. Dà un'idea di quanto vari la $x$ rispetto alla variazione della $f(x)$
 	\end{itemize}
 	Questo $\delta$, dunque, rappresenta, dal punto di vista concettuale, quale sia la più restrittiva ($\min$) tra tutte le possibili variazioni della $f(x)$ rispetto alla $x$.\\
 	A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
 	$$X = \brackets{g\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}$$
-	$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X$ per la \ref{prop:compl_dist_conv}. Trovato questo spazio, possiamo passare al punto chiave della dimostrazione.\\
+	\begin{note}
+		Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra} sarebbe possibile sceglierla non continua, ma non si considera il caso.
+	\end{note}
+	Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \hyperref[teo:contrazioni]{Teorema delle contrazioni}:
+	\begin{itemize}
+		\item $(X,d)$ è \textbf{spazio metrico completo}\\
+		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X$ per la \ref{prop:compl_dist_conv}.\qed
+		\item $T$ è \textbf{definita} (è possibile calcolarla)\\
+		L'abbiamo definita all'inizio dall'equazione di Volterra\qed
+		\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
+		L'insieme di partenza è valido in quanto sottoinsieme dell'insieme su cui $f(t,xt)$ era definita.\\
+		Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \realintervalclose{t_0-\delta}{t_0+\delta}$
+		\begin{proof}
+			$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fodamentale del Calcolo Integrale.\\
+			La seconda condizione si verifica prendendo la \ref{equaz:cauch_proof_T} e calcolando la norma di entrambi i termini
+			\begin{align*}
+				\norm{y(t)-x_0} &= \norm{\int_{t_0}^t f(\tau,x(\tau))\integrald{\tau} }
+				\intertext{posso ora minorare con il valore assoluto della norma dell'argomento}
+				&\leq \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau} } \tageq\label{equaz:cau_loc_abs_of_norm}
+				\intertext{$\norm{f(\tau,x(\tau))}$ è sicuramente minorato da $V$ per definizione di quest'ultimo, dunque si ha integrale di costante}
+				&\leq V \cdot \abs{t-t_0}
+				\intertext{$\abs{t-t_0}\leq \delta$ per definizione di $\delta$}
+				&\leq V \cdot \delta\\
+				\intertext{nel caso in cui $\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}} = \frac{\rho}{V}$, allora minorato strettamente da $\rho$ per definizione di $\delta$, altrimenti sicuramente minore per $\min$}
+				&< \rho
+			\end{align*}
+		\end{proof}
+		\item $T$ è \textbf{contrazione}\\
+		Occorre verificare la \ref{equaz:def_contrazione}
+		\begin{align*}
+			TODO
+		\end{align*}
+		\begin{proof}
+			Se $Tx$ è una contrazione deve valere che
+			$$\norm{Tx_2 - Tx_1}_{\cntclass{0}}\le K\norm{x_2-x_1}_{\cntclass{0}}\quad k\in\left[0,1\right[\quad\forall t\in\left[t_0-\delta,t_0+\delta\right]$$
+			con $\norm{Tx_2-Tx_1}_{c^0}=\sup\limits_{t\in\left[t_0-\delta,t_0+\delta\right]}\norm{(Tx_2)(t) - (Tx_1)(t)}$, partendo da questa utilizzando prima la definizione di $f$ poi la linearità dell'integrale ....lipsh f... proprietà
+			$$\norm{(Tx_2)(t) - (Tx_1)(t)}=$$
+			$$\norm{x_0+\int_{t_0}^t f(\tau,x_2(\tau)) \integrald{\tau} - \left(x_0+\int_{t_0}^t f(\tau,x_1(\tau)) \integrald{\tau}\right)}=$$
+			$$\norm{\int_{t_0}^t f(\tau,x_2(\tau))-f(\tau,x_1(\tau)) \integrald{\tau}}\le$$
+			$$\abs{\int_{t_0}^t \norm{f(\tau,x_2(\tau))-f(\tau,x_1(\tau))} \integrald{\tau}}\le$$
+			$$\abs{\int_{t_0}^t L\norm{x_2(\tau)-x_1(\tau)} \integrald{\tau}}\le$$
+			$$L\abs{\int_{t_0}^t \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)} \integrald{\tau}}=$$
+			$$L\cdot \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\abs{t-t_0}\le$$
+			$$L\delta\norm{x-x_0}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
+			cioè $\forall t \in \left[t_0-\delta,t_0+\delta\right]$ vale che $\norm{(Tx_2)(t)-(Tx_1)(t)}\le L\delta\norm{x_1-x_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$ e poiché è vero $\forall t \Rightarrow $ passando all'estremo superiore
+			$$ \norm{Tx_1 - Tx_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\le L\delta\norm{x_1-x_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
+			A questo punto scelto $\delta$ t.c. $L\delta<1$ ad esempio $\delta=\frac{1}{2L}$ così ottengo che per $\delta$ opportuno $Tx$ è una contrazione.
+		\end{proof}
+	\end{itemize}
+	Se tutti questi punti sono soddisfatti, si può trovare $x=Tx$, cioè una $x$ che soddisfa l'equazione integrale e di conseguenza, dalla \ref{def:equaz_volterra}, soluzione del problema di Cauchy.
 	% TODO bisogna modificare le frasi precedenti riprendendo da sotto ed integrando le informazioni. Quanto scritto fino ad ora si sovrappone a quel che si trova sotto, ma ci son osservazioni differenti che non devono andare perse.
 
 
@@ -541,6 +598,9 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	$$ \norm{\varphi(t)-\psi(t)}\le\left[\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}}\right]+e^{L\abs{t-t_0}}$$
 	QUESTO TEOREMA è TROPPO DA PRO.
 \end{proof}
+\begin{exercise}
+	È necessario il modulo in \eqref{equaz:cau_loc_abs_of_norm}? % TODO explain this
+\end{exercise}
 ESEMPIO: DECADIMENTO RADIOATTIVO\\
 Il decadimento di una sostanza radioattiva è ben descritto da $ x'=-k\cdot x$ dove $x$ è la quantità di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\
 ...........\\

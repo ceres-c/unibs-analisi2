@@ -211,19 +211,22 @@ $\lim\limits_x\rightarrow{x_0} = l \rightleftharpoons \forall{\epsilon},\exists\
 Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l'\in{Y}$,$l''\in{Y}$  \\
 
 \section{Il Teorema delle Contrazioni}
-\definition
-Sia $(X, d)$ uno spazio metrico. Si dice contrazione una funzione
-$T: X \rightarrow X$ soddisfacente a:\\
+\begin{definition}[Contrazione]
+	\label{def:contrazione}
+	Sia $(X, d)$ uno spazio metrico. Si dice contrazione una funzione T: $X \mapsto X$ soddisfacente a:
+	\begin{align}
+		\label{equaz:def_contrazione}
+		\exists K \in [0, 1[\;\text{tale che}\;\forall x',x''\in X\;\text{vale}\\
+		d_X(Tx'', T x') \le K \cdot d_X(x'', x').
+	\end{align}
 
-$\exists K \in [0, 1[ $ tale che $\forall x',x''\in X$ vale
-$d(Tx'', T x')\le Kd(x'', x').$\\
 
-
-Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e
-Lipschitziana con costante di Lipschitz strettamente minore di 1.
-E generalmente inutile considerare contrazioni definite tra spazi diversi. Data una funzione
-$T: X\rightarrow Y$ Lipschitziana, è sempre possibile riscalare la distanza in uno dei due spazi X o Y
-per ottenere una costante di Lipschitz minore di 1.
+	Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e
+	Lipschitziana con costante di Lipschitz strettamente minore di 1.
+	E generalmente inutile considerare contrazioni definite tra spazi diversi. Data una funzione
+	$T: X\rightarrow Y$ Lipschitziana, è sempre possibile riscalare la distanza in uno dei due spazi X o Y
+	per ottenere una costante di Lipschitz minore di 1.
+\end{definition}
 
 ESEMPI:\\
 \begin{enumerate}
