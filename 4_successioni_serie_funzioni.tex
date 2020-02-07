@@ -127,9 +127,11 @@ Siano $A\subseteq \R$, $B\subseteq A$, $\left\{f_n:n\in\mathbb{N}\right\}$ una s
 \observation
 La convergenza uniforme su $B$ della successione $f_n$ verso $f$ è indicata con
 $$f_n\overset{u}{\to}f\quad su \quad B$$
-\observation
-la covergenza uniforme equivale alla convergenza rispetto alla distanza $d_{\cntclass{0}}(f,g)=\sup\limits_{x\in A}\abs{g(x)-f(x)}$ ogniqualvolta questa distanza è definita.\\
-Questa distanza può essere definita attraverso la norma $\norm{f}_{c^0}=\sup\limits_{x\in A}\abs{f}$
+\begin{observation}
+	\label{obs:dist_conv_unif}
+	la convergenza uniforme equivale alla convergenza rispetto alla distanza $d_{\cntclass{0}}(f,g)=\sup\limits_{x\in A}\abs{g(x)-f(x)}$ ogniqualvolta questa distanza sia definita.\\
+	Questa distanza $d_{\cntclass{0}}(f,g)$ può essere definita attraverso la norma $\norm{f}_{\cntclass{0}}=\sup\limits_{x\in A}\abs{f}$
+\end{observation}
 \proposition
 sia $f_n:n\in\mathbb{N}$ con $f:A\subseteq \R\to \R$ e $f:B\subseteq A \to  \R$\\
 $f_n\overset{u}{\to}f$ su $B$ per$n\to\infty \Leftrightarrow \forall\epsilon >0, \exists\nu\in\mathbb{N}$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{f_n(x)-f(x)}\le\epsilon$
@@ -200,8 +202,8 @@ La successione $\left\{ f_n:n\in\mathbb{N} \right\}$ soddisfa alla condizione di
 	$$\Rightarrow\sup\limits_B\abs{f_h-f}\le\epsilon, \forall h>\nu$$
 	$$\Rightarrow f_n\overset{u}{\to}f\quad su B$$
 \end{proof}
-\begin{proposition} % TODO da rivedere le condizioni di partenza perché manca riferimento a C chiuso
-	\label{prop:compl_dist_conv}
+\begin{proposition}
+	\label{prop:compl_dist_spm_compl}
 	Sia $A$ un compatto in $ \R$. In $\cntclass{0}(A; \R)$ sia $d_{\cntclass{0}}=\sup_A\abs{g(x)-f(x)}$. Allora $\left( \cntclass{0}\left(A; \R\right);d_{\cntclass{0}}\right)$ è uno spazio metrico completo.
 	\begin{proof}
 		prendo $f_n\in \cntclass{0}(A; \R)$ successione di Cauchy in $\cntclass{0}(A; \R)$
@@ -211,6 +213,9 @@ La successione $\left\{ f_n:n\in\mathbb{N} \right\}$ soddisfa alla condizione di
 		$\Rightarrow\lim\limits_{n\to\infty}d_{\infty}(fn,f)=0\quad\Rightarrow f_n\to f\in \cntclass{0}(A; \R)$
 	\end{proof}
 \end{proposition}
+\begin{corollary} % TODO dimostrare il corollario 19.26 con C di arrivo delle f chiuso
+	\label{prop:compl_dist_spm_compl}
+\end{corollary}
 
 ESEMPIO:: In dimensione finita non vi è differenza tra "chiuso e limitato" e "compatto", in dimensione infinita cambiamo molte cose.
 Prensiamo un insieme chiuso e limitato ma non compatto.\\

@@ -69,8 +69,15 @@
 
 \newcommand{\circdot}[1]{\accentset{\circ}{#1}}
 
-% Append the following to an equation in in align* blocks to allow tagging single eq.
+% Append the following to an equation in align* blocks to allow tagging single eq.
 \newcommand*{\tageq}{\refstepcounter{equation}\tag{\theequation}}
+% Use the following to align vertically an equation in a align block without actually having the equals sign aligned
+% Example:
+%   5^2+3 =
+%   = 25+3
+%   = 28
+\newcommand{\noaligneq}[1]{\noalign{\centering #1}}
+
 
 \DeclareDocumentCommand{\funcdef}{m m o m o s o}{
   % This command allows formal function definition and require xparse

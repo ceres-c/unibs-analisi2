@@ -438,7 +438,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \hyperref[teo:contrazioni]{Teorema delle contrazioni}:
 	\begin{itemize}
 		\item $(X,d)$ è \textbf{spazio metrico completo}\\
-		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X$ per la \ref{prop:compl_dist_conv}.\qed
+		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X$ per la \ref{prop:compl_dist_spm_compl}.\qed
 		\item $T$ è \textbf{definita} (è possibile calcolarla)\\
 		L'abbiamo definita all'inizio dall'equazione di Volterra\qed
 		\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
@@ -461,9 +461,41 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		\end{proof}
 		\item $T$ è \textbf{contrazione}\\
 		Occorre verificare la \ref{equaz:def_contrazione}
+		\begin{proof}
 		\begin{align*}
-			TODO
+			\noaligneq{$\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t) =$}
+			\intertext{per definizione della $T$ e per la proprietà addittiva degli integrali}
+			&= \int_{t_0}^t \Bigl(
+				f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_2(\tau)\bigr)
+				\Bigr)\integrald{\tau}\\
 		\end{align*}
+		Dunque, passando alla norma
+		\begin{align}
+			\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} \label{equaz:cau_loc_verif_contraz_norm}
+		\end{align}
+		È sicuramente minorata da
+		\begin{align*}
+			&\leq \abs{\int_{t_0}^t
+				\norm{f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_2(\tau)\bigr)}
+				\integrald{\tau}}\\
+			\intertext{Per definizione di loc. lips. \ref{def:loc_lips} passo alle soluzioni $x_i$ di $f$, minorando}
+			&\leq \abs{\int_{t_0}^t
+				L\cdot\norm{x_2(\tau)-x_1(\tau)}
+				\integrald{\tau}}\\
+			\intertext{Dalla \ref{obs:dist_conv_unif}, $\norm{f}_{\cntclass{0}} = \sup_A \abs{f} \implies \norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} \leq d_{\cntclass{0}}(f,g)$}
+			% TODO qui sarebbe giusto scrivere direttamente: Dalla \ref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$
+			&\leq \abs{\int_{t_0}^t % TODO se il TODO sopra è vero, qui va = al posto di <=
+				L\cdot d_X(x_2,x_1)
+				\integrald{\tau}}\\
+			&\leq L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{equaz:cau_loc_verif_contraz_fine} % TODO qui non va = al posto di <= ?
+		\end{align*}
+		Quindi, concludendo, possiamo passare dalla \ref{equaz:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza.
+		$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
+		Minoriamo questa distanza con la forma appena trovata \ref{equaz:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
+		$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
+		Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per definizione \ref{def:contrazione}.
+		\end{proof}
+		% TODO remove the following
 		\begin{proof}
 			Se $Tx$ è una contrazione deve valere che
 			$$\norm{Tx_2 - Tx_1}_{\cntclass{0}}\le K\norm{x_2-x_1}_{\cntclass{0}}\quad k\in\left[0,1\right[\quad\forall t\in\left[t_0-\delta,t_0+\delta\right]$$
@@ -600,6 +632,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 \end{proof}
 \begin{exercise}
 	È necessario il modulo in \eqref{equaz:cau_loc_abs_of_norm}? % TODO explain this
+	% Deriva dal sup (abs(x)) a pagina 4
 \end{exercise}
 ESEMPIO: DECADIMENTO RADIOATTIVO\\
 Il decadimento di una sostanza radioattiva è ben descritto da $ x'=-k\cdot x$ dove $x$ è la quantità di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\
