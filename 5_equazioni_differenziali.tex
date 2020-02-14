@@ -36,11 +36,12 @@ Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x
 \begin{example}
 	Presa l'equazione differenziale $ x'=1$, essa è risolta da $x(t) = t + \alpha$ per ogni $\alpha\in\R$
 \end{example}
-\exercise
-La soluzione di un'equazione differenziale ordinaria non può avere 3 asintoti.
-\begin{solution}
-	La soluzione $x$ è funzione continua. In quanto continua non può avere più di 2 asintoti verticali e in quanto funzione non può avere più di 2 asintoti orizzontali.
-\end{solution}
+\begin{exercise}
+	La soluzione di un'equazione differenziale ordinaria non può avere 3 asintoti.
+	\begin{solution}
+		La soluzione $x$ è funzione continua. In quanto continua non può avere più di 2 asintoti verticali e in quanto funzione non può avere più di 2 asintoti orizzontali.
+	\end{solution}
+\end{exercise}
 \definition
 un'equazione differenziale è in forma normale  se e solo se si presenta nella forma 
 $$x^{(n)} = g(t,x, x',\ldots,x^{(n-1)})$$
@@ -438,7 +439,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \hyperref[teo:contrazioni]{Teorema delle contrazioni}:
 	\begin{itemize}
 		\item $(X,d)$ è \textbf{spazio metrico completo}\\
-		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X$ per la \ref{prop:compl_dist_spm_compl}.\qed
+		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per la \ref{prop:compl_dist_spm_compl}.\qed
 		\item $T$ è \textbf{definita} (è possibile calcolarla)\\
 		L'abbiamo definita all'inizio dall'equazione di Volterra\qed
 		\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
@@ -449,7 +450,7 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 			La seconda condizione si verifica prendendo la \ref{equaz:cauch_proof_T} e calcolando la norma di entrambi i termini
 			\begin{align*}
 				\norm{y(t)-x_0} &= \norm{\int_{t_0}^t f(\tau,x(\tau))\integrald{\tau} }
-				\intertext{posso ora minorare con il valore assoluto della norma dell'argomento}
+				\intertext{posso ora minorare con il valore assoluto della norma dell'argomento (spiegazione in \ref{ex:cau_loc_abs_of_norm})}
 				&\leq \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau} } \tageq\label{equaz:cau_loc_abs_of_norm}
 				\intertext{$\norm{f(\tau,x(\tau))}$ è sicuramente minorato da $V$ per definizione di quest'ultimo, dunque si ha integrale di costante}
 				&\leq V \cdot \abs{t-t_0}
@@ -482,12 +483,11 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 			&\leq \abs{\int_{t_0}^t
 				L\cdot\norm{x_2(\tau)-x_1(\tau)}
 				\integrald{\tau}}\\
-			\intertext{Dalla \ref{obs:dist_conv_unif}, $\norm{f}_{\cntclass{0}} = \sup_A \abs{f} \implies \norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} \leq d_{\cntclass{0}}(f,g)$}
-			% TODO qui sarebbe giusto scrivere direttamente: Dalla \ref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$
-			&\leq \abs{\int_{t_0}^t % TODO se il TODO sopra è vero, qui va = al posto di <=
+			\intertext{Dalla \ref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
+			&= \abs{\int_{t_0}^t % TODO qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 				L\cdot d_X(x_2,x_1)
 				\integrald{\tau}}\\
-			&\leq L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{equaz:cau_loc_verif_contraz_fine} % TODO qui non va = al posto di <= ?
+			&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{equaz:cau_loc_verif_contraz_fine} % TODO qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 		\end{align*}
 		Quindi, concludendo, possiamo passare dalla \ref{equaz:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza.
 		$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
@@ -631,8 +631,63 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	QUESTO TEOREMA è TROPPO DA PRO.
 \end{proof}
 \begin{exercise}
-	È necessario il modulo in \eqref{equaz:cau_loc_abs_of_norm}? % TODO explain this
-	% Deriva dal sup (abs(x)) a pagina 4
+	\label{ex:cau_loc_abs_of_norm}
+	È necessario il modulo in \eqref{equaz:cau_loc_abs_of_norm}?
+	\begin{solution}
+		Consideriamo, ad esempio
+		\begin{align*}
+			&f(x) = \norm{\int_0^6 10\cdot\frac{\sin{x}}{1+x} \integrald{x}} = 4,9413 && \text{(sinistra)}\\
+			&g(x) = \abs{\int_0^6 \norm{10\cdot\frac{\sin{x}}{1+x}} \integrald{x}} = 11,935 && \text{(destra)}
+		\end{align*}
+		Nella $f$, viene calcolata la norma del risultato dell'integrazione definita.\\
+		Nella $g$ si ha invece la norma della funzione, cioè la parte "sotto l'asse $x$" della funzione viene ribaltata sopra l'asse dall'operatore norma, come si può vedere dal grafico. Questo implica che il valore della $g$ sarà sicuramente $\geq$ rispetto alla $f$, in quanto l'integrale è somma di soli infinitesimi positivi.\\
+		Infine, il valore assoluto nella \eqref{equaz:cau_loc_abs_of_norm} è necessario per evitare che, scambiando gli estremi d'integrazione, si ottenga un valore negativo, che non potrebbe mai essere risultato del primo integrale
+		\begin{center}
+			\begin{tikzpicture}[baseline]
+			\begin{axis} [
+				width=\textwidth / 2 - 3,
+				height=\textwidth / 2 - 3,
+				axis lines = center,
+				xlabel = $x$,
+				ylabel = {$f(x)$},
+			]
+				\addplot [
+					name path=f,
+					domain=0:7, 
+					samples=100, 
+					color=red,
+				]
+				{10*sin(deg(x))/(1+x)};
+				\addlegendentry{$10\cdot\frac{\sin{x}}{1+x}$}
+
+				\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
+				\addplot[red!30] fill between[of=f and axis, soft clip={domain=0:6}];
+			\end{axis}
+			\end{tikzpicture}
+			~\qquad\qquad
+			\begin{tikzpicture}[baseline]
+			\begin{axis} [
+				width=\textwidth / 2 - 3,
+				height=\textwidth / 2 - 3,
+				axis lines = center,
+				xlabel = $x$,
+				ylabel = {$g(x)$},
+			]
+				\addplot [
+					name path=g,
+					domain=0:7, 
+					samples=100, 
+					color=blue,
+				]
+				{abs(10*sin(deg(x))/(1+x))};
+				\addlegendentry{$\norm{10\cdot\frac{\sin{x}}{1+x}}$}
+
+				\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
+				\addplot[blue!30] fill between[of=g and axis, soft clip={domain=0:6}];
+			\end{axis}
+			\end{tikzpicture}
+		\end{center}
+	\end{solution}
 \end{exercise}
 ESEMPIO: DECADIMENTO RADIOATTIVO\\
 Il decadimento di una sostanza radioattiva è ben descritto da $ x'=-k\cdot x$ dove $x$ è la quantità di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\
