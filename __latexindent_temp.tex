@@ -71,15 +71,14 @@ $$d_\infty=\sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)}$$
 				domain=-1:1,
 				ymin=-1,ymax=4,
 				legend pos=outer north east ]
-				\addplot+[no marks] {e^-(abs(x*x))}; \addlegendentry{$f\left( x \right)$}
-				\addplot+[no marks] {-0.5}; \addlegendentry{$g\left( x \right)$}
-				\draw[<->,line width=1mm, color=green] (axis cs:0,-0.5) -- (axis cs:0,1);
-			\end{axis}
+				\addplot+[no marks] {e^(abs(x))}; \addlegendentry{$f\left( x \right)$}
+				\addplot+[no marks] {abs(x)-0.5}; \addlegendentry{$g\left( x \right)$}
+				\end{axis}
 		\end{tikzpicture}
 \end{enumerate}
 Si verificano le 4 proprietà di distanza:
 \begin{enumerate}
-	\item Se $\sup = \infty$ non va bene poiché l'insieme di arrivo è $\R$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$ ....(le funzioni sono definite su un intervallo chiuso e limitato e sono continue)
+	\item Se $\sup = \infty$ non va bene poiché l'insieme di arrivo è $\R$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$
 	\item se e solo se hanno lo stesso dominio e per ogni punto di esso entrambe le funzioni hanno la stessa immagine
 	\item $\dinfty{f}{g}=\ddinfty{f}{g}{\realintervalclose{a}{b}}=\ddinfty{g}{f}{\realintervalclose{a}{b}}=\dinfty{g}{f}$
 	\item $\abs{h(x)-f(x)}\le\abs{h(x)-g(x)}+\abs{g(x)-f(x)} $, applicando il sup la disuguaglianza resta vera
@@ -160,21 +159,16 @@ $X$ è uno spazio (vettoriale) normato sul campo $\bbset{K}$ se:
 	\end{enumerate}
 \end{description}
 
-\begin{example}
+\example
 $$X=\R\quad\norm{x}=\abs{x}$$
-\end{example}
-\begin{example}
-	$$X=\bbsetn{R}{2}\quad\norm{\left[\begin{matrix}x\\y+\end{matrix}\right]}=\sqrt{x^2+y^2}$$
-\end{example}
-\begin{example}
-	$$X=\bbsetn{R}{n}\quad x\equiv(x_1,\ldots,x_n)\quad \norm{x}=\sqrt{\sum\limits_{i=0}^n}x_i^2$$
-\end{example}
-\begin{example}
-	$$X=\bbset{C}\quad\norm{x}=\abs{x}$$
-\end{example}
-\begin{example}
-	$$X=\cntclass{0}(\realintervalclose{a}{b},\R)\quad\norm{f}\sup\limits_{x\in\realintervalclose{a}{b}}\abs{f}$$
-\end{example}
+\example
+$$X=\bbsetn{R}{2}\quad\norm{\left[\begin{matrix}x\\y+\end{matrix}\right]}=\sqrt{x^2+y^2}$$
+\example
+$$X=\bbsetn{R}{n}\quad x\equiv(x_1,\ldots,x_n)\quad \norm{x}=\sqrt{\sum\limits_{i=0}^n}x_i^2$$
+\example
+$$X=\bbset{C}\quad\norm{x}=\abs{x}$$
+\example
+$$X=\cntclass{0}(\realintervalclose{a}{b},\R)\quad\norm{f}\sup\limits_{x\in\realintervalclose{a}{b}}\abs{f}$$
 
 \proposition
 Sia $X$ uni spazio normato allora $(X,d)$ è uno spazio metrico con $\begin{array}{rcl} d : X\times X & \to & \mathbb{R} \\ (x_1,x_2) & \to & \norm(x_1-x_2) \end{array}$\\
