@@ -7,23 +7,25 @@ Non è necessario sapere il valore della soluzione ma sapere che ne esiste una.?
 Equazione differenziale ordinaria:\\
 1- La funzione incognita è funzione di una sola variabile, solitamente il tempo.\\
 2- La funzione incognita e le sue derivate sono calcolate allo stesso istante di tempo.\\
-\definition\label{def:equaz_diff}
-Si dice equazione differenziale ordinaria di ordine $n$ nella funzione incognita $x\in \R^k$ un espressione del tipo:
-$$f(t,x, x',\ldots,x^{(n)})=0$$
-dove $f:A\to \R^m$, $A\subseteq \R^{1+(1+n)k}$ e $t\in \R$.\\
-$m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
-\begin{itemize}
-	\item $1 = dim(t)$
-	\item $(1+n)k$
+\begin{definition}[Equazione differenziale]
+	\label{def:equaz_diff}
+	Si dice equazione differenziale ordinaria di ordine $n$ nella funzione incognita $x\in \R^k$ un espressione del tipo:
+	$$f(t,x, x',\ldots,x^{(n)})=0$$
+	dove $f:A\to \R^m$, $A\subseteq \R^{1+(1+n)k}$ e $t\in \R$.\\
+	$m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
 	\begin{itemize}
-		\item $(1+n)$ il numero totale delle funzioni: $n$ derivate ed $x$ stessa
-		\item $k$ la dimensione dell'insieme di partenza di ogni funzione incognita
+		\item $1 = dim(t)$
+		\item $(1+n)k$
+		\begin{itemize}
+			\item $(1+n)$ il numero totale delle funzioni: $n$ derivate ed $x$ stessa
+			\item $k$ la dimensione dell'insieme di partenza di ogni funzione incognita
+		\end{itemize}
 	\end{itemize}
-\end{itemize}
-Soluzione di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ definita su un intervallo $I\subseteq \R$, derivabile $n$ volte in $I$ e tale che $\forall t\in I$\\
-$$(t,x, x',\ldots,x^{(n)}) \in A$$
-$$f(t,x, x',\ldots,x^{(n)})=0$$
-Soluzione massimale  di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$
+	\textbf{Soluzione} di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ definita su un intervallo $I\subseteq \R$, derivabile $n$ volte in $I$ (e dunque continua in $I$) e tale che $\forall t\in I$\\
+	$$(t,x, x',\ldots,x^{(n)}) \in A$$
+	$$f(t,x, x',\ldots,x^{(n)})=0$$
+	\textbf{Soluzione massimale} di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$
+\end{definition}
 \begin{note}
 	Un'equazione differenziale ammette, in generale, infinite soluzioni.
 \end{note}
@@ -201,7 +203,7 @@ Limiti di questo modello:
 	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
 	vale che
 	$$\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L$$
-	Una funzione è uniformemente lipschitziana (\textbf{unif. lips.}) se, in parole povere, è possibile individuare un intervallo $I$ in cui il rapporto tra incremento del valore della $f$ e delle $x$ è minore di un valore fisso $L$ 
+	Una funzione è uniformemente lipschitziana (\textbf{unif. lips.}) in un'intervallo $I$ se, in parole povere, è possibile individuare per ogni punto di $I$ una sfera $B$ in cui la funzione è lipschitziana.
 \end{definition}
 \begin{note}
 	La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$. Quindi la $f$ rimane lips. in modo uniforme al variare di $t$ (cioè $\forall t\in I$), ma questo non è garantito $\forall x\in A$, solo per $x_1,x_2 \in (B(x_0,r)\cap A)$.
@@ -361,7 +363,7 @@ Limiti di questo modello:
 		\begin{note}
 			Si può osservare che, sicuramente, $J_1\cap J_2\neq\emptyset$, poiché entrambi gli insiemi contengono almeno $t_0$ nella loro parte interna.
 		\end{note}
-		Allora $\varphi_1(t)=\varphi_2(t)$ $\forall t \in(J_1\cap J_2)$\\
+		Allora $\varphi_1(t)=\varphi_2(t)$\quad$\forall t \in(J_1\cap J_2)$\\
 		Cioè, se esistono due soluzioni, allora esse coincidono ovunque siano entrambe definite.
 		\item \textbf{Dipendenza continua dai dati}\\
 		Si considerino i seguenti problemi di Cauchy con condizione iniziale individuata nello stesso istante:
@@ -377,10 +379,6 @@ Limiti di questo modello:
 		\end{note}
 	\end{enumerate}
 \end{theorem}
-\begin{note}
-	Norma dell'integrale $\leq$ integrale della norma.
-	$$\norm{\int{\cdot}\integrald{\cdot}}\leq\int{\norm{\cdot}\integrald{\cdot}}$$
-\end{note}
 
 \proposition LEMMA DI GRONWALL\\
 Dati $a,b\in \R$ con $a\le b$ siano $\delta_0\in \left[ 0;+\infty \right]$ e $\delta,\kappa:\left[a,b\right]\to \R$ funzioni continue su $\left[a,b\right]$ con $\delta(t)\ge 0$,$\kappa(t)\ge 0 \quad \forall t\in\left[ a,b\right] $ e $\delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$Allora $$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}}$$
@@ -484,10 +482,10 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 				L\cdot\norm{x_2(\tau)-x_1(\tau)}
 				\integrald{\tau}}\\
 			\intertext{Dalla \ref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
-			&= \abs{\int_{t_0}^t % TODO qui nella dimostrazione sul libro c'è un <=, anche se non so perché
+			&= \abs{\int_{t_0}^t % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 				L\cdot d_X(x_2,x_1)
 				\integrald{\tau}}\\
-			&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{equaz:cau_loc_verif_contraz_fine} % TODO qui nella dimostrazione sul libro c'è un <=, anche se non so perché
+			&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{equaz:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 		\end{align*}
 		Quindi, concludendo, possiamo passare dalla \ref{equaz:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza.
 		$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
@@ -495,85 +493,37 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 		$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
 		Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per definizione \ref{def:contrazione}.
 		\end{proof}
-		% TODO remove the following
-		\begin{proof}
-			Se $Tx$ è una contrazione deve valere che
-			$$\norm{Tx_2 - Tx_1}_{\cntclass{0}}\le K\norm{x_2-x_1}_{\cntclass{0}}\quad k\in\left[0,1\right[\quad\forall t\in\left[t_0-\delta,t_0+\delta\right]$$
-			con $\norm{Tx_2-Tx_1}_{c^0}=\sup\limits_{t\in\left[t_0-\delta,t_0+\delta\right]}\norm{(Tx_2)(t) - (Tx_1)(t)}$, partendo da questa utilizzando prima la definizione di $f$ poi la linearità dell'integrale ....lipsh f... proprietà
-			$$\norm{(Tx_2)(t) - (Tx_1)(t)}=$$
-			$$\norm{x_0+\int_{t_0}^t f(\tau,x_2(\tau)) \integrald{\tau} - \left(x_0+\int_{t_0}^t f(\tau,x_1(\tau)) \integrald{\tau}\right)}=$$
-			$$\norm{\int_{t_0}^t f(\tau,x_2(\tau))-f(\tau,x_1(\tau)) \integrald{\tau}}\le$$
-			$$\abs{\int_{t_0}^t \norm{f(\tau,x_2(\tau))-f(\tau,x_1(\tau))} \integrald{\tau}}\le$$
-			$$\abs{\int_{t_0}^t L\norm{x_2(\tau)-x_1(\tau)} \integrald{\tau}}\le$$
-			$$L\abs{\int_{t_0}^t \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)} \integrald{\tau}}=$$
-			$$L\cdot \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\abs{t-t_0}\le$$
-			$$L\delta\norm{x-x_0}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
-			cioè $\forall t \in \left[t_0-\delta,t_0+\delta\right]$ vale che $\norm{(Tx_2)(t)-(Tx_1)(t)}\le L\delta\norm{x_1-x_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$ e poiché è vero $\forall t \Rightarrow $ passando all'estremo superiore
-			$$ \norm{Tx_1 - Tx_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\le L\delta\norm{x_1-x_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
-			A questo punto scelto $\delta$ t.c. $L\delta<1$ ad esempio $\delta=\frac{1}{2L}$ così ottengo che per $\delta$ opportuno $Tx$ è una contrazione.
-		\end{proof}
 	\end{itemize}
-	Se tutti questi punti sono soddisfatti, si può trovare $x=Tx$, cioè una $x$ che soddisfa l'equazione integrale e di conseguenza, dalla \ref{def:equaz_volterra}, soluzione del problema di Cauchy.
-	% TODO bisogna modificare le frasi precedenti riprendendo da sotto ed integrando le informazioni. Quanto scritto fino ad ora si sovrappone a quel che si trova sotto, ma ci son osservazioni differenti che non devono andare perse.
+	È ora possibile applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} che garantisce l'\textbf{unicità} del punto fisso $x_* \in X$ per la $x = T(x)$, questo implica ovviamente che $T(x)$ abbia un'unica soluzione. Si ha dunque l'unicità della soluzione $x$ del problema di Cauchy in ipotesi sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, al quale $T$ è equivalente per definizione in quanto $T$ è \hyperref[def:equaz_volterra]{Equazione di Volterra}.
+
+	Tornando ai $J_1, J_2$ della Tesi 2:
+	\begin{itemize}
+		\item Se $(J_1 \cap J_2) \subseteq \realintervalclose{t_0-\delta}{t_0+\delta}$, allora $x_1 = x_2$ in quanto esiste unico punto fisso, come dimostrato sopra.
+		\item Se $(J_1 \cap J_2) \supset \realintervalclose{t_0-\delta}{t_0+\delta}$, allora poniamo
+			\begin{equation}
+				t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \realintervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{equaz:cau_loc_tM_J1J2_supset}
+			\end{equation}
+			$$x_M = x_1(t_M) = x_2(t_M)$$
+			Quindi $t_M$ è l'\textit{ultimo istante} in cui $x_1$ e $x_2$ coincidono.
+
+			Essendo
+			\begin{itemize}
+				\item $t_M \in \circdot{J_1},\,t_M \in \circdot{J_2} \implies t_M \in \circdot{I}$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}
+				\item $x_M \in \circdot{A}$ per definizione %TODO controllare la questione del "per definizione"
+			\end{itemize}
+			ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
+			$$\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}$$
+			ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \ref{equaz:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
+			$$t_M = \min \brackets{\sup J_1, \sup J_2}$$
+			Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
+			$$t_m = \max \brackets{\inf J_1, \inf J_2}$$
+			Quindi, prendendo $\realintervalclose{t_m}{t_M}$, abbiamo identificato $J_1 \cap J_2$ stessa.
+	\end{itemize}
+	Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
+\end{proof}
 
 
-
-
-
-
-
-
-
-
-	Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} serve che lo spazio di partenza e di arrivo siano lo stesso, chiamiamolo $\mathcal{X}$.\\
-	$\begin{array}{rcl} T: \mathcal{X} & \to & \mathcal{X} \end{array}$ t.c.: $y(t)=(Tx)(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$
-	Bisogna quindi scegliere l'insieme $\mathcal{X}$. è un insieme di funzioni, in cui l'equivalenza sopra deve avere senso, cioè serve $x$ continua per avere l'equivalenza con il problema di Cauchy, quindi $\mathcal{X}=\cntclass{0}(\ldots)$.\\
-	Inoltre volendo una soluzione del problema di Cauchy, la funzione $x(penso sia y(t)=x)$ deve essere definita almeno su un intervallo contenente $t_0$ nella sua parte interna, non interessa l'estensione di tale intervallo quindi si può scegliere $\left[t_0-\delta,t_0+\delta\right]$, inoltre deve avere valori in un insieme con $x_0$ nella sua parte interna, $\overline{B(x_0,r)}$. Quindi $\mathcal{X}=\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];\overline{B(x_0,r)})$\\
-	Per $\delta, r$ abbastanza piccoli si ha $\left[t_0-\delta,t_0+\delta\right]\subseteq I$, $\overline{B(x_0,r)}\subseteq A$, quindi adesso il problema è quello di determinare $\delta, r$.\\
-	Per poter applicare il teorema delle contrazioni:
-	\begin{description}
-		\item[a-] $Tx$ definita (possibilità di calcolarla)
-		\item[b-] $Tx\in\mathcal{X}$ (insiemi di partenza e arrivo)
-		\item[c-] $Tx$ contrazione
-		\item[d-] $\mathcal{X}$ completo
-	\end{description}
-	Se tutti questi punti sono soddisfatti, si può trovare $x=Tx$, cioè una $x$ che soddisfa l'equazione integrale e di conseguenza, per equivalenza, soluzione del problema di Cauchy.  
-	\begin{description}
-		\item[a-] $Tx$ definita significa poter calcolare l'integrale,per poter calcolare l'integrale devo poter calcolare la $f$, per calcolare la $f$ ho bisogno che $\tau$ e $x(\tau)$ stiano dentro gli insiemi su cui è definita la $f$, cioè $I,A$, per essere sicuri di non uscire dall'intervallo:
-		$$\delta>0\quad t.c:\quad \left[t_0-\delta,t_0+\delta\right]\subseteq I$$
-		OSS:: Se si cambiano $\delta, r$ con valori minori tutto vale ancora.\\
-		OSS:: Per il problema x derivabile -> integrale  ... mi sosto in $\cntclass{0}$
-		\item[b-] $Tx$ deve appartenere a $\mathcal{X}$. L'insieme $\mathcal{X}$ sostanzialmente pone tre vincoli a $Tx$: deve essere $\cntclass{0}$, definita in $\left[t_o-\delta;t_0+\delta\right]$ a valori in $\overline{B(x_0,r)}$.\\
-		Per iniziare si verifica che sia definita in $\left[t_o-\delta;t_0+\delta\right]$\\
-		.... qualcosa che non comprendo.... $\cntclass{0}$\\
-		Resta da verificare che $Tx$ è a valori nella sfera, cioè che 
-		$$(Tx)(t) \in \overline{B(x_0,r)}$$
-		Valuto la distanza tra $(Tx)(t)$ e $x_0$. La differenza tra la posizione al tempo $t$ e al tempo $t_0$, questa distanza può essere controllata con la velocità e il tempo per cui il punto si è mosso.\\
-		Chiamata $V$ la massima velocità alla quale può muoversi il punto, $V=\sup\limits{(t_0\times X_0)\in (\left[to+\delta,t_0-\delta\right]\times\overline{B(x_0,r)})}=\left\{\norm{f(t,x(t))}\right\}$ che è il sup della norma di f, cioè dei moduli dei vettori velocità, questo esiste sempre finito, non $\infty$ poiché $f$ è continua, la norma è continua , $t$ varia in un chiuso e limitato, $x_0$ varia in un chiuso e limitato, quindi stiamo calcolando  il sup di una funzione continua su un chiuso e limitato allora per il teorema di Weierstrass $V=\max\limits{(t_0\times X_0)\in (\left[to+\delta,t_0-\delta\right]\times\overline{B(x_0,r)})}=\left\{\norm{f(t,x(t))}\right\}$\\
-		Non potendo modificare $V, \delta$ poniamo una restrizione su $r$:$V\delta < r$, da cui $\delta < r\cdot V$
-		
-		$$\norm{(Tx)(t) - x_0} = \norm{\int_{t_0}^t(f(\tau,x(\tau)))\integrald{\tau}} \le \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau}}\le$$
-		$$\le\abs{\int_{t_0}^t V\cdot \integrald{\tau}}=V\abs{t-t_0}\le V\delta<r$$
-		....aggiunto il modulo per $t<t_0$ e $t>t_0$ non lo si sa a priori\\
-		quindi $\norm{(Tx)(t) - x_0}$ è minore di $r$ scelto $\delta$ opportunamente piccolo. 
-		\item[c-] Se $Tx$ è una contrazione deve valere che
-		$$\norm{Tx_2 - Tx_1}_{\cntclass{0}}\le K\norm{x_2-x_1}_{\cntclass{0}}\quad k\in\left[0,1\right[\quad\forall t\in\left[t_0-\delta,t_0+\delta\right]$$
-		con $\norm{Tx_2-Tx_1}_{c^0}=\sup\limits_{t\in\left[t_0-\delta,t_0+\delta\right]}\norm{(Tx_2)(t) - (Tx_1)(t)}$, partendo da questa utilizzando prima la definizione di $f$ poi la linearità dell'integrale ....lipsh f... proprietà
-		$$\norm{(Tx_2)(t) - (Tx_1)(t)}=$$
-		$$\norm{x_0+\int_{t_0}^t f(\tau,x_2(\tau)) \integrald{\tau} - \left(x_0+\int_{t_0}^t f(\tau,x_1(\tau)) \integrald{\tau}\right)}=$$
-		$$\norm{\int_{t_0}^t f(\tau,x_2(\tau))-f(\tau,x_1(\tau)) \integrald{\tau}}\le$$
-		$$\abs{\int_{t_0}^t \norm{f(\tau,x_2(\tau))-f(\tau,x_1(\tau))} \integrald{\tau}}\le$$
-		$$\abs{\int_{t_0}^t L\norm{x_2(\tau)-x_1(\tau)} \integrald{\tau}}\le$$
-		$$L\abs{\int_{t_0}^t \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)} \integrald{\tau}}=$$
-		$$L\cdot \norm{x_2-x_1}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\abs{t-t_0}\le$$
-		$$L\delta\norm{x-x_0}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
-		cioè $\forall t \in \left[t_0-\delta,t_0+\delta\right]$ vale che $\norm{(Tx_2)(t)-(Tx_1)(t)}\le L\delta\norm{x_1-x_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$ e poiché è vero $\forall t \Rightarrow $ passando all'estremo superiore
-		$$ \norm{Tx_1 - Tx_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}\le L\delta\norm{x_1-x_2}_{\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)}$$
-		A questo punto scelto $\delta$ t.c. $L\delta<1$ ad esempio $\delta=\frac{1}{2L}$ così ottengo che per $\delta$ opportuno $Tx$ è una contrazione.		
-		\item[d-] Bisogna mostrare che $\mathcal{X}$ è completo.\\
-		Supponiamo che $\mathcal{X}\subseteq \cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)$, questo insieme è completo rispetto alla metrica $d_\infty=d_{\cntclass{0}}$, allora se abbiamo una successione $x_n$ di Cauchy in $\mathcal{X}$ lo è anche su $\cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)$, allora $\exists x_\infty\in \cntclass{0}(\left[t_0-\delta,t_0+\delta\right];R^n)$ con $x_n\to x_\infty$ per $n\to\infty$, ma poiché $\forall t \in\left[t_0-\delta,to+\delta\right]$ $x_\infty(t)=\lim\limits_{n\to\infty}x_n(t)$ e visto che $\forall t,\forall n\quad \norm{x_n(t)-x_0}\le r$ anche al limite vale $\norm{x_{\infty}(t)-x_0}\le r \Rightarrow x_\infty\in\mathcal{X}$ cioè $\mathcal{X}$ è completo.
-	\end{description}
-	Possimao a questo punto applicare il teorema delle Contrazioni allora $T$ ha un unico punto fisso allora l'equazione integrale ha un unica soluzione allora esiste la soluzione del problema di Cauchy e su $\left[t_0-\delta,t_0+\delta\right]$ possiamo gia dire che la soluzione  è unica.\\
+Possimao a questo punto applicare il teorema delle Contrazioni allora $T$ ha un unico punto fisso allora l'equazione integrale ha un unica soluzione allora esiste la soluzione del problema di Cauchy e su $\left[t_0-\delta,t_0+\delta\right]$ possiamo gia dire che la soluzione  è unica.\\
 	MA QUANTO CAVOLO è LUNGA FORSE SONO A METà\\
 	\begin{center}
 		\begin{tikzpicture}[scale=2]
@@ -629,7 +579,8 @@ Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integr
 	$$ \left( \delta(t)\le\delta_0+\int_{t_0}^t \kappa(\tau)\delta(\tau)\integrald{\tau} \right)::Gronwall$$
 	$$ \norm{\varphi(t)-\psi(t)}\le\left[\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}}\right]+e^{L\abs{t-t_0}}$$
 	QUESTO TEOREMA è TROPPO DA PRO.
-\end{proof}
+
+
 \begin{exercise}
 	\label{ex:cau_loc_abs_of_norm}
 	È necessario il modulo in \eqref{equaz:cau_loc_abs_of_norm}?
