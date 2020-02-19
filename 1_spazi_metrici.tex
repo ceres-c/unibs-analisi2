@@ -243,7 +243,7 @@ Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazion
 	\begin{align}
 		\label{equaz:def_contrazione}
 		\exists K \in [0, 1[\;\text{tale che}\;\forall x',x''\in X\;\text{vale}\\
-		d_X(Tx'', T x') \le K \cdot d_X(x'', x').
+		d_X(T(x''), T(x')) \le K \cdot d_X(x'', x').
 	\end{align}
 
 
@@ -252,6 +252,9 @@ Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazion
 	E generalmente inutile considerare contrazioni definite tra spazi diversi. Data una funzione
 	$T: X\rightarrow Y$ Lipschitziana, è sempre possibile riscalare la distanza in uno dei due spazi X o Y
 	per ottenere una costante di Lipschitz minore di 1.
+	\begin{note}
+		D'ora in poi si utilizzerà la notazione $Tx$ per intendere $T(x)$
+	\end{note}
 \end{definition}
 
 ESEMPI:\\
@@ -273,17 +276,17 @@ Sia $(X, d)$ uno spazio metrico, siano $f,g:X\rightarrow X$ due contrazioni in $
 \proposition
 Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$ vale $\norm{Df(x)}  < k$, allora $f$ è una contrazione.
 
-\begin{theorem}
+\begin{theorem}[Teorema delle Contrazioni]
 	\label{teo:contrazioni}
 	Sia $(X, d)$ uno spazio metrico completo in cui è definita una contrazione
 	$T: X \rightarrow X$. Allora esiste un unico punto fisso di $T$ in $X$.
 	\begin{proof}
 		Costruisco una successione di elementi di $X$ nel seguente modo:\\
 		scelgo $x_0\in X$,\\
-		$x_1 = T(x_0)$\\
-		$x_2 = T(x_1)$\\\\
+		$x_1 = Tx_0$\\
+		$x_2 = Tx_1$\\\\
 		...\\
-		$x_n = T(x_{n-1})$\\
+		$x_n = Tx_{n-1}$\\
 		La successione ${x_n: n \in N }$ così costruita è una successione di Cauchy. Infatti, presi $n, m \in N$ con $m > n$ si ha:
 		$$d(x_{m},x_{n}) = d(Tx_{m-1},x_{n-1}) \le Kd(x_{m-1},x_{n-1})=$$
 		$$=Kd(x_{m-1},x_{n-1}) = Kd(Tx_{m-2},x_{n-2}) \le K^2d(x_{m-2},x_{n-2})=$$
@@ -300,5 +303,30 @@ Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$
 		che esiste il limite $\lim\limits_{n\rightarrow +\infty}xn$. Sia $x^*$ questo limite. $x^*$ è un punto fisso per $T$. Infatti, grazie
 		alla continuità di $T$:
 		$$T(x^*)=T{\lim\limits_{n\rightarrow +\infty}xn}$$
+	\end{proof}
+\end{theorem}
+
+\begin{definition}[Funzione Iterata]
+	\label{def:iterata}
+	Data $F:X\mapsto X$, si dice funzione iterata $n$ volte di $F$ la $F^n$ che corrisponde all'applicazione $n$ volte di $F$ su sè stessa. Formalmente:
+	$$f^{n+1} = f \circ f^n \quad \forall n \in \N\setminus\brackets{0}$$
+	Se $n = 0$, per definizione, $f^0 = \mathrm{Id}_X$ con $\mathrm{Id}_X$ funzione identità su $X$
+\end{definition}
+
+\begin{theorem}[Teorema dell'Iterata Contrazione]
+	\label{teo:teo_iterata_contraz}
+	Sia $(X,d_X)$ uno spazio metrico completo e sia $T:X\mapsto X : \exists n \in \N, T^n$ \textbf{iterata} è contrazione.\\
+	Allora $T$ ammette un unico punto fisso in $X$
+	\begin{note}
+		La $n$ non è univocamente definita e non potrebbe esserlo. Se infatti $T^n$ è contrazione, allora anche $T^{2n},\, T^{3n},\, \cdots,\, T^{\alpha n}$ lo sono.
+	\end{note}
+	\begin{proof}
+		Per il teorema \ref{teo:contrazioni} esiste un unico punto fisso $x_* \in X$ per $T^n$, quindi
+		$$T^nx_* = x_*$$
+		applicando $T$ ad entrambi i membri
+		$$T(T^{n}x_*) = Tx_*$$
+		e per la definizione di iterata \ref{def:iterata}
+		$$T(T^{n}x_*) = T^n(Tx_*) = Tx_*$$
+		Dunque $Tx_*$ è punto fisso della $T^n$. Avevamo però già trovato che $x_*$ era punto fisso della $T^n$ e, per \ref{teo:contrazioni}, può esistere un unico punto fisso. Ciò permette di concludere che $Tx_* = x_*$
 	\end{proof}
 \end{theorem}

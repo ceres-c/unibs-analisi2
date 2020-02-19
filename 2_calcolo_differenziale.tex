@@ -394,86 +394,88 @@ $\exists !\varphi : \R^n\rightarrow \R^m$ t.c.: $f(x,y)=0 \Leftrightarrow y=\var
 \begin{proof}
 	$f(x,y)=0\Leftrightarrow Ax+By=-C\Leftrightarrow By=-Ax+C\Leftrightarrow y=-B^{-1}Ax+B^{-1}C = \varphi(x)$
 \end{proof}
-\proposition
-Sia $f:X\times Y\rightarrow \R^m$ con $X\in \R^n, Y\in \R^m$\\
-Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
-se:
-\begin{enumerate}
-	\item $f$ continua in $X\times Y$
-	\item $f(x_0,y_0)=0$
-	\item $f$ differenziabile rispetto a $y \forall (x,y)\in X\times Y$ e $D_yf(x,y)$ continua.
-	\item $D_yf(x_0,y_0)$ invertibile .
-\end{enumerate}
-$\Rightarrow $ si ha:\\
-esistenza della funzione implicita\\
-$\exists \mathcal{X}\subseteq X$ intorno di $x_0$(xstrano aperto)\\
-$\exists \mathcal{Y}\subseteq Y$ intorno di $y_0$(ystrano aperto)\\
-$\exists\varphi$ continua con $\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c. $[\varphi (x_0)=y_0 e] f(x,y)=0, x\in\mathcal{X},y\in\mathcal{Y} \Leftrightarrow y=\varphi(x)$
-unicità di sostanza cioè a meno del dominio:\\
-se $\varphi_i:\mathcal{X}_i\rightarrow\mathcal{Y}_i$ e $x_0\in\mathcal{X}_i,y_0\in\mathcal{Y}_i$\\
-$f(x_0,y_0)=0 \forall x\in\mathcal{X}_i, y\in \mathcal{Y}\Leftrightarrow y=\varphi_i(x)$ con $i=1,2$\\
-Allora $\forall\in\mathcal{X}\cap\mathcal{X}_1\cap\mathcal{X}_2$ vale $\varphi_1(x)=\varphi_2(x)$
-
-\observation
-Le ipotesi 3 e 4 garantiscono che esiste una approssimazione lineare, l'ipotesi 4 è sensata poiché $y$ e $f$ hanno lo stesso numero di componenti quindi $Dyf$ è un matrice qudrata.\\
-la funzione $f:X\times Y\rightarrow \R^m$ che $(x,y)\rightarrow f(x,y)$ ??????\\
-cioè $\forall x\in X$ (sto fissando una x) $f^x:Y\rightarrow \R^m$ che $y\rightarrow f(x,y)$(sto variando la y), $Df^x\in Mat(m\times m)$
-
-\observation Metodo degli zeri di Newton per troare gli zeri di una funzione o metofo delle tangenti.\\
-\resizebox {\columnwidth} {!} {
-\begin{tikzpicture}
-\draw[->] (-1,0) -- (5,0) node[anchor=north west] {y};
-\draw[->] (0,-1) -- (0,4) node[anchor=south east] {z};
-\draw[domain=-1:4,smooth,variable=\x,blue] plot ({\x},{(1/8)*(\x*\x)-(\x)+1.9});
-\end{tikzpicture}
-}\\
-Scelgo un punto $y_0$ ne prendo il valore sulla curva, disegno la tangente e chiamo $y_1$ l'intersezione con l'asse $y$. Itero il processo $y_n+1=y_n\frac{f(y_n)}{f'(y_n)}$\\
-discorso al momento difficile per me....\\
-\begin{proof}
-	Dobbiamo partire da $f(x,y)=0$ arrivare a $y=\varphi(x)$,vogliamo applicare un raginamento simile a quello della Metodo di Newton, passando però per il concetto di punto fisso, il teorema delle Contrazioni ci assicura che esiste unico.\\
-	cerchiamo quindi una contrazione $T$ il cui punto fisso sia soluzione di $f(x,y)=0$. $T$ è del tipo:\\
-	$T:?\times ?\rightarrow ?$\\
-	$(x,y)\rightarrow y-[D_yf(X_0,y_0)]^{-1}f(x,y)$, nota che non avere nella derivata lo stesso punto in cui si calcola la funzione (come è nel metodo di Newton) ha effetti "tragici" sulla velocità di convergenza, ma a noi interessa l'esistenza.\\
-	bisgna capire quali insiemi usare come insiemi di partenza e arrivo, devo essere scelti in modo da poter applicare il teoremma delle contrazioni. Bisogna scegliere sottoinsiemi di $R^n$ e $R^m$, scegliamo quindi delle sfere\\
-	$T:\overline{B(x_0,r_x)}\times\overline{B(y_0,r_y)}\rightarrow\overline{B(y_0,r_y)}$, scegliendo la chiusura delle sfere si è sicuri di lavorare in uno spazio metrico completo, poiché in $R^l$ completo $\Leftrightarrow$ chiuso e limitato.\\
-	come vengono invece scelti i raggi? sono scelti in modo che:\\
+\begin{theorem}[Teorema della Funzione Implicita]
+	\label{teo:funz_impl}
+	Sia $f:X\times Y\rightarrow \R^m$ con $X\subseteq \R^n, Y\subseteq \R^m$\\
+	Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
+	se:
 	\begin{enumerate}
-		\item $T$ è ben definita
-		\item $\forall x \in \overline{B(x_0,r_x)} Tx: \overline{B(x_0,r_x)}\rightarrow\overline{B(y_0,r_y)}$ che $y\rightarrow T(x,y)$,\\
+		\item $f$ continua in $X\times Y$
+		\item $f(x_0,y_0)=0$
+		\item $f$ differenziabile rispetto a $y \forall (x,y)\in X\times Y$ e $D_yf(x,y)$ continua.
+		\item $D_yf(x_0,y_0)$ invertibile .
 	\end{enumerate}
-	cioè $T$ è una contrazione tale che $\forall x$ esiste un punto fisso, $\forall x$ associo a $y$ una x, e quindi na funzione.\\
-	$r_x,r_y$ devono essere sufficientemene piccoli per avere tali proprietà e per poterci lavorare sopra.\\
-	Abbiamo che $f(x,y)=0 \Leftrightarrow T(x,y)=y$\\
-	$T(x,y)=y\Leftrightarrow y=y-[D_yF(x_0,y_0)]^{-1}f(x,y)$\\
-	$[D_yF(x_0,y_0)]^{-1}f(x,y)\Leftrightarrow f(x,y)=0$\\
-	Per verificare che $T$ è una contrazione ne stimo la norma\\
-	$\norm{T(x,y_2)-T(x,y_1)} \le \sup\limits_{\widetilde{y}\in segmento}\norm{D_yT(x,\widetilde{y})}\norm{y_2-y_1} $  accrescimenti finiti.\\
-	Poichè le sfere sono insiemi convessi è stato possibile applicare il Teorema degli accresscimenti finiti.\\
-	Presa $T(x,y) = y-[D_yf(x_0,y_0)]^{-1}f(x,y)$, la derivo rispetto a $y$:
-	$$D_yT(x,y)= I_\R^m-[D_yf(x_0,y_0)]^{-1}D_yf(x,y) = $$
-	$$=[D_yf(x_0,y_0)]^{-1}][D_yf(x_0,y_0)-D_yf(x,y)]$$
-	Osserviamo che abbiamo ottenuto una matrice come costante moltiplicativa, al secondo membro abbiamo la differenza di due valori di una funzione, che per ipotesi è una funzione continua ($D_yf(x,y)$ continua), allora per $r_x$ e $r_y$ sufficientemente piccoli ho che:\\
-	$\norm{D_yT(x,y)} \le \frac{1}{2}$, è scelto questo valore poiché è comodo al fine di dimostrare la contrazione...\\
-	$$\norm{D_yT(x,y)} \le \norm{D_yf(x_0,y_0)]^{-1}} \norm{D_yf(x_0,y_0)-D_yf(x,y)}\le\frac{1}{2} $$  
-	$$\norm{T(x,y_2)-T(x,y_1)}\le\frac{1}{2}\norm{y_2-y_1} $$
-	Se dimostriamo che $T$ è ben definita abbiamo dimostrato che $T$ è una contrazione.\\
-	Per verificare che $T$ è en definita bisogna mostrare che $T(x,y)\subseteq\overline{B(y_0,r_y)}$ quindi si mostra che la distanza tra $T(x,y)$ e il centro è minore di $r_y$
-	$$\norm{T(x,y) - y_0}\le\norm{T(x,y)-T(x,y_0)}+\norm{T(x,y_0)-y_0} \le$$
-	$$\le\frac{1}{2}\norm{y-y_0}+\norm{y_0-[D_yf(x_0,y_0)]^{-1}f(x,y_0)-y_0}\le$$
-	$$\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-0}\le$$
-	$$\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-f(x_0,y_0)}\le$$
-	$$\le\frac{1}{2}r_y+\frac{1}{2}r_y\le r_y$$
-	Allora $T$ è ben definita perché $T(x,y)\in\overline{B(y_0,r_y)}$.\\
-	In conclusione con $\mathcal{X}=\overline{B(x_0,r_x)}$ e $\mathcal{Y}=\overline{B(y_0,r_y)}$ ho che $T:\mathcal{X}\times\mathcal{Y}\rightarrow\mathcal{Y}$ è tale che $\forall x\in\mathcal{X}$ la funzione $y\rightarrow T(x,y)$ è una contrazione e $\overline{B(y_0,r_y)}$ è completo.\\
-	quaolcosa sui completi.........\\
-	................................\\
-	..........................\\
-	A questo punto può essere applicato il teorema delle contrazioni:\\
-	$\forall x \in \mathcal{X}, \exists y \in\mathcal{Y}: f(x,y)=0$ allora chiamo $\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ che $x\rightarrow y$ è unica quindi $\varphi$ è una funzione.\\
-	Allora la funzione implicita esiste. La continuità direva direttamente dal teorema delle contrazioni: l'applicazione che al parametro associa il punto fisso è continua.\\
-	Per l'unicità si osservano le ipotesi 1 e 2, dove è scritto $\forall x$ ovvero scelta una qualunque $x$ la $y$ è unica quindi $\varphi$ è univocamente definita.
-	  
-\end{proof}
+	$\Rightarrow $ si ha:\\
+	esistenza della funzione implicita\\
+	$\exists \mathcal{X}\subseteq X$ intorno di $x_0$(xstrano aperto)\\
+	$\exists \mathcal{Y}\subseteq Y$ intorno di $y_0$(ystrano aperto)\\
+	$\exists\varphi$ continua con $\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c. $[\varphi (x_0)=y_0 e] f(x,y)=0, x\in\mathcal{X},y\in\mathcal{Y} \Leftrightarrow y=\varphi(x)$
+	unicità di sostanza cioè a meno del dominio:\\
+	se $\varphi_i:\mathcal{X}_i\rightarrow\mathcal{Y}_i$ e $x_0\in\mathcal{X}_i,y_0\in\mathcal{Y}_i$\\
+	$f(x_0,y_0)=0 \forall x\in\mathcal{X}_i, y\in \mathcal{Y}\Leftrightarrow y=\varphi_i(x)$ con $i=1,2$\\
+	Allora $\forall\in\mathcal{X}\cap\mathcal{X}_1\cap\mathcal{X}_2$ vale $\varphi_1(x)=\varphi_2(x)$
+
+	\observation
+	Le ipotesi 3 e 4 garantiscono che esiste una approssimazione lineare, l'ipotesi 4 è sensata poiché $y$ e $f$ hanno lo stesso numero di componenti quindi $Dyf$ è un matrice qudrata.\\
+	la funzione $f:X\times Y\rightarrow \R^m$ che $(x,y)\rightarrow f(x,y)$ ??????\\
+	cioè $\forall x\in X$ (sto fissando una x) $f^x:Y\rightarrow \R^m$ che $y\rightarrow f(x,y)$(sto variando la y), $Df^x\in Mat(m\times m)$
+
+	\observation Metodo degli zeri di Newton per troare gli zeri di una funzione o metofo delle tangenti.\\
+	\resizebox {\columnwidth} {!} {
+	\begin{tikzpicture}
+	\draw[->] (-1,0) -- (5,0) node[anchor=north west] {y};
+	\draw[->] (0,-1) -- (0,4) node[anchor=south east] {z};
+	\draw[domain=-1:4,smooth,variable=\x,blue] plot ({\x},{(1/8)*(\x*\x)-(\x)+1.9});
+	\end{tikzpicture}
+	}\\
+	Scelgo un punto $y_0$ ne prendo il valore sulla curva, disegno la tangente e chiamo $y_1$ l'intersezione con l'asse $y$. Itero il processo $y_n+1=y_n\frac{f(y_n)}{f'(y_n)}$\\
+	discorso al momento difficile per me....\\
+	\begin{proof}
+		Dobbiamo partire da $f(x,y)=0$ arrivare a $y=\varphi(x)$,vogliamo applicare un raginamento simile a quello della Metodo di Newton, passando però per il concetto di punto fisso, il teorema delle Contrazioni ci assicura che esiste unico.\\
+		cerchiamo quindi una contrazione $T$ il cui punto fisso sia soluzione di $f(x,y)=0$. $T$ è del tipo:\\
+		$T:?\times ?\rightarrow ?$\\
+		$(x,y)\rightarrow y-[D_yf(X_0,y_0)]^{-1}f(x,y)$, nota che non avere nella derivata lo stesso punto in cui si calcola la funzione (come è nel metodo di Newton) ha effetti "tragici" sulla velocità di convergenza, ma a noi interessa l'esistenza.\\
+		bisgna capire quali insiemi usare come insiemi di partenza e arrivo, devo essere scelti in modo da poter applicare il teoremma delle contrazioni. Bisogna scegliere sottoinsiemi di $R^n$ e $R^m$, scegliamo quindi delle sfere\\
+		$T:\overline{B(x_0,r_x)}\times\overline{B(y_0,r_y)}\rightarrow\overline{B(y_0,r_y)}$, scegliendo la chiusura delle sfere si è sicuri di lavorare in uno spazio metrico completo, poiché in $R^l$ completo $\Leftrightarrow$ chiuso e limitato.\\
+		come vengono invece scelti i raggi? sono scelti in modo che:\\
+		\begin{enumerate}
+			\item $T$ è ben definita
+			\item $\forall x \in \overline{B(x_0,r_x)} Tx: \overline{B(x_0,r_x)}\rightarrow\overline{B(y_0,r_y)}$ che $y\rightarrow T(x,y)$,\\
+		\end{enumerate}
+		cioè $T$ è una contrazione tale che $\forall x$ esiste un punto fisso, $\forall x$ associo a $y$ una x, e quindi na funzione.\\
+		$r_x,r_y$ devono essere sufficientemene piccoli per avere tali proprietà e per poterci lavorare sopra.\\
+		Abbiamo che $f(x,y)=0 \Leftrightarrow T(x,y)=y$\\
+		$T(x,y)=y\Leftrightarrow y=y-[D_yF(x_0,y_0)]^{-1}f(x,y)$\\
+		$[D_yF(x_0,y_0)]^{-1}f(x,y)\Leftrightarrow f(x,y)=0$\\
+		Per verificare che $T$ è una contrazione ne stimo la norma\\
+		$\norm{T(x,y_2)-T(x,y_1)} \le \sup\limits_{\widetilde{y}\in segmento}\norm{D_yT(x,\widetilde{y})}\norm{y_2-y_1} $  accrescimenti finiti.\\
+		Poichè le sfere sono insiemi convessi è stato possibile applicare il Teorema degli accresscimenti finiti.\\
+		Presa $T(x,y) = y-[D_yf(x_0,y_0)]^{-1}f(x,y)$, la derivo rispetto a $y$:
+		$$D_yT(x,y)= I_\R^m-[D_yf(x_0,y_0)]^{-1}D_yf(x,y) = $$
+		$$=[D_yf(x_0,y_0)]^{-1}][D_yf(x_0,y_0)-D_yf(x,y)]$$
+		Osserviamo che abbiamo ottenuto una matrice come costante moltiplicativa, al secondo membro abbiamo la differenza di due valori di una funzione, che per ipotesi è una funzione continua ($D_yf(x,y)$ continua), allora per $r_x$ e $r_y$ sufficientemente piccoli ho che:\\
+		$\norm{D_yT(x,y)} \le \frac{1}{2}$, è scelto questo valore poiché è comodo al fine di dimostrare la contrazione...\\
+		$$\norm{D_yT(x,y)} \le \norm{D_yf(x_0,y_0)]^{-1}} \norm{D_yf(x_0,y_0)-D_yf(x,y)}\le\frac{1}{2} $$  
+		$$\norm{T(x,y_2)-T(x,y_1)}\le\frac{1}{2}\norm{y_2-y_1} $$
+		Se dimostriamo che $T$ è ben definita abbiamo dimostrato che $T$ è una contrazione.\\
+		Per verificare che $T$ è en definita bisogna mostrare che $T(x,y)\subseteq\overline{B(y_0,r_y)}$ quindi si mostra che la distanza tra $T(x,y)$ e il centro è minore di $r_y$
+		$$\norm{T(x,y) - y_0}\le\norm{T(x,y)-T(x,y_0)}+\norm{T(x,y_0)-y_0} \le$$
+		$$\le\frac{1}{2}\norm{y-y_0}+\norm{y_0-[D_yf(x_0,y_0)]^{-1}f(x,y_0)-y_0}\le$$
+		$$\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-0}\le$$
+		$$\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-f(x_0,y_0)}\le$$
+		$$\le\frac{1}{2}r_y+\frac{1}{2}r_y\le r_y$$
+		Allora $T$ è ben definita perché $T(x,y)\in\overline{B(y_0,r_y)}$.\\
+		In conclusione con $\mathcal{X}=\overline{B(x_0,r_x)}$ e $\mathcal{Y}=\overline{B(y_0,r_y)}$ ho che $T:\mathcal{X}\times\mathcal{Y}\rightarrow\mathcal{Y}$ è tale che $\forall x\in\mathcal{X}$ la funzione $y\rightarrow T(x,y)$ è una contrazione e $\overline{B(y_0,r_y)}$ è completo.\\
+		quaolcosa sui completi.........\\
+		................................\\
+		..........................\\
+		A questo punto può essere applicato il teorema delle contrazioni:\\
+		$\forall x \in \mathcal{X}, \exists y \in\mathcal{Y}: f(x,y)=0$ allora chiamo $\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ che $x\rightarrow y$ è unica quindi $\varphi$ è una funzione.\\
+		Allora la funzione implicita esiste. La continuità direva direttamente dal teorema delle contrazioni: l'applicazione che al parametro associa il punto fisso è continua.\\
+		Per l'unicità si osservano le ipotesi 1 e 2, dove è scritto $\forall x$ ovvero scelta una qualunque $x$ la $y$ è unica quindi $\varphi$ è univocamente definita.
+		
+	\end{proof}
+\end{theorem}
 \proposition
 Sia $f:X\times Y\rightarrow \R^m$ con $X\in \R^n, Y\in \R^m$\\
 Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
