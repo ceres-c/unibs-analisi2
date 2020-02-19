@@ -14,16 +14,19 @@
 \usepackage{xparse}
 \usepackage{hyperref}
 
+\counterwithout{section}{chapter}
+%\renewcommand*\thesection{\arabic{section}}
+
 \begin{document}
 		
-\newtheorem{definition}{Definizione}
-\newtheorem{proposition}{Proposizione}
-\newtheorem{theorem}{Teorema}
-\newtheorem{observation}{Osservazione}
-\newtheorem{corollary}{Corollario}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{example}{Esempio}
-\newtheorem{exercise}{Esercizio}
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{proposition}{Proposizione}[section]
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{observation}{Osservazione}[section]
+\newtheorem{corollary}{Corollario}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{example}{Esempio}[section]
+\newtheorem{exercise}{Esercizio}[section]
 \newtheoremstyle{note}
   {} % space above note
   {} % space below note

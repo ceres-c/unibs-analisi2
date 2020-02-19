@@ -150,55 +150,6 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	\end{enumerate}
 \end{observation}
 
-\section{La Legge di Malthus}
-Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.
-$$ x'=k\cdot x$$
-dove $x$ è il numero di membri della popolazione e $k$ è una costante positiva legata alla prolificità della specie in esame, generalmente calcolata come differenza tra i tassi di natalità e di mortalità.\\
-Il problema di Cauchy è quindi
-$$\begin{cases}
-	x'=k\cdot x\\
-	x(t_0)=x_0\\
-\end{cases}
-\qquad\text{con $x\in \R, k>0 $ e $ x_0=0$}$$
-
-\begin{center}
-	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-	\pgfmathsetmacro\MAX{2}
-	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
-	\draw[domain=-2:2,smooth,variable=\x] plot ({\x},{\x}) node {$ x'=kx$};
-	\draw node at (0.5,0) {$|$};
-	\draw node at (1,0) {$|$};
-	\draw node at (1.5,0) {$|$};
-	\draw node at (0,0.5) {$-$};
-	\draw node at (0,1) {$-$};
-	\draw node at (0,1.5) {$-$};
-	\draw node[anchor=north] at (0.5,0) {$x_0$};
-	\draw node[anchor=north] at (1,0) {$x_0+h$};
-	\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
-	\draw node[anchor=east] at (0,0.5) {$ x'' $};
-	\draw node[anchor=east] at (0,1) {$ x''' $};
-	\draw node[anchor=east] at (0,1.5) {$ x''''$};
-	
-	\end{tikzpicture}% pic 1
-	\qquad % <----------------- SPACE BETWEEN PICTURES
-	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-	\pgfmathsetmacro\MAX{2}
-	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {t};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {x};
-	\end{tikzpicture}% pic 2
-\end{center}
-
-blablabla ....\\
-.......\\
-Limiti di questo modello:
-\begin{itemize}
-	\item la variabile $x$ dovrebbe variare in $\N$, poiché una popolazione ha un numero intero di elementi.
-	\item In molte specie è verosimile che il numero di nati al tempo $t$ dipenda dalla popolazione presente ad un tempo precedente $x(t-T), T>0$
-	\item Supporre che una popolazione abbia per sempre a disposizione risorse sufficienti può non essere realistico
-	\item Questo modello va bene quando si considerano intervalli di tempo molto lunghi.
-\end{itemize}
-
 \section{Teoria Locale}
 \begin{definition}
 	\label{def:loc_lips}
@@ -795,7 +746,7 @@ ESEMPIO:: CADUTA IN UN LIQUIDO\\
 .....\\
 .....\\
 .....\\
-\section{Equazioni Differenziali Ordinarie}
+\section{Equazioni Differenziali Lineari}
 \definition
 Sia $I\subseteq\mathbb{R}$ un intervallo e $n\in N$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1}, f:I\to\mathbb{C}$ si dice equazione differenziale ordinaria lineare di ordine $n$, l'equazione differenziale:
 $$x^{(n)}+a_{n-1}(t)\cdot x^{(n-1)}+\ldots+a_1(t)\cdot x'+a_0(t)x=f(t)$$
@@ -867,8 +818,52 @@ Data l'equazione
 $$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
 $x(t)=te^{\lambda t}$ risolve l'equazione omogenea $\Leftrightarrow$ $\lambda$ è soluzione dell'equazione caratteristica con molteplicità almeno ??????????.
 
+\section{Esempi}
+\subsection{La Legge di Malthus}
+Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.
+$$ x'=k\cdot x$$
+dove $x$ è il numero di membri della popolazione e $k$ è una costante positiva legata alla prolificità della specie in esame, generalmente calcolata come differenza tra i tassi di natalità e di mortalità.\\
+Il problema di Cauchy è quindi
+$$\begin{cases}
+	x'=k\cdot x\\
+	x(t_0)=x_0\\
+\end{cases}
+\qquad\text{con $x\in \R, k>0 $ e $ x_0=0$}$$
 
+\begin{center}
+	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
+	\pgfmathsetmacro\MAX{2}
+	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
+	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
+	\draw[domain=-2:2,smooth,variable=\x] plot ({\x},{\x}) node {$ x'=kx$};
+	\draw node at (0.5,0) {$|$};
+	\draw node at (1,0) {$|$};
+	\draw node at (1.5,0) {$|$};
+	\draw node at (0,0.5) {$-$};
+	\draw node at (0,1) {$-$};
+	\draw node at (0,1.5) {$-$};
+	\draw node[anchor=north] at (0.5,0) {$x_0$};
+	\draw node[anchor=north] at (1,0) {$x_0+h$};
+	\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
+	\draw node[anchor=east] at (0,0.5) {$ x'' $};
+	\draw node[anchor=east] at (0,1) {$ x''' $};
+	\draw node[anchor=east] at (0,1.5) {$ x''''$};
+	
+	\end{tikzpicture}% pic 1
+	\qquad % <----------------- SPACE BETWEEN PICTURES
+	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
+	\pgfmathsetmacro\MAX{2}
+	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {t};
+	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {x};
+	\end{tikzpicture}% pic 2
+\end{center}
 
-
-
-
+blablabla ....\\
+.......\\
+Limiti di questo modello:
+\begin{itemize}
+	\item la variabile $x$ dovrebbe variare in $\N$, poiché una popolazione ha un numero intero di elementi.
+	\item In molte specie è verosimile che il numero di nati al tempo $t$ dipenda dalla popolazione presente ad un tempo precedente $x(t-T), T>0$
+	\item Supporre che una popolazione abbia per sempre a disposizione risorse sufficienti può non essere realistico
+	\item Questo modello va bene quando si considerano intervalli di tempo molto lunghi.
+\end{itemize}
