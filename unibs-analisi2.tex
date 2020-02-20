@@ -1,23 +1,22 @@
 % !TEX encoding = UTF-8 Unicode
 
-\documentclass[a4paper,14pt,oneside]{book}
+\documentclass[a4paper,14pt,oneside,italian]{book}
 \usepackage[left = 3cm, right = 3cm]{geometry}
-\usepackage[italian]{babel}
+\usepackage{babel}
 \usepackage{graphicx}
 \usepackage{amsthm,amssymb}
 \usepackage[makeroom]{cancel}
 \usepackage[pdfencoding=auto]{hyperref}
-\usepackage{mathtools}
+\usepackage{mathtools,thmtools}
+\usepackage{cleveref}
 \usepackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
 \usepackage{accents}
 \usepackage{xparse}
 \usepackage{hyperref}
+\usepackage{etoolbox}
 
 \counterwithout{section}{chapter}
-%\renewcommand*\thesection{\arabic{section}}
-
-\begin{document}
 
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{definition}[theorem]{Definizione}
@@ -43,6 +42,7 @@
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Soluzione]}
   {\end{proof}}
 
+\begin{document}
 \newcommand{\norm}[1] {\left\|#1\right\|}
 \newcommand{\abs}[1] {\left|#1\right|}
 \newcommand{\brackets}[1] {\left\{#1\right\}}
@@ -83,6 +83,7 @@
 %   = 28
 \newcommand{\noaligneq}[1]{\noalign{\centering #1}}
 
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} (\nameref*{#1})}} % To reference stuff with its name appended
 
 \DeclareDocumentCommand{\funcdef}{m m o m o s o}{
   % This command allows formal function definition and require xparse

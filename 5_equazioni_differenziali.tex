@@ -36,7 +36,7 @@ Equazione differenziale ordinaria:\\
 	La soluzione di un'equazione differenziale può, analiticamente, essere definita su un intervallo $J\supset I$ ($I$ intervallo di definizione della funz. differenziale $f$). Non ha però senso considerare il suo comportamento al di fuori di $I$, in quanto non ha valore dal punto di vista del sistema. Per questo motivo $J$ sarà sempre considerato $J\subseteq I$
 \end{note}
 \begin{note}
-	dalla definizione \ref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
+	dalla \fullref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
 \end{note}
 \begin{example}
 	Presa l'equazione differenziale $ x'=1$, essa è risolta da $x(t) = t + \alpha$ per ogni $\alpha\in\R$
@@ -89,7 +89,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	Si considera un intervallo perché l'idea è di studiare l'andamento nel tempo e sarebbe difficile far previsioni con "buchi" di tempo
 \end{note}
 \begin{note}
-	La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la definizione \ref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione, ma i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
+	La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la \fullref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione, ma i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
 \end{note}
 \begin{definition}
 	soluzione massimale di un problema di Cauchy è una soluzione $$x_M:I_M\mapsto R^k$$ tale che nessun'altra soluzione della stessa equazione possa essere definita in un intervallo $I$ con $I_M \subset I$. Quindi è la soluzione definita sull'intervallo maggiore possibile.
@@ -119,7 +119,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \begin{proposition}
 	ogni problema di Cauchy di ordine $n$ è equivalente ad un problema di Cauchy del primo ordine
 	\begin{proof}
-		Dalla \ref{prop:equaz_n_equival_1}
+		Dalla \fullref{prop:equaz_n_equival_1}
 	\end{proof}
 \end{proposition}
 \begin{definition}[Equazione di Volterra]
@@ -151,7 +151,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \end{observation}
 
 \section{Teoria Locale}
-\begin{definition}
+\begin{definition}[Locale lipschitzianità]
 	\label{def:loc_lips}
 	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{localmente lipshitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
 	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
@@ -172,14 +172,14 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	\begin{proof}
 		Il prodotto cartesiano $I\times A$, essendo prodotto cartesiano di aperti in $\R^n$ con metrica euclidea (si suppone sia in uso questa metrica), è a sua volta un aperto. Questo risultato è dovuto alla definizione stessa del prodotto cartesiano di $\R$ con metrica euclidea.\\
 		% TODO scrivere proposizione poligonale capitolo 1. Magari anche proposizione prodotto cartesiano di aperti = aperto.
-		Chiamiamo ora $S=I\times A$ l'insieme di partenza della $f$. Grazie alla \ref{prop:polig_cong_aperto} sappiamo che esiste una poligonale interamente contenuta in $S$ congiungente due qualunque punti dell'aperto $S$.\\
-		È ora possibile applicare il \ref{teo:accresc_fin} ad uno qualunque dei segmenti formanti la poligonale appena individuata. Vale quindi la
+		Chiamiamo ora $S=I\times A$ l'insieme di partenza della $f$. Grazie alla \fullref{prop:polig_cong_aperto} sappiamo che esiste una poligonale interamente contenuta in $S$ congiungente due qualunque punti dell'aperto $S$.\\
+		È ora possibile applicare il \fullref{teo:accresc_fin} ad uno qualunque dei segmenti formanti la poligonale appena individuata. Vale quindi la
 		$$\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$$
-		che è direttamente comparabile alla definizione di locale lipschitzianità \ref{def:loc_lips} della funzione in ciascuno dei segmenti della poligonale, da cui la tesi.
+		che è direttamente comparabile alla \fullref{def:loc_lips} della funzione in ciascuno dei segmenti della poligonale, da cui la tesi.
 	\end{proof}
 \end{proposition}
 \begin{example}
-	La funzione $f:\R\mapsto\R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \ref{def:fun_lips}
+	La funzione $f:\R\mapsto\R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \fullref{def:fun_lips}
 \end{example}
 
 \subsection{Esistenza e Unicità}
@@ -284,7 +284,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
 	con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
 	\begin{enumerate}
-		\item $t_0\in \circdot{I}, x_0\in \circdot{A}$. Inoltre da \ref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
+		\item $t_0\in \circdot{I}, x_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
 		\item $f\in \cntclass{0}(I\times A; \R^n)$ 
 		\item $f$ è localmente Lipschitziana in $x\in A$ uniformemente rispetto a $t\in I$
 	\end{enumerate}
@@ -297,7 +297,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	Allora ho i seguenti risultati:
 	\begin{enumerate}
 		\item \textbf{Esistenza}:\\
-		da \ref{teo:peano} $\exists \delta>0$, con cui si identifica un $J=\realintervalclose{t_0-\delta}{t_0+\delta}$. Inoltre $\exists\,\varphi : J \to \R^n$ è soluzione con le proprietà date da Peano:
+		da \fullref{teo:peano} $\exists \delta>0$, con cui si identifica un $J=\realintervalclose{t_0-\delta}{t_0+\delta}$. Inoltre $\exists\,\varphi : J \to \R^n$ è soluzione con le proprietà date da Peano:
 		\begin{itemize}
 			\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
 			\item $\varphi(t_0)=x_0$
@@ -321,7 +321,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		Allora $\varphi_1(t)=\varphi_2(t)$\quad$\forall t \in(J_1\cap J_2)$\\
 		Cioè, se esistono due soluzioni, allora esse coincidono ovunque siano entrambe definite.
 		\item \textbf{Dipendenza continua dai dati}\\
-		Questa tesi verrà esposta successivamente in \ref{teo:cau_locale_part_2}
+		Questa tesi verrà esposta successivamente in \fullref{teo:cau_locale_part_2}
 	\end{enumerate}
 \end{theorem}
 
@@ -329,7 +329,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	\begin{note}
 		L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso mediante una funzione avente come parametro $x$ stesso.
 	\end{note}
-	Da \ref{def:equaz_volterra} sappiamo che la prima equazione del problema in ipotesi corrisponde all'integrale
+	Da \fullref{def:equaz_volterra} sappiamo che la prima equazione del problema in ipotesi corrisponde all'integrale
 	$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
 	Definiamo quindi $T$, funzione del tipo
 	\begin{equation}
@@ -360,7 +360,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		\item $\delta_1$ è raggio di un generico intervallo incluso in $I$ di partenza. $\delta$ deve essere minore di $\delta_1$ in quanto non è possibile uscire dall'intervallo $I$
 		\item $\frac{\rho}{V}$ è rapporto tra il raggio di $\overline{B(x_0,\rho)}$, sfera interamente contenuta in $A$, e $V$, valore massimo di $f$ ridotta all'intervallo di cui sopra e alla sfera $\overline{B}$.\\
 		Considerando il reciproco $\frac{V}{\rho}$, possiamo vederlo come una sorta di nuova costante di lips., riportata ad un intervallo più piccolo, non dipendente però da $\Delta f(x)$, ma dal valore di $f(x)$ stessa.
-		\item $1/L = \frac{\norm{x_2-x_1}}{\norm{f(t,x_2)-f(t,x_1)}}$ dalla \ref{def:loc_lips}, perché $f$ loc. lips. per ipotesi. Dà un'idea di quanto vari la $x$ rispetto alla variazione della $f(x)$
+		\item $1/L = \frac{\norm{x_2-x_1}}{\norm{f(t,x_2)-f(t,x_1)}}$ dalla \fullref{def:loc_lips}, perché $f$ loc. lips. per ipotesi. Dà un'idea di quanto vari la $x$ rispetto alla variazione della $f(x)$
 	\end{itemize}
 	Questo $\delta$, dunque, rappresenta, dal punto di vista concettuale, quale sia la più restrittiva ($\min$) tra tutte le possibili variazioni della $f(x)$ rispetto alla $x$.\\
 	A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
@@ -371,7 +371,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \hyperref[teo:contrazioni]{Teorema delle contrazioni}:
 	\begin{itemize}
 		\item $(X,d)$ è \textbf{spazio metrico completo}\\
-		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per la \ref{prop:compl_dist_spm_compl}.\qed
+		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per il \autoref{prop:compl_dist_spm_compl}.\qed
 		\item $T$ è \textbf{definita} (è possibile calcolarla)\\
 		L'abbiamo definita all'inizio dall'equazione di Volterra\qed
 		\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
@@ -411,11 +411,11 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			&\leq \abs{\int_{t_0}^t
 				\norm{f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)}
 				\integrald{\tau}}\\
-			\intertext{Per definizione di loc. lips. \ref{def:loc_lips} passo alle soluzioni $x_i$ di $f$, minorando}
+			\intertext{Per \fullref{def:loc_lips} passo alle soluzioni $x_i$ di $f$, minorando}
 			&\leq \abs{\int_{t_0}^t
 				L\cdot\norm{x_2(\tau)-x_1(\tau)}
 				\integrald{\tau}}\\
-			\intertext{Dalla \ref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
+			\intertext{Dalla \autoref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
 			&= \abs{\int_{t_0}^t % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 				L\cdot d_X(x_2,x_1)
 				\integrald{\tau}}\\
@@ -425,7 +425,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
 		Minoriamo questa distanza con la forma appena trovata \ref{equaz:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
 		$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
-		Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per definizione \ref{def:contrazione}.
+		Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per \fullref{def:contrazione}.
 		\end{proof}
 	\end{itemize}
 	È ora possibile applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} che garantisce l'\textbf{unicità} del punto fisso $x_* \in X$ per la $x = T(x)$, questo implica ovviamente che $T(x)$ abbia un'unica soluzione. Si ha dunque l'unicità della soluzione $x$ del problema di Cauchy in ipotesi sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, al quale $T$ è equivalente per definizione in quanto $T$ è \hyperref[def:equaz_volterra]{Equazione di Volterra}.
@@ -456,7 +456,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
 \end{proof}
 \begin{note}
-	La scelta di $\delta$ in \ref{equaz:cau_delta} potrebbe essere migliorata utilizzando il teorema \ref{teo:teo_iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
+	La scelta di $\delta$ in \ref{equaz:cau_delta} potrebbe essere migliorata utilizzando il \fullref{teo:teo_iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
 	% TODO magari la dimostrazione?
 \end{note}
 
@@ -521,7 +521,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \end{exercise}
 
 \begin{exercise}
-	Perchè il teorema \ref{teo:cau_locale_part_1} è chiamato Teorema di Cauchy \textbf{locale}?
+	Perchè il \fullref{teo:cau_locale_part_1} è chiamato Teorema di Cauchy \textbf{locale}?
 	\begin{solution}
 		È dovuto al fatto che il teorema fornisce informazioni solo in un intorno della condizione iniziale $t_0$, non è assicurata l'esistenza di un'unica funzione risolvente in un intervallo arbitrario.
 	\end{solution}
@@ -535,13 +535,17 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \subsection{Dipendenza Continua}
 Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di Cauchy è quello del valore assunto da una determinata grandezza fisica, diciamo $u_0$, misurata al tempo $t=t_0$. Poiché la misura di una grandezza fisica comporta inevitabilmente un errore di rilevazione (per quanto piccolo), è importante caratterizzare quei problemi di Cauchy tali che a fronte di piccole discrepanze $u_0 \neq v_0$ producano soluzioni $(I,u)\,(J,v)$ che differiscano ”poco” in $I\cap J$.
 \begin{lemma}[Lemma di Gronwall]
+	\label{lemma:gronwall}
 	Dati $a,b\in \R$ con $a < b$, siano:
 	\begin{itemize}
 		\item $\delta_0\in \realintervalclop{0}{+\infty}$
-		\item $\kappa,\,\delta:\realintervalclose{a}{b}\mapsto \R$\\
-			$\kappa(t)\geq 0,\,\delta(t) \geq 0$ funzioni continue $\forall t \in \realintervalclose{a}{b}$ con:\\
-			$$\qquad \delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$$
+		\item $\hspace{-0.5em}\left.\begin{array}{ll}
+				\kappa,\,\delta:\realintervalclose{a}{b}\mapsto \R \\
+				\kappa(t)\geq 0,\,\delta(t) \geq 0$ funzioni continue $\forall t \in \realintervalclose{a}{b}
+		\end{array} \quad\right\}$\quad cioè \quad$\kappa,\,\delta\in\cntclass{0}(\realintervalclose{a}{b},\R^{+})$
 	\end{itemize}
+	con:
+	$$\qquad \delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$$
 	Allora
 	$$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}} \quad \forall t \in \realintervalclose{a}{b}$$
 	Questo lemma permette di limitare una funzione che soddisfa una disuguaglianza integrale con la soluzione della corrispondente equazione. Ci si porta da una stima implicita di $\delta$ (sotto il segno di integrale) ad una stima esplicita.
@@ -581,6 +585,9 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{itemize}
 	\end{proof}
 \end{lemma}
+\begin{exercise}
+	Verificare che la funzione $\Delta$ nella dimostrazione del \fullref{lemma:gronwall} è derivabile
+\end{exercise}
 
 \begin{theorem}[Teorema di Cauchy Locale (seconda parte)]
 	\label{teo:cau_locale_part_2}
@@ -596,7 +603,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		Pensando $t$ come tempo, cioè una delle applicazioni più classiche, questo implica che non si possano fare previsioni a lungo termine con sistemi diversi.
 	\end{note}
 	\begin{proof}
-		
+
 	\end{proof}
 \end{theorem}
 
