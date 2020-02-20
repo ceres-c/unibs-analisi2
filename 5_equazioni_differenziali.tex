@@ -533,20 +533,52 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \end{exercise}
 
 \subsection{Dipendenza Continua}
+Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di Cauchy è quello del valore assunto da una determinata grandezza fisica, diciamo $u_0$, misurata al tempo $t=t_0$. Poiché la misura di una grandezza fisica comporta inevitabilmente un errore di rilevazione (per quanto piccolo), è importante caratterizzare quei problemi di Cauchy tali che a fronte di piccole discrepanze $u_0 \neq v_0$ producano soluzioni $(I,u)\,(J,v)$ che differiscano ”poco” in $I\cap J$.
 \begin{lemma}[Lemma di Gronwall]
-	Dati $a,b\in \R$ con $a\le b$ siano $\delta_0\in \left[ 0;+\infty \right]$ e $\delta,\kappa:\left[a,b\right]\to \R$ funzioni continue su $\left[a,b\right]$ con $\delta(t)\ge 0$,$\kappa(t)\ge 0 \quad \forall t\in\left[ a,b\right] $ e $\delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$\\
+	Dati $a,b\in \R$ con $a < b$, siano:
+	\begin{itemize}
+		\item $\delta_0\in \realintervalclop{0}{+\infty}$
+		\item $\kappa,\,\delta:\realintervalclose{a}{b}\mapsto \R$\\
+			$\kappa(t)\geq 0,\,\delta(t) \geq 0$ funzioni continue $\forall t \in \realintervalclose{a}{b}$ con:\\
+			$$\qquad \delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$$
+	\end{itemize}
 	Allora
-	$$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}}$$
-	Questo teorema porta da una stima implicita di $\delta$(sotto il segno di integrale) ad una stima esplicita 
+	$$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}} \quad \forall t \in \realintervalclose{a}{b}$$
+	Questo lemma permette di limitare una funzione che soddisfa una disuguaglianza integrale con la soluzione della corrispondente equazione. Ci si porta da una stima implicita di $\delta$ (sotto il segno di integrale) ad una stima esplicita.
 	\begin{proof}
-		sia $\delta_0 > 0$. Sia $\Delta(t)=\delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$.\\
-		Vale per ipotesi che $\delta(t)\le\Delta(t)=\delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$\\
-		Sfruttando la derivata di $ln(\Delta(t))$ si ottiene $\frac{d}{\integrald{t}}(ln(\Delta(t)))= \frac{\Delta'(t)}{\Delta(t)}=\frac{\kappa(t)\delta(t)}{\Delta(t)}$, ed il termine $\frac{\delta(t)}{\Delta(t)}\le 1$, Integrando il primo e l'ultimo termine
-		$$\int_{a}^{t}\left( \frac{d}{\integrald{t}}\left(ln(\Delta(t))\right) \right)\le\int_{a}^{t}\kappa(\tau)\integrald{\tau}$$
-		$$ln(\Delta(t))\le ln(\delta_0)+\int_{a}^{t}\kappa(\tau)\integrald{\tau}$$
-		$$ \Delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}} $$
-		Da cui la tesi.
-		Se $\delta_0=0$, ponendo $\Delta(t)=\epsilon+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$ si ottiene $\delta(t)\epsilon$
+		Dividiamo in due casi
+		\begin{itemize}
+			\item Se $\delta_0>0$\\
+				Sia $\Delta(t) = \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$. Prendiamo ora il logaritmo di $\Delta(t)$, cioè $\ln{\bigl(\Delta(t)\bigr)}$, e deriviamolo con le regole classiche
+				\begin{align*}
+					\frac{d}{dt}\ln{\bigl(\Delta(t)\bigr)} &= \frac{\Delta'(t)}{\Delta(t)}\\
+					&= \frac{\frac{d}{dt}\delta_0 + \frac{d}{dt}\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}}{\Delta(t)}
+					\intertext{Il primo addendo è derivata di costante, il secondo corrisponde all'argomento dell'integrale per teorema fondamentale del calcolo integrale}
+					&= \frac{0+\kappa(t)\delta(t)}{\Delta(t)} = \kappa(t)\frac{\delta(t)}{\Delta(t)}
+					\intertext{Essendo poi, per ipotesi, $\delta(t)\leq\Delta(t)\implies\frac{\delta(t)}{\Delta(t)}\leq 1$}
+					&\leq \kappa(t)
+				\end{align*}
+				Integrando il primo e l'ultimo termine
+				\begin{align*}
+					\int_{a}^{t}\left( \frac{d}{d\tau} \ln \bigl(\Delta(\tau)\bigr) \right)\integrald{\tau} &\leq \int_{a}^{t}\kappa(\tau)\integrald{\tau}\\
+					\ln \bigl(\Delta(t)\bigr) - \ln \bigl(\Delta(a)\bigr) &\leq \int_a^t \kappa(\tau)\integrald{\tau}
+					\intertext{da definizione di $\Delta(t)$, $\Delta(a) = \delta_0$}
+					\ln \bigl(\Delta(t)\bigr) &\leq \ln(\delta_0) + \int_a^t \kappa(\tau)\integrald{\tau}
+					\intertext{Passando all'esponenziale}
+					e^{\ln \bigl(\Delta(t)\bigr)} &\leq e^{\bigl( \ln(\delta_0) + \int_a^t \kappa(\tau)\integrald{\tau} \bigr)}\\
+					\Delta(t) &\leq e^{\ln(\delta_0)} \cdot e^{\int_a^t \kappa(\tau)\integrald{\tau}}\\
+					\Delta(t) &\leq \delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}}
+				\end{align*}
+				Da cui la tesi\\
+			\item Se $\delta_0 = 0$\\
+				Minoriamo, poiché $\delta_0 = 0$, con un $\epsilon > 0$
+				$$\delta(t) \leq 0 + \int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau} \leq \epsilon + \int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau} \qquad \forall \epsilon > 0$$
+				Essendo $\epsilon > 0$, mi trovo con una forma analoga al caso precedente, dunque
+				$$\delta(t) \leq \epsilon \cdot e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}} \qquad \forall \epsilon > 0$$
+				Dovendo essere $\delta(t) \leq \epsilon \quad \forall \epsilon > 0$, posso concludere che
+				$$\delta(t) \leq 0$$
+				Ma, per ipotesi, $\delta(t) \geq 0 \implies \delta(t) = 0$
+		\end{itemize}
 	\end{proof}
 \end{lemma}
 
