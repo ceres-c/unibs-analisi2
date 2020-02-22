@@ -284,7 +284,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
 	con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
 	\begin{enumerate}
-		\item $t_0\in \circdot{I}, x_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
+		\item $t_0\in \circdot{I},\:x_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
 		\item $f\in \cntclass{0}(I\times A; \R^n)$ 
 		\item $f$ è localmente Lipschitziana in $x\in A$ uniformemente rispetto a $t\in I$
 	\end{enumerate}
@@ -541,7 +541,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\item $\delta_0\in \realintervalclop{0}{+\infty}$
 		\item $\hspace{-0.5em}\left.\begin{array}{ll}
 				\kappa,\,\delta:\realintervalclose{a}{b}\mapsto \R \\
-				\kappa(t)\geq 0,\,\delta(t) \geq 0$ funzioni continue $\forall t \in \realintervalclose{a}{b}
+				\kappa(t)\geq 0,\,\delta(t) \geq 0 \text{ funzioni continue } \forall t \in \realintervalclose{a}{b}
 		\end{array} \quad\right\}$\quad cioè \quad$\kappa,\,\delta\in\cntclass{0}(\realintervalclose{a}{b},\R^{+})$
 	\end{itemize}
 	con:
@@ -587,6 +587,9 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{lemma}
 \begin{exercise}
 	Verificare che la funzione $\Delta$ nella dimostrazione del \fullref{lemma:gronwall} è derivabile
+	\begin{solution}
+		È possibile derivare la $\Delta$ perché, da \Cref{ex:funz_derivabili}, la somma di funzioni derivabili resta derivabile ed il secondo addendo è derivabile per \fullref{teo:fondament_calcolo_integ}
+	\end{solution}
 \end{exercise}
 
 \begin{theorem}[Teorema di Cauchy Locale (seconda parte)]
@@ -594,7 +597,12 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	Si considerino i seguenti problemi di Cauchy con condizione iniziale individuata nello stesso istante:
 	$$(1)\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\qquad
 	(2)\begin{cases}y'=g(t,y)\\y(t_0)=y_0\end{cases}$$
-	con $f,g:I\times A \to \R^n$ e soddisfacenti le ipotesi di questo teorema.\\
+	con $f,g:I\times A \to \R^n$ e soddisfacenti le ipotesi di \fullref{teo:cau_locale_part_1}, cioè:
+	\begin{enumerate}
+		\item $t_0\in \circdot{I},\:x_0,y_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
+		\item $f,g\in \cntclass{0}(I\times A; \R^n)$
+		\item $f,g$ sono localmente Lipschitziane in $x\in A$ uniformemente rispetto a $t\in I$
+	\end{enumerate}
 	Allora esiste un $\delta >0$ tale che sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \realintervalclose{t_0-\delta}{t_0+\delta}$ vale:
 	$$\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}$$
 	dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
@@ -603,67 +611,16 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		Pensando $t$ come tempo, cioè una delle applicazioni più classiche, questo implica che non si possano fare previsioni a lungo termine con sistemi diversi.
 	\end{note}
 	\begin{proof}
+		Sia $f$ che $g$ soddisfano le ipotesi del \fullref{teo:cau_locale_part_1}, quindi esistono due soluzioni:
+		\begin{itemize}
+			\item $\varphi:\realintervalclose{t_0-\delta_f}{t_0+\delta_f}\mapsto\R$ del problema (1)
+			\item $\psi:\realintervalclose{t_0-\delta_g}{t_0+\delta_g}\mapsto\R$ del problema (2)
+		\end{itemize}
+		Sia dunque $\delta = \min\brackets{\delta_f,\delta_g}$, da cui $J=\realintervalclose{t_0-\delta_g}{t_0+\delta_g}$.
 
+		Gli insiemi $\varphi(J)$ e $\psi(J)$ sono compatti perché $J$ è compatto e per \fullref{teo:weier_generale}.
 	\end{proof}
 \end{theorem}
-
-
-Possimao a questo punto applicare il teorema delle Contrazioni allora $T$ ha un unico punto fisso allora l'equazione integrale ha un unica soluzione allora esiste la soluzione del problema di Cauchy e su $\left[t_0-\delta,t_0+\delta\right]$ possiamo gia dire che la soluzione  è unica.\\
-	MA QUANTO CAVOLO è LUNGA FORSE SONO A METà\\
-	\begin{center}
-		\begin{tikzpicture}[scale=2]
-		\draw[->] (-0.5,0) -- (2,0) node[anchor=north west] {$t$};
-		\draw[->] (0,-0.5) -- (0,2) node[anchor=south east] {$x$};
-		%\draw[domain=0:2,smooth,variable=\x] plot ({\x},{1});
-		%\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{-1});
-		\draw node at (0.5,0) {$\bullet$};
-		\draw node[anchor=north] at (0.5,0) {$t_0-\delta$};
-		\draw node at (1,0) {$\bullet$};
-		\draw node[anchor=north] at (1,0) {$t_0+\delta$};
-		\draw node at (1.5,0) {$\bullet$};
-		\draw node[anchor=north] at (1.5,0) {$t_0$};
-		%\draw node at (0,1) {$\circ$};
-		\end{tikzpicture}% pic 1
-	\end{center}
-	FINIRE DISEGNO......\\
-	OSS:: Passando da (a-), (d-) abbiamo ristretto sempre più il range di valori che $\delta, r$ possono assumere, così che alla fine è rimasto un intervallo sul quale è applicabile il teorema delle Contrazioni.\\
-	Abbiamo trovato un intervallo $\left[t_0-\delta,t_0+\delta\right]$ in cui la soluzione esiste. Adesso osserviamo cosa accade prima a destra e poi a sinistra dell'intervallo con un ragionamento analogo.\\
-	Soluzioni che sono coincidenti(cioè unica) in un intervallo possono non esserlo al di fuori dello stesso. Cauchy locale ci assicura che questo non può succedere.\\
-	Sia per assurdo $t_M$ l'ultimo istante fino a cui $\varphi_1,\varphi_2$ coincidono, cioè: $t_M = \sup \left\{t\in I:t\ge t_0, \varphi_1(\tau)=\varphi_2(\tau), \forall \tau \in \left[t_0,t\right[\right\}$.\\
-	Cerchiamo di mostrare o che non c'è o che è alla fine dell'intervallo $I$.\\
-	Se si considera il problema di Cauchy:
-	$\left\{\begin{matrix} x'=f(t,x(t))\\x(t_M)=x_{t_M}\end{matrix}\right.$. Possiamo applicare quanto trovato per il punto uno della tesi, cioè esiste un intervallo contenente $t_M$ nella sua parte interna in cui la soluzione esiste ed è unica.\\
-	OSS:: $t_M$ esiste sempre poiché è il $sup$ di un insieme non vuoto, inoltre $t_M\ge t_0+\delta$ è certamente $t_M\in \overline{I}$\\
-	Possono verificarsi due casi, o $t_M$ è sul bordo di $I$ ed in questo caso la dimostrazione è finita poiché fino al bordo dell'intervallo le soluzioni coincidono.
-	Oppure $T_M$ è nella parte interna dell'intervallo quindi $t_m\ne\sup I\Rightarrow t_M\in\circdot{I}$, e se è u n punto interno per l'intervallo allora è anche un punto di accumulazione per lo stesso, è quindi possibile calcolare $\lim\limits_{t\to t_M^{-}}\varphi_1(t)\quad\lim\limits_{t\to t_M^{-}}\varphi_2(t)$ ma entrambi i limiti devono essere uguali a $x_M$ poiché sia $\varphi_1,\varphi_2$ sono soluzioni al problema  di Cauchy e devono quindi soddisfare la condizione iniziale, anche perché fino a $t_M$ le due soluzioni coincidono e quindi il loro limite deve essere lo stesso.\\
-	Riguardo $x_M$ si può dire che:
-	\begin{enumerate}
-		\item se $x_M = A\Rightarrow$ le soluzioni coincidono fino alla fine dell'insieme $A$.
-		\item se $x_m\in\circdot{A}$ abbiamo esattamente le ipotesi del teorema di Cauchy locale, per quanto visto si ha necessariamente che:\\
-		$\exists \delta_M>0,\exists \varphi_M:\left[t_M-\delta_M,t_0+\delta_M\right]\to \R^n$ che è soluzione del nuovo problema impostato, UNICA per quanto detto sull'intervallo.
-	\end{enumerate} 
-	Applicando il ragionamento fino a quando non si raggiungono i bordi di $I$ e di $A$ abbiamo dimostrato che se esistono più soluzioni allora queste coincidono dove sono definite entrambe.\\
-	FATTO IL SECONDO PUNTO DEL TEOREMA.\\
-	Dati
-	$$(P_f):\left\{\begin{matrix} x'=f(t,x(t))\\x(t_0)=x_{0}\end{matrix}\right.\quad	(P_g):\left\{\begin{matrix} y'=f(g,y(t))\\y(t_0)=y_{0}\end{matrix}\right.$$
-	Siano $\varphi$ soluzione di $P_f$, $\psi$ soluzione di $P_g$, bisogna stimare quanto queste due soluzioni di due problemi con la condizione iniziale allo stesso istante distano.
-	$$\varphi:\left[t_0-\delta_f,t_0+\delta_f\right]\to \R^n$$
-	$$\psi:\left[t_0-\delta_g,t_0+\delta_g\right]\to \R^n$$
-	chiamo $\delta=\min{\delta_f,\delta_g}$ che sicuramente soddisfa entrambe. Per stimare la distanza tra le soluzioni valuto:
-	$$
-	\norm{\varphi(t)-\psi(t)}=
-	\norm{ x_0+\int_{t_0}^t f(\tau,\varphi(\tau))\integrald{\tau} - y_0 - \int_{t_0}^t g(\tau,\psi(\tau))\integrald{\tau}}
-	$$
-	linearità integrale disuguaglianza norma... modulo per i differenziali ....\\
-	$$ \norm{x_0-y_0}+\abs{\int_{t_0}^{t} \norm{f(\tau,\varphi(\tau))-g(\tau,\psi(\tau))}\integrald{\tau}}\le$$
-	adesso all'interno dell'integrale aggiungo e tolgo la quantità $f(\tau,\psi(\tau))$ e applico la disuguaglianza triangolare riarrangiando i termini
-	$$ \norm{x_0-y_0}+\abs{\int_{t_0}^{t} \norm{f(\tau,\varphi(\tau))-f(\tau,\psi(\tau))}+\norm{f(\tau,\psi(\tau))-g(\tau,\psi(\tau))}\integrald{\tau}}\le$$
-	$$ \norm{x_0-y_0} + \norm{f-g}_{c^0}\abs{t-t_0} +\abs{\int_{t_0}^{t} L\norm{\varphi(\tau)-\psi(\tau)} \integrald{\tau}}$$
-	per comodità restringiamo la trattazione al caso $t>t_0$ sparisce il modulo. Riscrivo il primo e l'ultimo membro della disuguaglianza
-	$$ \norm{\varphi(t)-\psi(t)}\le  \left[ \norm{x_0-y_0} + \delta\norm{f-g}_{c^0}\right] +\abs{\int_{t_0}^{t} L\norm{\varphi(\tau)-\psi(\tau)} \integrald{\tau}}$$
-	$$ \left( \delta(t)\le\delta_0+\int_{t_0}^t \kappa(\tau)\delta(\tau)\integrald{\tau} \right)::Gronwall$$
-	$$ \norm{\varphi(t)-\psi(t)}\le\left[\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}}\right]+e^{L\abs{t-t_0}}$$
-	QUESTO TEOREMA è TROPPO DA PRO.
 
 ESEMPIO: DECADIMENTO RADIOATTIVO\\
 Il decadimento di una sostanza radioattiva è ben descritto da $ x'=-k\cdot x$ dove $x$ è la quantità di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\

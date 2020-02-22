@@ -228,15 +228,101 @@ $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 
 
 \section{Successioni e Completezza}
-%TODO This section is a placeholder
+\begin{definition}
+	% TODO Definizione successione
+\end{definition}
+\begin{definition}
+	% TODO Successione limitata
+\end{definition}
+\begin{definition}
+	% TODO Successione convergente
+\end{definition}
+\begin{proposition}
+	\label{prop:succ_conv_lim}
+	Data la successione $x: \N \mapsto X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
+	$$\lim\limits_{n\rightarrow+\infty}x_n=x_\infty\iff\forall\varepsilon > 0\;\;\exists\nu\in\N:\quad\forall n>\nu\;\;d(x_n,x_\infty)<\varepsilon$$
+	\begin{proof}
+		% TODO dimostrazione
+	\end{proof}
+\end{proposition}
+\subsection{Insiemi Compatti}
+\begin{definition}[Insieme Compatto]
+	\label{def:compatto}
+	Sia $(X,d)$ uno spazio metrico e sia $A \subseteq X$. $A$ è compatto se e solo se ogni successione di elementi di $A$ ammette una sottosuccessione avente limite in $A$.
+	\begin{note}
+		Questa è la definizione di \textbf{Compattezza per Successioni}, in spazi più generali può essere necessario utilizzare una definizione più debole che, nel caso degli spazi metrici, coincide con la precedente.
+	\end{note}
+\end{definition}
 
 \section{Limiti e Continuità}
-\definition
-Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l\in{Y}$ \\
-$\lim\limits_x\rightarrow{x_0} = l \rightleftharpoons \forall{\epsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x\ne{x_0} : d_y(f(x),l)<\epsilon$
+\begin{definition}
+	Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l\in{Y}$ \\
+	$\lim\limits_{x \rightarrow x_0} = l \rightleftharpoons \forall{\varepsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x\ne{x_0} : d_y(f(x),l)<\varepsilon$
+\end{definition}
 
-\proposition
-Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l'\in{Y}$,$l''\in{Y}$  \\
+\begin{proposition}
+	Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l'\in{Y}$,$l''\in{Y}$
+\end{proposition}
+
+\begin{definition}[Funzione Continua]
+	\label{def:funz_cont}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e sia $x_0 \in A$
+	\begin{equation*}
+		\begin{gathered}
+			f \text{ è \textbf{continua} in } x_0 \iff\\
+			\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \text{ vale } d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
+		\end{gathered}
+	\end{equation*}
+
+	\begin{center}
+		$f$ è \textbf{continua} in $A\bydef$\\
+		$f$ è continua \textbf{in ogni punto} di $A$
+	\end{center}
+	\begin{note}
+		Non andrebbe detto semplicemente $f$ \textit{è continua} perché la continuità dipende in modo essenziale dall'insieme di punti su cui la funzione viene considerata. In assenza di ulteriori specificazioni, spesso si sottointende che l'insieme in esame è l'intero dominio della funzione.
+	\end{note}
+	\begin{note}
+		Ha senso valutare la continuità di una funzione esclusivamente nell'insieme in cui è definita. Quindi una frase come:\\
+		\textit{la funzione} $x \mapsto \frac{1}{x}$ \textit{è discontinua in} $0$,\\
+		non è (a rigore) sensata. Andrebbe riformulata come:\\
+		\textit{la funzione} $x \mapsto \frac{1}{x}$ \textit{non può essere estesa ad una funzione definita e continua anche in} $0$.
+	\end{note}
+	\begin{note}
+		La continuità di una funzione dipende in modo esssenziale anche dalla distanza adottata, tuttavia è prassi sottointendere questa precisazione, soprattutto per funzioni $\R^n \mapsto \R^n$, se la distanza adottata è quella Euclidea.
+	\end{note}
+\end{definition}
+
+\begin{theorem}[Teorema generale di Weierstrass]
+	\label{teo:weier_generale}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
+	$$\left.\begin{array}{ll}
+		K \text{compatto} \\
+		f \text{continua su } K
+		\end{array} \quad\right\} \implies f(K) \text{compatto}$$
+	\begin{proof}
+		Siano le successioni
+		\begin{itemize}
+			\item $y: \N \mapsto Y$ tale che $y_n \in f(K) \;\forall n \in \N$, cioè $\forall n \in \N\;\exists x_n \in K: f(x_n) = y_n$
+			\item $x: \N \mapsto X$ tale che $x_n \in K\;\forall n \in \N$
+		\end{itemize}
+		\begin{note}
+			Abbiamo una successione che, attraverso la $f$ (non direttamente: le successioni non sono $X \mapsto Y$!), associa indirettamente valori in $K \subseteq X$ a valori in $f(K) \subseteq Y$
+		\end{note}
+		La successione $x$ ammette una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$ dalla \fullref{def:compatto}, avendo $K$ compatto per ipotesi, ed essendo $x$ a valori in $K$.\\
+		Data la continuità di $f$ in $K$, abbiamo $y_{n_k} = f(x_{n_k}) \in f(K)$, ma essendo $x_{n_k}$ convergente ad $\overline{x}$, anche $y_{n_k}$ converge, verificando così la definizione di spazio Compatto.
+	\end{proof}
+	\begin{proof} (Alternativa)\\
+		La successione $x$ ammette una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$, dunque da \Cref{prop:succ_conv_lim}:
+		$$\lim\limits_{n\rightarrow+\infty}x_n=x_*\iff\forall\eta > 0\;\;\exists\nu\in\N:\quad\forall n>\nu\;\;d(x_n,x_*)<\eta$$
+		Dalla \fullref{def:funz_cont} e sapendo che $f(x)$ è continua, sappiamo che:
+		$$\forall\varepsilon > 0\;\;\exists\delta > 0:\quad\forall x \in K\;\;d_X (x,x_*)<\delta\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon$$
+		Unisco ora le due definizioni:
+		$$\forall \varepsilon > 0\;\;\exists \nu \in \N:\quad \forall n > \nu\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon$$
+		Che equivale, per come è definita $y_n$, a
+		$$\lim\limits_{n\rightarrow +\infty}y_n = y_*$$
+		Cioè la definizione di successione convergente. Ho dunque individuato una sottosuccessione convergente per ogni successione in $f(K)$, verificando così la definizione di spazio Compatto.
+	\end{proof}
+\end{theorem}
 
 \section{Il Teorema delle Contrazioni}
 \begin{definition}[Contrazione]

@@ -46,6 +46,16 @@ $f$ è differenziabile $\Leftrightarrow$ $\exists m\in \R $ t.c. $f(x_0+h)=f(x_0
 ...\\
 ...\\
 ...\\
+\begin{exercise}
+	\label{ex:funz_derivabili}
+	Formulare in modo rigoroso e dimostrare:
+	\begin{enumerate}
+		\item La somma di funzioni parzialmente derivabili è parzialmente derivabile.
+		\item La composizione di funzioni parzialmente derivabili è parzialmente derivabile.
+		\item Prodotto e rapporto, quando definiti, di funzioni parzialmente derivabili sono funzioni parzialmente derivabili.
+	\end{enumerate}
+	% TODO soluzione
+\end{exercise}
 
 \section{Derivata Totale}
 \definition
@@ -756,10 +766,12 @@ Se $x_0$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda_1,\ld
 \section{Il caso $n=2,\,m=1$}
 %TODO This section is a placeholder
 \section{Derivate e Integrali}
-\proposition{Teorema Fondamentale del Calcolo Integrale}
-Sia $I\subseteq \R$ un intervallo e sia $x_0\in I$. Data $f\in c^0(I;R)$ la funzione:\\
-$\begin{array}{rcl} F: I & \to & \R \\ x & \to & \int_{x_0}^{x}f(t)\integrald{t} \end{array}$\\
-Si ha $F\in \cntclass{1}(I;R)$ e $F'(x)=f(x)$ $\forall x \in I$
+\begin{proposition}[Teorema Fondamentale del Calcolo Integrale]
+	\label{teo:fondament_calcolo_integ}
+	Sia $I\subseteq \R$ un intervallo e sia $x_0\in I$. Data $f\in c^0(I;R)$ la funzione:
+	$$\begin{array}{rcl} F: I & \to & \R \\ x & \to & \int_{x_0}^{x}f(t)\integrald{t} \end{array}$$
+	Si ha $F\in \cntclass{1}(I;R)$ e $F'(x)=f(x)$ $\forall x \in I$
+\end{proposition}[]
 \proposition
 Sia $A\subseteq \R^n$ un aperto, data $f\in \cntclass{0}(A\times \R;R)$ la funzione \\
 $\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to & \int_{\alpha}^{\beta}f(x,t)\integrald{t} \end{array}$\\
