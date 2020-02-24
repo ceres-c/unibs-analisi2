@@ -127,7 +127,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	Ogni problema di Cauchy del primo ordine con secondo membro continuo
 	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
 	è equivalente ad un'equazione integrale del tipo
-	$$x(t)=x_0+\int_{t_0}^{t}f(\tau,x(\tau))\integrald{\tau}$$
+	$$x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}$$
 	Questa equazione viene denominata \textbf{equazione integrale di Volterra}.
 	\begin{proof}
 		Integrando ambo i membri della prima equazione del problema di ottiene:
@@ -277,7 +277,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	x(0)=-3\end{matrix}\right.$ allora la funzione $\varphi(x)=-x+3$ sarebbe stata soluzione nell'intervallo $J=\left] -\infty,0 \right[ $
 \end{example}
 
-\begin{theorem}[Teorema di Cauchy Locale (prima parte)]
+\begin{theorem}[Teorema di Cauchy Locale - Prima Parte)]
 	\label{teo:cau_locale_part_1}
 	In sostanza si dimostra che il problema di Cauchy è ben posto nel senso di Hadamard.\\
 	Si consideri il problema di Cauchy:
@@ -292,7 +292,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		Le prime due ipotesi garantiscono l'esistenza, grazie al Thm. di Peano. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
 	\end{note}
 	\begin{note}
-		Per verificare l'ultima ipotesi si ricordino \ref{prop:fc1_loc_lips} e \hyperlink{note:if_lips_then_loclips}{se $f$ \textbf{lips.} $\implies f$ \textbf{loc. lips.}}
+		Per verificare l'ultima ipotesi si ricordino \fullref{prop:fc1_loc_lips} e \hyperlink{note:if_lips_then_loclips}{se $f$ \textbf{lips.} $\implies f$ \textbf{loc. lips.}}
 	\end{note}
 	Allora ho i seguenti risultati:
 	\begin{enumerate}
@@ -330,7 +330,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso mediante una funzione avente come parametro $x$ stesso.
 	\end{note}
 	Da \fullref{def:equaz_volterra} sappiamo che la prima equazione del problema in ipotesi corrisponde all'integrale
-	$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
+	$$x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}$$
 	Definiamo quindi $T$, funzione del tipo
 	\begin{equation}
 		\label{equaz:cauch_proof_T}
@@ -346,7 +346,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	Sia ora
 	$$V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}$$
 	\begin{note}
-		V è il massimo valore assunto dalla derivata prima ($x'=f(t,x))$) di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \ref{prop:int_compatto}).\\% TODO in cap. 1, prop 2.35: compatto <=> chiuso+limtato (intervallo)
+		V è il massimo valore assunto dalla derivata prima ($x'=f(t,x))$) di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \fullref{prop:int_compatto}).\\% TODO in cap. 1, prop 2.35: compatto <=> chiuso+limtato (intervallo)
 	\end{note}
 	\noindent Definiamo dunque un generico $\delta>0$
 	\begin{equation}
@@ -368,10 +368,10 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	\begin{note}
 		Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra} sarebbe possibile sceglierla non continua, ma non si considera il caso.
 	\end{note}
-	Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \hyperref[teo:contrazioni]{Teorema delle contrazioni}:
+	Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \fullref{teo:contrazioni}:
 	\begin{itemize}
 		\item $(X,d)$ è \textbf{spazio metrico completo}\\
-		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per il \autoref{prop:compl_dist_spm_compl}.\qed
+		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per il \fullref{prop:compl_dist_spm_compl}.\qed
 		\item $T$ è \textbf{definita} (è possibile calcolarla)\\
 		L'abbiamo definita all'inizio dall'equazione di Volterra\qed
 		\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
@@ -379,10 +379,10 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \realintervalclose{t_0-\delta}{t_0+\delta}$
 		\begin{proof}
 			$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fodamentale del Calcolo Integrale.\\
-			La seconda condizione si verifica prendendo la \ref{equaz:cauch_proof_T} e calcolando la norma di entrambi i termini
+			La seconda condizione si verifica prendendo la \fullref{equaz:cauch_proof_T} e calcolando la norma di entrambi i termini
 			\begin{align*}
 				\norm{y(t)-x_0} &= \norm{\int_{t_0}^t f(\tau,x(\tau))\integrald{\tau} }
-				\intertext{posso ora minorare con il valore assoluto della norma dell'argomento (spiegazione in \ref{ex:cau_loc_abs_of_norm})}
+				\intertext{posso ora minorare con il valore assoluto della norma dell'argomento (spiegazione in \fullref{ex:cau_loc_abs_of_norm})}
 				&\leq \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau} } \tageq\label{equaz:cau_loc_abs_of_norm}
 				\intertext{$\norm{f(\tau,x(\tau))}$ è sicuramente minorato da $V$ per definizione di quest'ultimo, dunque si ha integrale di costante}
 				&\leq V \cdot \abs{t-t_0}
@@ -393,14 +393,14 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			\end{align*}
 		\end{proof}
 		\item $T$ è \textbf{contrazione}\\
-		Occorre verificare la \ref{equaz:def_contrazione}
+		Occorre verificare la \fullref{equaz:def_contrazione}
 		\begin{proof}
+		Per definizione della $T$ e per la proprietà addittiva degli integrali
 		\begin{align*}
-			\noaligneq{$\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t) =$}
-			\intertext{per definizione della $T$ e per la proprietà addittiva degli integrali}
-			&= \int_{t_0}^t \Bigl(
+			\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t) =
+			\int_{t_0}^t \Bigl(
 				f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)
-				\Bigr)\integrald{\tau}\\
+			\Bigr)\integrald{\tau}
 		\end{align*}
 		Dunque, passando alla norma di quanto calcolato sopra
 		\begin{align}
@@ -415,15 +415,15 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			&\leq \abs{\int_{t_0}^t
 				L\cdot\norm{x_2(\tau)-x_1(\tau)}
 				\integrald{\tau}}\\
-			\intertext{Dalla \autoref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
+			\intertext{Dalla \fullref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
 			&= \abs{\int_{t_0}^t % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 				L\cdot d_X(x_2,x_1)
 				\integrald{\tau}}\\
 			&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{equaz:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 		\end{align*}
-		Quindi, concludendo, possiamo passare dalla \ref{equaz:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza.
+		Quindi, concludendo, possiamo passare dalla \fullref{equaz:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza.
 		$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
-		Minoriamo questa distanza con la forma appena trovata \ref{equaz:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
+		Minoriamo questa distanza con la forma appena trovata \fullref{equaz:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
 		$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
 		Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per \fullref{def:contrazione}.
 		\end{proof}
@@ -447,7 +447,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			\end{itemize}
 			ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
 			$$\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}$$
-			ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \ref{equaz:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
+			ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \fullref{equaz:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
 			$$t_M = \min \brackets{\sup J_1, \sup J_2}$$
 			Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
 			$$t_m = \max \brackets{\inf J_1, \inf J_2}$$
@@ -456,7 +456,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
 \end{proof}
 \begin{note}
-	La scelta di $\delta$ in \ref{equaz:cau_delta} potrebbe essere migliorata utilizzando il \fullref{teo:teo_iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
+	La scelta di $\delta$ in \fullref{equaz:cau_delta} potrebbe essere migliorata utilizzando il \fullref{teo:teo_iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
 	% TODO magari la dimostrazione?
 \end{note}
 
@@ -478,6 +478,9 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 				width=\textwidth / 2 - 3,
 				height=\textwidth / 2 - 3,
 				axis lines = center,
+				axis on top=true,
+				axis equal,
+				ymin = -2,
 				xlabel = $x$,
 				ylabel = {$f(x)$},
 			]
@@ -488,8 +491,8 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 					color=red,
 				]
 				{10*sin(deg(x))/(1+x)};
-				\addlegendentry{$10\cdot\frac{\sin{x}}{1+x}$}
-
+				\addlegendentry{\raisebox{.5ex}{$10\cdot\frac{\sin{x}}{1+x}$}}
+		
 				\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
 				\addplot[red!30] fill between[of=f and axis, soft clip={domain=0:6}];
 			\end{axis}
@@ -500,6 +503,9 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 				width=\textwidth / 2 - 3,
 				height=\textwidth / 2 - 3,
 				axis lines = center,
+				axis on top=true,
+				axis equal,
+				ymin = -2,
 				xlabel = $x$,
 				ylabel = {$g(x)$},
 			]
@@ -510,8 +516,8 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 					color=blue,
 				]
 				{abs(10*sin(deg(x))/(1+x))};
-				\addlegendentry{$\norm{10\cdot\frac{\sin{x}}{1+x}}$}
-
+				\addlegendentry{\raisebox{1ex}{$\norm{10\cdot\frac{\sin{x}}{1+x}}$}}
+		
 				\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
 				\addplot[blue!30] fill between[of=g and axis, soft clip={domain=0:6}];
 			\end{axis}
@@ -528,7 +534,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \end{exercise}
 
 \begin{exercise}
-	Confrontare l'\textbf{unicità} della soluzione di un'equazione differenziale \ref{teo:cau_locale_part_1} con l'\textbf{unicità} della funzione implicita \ref{teo:funz_impl}
+	Confrontare l'\textbf{unicità} della soluzione di un'equazione differenziale (\fullref{teo:cau_locale_part_1}) con l'\textbf{unicità} della funzione implicita (\fullref{teo:funz_impl})
 	% TODO magari la soluzione?
 \end{exercise}
 
@@ -588,15 +594,18 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \begin{exercise}
 	Verificare che la funzione $\Delta$ nella dimostrazione del \fullref{lemma:gronwall} è derivabile
 	\begin{solution}
-		È possibile derivare la $\Delta$ perché, da \Cref{ex:funz_derivabili}, la somma di funzioni derivabili resta derivabile ed il secondo addendo è derivabile per \fullref{teo:fondament_calcolo_integ}
+		È possibile derivare la $\Delta$ perché, da \fullref{ex:funz_derivabili}, la somma di funzioni derivabili resta derivabile ed il secondo addendo è derivabile per \fullref{teo:fondament_calcolo_integ}
 	\end{solution}
 \end{exercise}
 
-\begin{theorem}[Teorema di Cauchy Locale (seconda parte)]
+\begin{theorem}[Teorema di Cauchy Locale - Seconda Parte]
 	\label{teo:cau_locale_part_2}
 	Si considerino i seguenti problemi di Cauchy con condizione iniziale individuata nello stesso istante:
-	$$(1)\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\qquad
-	(2)\begin{cases}y'=g(t,y)\\y(t_0)=y_0\end{cases}$$
+	\begin{equation}
+		\label{equaz:ipot_cau_part_2}
+		(1)\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\qquad
+		(2)\begin{cases}y'=g(t,y)\\y(t_0)=y_0\end{cases}
+	\end{equation}
 	con $f,g:I\times A \to \R^n$ e soddisfacenti le ipotesi di \fullref{teo:cau_locale_part_1}, cioè:
 	\begin{enumerate}
 		\item $t_0\in \circdot{I},\:x_0,y_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
@@ -616,9 +625,55 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			\item $\varphi:\realintervalclose{t_0-\delta_f}{t_0+\delta_f}\mapsto\R$ del problema (1)
 			\item $\psi:\realintervalclose{t_0-\delta_g}{t_0+\delta_g}\mapsto\R$ del problema (2)
 		\end{itemize}
-		Sia dunque $\delta = \min\brackets{\delta_f,\delta_g}$, da cui $J=\realintervalclose{t_0-\delta_g}{t_0+\delta_g}$.
-
-		Gli insiemi $\varphi(J)$ e $\psi(J)$ sono compatti perché $J$ è compatto e per \fullref{teo:weier_generale}.
+		Sia dunque $\delta = \min\brackets{\delta_f,\delta_g}$, da cui $J=\realintervalclose{t_0-\delta}{t_0+\delta}$ e, d'ora in poi, $t \in J$.\\
+		Gli insiemi $\varphi(J)$ e $\psi(J)$ sono compatti perché per \fullref{teo:weier_generale}, essendo $J$ compatto. La loro unione è dunque un compatto, come da \fullref{ex:unione_compatti}.\\
+		Utilizzando \fullref{def:equaz_volterra}, passiamo alle equazioni integrali delle \fullref{equaz:ipot_cau_part_2}
+		\begin{equation}
+			(1)\;\varphi(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr)\Bigr)\integrald{\tau}\qquad
+			(2)\;\psi(t)=y_0+\int_{t_0}^{t}\Bigl(g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}
+		\end{equation}\\
+		Sottraiamo ora la $(1)$ alla $(2)$ (in norma)
+		\begin{align*}
+			\norm{\varphi(t)-\psi(t)} &= \norm{x_0 - y_0 + \int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr)\Bigr)\integrald{\tau} - \int_{t_0}^{t}\Bigl(g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}\\
+			&= \norm{x_0 - y_0 + \int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}
+			\intertext{Minoriamo ora con la proprietà 3 da \fullref{def:norma}}
+			&\leq \norm{x_0 - y_0} + \norm{\int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}
+			\intertext{Minoriamo ulteriormente come da \fullref{ex:cau_loc_abs_of_norm}}
+			&\leq \norm{x_0 - y_0} + \abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}}
+			\intertext{Sommo e sottraggo nell'integrale la quantità $f\bigl(\tau,\psi(\tau)\bigr)$ (Si sarebbe potuto fare lo stesso con $g$)}
+			&= \norm{x_0 - y_0} +\\
+			&\qquad\abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) + f\bigl(\tau,\psi(\tau)\bigr) - f\bigl(\tau,\psi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}}\\
+			&\leq \norm{x_0 - y_0} +\\
+			&\qquad\abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) - f\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}} + \abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\psi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}}
+			\intertext{Possiamo minorare l'argomento del secondo integrale con il $\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$, dunque può anche essere estratto in quanto $\sup$ è costante}
+			&\leq \norm{x_0 - y_0} +\\
+			&\qquad\abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) - f\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}} + \abs{\sup\limits_{I\times A}\norm{f(t,\psi(\tau))-g(t,\psi(\tau))} \int_{t_0}^{t}\integrald{\tau}}\\
+			&= \norm{x_0 - y_0} +\\
+			&\qquad\abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) - f\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}} + \abs{\sup\limits_{I\times A}\norm{f(t,\psi(\tau))-g(t,\psi(\tau))} (t-t_0)}\\
+			\intertext{Essendo sicuramente $t-t_0 \leq \delta$ per definizione di quest'ultimo, minoriamo ulteriormente}
+			&\leq \norm{x_0 - y_0} +\\
+			&\qquad\abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) - f\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}} + \abs{\sup\limits_{I\times A}\norm{f(t,\psi(\tau))-g(t,\psi(\tau))}\delta}
+			\intertext{Ricordando la \fullref{obs:dist_conv_unif}, sappiamo che $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$, dunque passiamo alla distanza su $\cntclass{0}$ e togliamo il valore assoluto, in quanto tutti i valori in esso contenuti sono positivi per definizione}
+			&= \norm{x_0 - y_0} +\\
+			&\qquad\abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) - f\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}} + \delta\norm{f-g}_{\cntclass{0}}
+			\intertext{Sia quindi $L$ costante di Lipshitz di $f$ su $J \times \bigl(\varphi(J) \cup \psi(J)\bigr)$, possiamo minorare con}
+			&\leq \norm{x_0 - y_0} +\\
+			&\qquad\abs{\int_{t_0}^{t} L \norm{\varphi(\tau) - \psi(\tau)}\integrald{\tau}} + \delta\norm{f-g}_{\cntclass{0}}
+		\end{align*}
+		Imponendo ora $t \geq t_0$ (ma procedimento analogo nel caso opposto), si può applicare il \fullref{lemma:gronwall} all'ultimo integrale rimasto con: % TODO perché queste sostituzioni, nello specifico?
+		\begin{itemize}
+			\item $k(\tau) = L$
+			\item $\delta(\tau) = \norm{\varphi(\tau) - \psi(\tau)}$
+			\item $\delta_0 = \norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}$ (tutti gli altri addendi)
+			\item $a = t_0$
+		\end{itemize}
+		Si ottiene in questo modo, riprendendo il primo elemento del treno di disuguaglianze
+		\begin{align*}
+			\norm{\varphi(t)-\psi(t)} &\leq (\norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}) e^{\int_{t_0}^{t}L\integrald{\tau}}\\
+			\norm{\varphi(t)-\psi(t)} &\leq (\norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}) e^{L(t-t_0)}\\
+			\intertext{Inseriamo ora il valore assoluto all'esponente per tener in considerazione anche il caso in cui $t \leq t_0$}
+			\norm{\varphi(t)-\psi(t)} &\leq (\norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}) e^{L\abs{t-t_0}}
+		\end{align*}
 	\end{proof}
 \end{theorem}
 
@@ -666,7 +721,7 @@ Data la funzione $f:I\times \R^n\to \R^n$, se:
 allora il problema di Cauchy $\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ ammette un'unica soluzione definita sull'intervallo $I$.
 \begin{proof}
 	DISEGNO...\\
-	Il teorema di Cauchy Locale assicura che  la soluzione esiste unica su un intervallo centrato all'istante iniziale.
+	Il \fullref{teo:cau_locale_part_1} assicura che  la soluzione esiste unica su un intervallo centrato all'istante iniziale.
 	Bisogna dimostrare che la soluzione può essere estesa a tutto l'intervallo. Questo non si può fare in due casi:
 	\begin{enumerate}
 		\item c'è un asintoto verticale

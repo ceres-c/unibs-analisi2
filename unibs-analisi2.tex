@@ -1,23 +1,31 @@
 % !TEX encoding = UTF-8 Unicode
 
-\documentclass[a4paper,14pt,oneside,italian]{book}
+\documentclass[a4paper,oneside,italian]{book}
 \usepackage[left = 3cm, right = 3cm]{geometry}
 \usepackage{babel}
-\usepackage{graphicx}
 \usepackage{amsthm,amssymb}
 \usepackage[makeroom]{cancel}
 \usepackage[pdfencoding=auto]{hyperref}
 \usepackage{mathtools,thmtools}
-\usepackage{cleveref}
 \usepackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
 \usepackage{accents}
 \usepackage{xparse}
-\usepackage{hyperref}
-\usepackage{etoolbox}
+
+\hfuzz=3pt % To relax LaTeX about hbox overfullness
 
 \counterwithout{section}{chapter}
 
+\newtheoremstyle{break}% Theorem style to separate title from theorem thesis
+  {}%         Space above, empty = `usual value'
+  {}%         Space below
+  {\itshape}% Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {}%        Punctuation after thm head
+  {\newline}% Space after thm head: \newline = linebreak
+  {}%         Thm head spec
+\theoremstyle{break}
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{definition}[theorem]{Definizione}
 \newtheorem{proposition}[theorem]{Proposizione}
@@ -41,6 +49,15 @@
 \newenvironment{solution}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Soluzione]}
   {\end{proof}}
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue,
+  anchorcolor = blue,
+  citecolor = blue,
+  filecolor = blue,
+  urlcolor = blue
+}
 
 \begin{document}
 \newcommand{\norm}[1] {\left\|#1\right\|}
@@ -67,7 +84,6 @@
 
 \newcommand{\dinfty}[2]{d_\infty\left(#1,#2\right)}
 \newcommand{\ddinfty}[3]{\sup\limits_{x\in#3}{\abs{f-g}}}
-\newcommand{\sse}{\Leftrightarrow}
 \newcommand{\bydef}{\rightleftharpoons}
 
 \newcommand{\rvect}[1]{\begin{bmatrix} #1 \end{bmatrix}}
@@ -81,9 +97,18 @@
 %   5^2+3 =
 %   = 25+3
 %   = 28
-\newcommand{\noaligneq}[1]{\noalign{\centering #1}}
 
-\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} (\nameref*{#1})}} % To reference stuff with its name appended
+% Use the following to reference stuff with its name appended.
+% Thanks to Oberdiek from here https://tex.stackexchange.com/a/66096/206062
+\newcommand*{\fullref}[1]{%
+  \hyperref[{#1}]{%
+    \autoref*{#1}%
+    \if\vcenter\getrefbykeydefault{#1}{name}{}\vcenter
+    \else
+      ~(\nameref*{#1})%
+    \fi
+  }%
+}
 
 \DeclareDocumentCommand{\funcdef}{m m o m o s o}{
   % This command allows formal function definition and require xparse
