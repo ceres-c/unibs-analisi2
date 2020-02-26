@@ -153,7 +153,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \section{Teoria Locale}
 \begin{definition}[Locale lipschitzianità]
 	\label{def:loc_lips}
-	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{localmente lipshitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
+	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
 	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
 	vale che
 	$$\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L$$
@@ -333,7 +333,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	$$x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}$$
 	Definiamo quindi $T$, funzione del tipo
 	\begin{equation}
-		\label{equaz:cauch_proof_T}
+		\label{eq:cauch_proof_T}
 		\funcdef{\textrm{$T$}}{(T(x))(t)}{X}[x_0+\int_{t_0}^tf(\tau,x(\tau))\integrald{\tau}]		
 	\end{equation}
 	Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} serve che lo spazio di partenza e di arrivo corrispondano.\\
@@ -350,7 +350,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	\end{note}
 	\noindent Definiamo dunque un generico $\delta>0$
 	\begin{equation}
-		\label{equaz:cau_delta}
+		\label{eq:cau_delta}
 		\delta<\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}}
 	\end{equation}
 	\begin{note}
@@ -379,11 +379,11 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \realintervalclose{t_0-\delta}{t_0+\delta}$
 		\begin{proof}
 			$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fodamentale del Calcolo Integrale.\\
-			La seconda condizione si verifica prendendo la \fullref{equaz:cauch_proof_T} e calcolando la norma di entrambi i termini
+			La seconda condizione si verifica prendendo la \cref{eq:cauch_proof_T} e calcolando la norma di entrambi i termini
 			\begin{align*}
 				\norm{y(t)-x_0} &= \norm{\int_{t_0}^t f(\tau,x(\tau))\integrald{\tau} }
 				\intertext{posso ora minorare con il valore assoluto della norma dell'argomento (spiegazione in \fullref{ex:cau_loc_abs_of_norm})}
-				&\leq \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau} } \tageq\label{equaz:cau_loc_abs_of_norm}
+				&\leq \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau} } \tageq\label{eq:cau_loc_abs_of_norm}
 				\intertext{$\norm{f(\tau,x(\tau))}$ è sicuramente minorato da $V$ per definizione di quest'ultimo, dunque si ha integrale di costante}
 				&\leq V \cdot \abs{t-t_0}
 				\intertext{$\abs{t-t_0}\leq \delta$ per definizione di $\delta$}
@@ -393,7 +393,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			\end{align*}
 		\end{proof}
 		\item $T$ è \textbf{contrazione}\\
-		Occorre verificare la \fullref{equaz:def_contrazione}
+		Occorre verificare la \cref{eq:def_contrazione}
 		\begin{proof}
 		Per definizione della $T$ e per la proprietà addittiva degli integrali
 		\begin{align*}
@@ -404,7 +404,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		\end{align*}
 		Dunque, passando alla norma di quanto calcolato sopra
 		\begin{align}
-			\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t)} \label{equaz:cau_loc_verif_contraz_norm}
+			\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t)} \label{eq:cau_loc_verif_contraz_norm}
 		\end{align}
 		È sicuramente minorata da
 		\begin{align*}
@@ -419,23 +419,23 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			&= \abs{\int_{t_0}^t % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 				L\cdot d_X(x_2,x_1)
 				\integrald{\tau}}\\
-			&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{equaz:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
+			&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{eq:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 		\end{align*}
-		Quindi, concludendo, possiamo passare dalla \fullref{equaz:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza.
+		Quindi, concludendo, possiamo passare dalla \cref{eq:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza.
 		$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
-		Minoriamo questa distanza con la forma appena trovata \fullref{equaz:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
+		Minoriamo questa distanza con la forma appena trovata \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
 		$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
 		Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per \fullref{def:contrazione}.
 		\end{proof}
 	\end{itemize}
-	È ora possibile applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} che garantisce l'\textbf{unicità} del punto fisso $x_* \in X$ per la $x = T(x)$, questo implica ovviamente che $T(x)$ abbia un'unica soluzione. Si ha dunque l'unicità della soluzione $x$ del problema di Cauchy in ipotesi sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, al quale $T$ è equivalente per definizione in quanto $T$ è \hyperref[def:equaz_volterra]{Equazione di Volterra}.
+	È ora possibile applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} che garantisce l'\textbf{unicità} del punto fisso $x_* \in X$ per la $x = T(x)$, questo implica ovviamente che $T(x)$ abbia un'unica soluzione. Si ha dunque l'unicità della soluzione $x$ del problema di Cauchy in ipotesi sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, al quale $T$ è equivalente per definizione in quanto $T$ è \fullref{def:equaz_volterra}.
 
 	Tornando ai $J_1, J_2$ della Tesi 2:
 	\begin{itemize}
 		\item Se $(J_1 \cap J_2) \subseteq \realintervalclose{t_0-\delta}{t_0+\delta}$, allora $x_1 = x_2$ in quanto esiste unico punto fisso, come dimostrato sopra.
 		\item Se $(J_1 \cap J_2) \supset \realintervalclose{t_0-\delta}{t_0+\delta}$, allora poniamo
 			\begin{equation}
-				t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \realintervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{equaz:cau_loc_tM_J1J2_supset}
+				t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \realintervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{eq:cau_loc_tM_J1J2_supset}
 			\end{equation}
 			$$x_M = x_1(t_M) = x_2(t_M)$$
 			Quindi $t_M$ è l'\textit{ultimo istante} in cui $x_1$ e $x_2$ coincidono.
@@ -447,7 +447,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			\end{itemize}
 			ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
 			$$\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}$$
-			ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \fullref{equaz:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
+			ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
 			$$t_M = \min \brackets{\sup J_1, \sup J_2}$$
 			Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
 			$$t_m = \max \brackets{\inf J_1, \inf J_2}$$
@@ -456,13 +456,13 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
 \end{proof}
 \begin{note}
-	La scelta di $\delta$ in \fullref{equaz:cau_delta} potrebbe essere migliorata utilizzando il \fullref{teo:teo_iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
+	La scelta di $\delta$ in \cref{eq:cau_delta} potrebbe essere migliorata utilizzando il \fullref{teo:iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
 	% TODO magari la dimostrazione?
 \end{note}
 
 \begin{exercise}
 	\label{ex:cau_loc_abs_of_norm}
-	È necessario il modulo in \eqref{equaz:cau_loc_abs_of_norm}?
+	È necessario il modulo in \cref{eq:cau_loc_abs_of_norm}?
 	\begin{solution}
 		Consideriamo, ad esempio
 		\begin{align*}
@@ -471,7 +471,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		\end{align*}
 		Nella $f$, viene calcolata la norma del risultato dell'integrazione definita.\\
 		Nella $g$ si ha invece la norma della funzione, cioè la parte "sotto l'asse $x$" della funzione viene ribaltata sopra l'asse dall'operatore norma, come si può vedere dal grafico. Questo implica che il valore della $g$ sarà sicuramente $\geq$ rispetto alla $f$, in quanto l'integrale è somma di soli infinitesimi positivi.\\
-		Infine, il valore assoluto nella \eqref{equaz:cau_loc_abs_of_norm} è necessario per evitare che, scambiando gli estremi d'integrazione, si ottenga un valore negativo, che non potrebbe mai essere risultato del primo integrale
+		Infine, il valore assoluto nella \cref{eq:cau_loc_abs_of_norm} è necessario per evitare che, scambiando gli estremi d'integrazione, si ottenga un valore negativo, che non potrebbe mai essere risultato del primo integrale
 		\begin{center}
 			\begin{tikzpicture}[baseline]
 			\begin{axis} [
@@ -486,8 +486,8 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			]
 				\addplot [
 					name path=f,
-					domain=0:7, 
-					samples=100, 
+					domain=0:7,
+					samples=100,
 					color=red,
 				]
 				{10*sin(deg(x))/(1+x)};
@@ -511,8 +511,8 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			]
 				\addplot [
 					name path=g,
-					domain=0:7, 
-					samples=100, 
+					domain=0:7,
+					samples=100,
 					color=blue,
 				]
 				{abs(10*sin(deg(x))/(1+x))};
@@ -546,45 +546,45 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\begin{itemize}
 		\item $\delta_0\in \realintervalclop{0}{+\infty}$
 		\item $\hspace{-0.5em}\left.\begin{array}{ll}
-				\kappa,\,\delta:\realintervalclose{a}{b}\mapsto \R \\
-				\kappa(t)\geq 0,\,\delta(t) \geq 0 \text{ funzioni continue } \forall t \in \realintervalclose{a}{b}
-		\end{array} \quad\right\}$\quad cioè \quad$\kappa,\,\delta\in\cntclass{0}(\realintervalclose{a}{b},\R^{+})$
+				k,\,\delta:\realintervalclose{a}{b}\mapsto \R \\
+				k(t)\geq 0,\,\delta(t) \geq 0 \text{ funzioni continue } \forall t \in \realintervalclose{a}{b}
+		\end{array} \quad\right\}$\quad cioè \quad$k,\,\delta\in\cntclass{0}(\realintervalclose{a}{b},\R^{+})$
 	\end{itemize}
 	con:
-	$$\qquad \delta(t)\le \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$$
+	$$\qquad \delta(t)\le \delta_0+\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}$$
 	Allora
-	$$\delta(t)\le\delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}} \quad \forall t \in \realintervalclose{a}{b}$$
+	$$\delta(t)\le\delta_0e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \quad \forall t \in \realintervalclose{a}{b}$$
 	Questo lemma permette di limitare una funzione che soddisfa una disuguaglianza integrale con la soluzione della corrispondente equazione. Ci si porta da una stima implicita di $\delta$ (sotto il segno di integrale) ad una stima esplicita.
 	\begin{proof}
 		Dividiamo in due casi
 		\begin{itemize}
 			\item Se $\delta_0>0$\\
-				Sia $\Delta(t) = \delta_0+\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}$. Prendiamo ora il logaritmo di $\Delta(t)$, cioè $\ln{\bigl(\Delta(t)\bigr)}$, e deriviamolo con le regole classiche
+				Sia $\Delta(t) = \delta_0+\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}$. Prendiamo ora il logaritmo di $\Delta(t)$, cioè $\ln{\bigl(\Delta(t)\bigr)}$, e deriviamolo con le regole classiche
 				\begin{align*}
 					\frac{d}{dt}\ln{\bigl(\Delta(t)\bigr)} &= \frac{\Delta'(t)}{\Delta(t)}\\
-					&= \frac{\frac{d}{dt}\delta_0 + \frac{d}{dt}\int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau}}{\Delta(t)}
+					&= \frac{\frac{d}{dt}\delta_0 + \frac{d}{dt}\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}}{\Delta(t)}
 					\intertext{Il primo addendo è derivata di costante, il secondo corrisponde all'argomento dell'integrale per teorema fondamentale del calcolo integrale}
-					&= \frac{0+\kappa(t)\delta(t)}{\Delta(t)} = \kappa(t)\frac{\delta(t)}{\Delta(t)}
+					&= \frac{0+k(t)\delta(t)}{\Delta(t)} = k(t)\frac{\delta(t)}{\Delta(t)}
 					\intertext{Essendo poi, per ipotesi, $\delta(t)\leq\Delta(t)\implies\frac{\delta(t)}{\Delta(t)}\leq 1$}
-					&\leq \kappa(t)
+					&\leq k(t)
 				\end{align*}
 				Integrando il primo e l'ultimo termine
 				\begin{align*}
-					\int_{a}^{t}\left( \frac{d}{d\tau} \ln \bigl(\Delta(\tau)\bigr) \right)\integrald{\tau} &\leq \int_{a}^{t}\kappa(\tau)\integrald{\tau}\\
-					\ln \bigl(\Delta(t)\bigr) - \ln \bigl(\Delta(a)\bigr) &\leq \int_a^t \kappa(\tau)\integrald{\tau}
+					\int_{a}^{t}\left( \frac{d}{d\tau} \ln \bigl(\Delta(\tau)\bigr) \right)\integrald{\tau} &\leq \int_{a}^{t}k(\tau)\integrald{\tau}\\
+					\ln \bigl(\Delta(t)\bigr) - \ln \bigl(\Delta(a)\bigr) &\leq \int_a^t k(\tau)\integrald{\tau}
 					\intertext{da definizione di $\Delta(t)$, $\Delta(a) = \delta_0$}
-					\ln \bigl(\Delta(t)\bigr) &\leq \ln(\delta_0) + \int_a^t \kappa(\tau)\integrald{\tau}
+					\ln \bigl(\Delta(t)\bigr) &\leq \ln(\delta_0) + \int_a^t k(\tau)\integrald{\tau}
 					\intertext{Passando all'esponenziale}
-					e^{\ln \bigl(\Delta(t)\bigr)} &\leq e^{\bigl( \ln(\delta_0) + \int_a^t \kappa(\tau)\integrald{\tau} \bigr)}\\
-					\Delta(t) &\leq e^{\ln(\delta_0)} \cdot e^{\int_a^t \kappa(\tau)\integrald{\tau}}\\
-					\Delta(t) &\leq \delta_0e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}}
+					e^{\ln \bigl(\Delta(t)\bigr)} &\leq e^{\bigl( \ln(\delta_0) + \int_a^t k(\tau)\integrald{\tau} \bigr)}\\
+					\Delta(t) &\leq e^{\ln(\delta_0)} \cdot e^{\int_a^t k(\tau)\integrald{\tau}}\\
+					\Delta(t) &\leq \delta_0e^{\int_{a}^{t}k(\tau)\integrald{\tau}}
 				\end{align*}
 				Da cui la tesi\\
 			\item Se $\delta_0 = 0$\\
 				Minoriamo, poiché $\delta_0 = 0$, con un $\epsilon > 0$
-				$$\delta(t) \leq 0 + \int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau} \leq \epsilon + \int_{a}^{t}\kappa(\tau)\delta(\tau)\integrald{\tau} \qquad \forall \epsilon > 0$$
+				$$\delta(t) \leq 0 + \int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau} \leq \epsilon + \int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau} \qquad \forall \epsilon > 0$$
 				Essendo $\epsilon > 0$, mi trovo con una forma analoga al caso precedente, dunque
-				$$\delta(t) \leq \epsilon \cdot e^{\int_{a}^{t}\kappa(\tau)\integrald{\tau}} \qquad \forall \epsilon > 0$$
+				$$\delta(t) \leq \epsilon \cdot e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \qquad \forall \epsilon > 0$$
 				Dovendo essere $\delta(t) \leq \epsilon \quad \forall \epsilon > 0$, posso concludere che
 				$$\delta(t) \leq 0$$
 				Ma, per ipotesi, $\delta(t) \geq 0 \implies \delta(t) = 0$
@@ -602,7 +602,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\label{teo:cau_locale_part_2}
 	Si considerino i seguenti problemi di Cauchy con condizione iniziale individuata nello stesso istante:
 	\begin{equation}
-		\label{equaz:ipot_cau_part_2}
+		\label{eq:ipot_cau_part_2}
 		(1)\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\qquad
 		(2)\begin{cases}y'=g(t,y)\\y(t_0)=y_0\end{cases}
 	\end{equation}
@@ -627,14 +627,14 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{itemize}
 		Sia dunque $\delta = \min\brackets{\delta_f,\delta_g}$, da cui $J=\realintervalclose{t_0-\delta}{t_0+\delta}$ e, d'ora in poi, $t \in J$.\\
 		Gli insiemi $\varphi(J)$ e $\psi(J)$ sono compatti perché per \fullref{teo:weier_generale}, essendo $J$ compatto. La loro unione è dunque un compatto, come da \fullref{ex:unione_compatti}.\\
-		Utilizzando \fullref{def:equaz_volterra}, passiamo alle equazioni integrali delle \fullref{equaz:ipot_cau_part_2}
+		Utilizzando \fullref{def:equaz_volterra}, passiamo alle equazioni integrali delle \cref{eq:ipot_cau_part_2}
 		\begin{equation}
 			(1)\;\varphi(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr)\Bigr)\integrald{\tau}\qquad
 			(2)\;\psi(t)=y_0+\int_{t_0}^{t}\Bigl(g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}
 		\end{equation}\\
 		Sottraiamo ora la $(1)$ alla $(2)$ (in norma)
 		\begin{align*}
-			\norm{\varphi(t)-\psi(t)} &= \norm{x_0 - y_0 + \int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr)\Bigr)\integrald{\tau} - \int_{t_0}^{t}\Bigl(g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}\\
+			\tageq\label{eq:cau_dip_cont_diff_norm} \norm{\varphi(t)-\psi(t)} &= \norm{x_0 - y_0 + \int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr)\Bigr)\integrald{\tau} - \int_{t_0}^{t}\Bigl(g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}\\
 			&= \norm{x_0 - y_0 + \int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}
 			\intertext{Minoriamo ora con la proprietà 3 da \fullref{def:norma}}
 			&\leq \norm{x_0 - y_0} + \norm{\int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}
@@ -657,34 +657,208 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			&= \norm{x_0 - y_0} +\\
 			&\qquad\abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) - f\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}} + \delta\norm{f-g}_{\cntclass{0}}
 			\intertext{Sia quindi $L$ costante di Lipshitz di $f$ su $J \times \bigl(\varphi(J) \cup \psi(J)\bigr)$, possiamo minorare con}
-			&\leq \norm{x_0 - y_0} +\\
-			&\qquad\abs{\int_{t_0}^{t} L \norm{\varphi(\tau) - \psi(\tau)}\integrald{\tau}} + \delta\norm{f-g}_{\cntclass{0}}
+			&\leq \norm{x_0 - y_0} +\abs{\int_{t_0}^{t} L \norm{\varphi(\tau) - \psi(\tau)}\integrald{\tau}} + \delta\norm{f-g}_{\cntclass{0}}
+			\intertext{Riordinando}
+			&= \norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}} + \abs{\int_{t_0}^{t} L \norm{\varphi(\tau) - \psi(\tau)}\integrald{\tau}}
 		\end{align*}
-		Imponendo ora $t \geq t_0$ (ma procedimento analogo nel caso opposto), si può applicare il \fullref{lemma:gronwall} all'ultimo integrale rimasto con: % TODO perché queste sostituzioni, nello specifico?
+		Applichiamo alla forma ottenuta il \fullref{lemma:gronwall}. Per ipotesi del Lemma è necessario avere $t \in \realintervalclose{a}{b}$ con $a < b$. Nell'ultimo integrale rimasto abbiamo $a = t_0$, dunque imponiamo $t \geq t_0$ e procediamo.
+		\begin{note}
+			Il procedimento è analogo nel caso opposto e verrà integrato sotto.
+		\end{note}
+		Applichamo le seguenti sostituzioni nella formula del \fullref{lemma:gronwall}:
 		\begin{itemize}
 			\item $k(\tau) = L$
 			\item $\delta(\tau) = \norm{\varphi(\tau) - \psi(\tau)}$
 			\item $\delta_0 = \norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}$ (tutti gli altri addendi)
-			\item $a = t_0$
 		\end{itemize}
-		Si ottiene in questo modo, riprendendo il primo elemento del treno di disuguaglianze
+		Possiamo dunque minorare ulteriormente la formula precedente con
 		\begin{align*}
-			\norm{\varphi(t)-\psi(t)} &\leq (\norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}) e^{\int_{t_0}^{t}L\integrald{\tau}}\\
+			&\leq (\norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}) e^{\int_{t_0}^{t}L\integrald{\tau}}\\
+			&= (\norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}) e^{L(t-t_0)}
+		\end{align*}
+		Riprendendo il primo elemento del treno di disuguaglianze \cref{eq:cau_dip_cont_diff_norm}, si ottiene infine
+		\begin{align*}
 			\norm{\varphi(t)-\psi(t)} &\leq (\norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}) e^{L(t-t_0)}\\
 			\intertext{Inseriamo ora il valore assoluto all'esponente per tener in considerazione anche il caso in cui $t \leq t_0$}
 			\norm{\varphi(t)-\psi(t)} &\leq (\norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}}) e^{L\abs{t-t_0}}
 		\end{align*}
 	\end{proof}
 \end{theorem}
+\begin{exercise}
+	Esibire una dimostrazione dell'unicità della soluzione di un Problema di Cauchy alternativa al \fullref{teo:cau_locale_part_1} e basata sul \fullref{teo:cau_locale_part_2}.
+	% TODO Soluzione
+\end{exercise}
+\begin{exercise}
+	Enunciare il \fullref{teo:cau_locale_part_2} come risultato sulla continuità dell'\textbf{operatore di soluzione} di un Problema di Cauchy.
+	% TODO Soluzione
+\end{exercise}
+\begin{example}
+	Al variare di $p \in \R$, il Problema di Cauchy
+	\begin{equation*}
+		\begin{cases}
+			x' = x\\
+			x(0) = p
+		\end{cases}
+	\end{equation*}
+	ha soluzione $x_p(t) = p \cdot e^t$.
+	\begin{itemize}
+		\item Se $t \to T \in \R$:
+		$$\lim_{p \to 0}\Bigl(\lim_{t \to T} (p \cdot e^t)\Bigr) = 0 \qquad\text{e}\qquad \lim_{t \to T}\Bigl(\lim_{p \to 0} (p \cdot e^t)\Bigr) = 0$$
+		I risultati coincidono, quindi c'è continuità nel parametro.
+		\item Se $T \to +\infty$:
+		$$\lim_{p \to 0}\Bigl(\lim_{t \to +\infty} (p \cdot e^t)\Bigr) = 0 \qquad\text{e}\qquad \lim_{t \to +\infty}\Bigl(\lim_{p \to 0} (p \cdot e^t)\Bigr) = 0$$
+		I risultati son differenti, ma non solo, infatti stimando con parametri diversi mi troverei in questa situazione:
+		\begin{equation}
+			\label{eq:ex_cau_dip_cont_exp_dist}
+			\abs{x_{p_1}(t) - x_{p_2}(t)} = \abs{p_1-p_2}e^t
+		\end{equation}
+		Cioè una distanza "esponenziale" tra le due soluzioni.
+	\end{itemize}
+	\begin{note}
+		In questo esempio abbiamo $f(t,x) = x$, quindi $L = 1$, infatti $L$ stessa non appare nella \cref{eq:ex_cau_dip_cont_exp_dist}.
+	\end{note}
+\end{example}
+\begin{example}
+	Al variare di $p \in \R$, il Problema di Cauchy
+	\begin{equation*}
+		\begin{cases}
+			x' = p\\
+			x(0) = 0
+		\end{cases}
+	\end{equation*}
+	ha soluzione $x_p(t) = p \cdot t$, cioè parametri $p$ diversi danno rette con inclinazioni diverse.
+	\begin{itemize}
+		\item Se $t \to T \in \R$:
+		$$\lim_{p \to 0}\Bigl(\lim_{t \to T} x_p(t)\Bigr)=0 \qquad\text{e}\qquad \lim_{t \to T}\Bigl(\lim_{p \to 0} x_p(t)\Bigr)=0$$
+		I risultati coincidono, quindi c'è continuità nel parametro.
+		\item Se $T \to +\infty$:
+		$$\lim_{p \to 0}\Bigl(\lim_{t \to +\infty} x_p(t)\Bigr)=+\infty \qquad\text{e}\qquad \lim_{t \to +\infty}\Bigl(\lim_{p \to 0} x_p(t)\Bigr)=0$$
+		Essendo diversi, non c'è continuità.
+	\end{itemize}
+	\begin{note}
+		Questo esempio evidenzia come la dipendenza continua sussista solo su intervalli finiti.
+	\end{note}
+\end{example}
 
-ESEMPIO: DECADIMENTO RADIOATTIVO\\
-Il decadimento di una sostanza radioattiva è ben descritto da $ x'=-k\cdot x$ dove $x$ è la quantità di sostanza radioattiva non ancora decaduta e $k$ è una costante propria di ogni singolo materiale\\
-...........\\
-ESEMPIO: LEGGE DEL CALORE DI NEWTON\\
-......\\
-ESEMPIO: CRESCITA LOGISTICA\\
-......\\
 \section{Teoria Globale}
+\begin{example}[Un Problema di Cauchy senza soluzione globale]
+	Dato il Problema di Cauchy
+	\begin{equation}
+		\begin{cases}
+			x' = x^2\\
+			x(0) = 1
+		\end{cases}
+	\end{equation}
+	si trovi la soluzione.
+	\begin{align*}
+		\frac{x'}{x^2} &= 1\\
+		\int_0^t \frac{x'(\tau)}{x^2(\tau)} \integrald{\tau} &= \int_0^t 1 \integrald{\tau}
+		\intertext{Applicando al primo membro le normali regole d'integrazione delle funzioni composte otteniamo}
+		-\frac{1}{x(t)} + 1 &= t\\
+	\end{align*}
+	Da cui si ricava $x(t) = \frac{1}{1-t}$, che è unica soluzione del Problema di Cauchy ed ha asintoto verticale in $t=1$.
+
+	\begin{center}
+		\begin{tikzpicture}[baseline]
+		\begin{axis} [
+		  width=\textwidth / 2 - 3,
+		  height=\textwidth / 2 - 3,
+		  axis lines = center,
+		  axis on top=true,
+		  axis equal,
+		  ymin = -2,
+		  ymax = 5,
+		  xmin = -2,
+		  xmax = 2,
+		  xlabel = $x$,
+		  ylabel = {$x'$},
+		  legend style={at={(0.2,0.05)},anchor=south},
+		]
+		  \addplot [
+			name path=f,
+			domain=-5:5,
+			samples=100,
+		  ]
+		  {x^2};
+		  \addlegendentry{\raisebox{.5ex}{$x'=x^2$}}
+		\end{axis}
+		\end{tikzpicture}
+		~\qquad\qquad
+		\begin{tikzpicture}[baseline]
+		\begin{axis} [
+		  width=\textwidth / 2 - 3,
+		  height=\textwidth / 2 - 3,
+		  axis lines = center,
+		  axis on top=true,
+		  axis equal,
+		  ymin = -2,
+		  ymax = 5,
+		  xmin = -2,
+		  xmax = 2,
+		  xlabel = $t$,
+		  ylabel = {$x$},
+		  legend style={at={(0.22,0.05)},anchor=south},
+		]
+		  \addplot [
+			name path=g,
+			domain=-5:5,
+			samples=100,
+		  ]
+		  {1/(1-x)};
+		  \addlegendentry{\raisebox{.5ex}{$x(t) = \frac{1}{1-t}$}}
+		\end{axis}
+		\end{tikzpicture}
+	\end{center}
+
+	Quindi ho una soluzione fino al tempo $t=1$, cioè la funzione è definita nell'intervallo $\realintervalclose{-\infty}{1}$. In questo intervallo potrò applicare localmente il Teorema di Cauchy, ma non è possibile applicarlo globalmente.
+	\begin{note}
+		L'argomento di questo capitolo sarà appunto capire in quali casi ho o non ho un comportamento simile.
+	\end{note}
+\end{example}
+\begin{example}[Un Problema di Cauchy con soluzione globale]
+	Il Problema di Cauchy
+	\begin{equation}
+		\begin{cases}
+			x' = \sin(x^2)\\
+			x(0) = x_0
+		\end{cases}
+	\end{equation}
+	ammette soluzione globale $\forall x_0 \in \R$, pur non soddisfacendo alle ipotesi del \fullref{teo:cau_glob_lips}
+\end{example}
+\begin{example}
+	Il Problema di Cauchy
+	\begin{equation}
+		\begin{cases}
+			x' = x^2 - 1\\
+			x(0) = x_0
+		\end{cases}
+	\end{equation}
+	ammette soluzione globale per $x \in \realintervalclose{-1}{1}$, ma non per $x \in R \setminus \realintervalclose{-1}{1}$
+\end{example}
+
+\subsection{Il Caso Lipschitziano}
+\begin{theorem}
+	\label{teo:cau_glob_lips}
+	Data la funzione $f:I \times \R^n \mapsto \R^n$, se:
+	\begin{itemize}
+		\item $I \subset \R$ è \textbf{intervallo compatto}
+		\item $f$ è \textbf{continua} su $I \times \R^n$
+		\item f è (globalmente) \textbf{Lipschitziana} in $x \in \R^n$ \textbf{uniformemente} rispetto a $t \in I$
+	\end{itemize}
+	Allora il Problema di Cauchy
+	\begin{equation}
+		\begin{cases}
+			x' = f(x,t)\\
+			x(t_0) = x_0
+		\end{cases}
+	\end{equation}
+	ammette un'unica soluzione definita in tutto l'intervallo $I$
+	\begin{proof}
+		% TODO dimostrazione
+	\end{proof}
+\end{theorem}
+
+\subsection{Il Caso Sublineare}
 \proposition
 Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, sia $f:A\subseteq X\to Y$. Se $f$ è uniformemente continua su $A$ allora $\exists ! \overline{f}:\overline{A}\to Y$ t.c. $\overline{f}_{\left|A\right.}=f$. cioè $f$ può essere estesa in modo unico alla chiusura dell'insieme $A$.
 \definition
@@ -693,7 +867,7 @@ $$ \norm{f(t,x)}\le A + B\norm{x}$$\\
 ESEMPIO:: $f(t,x)=x^2$ NON SUBLINEARE\\
 ESEMPIO:: $f(t,x)=sin(x^2)$ SUBLINEARE\\
 \observation 
-Sia $f(t,x)$ globalmente Lipshitziana in $x$ uniformemente in $t$ allora $f$ sublineare.
+Sia $f(t,x)$ globalmente lipschitziana in $x$ uniformemente in $t$ allora $f$ sublineare.
 $$\exists L\ge 0 :\forall x_1,x_2\in \R^n, t\in I, \norm{f(t,0)}\le A$$
 $$\norm{f(t,x_2)-f(t,x_1)}\le\norm{x_2-x_1}$$
 $$\norm{f(t,x)}\le\norm{f(t,x_0)}+\norm{f(t,x)-f(t,0)}\le A +L\norm{x}$$
@@ -756,7 +930,7 @@ allora il problema di Cauchy $\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{ma
 		\left[ 
 		\norm{x_0} A \left(T-t_0\right)
 		\right]e^{B\left(T-t_0\right)}\right)}
-	$ è un insieme compatto poiché chiuso e limitato in $R^n$, $\varphi$ è limitata, la $f$ limitata, allora $ \varphi'$ limitata allora $\varphi$ lipshitziana allora $\varphi$ uniformemente continua.\\
+	$ è un insieme compatto poiché chiuso e limitato in $R^n$, $\varphi$ è limitata, la $f$ limitata, allora $ \varphi'$ limitata allora $\varphi$ lipschitziana allora $\varphi$ uniformemente continua.\\
 		Allora esiste finito $\lim\limits_{t\to T^{-}}\varphi(t)=X$. Ora possono verificarsi due casi:\\
 	\begin{enumerate}
 		\item Se $T=\sup I \Rightarrow$ dimostrazione conclusa
@@ -831,7 +1005,7 @@ ammette soluzione unica definita su tutto l'intervallo $I$.
 	F: I\times\mathbb{C}^n & \to & \mathbb{C}^n \\
 	   (t,X) & \to & \left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right] \\ 
 	\end{array}$
-	è lineare in $X$ e globalmente lipshitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\mathbb{C}^n$
+	è lineare in $X$ e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\mathbb{C}^n$
 	$$\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}$$
 	Sono soddisfatte le ipotesi di Cauchy Globale allora si ha la tesi.
 \end{proof}

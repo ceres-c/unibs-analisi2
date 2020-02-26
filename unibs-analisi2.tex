@@ -11,12 +11,13 @@
 \usepgfplotslibrary{fillbetween}
 \usepackage{accents}
 \usepackage{xparse}
+\usepackage[capitalise]{cleveref}
 
 \hfuzz=3pt % To relax LaTeX about hbox overfullness
 
 \counterwithout{section}{chapter}
 
-\newtheoremstyle{break}% Theorem style to separate title from theorem thesis
+\newtheoremstyle{break}% Custom theorem style to put thesis on a new line after the title.
   {}%         Space above, empty = `usual value'
   {}%         Space below
   {\itshape}% Body font
@@ -45,6 +46,7 @@
   { } % Manually specify head
 \theoremstyle{note}
 \newtheorem*{note}{Nota}
+\AfterEndEnvironment{note}{\noindent\ignorespaces}
 
 \newenvironment{solution}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Soluzione]}
