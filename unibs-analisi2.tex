@@ -12,6 +12,7 @@
 \usepackage{accents}
 \usepackage{xparse}
 \usepackage[capitalise]{cleveref}
+\usepackage{graphicx}
 
 \hfuzz=3pt % To relax LaTeX about hbox overfullness
 
@@ -127,12 +128,30 @@
 }
 
 \author{Mauro Conte, Federico Cerutti}
-\title{Appunti di Analisi 2}
+\title{}
 \date{Febbraio 2019}
 
 \frontmatter
-\maketitle
+\begin{titlepage}
+  \begin{center}
+    {\huge\bfseries Appunti di Analisi Matematica 2\\}
+    % ----------------------------------------------------------------
+    \vspace{1.5cm}
+    {\Large\bfseries Federico Cerutti\\Mauro Conte\\}
+    % ----------------------------------------------------------------
+    \vspace{2cm}
+    {Dal corso del professor}\\[5pt]
+    \emph{{Rinaldo M. Colombo}}\\[2cm]
+    \vfill
+    % ----------------------------------------------------------------
+    \includegraphics[width=0.19\textwidth]{unibs-logo.png}\\[5pt]
+    {Università degli Studi di Brescia}\\[10pt]
+    {Ultimo aggiornamento: Febbraio 2019}
+  \end{center}
+\end{titlepage}
+
 \tableofcontents
+
 
 \mainmatter
 \include{./1_spazi_metrici}
