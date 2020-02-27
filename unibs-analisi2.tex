@@ -1,59 +1,14 @@
 % !TEX encoding = UTF-8 Unicode
-
 \documentclass[a4paper,twoside,italian]{book}
-\usepackage[left = 3cm, right = 3cm]{geometry}
-\usepackage{babel}
-\usepackage{amsthm,amssymb}
-\usepackage[makeroom]{cancel}
-\usepackage[pdfencoding=auto]{hyperref}
-\usepackage{mathtools,thmtools}
-\usepackage{pgfplots}
-\usepgfplotslibrary{fillbetween}
-\usepackage{accents}
-\usepackage{xparse}
-\usepackage[capitalise]{cleveref}
-\usepackage{graphicx}
+\usepackage{unibs-analisi2}
 
 \hfuzz=3pt % To relax LaTeX about hbox overfullness
 
-\counterwithout{section}{chapter}
-
-\newtheoremstyle{break}% Custom theorem style to put thesis on a new line after the title.
-  {}%         Space above, empty = `usual value'
-  {}%         Space below
-  {\itshape}% Body font
-  {}%         Indent amount (empty = no indent, \parindent = para indent)
-  {\bfseries}% Thm head font
-  {}%        Punctuation after thm head
-  {\newline}% Space after thm head: \newline = linebreak
-  {}%         Thm head spec
-\theoremstyle{break}
-\newtheorem{theorem}{Teorema}[section]
-\newtheorem{definition}[theorem]{Definizione}
-\newtheorem{proposition}[theorem]{Proposizione}
-\newtheorem{observation}[theorem]{Osservazione}
-\newtheorem{corollary}[theorem]{Corollario}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{example}[theorem]{Esempio}
-\newtheorem{exercise}[theorem]{Esercizio}
-\newtheoremstyle{note}
-  {} % space above note
-  {} % space below note
-  {\normalfont\small\addtolength{\leftskip}{1em}} % body font and position
-  { } % space to indent the head
-  {\bfseries} % head font
-  {.} % punctuation between head and body
-  { } % space after theorem head; " " = normal interword space
-  { } % Manually specify head
-\theoremstyle{note}
-\newtheorem*{note}{Nota}
-\AfterEndEnvironment{note}{\noindent\ignorespaces}
-
-\newenvironment{solution}
-  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Soluzione]}
-  {\end{proof}}
-
 \hypersetup{
+	pdftitle={Appunti di Analisi Matematica 2},
+	pdfauthor={Federico Cerutti e Mauro Conte},
+	pdflang={it},
+	pdfsubject={Appunti dei corsi di Analisi Matematica 2 del prof. Rinaldo M. Colombo},
   colorlinks = true,
   linkcolor = blue,
   anchorcolor = blue,
@@ -64,73 +19,6 @@
 
 \begin{document}
 \pagestyle{headings}
-\newcommand{\norm}[1] {\left\|#1\right\|}
-\newcommand{\abs}[1] {\left|#1\right|}
-\newcommand{\brackets}[1] {\left\{#1\right\}}
-
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\bbset}[1] {\mathbb{#1}}
-\newcommand{\bbsetn}[2] {\mathbb{#1}^{#2}}
-
-\newcommand{\integrald}[1]{\,\mathrm{d}{#1}}
-
-\newcommand{\bfset}[1] {\mathbf{#1}}
-
-\newcommand{\cntclass}[1] {\mathbf{C^{#1}}} % Command for continuity classes
-
-\newcommand{\realintervalopen}[2] {\left]#1,#2\right[}
-\newcommand{\realintervalclose}[2] {\left[#1,#2\right]}
-\newcommand{\realintervalclop}[2] {\left[#1,#2\right[}
-\newcommand{\realintervalopcl}[2] {\left]#1,#2\right]}
-\newcommand{\realfunction}[3]{ #1:#2\to#3}
-\newcommand{\trigonpol}[3] {\frac{a_0}{2}+\sum\limits_{#1=#2}^{#3}a_{#1}cos(#1x)+b_{#1}sin(#1x)}
-
-\newcommand{\dinfty}[2]{d_\infty\left(#1,#2\right)}
-\newcommand{\ddinfty}[3]{\sup\limits_{x\in#3}{\abs{f-g}}}
-\newcommand{\bydef}{\rightleftharpoons}
-
-\newcommand{\rvect}[1]{\begin{bmatrix} #1 \end{bmatrix}}
-
-\newcommand{\circdot}[1]{\accentset{\circ}{#1}}
-
-% Append the following to an equation in align* blocks to allow tagging single eq.
-\newcommand*{\tageq}{\refstepcounter{equation}\tag{\theequation}}
-% Use the following to align vertically an equation in a align block without actually having the equals sign aligned
-% Example:
-%   5^2+3 =
-%   = 25+3
-%   = 28
-
-% Use the following to reference stuff with its name appended.
-% Thanks to Oberdiek from here https://tex.stackexchange.com/a/66096/206062
-\newcommand*{\fullref}[1]{%
-  \hyperref[{#1}]{%
-    \autoref*{#1}%
-    \if\vcenter\getrefbykeydefault{#1}{name}{}\vcenter
-    \else
-      ~(\nameref*{#1})%
-    \fi
-  }%
-}
-
-\DeclareDocumentCommand{\funcdef}{m m o m o s o}{
-  % This command allows formal function definition and require xparse
-  % Taken from https://tex.stackexchange.com/questions/149705/defining-a-macro-with-three-optional-arguments-in-the-form-newmacroabcd
-  \begin{array}{r@{\ }c@{\,}c@{\,}l}
-    #1:
-  & \IfNoValueTF{#3}{#4}{#3}
-  & \to & #4 \\
-  & #2
-  & \mapsto
-  & \IfNoValueTF{#5}{#1(#2)}{#5}
-    \IfNoValueTF{#7}{}{\mathrel{:=}#7}
-  \end{array}
-}
-
-\author{Mauro Conte, Federico Cerutti}
-\title{}
-\date{Febbraio 2019}
 
 \frontmatter
 \begin{titlepage}
@@ -150,6 +38,11 @@
     {Ultimo aggiornamento: Febbraio 2019}
   \end{center}
 \end{titlepage}
+
+% Colophon
+\null\vfill
+\doclicenseThis
+\newpage
 
 \tableofcontents
 
