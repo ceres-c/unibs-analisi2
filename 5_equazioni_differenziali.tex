@@ -71,7 +71,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	introduco $ X'=\begin{bmatrix} x'\\ x''\end{bmatrix}$ e $X=\begin{bmatrix}x\\ x'\end{bmatrix}$\\
 	quindi $ X'=f(t,X)$
 \end{example}
-\begin{definition}
+\begin{definition}[Problema di Cauchy del Primo Ordine]
 	\label{def:prob_cauchy_ord_1}
 	si dice problema di Cauchy del primo ordine il problema di determinare una soluzione di un'equazione differenziale ordinaria del primo ordine, soddisfacente ad una condizione iniziale.
 	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
@@ -94,7 +94,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \begin{definition}
 	soluzione massimale di un problema di Cauchy è una soluzione $$x_M:I_M\mapsto R^k$$ tale che nessun'altra soluzione della stessa equazione possa essere definita in un intervallo $I$ con $I_M \subset I$. Quindi è la soluzione definita sull'intervallo maggiore possibile.
 \end{definition}
-\begin{definition}
+\begin{definition}[Problema di Cauchy di Ordine $n$]
 	si dice problema di Cauchy di ordine $n$ il seguente problema:\\
 	Determinare una soluzione di un'equazione differenziale ordinaria di ordine $n$ soddisfacente a $n$ condizioni iniziali:
 	$$\begin{cases}
@@ -141,7 +141,8 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	\end{note}
 \end{definition}
 
-\begin{observation}
+\begin{observation}[Problema ben posto nel senso di Hadamard]
+	\label{obs:hadamard}
 	in generale un problema si dice \textbf{ben posto} o \textbf{ben posto nel senso di Hadamard} ogniqualvolta la soluzione:
 	\begin{enumerate}
 		\item esiste
@@ -192,7 +193,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		\item $t_0\in \circdot{I}, x_0\in \circdot{A}$
 		\item $f\in \cntclass{0}(I\times A;R^n)$
 	\end{enumerate}
-	inoltre $I\subseteq \R$ intervallo e $A\subseteq \R^n$, in quanto \hyperref[def:prob_cauchy_ord_1]{problema di Cauchy}.\\
+	inoltre $I\subseteq \R$ intervallo e $A\subseteq \R^n$, per \fullref{def:prob_cauchy_ord_1}.\\
 	Allora esiste un $\delta>0$ tale che esiste soluzione $x:J\mapsto A$ del problema di Cauchy con $J=\realintervalclose{t_0-\delta}{t_0+\delta}$.
 	\begin{note}
 		$\delta$ è un valore arbitrario che serve ad identificare l'intervallo $I$ a cui appartiene $t_0$
@@ -277,9 +278,8 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	x(0)=-3\end{matrix}\right.$ allora la funzione $\varphi(x)=-x+3$ sarebbe stata soluzione nell'intervallo $J=\left] -\infty,0 \right[ $
 \end{example}
 
-\begin{theorem}[Teorema di Cauchy Locale - Prima Parte)]
+\begin{theorem}[Teorema di Cauchy Locale - Prima Parte]
 	\label{teo:cau_locale_part_1}
-	In sostanza si dimostra che il problema di Cauchy è ben posto nel senso di Hadamard.\\
 	Si consideri il problema di Cauchy:
 	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
 	con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
@@ -289,8 +289,9 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		\item $f$ è localmente Lipschitziana in $x\in A$ uniformemente rispetto a $t\in I$
 	\end{enumerate}
 	\begin{note}
-		Le prime due ipotesi garantiscono l'esistenza, grazie al Thm. di Peano. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
+		Le prime due ipotesi garantiscono l'esistenza, grazie al \fullref{teo:peano}. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
 	\end{note}
+	\vspace*{-2em}
 	\begin{note}
 		Per verificare l'ultima ipotesi si ricordino \fullref{prop:fc1_loc_lips} e \hyperlink{note:if_lips_then_loclips}{se $f$ \textbf{lips.} $\implies f$ \textbf{loc. lips.}}
 	\end{note}
@@ -323,142 +324,141 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		\item \textbf{Dipendenza continua dai dati}\\
 		Questa tesi verrà esposta successivamente in \fullref{teo:cau_locale_part_2}
 	\end{enumerate}
-\end{theorem}
-
-\begin{proof}(\textbf{Tesi 2})
-	\begin{note}
-		L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso mediante una funzione avente come parametro $x$ stesso.
-	\end{note}
-	Da \fullref{def:equaz_volterra} sappiamo che la prima equazione del problema in ipotesi corrisponde all'integrale
-	$$x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}$$
-	Definiamo quindi $T$, funzione del tipo
-	\begin{equation}
-		\label{eq:cauch_proof_T}
-		\funcdef{\textrm{$T$}}{(T(x))(t)}{X}[x_0+\int_{t_0}^tf(\tau,x(\tau))\integrald{\tau}]		
-	\end{equation}
-	Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} serve che lo spazio di partenza e di arrivo corrispondano.\\
-	Prendiamo:
-	\begin{itemize}
-		\item $\delta_1>0$ tale che $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\subseteq I$
-		\item $\rho>0$ tale che $\overline{B(x_0,\rho)}\subseteq A$
-		\item $L$ costante di Lipshitz di $f$ in $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\times\overline{B(x_0,\rho)}$. È possibile individuare $L$ in quanto $f$ loc. lips. per ipotesi in $I\times A$, e dunque \textbf{loc. lips. in sottointervalli/insiemi}
-	\end{itemize}
-	Sia ora
-	$$V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}$$
-	\begin{note}
-		V è il massimo valore assunto dalla derivata prima ($x'=f(t,x))$) di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \fullref{prop:int_compatto}).\\% TODO in cap. 1, prop 2.35: compatto <=> chiuso+limtato (intervallo)
-	\end{note}
-	\noindent Definiamo dunque un generico $\delta>0$
-	\begin{equation}
-		\label{eq:cau_delta}
-		\delta<\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}}
-	\end{equation}
-	\begin{note}
-		$\delta$ è strettamente minore del $\min$ perché poi servirà a trovare una contrazione, dunque dovrò avere sicuramente $\delta L < 1$
-	\end{note}
-	\begin{itemize}
-		\item $\delta_1$ è raggio di un generico intervallo incluso in $I$ di partenza. $\delta$ deve essere minore di $\delta_1$ in quanto non è possibile uscire dall'intervallo $I$
-		\item $\frac{\rho}{V}$ è rapporto tra il raggio di $\overline{B(x_0,\rho)}$, sfera interamente contenuta in $A$, e $V$, valore massimo di $f$ ridotta all'intervallo di cui sopra e alla sfera $\overline{B}$.\\
-		Considerando il reciproco $\frac{V}{\rho}$, possiamo vederlo come una sorta di nuova costante di lips., riportata ad un intervallo più piccolo, non dipendente però da $\Delta f(x)$, ma dal valore di $f(x)$ stessa.
-		\item $1/L = \frac{\norm{x_2-x_1}}{\norm{f(t,x_2)-f(t,x_1)}}$ dalla \fullref{def:loc_lips}, perché $f$ loc. lips. per ipotesi. Dà un'idea di quanto vari la $x$ rispetto alla variazione della $f(x)$
-	\end{itemize}
-	Questo $\delta$, dunque, rappresenta, dal punto di vista concettuale, quale sia la più restrittiva ($\min$) tra tutte le possibili variazioni della $f(x)$ rispetto alla $x$.\\
-	A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
-	$$X = \brackets{g\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}$$
-	\begin{note}
-		Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra} sarebbe possibile sceglierla non continua, ma non si considera il caso.
-	\end{note}
-	Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \fullref{teo:contrazioni}:
-	\begin{itemize}
-		\item $(X,d)$ è \textbf{spazio metrico completo}\\
-		$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per il \fullref{prop:compl_dist_spm_compl}.\qed
-		\item $T$ è \textbf{definita} (è possibile calcolarla)\\
-		L'abbiamo definita all'inizio dall'equazione di Volterra\qed
-		\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
-		L'insieme di partenza è valido in quanto sottoinsieme dell'insieme su cui $f(t,xt)$ era definita.\\
-		Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \realintervalclose{t_0-\delta}{t_0+\delta}$
-		\begin{proof}
-			$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fodamentale del Calcolo Integrale.\\
-			La seconda condizione si verifica prendendo la \cref{eq:cauch_proof_T} e calcolando la norma di entrambi i termini
+	\begin{proof}(\textbf{Tesi 2})
+		\begin{note}
+			L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso mediante una funzione avente come parametro $x$ stesso.
+		\end{note}
+		Da \fullref{def:equaz_volterra} sappiamo che la prima equazione del problema in ipotesi corrisponde all'integrale
+		$$x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}$$
+		Definiamo quindi $T$, funzione del tipo
+		\begin{equation}
+			\label{eq:cauch_proof_T}
+			\funcdef{\textrm{$T$}}{\bigl(T(x)\bigr)(t)}{X}[x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau}]
+		\end{equation}
+		Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \fullref{teo:contrazioni} serve che lo spazio di partenza e di arrivo corrispondano.\\
+		Prendiamo:
+		\begin{itemize}
+			\item $\delta_1>0$ tale che $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\subseteq I$
+			\item $\rho>0$ tale che $\overline{B(x_0,\rho)}\subseteq A$
+			\item $L$ costante di Lipshitz di $f$ in $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\times\overline{B(x_0,\rho)}$. È possibile individuare $L$ in quanto $f$ loc. lips. per ipotesi in $I\times A$, e dunque \textbf{loc. lips. in sottointervalli/insiemi}
+		\end{itemize}
+		Sia ora
+		$$V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}$$
+		\begin{note}
+			V è il maggiore tra i valori assunti dalla derivata prima $\bigl(x'=f(t,x)\bigr)$ di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \fullref{prop:int_compatto}).\\% TODO in cap. 1, prop 2.35: compatto <=> chiuso+limtato (intervallo)
+		\end{note}
+		\noindent Definiamo dunque un generico $\delta>0$
+		\begin{equation}
+			\label{eq:cau_delta}
+			\delta<\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}}
+		\end{equation}
+		\begin{note}
+			$\delta$ è strettamente minore del $\min$ perché poi servirà a trovare una contrazione, dunque dovrò avere sicuramente $\delta L < 1$
+		\end{note}
+		\begin{itemize}
+			\item $\delta_1$ è raggio di un generico intervallo incluso in $I$ di partenza. $\delta$ deve essere minore di $\delta_1$ in quanto non è possibile uscire dall'intervallo $I$
+			\item $\frac{\rho}{V}$ è rapporto tra il raggio di $\overline{B(x_0,\rho)}$, sfera interamente contenuta in $A$, e $V$, valore massimo di $f$ ridotta all'intervallo di cui sopra e alla sfera $\overline{B}$.\\
+			Considerando il reciproco $\frac{V}{\rho}$, possiamo vederlo come una sorta di nuova costante di lips., riportata ad un intervallo più piccolo, non dipendente però da $\Delta f(x)$, ma dal valore di $f(x)$ stessa.
+			\item $1/L = \frac{\norm{x_2-x_1}}{\norm{f(t,x_2)-f(t,x_1)}}$ dalla \fullref{def:loc_lips}, perché $f$ loc. lips. per ipotesi. Dà un'idea di quanto vari la $x$ rispetto alla variazione della $f(x)$
+		\end{itemize}
+		Questo $\delta$, dunque, rappresenta, dal punto di vista concettuale, quale sia la più restrittiva ($\min$) tra tutte le possibili variazioni della $f(x)$ rispetto alla $x$.\\
+		A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
+		$$X = \brackets{g\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}$$
+		\begin{note}
+			Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra} sarebbe possibile sceglierla non continua, ma non si considera il caso.
+		\end{note}
+		Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \fullref{teo:contrazioni}:
+		\begin{itemize}
+			\item $(X,d)$ è \textbf{spazio metrico completo}\\
+			$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per il \fullref{prop:compl_dist_spm_compl}.\qed
+			\item $T$ è \textbf{definita} (è possibile calcolarla)\\
+			L'abbiamo definita all'inizio dall'equazione di Volterra\qed
+			\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
+			L'insieme di partenza è valido in quanto sottoinsieme dell'insieme su cui $f(t,xt)$ era definita.\\
+			Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \realintervalclose{t_0-\delta}{t_0+\delta}$
+			\begin{proof}
+				$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fodamentale del Calcolo Integrale.\\
+				La seconda condizione si verifica prendendo la \cref{eq:cauch_proof_T} e calcolando la norma di entrambi i termini
+				\begin{align*}
+					\norm{y(t)-x_0} &= \norm{\int_{t_0}^t f(\tau,x(\tau))\integrald{\tau} }
+					\intertext{posso ora minorare con il valore assoluto della norma dell'argomento (spiegazione in \fullref{ex:cau_loc_abs_of_norm})}
+					&\leq \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau} } \tageq\label{eq:cau_loc_abs_of_norm}
+					\intertext{$\norm{f(\tau,x(\tau))}$ è sicuramente minorato da $V$ per definizione di quest'ultimo, dunque si ha integrale di costante}
+					&\leq V \cdot \abs{t-t_0}
+					\intertext{$\abs{t-t_0}\leq \delta$ per definizione di $\delta$}
+					&\leq V \cdot \delta\\
+					\intertext{nel caso in cui $\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}} = \frac{\rho}{V}$, allora minorato strettamente da $\rho$ per definizione di $\delta$, altrimenti sicuramente minore per $\min$}
+					&< \rho
+				\end{align*}
+			\end{proof}
+			\item $T$ è \textbf{contrazione}\\
+			Occorre verificare la \cref{eq:def_contrazione}
+			\begin{proof}
+			Per definizione della $T$ e per la proprietà addittiva degli integrali
 			\begin{align*}
-				\norm{y(t)-x_0} &= \norm{\int_{t_0}^t f(\tau,x(\tau))\integrald{\tau} }
-				\intertext{posso ora minorare con il valore assoluto della norma dell'argomento (spiegazione in \fullref{ex:cau_loc_abs_of_norm})}
-				&\leq \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau} } \tageq\label{eq:cau_loc_abs_of_norm}
-				\intertext{$\norm{f(\tau,x(\tau))}$ è sicuramente minorato da $V$ per definizione di quest'ultimo, dunque si ha integrale di costante}
-				&\leq V \cdot \abs{t-t_0}
-				\intertext{$\abs{t-t_0}\leq \delta$ per definizione di $\delta$}
-				&\leq V \cdot \delta\\
-				\intertext{nel caso in cui $\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}} = \frac{\rho}{V}$, allora minorato strettamente da $\rho$ per definizione di $\delta$, altrimenti sicuramente minore per $\min$}
-				&< \rho
+				\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t) =
+				\int_{t_0}^t \Bigl(
+					f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)
+				\Bigr)\integrald{\tau}
 			\end{align*}
-		\end{proof}
-		\item $T$ è \textbf{contrazione}\\
-		Occorre verificare la \cref{eq:def_contrazione}
-		\begin{proof}
-		Per definizione della $T$ e per la proprietà addittiva degli integrali
-		\begin{align*}
-			\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t) =
-			\int_{t_0}^t \Bigl(
-				f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)
-			\Bigr)\integrald{\tau}
-		\end{align*}
-		Dunque, passando alla norma di quanto calcolato sopra
-		\begin{align}
-			\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t)} \label{eq:cau_loc_verif_contraz_norm}
-		\end{align}
-		È sicuramente minorata da
-		\begin{align*}
-			&\leq \abs{\int_{t_0}^t
-				\norm{f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)}
-				\integrald{\tau}}\\
-			\intertext{Per \fullref{def:loc_lips} passo alle soluzioni $x_i$ di $f$, minorando}
-			&\leq \abs{\int_{t_0}^t
-				L\cdot\norm{x_2(\tau)-x_1(\tau)}
-				\integrald{\tau}}\\
-			\intertext{Dalla \fullref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
-			&= \abs{\int_{t_0}^t % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
-				L\cdot d_X(x_2,x_1)
-				\integrald{\tau}}\\
-			&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{eq:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
-		\end{align*}
-		Quindi, concludendo, possiamo passare dalla \cref{eq:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza.
-		$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
-		Minoriamo questa distanza con la forma appena trovata \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
-		$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
-		Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per \fullref{def:contrazione}.
-		\end{proof}
-	\end{itemize}
-	È ora possibile applicare il \hyperref[teo:contrazioni]{Teorema delle contrazioni} che garantisce l'\textbf{unicità} del punto fisso $x_* \in X$ per la $x = T(x)$, questo implica ovviamente che $T(x)$ abbia un'unica soluzione. Si ha dunque l'unicità della soluzione $x$ del problema di Cauchy in ipotesi sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, al quale $T$ è equivalente per definizione in quanto $T$ è \fullref{def:equaz_volterra}.
+			Dunque, passando alla norma di quanto calcolato sopra
+			\begin{align}
+				\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t)} \label{eq:cau_loc_verif_contraz_norm}
+			\end{align}
+			È sicuramente minorata da
+			\begin{align*}
+				&\leq \abs{\int_{t_0}^t
+					\norm{f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)}
+					\integrald{\tau}}\\
+				\intertext{Per \fullref{def:loc_lips} passo alle funzioni incognite $x_i$ di $f$ (che son le soluzioni dell'equazione differenziale), minorando}
+				&\leq \abs{\int_{t_0}^t
+					L\cdot\norm{x_2(\tau)-x_1(\tau)}
+					\integrald{\tau}}\\
+				\intertext{Dalla \fullref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
+				&= \abs{\int_{t_0}^t % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
+					L\cdot d_X(x_2,x_1)
+					\integrald{\tau}}\\
+				&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{eq:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
+			\end{align*}
+			Quindi, concludendo, possiamo passare dalla \cref{eq:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza, cioè
+			$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
+			Minoriamo questa distanza con la forma appena trovata \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
+			$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
+			Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per \fullref{def:contrazione}.
+			\end{proof}
+		\end{itemize}
+		È ora possibile applicare il \fullref{teo:contrazioni} che garantisce l'\textbf{unicità} del punto fisso $x_* \in X$ per la $x = T(x)$, questo implica ovviamente che $T(x)$ abbia un'unica soluzione. Si ha dunque l'unicità della soluzione $x$ del problema di Cauchy in ipotesi sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, al quale $T$ è equivalente per definizione in quanto $T$ è \fullref{def:equaz_volterra}.
 
-	Tornando ai $J_1, J_2$ della Tesi 2:
-	\begin{itemize}
-		\item Se $(J_1 \cap J_2) \subseteq \realintervalclose{t_0-\delta}{t_0+\delta}$, allora $x_1 = x_2$ in quanto esiste unico punto fisso, come dimostrato sopra.
-		\item Se $(J_1 \cap J_2) \supset \realintervalclose{t_0-\delta}{t_0+\delta}$, allora poniamo
-			\begin{equation}
-				t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \realintervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{eq:cau_loc_tM_J1J2_supset}
-			\end{equation}
-			$$x_M = x_1(t_M) = x_2(t_M)$$
-			Quindi $t_M$ è l'\textit{ultimo istante} in cui $x_1$ e $x_2$ coincidono.
+		Tornando ai $J_1, J_2$ della Tesi 2:
+		\begin{itemize}
+			\item Se $(J_1 \cap J_2) \subseteq \realintervalclose{t_0-\delta}{t_0+\delta}$, allora $x_1 = x_2$ in quanto esiste unico punto fisso, come dimostrato sopra.
+			\item Se $(J_1 \cap J_2) \supset \realintervalclose{t_0-\delta}{t_0+\delta}$, allora poniamo
+				\begin{equation}
+					t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \realintervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{eq:cau_loc_tM_J1J2_supset}
+				\end{equation}
+				$$x_M = x_1(t_M) = x_2(t_M)$$
+				Quindi $t_M$ è l'\textit{ultimo istante} in cui $x_1$ e $x_2$ coincidono.
 
-			Essendo
-			\begin{itemize}
-				\item $t_M \in \circdot{J_1},\,t_M \in \circdot{J_2} \implies t_M \in \circdot{I}$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}
-				\item $x_M \in \circdot{A}$ per \hyperlink{def:equaz_diff_sol}{nota definizione equazione differenziale}
-			\end{itemize}
-			ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
-			$$\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}$$
-			ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
-			$$t_M = \min \brackets{\sup J_1, \sup J_2}$$
-			Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
-			$$t_m = \max \brackets{\inf J_1, \inf J_2}$$
-			Quindi, prendendo $\realintervalclose{t_m}{t_M}$, abbiamo identificato $J_1 \cap J_2$ stessa.
-	\end{itemize}
-	Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
-\end{proof}
-\begin{note}
-	La scelta di $\delta$ in \cref{eq:cau_delta} potrebbe essere migliorata utilizzando il \fullref{teo:iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
-	% TODO magari la dimostrazione?
-\end{note}
+				Essendo
+				\begin{itemize}
+					\item $t_M \in \circdot{J_1},\,t_M \in \circdot{J_2} \implies t_M \in \circdot{I}$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}
+					\item $x_M \in \circdot{A}$ per \hyperlink{def:equaz_diff_sol}{nota definizione equazione differenziale}
+				\end{itemize}
+				ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
+				$$\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}$$
+				ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
+				$$t_M = \min \brackets{\sup J_1, \sup J_2}$$
+				Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
+				$$t_m = \max \brackets{\inf J_1, \inf J_2}$$
+				Quindi, prendendo $\realintervalclose{t_m}{t_M}$, abbiamo identificato $J_1 \cap J_2$ stessa.
+		\end{itemize}
+		Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
+	\end{proof}
+	\begin{note}
+		La scelta di $\delta$ in \cref{eq:cau_delta} potrebbe essere migliorata utilizzando il \fullref{teo:iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
+		% TODO magari la dimostrazione?
+	\end{note}
+\end{theorem}
 
 \begin{exercise}
 	\label{ex:cau_loc_abs_of_norm}
@@ -475,8 +475,8 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 		\begin{center}
 			\begin{tikzpicture}[baseline]
 			\begin{axis} [
-				width=\textwidth / 2 - 3,
-				height=\textwidth / 2 - 3,
+				width=\textwidth / 2 - 10,
+				height=\textwidth / 2 - 10,
 				axis lines = center,
 				axis on top=true,
 				axis equal,
@@ -500,8 +500,8 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 			~\qquad\qquad
 			\begin{tikzpicture}[baseline]
 			\begin{axis} [
-				width=\textwidth / 2 - 3,
-				height=\textwidth / 2 - 3,
+				width=\textwidth / 2 - 10,
+				height=\textwidth / 2 - 10,
 				axis lines = center,
 				axis on top=true,
 				axis equal,
@@ -684,6 +684,9 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{align*}
 	\end{proof}
 \end{theorem}
+\begin{note}
+	Con il \fullref{teo:cau_locale_part_1} ed il \fullref{teo:cau_locale_part_2} si verifica se un Problema di Cauchy rispetta la \fullref{obs:hadamard}.
+\end{note}
 \begin{exercise}
 	Esibire una dimostrazione dell'unicità della soluzione di un Problema di Cauchy alternativa al \fullref{teo:cau_locale_part_1} e basata sul \fullref{teo:cau_locale_part_2}.
 	% TODO Soluzione
@@ -742,21 +745,22 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 
 \section{Teoria Globale}
 \begin{example}[Un Problema di Cauchy senza soluzione globale]
-	Dato il Problema di Cauchy
+	Si trovi la soluzione del Problema di Cauchy
 	\begin{equation}
 		\begin{cases}
 			x' = x^2\\
 			x(0) = 1
 		\end{cases}
 	\end{equation}
-	si trovi la soluzione.
+	Essendo a variabili separabili, procediamo
 	\begin{align*}
-		\frac{x'}{x^2} &= 1\\
-		\int_0^t \frac{x'(\tau)}{x^2(\tau)} \integrald{\tau} &= \int_0^t 1 \integrald{\tau}
+		\frac{dx}{dt} &= x^2(t)\\
+		\frac{dx}{x^2(t)} &= dt\\
+		\int_0^t \frac{dx}{x^2(\tau)} \integrald{\tau} &= \int_0^t \integrald{\tau}
 		\intertext{Applicando al primo membro le normali regole d'integrazione delle funzioni composte otteniamo}
 		-\frac{1}{x(t)} + 1 &= t\\
 	\end{align*}
-	Da cui si ricava $x(t) = \frac{1}{1-t}$, che è unica soluzione del Problema di Cauchy ed ha asintoto verticale in $t=1$.
+	Da cui si ricava $x(t) = \frac{1}{1-t}$, che è unica soluzione del Problema di Cauchy ed ha asintoto verticale in $t=1$.\\
 
 	\begin{center}
 		\begin{tikzpicture}[baseline]
@@ -797,7 +801,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		  xmax = 2,
 		  xlabel = $t$,
 		  ylabel = {$x$},
-		  legend style={at={(0.22,0.05)},anchor=south},
+		  legend style={at={(0.2,0.05)},anchor=south},
 		]
 		  \addplot [
 			name path=g,
@@ -809,10 +813,9 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
-
-	Quindi ho una soluzione fino al tempo $t=1$, cioè la funzione è definita nell'intervallo $\realintervalclose{-\infty}{1}$. In questo intervallo potrò applicare localmente il Teorema di Cauchy, ma non è possibile applicarlo globalmente.
+	Per via dell'asintoto, nonostante la $x(t)$ abbia come dominio $\R \setminus \brackets{1}$, la soluzione del Problema di Cauchy così definito si ferma a $t=1$. Ciò perché la condizione iniziale del Problema è $t = 0 \in \realintervalopcl{-\infty}{1}$ e non avrebbe dunque senso considerare la situazione altrove. In questo intervallo di validità potrò applicare localmente il Teorema di Cauchy, ma non è possibile applicarlo globalmente.
 	\begin{note}
-		L'argomento di questo capitolo sarà appunto capire in quali casi ho o non ho un comportamento simile.
+		L'argomento di questo capitolo sarà quindi capire quando un modello sia valido globalmente.
 	\end{note}
 \end{example}
 \begin{example}[Un Problema di Cauchy con soluzione globale]
@@ -847,6 +850,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{itemize}
 	Allora il Problema di Cauchy
 	\begin{equation}
+		\label{eq:cau_glob_thesis}
 		\begin{cases}
 			x' = f(x,t)\\
 			x(t_0) = x_0
@@ -854,7 +858,62 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{equation}
 	ammette un'unica soluzione definita in tutto l'intervallo $I$
 	\begin{proof}
-		% TODO dimostrazione
+		Analogamente a quanto fatto nel \fullref{teo:cau_locale_part_1}, siano:
+		\begin{itemize}
+			\item $X = \cntclass{0}(I,\R^n)$
+			\item $T$ definita come la \cref{eq:cauch_proof_T}, cioè
+				$$\funcdef{\textrm{$T$}}{\bigl(T(x)\bigr)(t)}{X}[x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau}]$$
+		\end{itemize}
+		I punti fissi di $T$ sono tutte e sole le soluzioni di \cref{eq:cau_glob_thesis}. Grazie al \fullref{teo:iterata_contraz}, per dimostare l'esistenza di un unico punto fisso, basta dimostrare che un'iterata di $T$ (\fullref{def:iterata}) è contrazione.\\
+		Nel dettaglio andremo a dimostrare per induzione la seguente forma:
+		\begin{equation}
+			\norm{\bigl(T^m(x_2)\bigr)(t) - \bigl(T^m(x_1)\bigr)(t)} \leq \frac{\bigl(L \cdot \abs{t-t_0}\bigr)^m}{m!} \cdot d_X(x_2,x_1)
+		\end{equation}
+		Dove $L$ è costante di Lipschitzianità di $f$\\
+		\begin{itemize}
+			\item $m=1$: Come in dalla \cref{eq:cau_loc_verif_contraz_fine}, sappiamo che
+			\begin{equation*}
+				\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t)} \leq \bigl(L \cdot \abs{t-t_0}\bigr) \cdot d_X(x_2,x_1)
+			\end{equation*}
+			\item $m>1$: Con un procedimento analogo a quello usato per giungere alla \cref{eq:cau_loc_verif_contraz_fine}, possiamo ottenere
+			\begin{note}
+				Le spiegazioni dei passaggi invariati possono essere viste dal \fullref{teo:cau_locale_part_1}
+			\end{note}
+			\begin{align*}
+				&\norm{\bigl(T^{m+1}(x_2)\bigr)(t) - \bigl(T^{m+1}(x_1)\bigr)(t)} =\\
+				\intertext{Per \fullref{def:equaz_volterra}}
+				= &\norm{\int_{t_0}^t
+				\biggl( f\Bigl(\tau,\;\bigl(T^m(x_2)\bigr)(\tau)\;\Bigr) - f\Bigl(\tau,\;\bigl(T^m(x_1)\bigr)(\tau)\;\Bigr) \biggr)
+				\integrald{\tau}}\\
+				\leq &\abs{\int_{t_0}^t
+				\norm{ f\Bigl(\tau,\;\bigl(T^m(x_2)\bigr)(\tau)\;\Bigr) - f\Bigl(\tau,\;\bigl(T^m(x_1)\bigr)(\tau)\;\Bigr)}
+				\integrald{\tau}}\\
+				\leq &\abs{\int_{t_0}^t
+				L \cdot \norm{\bigl(T^m(x_2)\bigr)(\tau) - \bigl(T^m(x_1)\bigr)(\tau)}
+				\integrald{\tau}}
+				\intertext{Grazie alla Lips. di $f$, dalla \fullref{def:loc_lips}, $\norm{\bigl(T(x_2)\bigr)(\tau) - \bigl(T(x_1)\bigr)(\tau)} \leq L \cdot d_X(x_2,x_1)$, dunque essendo $T^m$ iterata di T, si moltiplica $L$ per sé stesso $m$ volte, da cui $L^m$.\newline
+				In modo analogo (penso) si ottiene $\frac{\abs{\tau-t_0}^m}{m!}$. Non lo so...} % TODO Spiegare questo passaggio
+				= &\abs{\int_{t_0}^t
+				L \cdot \frac{(L \cdot \abs{\tau-t_0})^m}{m!}\cdot d_X(x_2,x_1)
+				\integrald{\tau}}\\
+				\intertext{Riordinando i termini}
+				= &\abs{\int_{t_0}^t
+				\frac{L^{m+1}}{m!} \cdot d_X(x_2,x_1) \cdot \abs{\tau-t_0}^m
+				\integrald{\tau}}\\
+				\intertext{Essendo però i primi due fattori costanti moltiplicative non legate a $\tau$}
+				= &\frac{L^{m+1}}{m!} \cdot d_X(x_2,x_1)
+				\cdot \abs{\int_{t_0}^t \abs{\tau-t_0}^m \integrald{\tau}}\\
+				= &\frac{L^{m+1}}{m!} \cdot d_X(x_2,x_1)
+				\cdot \frac{1}{m+1} \cdot \abs{\;\left[ \abs{\tau-t_0}^{m+1} \right]_{t_0}^t\;}\\
+				= &\frac{L^{m+1}}{m!} \cdot d_X(x_2,x_1)
+				\cdot \frac{1}{m+1} \cdot \abs{\;\abs{t-t_0}^{m+1} - \abs{t_0-t_0}^{m+1}\;}\\
+				= &\frac{L^{m+1}}{m!} \cdot d_X(x_2,x_1)
+				\cdot \frac{1}{m+1} \cdot \abs{t-t_0}^{m+1}\\
+				= &\frac{\bigl(L \cdot \abs{t-t_0}\bigr)^{m+1}}{m!} \cdot \frac{1}{m+1} \cdot d_X(x_2,x_1)\\
+				= &\frac{\bigl(L \cdot \abs{t-t_0}\bigr)^{m+1}}{(m+1)!} \cdot d_X(x_2,x_1)\\
+			\end{align*}
+		\end{itemize}
+		Avendo dimostrato che la minorazione vale per $m$ e per $m+1$, la dimostrazione per induzione è conclusa.
 	\end{proof}
 \end{theorem}
 
