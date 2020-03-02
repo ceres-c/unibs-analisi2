@@ -310,9 +310,9 @@ $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 	\label{teo:weier_generale}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
 	$$\left.\begin{array}{ll}
-		K \text{compatto} \\
-		f \text{continua su } K
-		\end{array} \quad\right\} \implies f(K) \text{compatto}$$
+		K\;\text{compatto} \\
+		f\;\text{continua su } K
+		\end{array} \quad\right\} \implies f(K)\;\text{compatto}$$
 	\begin{proof}
 		Siano le successioni
 		\begin{itemize}
@@ -337,6 +337,48 @@ $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 		Cioè la definizione di successione convergente. Ho dunque individuato una sottosuccessione convergente per ogni successione in $f(K)$, verificando così la definizione di spazio Compatto.
 	\end{proof}
 \end{theorem}
+\subsection{Uniforme Continuità}
+\begin{definition}[Funzione Uniformemente Continua]
+	\label{def:unif_cont}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto Y$ con $A \subseteq X$.
+	\begin{center}
+		$f$ è \textbf{uniformemente continua} in $A$\\
+		$\rightleftharpoons$\\
+		$\forall \epsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale } d_Y\bigl(f(x),f(x_0)\bigr) < \epsilon$
+	\end{center}
+\end{definition}
+\begin{exercise}
+	\label{ex:cont_unif_cont_comparision}
+	Confrontare la \fullref{prop:AAA} con la \fullref{def:unif_cont}
+	% TODO Proposizione 3.12 dal libro e soluzione
+\end{exercise}
+\begin{proposition}
+	\label{prop:if_unif_cont_then_conf}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto Y$ con $A \subseteq X$. Se $f$ è \textbf{uniformemente continua} in $A$, allora $f$ è \textbf{continua} in $A$.
+	\begin{proof}
+		Deriva da \fullref{ex:cont_unif_cont_comparision}
+	\end{proof}
+\end{proposition}
+\subsection{Lipschitzianità}
+\begin{definition}[Funzione Lipschitziana]
+	\label{def:lips}
+	Siano:
+	\begin{itemize}
+		\item $(X,d_X)$, $(Y,d_Y)$ spazi metrici
+		\item $A \subseteq X$
+		\item $f:A \mapsto Y$
+	\end{itemize}
+	Allora
+	\begin{center}
+		$f$ è \textbf{Lipschitziana}
+	\end{center}
+	\begin{equation*}\label{eq1}
+		\begin{gathered}
+			\leftrightharpoons \\
+			\exists L > 0:\; \forall x_1,\,x_2 \in X,\;d_Y\bigl(f(x_1),f(x_2)\bigr)\leq L \cdot d_X(x_1,x_2)
+		\end{gathered}
+	\end{equation*}
+\end{definition}
 
 \section{Il Teorema delle Contrazioni}
 \begin{definition}[Contrazione]

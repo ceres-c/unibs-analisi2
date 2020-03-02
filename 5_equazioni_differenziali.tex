@@ -152,7 +152,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \end{observation}
 
 \section{Teoria Locale}
-\begin{definition}[Locale lipschitzianità]
+\begin{definition}[Funzione localmente Lipschitziana]
 	\label{def:loc_lips}
 	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
 	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
@@ -745,6 +745,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 
 \section{Teoria Globale}
 \begin{example}[Un Problema di Cauchy senza soluzione globale]
+	\label{ex:cau_glob_asint}
 	Si trovi la soluzione del Problema di Cauchy
 	\begin{equation}
 		\begin{cases}
@@ -919,9 +920,124 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 
 \subsection{Il Caso Sublineare}
 \begin{definition}[Funzione Sublineare]
+	\label{def:sublineare}
 	Una funzione $f:I\times\R^n\mapsto\R^n$ con $I$ intervallo in $\R$, si dice \textbf{sublineare} se esistono due costanti $A, B:\; \forall t \in I,\;\forall x \in \R^n$ vale:
-	$$\norm{f(t,x)}\leq A + B \norm{x}$$ 
+	$$\norm{f(t,x)}\leq A + B \norm{x}$$
+	\begin{note}
+		In sostanza una funzione è sublineare se esiste una retta tale per cui il grafico della funzione è tutto nella regione di piano delimitata da questa retta.
+	\end{note}
 \end{definition}
+\begin{exercise}
+	Dimostrare che se una funzione $f:\R^n\mapsto\R^n$ è \textbf{(globalmente) Lipschitziana}, allora è \textbf{sublineare}
+	\begin{solution}
+		\begin{align*}
+			&\norm{f(x)} =\\
+			= &\norm{f(0) + f(x) - f(0)}\\
+			\leq &\norm{f(0)} + \norm{f(x) - f(0)}
+			\intertext{Per \fullref{def:lips} minoriamo}
+			\leq &\norm{f(0)} + L\norm{x}
+			\intertext{Ponendo ora $A = \norm{f(0)}$ e $B = L$, si ottiene}
+			= &A + B\norm{x}
+		\end{align*}
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Esibire un esempio di \fullref{def:loc_lips}, ma non \textbf{sublineare}
+	\begin{solution}
+		$f(x) = x^2$ è loc. lips. ma non sublineare.
+	\end{solution}
+\end{exercise}
+\begin{theorem}[Teorema di Cauchy Globale]
+	\label{teo:cau_globale}
+	Data la funzione $f: I \times \R^n \mapsto \R^n$, se
+	\begin{enumerate}
+		\item $I \subseteq \R$ è un \textbf{intervallo}
+		\item $f$ è \textbf{continua} su $I\times \R^n$
+		\item $f$ è \textbf{loc. lips.} in $x  \in \R^n$ \textbf{uniformemente} rispetto a $t \in I$
+		\item $f$ è \textbf{sublineare}
+	\end{enumerate}
+	Allora il Problema di Cauchy
+	\begin{equation}
+		\label{eq:cau_glob_thesis_prob}
+		\begin{cases}
+			x' = f(t,x)\\
+			x(t_0) = x_0
+		\end{cases}
+	\end{equation}
+	Ammette un'unica soluzione definita in tutto l'intervallo $I$
+	\begin{note}
+		Non è necessario dimostare l'unicità in quanto la soluzione sarà localmente unica in ogni intorno di un punto e quindi si può espandere ad ogni intorno di ogni punto della soluzione.\newline
+		È inoltre garantita anche la dipendenza continua, dunque è possibile scegliere un $\delta$ (dalla \fullref{teo:cau_locale_part_2}) grande a piacere
+	\end{note}
+	\begin{proof}
+		Sia $\varphi: J \mapsto \R^n$ la soluzione di \cref{eq:cau_glob_thesis_prob} e sia
+		\begin{equation}
+			\label{eq:cau_glob_T_M}
+			T_M = \sup \brackets{\overline{t_M} \in I: \varphi\;\text{\itshape risolve \cref{eq:cau_glob_thesis_prob} su}\; \realintervalclop{t_0}{\overline{t_M}}\; }
+		\end{equation}
+		\begin{note}
+			$T_M$ è, dunque, l'ultimo tempo fino a cui posso definire una soluzione e la $t$ utilizzata in seguito è $t \in \realintervalclop{t_0}{\overline{t_M}}$
+		\end{note}
+		\begin{align*}
+			\varphi(t) &= x_0 + \int_{t_0}^{t} f\bigl(\tau,\varphi(\tau)\bigr)\integrald{\tau}
+			\intertext{Da cui, passando alle norme e minorando per proprietà 3 della \fullref{def:norma}}
+			\norm{\varphi(t)} &\leq \norm{x_0} + \norm{\int_{t_0}^{t} f\bigl(\tau,\varphi(\tau)\bigr)\integrald{\tau}}
+			\intertext{Grazie all'\fullref{ex:cau_loc_abs_of_norm}}
+			&\leq \norm{x_0} + \abs{\int_{t_0}^{t} \norm{f\bigl(\tau,\varphi(\tau)\bigr)}\integrald{\tau}}
+			\intertext{Si può poi togliere il valore assoluto, in quanto sicuramente $t \geq t_0$ per definizione e, utilizzando la \fullref{def:sublineare}}
+			&\leq \norm{x_0} + \int_{t_0}^{t} \Bigl(A + B\norm{\varphi(\tau)}\Bigr)\integrald{\tau}
+			\intertext{Separando l'integrale ed essendo il primo addendo indipendente dalla variabile d'integrazione $\tau$}
+			&\leq \norm{x_0} + A(t-t_0) + \int_{t_0}^{t}B\norm{\varphi(\tau)}\integrald{\tau}
+			\intertext{Si minora ulteriormente, passando a $T_M$}
+			&\leq \norm{x_0} + A(T_M-t_0) + \,\int_{t_0}^{t}B\norm{\varphi(\tau)}\integrald{\tau}
+			\intertext{
+				Dunque, applicando il \fullref{lemma:gronwall} con
+				\begin{itemize}
+					\item $\delta_0 = \norm{x_0} + A(T_M-t_0)$
+					\item $\delta(t) = \norm{\varphi(\tau)}$
+					\item $\kappa(t) = B$
+					\item $a = t_0$
+				\end{itemize}
+			}
+			\norm{\varphi(t)} &\leq \bigl(\norm{x_0} + A(T_M-t_0)\bigr)e^{\int_{t_0}^{t}B\integrald{\tau}}
+			\intertext{Da cui, minorando ulteriormente con $T_M$}
+			\norm{\varphi(t)} &\leq \bigl(\norm{x_0} + A(T_M-t_0)\bigr)e^{B(T_M-t_0)} \tageq\label{eq:cau_glob_gronwall}
+		\end{align*}
+		La $\varphi(t)$ è quindi limitata sull'intervallo $\realintervalclop{t_0}{T_M}$, dunque non è possibile abbia comportamento asintotico come quello di \fullref{ex:cau_glob_asint}. Ricordando che $\varphi(t)$ è soluzione della \cref{eq:cau_glob_thesis_prob}, otteniamo
+		\begin{align*}
+			\norm{\varphi'(t)} &= \norm{f\bigl(t,\varphi(t)\bigr)}\\
+			&\leq \sup \limits_{t \in \realintervalclop{t_0}{T_M}} \norm{f(t,x)} \tageq\label{eq:cau_glob_dfi_sup}
+		\end{align*}
+		Quindi sia $\varphi(t)$ che $\varphi'(t)$ sono limitate, dunque la $\varphi$ è \textbf{uniformemente continua} su $\realintervalclop{t_0}{T_M}$, come da \fullref{prop:if_df_lim_then_unif_cont}.
+		Da \fullref{prop:if_unif_cont_then_conf}, se la $\varphi(t)$ è uniformemente continua, allora è \textbf{continua}, cioò implica che $\lim \limits_{t \rightarrow T_M^-}\varphi(t) = \varphi(T_M)$.
+
+		Essendo $\varphi(T_M) \in \R^n$, posso usare questo punto come condizione iniziale del seguente Problema di Cauchy
+		\begin{equation}
+			\label{eq:cau_glob_new_problem}
+			\begin{cases}
+				x' = f(t,x)\\
+				x(T_M) = \varphi(T_M)
+			\end{cases}
+		\end{equation}
+		Se $T_M < \sup I$, \cref{eq:cau_glob_new_problem} soddisfa le ipotesi del \fullref{teo:cau_locale_part_1}, dunque $\varphi$ può essere estesa oltre $T_M$ ad una funzione definita almeno su $\realintervalclop{t_0}{T_M+\delta}$ con $\delta > 0$ scelto opportunamente. Questa possibilità di estendere la $\varphi$ è però in contraddizione con la definizione di $T_M$ in \cref{eq:cau_glob_T_M}, dunque si deve concludere che
+		$$T_M = \sup I$$
+		Procedimento analogo si può svolgere per
+		\begin{equation*}
+			T_m = \inf \brackets{\overline{t_m} \in I: \varphi\;\text{\itshape risolve \cref{eq:cau_glob_thesis_prob} su}\; \realintervalopcl{\overline{t_m}}{t_0} }
+		\end{equation*}
+		I passaggi rimangono uguali fino a \cref{eq:cau_glob_gronwall} che diventa
+		$$\norm{\varphi(t)} \leq \bigl(\norm{x_0} + A(T_M-t_0)\bigr)e^{B(\boldsymbol{t_0-T_m})}$$
+		E, a sua volta, \cref{eq:cau_glob_dfi_sup} diventa
+		\begin{align*}
+			\norm{\varphi'(t)} &= \norm{f\bigl(t,\varphi(t)\bigr)}\\
+			&\geq \min \limits_{t \in \realintervalopcl{T_m}{t_0}} \norm{f(t,x)} \tageq\label{eq:cau_glob_dfi_sup}
+		\end{align*}
+		Dunque
+		$$T_m = \inf I$$
+
+		Grazie a come sono definiti $T_M$ e $T_m$, è stata quindi trovata una soluzione sull'intervallo $I$ che si può dire \textbf{globale} per quanto appena dimostrato.
+	\end{proof}
+\end{theorem}
 \proposition
 Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, sia $f:A\subseteq X\to Y$. Se $f$ è uniformemente continua su $A$ allora $\exists ! \overline{f}:\overline{A}\to Y$ t.c. $\overline{f}_{\left|A\right.}=f$. cioè $f$ può essere estesa in modo unico alla chiusura dell'insieme $A$.
 \definition
