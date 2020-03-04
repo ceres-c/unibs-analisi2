@@ -7,27 +7,27 @@ Si dice spazio metrico un insieme X non vuoto in cui sia definita una
 distanza(metrica), vale a dire una funzione $d: X \times X \rightarrow \R$ con le proprietà:
 \begin{enumerate}
 	\item $d(x,y)\ge0 \quad \forall x,y \in X$
-	\item $d(x,y)=0\Leftrightarrow x=0 \quad \forall x,y \in X$
+	\item $d(x,y)=0\iff x=0 \quad \forall x,y \in X$
 	\item $d(x,y)=d(y,x) \quad \forall x,y \in X$ simmetria
 	\item $d(x,y)\le d(x,z)+d(z,y) \quad \forall x,y,z\in X$ disuguaglianza triangolare 
 \end{enumerate}
 
 \example
-$$X=\bbsetn{R}{2},\quad d((x_1,y_1),(X_2,y_2))=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$
+$$X=\R^2,\quad d((x_1,y_1),(X_2,y_2))=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$
 si dimostra che la funzione così definita è una distanza:
 \begin{enumerate}
 	\item $d(x_1,x_2)\ge 0$, è verificata poiché l'argomento della radice è sempre positivo o al più nullo essendo una somma di quadrati, e la radice mantiene le quantità positive.
-	\item $d((x_1,y_1),(x_2,y_2))=0\Leftrightarrow \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}=0$\\
-	$\Leftrightarrow (x_2-x_1)^2+(y_2-y_1)^2=0 $
-	$\Leftrightarrow \left\{\begin{matrix}
+	\item $d((x_1,y_1),(x_2,y_2))=0\iff \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}=0$\\
+	$\iff (x_2-x_1)^2+(y_2-y_1)^2=0 $
+	$\iff \left\{\begin{matrix}
 	(x_2-x_1)^2=0\\
 	(y_2-y_1)^2=0\\
-	\end{matrix}\right.\Leftrightarrow
+	\end{matrix}\right.\iff
 	\left\{\begin{matrix}
 	x_2=x_1\\
 	y_2=y_1\\
 	\end{matrix}\right.$
-	$\Leftrightarrow (x_1,y_1)=(x_2,y_2)$
+	$\iff (x_1,y_1)=(x_2,y_2)$
 	\item invertendo le prime componenti con le seconde, il quadrato non cambia quindi la simmetria è rispettata 
 	$$d((x_1,y_1),(x_2,y_2))=\sqrt{(x_2-x_1)^2+(y_2-y_1)}=\sqrt{(x_1-x_2)^2+(y_1-y_2)}=d((x_2,y_2),(x_1,y_1))$$
 	\item 
@@ -47,11 +47,11 @@ Le  proprietà 1,2,3 sono soddisfatte per le proprietà del modulo.\\
 La proprietà 4 si può dimostrare: $$d(x_1,x_3)=\abs{x_3-x_1}\le\abs{x_3-x_2}+\abs{x_2-x_1}=d(x_3,x_2)+d(x_2,x_1)$$
 
 \example
-$$X=\bbsetn{R}{3}\quad d({x_1,y_1,z_1),(x_2,y_2,z_2)}$$
+$$X=\R^3\quad d({x_1,y_1,z_1),(x_2,y_2,z_2)}$$
 Analogo al primo esempio
 
 \example
-$$X=\bbsetn{R}{n}\quad$$
+$$X=\R^n\quad$$
 $$x=(x_1,\ldots,x_n) \quad\quad y=(y_1,\ldots,y_n)$$
 $$d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}$$
 Analogo al primo esempio
@@ -81,7 +81,7 @@ Si verificano le 4 proprietà di distanza:
 \begin{enumerate}
 	\item Se $\sup = \infty$ non va bene poiché l'insieme di arrivo è $\R$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$ ....(le funzioni sono definite su un intervallo chiuso e limitato e sono continue)
 	\item se e solo se hanno lo stesso dominio e per ogni punto di esso entrambe le funzioni hanno la stessa immagine
-	\item $\dinfty{f}{g}=\ddinfty{f}{g}{\realintervalclose{a}{b}}=\ddinfty{g}{f}{\realintervalclose{a}{b}}=\dinfty{g}{f}$
+	\item $d_{\infty}(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 	\item $\abs{h(x)-f(x)}\le\abs{h(x)-g(x)}+\abs{g(x)-f(x)} $, applicando il sup la disuguaglianza resta vera
 \end{enumerate}
 \observation 
@@ -101,7 +101,7 @@ $X\ne \emptyset,\quad d(x,y)= \left\{\begin{matrix}0&&x=y\\0&&1\ne y\end{matrix}
 		\item $d(x,y)\le d(y-z)+d(z-x)$ 
 	\end{enumerate}
 \example
-$$X=\bbsetn{R}{2}$$
+$$X=\R^2$$
 $$x=(x_1,x_2), y=(y_1,y_2)$$
 $$d'(x,y)=\abs{x_1-y-1}+\abs{x_2-y-2}$$
 ...\\
@@ -115,7 +115,7 @@ $$X=\cntclass{0}(\realintervalclose{a}{b},\R), a,b\in\R, a<b$$
 $$d_2=\sqrt{\int_a^b\left[g(x)-f(x)\right]^2d(x)}$$
 
 \proposition
-Sia $(X,d)$ s.m. e $A\subseteq X$ e $A\ne \emptyset$, sia $\begin{array}{rcl} d_{|A} : A\times A & \to & \mathbb{R} \\ (x,y) & \to & d(x,y) \end{array} \Rightarrow (A,d_{|A})$ è uno spazio metrico
+Sia $(X,d)$ s.m. e $A\subseteq X$ e $A\ne \emptyset$, sia $\begin{array}{rcl} d_{|A} : A\times A & \to & \R \\ (x,y) & \to & d(x,y) \end{array} \Rightarrow (A,d_{|A})$ è uno spazio metrico
 \begin{proof}
 	........
 \end{proof}
@@ -153,7 +153,7 @@ Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgo
 		\item $\forall x\in V,\quad\norm{x}\ge0$
 		\item $\forall x\in V,\quad\norm{x}=0\iff x=0$
 		\item $\forall x,y\in V,\quad\norm{x+y}\le\norm{x}+\norm{y}$
-		\item $\forall x\in V,\lambda\in\bbset{K},\quad\norm{\lambda x}=\abs{\lambda}\cdot\norm{x}$
+		\item $\forall x\in V,\lambda\in\mathbb{K},\quad\norm{\lambda x}=\abs{\lambda}\cdot\norm{x}$
 	\end{enumerate}
 	\begin{note}
 		La funzione Norma associa dunque ad un vettore di qualsiasi dimensione uno scalare, fornendo (anche) una metrica per ordinare vettori tra loro.
@@ -165,25 +165,25 @@ Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgo
 		Nel seguito verranno considerati esclusivamente spazi vettoriali su $\R$ o su $\mathbb{C}$, cioè $\mathbb{K} = \R$ o $\mathbb{K} = \mathbb{C}$
 	\end{note}
 \end{definition}
-$X$ è uno spazio (vettoriale) normato sul campo $\bbset{K}$ se:
+$X$ è uno spazio (vettoriale) normato sul campo $\mathbb{K}$ se:
 \begin{example}
 $$X=\R\quad\norm{x}=\abs{x}$$
 \end{example}
 \begin{example}
-	$$X=\bbsetn{R}{2}\quad\norm{\left[\begin{matrix}x\\y+\end{matrix}\right]}=\sqrt{x^2+y^2}$$
+	$$X=\R^2\quad\norm{\left[\begin{matrix}x\\y+\end{matrix}\right]}=\sqrt{x^2+y^2}$$
 \end{example}
 \begin{example}
-	$$X=\bbsetn{R}{n}\quad x\equiv(x_1,\ldots,x_n)\quad \norm{x}=\sqrt{\sum\limits_{i=0}^n}x_i^2$$
+	$$X=\R^n\quad x\equiv(x_1,\ldots,x_n)\quad \norm{x}=\sqrt{\sum\limits_{i=0}^n}x_i^2$$
 \end{example}
 \begin{example}
-	$$X=\bbset{C}\quad\norm{x}=\abs{x}$$
+	$$X=\mathbb{C}\quad\norm{x}=\abs{x}$$
 \end{example}
 \begin{example}
 	$$X=\cntclass{0}(\realintervalclose{a}{b},\R)\quad\norm{f}\sup\limits_{x\in\realintervalclose{a}{b}}\abs{f}$$
 \end{example}
 
 \proposition
-Sia $X$ uni spazio normato allora $(X,d)$ è uno spazio metrico con $\begin{array}{rcl} d : X\times X & \to & \mathbb{R} \\ (x_1,x_2) & \to & \norm(x_1-x_2) \end{array}$\\
+Sia $X$ uni spazio normato allora $(X,d)$ è uno spazio metrico con $\begin{array}{rcl} d : X\times X & \to & \R \\ (x_1,x_2) & \to & \norm(x_1-x_2) \end{array}$\\
 Inoltre per la distanza così definita valgono le seguenti proprietà:
 \begin{enumerate}
 	\item INVARIANZA PER TRASLAZIONI
@@ -202,7 +202,7 @@ Inoltre per la distanza così definita valgono le seguenti proprietà:
 \end{proof}
 
 \definition
-Sia $(X,d)$ spazio metrico e siano $x_0\in X$ e $r\in\bbset{r}$. Si dice sfera aperta di centro $x_0$ e raggio $r$ l'insieme:
+Sia $(X,d)$ spazio metrico e siano $x_0\in X$ e $r\in\mathbb{r}$. Si dice sfera aperta di centro $x_0$ e raggio $r$ l'insieme:
 $$B(x_0,r)=\left\{ x\in X : d(x,y)<r  \right\}$$
 \observation
 se $r=0\Rightarrow B(x_0,r)=\emptyset$\\
@@ -210,9 +210,9 @@ se $r>0\Rightarrow x_0\in B(x_0,r)$
 \example
 In $\R$ con $d_E$, $B(x_0,r)$ è un intervallo simmetrico centrato in $x_0$
 \example
-In $\bbsetn{R}{2}$ con $d_E$, $B(x_0,r)$ è una un cerchio con centro in $x_0$
+In $\R^2$ con $d_E$, $B(x_0,r)$ è una un cerchio con centro in $x_0$
 \example
-In $\bbsetn{R}{3}$ con $d_E$, $B(x_0,r)$ è una sfera con centro in $x_0$
+In $\R^3$ con $d_E$, $B(x_0,r)$ è una sfera con centro in $x_0$
 \example
 
 % TODO le definizioni prima di questa nel capitolo 1
@@ -271,7 +271,7 @@ $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 \section{Limiti e Continuità}
 \begin{definition}
 	Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l\in{Y}$ \\
-	$\lim\limits_{x \rightarrow x_0} = l \rightleftharpoons \forall{\varepsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x\ne{x_0} : d_y(f(x),l)<\varepsilon$
+	$\lim\limits_{x \rightarrow x_0} = l \bydef \forall{\varepsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x\ne{x_0} : d_y(f(x),l)<\varepsilon$
 \end{definition}
 
 \begin{proposition}
@@ -343,7 +343,7 @@ $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto Y$ con $A \subseteq X$.
 	\begin{center}
 		$f$ è \textbf{uniformemente continua} in $A$\\
-		$\rightleftharpoons$\\
+		$\bydef$\\
 		$\forall \epsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale } d_Y\bigl(f(x),f(x_0)\bigr) < \epsilon$
 	\end{center}
 \end{definition}
@@ -475,5 +475,5 @@ Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$
 	\end{proof}
 \end{theorem}
 
-\section{Funzioni a Valori in $\protect\mathbb{R}$}
+\section{Funzioni a Valori in $\protect \R $}
 %TODO This section is a placeholder

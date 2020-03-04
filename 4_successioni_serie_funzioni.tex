@@ -6,9 +6,9 @@ Sia $f_n:A\subseteq \R\to \R$ una successione ($n\in\N$) , la serie $\sum\limits
 \observation
 Qualunque affermazione fatta in riferimento ad una serie va quindi intesa riferita alla successione delle somme parziali
 \begin{description}
-	\item[-] La serie è limitata $\rightleftharpoons$ la successione delle somme parziali è limitata
-	\item[-] La serie è illimitata $\rightleftharpoons$ la successione delle somme parziali è illimitata
-	\item[-] La serie è convergente $\rightleftharpoons$ la successione delle somme parziali è convergente
+	\item[-] La serie è limitata $\bydef$ la successione delle somme parziali è limitata
+	\item[-] La serie è illimitata $\bydef$ la successione delle somme parziali è illimitata
+	\item[-] La serie è convergente $\bydef$ la successione delle somme parziali è convergente
 \end{description}
 \observation
 Successioni e serie di funzioni possono essere viste:
@@ -102,13 +102,13 @@ Questa proposizione non può essere estesa al caso di funzioni strettamente posi
 \example $	-\frac{e^x}{n}$ con $x\in\left[0,1\right[$ è strettamente negativa ma il limite è costante uguale a zero.
 \proposition
 Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\N\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. sia $f:B\to \R$ una funzione\\
-$f_n \pconvarrow f$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{f_n(x)-f(x)}\le \epsilon$
+$f_n \pconvarrow f$ su $B$ per $n\to\infty \iff \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{f_n(x)-f(x)}\le \epsilon$
 \begin{proof}
 	direttamene dalla definizione...
 \end{proof}
 \proposition
 Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\N\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. Sia $F:B\to \R$ una funzione\\
-$\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \Leftrightarrow \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{\sum\limits_{k=0}^{\infty}f_k(x)-F(x)}\le \epsilon$
+$\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{\sum\limits_{k=0}^{\infty}f_k(x)-F(x)}\le \epsilon$
 \begin{proof}
 	direttamene dalla definizione...
 \end{proof}
@@ -136,10 +136,10 @@ $\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \Leftrighta
 
 \proposition
 sia $f_n:n\in\N$ con $f:A\subseteq \R\to \R$ e $f:B\subseteq A \to  \R$\\
-$f_n \uconvarrow f$ su $B$ per$n\to\infty \Leftrightarrow \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{f_n(x)-f(x)}\le\epsilon$
+$f_n \uconvarrow f$ su $B$ per$n\to\infty \iff \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{f_n(x)-f(x)}\le\epsilon$
 \proposition
 sia $f_n:n\in\N$ con $f:A\subseteq \R\to \R$ e $F:B\subseteq A \to  \R$\\
-$\sum\limits_{n=0}^{\infty}f_n \uconvarrow F$ su $B\Leftrightarrow \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{F(x)-\sum\limits_{k=0}^{n}f_k(x)}\le\epsilon$
+$\sum\limits_{n=0}^{\infty}f_n \uconvarrow F$ su $B\iff \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{F(x)-\sum\limits_{k=0}^{n}f_k(x)}\le\epsilon$
 \observation
 La differenza tra queste due proposizioni e le due proposizioni analoghe nel caso di convergenza puntuale giustifica il fatto che la continuità non passa al limite puntuale. Infatti qui $\nu$ dipende solo dalla scelta di $\epsilon$ e le $x$ si guardano tutte insieme, prima invece $\nu$ dipendeva oltre che alla $\epsilon$ anche dalla $x$ questo porta a osservare le $x$ una alla volta.
 \proposition Relazione tra convergenza uniforme e puntuale.\\
@@ -187,7 +187,7 @@ $f_n \uconvarrow f$ su $A$ e $f_n\in \cntclass{0}(A; \R)\,\,\forall n\in\N$ allo
 ..........\\
 \definition
 Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{f_n:A\to \R:n\in\N\right\}$ una successione di funzioni.\\
-La successione $\left\{f_n:n\in\N\right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B \rightleftharpoons \forall\epsilon>0, \exists\nu\in\N: \forall n,m>\nu, \forall x \in B$ vale $\abs{f_n(n)-f_m(x)}<\epsilon$
+La successione $\left\{f_n:n\in\N\right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B \bydef \forall\epsilon>0, \exists\nu\in\N: \forall n,m>\nu, \forall x \in B$ vale $\abs{f_n(n)-f_m(x)}<\epsilon$
 \proposition
 (Una successione di Cauchy per la convergenza uniforme è uniformemente convergente).\\
 Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{ f_n:A\to \R:n\in\N \right\}$ una successione di funzioni.\\
@@ -302,7 +302,7 @@ In altre parole questa proposizione afferma che sotto opportune ipotesi
 $$\left(\sum\limits_{n=0}^{+\infty} f_n \right)' =  \sum\limits_{n=0}^{+\infty}f_n'$$
 \definition
 Siano $A\subseteq  \R$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni con $f_n:A\to \R$\\
-$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \rightleftharpoons \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}<+\infty$(è convergente)
+$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \bydef \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}<+\infty$(è convergente)
 \observation
 la $\sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}$ è una serie numerica
 \proposition
@@ -328,7 +328,7 @@ La qualità dell'approssimazione è descritta dal senso in cui l'errore è picco
 \subsection{Serie di Potenze}
 \definition
 Siano $\left\{a_n:n\in\N\right\}$ una successione con $a_n:\N\to\mathbb{C}$ e $z_0\in\mathbb{C}$.\\
-Si dice serie di potenze centrata in $z_0 \rightleftharpoons \sum\limits_{n=0}^{+\infty}a_n\left(z-z_0\right)^n$
+Si dice serie di potenze centrata in $z_0 \bydef \sum\limits_{n=0}^{+\infty}a_n\left(z-z_0\right)^n$
 \observation
 è ovvio che in $z=z_0$ si ha convergenza....???? (dire a zero)
 \observation
@@ -372,7 +372,7 @@ Allora $\forall z\in\mathbb{C}$ con $\abs{z}>\abs{w}$ la serie di potenze $\sum\
 Come è fatto l'insieme su cui si ha convergenza??\\
 segue da queste due ultime proposizioni che se $\left\{a_n:n\in\N\right\}$ è una successione in $\mathbb{C}$ allora l'insieme $\left\{z\in\mathbb{C}:\sum\limits_{n=0}^{+\infty}a_nz^n converge\right\}$ è un cerchio.\\Sulla circonferenza non ci soffermaiamo a capire cosa accade poiché tutto può accadere.
 \definition
-Raggio di convergenza della serie $\sum\limits_{n=0}^{+\infty}a_nz^n\rightleftharpoons \rho=\sup\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n converge su B(0,r)\right\}$
+Raggio di convergenza della serie $\sum\limits_{n=0}^{+\infty}a_nz^n\bydef \rho=\sup\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n converge su B(0,r)\right\}$
 \observation
 Il raggio di convergenza di una serie di potenze può essere $0$, un numero reale positivo o $+\infty$.
 \observation
@@ -451,7 +451,7 @@ Sia $\left\{a_n:n\in\N\right\}$ una successione a valori in $\mathbb{C}$. Le ser
 \end{center}
 
 \definition
-Sia $r\in \R$ con $r>0$. La funzione $f$ si dice analitica su $\left]-r,r\right[ \rightleftharpoons f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \quad \forall x\in\left]-r,r\right[$ per opportuni $a_n\in \R$
+Sia $r\in \R$ con $r>0$. La funzione $f$ si dice analitica su $\left]-r,r\right[ \bydef f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \quad \forall x\in\left]-r,r\right[$ per opportuni $a_n\in \R$
 \observation
 In altre parole chiamiamo analitica una funzione che può essere scritta come somma di una serie di potenze convergente su $\left]-r,r\right[$ \\
 ESEMPIO:: $x\to e^x$ è analitica su $ \R$\\
@@ -462,7 +462,7 @@ Se $f$ è analitica su $\left]-r;r\right[$ per $r\in \R$ e $r>0\Rightarrow f\in 
 	$f$ è analitica  allora posso scriverla come $f=\sum\limits_{n=0}^{+\infty}a_nx^n$ cioè la funzione è limite di una serie, se la serie converge totalmente allora converge uniformemente. Il limite uniforme di funzioni continue(in questo caso polinomi) è una funzione continua. cioè la $f$ è continua.
 \end{proof}
 \proposition PROP+PROOF\\
-Sia $f:\left]-r,r\right[\to \R$ e $f$ analitica su $\left]-r,r\right[ \rightleftharpoons f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \Rightarrow$ ho convergenza totale $\Rightarrow$ ho convergenza uniforme di funzioni continue
+Sia $f:\left]-r,r\right[\to \R$ e $f$ analitica su $\left]-r,r\right[ \bydef f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \Rightarrow$ ho convergenza totale $\Rightarrow$ ho convergenza uniforme di funzioni continue
 $$\Rightarrow f\in \cntclass{0}(\left]-r,r\right[; \R),\quad a_0=f(0)$$
 La serie delle derivate $\sum\limits_{n=0}^{+\infty}na_nx^{n-1}$ converge totalmente su $\left]-r,r\right[$ cioè
 $$\sum\limits_{n=0}^{+\infty}f'(x)=\sum\limits_{n=0}^{+\infty}na_nx^{n-1} \uconvarrow g$$
@@ -553,7 +553,7 @@ ESEMPI::
 
 \subsection{Serie di Fourier}
 \definition
-Siano $A\subseteq \R$, $f:A\to \R$ e $T>0$, $f$ è $T$-periodica $\rightleftharpoons \forall x\in A
+Siano $A\subseteq \R$, $f:A\to \R$ e $T>0$, $f$ è $T$-periodica $\bydef \forall x\in A
 \left\{\begin{matrix}
 x+T\in A\\f(x+T)=f(x)
 \end{matrix}\right. $\\
@@ -611,7 +611,7 @@ Con i polinomi di Taylor ........\\
 ........\\
 ........\\
 \definition
-Dati $2n+1$ numeri reali $a_0,a_1,\ldots,a_n,b_1,\ldots,b_n$ si dice polinomio trigonometrico di coefficienti $a_0,a_1,\ldots,a_n,b_1,\ldots,b_n$ la funzione:
+Dati $2n+1$ numeri reali $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n$ si dice polinomio trigonometrico di coefficienti $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n$ la funzione:
 $$\begin{array}{rcl} p: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{N}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}$$
 \observation
 Essendo un'approssimazione, si deve aggiungere l'errore. Come è fatto?. Per far uscire conti giusti e comodi andrebbe usata la distanza quadratica , ma questo prevede una lunga parte introduttiva, noi allora lo stimiamo con la distanza infinita.
@@ -634,12 +634,12 @@ Se $h,k\in\N$ valgono le seguenti uguaglianze:
 	\end{matrix}\right.$
 \end{description}
 ESERCIZIO:: IL POLINOMIO DI FOURIER FORNISCE LA MIGLIORE APPROSSIMAZIONE NEL SENSO DELLA DISTANZA QUADRATICA.\\
-Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, quale è la funzione a lei più vicina nel senso della distanza quadratica?\\
+Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, quale è la funzione a lei più vicina nel senso della distanza quadratica?\\
 Fisso $N\in\N$ e prendo il polinomio trigonometrico di grado $N$
 $$p_N(x)=\trigonpol{n}{1}{N}$$
-con $a_0,a_1,\ldots,a_n,b_1,\ldots,b_n\in \R$, il problema è quello di minimizzare $d_2(f,p_n)$ quindi un problema di minimo. Stiamo cercando i coefficienti del polinomio trigonometrico quindi studiamo una funzione $\varphi(a_0,a_1,\ldots,a_N,b_1,\ldots,b_N) = \sqrt{\int_{-\pi}^{\pi}\left[f(x)-p_n(x)\right]^2}\integrald{x}$.\\
+con $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n\in \R$, il problema è quello di minimizzare $d_2(f,p_n)$ quindi un problema di minimo. Stiamo cercando i coefficienti del polinomio trigonometrico quindi studiamo una funzione $\varphi(a_0,a_1,\dotsc,a_N,b_1,\dotsc,b_N) = \sqrt{\int_{-\pi}^{\pi}\left[f(x)-p_n(x)\right]^2}\integrald{x}$.\\
 Essendo la funzione radice quadrata monotona crescente ne studiamo solo il radicando:
-$$\varphi(a_0,a_1,\ldots,a_N,b_1,\ldots,b_N)=\int_{-\pi}^{\pi}\left[\trigonpol{n}{1}{N}-f(x)\right]^2dx$$
+$$\varphi(a_0,a_1,\dotsc,a_N,b_1,\dotsc,b_N)=\int_{-\pi}^{\pi}\left[\trigonpol{n}{1}{N}-f(x)\right]^2dx$$
 \observation
 con $f\in \cntclass{1}$:
 $$F(\alpha,\beta,x)=\int_{\alpha}^{\beta}f(x,t)\integrald{t}$$
@@ -660,7 +660,7 @@ $$ \int_{-\pi}^{\pi} f(x)\integrald{x} = $$
 L'integrale di una sinusoide su un multiplo intero del periodo è $0$ quindi
 $$=\pi a_0-\int_{-\pi}^{\pi}f(x)\integrald{x}$$
 Calcolando direttamente anche le derivate seconde si ottiene che
-$$\partial^2_{a_0a_0}=\pi\quad\partial^2_{a_0a_n}=0\quad\partial^2_{a_0b_n}=0\quad\forall n=1,\ldots,N$$
+$$\partial^2_{a_0a_0}=\pi\quad\partial^2_{a_0a_n}=0\quad\partial^2_{a_0b_n}=0\quad\forall n=1,\dotsc,N$$
 
 $$\partial_{a_k}\varphi = \int_{-\pi}^{\pi}\partial_{a_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=$$
 $$ = \int_{-\pi}^{\pi} 2cos(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]\integrald{x}=$$
@@ -683,7 +683,7 @@ $$\partial^2_{a_ka_0}=\pi\quad\partial^2_{a_ka_n}=
 \left\{\begin{matrix}
 0&&n\ne k\\2\pi&&n=k
 \end{matrix}\right.
-\quad\partial^2_{a_kb_n}=0\quad\forall n=1,\ldots,N$$
+\quad\partial^2_{a_kb_n}=0\quad\forall n=1,\dotsc,N$$
 
 $$\partial_{b_k}\varphi = \int_{-\pi}^{\pi}\partial_{b_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=$$
 $$ = \int_{-\pi}^{\pi} 2sin(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]\integrald{x}=$$
@@ -706,7 +706,7 @@ $$\partial^2_{b_ka_0}=\pi\quad\partial^2_{b_ka_n}=
 \left\{\begin{matrix}
 0&&n\ne k\\2\pi&&n=k
 \end{matrix}\right.
-\quad\partial^2_{b_kb_n}=0\quad\forall n=1,\ldots,N$$
+\quad\partial^2_{b_kb_n}=0\quad\forall n=1,\dotsc,N$$
 Si verifica la condizione $\nabla\varphi = 0$ con
 \begin{description}
 	\item[$\ast$] $a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}$
@@ -722,14 +722,14 @@ La matrice Hessiana di $\varphi$ risulta $$H_{\varphi}=\left[\begin{matrix}
 \end{matrix}\right]$$
 è una matrice diagonale quindi si leggono direttamente tutti gli autovalori che sono strettamente positivi quindi la forma quadratica è definita positiva ed il punto in questione è un punto di minimo assoluto.
 \definition
-Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
+Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
 $$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}$$
 $$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}$$
 $$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}$$
 La serie di Fourier di $f$ è
 $$\trigonpol{k}{1}{+\infty}$$
 \proposition
-Sia $\realfunction{F}{\realintervalclose{-\pi}{\pi}}{ \R}$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\N\right\}$ e $\left\{a_n:n\in\N\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
+Sia $F: \realintervalclose{-\pi}{\pi} \mapsto \R$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\N\right\}$ e $\left\{a_n:n\in\N\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
 $$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)cos(kx)\integrald{x}\quad k\in\N$$
 $$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}$$
 ESEMPIO+DIMOSTRAZIONE:::\\
@@ -802,7 +802,7 @@ Questo vale perché $\hat{i},\hat{j}$ è una base ortonormale.
 In $R^3$ Ci sono $3$ vettori $\hat{i},\hat{j},\hat{k}$ della base, se $\underline{v}\in \R^3 \Rightarrow \underline{v}=v_1\hat{i}+v_2\hat{j}+v_3\hat{k}$ con $v_1,v_2,v_3$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
 $$ v_1=\underline{v}\cdot \hat{i}\quad v_2=\underline{v}\cdot \hat{j}\quad v_3=\underline{v}\cdot \hat{k}  $$
-In $R^n$ Ci sono $n$ vettori $e_1,e_2,\ldots,e_n$ della base, se $\underline{v}\in \R^n \Rightarrow \underline{v}=v_1\cdot e_1+v_2\cdot e_2+\ldots+v_n\cdot e_n=\sum\limits_{k=1}^{n}v_k\cdot e_k$ con $v_1,v_2,\ldots,v_n$ componenti di $\underline{v}$\\
+In $R^n$ Ci sono $n$ vettori $e_1,e_2,\dotsc,e_n$ della base, se $\underline{v}\in \R^n \Rightarrow \underline{v}=v_1\cdot e_1+v_2\cdot e_2+\ldots+v_n\cdot e_n=\sum\limits_{k=1}^{n}v_k\cdot e_k$ con $v_1,v_2,\dotsc,v_n$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
 $$v_k=\underline{v}\cdot e_k$$
 \\
@@ -823,7 +823,7 @@ Si possono osservare due cose:
 	\item Sono tutte funzioni linearmente indipendenti, poiché l'unica combinazione lineare di questi elementi che da l'elemento nullo è quella a coefficenti tutti nulli.
 \end{enumerate}
 \definition
-Il prodotto scalare in $\cntclass{0} \rightleftharpoons \left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)\integrald{x}$
+Il prodotto scalare in $\cntclass{0} \bydef \left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)\integrald{x}$
 Altre simbologie usate sono: $ f\bullet g $, $(f|g)$
 \observation linearità\\
 $$\left<(\alpha\cdot f+\beta\cdot g), h \right>= \int_{-\pi}^{pi} (\alpha\cdot f(x)+\beta\cdot g(x))\cdot h(x) \integrald{x}=$$
@@ -886,9 +886,9 @@ x & \to & \left\{\begin{matrix} -1 && x<0\\0&&x= 0\\1&&x>0 \end{matrix}\right.\e
 $$\begin{array}{rcl} g: \left[-\pi,\pi\right] & \to &  \R \\
 x & \to & \left\{\begin{matrix} -1 && x<0\\\pi&&x= 0\\1&&x>0 \end{matrix}\right.\end{array}$$
 \observation
-Sia $f$ una funzione pari $\Rightarrow bn=0 \forall n=1,2,\ldots,+\infty$
+Sia $f$ una funzione pari $\Rightarrow bn=0 \forall n=1,2,\dotsc,+\infty$
 \observation
-Sia $f$ una funzione dispari $\Rightarrow an=0 \forall n=0,1,,\ldots,+\infty$
+Sia $f$ una funzione dispari $\Rightarrow an=0 \forall n=0,1,,\dotsc,+\infty$
 \observation
 Siano
 $$f(x)=\frac{a_0}{2}+\sum\limits_{n=}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right)$$
@@ -902,16 +902,17 @@ $\frac{1}{\pi}\left[\int_{-\pi}^{\pi}f(x)sin(3x)\integrald{x}+\int_{-\pi}^{\pi}\
 Sia $f(x)=\frac{a_0}{2}+\sum\liminf_{n=1}^{+\infty}\left(a_ncos(nx)+b_ncos(nx)\right)$ allora $F=4f=\frac{A_0}{2}+\sum\limits_{n=1}^{+\infty}\left(A_ncos(nx)+B_ncos(nx)\right)$ con $A_n=4a_n$, $B_n=4b_n$\\
 ESEMPIO
 Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}4f(x)sin(3x)\integrald{x}=4b_3$\\
-\definition
-Siano $a,b\in \R$ con $a<b$, una funzione $\realfunction{f}{\realintervalclose{a}{b}}{ \R}\rightleftharpoons f$ è continua a tratti se esiste un numero finito di punti $x_1,x_2,\ldots,x_n$ t.c.:\\
-\begin{enumerate}
-	\item In ogni punto di $\realintervalclose{a}{b}\setminus\left\{x_1,x_2,\ldots,x_n\right\}$ f è continua
-	\item $i=1,2,\ldots,n$ esistono finiti entrambi i limiti:
-	$$\lim\limits_{x\to x_i^{-}}f(x)\quad \lim\limits_{x\to x_i^{+}}f(x)$$
-\end{enumerate}
+\begin{definition}[Funzione Continua a Tratti]
+	Siano $a,b\in \R$ con $a<b$, una funzione $f:\realintervalclose{a}{b} \mapsto \R$. Allora $f$ è \textbf{continua a tratti} se esiste un numero finito di punti $x_1,x_2,\dotsc,x_n$ tali che:
+	\begin{enumerate}
+		\item In ogni punto di $\realintervalclose{a}{b}\setminus\left\{x_1,x_2,\dotsc,x_n\right\}$ f è continua
+		\item $i=1,2,\dotsc,n$ esistono finiti entrambi i limiti:
+		$$\lim\limits_{x\to x_i^{-}}f(x)\quad \lim\limits_{x\to x_i^{+}}f(x)$$
+	\end{enumerate}
+\end{definition}
 
 \observation
-Dato $A\subseteq \R$ e data una funzione $\realfunction{f}{A}{ \R}$, se $x_0$ è punto interno ad $A$, è comoda la notazione
+Dato $A\subseteq \R$ e data una funzione $f:A \mapsto \R$, se $x_0$ è punto interno ad $A$, è comoda la notazione
 $$f(x-)=\lim\limits_{\xi\to x^{-}}f(\xi)\quad f(x+)=\lim\limits_{\xi\to x^{+}}f(\xi)$$
 Ovviamente se $f$ è continua in $x$ allora $f(x-)=f(x)=f(x+)$
 ESEMPIII:::\\
@@ -922,9 +923,9 @@ GRAFICO::::\\
 .......\\
 .......\\
 \proposition
-Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, $f$ è continua a tratti $\Rightarrow$ esistono finiti tutti i coefficienti di Fourier di $f$
+Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, $f$ è continua a tratti $\Rightarrow$ esistono finiti tutti i coefficienti di Fourier di $f$
 \proposition
-Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$,\\
+Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$,\\
 -$f$ è continua a tratti\\
 -$\forall \overline{x} \in\realintervalclose{-\pi}{\pi}$, esistono finiti:\\
 $$ \lim\limits_{x\to\overline{x}^{-}}=\frac{f(x)-f(\overline{x}-)}{x-\overline{x}} $$
@@ -934,24 +935,24 @@ La serie di Fourier di $f$ converge puntualmente in $\overline{x}$ e $F_f(\overl
 \observation NIENTE CUSPIDI E NIENTE TANGENZE VERTICALI.
 
 \corollary
-Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$,\\
+Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$,\\
 $f$ è continua a tratti.\\
 Sia $\overline{x}\in\realintervalclose{-\pi}{\pi}$ un punto in cui $f$ è derivabile. Allora la serie di Fourier $F_f$ di $f$ converge in $\overline{x}$ e $F_f(\overline{x})=f(\overline{x})$
 \proposition
-Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$.Se:\\
+Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$.Se:\\
 \begin{description}
 	\item[$\ast$] $f\in \cntclass{0}(\realintervalclose{-\pi}{\pi}; \R)$
-	\item[$\ast$] $\exists x_1,x_2,\ldots,x_n\in\realintervalclose{-\pi}{\pi}$ t.c.:
+	\item[$\ast$] $\exists x_1,x_2,\dotsc,x_n\in\realintervalclose{-\pi}{\pi}$ t.c.:
 	\begin{description}
 		\item[-] $f$ è derivabile in $x$
 		\item[-] $f'$ continua in $x$
 	\end{description}
-	\item[$\ast$] $\forall i=1,2,\ldots,n$ e $\forall x\in\realintervalclose{-\pi}{\pi}$ esistono finiti
+	\item[$\ast$] $\forall i=1,2,\dotsc,n$ e $\forall x\in\realintervalclose{-\pi}{\pi}$ esistono finiti
 	$$\lim\limits_{x\to x_i^{-}}\frac{f(x)-f(x_i-)}{x-x_i}\qquad \lim\limits_{x\to x_i^{+}}\frac{f(x)-f(x_i+)}{x-x_i}$$
 
 \end{description}
 Allora\\
 La serie di Fourier $F_f$ di $f$ converge a $f$ uniformemente su $\realintervalclose{-\pi}{\pi}$
 \corollary
-Sia $\realfunction{f}{\realintervalclose{-\pi}{\pi}}{ \R}$, e $f\in \cntclass{1}(\realintervalclose{-\pi}{\pi}; \R)$.\\
+Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, e $f\in \cntclass{1}(\realintervalclose{-\pi}{\pi}; \R)$.\\
 Allora la serie di Fourier di $F_f$ di $f$ converge uniformemente a $f$ su $\realintervalclose{-\pi}{\pi}$.
