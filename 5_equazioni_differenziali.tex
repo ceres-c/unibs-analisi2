@@ -1038,6 +1038,29 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		Grazie a come sono definiti $T_M$ e $T_m$, è stata quindi trovata una soluzione sull'intervallo $I$ che si può dire \textbf{globale} per quanto appena dimostrato.
 	\end{proof}
 \end{theorem}
+\begin{example}
+	Per ogni $x_0 \in \R$, il Problema di Cauchy
+	\begin{equation*}
+		\begin{cases}
+			x' = x^2 \cdot \sin x\\
+			x(0) = x_0
+		\end{cases}
+	\end{equation*}
+	soddisfa le ipotesi 1., 2. e 3. del \fullref{teo:cau_globale}, ma $f(x) = x^2 \cdot \sin x$ non è né \textbf{globalmente lipschitziana}, né \textbf{sublineare} su $\R$. tuttavia, per ogni $x_0 \in \R$, questo problema ammette soluzioni globali definite su tutto $\R$
+\end{example}
+\begin{exercise}
+	Sono date le funzioni $f_n:\R \mapsto \R$, ciascuna soddisfacente alle ipotesi del \fullref{teo:cau_globale}. Per ogni $n \in \N$, sia $\varphi_n$ la soluzione del Problema di Cauchy
+	\begin{equation*}
+		\begin{cases}
+			x' = f_n(x)\\
+			x(0) = \overline{x}
+		\end{cases}
+	\end{equation*}
+	per un fissato $\overline{x} in \R^n$.\\
+	Verificare che se le $f_n$ convergono uniformemente (ricordando \fullref{def:conv_unif}), allora anche le $\varphi_n$ convergono uniformemente.
+	% TODO proof
+\end{exercise}
+
 \proposition
 Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, sia $f:A\subseteq X\to Y$. Se $f$ è uniformemente continua su $A$ allora $\exists ! \overline{f}:\overline{A}\to Y$ t.c. $\overline{f}_{\left|A\right.}=f$. cioè $f$ può essere estesa in modo unico alla chiusura dell'insieme $A$.
 \definition
