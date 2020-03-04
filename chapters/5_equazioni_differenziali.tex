@@ -516,7 +516,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 				]
 				{abs(10*sin(deg(x))/(1+x))};
 				\addlegendentry{\raisebox{1ex}{$\norm{10\cdot\frac{\sin{x}}{1+x}}$}}
-		
+
 				\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
 				\addplot[blue!30] fill between[of=g and axis, soft clip={domain=0:6}];
 			\end{axis}
@@ -923,9 +923,48 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	Una funzione $f:I\times\R^n\mapsto\R^n$ con $I$ intervallo in $\R$, si dice \textbf{sublineare} se esistono due costanti $A, B:\; \forall t \in I,\;\forall x \in \R^n$ vale:
 	$$\norm{f(t,x)}\leq A + B \norm{x}$$
 	\begin{note}
-		In sostanza una funzione è sublineare se esiste una retta tale per cui il grafico della funzione è tutto nella regione di piano delimitata da questa retta.
+		In sostanza una funzione è sublineare se esiste una retta tale per cui il grafico della funzione è tutto nella regione di piano delimitata da questa retta, cioè il suo grafico "non si impenna".
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{axis} [
+					width=\textwidth,
+					height=\textwidth / 2 - 10,
+					axis lines = center,
+					axis on top=true,
+					axis equal,
+					ymin = -2,
+					ymax = 2,
+					xlabel = $x$,
+					ylabel = {$f(x)$},
+					legend style={at={(1,0.85)},anchor=north east},
+				]
+					\addplot [name path=g, domain=-10:10, samples=500, color=red] {sin(deg(x^2))};
+					\addlegendentry{$\norm{\sin{x^2}}$}
+					\addplot [name path=g, domain=-10:10, samples=500, color=blue!50] {abs(sin(deg(x^2)))};
+					\addlegendentry{$\sin{x^2}$}
+					\addplot [domain=0:10] {(1/3)*x + 1};   % The following plots are lacking a \addlegendentry, so they'll mess up with colors
+					\addplot [domain=-10:0] {-(1/3)*x + 1}; % of other entries. To prevent it, any new function should be added before these
+				\end{axis}
+			\end{tikzpicture}
+		\end{center}
 	\end{note}
 \end{definition}
+\begin{example}
+	Le seguenti funzioni sono:
+	\begin{itemize}
+		\begin{minipage}{0.5\linewidth}
+			\item $x\cdot sin(x)$: Sublineare
+			\item $sin(x^2)$: Sublineare
+			\item $\frac{\arctan x^{12}}{x}$: Sublineare
+		\end{minipage}
+		\begin{minipage}{0.5\linewidth}
+			\item $x^2\cdot sin(x)$: Non sublineare
+			\item $x^2$: Non sublineare
+			\item $e^x$: Non sublineare
+		\end{minipage}
+	\end{itemize}
+\end{example}
+
 \begin{exercise}
 	Dimostrare che se una funzione $f:\R^n\mapsto\R^n$ è \textbf{(globalmente) Lipschitziana}, allora è \textbf{sublineare}
 	\begin{solution}
@@ -969,6 +1008,13 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		È inoltre garantita anche la dipendenza continua, dunque è possibile scegliere un $\delta$ (dalla \fullref{teo:cau_locale_part_2}) grande a piacere
 	\end{note}
 	\begin{proof}
+		Il \fullref{teo:cau_locale_part_1} assicura esistenda ed unicità della soluzione su un intervallo centrato nell'istante iniziale. È necessario dimostrare che la soluzione può essere estesa a tutto l'intervallo $I$ in questione. Come già parzialmente anticipato in \fullref{ex:cau_glob_asint}, questo non è possibile in due casi:
+		\begin{enumerate}
+			\item La soluzione ha asintoto verticale
+			\item La soluzione oscilla intorno ad un punto e non continua oltre
+		\end{enumerate}
+		Quindi i casi in cui la soluzione non si può estendere su tutto l'intervallo sono quelli in cui non esiste il limite della soluzione. Si devono dunque evitare tali comportamenti.
+
 		Sia $\varphi: J \mapsto \R^n$ la soluzione di \cref{eq:cau_glob_thesis_prob} e sia
 		\begin{equation}
 			\label{eq:cau_glob_T_M}
@@ -1048,97 +1094,17 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	soddisfa le ipotesi 1., 2. e 3. del \fullref{teo:cau_globale}, ma $f(x) = x^2 \cdot \sin x$ non è né \textbf{globalmente lipschitziana}, né \textbf{sublineare} su $\R$. tuttavia, per ogni $x_0 \in \R$, questo problema ammette soluzioni globali definite su tutto $\R$
 \end{example}
 \begin{exercise}
-	Sono date le funzioni $f_n:\R \mapsto \R$, ciascuna soddisfacente alle ipotesi del \fullref{teo:cau_globale}. Per ogni $n \in \N$, sia $\varphi_n$ la soluzione del Problema di Cauchy
+	Sono date le funzioni $f_n:\R \mapsto \R$, ciascuna soddisfacente alle ipotesi del \fullref{teo:cau_globale}. Per un fissato $\overline{x}$ in $\R^n$, sia $\varphi_n$ per ogni $n \in \N$ la soluzione del Problema di Cauchy
 	\begin{equation*}
 		\begin{cases}
 			x' = f_n(x)\\
 			x(0) = \overline{x}
 		\end{cases}
 	\end{equation*}
-	per un fissato $\overline{x} in \R^n$.\\
 	Verificare che se le $f_n$ convergono uniformemente (ricordando \fullref{def:conv_unif}), allora anche le $\varphi_n$ convergono uniformemente.
-	% TODO proof
+	% TODO solution
 \end{exercise}
 
-\proposition
-Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, sia $f:A\subseteq X\to Y$. Se $f$ è uniformemente continua su $A$ allora $\exists ! \overline{f}:\overline{A}\to Y$ t.c. $\overline{f}_{\left|A\right.}=f$. cioè $f$ può essere estesa in modo unico alla chiusura dell'insieme $A$.
-\definition
-Una funzione $f:I\times \R^n\to \R^n$ con $I$ intervallo in $R$ si dice sub lineare se esistono due costanti positive $A$ e $B$ t.c.: $\forall t \in I$ 
-$$ \norm{f(t,x)}\le A + B\norm{x}$$\\
-ESEMPIO:: $f(t,x)=x^2$ NON SUBLINEARE\\
-ESEMPIO:: $f(t,x)=sin(x^2)$ SUBLINEARE\\
-\observation 
-Sia $f(t,x)$ globalmente lipschitziana in $x$ uniformemente in $t$ allora $f$ sublineare.
-$$\exists L\ge 0 :\forall x_1,x_2\in \R^n, t\in I, \norm{f(t,0)}\le A$$
-$$\norm{f(t,x_2)-f(t,x_1)}\le\norm{x_2-x_1}$$
-$$\norm{f(t,x)}\le\norm{f(t,x_0)}+\norm{f(t,x)-f(t,0)}\le A +L\norm{x}$$
-In sostanza una funzione è sublineare se esiste una retta tale per cui il grafico della funzione è tutto nella regione di piano delimitata da questa retta.
-	\begin{center}
-	\begin{tikzpicture}[scale=2]
-	\draw[->] (-2,0) -- (2,0) node[anchor=north west] {$x$};
-	\draw[->] (0,-2) -- (0,2) node[anchor=south east] {$y$};
-	\draw[domain=-2:2,smooth,variable=\x] plot ({\x},{0.25*abs(\x)+0.5});
-	\draw[domain=-2:2,smooth,variable=\x] plot ({\x},{-(0.25*abs(\x)+0.5)});
-	\end{tikzpicture}% pic 1
-\end{center}
-ESEMPIO::$x\cdot sin(x)$ SUBLINEARE\\
-ESEMPIO::$x^2\cdot sin(x)$ NO SUBLINEARE\\
-ESEMPIO::$e^x$ NO SUBLINEARE\\
-Diciamo sublineare se il grafico non si impenna.\\
-\proposition
-Data la funzione $f:I\times \R^n\to \R^n$, se:
-\begin{enumerate}
-	\item $I\subseteq \R$ è un intervallo, con $t_0\in\circdot{R^n}$
-	\item $f\in \cntclass{0}(I\times \R^n;R^n)$
-	\item $f$ è localmente Lipschitziana in $x\in \R^n$ uniformemente rispetto $t\in I$
-	\item $f$ è sublineare
-\end{enumerate}
-allora il problema di Cauchy $\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$ ammette un'unica soluzione definita sull'intervallo $I$.
-\begin{proof}
-	DISEGNO...\\
-	Il \fullref{teo:cau_locale_part_1} assicura che  la soluzione esiste unica su un intervallo centrato all'istante iniziale.
-	Bisogna dimostrare che la soluzione può essere estesa a tutto l'intervallo. Questo non si può fare in due casi:
-	\begin{enumerate}
-		\item c'è un asintoto verticale
-		\item oscilla tanto che a un certo punto non va più avanti
-	\end{enumerate}
-	Quindi i casi in cui la soluzione non si può estendere su tutto l'intervallo sono quelli in cui non esiste il limite della soluzione. Quindi dobbiamo evitare tali comportamenti.\\
-	Ragionamento da $t_0$ in avanti.\\
-	Sia $T=sum\left\{t\in I :\exists soluzione su \left[ t_0,t \right[ \right\}$ cioè prendo l'estremo superiore dei tempi per cui c'è una soluzione.
-	Se $T= sup I$ o $T=+\infty$ abbiamo la tesi.\\
-	Se $T$ finito con $T<sup I$, dimostrando che la derivata della soluzione è limitata si escludono i casi in cui l'estensione della soluzione non si può fare.
-	quindi bisogna mostrare $ x' = f(t,x)$ è limitata sull'insieme dove può arrivare la $x$\\
-	Sia ora $\varphi$ soluzione del problema di Cauchy:
-	$$ \varphi(t) = x_0 + \int_{t_0}^tf(\tau,x(\tau))\integrald{\tau}$$
-	Valuto allora\\
-	$\norm{\varphi(t)}\le \norm{x_0} + \abs{\int_{t_0}^tf(\tau,\varphi(\tau))\integrald{\tau}}=\norm{x_0} + \int_{t_0}^t\norm{f(\tau,\varphi(\tau))}\integrald{\tau}$ poiché $t\in\left[t_0,T\right[$\\
-	$\norm{\varphi(t)}\le \norm{x_0} + \int_{t_0}^t\left(A+B\norm{\varphi(\tau)}\right)\integrald{\tau}$ poiché f è sublineare.\\
-	$\norm{\varphi(t)}\le \norm{x_0} + A(T-t_0)+\int_{t_0}^t B\norm{\varphi(\tau)}\integrald{\tau}$\\
-	...\\
-	applico il Gronwall e risulta che
-	$$\norm{\varphi(t)}\le\left(\norm{x_0}+A(t-t_0)\right)e^{B(t-t_0)}\le\left(\norm{x_0}+A(t-t_0)\right)e^{B(T-t_0)}$$	
-	Abbiamo quindi dimostrato che la $f$ resta limitata.\\
-	Posso guardare alla funzione come segue:\\
-	$$
-	\sup
-	\left\{f(t,x): t\in\left[t_0,T\right[, x\in \overline{B\left(x_0,
-		\left[ 
-			\norm{x_0} A \left(T-t_0\right)
-		\right]e^{B\left(T-t_0\right)}\right)}
-	\right\}
-	$$
-	$\overline{B\left(x_0,
-		\left[ 
-		\norm{x_0} A \left(T-t_0\right)
-		\right]e^{B\left(T-t_0\right)}\right)}
-	$ è un insieme compatto poiché chiuso e limitato in $R^n$, $\varphi$ è limitata, la $f$ limitata, allora $ \varphi'$ limitata allora $\varphi$ lipschitziana allora $\varphi$ uniformemente continua.\\
-		Allora esiste finito $\lim\limits_{t\to T^{-}}\varphi(t)=X$. Ora possono verificarsi due casi:\\
-	\begin{enumerate}
-		\item Se $T=\sup I \Rightarrow$ dimostrazione conclusa
-		\item Se $T<\sup I \Rightarrow$ posso considerare il problema di Cauchy \\
-		$\left\{ \begin{matrix}  x'=f(t,x)\\x(T)=X \end{matrix} \right.$ Questo è un assurdo poiché arriveremmo a trovare una soluzione definita oltre il tempo $T$. Questo nega la scelta fatta a inizio dimostrazione.
-		\end{enumerate}
-\end{proof}
 \section{Equazioni Autonome}
 \definition 
 Un'equazione differenziale ordinaria in forma normale si dice autonoma sse la variabile indipendente (solitamente il tempo) non vi compare esplicitamente.
