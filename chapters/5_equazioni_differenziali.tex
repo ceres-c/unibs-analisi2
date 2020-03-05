@@ -1105,39 +1105,87 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	% TODO solution
 \end{exercise}
 
+
 \section{Equazioni Autonome}
-\definition 
-Un'equazione differenziale ordinaria in forma normale si dice autonoma sse la variabile indipendente (solitamente il tempo) non vi compare esplicitamente.
-\observation
-Tipicamente, le equazioni differenziali ordinarie autonome modellizzano sistemi isolati.
-\observation Invarianza per traslazione temporale.\\
-Non è importante ai fini dello studio dell'equazione l'istante iniziale, ma solo la lunghezza dell'intervallo.
-Se  $x=\varphi(t)$ risolve $\left\{ \begin{matrix}  x' = f(x)\\x(t_0)=x_0 \end{matrix} \right.$\\
-Allora $x=\varphi(t+t_0)$ risolve $\left\{ \begin{matrix}  x' = f(x)\\x(0)=x_0 \end{matrix} \right.$\\
-\begin{proof}
-	Sia $\psi(t)=\varphi(t_0+t)$\\
-	$ \psi'(t)= \phi'(t_0+t)=f(\varphi(t_0+t))=f(\psi(t))$\\
-	$\psi(0)=\varphi(t_0)=x_0$ 
-\end{proof}
-\proposition Teorema dell'energia cinetica\\
-Un punto materiale non vincolato $P$ di massa $m$ si muove sotto l'azione di una forza $F$ che dipende solo dalla posizione di $P$. Allora la variazione di energia cinetica di $P$ è uguale al lavoro compiuto su $P$ da questa forza.
-\begin{proof}
-	sia $\underline{x}=(x,y,z)$ la terna delle coordinate di $P$. Per il Secondo Principio della Dinamica e per quanto assunto sulla forza $F$, il moto di $P$ è descritto dall'equazione(vettoriale) differenziale ordinaria del secondo ordine:\\
-	$$m \underline{x''}=F(\underline{x})$$
-	$$m \underline{x''}\cdot \underline{x'}=F(\underline{x}) \underline{x'}$$
-	$$\frac{1}{2}m\frac{d}{\integrald{t}}\left(\left( \underline{x'}\right)^2\right)=F(\underline{x}) \underline{x'}$$
-	$$\int_{0}^t\frac{1}{2}m\frac{d}{\integrald{t}}\left(\left( \underline{x'}(\tau)\right)^2\right)\integrald{\tau}=\int_{0}^tF(\underline{x}(\tau))\cdot \underline{x'(\tau)}\integrald{\tau}$$
-	$$\frac{1}{2}m\left( x'(t)\right)^2-\frac{1}{2}m\left( x'(0)\right)^2 = \int_{x(0)}^{x(t)}F(\xi)d\xi$$
-	L'ultimo integrale è calcolato lungo la traiettoria di $P$.
-\end{proof}
-ESEMPIO:: Il Lancio di un Paracadutista\\
-.....\\
-.....\\
-.....\\
-ESEMPIO:: CADUTA IN UN LIQUIDO\\
-.....\\
-.....\\
-.....\\
+\begin{definition}[Equazione Autonoma]
+	Un'\textbf{equazione differenziale ordinaria} si dice \textbf{autonoma} se e solo se la variabile indipendente (solitamente il tempo) non vi compare esplicitamente.
+	\begin{note}
+		L'assenza della variabile indipendente significa, concettualmente, che l'istante iniziale non è importante ai fini dello studio dell'equazione, ma essa dipende solo dalla lunghezza dell'intervallo.
+	\end{note}
+	\vspace*{-2em}
+	\begin{note}
+		In fisica le equazioni differenziali autonome spesso modellizzano sistemi isolati
+	\end{note}
+\end{definition}
+\begin{proposition}[Invarianza per Traslazione Temporale]
+	Se la funzione $\varphi: \realintervalclose{a}{b} \mapsto \R^n$ risolve il Problema di Cauchy
+	\begin{equation*}\begin{cases}
+		x'=f(x)\\
+		x(t_0) = x_0
+	\end{cases}\end{equation*}
+	Allora, qualunque sia $T \in \R$, la funzione $\psi: \realintervalclose{a - T}{b - T} \mapsto \R^n$ data da $\psi(t) = \varphi(t + T)$ è soluzione del Problema di Cauchy
+	\begin{equation*}\begin{cases}
+		x'=f(x)\\
+		x(t_0 - T) = x_0
+	\end{cases}\end{equation*}
+	\begin{proof}
+		Posta la $\psi(t)=\varphi(t+T)$
+		\begin{equation*}\begin{gathered}
+			\psi'(t_0)= \varphi'(t_0+T)=f(\varphi(t_0+T))=f(\psi(t_0))\\
+			\psi(0)=\varphi(t_0)=x_0
+		\end{gathered}\end{equation*}
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	Ogni equazione differenziale ordinaria in forma normale con secondo membro continuo è equivalente ad un'equazione autonoma.
+	\begin{proof}
+		\begin{equation*}
+			x' = f(t,x)
+			\quad\text{equivale a}\quad
+			\begin{cases}
+				x'=f(t,x)\\
+				t'=1
+			\end{cases}
+		\end{equation*}
+	\end{proof}
+\end{proposition}
+\begin{proposition}[Teorema dell'Energia Cinetica]
+	\label{teo:ene_cinetica}
+	Un punto materiale non vincolato $P$ di massa $m$, si muove sotto l'azione di una forza $F$ che dipende solo dalla posizione di $P$.\\
+	Allora la variazione di Energia Cinetica di $P$ è uguale al lavoro compiuto su $P$ da questa forza.
+	\begin{proof}
+		Sia $\mathbf{x} = (x,y,z)$ la terna di coordinate di $P$. Per il Secondo Principio della Dinamica e per quanto assunto sulla forza $F$, il moto di $P$ è descritto dalla seguente equazione differenziale ordinaria vettoriale del secondo ordine
+		\begin{align*}
+			m \mathbf{x}'' &= F(\mathbf{x})\\
+			\intertext{Dunque, moltiplicando ambo i membri}
+			m \mathbf{x}'' \cdot \mathbf{x}' &= F(\mathbf{x}) \cdot \mathbf{x}'\\
+			\intertext{Integrando a sinistra con la $\int{[f(x)]^nf'(x)dx}=\frac{[f(x)]^{n+1}}{n+1}+c$ posto $f(x) = \mathbf{x}'$}
+			\frac{1}{2}m\frac{d}{dt}(\mathbf{x}')^2 &= F(\mathbf{x}) \cdot \mathbf{x}'\\
+			\intertext{Applicando ora integrazione definita tra $0$ e $t$}
+			\frac{1}{2}m\bigl(\mathbf{x}'(t)\bigr)^2 - \frac{1}{2}m\bigl(\mathbf{x}'(0)\bigr)^2 &= \int_0^t F\bigl(\mathbf{x}(\tau)\bigr) \cdot \mathbf{x}'(\tau) \integrald{\tau}\\
+			\intertext{Passando alla soluzione $x$ ed alla $\xi$, traiettoria di $P$}
+			\frac{1}{2}m\bigl(\mathbf{x}'(t)\bigr)^2 - \frac{1}{2}m\bigl(\mathbf{x}'(0)\bigr)^2 &= \int_{x(0)}^{x(t)} F(\xi) \integrald{\xi}
+		\end{align*}
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Estendere la dimostrazione della \fullref{teo:ene_cinetica} nel caso di $n$ punti soggetti a forze dipendenti unicamente dalle posizioni dei punti.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Dedurre il Principio di Conservazione dell'Energia nel caso in cui $F$ ammetta un potenziale
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Come viene modificata la \fullref{teo:ene_cinetica} se la forza $F$ diopende anche dalla velocità $\mathbf{x}'$?
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	È possibile scrivere un'equazione differenziale ordinaria autonoma del primo ordine avente come soluzione la funzione $x(t) = \sin t$ per $t \in \realintervalclose{0}{\pi}$?\\
+	E la funzione $x(t) = t^3$ per $t \in \realintervalclose{-1}{1}$?
+	% TODO solution
+\end{exercise}
+
 \section{Equazioni Differenziali Lineari}
 \definition
 Sia $I\subseteq \R $ un intervallo e $n\in N$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1}, f:I\to\mathbb{C}$ si dice equazione differenziale ordinaria lineare di ordine $n$, l'equazione differenziale:
