@@ -326,7 +326,7 @@ $$\left[\text{quantità da calcolare}\right]=\left[\text{quantità approssimante
 La qualità dell'approssimazione è descritta dal senso in cui l'errore è piccolo.\\
 \subsection{Serie di Potenze}
 \definition
-Siano $\left\{a_n:n\in\N\right\}$ una successione con $a_n:\N\to\mathbb{C}$ e $z_0\in\mathbb{C}$.\\
+Siano $\left\{a_n:n\in\N\right\}$ una successione con $a_n:\N\to\C$ e $z_0\in\C$.\\
 Si dice serie di potenze centrata in $z_0 \bydef \sum\limits_{n=0}^{+\infty}a_n\left(z-z_0\right)^n$
 \observation
 è ovvio che in $z=z_0$ si ha convergenza....???? (dire a zero)
@@ -335,7 +335,7 @@ Per semplicità verrà considerato il caso $z_0=0$
 ESEMPIO::$\sum\limits_{n=0}^{+\infty}\frac{x^n}{n!}=1+x+\frac{1}{2} x^2+\ldots+\frac{1}{n!}x^n=e^x$
 ESEMPIO::$\sum\limits_{n=0}^{+\infty}x^n=1+x+x^2+\ldots+x^n=\frac{1}{1-x}$
 \proposition
-Siano $\left\{a_n:n\in\N\right\}$ una successione in $\mathbb{C}$ e $w\in\mathbb{C}$.\\
+Siano $\left\{a_n:n\in\N\right\}$ una successione in $\C$ e $w\in\C$.\\
 La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cioè $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quandi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\abs{w}$\\
 Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge totalmente in $B(0,r)$\\
 \begin{proof}
@@ -352,9 +352,9 @@ Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\
 \observation
 Una volta che abbiamo la convergenza totale abbiamo anche quella uniforme.
 \proposition la non convergenza in un punto implica la non convergenza fuori dal cerchio\\
-Sia ${a_n:n\in\N}$ una successione a valori in $\mathbb{C}$\\
+Sia ${a_n:n\in\N}$ una successione a valori in $\C$\\
 La serie $\sum\limits_{n=0}^{+\infty}a_nz^n$ non  converge in $w$\\
-Allora $\forall z\in\mathbb{C}$ con $\abs{z}>\abs{w}$ la serie di potenze $\sum\limits_{n=0}^{+\infty}$ non converge in $z$
+Allora $\forall z\in\C$ con $\abs{z}>\abs{w}$ la serie di potenze $\sum\limits_{n=0}^{+\infty}$ non converge in $z$
 \begin{proof}
 	\begin{center}
 		\begin{tikzpicture}[scale=1]
@@ -369,7 +369,7 @@ Allora $\forall z\in\mathbb{C}$ con $\abs{z}>\abs{w}$ la serie di potenze $\sum\
 \end{proof}
 \observation
 Come è fatto l'insieme su cui si ha convergenza??\\
-segue da queste due ultime proposizioni che se $\left\{a_n:n\in\N\right\}$ è una successione in $\mathbb{C}$ allora l'insieme $\left\{z\in\mathbb{C}:\sum\limits_{n=0}^{+\infty}a_nz^n converge\right\}$ è un cerchio.\\Sulla circonferenza non ci soffermaiamo a capire cosa accade poiché tutto può accadere.
+segue da queste due ultime proposizioni che se $\left\{a_n:n\in\N\right\}$ è una successione in $\C$ allora l'insieme $\left\{z\in\C:\sum\limits_{n=0}^{+\infty}a_nz^n converge\right\}$ è un cerchio.\\Sulla circonferenza non ci soffermaiamo a capire cosa accade poiché tutto può accadere.
 \definition
 Raggio di convergenza della serie $\sum\limits_{n=0}^{+\infty}a_nz^n\bydef \rho=\sup\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n converge su B(0,r)\right\}$
 \observation
@@ -431,7 +431,7 @@ ESEMPIO:: Sia $f(x)=\frac{1}{1+x^2}=\frac{1}{1-(-x^2)} = \sum\limits_{n=0}^{+\in
 QUI GRAFICO ..............\\
 ..........................\\
 Questa serieconverge esclusivamente per $\abs{x}<1$, mentre la funzione $f$ è definita su tutto $ \R$, $f\in \cntclass{\infty}( \R; \R)$\\
-In $\mathbb{C}$, lafunzione $f(z)=\frac{1}{1+z^2}$ è la somma della serie $\sum\limits_{n=0}^{+\infty}(-1)^nz^{2n}$ che ha raggio di convergenza  $\rho=1$. Infatti, $f(z)$ è singolare sia in $z=i$ sia in $z=-i$.\\
+In $\C$, lafunzione $f(z)=\frac{1}{1+z^2}$ è la somma della serie $\sum\limits_{n=0}^{+\infty}(-1)^nz^{2n}$ che ha raggio di convergenza  $\rho=1$. Infatti, $f(z)$ è singolare sia in $z=i$ sia in $z=-i$.\\
 ALTRO GRAFICO::::::::::::::::\\
 ................................\\
 
@@ -440,7 +440,7 @@ ESEMPIO:: $ln(1+z)$. Calcolare la Serie di Taylor.\\
 $$D\left[ln(1+z)\right] = \frac{1}{1+z} = \sum\limits_{n=0}^{+\infty}(-1)^nz^n$$
 $$\int \sum\limits_{n=0}^{+\infty}(-1)^nz^n dz = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{n+1}z^{n+1}=\sum\limits_{n=1}^{+\infty}\frac{(-1)^{n-1}}{n}z^n$$
 \proposition
-Sia $\left\{a_n:n\in\N\right\}$ una successione a valori in $\mathbb{C}$. Le serie:
+Sia $\left\{a_n:n\in\N\right\}$ una successione a valori in $\C$. Le serie:
 \begin{center}
 	$\left.\begin{matrix}
 	\ast&&\sum\limits_{n=0}^{+\infty}a_nz^n\\
@@ -533,7 +533,7 @@ Sia $f:\left]-r,r\right[\to \R$
 L'ipotesi centrale ............. qui non c'è
 \observation
 Sia $\sum\limits_{n=0}^{+\infty}(z,w)^n$ una serie di potenze in due variabili.\\
-Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Questa serie è una serie geometrica che converge sse $\abs{zw}<1$. è  difficile parlare di raggio di convergenza  perché essendo $z,w\in\mathbb{C}$, se per una variabile servono due dimensioni per due variabili servono quattro dimensioni , e anche se non riusciamo a fare il disegno è evidente che l'insieme su cui la serie converge non è un cerchio(sfera).
+Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Questa serie è una serie geometrica che converge sse $\abs{zw}<1$. è  difficile parlare di raggio di convergenza  perché essendo $z,w\in\C$, se per una variabile servono due dimensioni per due variabili servono quattro dimensioni , e anche se non riusciamo a fare il disegno è evidente che l'insieme su cui la serie converge non è un cerchio(sfera).
 ESEMPI::
 \begin{description}
 	\item[$\ast$] $e^x=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}x^n$

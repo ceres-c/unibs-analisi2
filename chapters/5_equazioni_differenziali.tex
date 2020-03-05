@@ -1188,11 +1188,11 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 
 \section{Equazioni Differenziali Lineari}
 \definition
-Sia $I\subseteq \R $ un intervallo e $n\in N$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1}, f:I\to\mathbb{C}$ si dice equazione differenziale ordinaria lineare di ordine $n$, l'equazione differenziale:
+Sia $I\subseteq \R $ un intervallo e $n\in N$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1}, f:I\to\C$ si dice equazione differenziale ordinaria lineare di ordine $n$, l'equazione differenziale:
 $$x^{(n)}+a_{n-1}(t)\cdot x^{(n-1)}+\ldots+a_1(t)\cdot x'+a_0(t)x=f(t)$$
 Se $f\equiv 0 $ l'equazione si dice omogenea.
 \proposition
-sia $I$ un intervallo compatto e tale che $\circdot{I}\ne \emptyset$ siano $a_0,a_1,\ldots,a_{n-1},f\in \cntclass{0}(I;\mathbb{C})$. Allora $\forall t_0\in\circdot{I}$ e $c_0,c_1,\ldots,c_{n-1}\in\mathbb{C}$ il problema di Cauchy 
+sia $I$ un intervallo compatto e tale che $\circdot{I}\ne \emptyset$ siano $a_0,a_1,\ldots,a_{n-1},f\in \cntclass{0}(I;\C)$. Allora $\forall t_0\in\circdot{I}$ e $c_0,c_1,\ldots,c_{n-1}\in\C$ il problema di Cauchy 
 $$ \left\{\begin{matrix}[]
 x^{(n)}=-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t)\\
 x(t_0)=c_0\\
@@ -1217,29 +1217,29 @@ ammette soluzione unica definita su tutto l'intervallo $I$.
 	$$
 	La funzione
 	$\begin{array}{rcl} 
-	F: I\times\mathbb{C}^n & \to & \mathbb{C}^n \\
+	F: I\times\C^n & \to & \C^n \\
 	   (t,X) & \to & \left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right] \\ 
 	\end{array}$
-	è lineare in $X$ e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\mathbb{C}^n$
+	è lineare in $X$ e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\C^n$
 	$$\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}$$
 	Sono soddisfatte le ipotesi di Cauchy Globale allora si ha la tesi.
 \end{proof}
 \observation
 La locuzione lineare è giustificata dalla proposizione seguente.
 \proposition
-Sia $I\subseteq \R$ un intervallo e $n\in\mathbb{N}$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1},f:I\to\mathbb{C}$,l'operatore 
+Sia $I\subseteq \R$ un intervallo e $n\in\mathbb{N}$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1},f:I\to\C$,l'operatore 
 $\begin{array}{rcl} 
-L: \cntclass{n}(I;\mathbb{C}) & \to & \cntclass{0}(I;\mathbb{C}) \\
+L: \cntclass{n}(I;\C) & \to & \cntclass{0}(I;\C) \\
 x & \to & x^{(n)}+\sum\limits_{k=1}^{n-1}a_k(t)x^{(k)} \\ 
 \end{array}$è lineare
 \begin{proof}
 	La linearità di $L$ equivale a:
-	$$ \begin{matrix}L(x_1+x_2)=L(x_1)+L(x_2) && \forall x_1,x_2\in \cntclass{n}(I;\mathbb{C})\\L(\lambda\cdot x)=\lambda\cdot L(x) && \forall\lambda\in\mathbb{C}, \forall x\in \cntclass{n}(I;\mathbb{C})\end{matrix} $$
+	$$ \begin{matrix}L(x_1+x_2)=L(x_1)+L(x_2) && \forall x_1,x_2\in \cntclass{n}(I;\C)\\L(\lambda\cdot x)=\lambda\cdot L(x) && \forall\lambda\in\C, \forall x\in \cntclass{n}(I;\C)\end{matrix} $$
 	Entrambe le condizioni  seguono dalle regole di derivazione.
 \end{proof}
 \section{Equazioni Lineari a Coefficienti Costanti}
 \definition
-Dati i coefficienti $a_0,a_1,\ldots,a_{n-1},b\in\mathbb{C}$, si dice equazione differenziale ordinaria lineare di ordine $n$ a coefficienti costanti l'equazione differenziale
+Dati i coefficienti $a_0,a_1,\ldots,a_{n-1},b\in\C$, si dice equazione differenziale ordinaria lineare di ordine $n$ a coefficienti costanti l'equazione differenziale
 $$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
 se $b=0$ l'equazione si dice omogenea. La sua Equazione caratteristica è l'equazione algebrica
 $$\lambda^n+a_{n-1}\lambda^{n+1}+\ldots+a_1\lambda+a_0=0$$ 
