@@ -283,19 +283,21 @@ Necessaria l'ipotesi $f_n(x_0)\to l$.......
 Serve $\left[a,b\right]$ limitato .......\\
 .............................\\
 ................................\\
-\proposition
-Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\left\{f_n:n\in\N\right\}$ con $f_n:\left[a,b\right]\to \R$
-\begin{enumerate}
-	\item $\forall n\in\N, f_n\in \cntclass{1}(\left[a,b\right]; \R)$
-	\item $\exists x_0\in\left[a,b\right]: \sum\limits_{n=0}^{+\infty}f_n(x_0)=L\in \R$
-	\item $\exists g \in \cntclass{0}(\left[a,b\right]; \R): \sum\limits_{n=0}^{+\infty}f_n \uconvarrow g$ su $\left[a,b\right]$
-\end{enumerate}
-Allora
-\begin{enumerate}
-	\item $\exists f\in \cntclass{1}(\left[a,b\right]; \R)$
-	\item $\sum\limits_{n=0}^{+\infty}f_n \uconvarrow f$ su $\left[a,b\right]$
-	\item $f'(x)=g(x)$ $\forall x\in\left[a,b\right]$
-\end{enumerate}
+\begin{corollary}
+	\label{coro:deriv_series_series_of_deriv}
+	Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\left\{f_n:n\in\N\right\}$ con $f_n:\left[a,b\right]\to \R$
+	\begin{enumerate}
+		\item $\forall n\in\N, f_n\in \cntclass{1}(\left[a,b\right]; \R)$
+		\item $\exists x_0\in\left[a,b\right]: \sum\limits_{n=0}^{+\infty}f_n(x_0)=L\in \R$
+		\item $\exists g \in \cntclass{0}(\left[a,b\right]; \R): \sum\limits_{n=0}^{+\infty}f'_n \uconvarrow g$ su $\left[a,b\right]$
+	\end{enumerate}
+	Allora
+	\begin{enumerate}
+		\item $\exists f\in \cntclass{1}(\left[a,b\right]; \R)$
+		\item $\sum\limits_{n=0}^{+\infty}f_n \uconvarrow f$ su $\left[a,b\right]$
+		\item $f'(x)=g(x)$ $\forall x\in\left[a,b\right]$
+	\end{enumerate}
+\end{corollary}
 \observation
 In altre parole questa proposizione afferma che sotto opportune ipotesi
 $$\left(\sum\limits_{n=0}^{+\infty} f_n \right)' =  \sum\limits_{n=0}^{+\infty}f_n'$$
@@ -439,15 +441,15 @@ ALTRO GRAFICO::::::::::::::::\\
 ESEMPIO:: $ln(1+z)$. Calcolare la Serie di Taylor.\\
 $$D\left[ln(1+z)\right] = \frac{1}{1+z} = \sum\limits_{n=0}^{+\infty}(-1)^nz^n$$
 $$\int \sum\limits_{n=0}^{+\infty}(-1)^nz^n dz = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{n+1}z^{n+1}=\sum\limits_{n=1}^{+\infty}\frac{(-1)^{n-1}}{n}z^n$$
-\proposition
-Sia $\left\{a_n:n\in\N\right\}$ una successione a valori in $\C$. Le serie:
-\begin{center}
-	$\left.\begin{matrix}
-	\ast&&\sum\limits_{n=0}^{+\infty}a_nz^n\\
-	\ast&&\sum\limits_{n=0}^{+\infty}na_nz^{n-1}\\
-	\ast&&\sum\limits_{n=0}^{+\infty}\frac{a_n}{n+1}z^{n+1}\\
-	\end{matrix}\right\}$ hanno lo stesso raggio di convergenza
-\end{center}
+\begin{lemma}
+	\label{lemma:taylor_rad_convergency}
+	Sia $\brackets{a_n:n \in \N}$ una successione a valori in $\C$. Le serie:
+	$$\sum_{n=0}^{+\infty} a_n z^n ,\qquad \sum_{n=1}^{+\infty} n a_n z^{n-1} \qquad\text{e}\qquad \sum_{n=0}^{+\infty} \frac{a_n}{n+1}z^{n+1}$$
+	hanno lo stesso raggio di convergenza
+	\begin{proof}
+		Omessa
+	\end{proof}
+\end{lemma}
 
 \definition
 Sia $r\in \R$ con $r>0$. La funzione $f$ si dice analitica su $\left]-r,r\right[ \bydef f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \quad \forall x\in\left]-r,r\right[$ per opportuni $a_n\in \R$
@@ -534,21 +536,32 @@ L'ipotesi centrale ............. qui non c'è
 \observation
 Sia $\sum\limits_{n=0}^{+\infty}(z,w)^n$ una serie di potenze in due variabili.\\
 Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Questa serie è una serie geometrica che converge sse $\abs{zw}<1$. è  difficile parlare di raggio di convergenza  perché essendo $z,w\in\C$, se per una variabile servono due dimensioni per due variabili servono quattro dimensioni , e anche se non riusciamo a fare il disegno è evidente che l'insieme su cui la serie converge non è un cerchio(sfera).
-ESEMPI::
-\begin{description}
-	\item[$\ast$] $e^x=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}x^n$
-	\item[$\ast$] $sin(x)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n+1)!}x^{(2n+1)}$
-	\item[$\ast$] $sinh(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{(2n+1)!}x^{(2n+1)}$
-	\item[$\ast$] $cos(x)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n)!}x^{(2n)}$
-	\item[$\ast$] $cosh(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{(2n)!}x^{(2n)}$
-	\item[$\ast$] $\frac{1}{1-x}=\sum\limits_{n=0}^{+\infty}x^n$
-	\item[$\ast$] $ln(1+x)=\sum\limits_{n=1}^{+\infty}\frac{(-1)^{n+1}}{n}x^n$
-	\item[$\ast$] $arctan(1+x)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^{n}}{2n+1}x^{(2n+1)}$
-	\item[$\ast$] $\frac{1}{1+x^2}=\sum\limits_{n=0}^{+\infty}(-1)^nx^2n$
-	\item[$\ast$] $\sum\limits_{n=0}^{+\infty}\frac{1}{n^\lambda}=\left\{\begin{matrix}\text{converge sse } \lambda >1\\ \text{diverge sse } \lambda \le 1 \end{matrix}\right.$
-	\item[$\ast$] $\sum\limits_{n=0}^{+\infty}q^n=\left\{\begin{matrix}\text{converge sse } \abs{q}<1, S=\frac{1}{1-x}\\ \text{diverge sse } \abs{q}>1\text{ o }q=1\\\nexists \text{ sse } x=-1 \end{matrix}\right.$
-\end{description}
-
+\begin{example}[Esempi di Sviluppi in serie di Taylor]
+	\label{ex:tay_series_examples}
+	\begin{description}
+		\item $e^x=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}x^n$
+		\item $sin(x)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n+1)!}x^{(2n+1)}$
+		\item $sinh(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{(2n+1)!}x^{(2n+1)}$
+		\item $cos(x)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n)!}x^{(2n)}$
+		\item $cosh(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{(2n)!}x^{(2n)}$
+		\item $\frac{1}{1-x}=\sum\limits_{n=0}^{+\infty}x^n$
+		\item $ln(1+x)=\sum\limits_{n=1}^{+\infty}\frac{(-1)^{n+1}}{n}x^n$
+		\item $arctan(1+x)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^{n}}{2n+1}x^{(2n+1)}$
+		\item $\frac{1}{1+x^2}=\sum\limits_{n=0}^{+\infty}(-1)^nx^2n$
+		\item $\sum\limits_{n=0}^{+\infty}\frac{1}{n^\lambda}=\left\{\begin{matrix}\text{converge sse } \lambda >1\\ \text{diverge sse } \lambda \le 1 \end{matrix}\right.$
+		\item $\sum\limits_{n=0}^{+\infty}q^n=\left\{\begin{matrix}\text{converge sse } \abs{q}<1, S=\frac{1}{1-x}\\ \text{diverge sse } \abs{q}>1\text{ o }q=1\\\nexists \text{ sse } x=-1 \end{matrix}\right.$
+	\end{description}
+\end{example}
+\begin{exercise}
+	\label{ex:deriv_func_with_taylor}
+	Determinare le derivate delle funzioni
+	\begin{itemize}
+		\item $x \to \sin x$
+		\item $x \to \cos x$
+		\item $x \to e^x$
+	\end{itemize}
+	utilizzando \fullref{ex:tay_series_examples}, il \fullref{lemma:taylor_rad_convergency} ed il \fullref{coro:deriv_series_series_of_deriv}.
+\end{exercise}
 
 \subsection{Serie di Fourier}
 \definition

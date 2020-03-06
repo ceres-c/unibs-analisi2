@@ -1187,10 +1187,12 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{exercise}
 
 \section{Equazioni Differenziali Lineari}
-\definition
-Sia $I\subseteq \R $ un intervallo e $n\in N$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1}, f:I\to\C$ si dice equazione differenziale ordinaria lineare di ordine $n$, l'equazione differenziale:
-$$x^{(n)}+a_{n-1}(t)\cdot x^{(n-1)}+\ldots+a_1(t)\cdot x'+a_0(t)x=f(t)$$
-Se $f\equiv 0 $ l'equazione si dice omogenea.
+Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{sec:fun_in_C}, in particolare \fullref{ex:ext_def_in_C}
+\begin{definition}
+	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc,\:a_{n-1},\:f \quad : I \mapsto \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
+	$$x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)$$
+	Se $f = 0$ l'equazione si dice \textbf{Omogenea}.
+\end{definition}
 \proposition
 sia $I$ un intervallo compatto e tale che $\circdot{I}\ne \emptyset$ siano $a_0,a_1,\ldots,a_{n-1},f\in \cntclass{0}(I;\C)$. Allora $\forall t_0\in\circdot{I}$ e $c_0,c_1,\ldots,c_{n-1}\in\C$ il problema di Cauchy 
 $$ \left\{\begin{matrix}[]

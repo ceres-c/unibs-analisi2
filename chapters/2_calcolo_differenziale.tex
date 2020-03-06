@@ -794,10 +794,52 @@ $$\nabla F(x_0,y_0)=f(x_0,\beta)\nabla\beta(x_0)-f(x_0,\alpha)\nabla\alpha(x_0)+
 
 \section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}
 \label{sec:fun_in_C}
-Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \mapsto \C$ può essere identificata in modo naturale con una funzione $A \mapsto \R^2$ e viceversa.
+Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \mapsto \C$ può essere identificata in modo naturale con una funzione $A \mapsto \R^2$ e viceversa.ù
+\begin{note}
+	Quindi è possibile rappresentare una funzione $A \mapsto \C$ in un piano, detto \textbf{piano complesso} o \textbf{piano di Gauss}
+\end{note}
 \begin{exercise}
 	\label{ex:ext_def_in_C}
 	Utilizzando questa identificazione, estendere al caso di funzioni $A \mapsto \C$ le definizioni di continuità, derivabilità, differenziabilità e degli spazi $\cntclass{k}$ date per funzioni $A \mapsto \R$
 	% TODO solution
 \end{exercise}
-%TODO This section is a placeholder
+\begin{proposition}
+	\label{prop:fg_in_C}
+	Sia $A \subseteq \R$ e sia $t_0 \in \circdot{A}$. Allora
+	\begin{itemize}
+		\item Se due funzioni $f,g: A \mapsto \C$ sono differenziabili in $t_0$, anche le funzioni $f+g$ e $f \cdot g$ sono differenziabili in $t_0$. Inoltre
+			$$(f+g)'(t_0) = f'(t_0) + g'(t_0) \qquad\text{e}\qquad (f \cdot g)'(t_0) = f'(t_0)g(t_0)+f(t_0)g'(t_0)$$
+		\item Per ogni $\lambda \in \C$, anche $\lambda f$ è differenziabile e
+			$$(\lambda f)'(t_0) = \lambda f'(t_0)$$
+		\item Se $g(t_0) \neq 0$, anche $1/g$ e $f/g$ sono differenziabili in $t_0$ e
+			$$(1/g)'(t_0) = - \frac{g'(t_0)}{g^2(t_0)} \qquad\text{e}\qquad (f/g)'(t_0) = \frac{f'(t_0)g(t_0)-f(t_0)g'(t_0)}{g^2(t_0)}$$
+	\end{itemize}
+	\begin{proof}
+		Omessa
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Dimostrare la \fullref{prop:fg_in_C}
+	% TODO solution
+\end{exercise}
+\begin{definition}[Funzione Esponenziale con Esponente Complesso]
+	La Funzione Esponenziale con Esponente Complesso è così definita:
+	$$e^{x+iy} = e^x \cdot (\cos y + i \sin y)$$
+\end{definition}
+\begin{proposition}
+	\label{prop:deriv_exp_in_C}
+	Qualunque sia $\lambda \in \C$,
+	$$\frac{d}{dt}e^{\lambda t} = \lambda e^{\lambda t}$$
+	\begin{proof}
+		Omessa
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Dimostrare la \fullref{prop:deriv_exp_in_C}, direttamente o attraverso l'\fullref{ex:deriv_func_with_taylor}
+\end{exercise}
+\begin{exercise}
+	In questa sezione sulle funzioni a valori complessi non son stati considerati i problemi di massimo/minimo, perché?
+	\begin{solution}
+		Perché $\C$ non è ordinato, dunque non è possibile trovare massimi o minimi.
+	\end{solution}
+\end{exercise}
