@@ -840,7 +840,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{example}
 
 \subsection{Il Caso Lipschitziano}
-\begin{theorem}
+\begin{theorem}[Teorema di Cauchy Globale per Lipschitziane]
 	\label{teo:cau_glob_lips}
 	Data la funzione $f:I \times \R^n \mapsto \R^n$, se:
 	\begin{itemize}
@@ -985,7 +985,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		$f(x) = x^2$ è loc. lips. ma non sublineare.
 	\end{solution}
 \end{exercise}
-\begin{theorem}[Teorema di Cauchy Globale]
+\begin{theorem}[Teorema di Cauchy Globale per Sublineari]
 	\label{teo:cau_globale}
 	Data la funzione $f: I \times \R^n \mapsto \R^n$, se
 	\begin{enumerate}
@@ -1193,39 +1193,57 @@ Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{s
 	$$x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)$$
 	Se $f = 0$ l'equazione si dice \textbf{Omogenea}.
 \end{definition}
-\proposition
-sia $I$ un intervallo compatto e tale che $\circdot{I}\ne \emptyset$ siano $a_0,a_1,\ldots,a_{n-1},f\in \cntclass{0}(I;\C)$. Allora $\forall t_0\in\circdot{I}$ e $c_0,c_1,\ldots,c_{n-1}\in\C$ il problema di Cauchy 
-$$ \left\{\begin{matrix}[]
-x^{(n)}=-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t)\\
-x(t_0)=c_0\\
-x(t_2)=c_1\\
-\ldots\\
-x^{(n-1)}(t_0)=c_{n-1}\\
-\end{matrix}\right.$$
-ammette soluzione unica definita su tutto l'intervallo $I$.
-\begin{proof}
-	Un'equazione differenziale lineare di ordine $n$ può essere trasformato in un sistema di equazioni al primo ordine.
-	Introduciamo la variabile $X\in\mathbb{\cntclass{n}}$ ed il dato iniziale $C\in\mathbb{\cntclass{n}}$
-	$$\left[\begin{matrix} X_1\\X_2\\\ldots\\X_{n-1}\\X_n \end{matrix}\right] = \left[\begin{matrix} x\\ x'\\\ldots\\ x^{(n-1)}\\x^{(n)} \end{matrix}\right]\quad\quad\left[\begin{matrix} C_1\\C_2\\\ldots\\C_{n-1}\\C_{n} \end{matrix}\right] = \left[\begin{matrix} c_0\\c_1\\\ldots\\ c_{n-2}\\c_{n-1} \end{matrix}\right]$$
-	il problema di Cauchy per l'equazione lineare diventa:
-	$$
-	\left\{
-	\left[\begin{matrix} X_1'\\X_2'\\\ldots\\X_{n-1}'\\X_n' \end{matrix}\right]
-	=
-	\left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]
-	\\
-	X(t_0)=C
-	\right.
-	$$
-	La funzione
-	$\begin{array}{rcl} 
-	F: I\times\C^n & \to & \C^n \\
-	   (t,X) & \to & \left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right] \\ 
-	\end{array}$
-	è lineare in $X$ e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\C^n$
-	$$\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}$$
-	Sono soddisfatte le ipotesi di Cauchy Globale allora si ha la tesi.
-\end{proof}
+\begin{proposition}
+	Sia $I$ un intervallo compatto tale che  $\circdot{I} \neq \emptyset$, siano $a_0,\:a_1,\:\dotsc,\:a_{n-1},\:f\in\cntclass{0}(I;\C)$.\\
+	Allora per ogni $t_0 \in \circdot{I}$ e $c_0,\:c_1,\: \dotsc,\:c_{n-1}\in\C$ il Problema di Cauchy
+	\begin{equation}
+	\label{eq:eq_diff_lin_fun_n}
+	\begin{cases}
+		x^{(n)} = -\sum_{k=1}^{n-1} a_k(t) \cdot x^{(k)} + f(t)\\
+		x(t_0) = c_0\\
+		x'(t_0) = c_1\\
+		\vdots\\
+		x^{(n-2)}(t_0) = c_{n-2}\\
+		x^{(n-1)}(t_0) = c_{n-1}
+	\end{cases}
+	\end{equation}
+	soddisfa alle ipotesi del \fullref{teo:cau_glob_lips}
+	\begin{proof}
+		Introducendo la variable $X \in \C^n$ ed il dato $C \in \C^n$ definiti da
+		\begin{equation*}
+			\left[\begin{matrix} X_1\\X_2\\\vdots\\X_{n-1}\\X_n \end{matrix}\right] = \left[\begin{matrix} x\\ x'\\\vdots\\ x^{(n-2)}\\x^{(n-1)} \end{matrix}\right]
+			\quad\text{e}\quad
+			\left[\begin{matrix} C_1\\C_2\\\vdots\\C_{n-1}\\C_{n} \end{matrix}\right] = \left[\begin{matrix} c_0\\c_1\\\vdots\\ c_{n-2}\\c_{n-1} \end{matrix}\right]
+		\end{equation*}
+		Come da \fullref{prop:equaz_n_equival_1}, un'equazione differenziale lineare di ordine $n$ può essere trasformata in un sistema di $n$ equazioni del primo ordine, dunque la prima equazione di \cref{eq:eq_diff_lin_fun_n}, può diventare
+		\begin{equation}
+		\label{eq:eq_diff_lin_comp_then_cau_glob}
+		\begin{cases}
+			X_1' = X_2\\
+			X_2' = X_3\\
+			\ldots\\
+			X_{n-1}' = X_{n}\\
+			X_n' = -\sum\limits_{k=1}^{n-1}\bigl( a_k(t) \cdot X_{k+1} \bigr)+f(t)
+		\end{cases}
+		\end{equation}
+		Passando dalle singole equazioni del nuovo sistema \cref{eq:eq_diff_lin_comp_then_cau_glob} alla variabile unica $X$ in $n$ coordinate, tutta la \cref{eq:eq_diff_lin_fun_n} è
+		\begin{equation*}
+		\begin{cases}
+			\left[\begin{matrix} X_1'\\X_2'\\\ldots\\X_{n-1}'\\X_n' \end{matrix}\right] = \left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\bigl( a_k(t) \cdot X_{k+1} \bigr)+f(t) \end{matrix}\right]\\
+			\;X(t_0)=C
+		\end{cases}
+		\end{equation*}
+		Infine la funzione
+		\begin{equation*}
+			\funcdef{F}{(t,X)}[I \times \C^n]{\qquad\qquad\quad\C^n}[ % HACK this is known in the latex community as yolo-centering
+				\left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]
+			]
+		\end{equation*}
+		è lineare in $X$ (compaiono solo elementi di grado 1) e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\C^n$
+		$$\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}$$ % TODO better explain this
+		Sono quindi soddisfatte le ipotesi di \fullref{teo:cau_glob_lips} e si ha la tesi.
+	\end{proof}
+\end{proposition}
 \observation
 La locuzione lineare è giustificata dalla proposizione seguente.
 \proposition
