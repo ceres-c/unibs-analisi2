@@ -839,6 +839,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	ammette soluzione globale per $x \in \realintervalclose{-1}{1}$, ma non per $x \in R \setminus \realintervalclose{-1}{1}$
 \end{example}
 
+\color{not_explained_section_color}
 \subsection{Il Caso Lipschitziano}
 \begin{theorem}[Teorema di Cauchy Globale per Lipschitziane]
 	\label{teo:cau_glob_lips}
@@ -916,6 +917,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		Avendo dimostrato che la minorazione vale per $m$ e per $m+1$, la dimostrazione per induzione è conclusa.
 	\end{proof}
 \end{theorem}
+\color{black}
 
 \subsection{Il Caso Sublineare}
 \begin{definition}[Funzione Sublineare]
@@ -1189,7 +1191,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \color{not_explained_section_color}
 \section{Equazioni Differenziali Lineari}
 Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{sec:fun_in_C}, in particolare \fullref{ex:ext_def_in_C}
-\begin{definition}
+\begin{definition}[Equazione Differenziale Ordinaria Lineare]
 	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f \quad : I \mapsto \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
 	$$x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)$$
 	Se $f = 0$ l'equazione si dice \textbf{Omogenea}.
@@ -1314,29 +1316,124 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 		\end{align*}
 	\end{proof}
 \end{proposition}
+
+\begin{note}
+	Utilizzando la notazione tipica dell'Algebra Lineare, l'insieme delle soluzioni è $\ker L$, il \textit{nucleo} (\textit{kernel}) dell'operatore lineare $L$
+\end{note}
+
+\begin{definition}[Sistema Fondamentale di Soluzioni]
+	Dato $\ker L$, lo spazio vettoriale delle soluzioni, una base di $\ker L$ è \textbf{Sistema Fondamentale di Soluzioni} dell'equazione omogenea
+	$$x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = 0$$
+\end{definition}
+\begin{definition}[Soluzione Particolare]
+	\textbf{Soluzione Particolare} dell'equazione lineare non omogenea
+	$$x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = f(t)$$
+	è una qualunque soluzione di questa equazione.
+\end{definition}
+
+\begin{proposition}
+	Nota una soluzione particolare $\overline{x}$ dell'equazione non omogenea
+	$$x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = f(t)$$
+	e noto un sistema fondamentale di soluzioni $(x_1,\:\dotsc\:,x_n)$ dell'equazione imogenea
+	$$x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = 0$$
+	ogni soluzione $x$ dell'equazione non omogenea può essere scritta come
+	$$x = \overline{x} + \sum\limits_{k=1}^n \alpha_k x_k$$
+	per opportune costanti $\alpha_1,\:\dotsc\:,\alpha_n \in \C$
+	\begin{proof}
+		% TODO proof
+	\end{proof}
+\end{proposition}
+
+\begin{exercise}
+	Risolvere il Problema di Cauchy per una generica equazione lineare del primo ordine
+	\begin{equation*}
+	\begin{cases}
+	x' + p(t) \cdot x = q(t)\\
+	x(t_0) = x_0
+	\end{cases}
+	\end{equation*}
+	con $p,q \in \cntclass{0}(R;R)$.
+	\begin{solution}
+		Suggerimento: moltiplicare ambo i membri dell'equazione per $e^{\int_{t_0}^{t}p(\tau)\integrald{\tau}}$ ed integrare
+		% TODO solution
+	\end{solution}
+\end{exercise}
 \color{black}
 
 \color{not_explained_section_color}
 \section{Equazioni Lineari a Coefficienti Costanti}
-\definition
-Dati i coefficienti $a_0,a_1,\ldots,a_{n-1},b\in\C$, si dice equazione differenziale ordinaria lineare di ordine $n$ a coefficienti costanti l'equazione differenziale
-$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
-se $b=0$ l'equazione si dice omogenea. La sua Equazione caratteristica è l'equazione algebrica
-$$\lambda^n+a_{n-1}\lambda^{n+1}+\ldots+a_1\lambda+a_0=0$$ 
-\observation
-Nella risoluzione di equazioni differenziali lineari la funzione esponenziale $t\to e^{\lambda t}$ riveste un ruolo molto particolare. Questa funzione è un autovalore dell'operatore di derivazione $D$ relativo all'autovalore, risolve infatti $\lambda$:$Dx=\lambda\cdot x$ 
-\proposition
-Data l'equazione
-$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
-$x(t)=e^{\lambda t}$ risolve l'equazione omogenea $\iff$ $\lambda$ è soluzione dell'equazione caratteristica.\\
-
-LEMMA:: Sia $x(t)=t\cdot e^{\lambda\cdot t}$. Allora , per ogni $n\in\mathbb{N}, n\ge 1$
-$$x^{(n)}(t)=\left(\lambda^nt+n\lambda^{n-1}\right)e^{\lambda t}$$
-???????????????NON L?HO CAPITA BENE.......................\\
-\proposition
-Data l'equazione 
-$$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
-$x(t)=te^{\lambda t}$ risolve l'equazione omogenea $\iff$ $\lambda$ è soluzione dell'equazione caratteristica con molteplicità almeno ??????????.
+\begin{definition}[Equazione Differenziale Ordinaria Lineare a Coefficienti Costanti]
+	Dati i coefficienti $a_0,\:a_1,\:\dotsc\:,a_{n-1},b \in \C$ si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine $\boldsymbol{n}$ a Coefficienti Costanti} l'equazione differenziale
+	$$x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x' + a_0 \cdot x = b$$
+	Se $b=0$, l'equazione si dice \textbf{omogenea}.\\
+	La sua \textbf{Equazione Caratteristica} è l'equazione algebrica
+	$$\lambda^n + a_{n-1} \lambda^{n-1} +\:\ldots\:+ a_1 \lambda + a_0 = 0$$
+\end{definition}
+\begin{observation}
+	Nella risoluzione di equazioni differenziali lineari la funzione esponenziale $t \mapsto e^{\lambda t}$ riveste un ruolo molto particolare. Questa funzione è un \textit{autovalore} dell'operatore di derivazione $D$ relativo all'\textit{autovalore} $\lambda$, risolve infatti $Dx=\lambda \cdot x$, come da \fullref{prop:deriv_exp_in_C}.
+\end{observation}
+\begin{proposition}
+	Data l'equazione
+	$$x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b$$
+	allora
+	\begin{center}
+		$x(t)=e^{\lambda t}$ risolve l'equazione omogenea $\iff$ $\lambda$ è soluzione dell'equazione caratteristica.
+	\end{center}
+	\begin{proof}
+		Sia $L$ l'operatore definito dal membro sinistro dell'equazione come nella \fullref{prop:linearita_eq_diff}. Allora se $x(t) = e^{\lambda t}$, si ha che
+		$$\bigl(L(x)\bigr)(t) = \bigl( \lambda^n + a_{n-1}\lambda^{n-1} +\:\ldots\:+ a_1 \lambda + a_0 \bigr) e^{\lambda t}$$
+	\end{proof}
+\end{proposition}
+\begin{lemma}
+	Sia $x(t)=t \cdot e^{\lambda t}$. Allora, per ogni $n\in\N,\;n \geq 1$ si ha
+	$$x^{(n)}(t)=\left(\lambda^nt+n\lambda^{n-1}\right) e^{\lambda t}$$
+	\begin{proof}
+		Per induzione su $n$.\\
+		Se $n=0$, allora $x^{(0)} = x$. Supposto vero che
+		$$x^{(n-1)}(t) = \bigl( \lambda^{n-1} t + (n-1) \lambda^{n-2} \bigr) e^{\lambda t}$$
+		Da cui, derivando rispetto a $t$, si ottiene la tesi.
+	\end{proof}
+\end{lemma}
+\begin{proposition}
+	Data l'equazione
+	$$x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b$$
+	allora
+	\begin{center}
+		$x(t)= t \cdot e^{\lambda t}$ risolve l'equazione omogenea\\
+		$\iff$\\
+		$\lambda$ è soluzione dell'equazione caratteristica con molteplicità almeno $2$
+	\end{center}
+	\begin{proof}
+		Sia $P(\lambda) = \lambda^n + \sum\limits_{k=0}^{n-1} a_k \lambda^k$. Sia ha
+		\begin{align*}
+			\bigl( L(x) \bigr)(t) &= x^{(n)}(t) + \sum\limits_{k=0}^{n-1} a_k x^{(k)}(t)\\
+			&= \left( \lambda^n t + n\lambda^{n-1} \right) e^{\lambda t} + \left( \sum\limits_{k=1}^{n-1} a_k \bigl( \lambda^k t + k \lambda^{k-1} \bigr) + a_0 t \right) e^{\lambda t}\\
+			&= \left( \lambda^n + \sum\limits_{k=0}^{n-1} a_k \lambda^k \right) t e^{\lambda t} + \left( n \lambda^{n-1} + \sum\limits_{k=1}^{n-1} a_k k \lambda^{k-1} \right) e^{\lambda t}\\
+			&= \left( P(\lambda)t + \frac{dP}{d\lambda}(\lambda) \right) e^{\lambda t}
+		\end{align*}
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	Sia $m \in \N$. Data l'equazione
+	$$x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b$$
+	allora
+	\begin{center}
+		$x(t)= t^m \cdot e^{\lambda t}$ risolve l'equazione omogenea\\
+		$\iff$\\
+		$\lambda$ è soluzione dell'equazione caratteristica con molteplicità almeno $m$
+	\end{center}
+	\begin{proof}
+		Omessa
+	\end{proof}
+\end{proposition}
+\begin{example}
+	L'equazione lineare del secondo ordine a coefficienti costanti
+	$$x'' -2x' +x = 0$$
+	ha equazione caratteristica
+	$$\lambda^2 - 2\lambda + 1 = 0$$
+	ed integrale generale
+	$$\bigl( x_1(t) = e^t,\;x_2(t) = t e^t \bigr)$$
+\end{example}
 \color{black}
 
 \section{Esempi}
