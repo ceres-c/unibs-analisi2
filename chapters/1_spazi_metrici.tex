@@ -1,15 +1,52 @@
 \chapter{Spazi Metrici}
 
 \section{Preliminari}
-\definition
-Si dice spazio metrico un insieme X non vuoto in cui sia definita una
-distanza(metrica), vale a dire una funzione $d: X \times X \rightarrow \R$ con le proprietà:
-\begin{enumerate}
-	\item $d(x,y)\ge0 \quad \forall x,y \in X$
-	\item $d(x,y)=0\iff x=0 \quad \forall x,y \in X$
-	\item $d(x,y)=d(y,x) \quad \forall x,y \in X$ simmetria
-	\item $d(x,y)\le d(x,z)+d(z,y) \quad \forall x,y,z\in X$ disuguaglianza triangolare 
-\end{enumerate}
+\begin{definition}[Spazio Vettoriale]
+	Siano $K$ un \textbf{campo} e $V$ un \textbf{insieme}. Si dice che \textbf{Spazio Vettoriale} sul campo $K$ se sono definite due operazioni:
+	\begin{enumerate}
+		\item \textbf{Somma}, operazione interna binaria
+		\item \textbf{Prodotto per scalari} operazione esterna
+	\end{enumerate}
+	\begin{note}
+		Questa definizione è stata riportata per ricordare il concetto, si consiglia la consultazione di un libro di Algebra Lineare per una definizione più precisa.
+	\end{note}
+\end{definition}
+
+\begin{definition}[Spazio Metrico]
+	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{distanza} (o \textbf{metrica}), vale a dire una funzione $d: X \times X \mapsto \R$ con le seguenti proprietà:
+	\begin{enumerate}
+		\item $d(x,y) \geq 0 \quad \forall x,y \in X$
+		\item $d(x,y) = 0 \quad \forall x,y \in X \iff x=y$
+		\item $d(x,y) = d(y,x) \quad \forall x,y \in X$ \quad\textit{(simmetria)}
+		\item $d(x,z) \leq d(x,y)+d(y,z) \quad \forall x,y,z\in X$ \quad\textit{(disuguaglianza triangolare)}
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Sottospazio Metrico]
+	Siano $S \subseteq X$ e $d$ metrica su $X$. Allora $d_S = d_{|S \times S}$ è una metrica su $S$, cioè la metrica $d_S$ è la \textbf{metrica indotta}, definita come la \textbf{restrizione} della metrica $d$ ai soli elementi di $S$.
+
+	$(S,d_S)$ è Sottospazio Metrico di $(X,d)$
+\end{definition}
+
+Unendo le due definizioni si giunge naturalmente a
+\begin{definition}[Spazio Vettoriale Metrico]
+	Uno Spazio Vettoriale Metrico è uno spazio vettoriale $V$ su cui è definito un prodotto scalare $<\cdot,\cdot·>$ definito positivo, una \textbf{metrica}.
+	\begin{note}
+		Analogamente si definisce il Sottospazio Vettoriale Metrico
+	\end{note}
+\end{definition}
+
+\begin{proposition}
+	\label{prop:subspace_condition}
+	Sia $(V)$ uno spazio vettoriale metrico sul campo $K$ e sia $\emptyset \neq U \subseteq V$. Il sottoinsieme $U$ è un sottospazio vettoriale metrico se, e soltanto se, sono verificate le seguenti condizioni:
+	\begin{enumerate}
+		\item $\forall \mathbf{u}, \mathbf{u'} \in U \quad \mathbf{u} + \mathbf{u'} \in U$
+		\item $\forall \lambda \in K,\; \forall \mathbf{u} \in U \quad \lambda \cdot \mathbf{u} \in U$
+	\end{enumerate}
+	\begin{proof}
+		Non richiesta, analoga a quella per Spazi Vettoriali reperibile in un libro di Algebra Lineare
+	\end{proof}
+\end{proposition}
 
 \example
 $$X=\R^2,\quad d((x_1,y_1),(X_2,y_2))=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$

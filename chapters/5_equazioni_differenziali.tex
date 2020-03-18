@@ -846,7 +846,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\begin{itemize}
 		\item $I \subset \R$ è \textbf{intervallo compatto}
 		\item $f$ è \textbf{continua} su $I \times \R^n$
-		\item f è (globalmente) \textbf{Lipschitziana} in $x \in \R^n$ \textbf{uniformemente} rispetto a $t \in I$
+		\item f è (globalmente) \hyperref[def:lips]{\textbf{Lipschitziana}} in $x \in \R^n$ \textbf{uniformemente} rispetto a $t \in I$
 	\end{itemize}
 	Allora il Problema di Cauchy
 	\begin{equation}
@@ -1186,27 +1186,29 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	% TODO solution
 \end{exercise}
 
+\color{not_explained_section_color}
 \section{Equazioni Differenziali Lineari}
 Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{sec:fun_in_C}, in particolare \fullref{ex:ext_def_in_C}
 \begin{definition}
-	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc,\:a_{n-1},\:f \quad : I \mapsto \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
+	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f \quad : I \mapsto \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
 	$$x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)$$
 	Se $f = 0$ l'equazione si dice \textbf{Omogenea}.
 \end{definition}
-\begin{proposition}
-	Sia $I$ un intervallo compatto tale che  $\circdot{I} \neq \emptyset$, siano $a_0,\:a_1,\:\dotsc,\:a_{n-1},\:f\in\cntclass{0}(I;\C)$.\\
-	Allora per ogni $t_0 \in \circdot{I}$ e $c_0,\:c_1,\: \dotsc,\:c_{n-1}\in\C$ il Problema di Cauchy
-	\begin{equation}
+\begin{proposition}[Estensione in $\C$ del Teorema di Cauchy Globale per Lipschitziane]
+	\label{prop:cau_glob_lips_in_C}
+	Sia $I$ un intervallo compatto tale che  $\circdot{I} \neq \emptyset$, siano $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f\in\cntclass{0}(I;\C)$.\\
+	Allora per ogni $t_0 \in \circdot{I}$ e $c_0,\:c_1,\:\dotsc\:,c_{n-1}\in\C$ il Problema di Cauchy
+	\begin{align}
 	\label{eq:eq_diff_lin_fun_n}
 	\begin{cases}
-		x^{(n)} = -\sum_{k=1}^{n-1} a_k(t) \cdot x^{(k)} + f(t)\\
-		x(t_0) = c_0\\
-		x'(t_0) = c_1\\
-		\vdots\\
-		x^{(n-2)}(t_0) = c_{n-2}\\
-		x^{(n-1)}(t_0) = c_{n-1}
+		x^{(n)} &= -\sum_{k=1}^{n-1} a_k(t) \cdot x^{(k)} + f(t)\\
+		x(t_0) &= c_0\\
+		x'(t_0) &= c_1\\
+		&\vdots\\
+		x^{(n-2)}(t_0) &= c_{n-2}\\
+		x^{(n-1)}(t_0) &= c_{n-1}
 	\end{cases}
-	\end{equation}
+	\end{align}
 	soddisfa alle ipotesi del \fullref{teo:cau_glob_lips}
 	\begin{proof}
 		Introducendo la variable $X \in \C^n$ ed il dato $C \in \C^n$ definiti da
@@ -1216,47 +1218,105 @@ Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{s
 			\left[\begin{matrix} C_1\\C_2\\\vdots\\C_{n-1}\\C_{n} \end{matrix}\right] = \left[\begin{matrix} c_0\\c_1\\\vdots\\ c_{n-2}\\c_{n-1} \end{matrix}\right]
 		\end{equation*}
 		Come da \fullref{prop:equaz_n_equival_1}, un'equazione differenziale lineare di ordine $n$ può essere trasformata in un sistema di $n$ equazioni del primo ordine, dunque la prima equazione di \cref{eq:eq_diff_lin_fun_n}, può diventare
-		\begin{equation}
+		\begin{align}
 		\label{eq:eq_diff_lin_comp_then_cau_glob}
 		\begin{cases}
 			X_1' = X_2\\
 			X_2' = X_3\\
-			\ldots\\
+			\vdots\\
 			X_{n-1}' = X_{n}\\
 			X_n' = -\sum\limits_{k=1}^{n-1}\bigl( a_k(t) \cdot X_{k+1} \bigr)+f(t)
 		\end{cases}
-		\end{equation}
+		\end{align}
 		Passando dalle singole equazioni del nuovo sistema \cref{eq:eq_diff_lin_comp_then_cau_glob} alla variabile unica $X$ in $n$ coordinate, tutta la \cref{eq:eq_diff_lin_fun_n} è
 		\begin{equation*}
 		\begin{cases}
-			\left[\begin{matrix} X_1'\\X_2'\\\ldots\\X_{n-1}'\\X_n' \end{matrix}\right] = \left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\bigl( a_k(t) \cdot X_{k+1} \bigr)+f(t) \end{matrix}\right]\\
+			\left[\begin{matrix} X_1'\\X_2'\\\vdots\\X_{n-1}'\\X_n' \end{matrix}\right] = \left[\begin{matrix} X_2\\X_3\\\vdots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\bigl( a_k(t) \cdot X_{k+1} \bigr)+f(t) \end{matrix}\right]\\
 			\;X(t_0)=C
 		\end{cases}
 		\end{equation*}
 		Infine la funzione
 		\begin{equation*}
 			\funcdef{F}{(t,X)}[I \times \C^n]{\qquad\qquad\quad\C^n}[ % HACK this is known in the latex community as yolo-centering
-				\left[\begin{matrix} X_2\\X_3\\\ldots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]
+				\left[\begin{matrix} X_2\\X_3\\\vdots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]
 			]
 		\end{equation*}
 		è lineare in $X$ (compaiono solo elementi di grado 1) e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\C^n$
-		$$\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}$$ % TODO better explain this
+		$$\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}$$ % TODO this meeds to be explained
 		Sono quindi soddisfatte le ipotesi di \fullref{teo:cau_glob_lips} e si ha la tesi.
 	\end{proof}
 \end{proposition}
-\observation
-La locuzione lineare è giustificata dalla proposizione seguente.
-\proposition
-Sia $I\subseteq \R$ un intervallo e $n\in\mathbb{N}$. Date le $n+1$ funzioni $a_0,a_1,\ldots,a_{n-1},f:I\to\C$,l'operatore 
-$\begin{array}{rcl} 
-L: \cntclass{n}(I;\C) & \to & \cntclass{0}(I;\C) \\
-x & \to & x^{(n)}+\sum\limits_{k=1}^{n-1}a_k(t)x^{(k)} \\ 
-\end{array}$è lineare
-\begin{proof}
-	La linearità di $L$ equivale a:
-	$$ \begin{matrix}L(x_1+x_2)=L(x_1)+L(x_2) && \forall x_1,x_2\in \cntclass{n}(I;\C)\\L(\lambda\cdot x)=\lambda\cdot L(x) && \forall\lambda\in\C, \forall x\in \cntclass{n}(I;\C)\end{matrix} $$
-	Entrambe le condizioni  seguono dalle regole di derivazione.
-\end{proof}
+
+La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzate in questo capitolo, è giustificata dalla proposizione seguente.
+\begin{proposition}
+	\label{prop:linearita_eq_diff}
+	Sia $I\subseteq \R$ un intervallo e $n\in\mathbb{N}$. Date le $n+1$ funzioni $a_0,a_1,\:\dotsc\:,,a_{n-1},f:I\to\C$, l'operatore
+	$$\funcdef{L}{x}[\cntclass{n}(I;\C)]{\cntclass{0}(I;\C)}[
+		x^{(n)} + \sum\limits_{k=1}^{n-1}a_k(t) \cdot x^{(k)}
+	]$$
+	è lineare
+	\begin{proof}
+		La linearità di $L$ equivale a:
+		\begin{alignat*}{2}
+			L(x_1+x_2) &= L(x_1)+L(x_2) &\quad&\forall x_1,x_2\in \cntclass{n}(I;\C)\\
+			L(\lambda\cdot x) &= \lambda\cdot L(x) &&\forall \lambda\in\C,\;\forall x\in \cntclass{n}(I;\C)
+		\end{alignat*}
+		Entrambe le condizioni  seguono dalle regole di derivazione, come da \fullref{sec:fun_in_C}.
+	\end{proof}
+\end{proposition}
+
+\begin{proposition}
+	L'insieme delle soluzioni dell'equazione lineare omogenea
+	\begin{equation}
+		\label{eq:eq_diff_lin_omo}
+		x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_1(t) \cdot x' + a_0(t) \cdot x = 0
+	\end{equation}
+	è un sottospazio vettoriale di $\cntclass{n}(I;\C)$ di dimensione $n$
+	\begin{proof}
+		Se $x_1, x_2$ sono soluzioni e se $\lambda, \mu \in \C$, allora anche $\lambda x_1 + \mu x_2$ è soluzione, infatti, per la \fullref{prop:linearita_eq_diff}
+		$$L(x_1+x_2) = L(x_1)+L(x_2) \quad\forall x_1,x_2\in \cntclass{n}(I;\C) = 0$$
+		Ciò permette, grazie alla \fullref{prop:subspace_condition}, di concludere che l'insieme delle soluzioni è sottospazio di $\cntclass{n}(I;\C)$
+
+		Fissato $t_0 \in \circdot{I}$ e scelta una base $(E_1,\:\dotsc\:,E_n)$ di $\C^n$, sia $x_k$, per $k=1,\:\dotsc\:,n$ la soluzione del seguente Problema di Cauchy
+		\begin{equation*}
+		\begin{cases}
+			x^{(n)} = -\sum_{k=1}^{n-1} a_k(t) \cdot x^{(k)}\\
+			x(t_0) = (E_k)_1\\
+			x'(t_0) = (E_k)_2\\
+			\vdots\\
+			x^{(n-2)}(t_0) = (E_k)_{n-1}\\
+			x^{(n-1)}(t_0) = (E_k)_{n}
+		\end{cases}
+		\end{equation*}
+		Si può concludere che $(x_1,\:\dotsc\:,x_n)$ sia una base dello spazio delle soluzioni dell'equazione omogenea \cref{eq:eq_diff_lin_omo}.
+
+		Infatti se $\overline{x}$ è una soluzione della \cref{eq:eq_diff_lin_omo}, allora esistono coefficienti $a_1,\:\dotsc\:,a_n$ tali che $\overline{x}(t_0) = \sum\limits_{k=1}^{n}a_k E_k$. Quindi $\overline{x}$ risolve anche il Problema di Cauchy
+		\begin{equation*}
+		\begin{cases}
+			x^{(n)} = -\sum_{k=1}^{n-1} a_k(t) \cdot x^{(k)}\\
+			x(t_0) = \sum_{k=1}^{n} a_k \cdot (E_k)_1\\
+			x'(t_0) = \sum_{k=1}^{n} a_k \cdot (E_k)_2\\
+			\vdots\\
+			x^{(n-2)}(t_0) = \sum_{k=1}^{n} a_k \cdot (E_k)_{n-2}\\
+			x^{(n-1)}(t_0) = \sum_{k=1}^{n} a_k \cdot (E_k)_{n-1}
+		\end{cases}
+		\end{equation*}
+		Per costruzione anche la funzione $\sum\limits_{k=1}^{n} a_k \cdot x_k$ risolve lo stesso Problema di Cauchy. Quindi, per la \fullref{prop:cau_glob_lips_in_C} ed il \fullref{teo:cau_glob_lips}, $\overline{x}(t) = \sum\limits_{k=1}^{n} a_k \cdot x_k(t)$ per ogni $t \in I$.
+
+		Se per opportuni scalari $\lambda_1,\:\dotsc\:,\lambda_n$ si ha
+		\begin{align*}
+			& \sum\limits_{k=1}^{n} \lambda_k \cdot x_k = 0\\
+			\implies & \sum\limits_{k=1}^{n} \lambda_k \cdot x_k(t) = 0 \quad \forall t \in I\\
+			\implies & \sum\limits_{k=1}^{n} \lambda_k \cdot x_k^{(h)}(t) = 0 \quad \begin{cases}\forall t \in I\\\forall h = 0,\:\dotsc\:, n-1	\end{cases}\\
+			\implies & \sum\limits_{k=1}^{n} \lambda_k \cdot x_k^{(h)}(t) = 0 \quad \forall h = 0,\:\dotsc\:, n-1\\
+			\implies & \sum\limits_{k=1}^{n} \lambda_k \cdot E_k = 0\\
+			\implies & \lambda_k = 0\quad \forall h = 0,\:\dotsc\:, n-1
+		\end{align*}
+	\end{proof}
+\end{proposition}
+\color{black}
+
+\color{not_explained_section_color}
 \section{Equazioni Lineari a Coefficienti Costanti}
 \definition
 Dati i coefficienti $a_0,a_1,\ldots,a_{n-1},b\in\C$, si dice equazione differenziale ordinaria lineare di ordine $n$ a coefficienti costanti l'equazione differenziale
@@ -1277,6 +1337,7 @@ $$x^{(n)}(t)=\left(\lambda^nt+n\lambda^{n-1}\right)e^{\lambda t}$$
 Data l'equazione 
 $$x^{(n)}+a_{n-1}x^{(n-1)}+\ldots+a_1 x'+a_0x=b$$
 $x(t)=te^{\lambda t}$ risolve l'equazione omogenea $\iff$ $\lambda$ è soluzione dell'equazione caratteristica con molteplicità almeno ??????????.
+\color{black}
 
 \section{Esempi}
 \subsection{La Legge di Malthus}
