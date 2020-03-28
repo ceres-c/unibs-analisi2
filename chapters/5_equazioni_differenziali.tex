@@ -1010,10 +1010,10 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 					ylabel = {$f(x)$},
 					legend style={at={(1,0.85)},anchor=north east},
 				]
-					\addplot [name path=g, domain=-10:10, samples=500, color=red] {sin(deg(x^2))};
-					\addlegendentry{$\norm{\sin{x^2}}$}
-					\addplot [name path=g, domain=-10:10, samples=500, color=blue!50] {abs(sin(deg(x^2)))};
+					\addplot [name path=g, domain=-10:10, samples=500, color=red, smooth] {sin(deg(x^2))};
 					\addlegendentry{$\sin{x^2}$}
+					\addplot [name path=g, domain=-10:10, samples=500, color=blue!50, smooth] {abs(sin(deg(x^2)))};
+					\addlegendentry{$\norm{\sin{x^2}}$}
 					\addplot [domain=0:10] {(1/3)*x + 1};   % The following plots are lacking a \addlegendentry, so they'll mess up with colors
 					\addplot [domain=-10:0] {-(1/3)*x + 1}; % of other entries. To prevent it, any new function should be added before these
 				\end{axis}
