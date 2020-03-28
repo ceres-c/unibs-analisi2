@@ -151,9 +151,9 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \end{observation}
 
 \section{Teoria Locale}
-\begin{definition}[Funzione localmente Lipschitziana]
+\begin{definition}[Funzione Localmente Lipschitziana]
 	\label{def:loc_lips}
-	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
+	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{Localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
 	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
 	vale che
 	$$\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L$$
@@ -162,10 +162,80 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \begin{note}
 	La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$. Quindi la $f$ rimane lips. in modo uniforme al variare di $t$ (cioè $\forall t\in I$), ma questo non è garantito $\forall x\in A$, solo per $x_1,x_2 \in (B(x_0,r)\cap A)$.
 \end{note}
+\vspace*{-5ex}
 \begin{note}
 	\hypertarget{note:if_lips_then_loclips}
 	Se $f$ \textbf{lips} su $A\implies f$ \textbf{loc. lips.} su A
 \end{note}
+\begin{example}
+	~
+	\begin{figure}[h]
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+					]
+						\addplot [domain=-3:-.2,samples=10] {exp(ln(abs(x))/3)};
+						\addplot [domain=-.2:.2,samples=100,smooth] {exp(ln(abs(x))/3)};
+						\addplot [domain=.2:3,samples=10] {exp(ln(abs(x))/3)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{No Loc. lips.\newline No lips.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+					]
+						\addplot [domain=-3:3,samples=100] {abs(x)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{Sì loc. lips.\newline Sì lips.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+					]
+						\addplot [domain=-2:2,samples=100] {x^2};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{Sì loc. lips.\newline No lips.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						ymax = 1.2,
+						ymin = -1.2,
+					]
+						\addplot[domain=-1:-.2,samples=50,smooth]{sin(deg(1/x))};
+						\addplot[domain=-.2:-.005,samples=1000]{sin(deg(1/x))};
+						\addplot[domain=.005: 0.2,samples=1000]{sin(deg(1/x))};
+						\addplot[domain=.2: 1,samples=50,smooth]{sin(deg(1/x))};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{Sì loc. lips.\newline No lips.}
+		\end{subfigure}
+	\end{figure}
+\end{example}
+
 \begin{proposition}
 	\label{prop:fc1_loc_lips}
 	Siano $I\subseteq \R$ un intervallo aperto e $A\subseteq \R^n$ un aperto. Ogni funzione $f\in\cntclass{1}(I\times A;\R^n)$ è loc. lips. in $x\in A$ uniformemente rispetto a $t\in I$
