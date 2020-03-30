@@ -169,7 +169,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{proposition}
 \begin{definition}[Equazione di Volterra]
 	\label{def:equaz_volterra}
-	La \fullref{eq:volterra} viene denominata \textbf{equazione integrale di Volterra}.
+	La \cref{eq:volterra} viene denominata \textbf{equazione integrale di Volterra}.
 \end{definition}
 \begin{note}
 	\hypertarget{note:volterra_non_cont}
@@ -184,7 +184,59 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		x'=f(x)\\
 		x(0) = 0
 	\end{cases}$$
-	Non ammette soluzioni
+	Non ammette soluzioni perché la condizione $x(0) = 0$ non è mai verificata.
+\end{example}
+\begin{example}[Un Problema di Cauchy con infinite soluzioni]
+	Vedere \fullref{ex:pennello_peano}
+\end{example}
+\begin{exercise}
+	Sia $s:\R \mapsto \R$ data da
+	$$s(t) =
+	\begin{cases}
+		1 \qquad \text{se } t \geq 0
+		0 \qquad \text{se } t < 0
+	\end{cases}$$
+	Risolvere i seguenti Problemi di Cauchy, al variare di $t_0$ (si supponga $t_0 \neq 0,1$):
+
+	\begin{minipage}{0.5\linewidth}
+		\begin{align*}
+			&\begin{cases}
+				x' = s(t)\\
+				x(t_0) = 1\\
+			\end{cases}\\
+			&\begin{cases}
+				x' = s(t) \cdot s(1-t)\\
+				x(t_0) = 1\\
+			\end{cases}
+		\end{align*}
+	\end{minipage}
+	\begin{minipage}{0.5\linewidth}
+		\begin{align*}
+			&\begin{cases}
+				x' + x = s(t)\\
+				x(t_0) = 1\\
+			\end{cases}\\
+			&\begin{cases}
+				x' - x = s(t) \cdot s(1-t)\\
+				x(t_0) = 1\\
+			\end{cases}
+		\end{align*}
+	\end{minipage}
+	% TODO soution
+\end{exercise}
+\begin{example}[Un Problema non di Cauchy]
+	Il seguente è un \textbf{Problema ai Valori al Contorno}.
+	\begin{equation}
+		\label{eq:probl_val_contorno}
+		\begin{cases}
+			x'' + x = 0\\
+			x(0) = 0\\
+			x(\pi) = 0
+		\end{cases}
+	\end{equation}
+	Questo problema ammette le infinite soluzioni $x(t) = \alpha \cdot \sin t$, al variare di $\alpha \in \R$.
+
+	Sostituendo le condizioni $x(0) = x(\frac{\pi}{2}) = 1$ a quelle nella \cref{eq:probl_val_contorno}, si ottiene l'unica soluzione $x(t) = \sin t + \cos t$. Con $x(0) = x(\pi) = 1$ non ci sono soluzioni.
 \end{example}
 
 \begin{observation}[Problema ben posto nel senso di Hadamard]
@@ -200,22 +252,28 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \section{Teoria Locale}
 \begin{definition}[Funzione Localmente Lipschitziana]
 	\label{def:loc_lips}
-	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{Localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t$ se
+	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{Localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t \in I$ se
 	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
 	vale che
 	$$\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L$$
-	Una funzione è uniformemente lipschitziana (\textbf{unif. lips.}) in un'intervallo $I$ se, in parole povere, è possibile individuare per ogni punto di $I$ una sfera $B$ in cui la funzione è lipschitziana.
+	Una funzione è uniformemente lipschitziana (\textbf{unif. lips.}) in un'intervallo $I$ se, in parole povere, è possibile individuare per ogni punto di $I$ una sfera $B$ di raggio $r$ in cui la funzione è lipschitziana.
 \end{definition}
 \begin{note}
-	La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$. Quindi la $f$ rimane lips. in modo uniforme al variare di $t$ (cioè $\forall t\in I$), ma questo non è garantito $\forall x\in A$, solo per $x_1,x_2 \in (B(x_0,r)\cap A)$.
+	I termini \textit{localmente} e \textit{uniformemente} son giustificati dal fatto che:
+	\begin{itemize}
+		\item La località è data dalla limitazione di $x_1,x_2$ all'interno di $(B(x_0,r)\cap A)$
+		\item L'uniformità è data da $\forall t\in I$
+	\end{itemize}
+	Quindi la $f$ rimane lips. indipendentemente dalla variazione di $t$ (quindi $\forall t\in I$), ma solo per $x_1,x_2 \in (B(x_0,r)\cap A)$ \textbf{non} $\forall x\in A$.
 \end{note}
 \begin{note}
 	\hypertarget{note:if_lips_then_loclips}
-	Se $f$ \textbf{lips} su $A\implies f$ \textbf{loc. lips.} su A
+	Se $f$ \textbf{lips} su $A\implies f$ \textbf{loc. lips.} su A.\newline
+	Concettualmente ci si porta nel caso della sfera $B$ con $r$ pari al raggio di $I\times A$ su cui è definita $f$
 \end{note}
 \begin{example}
 	~
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\begin{subfigure}{.24\textwidth}
 			\centering
 			\resizebox{\linewidth}{!}{
@@ -324,48 +382,82 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{proof}
 \end{proposition}
 \begin{example}[Il Baffo/Pennello di Peano] % TODO da rivedere
-	$$\left\{\begin{matrix} x'=\sqrt{\abs{x}}\\x(0)=x_0\end{matrix}\right.$$
-	\begin{center}
-		\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-		\pgfmathsetmacro\MAX{2}
-		\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-		\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
-		\draw[domain=0:2,smooth,variable=\x] plot ({\x},{(\x)^(1/2)});
-		\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{(-\x)^(1/2)});
-		%\draw node at (0.5,0) {$|$};
-		%\draw node at (1,0) {$|$};
-		%\draw node at (1.5,0) {$|$};
-		%\draw node at (0,0.5) {$-$};
-		%\draw node at (0,1) {$-$};
-		%\draw node at (0,1.5) {$-$};
-		%\draw node[anchor=north] at (0.5,0) {$x_0$};
-		%\draw node[anchor=north] at (1,0) {$x_0+h$};
-		%\draw node[anchor=north] at (1.5,0) {$x_0+2h$};
-		%\draw node[anchor=east] at (0,0.5) {$ x'' $};
-		%\draw node[anchor=east] at (0,1) {$ x''' $};
-		%\draw node[anchor=east] at (0,1.5) {$ x''''$};
-		
-		\end{tikzpicture}% pic 1
-		\qquad % <----------------- SPACE BETWEEN PICTURES
-		\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-		\pgfmathsetmacro\MAX{2}
-		\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {t};
-		\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {x};
-		\end{tikzpicture}% pic 2
-	\end{center}
-	Se $x_0 = 0$ ho che $\varphi(t)=0$ è soluzione $\forall t$\\
-	Ma $x' = \sqrt{\abs{x}}$ è anche un'equazione a variabili separabili, quindi risolvibile.
-	$$\frac{x}{\sqrt{\abs{x}}}=1 \Rightarrow \int_{0}^{t}{\frac{ x'}{\sqrt{\abs{x}}}\integrald{t}} = t$$
-	$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{\abs{x}}}\integrald{x}} = t$$
-	valuto ora il caso $x\geq0$, quindi $\abs{x}=x$
-	$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}\integrald{x}} = 2\sqrt{x} = t$$
-	La soluzione cercata è quindi $x(t)=\frac{1}{4}t^2$, estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata è: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$
-	Abbiamo trovato che per la condizione iniziale $x_0=0$ il sistema ammette due soluzioni, si riesce estendere la soluzione a infinite funzioni.
-	$$\varphi(x)= \left\{\begin{matrix}-\frac{1}{4}(t-a)^2&&t<a,\\0&&t\in[a,b]\\+\frac{1}{4}(t-b)^2&&t>b\end{matrix}\right.$$
-	infatti:
-	$$\varphi'(t) = \left\{\begin{matrix}-\frac{1}{8}(t-a)&&t<a,\\0&&t\in[a,b]\\+\frac{1}{8}(t-b)&&t>b\end{matrix}\right.$$ $$\left\{\begin{matrix}-\frac{1}{8}(t-a)=\frac{-\frac{1}{4}(t-a)^2}{	\sqrt{-\frac{1}{4}(t-a)^2}}&&t<a,\\0=0&&t\in[a,b]\\+\frac{1}{8}(t-b)=\frac{\frac{1}{4}(t-b)^2}{\sqrt{\frac{1}{4}(t-b)^2}}&&t>b\end{matrix}\right. = ....????? sistema $$
-	Abbiamo quindi trovato infinite soluzioni.\\
-	Questo esempio per sottolineare che il teorema di Peano non garantisce l'unicità della soluzione
+	\label{ex:pennello_peano}
+	Sia
+	$$\funcdef{f}{\R}{\R}{x}{\sqrt{\abs{x}}}$$
+	Allora il Problema di Cauchy
+	\begin{equation*}
+		\begin{cases}
+			x' = f(x)\\
+			x(0) = 0
+		\end{cases}
+	\end{equation*}
+	ammette le infinite soluzioni
+	\begin{equation*}
+		x_{a,b}(t) =
+		\begin{cases}
+			\begin{array}{ll}
+				-\frac{1}{4}(t-a^2) & \text{se } t \in \realintervalopcl{-\infty}{a}\\
+				0 & \text{se } t \in \realintervalclose{a}{b}\\
+				\frac{1}{4}(t-b^2) & \text{se } t \in \realintervalclop{b}{+\infty}
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	dove $-\infty \leq a \leq 0 \leq b \leq +\infty$
+
+	\begin{figure}[H]
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						axis equal,
+						xlabel = $x$,
+						ylabel = {$x'$},
+					]
+					\addplot [domain=-10:-.5, samples=50, smooth] {(abs(x))^(1/2)};
+					\addplot [domain=-.5:.5, samples=200, smooth] {(abs(x))^(1/2)};
+					\addplot [domain=.5:10, samples=50, smooth] {(abs(x))^(1/2)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						axis equal,
+						xlabel = $t$,
+						ylabel = {$x(t)$},
+					]
+					\addplot [domain=-7:0, samples=50, smooth] {-1/4*x^2};
+					\addplot [domain=0:7, samples=50, smooth] {1/4*x^2};
+					\end{axis}
+				\end{tikzpicture}
+			}
+		\end{subfigure}
+	\end{figure}
+
+	\begin{solution}
+		Se $x_0 = 0$ ho che $\varphi(t)=0$ è soluzione $\forall t$\\
+		Ma $x' = \sqrt{\abs{x}}$ è anche un'equazione a variabili separabili, quindi risolvibile.
+		$$\frac{x}{\sqrt{\abs{x}}}=1 \Rightarrow \int_{0}^{t}{\frac{ x'}{\sqrt{\abs{x}}}\integrald{t}} = t$$
+		$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{\abs{x}}}\integrald{x}} = t$$
+		valuto ora il caso $x\geq0$, quindi $\abs{x}=x$
+		$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}\integrald{x}} = 2\sqrt{x} = t$$
+		La soluzione cercata è quindi $x(t)=\frac{1}{4}t^2$, estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata è: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$
+		Abbiamo trovato che per la condizione iniziale $x_0=0$ il sistema ammette due soluzioni, si riesce estendere la soluzione a infinite funzioni.
+		$$\varphi(x)= \left\{\begin{matrix}-\frac{1}{4}(t-a)^2&&t<a,\\0&&t\in[a,b]\\+\frac{1}{4}(t-b)^2&&t>b\end{matrix}\right.$$
+		infatti:
+		$$\varphi'(t) = \left\{\begin{matrix}-\frac{1}{8}(t-a)&&t<a,\\0&&t\in[a,b]\\+\frac{1}{8}(t-b)&&t>b\end{matrix}\right.$$ $$\left\{\begin{matrix}-\frac{1}{8}(t-a)=\frac{-\frac{1}{4}(t-a)^2}{	\sqrt{-\frac{1}{4}(t-a)^2}}&&t<a,\\0=0&&t\in[a,b]\\+\frac{1}{8}(t-b)=\frac{\frac{1}{4}(t-b)^2}{\sqrt{\frac{1}{4}(t-b)^2}}&&t>b\end{matrix}\right. = ....????? sistema $$
+		Abbiamo quindi trovato infinite soluzioni.\\
+		Questo esempio per sottolineare che il teorema di Peano non garantisce l'unicità della soluzione
+	\end{solution}
 \end{example}
 \begin{example}[Continuità ed ipotesi necessaria] % TODO da rivedere
 	Questo esempio mostra che se non c'è continuità, può?????????? non esserci la soluzione.\\
