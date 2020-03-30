@@ -1,44 +1,62 @@
 \chapter{Equazioni Differenziali}
 \section{Preliminari}
-Equazione è un uguaglianza in cui c'è almeno una incognita.\\
-Equazione differenziale è un particolare tipo di equazione e stabilisce una relazione tra la funzione incognita e le sue derivate.In un equazione funzionale si cerca l'uguaglianza di: insieme di arrivo, insieme di partenza, corrispondenza.\\
-Non è necessario sapere il valore della soluzione ma sapere che ne esiste una.????????\\\\
-Equazione differenziale ordinaria:\\
-1- La funzione incognita è funzione di una sola variabile, solitamente il tempo.\\
-2- La funzione incognita e le sue derivate sono calcolate allo stesso istante di tempo.\\
-\begin{definition}[Equazione differenziale]
+Equazione è un uguaglianza in cui c'è almeno una incognita.\newline
+Equazione \textbf{Funzionale} è un’equazione le cui incognite sono funzioni.
+\begin{note}
+	In un equazione funzionale si cerca l'uguaglianza di: insieme di arrivo, insieme di partenza, corrispondenza.
+\end{note}
+Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale) che stabilisce una relazione tra la funzione incognita e le sue derivate.
+
+\begin{definition}[Equazione Differenziale Ordinaria]
 	\label{def:equaz_diff}
-	Si dice equazione differenziale ordinaria di ordine $n$ nella funzione incognita $x\in \R^k$ un espressione del tipo:
-	$$f(t,x, x',\ldots,x^{(n)})=0$$
-	dove $f:A\to \R^m$, $A\subseteq \R^{1+(1+n)k}$ e $t\in \R$.\\
-	$m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
+	Si dice \textbf{Equazione Differenziale Ordinaria} (\textit{Ordinary Differential Equation, ODE}) \textbf{di ordine $n$} nella funzione incognita $x\in \R^k$ un espressione del tipo:
+	\begin{equation}
+		\label{eq:equaz_diff}
+		f(t,x, x',\ldots,x^{(n)})=0
+	\end{equation}
+	\begin{note}
+		La dipendenza delle $x$ dalla $t$ non è indicata esplicitamente, ma si potrebbe scrivere $x(t)$, rigorosamente nella stessa variabile $t$ per tutte le $x^{(i)}$.
+	\end{note}
+	Nella \cref{eq:equaz_diff}:
 	\begin{itemize}
-		\item $1 = dim(t)$
+		\item $A\subseteq \R^{1+(1+n)k}$
+		\item $t\in I$ con $I$ intervallo $I \subseteq \R$
+		\item $f: A \mapsto \R^m$
+	\end{itemize}
+	Dimensionalmente, si può osservare che $m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
+	\begin{itemize}
+		\item $1 = \dim(t)$
 		\item $(1+n)k$
 		\begin{itemize}
 			\item $(1+n)$ il numero totale delle funzioni: $n$ derivate ed $x$ stessa
-			\item $k$ la dimensione dell'insieme di partenza di ogni funzione incognita
+			\item $k$ la dimensione dell'insieme \textbf{di arrivo} di ogni funzione incognita $x^{(i)}$
 		\end{itemize}
 	\end{itemize}
-	\textbf{Soluzione} di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ definita su un intervallo $I\subseteq \R$, derivabile $n$ volte in $I$ (e dunque continua in $I$) e tale che $\forall t\in I$
-	$$t,x, x',\ldots,x^{(n)}) \in A$$
-	$$f(t,x, x',\ldots,x^{(n)})=0$$
-	\textbf{Soluzione massimale} di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$
+	\begin{note}
+		Alternativamente si può indicare $f$ come $f: \boldsymbol{I \times} A \mapsto \R^m$ a patto di considerare $A\subseteq \R^{(1+n)k}$
+	\end{note}
+	\textbf{Soluzione} di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ (in quanto la $x$ è funzione di $t \in I$) definita sull'intervallo $I$, derivabile $n$ volte in $I$ (e dunque continua in $I$) e tale che $\forall t\in I$
+	$$(t,x, x',\:\dotsc\:,x^{(n)}) \in A$$
+	$$f(t,x, x',\:\dotsc\:,x^{(n)})=0$$
+	\textbf{Soluzione massimale} di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$. Cioè è la soluzione definita sull'intervallo maggiore possibile.
+
+	\begin{note} \hypertarget{def:equaz_diff_sol}{}
+		Dalla definizione segue che $x(t) \in \circdot{A}$, in quanto se non fosse in $\circdot{A}$ sarebbe di frontiera, ma un punto di frontiera non può essere derivabile.
+	\end{note}
+	\begin{note}
+		Un'equazione differenziale ammette, in generale, infinite soluzioni, come verificato in \fullref{ex:eq_diff_inf_sol}
+	\end{note}
+	\begin{note} \hypertarget{note:diff_eq_sol_definit_set}{}
+		La soluzione di un'equazione differenziale può, analiticamente, essere definita su un intervallo $J\supset I$ ($I$ intervallo di definizione della funz. differenziale $f$). Non ha però senso considerare il suo comportamento al di fuori di $I$, in quanto non ha valore dal punto di vista del sistema. Per questo motivo $J$ sarà sempre considerato $J\subseteq I$
+	\end{note}
+	\begin{note}
+		dalla \fullref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
+	\end{note}
 \end{definition}
-\begin{note} \hypertarget{def:equaz_diff_sol}{}
-	Dalla definizione segue che $x \in \circdot{A}$, in quanto se non fosse in $\circdot{A}$ sarebbe di frontiera, ma un punto di frontiera non può essere derivabile.
-\end{note}
-\begin{note}
-	Un'equazione differenziale ammette, in generale, infinite soluzioni.
-\end{note}
-\begin{note} \hypertarget{note:diff_eq_sol_definit_set}{}
-	La soluzione di un'equazione differenziale può, analiticamente, essere definita su un intervallo $J\supset I$ ($I$ intervallo di definizione della funz. differenziale $f$). Non ha però senso considerare il suo comportamento al di fuori di $I$, in quanto non ha valore dal punto di vista del sistema. Per questo motivo $J$ sarà sempre considerato $J\subseteq I$
-\end{note}
-\begin{note}
-	dalla \fullref{def:equaz_diff} segue che l'insieme di definizione della soluzione di un'equazione differenziale può essere solo un intervallo
-\end{note}
+
 \begin{example}
-	Presa l'equazione differenziale $ x'=1$, essa è risolta da $x(t) = t + \alpha$ per ogni $\alpha\in\R$
+	\label{ex:eq_diff_inf_sol}
+	Un'equazione differenziale ammette in generale infinite soluzioni. Ad esempio, $x' = 1$ è risolta da $x(t) = t + \alpha$ per qualunque $\alpha \in \R$
 \end{example}
 \begin{exercise}
 	La soluzione di un'equazione differenziale ordinaria non può avere 3 asintoti.
@@ -46,55 +64,67 @@ Equazione differenziale ordinaria:\\
 		La soluzione $x$ è funzione continua. In quanto continua non può avere più di 2 asintoti verticali e in quanto funzione non può avere più di 2 asintoti orizzontali.
 	\end{solution}
 \end{exercise}
-\definition
-un'equazione differenziale è in forma normale  se e solo se si presenta nella forma 
-$$x^{(n)} = g(t,x, x',\ldots,x^{(n-1)})$$
-\observation
-lo studio di un'equazione differenziale ordinaria in forma non normale inizia generalmente con l'utilizzo del Teorema della Funzione Implicita insieme ai teoremi sulle equazioni differenziali ordinarie in forma normale
-\proposition\label{prop:equaz_n_equival_1}
-ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$, cioè in cui compaiono solamente derivate prime.
-\begin{proof}
-	Data l'equazione
-	$$x^{(n)} = g(t,x, x', x'',\ldots,x^{(n-1)})$$
-	sia $y$ il vettore $y = \rvect{x &  x' &  x'' & \ldots & x^{(n-1)}}$. Abbiamo ora che le componenti del vettore sono
-	$$y_1=x\qquad y_2= x'\qquad y_3= x''\qquad \ldots\qquad y_n=x^{(n-1)}$$
-	ed al contempo
-	$$y_1'= x'=y_2\qquad y_2'= x''=y_3\qquad y_3'= x'''=y_4\qquad\ldots\qquad y_{n-1}'=x^{(n-1)}=y_n$$
-	Cioè, differenziando l'$i-esimo$ elemento (funzione) del vettore $y$, mi "sposto" all'elemento (funzione) $i+1$ di $y$. A questo punto tutti gli elementi di $y$ sono equazioni differenziali del primo ordine.\\
-	Quindi l'equazione può essere scritta come il seguente sistema del primo ordine
-	$$\begin{cases}y_1'\quad=\quad y_2\\y_2'\quad=\quad y_3\\\vdots\\y_n'\quad=\quad g(t, y_1, y_2,\dots,y_n)\end{cases}$$
-\end{proof}
+\begin{definition}[Equazione Differenziale Ordinaria in Forma Normale]
+	Un'equazione differenziale è in \textbf{Forma Normale} se e solo se si presenta nella forma 
+	$$x^{(n)} = g(t,x, x',\:\dotsc\:,x^{(n-1)})$$
+	Cioè se la derivata di ordine più alto è isolata al primo membro.
+\end{definition}
+\begin{observation}
+	Lo studio di un'equazione differenziale ordinaria in forma non normale inizia generalmente con l'utilizzo del \fullref{teo:funz_impl} insieme ai teoremi sulle equazioni differenziali ordinarie in forma normale
+\end{observation}
+\begin{note}
+	Nel seguito saranno considerate \textbf{solo} Equazioni Differenziali Ordinarie in Forma Normale.
+\end{note}
+\begin{proposition}
+	\label{prop:equaz_n_equival_1}
+	ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$, cioè in cui compaiono solamente derivate prime.
+	\begin{proof}
+		Data l'equazione
+		$$x^{(n)} = g(t,x, x', x'',\:\dotsc\:,x^{(n-1)})$$
+		sia $y$ il vettore $y = \rvect{x &  x' &  x'' & \cdots & x^{(n-1)}}$. Abbiamo ora che le componenti del vettore sono
+		$$y_1=x\qquad y_2= x'\qquad y_3= x''\qquad \dots\qquad y_n=x^{(n-1)}$$
+		ed al contempo
+		$$y_1'= x'=y_2\qquad y_2'= x''=y_3\qquad y_3'= x'''=y_4\qquad\cdots\qquad y_{n-1}'=x^{(n-1)}=y_n$$
+		Cioè, differenziando l'$i-esimo$ elemento (funzione) del vettore $y$, mi "sposto" all'elemento (funzione) $i+1$ di $y$. A questo punto tutti gli elementi di $y$ sono equazioni differenziali del primo ordine.\\
+		Quindi l'equazione può essere scritta come il seguente sistema del primo ordine
+		$$\begin{cases}
+			y_1'\quad=\quad y_2\\
+			y_2'\quad=\quad y_3\\
+			\vdots\\
+			y_n' \quad = \quad g(t, y_1, y_2,\dots,y_n)
+		\end{cases}$$
+	\end{proof}
+\end{proposition}
 \begin{example}
-	CASO n=2\\
-	abbiamo che $ x''=f(t,x, x')$\\
-	introduco $ X'=\begin{bmatrix} x'\\ x''\end{bmatrix}$ e $X=\begin{bmatrix}x\\ x'\end{bmatrix}$\\
-	quindi $ X'=f(t,X)$
+	Posto $n=2$, si ha $x''=f(t, x, x')$.
+	Come nella dimostrazione della \fullref{prop:equaz_n_equival_1}, si pongono $X'= \begin{bmatrix} x'\\ x'' \end{bmatrix}$ e $X=\begin{bmatrix}x\\ x'\end{bmatrix}$\\
+	Da cui $X'=f(t,X)$
 \end{example}
+
 \begin{definition}[Problema di Cauchy del Primo Ordine]
 	\label{def:prob_cauchy_ord_1}
-	si dice problema di Cauchy del primo ordine il problema di determinare una soluzione di un'equazione differenziale ordinaria del primo ordine, soddisfacente ad una condizione iniziale.
+	Si dice Problema di Cauchy del Primo Ordine il problema di determinare una soluzione di un'equazione differenziale ordinaria del primo ordine, soddisfacente ad una condizione iniziale.
 	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
-	Dove $f:J\times A\to \R^n$, $J\subseteq \R$ è un intervallo, $t_0\in\circdot{J}$, $A\subseteq \R^n$, $x_0\in\circdot{A}$.\\
-	Soluzione di un problema di Cauchy è una funzione $x:I\to \R^n$, definita in un intervallo $I$ contenente $t_0$ nella sua parte interna, quindi $t_0\in I\subseteq J$.\\
-	Tale funzione $x$ è soluzione dell'equazione differenziale $x'=f(t,x)$ ed è tale che:
+	Dove $f:I\times A\to \R^n$, $I\subseteq \R$ è un intervallo, $t_0\in\circdot{I}$, $A\subseteq \R^n$, $x_0\in\circdot{A}$.\\
+	Soluzione di un problema di Cauchy è una funzione $x:J\to \R^n$, definita in un intervallo $J$ contenente $t_0$ nella sua parte interna, quindi $t_0\in J\subseteq I$.\\
+	La funzione $x$ è soluzione dell'equazione differenziale $x'=f(t,x)$ ed è tale che:
 	\begin{enumerate}
 		\item $x(t_0)=x_0$
-		\item $x(I)\subseteq A$
-		\item $x$ derivabile
+		\item $x(J)\subseteq A$
+		\item $x$ derivabile (in quanto soluzione equazione differenziale)
 	\end{enumerate}
-	Quindi il problema di Cauchy aggiunge un vincolo ad un'equazione differenziale, così si isola una singola soluzione
+	Quindi il problema di Cauchy aggiunge un vincolo ad un'equazione differenziale, così da isolare una singola soluzione.
 \end{definition}
 \begin{note}
 	Si considera un intervallo perché l'idea è di studiare l'andamento nel tempo e sarebbe difficile far previsioni con "buchi" di tempo
 \end{note}
 \begin{note}
-	La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la \fullref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione, ma i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
+	La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la \fullref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione.\newline
+	Comunque i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
 \end{note}
-\begin{definition}
-	soluzione massimale di un problema di Cauchy è una soluzione $$x_M:I_M\mapsto R^k$$ tale che nessun'altra soluzione della stessa equazione possa essere definita in un intervallo $I$ con $I_M \subset I$. Quindi è la soluzione definita sull'intervallo maggiore possibile.
-\end{definition}
+
 \begin{definition}[Problema di Cauchy di Ordine $n$]
-	si dice problema di Cauchy di ordine $n$ il seguente problema:\\
+	Si dice problema di Cauchy di ordine $n$ il seguente problema:\\
 	Determinare una soluzione di un'equazione differenziale ordinaria di ordine $n$ soddisfacente a $n$ condizioni iniziali:
 	$$\begin{cases}
 		x^{(n)}=f(t,x,x',\dotsc,x^{(n-1)})\\
@@ -116,29 +146,46 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	con intervallo di partenza $\R$, avente evidentemente diametro maggiore possibile.
 \end{example}
 \begin{proposition}
-	ogni problema di Cauchy di ordine $n$ è equivalente ad un problema di Cauchy del primo ordine
+	Ogni problema di Cauchy di ordine $n$ è equivalente ad un problema di Cauchy del primo ordine
 	\begin{proof}
 		Dalla \fullref{prop:equaz_n_equival_1}
 	\end{proof}
 \end{proposition}
-\begin{definition}[Equazione di Volterra]
-	\label{def:equaz_volterra}
+
+\begin{proposition}
 	Ogni problema di Cauchy del primo ordine con secondo membro continuo
 	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
 	è equivalente ad un'equazione integrale del tipo
-	$$x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}$$
-	Questa equazione viene denominata \textbf{equazione integrale di Volterra}.
+	\begin{equation}
+		\label{eq:volterra}
+		x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}
+	\end{equation}
 	\begin{proof}
 		Integrando ambo i membri della prima equazione del problema di ottiene:
 		$$\int_{t_0}^{t}( x')\integrald{\tau}=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
 		$$x(t)-x(t_0)=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
 		$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
 	\end{proof}
-	\begin{note}
-		\hypertarget{note:volterra_non_cont}
-		Questa equazione ha senso anche per alcune funzioni $f$ non non continue, ma solo misurabili nel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicità (locali/globali) l'ipotesi ``$f$ continua'' può essere sostituita da ``$f$ continua a tratti in $t, \forall x$, continua in $x$ e limitata''.
-	\end{note}
+\end{proposition}
+\begin{definition}[Equazione di Volterra]
+	\label{def:equaz_volterra}
+	La \fullref{eq:volterra} viene denominata \textbf{equazione integrale di Volterra}.
 \end{definition}
+\begin{note}
+	\hypertarget{note:volterra_non_cont}
+	Questa equazione ha senso anche per alcune funzioni $f$ non non continue, ma solo misurabili nel primo argomento. Ne consegue che nei Teoremi di esistenza ed unicità (locali/globali) l'ipotesi ``$f$ continua'' può essere sostituita da ``$f$ continua a tratti in $t, \forall x$, continua in $x$ e limitata''.
+\end{note}
+
+\begin{example}[Un Problema di Cauchy senza soluzione]
+	Sia
+	$$\funcdef{f}x[\R]{\qquad\quad\R}[\begin{cases} +1 \quad \text{se}\; x < 0\\ -1 \quad \text{se}\; x \geq 0 \end{cases}]$$
+	Allora il Problema di Cauchy
+	$$\begin{cases}
+		x'=f(x)\\
+		x(0) = 0
+	\end{cases}$$
+	Non ammette soluzioni
+\end{example}
 
 \begin{observation}[Problema ben posto nel senso di Hadamard]
 	\label{obs:hadamard}
@@ -162,7 +209,6 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 \begin{note}
 	La località è data da $x_1,x_2 \in (B(x_0,r)\cap A)$ e l'uniformità da $\forall t\in I$. Quindi la $f$ rimane lips. in modo uniforme al variare di $t$ (cioè $\forall t\in I$), ma questo non è garantito $\forall x\in A$, solo per $x_1,x_2 \in (B(x_0,r)\cap A)$.
 \end{note}
-\vspace*{-5ex}
 \begin{note}
 	\hypertarget{note:if_lips_then_loclips}
 	Se $f$ \textbf{lips} su $A\implies f$ \textbf{loc. lips.} su A
@@ -360,8 +406,7 @@ ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equival
 	\begin{note}
 		Le prime due ipotesi garantiscono l'esistenza, grazie al \fullref{teo:peano}. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
 	\end{note}
-	\vspace*{-5ex}
-	\begin{note}
+		\begin{note}
 		Per verificare l'ultima ipotesi si ricordino \fullref{prop:fc1_loc_lips} e \hyperlink{note:if_lips_then_loclips}{se $f$ \textbf{lips.} $\implies f$ \textbf{loc. lips.}}
 	\end{note}
 	Allora ho i seguenti risultati:
@@ -1155,6 +1200,14 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		Grazie a come sono definiti $T_M$ e $T_m$, è stata quindi trovata una soluzione sull'intervallo $I$ che si può dire \textbf{globale} per quanto appena dimostrato.
 	\end{proof}
 \end{theorem}
+\begin{example}[Esempio critico al \fullref{teo:cau_globale}]
+	Dato il Problema di Cauchy
+	$$\begin{cases}
+		x' = (1-\cos x) x^2\\
+		x(0) = x_0
+	\end{cases}$$
+	% TODO riprendere da pag 22 file 4 appunti
+\end{example}
 \begin{example}
 	Per ogni $x_0 \in \R$, il Problema di Cauchy
 	\begin{equation*}
@@ -1184,8 +1237,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\begin{note}
 		L'assenza della variabile indipendente significa, concettualmente, che l'istante iniziale non è importante ai fini dello studio dell'equazione, ma essa dipende solo dalla lunghezza dell'intervallo.
 	\end{note}
-	\vspace*{-5ex}
-	\begin{note}
+		\begin{note}
 		In fisica le equazioni differenziali autonome spesso modellizzano sistemi isolati
 	\end{note}
 \end{definition}
