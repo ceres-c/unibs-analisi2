@@ -140,9 +140,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{example}
 	il problema di Cauchy $$\begin{cases}x'=x\\x(0)=1\end{cases}$$
 	ammette, tra le altre, anche le seguenti soluzioni, tecnicamente distinte tra loro
-	$$\funcdef{f_1}t[\realintervalclose{-1}{1}]{\R}[e^t] \qquad \funcdef{f_2}t[\realintervalclose{-2}{10}]{\R}[e^t]$$
+	$$\funcdef{f_1}{ \realintervalclose{-1}{1} }{\R}{t}{e^t} \qquad \funcdef{f_2}{ \realintervalclose{-2}{10} }{\R}{t}{e^t}$$
 	La soluzione massimale è
-	$$\funcdef{f_M}t[\R]{\R}[e^t]$$
+	$$\funcdef{f_M}{\R}{\R}{t}{e^t}$$
 	con intervallo di partenza $\R$, avente evidentemente diametro maggiore possibile.
 \end{example}
 \begin{proposition}
@@ -178,7 +178,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 
 \begin{example}[Un Problema di Cauchy senza soluzione]
 	Sia
-	$$\funcdef{f}x[\R]{\qquad\quad\R}[\begin{cases} +1 \quad \text{se}\; x < 0\\ -1 \quad \text{se}\; x \geq 0 \end{cases}]$$
+	$$\funcdef{f}{\R}{\R}{x}{\begin{cases} +1 \quad \text{se}\; x < 0\\ -1 \quad \text{se}\; x \geq 0 \end{cases}}$$
 	Allora il Problema di Cauchy
 	$$\begin{cases}
 		x'=f(x)\\
@@ -447,7 +447,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		Definiamo quindi $T$, funzione del tipo
 		\begin{equation}
 			\label{eq:cauch_proof_T}
-			\funcdef{\textrm{$T$}}{\bigl(T(x)\bigr)(t)}{X}[x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau}]
+			\funcdef{T}{X}{X}{ \bigl(T(x)\bigr)(t) }{ x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau} }
 		\end{equation}
 		Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \fullref{teo:contrazioni} serve che lo spazio di partenza e di arrivo corrispondano.\\
 		Prendiamo:
@@ -978,7 +978,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\begin{itemize}
 			\item $X = \cntclass{0}(I,\R^n)$
 			\item $T$ definita come la \cref{eq:cauch_proof_T}, cioè
-				$$\funcdef{\textrm{$T$}}{\bigl(T(x)\bigr)(t)}{X}[x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau}]$$
+			$$\funcdef{T}{X}{X}{ \bigl(T(x)\bigr)(t) }{ x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau} }$$
 		\end{itemize}
 		I punti fissi di $T$ sono tutte e sole le soluzioni di \cref{eq:cau_glob_thesis}. Grazie al \fullref{teo:iterata_contraz}, per dimostare l'esistenza di un unico punto fisso, basta dimostrare che un'iterata di $T$ (\fullref{def:iterata}) è contrazione.\\
 		Nel dettaglio andremo a dimostrare per induzione la seguente forma:
@@ -1361,9 +1361,11 @@ Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{s
 		\end{equation*}
 		Infine la funzione
 		\begin{equation*}
-			\funcdef{F}{(t,X)}[I \times \C^n]{\qquad\qquad\quad\C^n}[ % HACK this is known in the latex community as yolo-centering
-				\left[\begin{matrix} X_2\\X_3\\\vdots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]
-			]
+			\funcdef	{F}
+						{I \times \C^n}
+						{\C^n}
+						{(t,X)}
+						{\left[\begin{matrix} X_2\\X_3\\\vdots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]}
 		\end{equation*}
 		è lineare in $X$ (compaiono solo elementi di grado 1) e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\C^n$
 		$$\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}$$ % TODO this meeds to be explained
@@ -1375,9 +1377,13 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \begin{proposition}
 	\label{prop:linearita_eq_diff}
 	Sia $I\subseteq \R$ un intervallo e $n\in\mathbb{N}$. Date le $n+1$ funzioni $a_0,a_1,\:\dotsc\:,,a_{n-1},f:I\to\C$, l'operatore
-	$$\funcdef{L}{x}[\cntclass{n}(I;\C)]{\cntclass{0}(I;\C)}[
-		x^{(n)} + \sum\limits_{k=1}^{n-1}a_k(t) \cdot x^{(k)}
-	]$$
+	\begin{equation*}
+		\funcdef	{L}
+					{\cntclass{n}(I;\C)}
+					{\cntclass{0}(I;\C)}
+					{x}
+					{x^{(n)} + \sum\limits_{k=1}^{n-1}a_k(t) \cdot x^{(k)}}
+	\end{equation*}
 	è lineare
 	\begin{proof}
 		La linearità di $L$ equivale a:
