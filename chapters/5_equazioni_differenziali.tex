@@ -281,10 +281,12 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\begin{axis} [
 						axis lines = center,
 						axis on top=true,
+						legend style={empty legend}
 					]
-						\addplot [domain=-3:-.2,samples=10] {exp(ln(abs(x))/3)};
+						\addplot [domain=-3:-.2,samples=50] {exp(ln(abs(x))/3)};
 						\addplot [domain=-.2:.2,samples=100,smooth] {exp(ln(abs(x))/3)};
-						\addplot [domain=.2:3,samples=10] {exp(ln(abs(x))/3)};
+						\addplot [domain=.2:3,samples=50] {exp(ln(abs(x))/3)};
+						\addlegendentry{\raisebox{.5ex}{$\sqrt[3]{\abs{x}}$}}
 					\end{axis}
 				\end{tikzpicture}
 			}
@@ -297,8 +299,10 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\begin{axis} [
 						axis lines = center,
 						axis on top=true,
+						legend style={empty legend}
 					]
 						\addplot [domain=-3:3,samples=100] {abs(x)};
+						\addlegendentry{\raisebox{.5ex}{$\abs{x}$}}
 					\end{axis}
 				\end{tikzpicture}
 			}
@@ -311,8 +315,10 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\begin{axis} [
 						axis lines = center,
 						axis on top=true,
+						legend style={empty legend}
 					]
 						\addplot [domain=-2:2,samples=100] {x^2};
+						\addlegendentry{\raisebox{.5ex}{$x^2$}}
 					\end{axis}
 				\end{tikzpicture}
 			}
@@ -327,11 +333,13 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 						axis on top=true,
 						ymax = 1.2,
 						ymin = -1.2,
+						legend style={empty legend}
 					]
 						\addplot[domain=-1:-.2,samples=50,smooth]{sin(deg(1/x))};
-						\addplot[domain=-.2:-.005,samples=1000]{sin(deg(1/x))};
-						\addplot[domain=.005: 0.2,samples=1000]{sin(deg(1/x))};
+						\addplot[domain=-.2:-.0001,samples=1000]{sin(deg(1/x))};
+						\addplot[domain=.0001: 0.2,samples=1000]{sin(deg(1/x))};
 						\addplot[domain=.2: 1,samples=50,smooth]{sin(deg(1/x))};
+						\addlegendentry{\raisebox{.5ex}{$\sin \frac{1}{x}$}}
 					\end{axis}
 				\end{tikzpicture}
 			}

@@ -6,13 +6,17 @@
 \usepackage[left = 2cm, right = 2cm, bottom = 3cm]{geometry}
 \usepackage{babel}
 \usepackage{amsthm,amssymb}
-\usepackage[makeroom]{cancel}
+\usepackage[makeroom]{cancel} % Used for cancelled math formulas
 \usepackage[pdfencoding=auto]{hyperref}
 \usepackage{mathtools,thmtools}
+\usepackage{shellesc} % Used to embed TikZ external with LuaLaTeX
+\usepackage{tikz}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=build/]
 \usepackage{pgfplots}
-\usepackage{float} % Used for precise placement of floating figures
 \pgfplotsset{compat=1.7}
 \usepgfplotslibrary{fillbetween}
+\usepackage{float} % Used for precise placement of floating figures
 \usepackage{accents}
 \usepackage[capitalise]{cleveref}
 \usepackage{graphicx}

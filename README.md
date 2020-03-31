@@ -6,6 +6,9 @@ La stesura di questi appunti è stata resa necessaria dalla brevità delle dimos
 # Contributing #
 Gli appunti non sono stati validati dal professore, dunque non si escludono errori. Son ben accette PR per correggere inesattezze o migliorare spiegazioni.
 
+# Building #
+Per compilare questo documento è necessario aggiungere l'opzione `-shell-escape` ai parametri del compilatore LaTeX. L'argomento è necessario perché i grafici TikZ sono configurati per essere buildati solo la prima volta ed mantenuti in cache nella cartella `build`. Per via della loro natura temporanea non sono parte del repo.
+
 # Authors #
 - [Mauro Conte](https://github.com/GoldMyr1994): Autore originale del documento, tutto ciò che è presente dal primo commit è opera sua. Collaboratore dalle versioni successive
 - [Federico Cerutti](https://ceres-c.it): Integrazioni al documento

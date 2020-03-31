@@ -1,0 +1,4 @@
+# Ignore everything in this directory. It is used as TikZ graphs output cache
+*
+# Except this file
+!.gitignore
