@@ -178,17 +178,81 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 
 \begin{example}[Un Problema di Cauchy senza soluzione]
 	Sia
-	$$\funcdef{f}{\R}{\R}{x}{\begin{cases} +1 \quad \text{se}\; x < 0\\ -1 \quad \text{se}\; x \geq 0 \end{cases}}$$
+	$$\funcdef	{f}
+				{\R}
+				{\R}
+				{x}
+				{	\begin{cases}
+						\begin{array}{ll}
+							+1 & \text{se } x < 0\\
+							-1 & \text{se } x \geq 0
+						\end{array}
+					\end{cases}}$$
 	Allora il Problema di Cauchy
 	$$\begin{cases}
 		x'=f(x)\\
 		x(0) = 0
 	\end{cases}$$
-	Non ammette soluzioni perché la condizione $x(0) = 0$ non è mai verificata.
+	Non ammette soluzioni. %  perché la condizione $x(0) = 0$ non è mai verificata.
+
+	\begin{solution}
+		~
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{axis} [
+					axis lines = center,
+					axis on top=true,
+					ymin = -2,
+					ymax = 2
+				]
+					\addplot[domain=-2:0, samples=10] {1};
+					\addplot[domain=0:2, samples=10] {-1};
+					\draw[black,fill=black] (axis cs:0,-1) circle (2pt);
+					\draw[black,fill=white] (axis cs:0,1) circle (2pt);
+				\end{axis}
+			\end{tikzpicture}
+		\end{center}
+		La $f$ è definita su tutto $\R$, ma non è possibile trovare una funzione di primo grado, derivabile su tutto $\R$, la cui derivata prima assuma quei valori. Infatti la
+		$$\begin{cases}
+			\begin{array}{ll}
+				x & \text{se } t < 0\\
+				-x & \text{se } t \geq 0
+			\end{array}
+		\end{cases}$$
+		non è derivabile in $t = 0$, perché le derivate destra e sinistra assumono valori diversi.
+	\end{solution}
 \end{example}
 \begin{example}[Un Problema di Cauchy con infinite soluzioni]
-	Vedere \fullref{ex:pennello_peano}
+	Sia
+	$$\funcdef{f}{\R}{\R}{x}{\sqrt{\abs{x}}}$$
+	Allora il Problema di Cauchy
+	\begin{equation*}
+		\begin{cases}
+			x' = \sqrt{\abs{x}}\\
+			x(0) = 0
+		\end{cases}
+	\end{equation*}
+	ammette le infinite soluzioni
+	\begin{equation*}
+		x_{a,b}(t) =
+		\begin{cases}
+			\begin{array}{ll}
+				-\frac{1}{4}(t-a^2) & \text{se } t \in \realintervalopcl{-\infty}{a}\\
+				0 & \text{se } t \in \realintervalclose{a}{b}\\
+				\frac{1}{4}(t-b^2) & \text{se } t \in \realintervalclop{b}{+\infty}
+			\end{array}
+		\end{cases}
+	\end{equation*}
+	dove $-\infty \leq a \leq 0 \leq b \leq +\infty$
+	\begin{solution}
+		Vedere \fullref{ex:pennello_peano} con $x_0 = 0$ e $t_0 = 0$
+	\end{solution}
 \end{example}
+\begin{observation}
+	Negli esempi precedenti è stata sfruttata la mancanza di regolarità nella dipendenza di $f$ da $x$.
+
+	Viceversa, nella \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra}, si era notato come la dipendenza di $f$ da $t$ sia molto meno critica.
+\end{observation}
 \begin{exercise}
 	Sia $s:\R \mapsto \R$ data da
 	$$s(t) =
@@ -272,6 +336,8 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	Concettualmente ci si porta nel caso della sfera $B$ con $r$ pari al raggio di $I\times A$ su cui è definita $f$
 \end{note}
 \begin{example}
+	\label{ex:loc_lips_graphs}
+
 	~
 	\begin{figure}[H]
 		\begin{subfigure}{.24\textwidth}
@@ -347,6 +413,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\end{subfigure}
 	\end{figure}
 \end{example}
+\begin{example}
+	La funzione $f:\R\mapsto\R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \fullref{def:lips} e grafico della $f$ in \fullref{ex:loc_lips_graphs}
+\end{example}
 
 \begin{proposition}
 	\label{prop:fc1_loc_lips}
@@ -360,9 +429,6 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		che è direttamente comparabile alla \fullref{def:loc_lips} della funzione in ciascuno dei segmenti della poligonale, da cui la tesi.
 	\end{proof}
 \end{proposition}
-\begin{example}
-	La funzione $f:\R\mapsto\R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \fullref{def:lips}
-\end{example}
 
 \subsection{Esistenza e Unicità}
 \begin{proposition}[Teorema di Peano]
@@ -377,7 +443,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	inoltre $I\subseteq \R$ intervallo e $A\subseteq \R^n$, per \fullref{def:prob_cauchy_ord_1}.\\
 	Allora esiste un $\delta>0$ tale che esiste soluzione $x:J\mapsto A$ del problema di Cauchy con $J=\realintervalclose{t_0-\delta}{t_0+\delta}$.
 	\begin{note}
-		$\delta$ è un valore arbitrario che serve ad identificare l'intervallo $I$ a cui appartiene $t_0$
+		$\delta$ è un valore arbitrario che serve solo ad identificare l'intervallo $J$ a cui appartiene $t_0$, non è dato modo per identificare quel $\delta$
 	\end{note}
 	\noindent Inoltre:
 	\begin{itemize}
@@ -389,108 +455,170 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		Non richiesta
 	\end{proof}
 \end{proposition}
-\begin{example}[Il Baffo/Pennello di Peano] % TODO da rivedere
+\begin{example}[Il Baffo/Pennello di Peano]
 	\label{ex:pennello_peano}
-	Sia
-	$$\funcdef{f}{\R}{\R}{x}{\sqrt{\abs{x}}}$$
-	Allora il Problema di Cauchy
+	Trovare le soluzioni del Problema di Cauchy
 	\begin{equation*}
 		\begin{cases}
-			x' = f(x)\\
-			x(0) = 0
+			x' = \sqrt{\abs{x}}\\
+			x(t_0) = x_0
 		\end{cases}
 	\end{equation*}
-	ammette le infinite soluzioni
-	\begin{equation*}
-		x_{a,b}(t) =
-		\begin{cases}
-			\begin{array}{ll}
-				-\frac{1}{4}(t-a^2) & \text{se } t \in \realintervalopcl{-\infty}{a}\\
-				0 & \text{se } t \in \realintervalclose{a}{b}\\
-				\frac{1}{4}(t-b^2) & \text{se } t \in \realintervalclop{b}{+\infty}
-			\end{array}
-		\end{cases}
-	\end{equation*}
-	dove $-\infty \leq a \leq 0 \leq b \leq +\infty$
-
-	\begin{figure}[H]
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\resizebox{\linewidth}{!}{
-				\begin{tikzpicture}
-					\begin{axis} [
-						axis lines = center,
-						axis on top=true,
-						axis equal,
-						xlabel = $x$,
-						ylabel = {$x'$},
-					]
-					\addplot [domain=-10:-.5, samples=50, smooth] {(abs(x))^(1/2)};
-					\addplot [domain=-.5:.5, samples=200, smooth] {(abs(x))^(1/2)};
-					\addplot [domain=.5:10, samples=50, smooth] {(abs(x))^(1/2)};
-					\end{axis}
-				\end{tikzpicture}
-			}
-		\end{subfigure}
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\resizebox{\linewidth}{!}{
-				\begin{tikzpicture}
-					\begin{axis} [
-						axis lines = center,
-						axis on top=true,
-						axis equal,
-						xlabel = $t$,
-						ylabel = {$x(t)$},
-					]
-					\addplot [domain=-7:0, samples=50, smooth] {-1/4*x^2};
-					\addplot [domain=0:7, samples=50, smooth] {1/4*x^2};
-					\end{axis}
-				\end{tikzpicture}
-			}
-		\end{subfigure}
-	\end{figure}
 
 	\begin{solution}
-		Se $x_0 = 0$ ho che $\varphi(t)=0$ è soluzione $\forall t$\\
-		Ma $x' = \sqrt{\abs{x}}$ è anche un'equazione a variabili separabili, quindi risolvibile.
-		$$\frac{x}{\sqrt{\abs{x}}}=1 \Rightarrow \int_{0}^{t}{\frac{ x'}{\sqrt{\abs{x}}}\integrald{t}} = t$$
-		$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{\abs{x}}}\integrald{x}} = t$$
-		valuto ora il caso $x\geq0$, quindi $\abs{x}=x$
-		$$\int_{x(0)=0}^{x(t)}{\frac{1}{\sqrt{x}}\integrald{x}} = 2\sqrt{x} = t$$
-		La soluzione cercata è quindi $x(t)=\frac{1}{4}t^2$, estendendo il ragionamento ai tempi negativi si trova che la soluzione cercata è: $$\varphi(x)= \left\{\begin{matrix}+\frac{1}{4}t^2&&t>0,\\0&&t=0\\-\frac{1}{4}t^2&&t<0\end{matrix}\right.$$
-		Abbiamo trovato che per la condizione iniziale $x_0=0$ il sistema ammette due soluzioni, si riesce estendere la soluzione a infinite funzioni.
-		$$\varphi(x)= \left\{\begin{matrix}-\frac{1}{4}(t-a)^2&&t<a,\\0&&t\in[a,b]\\+\frac{1}{4}(t-b)^2&&t>b\end{matrix}\right.$$
-		infatti:
-		$$\varphi'(t) = \left\{\begin{matrix}-\frac{1}{8}(t-a)&&t<a,\\0&&t\in[a,b]\\+\frac{1}{8}(t-b)&&t>b\end{matrix}\right.$$ $$\left\{\begin{matrix}-\frac{1}{8}(t-a)=\frac{-\frac{1}{4}(t-a)^2}{	\sqrt{-\frac{1}{4}(t-a)^2}}&&t<a,\\0=0&&t\in[a,b]\\+\frac{1}{8}(t-b)=\frac{\frac{1}{4}(t-b)^2}{\sqrt{\frac{1}{4}(t-b)^2}}&&t>b\end{matrix}\right. = ....????? sistema $$
-		Abbiamo quindi trovato infinite soluzioni.\\
-		Questo esempio per sottolineare che il teorema di Peano non garantisce l'unicità della soluzione
-	\end{solution}
-\end{example}
-\begin{example}[Continuità ed ipotesi necessaria] % TODO da rivedere
-	Questo esempio mostra che se non c'è continuità, può?????????? non esserci la soluzione.\\
-	Dato il seguente problema di Cauchy: $\left\{\begin{matrix}
-	x' = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
-	x(0)=0
-	\end{matrix}\right.$\\
-	\begin{center}
-		\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]
-		\pgfmathsetmacro\MAX{2}
-		\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-		\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {$ x'$};
-		\draw[domain=0:2,smooth,variable=\x] plot ({\x},{1});
-		\draw[domain=-2:0,smooth,variable=\x] plot ({\x},{-1});
-		\draw node at (0,-1) {$\bullet$};
-		\draw node at (0,1) {$\circ$};
-		\end{tikzpicture}% pic 1
-	\end{center}
+		~
+		\begin{figure}[H]
+			\begin{subfigure}{.5\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							axis equal,
+							xlabel = $x$,
+							ylabel = {$x'$},
+						]
+						\addplot [domain=-5:-.5, samples=50, smooth] {(abs(x))^(1/2)};
+						\addplot [domain=-.5:.5, samples=200, smooth] {(abs(x))^(1/2)};
+						\addplot [domain=.5:5, samples=50, smooth] {(abs(x))^(1/2)};
+						\end{axis}
+					\end{tikzpicture}
+				}
+			\end{subfigure}
+			\begin{subfigure}{.5\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							axis equal,
+							xlabel = $t$,
+							ylabel = {$x(t)$},
+							legend style={at={(0.2,0.7)},anchor=south},
+						]
+						\addplot [domain=-5:0, samples=50, smooth, forget plot] {-1/4*x^2};
+						\addplot [domain=0:5, samples=50, smooth] {1/4*x^2};
+						\addlegendentry{$t_0 = 0$}
+						\addplot [domain=-5:0, samples=50, smooth, color=blue, forget plot] {1 + -1/4*x^2};
+						\addplot [domain=0:5, samples=50, smooth, color=blue] {1 + 1/4*x^2};
+						\addlegendentry{$t_0 = 1$}
+						\addplot [domain=-5:0, samples=50, smooth, color=red, forget plot] {-1 + -1/4*x^2};
+						\addplot [domain=0:5, samples=50, smooth, color=red] {-1 + 1/4*x^2};
+						\addlegendentry{$t_0 = -1$}
+						\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{Posto $x_0 = 0$}
+			\end{subfigure}
+		\end{figure}
+		\begin{note}
+			Con $t_0 = 0$ l'equazione non dipende da $t$, cioè il sistema è \textbf{Autonomo}. Vedere \fullref{def:equaz_diff_auton} per le implicazioni nelle note.
+		\end{note}
+		\begin{note}
+			Con $x_0 = 0$ si ha $x(t)=0$, che è soluzione $\forall t$, si procede però nel cercare altre soluzioni.
+		\end{note}
+		$f$ è continua $\forall x \in \R$, dunque per \fullref{teo:peano} esiste una soluzione del Problema. Essendo $x' = \sqrt{\abs{x}}$ un'equazione a variabili separabili, si ottiene (considerando $x \geq 0$, quindi $\abs{x} = x$):
+		\begin{equation*}
+			\begin{gathered}
+				\frac{x'}{\sqrt{x}} = 1\\
+				\int_{t_0}^{t}{\frac{x'(\tau)}{\sqrt{x(\tau)}}\integrald{\tau}} = \int_{t_0}^{t} 1 \integrald{\tau}\\
+				2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) + c_1 = t - t_0 + c_2\\
+			\end{gathered}
+		\end{equation*}
+		Riunendo $c_1$ e $c_2$ in un'unica costante $b$
+		\begin{equation*}
+			\begin{gathered}
+				2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) + b = t - t_0\\
+				2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) = t - t_0 - b\\
+				x_a(t) = \left( \sqrt{x_0} + \frac{1}{2}(t-t_0-b) \right)^2\\
+				x_a(t) = x_0 + \frac{1}{4}(t-t_0-b)^2
+			\end{gathered}
+		\end{equation*}
+		Aggiungendo anche la soluzione per $x < 0$ (con la costante $a$, stavolta), si ottiene
+		\begin{equation*}
+			x_{a,b}(t) =
+			\begin{cases}
+				\begin{array}{ll}
+					x_0 - \frac{1}{4}(t-t_0-a)^2 & \text{se } t \in \realintervalopcl{-\infty}{a}\\
+					x_0 & \text{se } t \in \realintervalclose{a}{b}\\
+					x_0 + \frac{1}{4}(t-t_0-b)^2 & \text{se } t \in \realintervalclop{b}{+\infty}
+				\end{array}
+			\end{cases}
+		\end{equation*}
+		Abbiamo quindi trovato infinite soluzioni, ciò evidenzia come il teorema di Peano non garantisca affatto unicità.
 
-	\noindent $x(t)=0$ soddisfa la condizione iniziale ma ovviamente non può essere soluzione del problema poiché per $x\ne 0$ si ha che $ x'=\pm 1$ che non è la derivata della funzione nulla.\\
-	partendo sempre dalla condizione iniziale si può ipotizzare per esempio che la soluzione cresca, solo che questo contraddice $ x'(0)=-1$\\
-	se invece si ipotizza che decresce da $0$ si ottiene che la funzione assume valori negativi, anche questo è un assurdo poiché la derivata per valori negativi della funzione è positiva.\\
-	Precisiamo che se il problema fosse stato $\left\{\begin{matrix}
-	x' = \left\{\begin{matrix}1&&x<0\\-1&&x\ge 0\end{matrix}\right.\\
-	x(0)=-3\end{matrix}\right.$ allora la funzione $\varphi(x)=-x+3$ sarebbe stata soluzione nell'intervallo $J=\left] -\infty,0 \right[ $
+		\vspace*{\baselineskip}
+		\centerline{I seguenti grafici son tracciati con $x_0 = 0$ e $t_0 = 0$}
+		\begin{figure}[H]
+			\begin{subfigure}{.5\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis equal,
+							ymin = -6,
+							ymax = 6,
+							xlabel = $t$,
+							ylabel = {$x(t)$},
+							legend style={at={(0.2,0.7)},anchor=south},
+						]
+						\addplot [domain=-8:-3, samples=50, smooth, forget plot, color = red] {-1/4*(x + 3)^2};
+						\addplot [domain=-3:4, samples=50, smooth, forget plot, color = red] {0};
+						\addplot [domain=4:8, samples=50, smooth, color = red] {1/4*(x - 4)^2};
+						\addlegendentry{$a = -3, b = 4$}
+						\addplot [domain=-8:-1, samples=50, smooth, forget plot, color = blue] {-1/4*(x + 1)^2};
+						\addplot [domain=-1:1, samples=50, smooth, forget plot, color = blue] {0};
+						\addplot [domain=1:8, samples=50, smooth, color = blue] {1/4*(x - 1)^2};
+						\addlegendentry{$a = -1, b = 1$}
+						\addplot [domain=-8:0, samples=50, smooth, forget plot] {-1/4*(x)^2};
+						\addplot [domain=0:8, samples=50, smooth] {1/4*(x)^2};
+						\addlegendentry{$a = 0, b = 0$}
+						\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{Differenti valori di $a$ e $b$}
+			\end{subfigure}
+			\begin{subfigure}{.5\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis equal,
+							ymin = -6,
+							ymax = 6,
+							xlabel = $t$,
+							ylabel = {$x(t)$},
+							legend style={at={(0.2,0.7)},anchor=south},
+						]
+						\addplot [domain=-8:-4, samples=50, smooth, forget plot] {-1/4*(x + 4)^2};
+						\addplot [domain=-8:-3.5, samples=50, smooth, forget plot] {-1/4*(x + 3.5)^2};
+						\addplot [domain=-8:-3, samples=50, smooth, forget plot] {-1/4*(x + 3)^2};
+						\addplot [domain=-8:-2.5, samples=50, smooth, forget plot] {-1/4*(x + 2.5)^2};
+						\addplot [domain=-8:-2, samples=50, smooth, forget plot] {-1/4*(x + 2)^2};
+						\addplot [domain=-8:-1.5, samples=50, smooth, forget plot] {-1/4*(x + 1.5)^2};
+						\addplot [domain=-8:-1, samples=50, smooth, forget plot] {-1/4*(x + 1)^2};
+						\addplot [domain=-8:-.5, samples=50, smooth, forget plot] {-1/4*(x + .5)^2};
+						\addplot [domain=-8:0, samples=50, smooth, forget plot] {-1/4*(x)^2};
+						\addplot [domain=0:8, samples=50, smooth] {1/4*(x)^2};
+						\addplot [domain=.5:8, samples=50, smooth] {1/4*(x - .5)^2};
+						\addplot [domain=1:8, samples=50, smooth] {1/4*(x - 1)^2};
+						\addplot [domain=1.5:8, samples=50, smooth] {1/4*(x - 1.5)^2};
+						\addplot [domain=2:8, samples=50, smooth] {1/4*(x - 2)^2};
+						\addplot [domain=2.5:8, samples=50, smooth] {1/4*(x - 2.5)^2};
+						\addplot [domain=3:8, samples=50, smooth] {1/4*(x - 3)^2};
+						\addplot [domain=3.5:8, samples=50, smooth] {1/4*(x - 3.5)^2};
+						\addplot [domain=4:8, samples=50, smooth] {1/4*(x - 4)^2};
+						\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{Il comportamento "a pennello" con molteplici $a$ e $b$}
+			\end{subfigure}
+		\end{figure}
+	\end{solution}
 \end{example}
 
 \begin{theorem}[Teorema di Cauchy Locale - Prima Parte]
@@ -1159,8 +1287,8 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 					\addlegendentry{$\sin{x^2}$}
 					\addplot [name path=g, domain=-10:10, samples=500, color=blue!50, smooth] {abs(sin(deg(x^2)))};
 					\addlegendentry{$\norm{\sin{x^2}}$}
-					\addplot [domain=0:10] {(1/3)*x + 1};   % The following plots are lacking a \addlegendentry, so they'll mess up with colors
-					\addplot [domain=-10:0] {-(1/3)*x + 1}; % of other entries. To prevent it, any new function should be added before these
+					\addplot [domain=0:10, forget plot] {(1/3)*x + 1};
+					\addplot [domain=-10:0, forget plot] {-(1/3)*x + 1};
 				\end{axis}
 			\end{tikzpicture}
 		\end{center}
@@ -1333,11 +1461,12 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 
 \section{Equazioni Autonome}
 \begin{definition}[Equazione Autonoma]
+	\label{def:equaz_diff_auton}
 	Un'\textbf{equazione differenziale ordinaria} si dice \textbf{autonoma} se e solo se la variabile indipendente (solitamente il tempo) non vi compare esplicitamente.
 	\begin{note}
 		L'assenza della variabile indipendente significa, concettualmente, che l'istante iniziale non è importante ai fini dello studio dell'equazione, ma essa dipende solo dalla lunghezza dell'intervallo.
 	\end{note}
-		\begin{note}
+	\begin{note}
 		In fisica le equazioni differenziali autonome spesso modellizzano sistemi isolati
 	\end{note}
 \end{definition}
