@@ -441,7 +441,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\item $f\in \cntclass{0}(I\times A;R^n)$
 	\end{enumerate}
 	inoltre $I\subseteq \R$ intervallo e $A\subseteq \R^n$, per \fullref{def:prob_cauchy_ord_1}.\\
-	Allora esiste un $\delta>0$ tale che esiste soluzione $x:J\mapsto A$ del problema di Cauchy con $J=\realintervalclose{t_0-\delta}{t_0+\delta}$.
+	\textbf{Allora} esiste un $\delta>0$ tale che esiste soluzione $x:J\mapsto A$ del problema di Cauchy con $J=\realintervalclose{t_0-\delta}{t_0+\delta}$.
 	\begin{note}
 		$\delta$ è un valore arbitrario che serve solo ad identificare l'intervallo $J$ a cui appartiene $t_0$, non è dato modo per identificare quel $\delta$
 	\end{note}
@@ -650,17 +650,16 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		Se $\exists\,J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists\,\varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni con le seguenti proprietà
 		\begin{itemize}
 			\item $J_1\subseteq I$, $J_2\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi_1(J_1)\subseteq A$ e $\varphi_2(J_2)\subseteq A$
+				\begin{note}
+					Si può osservare che, sicuramente, $J_1\cap J_2\neq\emptyset$, poiché entrambi gli insiemi contengono almeno $t_0$ nella loro parte interna.
+				\end{note}
 			\item $\varphi_1(t_0)=x_0,\,\varphi_2(t_0)=x_0$
 			\item $\varphi_1,\varphi_2$ derivabili e
-				$\begin{cases}
-					\varphi_1'(t)=f(t,\varphi_1(t))\,\forall t \in J_1\\
-					\varphi_2'(t)=f(t,\varphi_2(t))\,\forall t \in J_2
-				\end{cases}$
-				NB. Non è effettivamente sistema
+				$\left\langle\begin{array}{c}
+						\varphi_1'(t)=f(t,\varphi_1(t))\,\forall t \in J_1\\
+						\varphi_2'(t)=f(t,\varphi_2(t))\,\forall t \in J_2
+					\end{array}\right.$
 		\end{itemize}
-		\begin{note}
-			Si può osservare che, sicuramente, $J_1\cap J_2\neq\emptyset$, poiché entrambi gli insiemi contengono almeno $t_0$ nella loro parte interna.
-		\end{note}
 		Allora $\varphi_1(t)=\varphi_2(t)$\quad$\forall t \in(J_1\cap J_2)$\\
 		Cioè, se esistono due soluzioni, allora esse coincidono ovunque siano entrambe definite.
 		\item \textbf{Dipendenza continua dai dati}\\
@@ -743,15 +742,11 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)
 				\Bigr)\integrald{\tau}
 			\end{align*}
-			Dunque, passando alla norma di quanto calcolato sopra
-			\begin{align}
-				\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t)} \label{eq:cau_loc_verif_contraz_norm}
-			\end{align}
-			È sicuramente minorata da
+			Dunque, passando alla norma di quanto calcolato sopra ed applicando la minorazione spiegata in \fullref{ex:cau_loc_abs_of_norm}
 			\begin{align*}
-				&\leq \abs{\int_{t_0}^t
-					\norm{f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)}
-					\integrald{\tau}}\\
+				\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t)} \tageq\label{eq:cau_loc_verif_contraz_norm} &\leq \abs{\int_{t_0}^t
+				\norm{f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)}
+				\integrald{\tau}}\\
 				\intertext{Per \fullref{def:loc_lips} passo alle funzioni incognite $x_i$ di $f$ (che son le soluzioni dell'equazione differenziale), minorando}
 				&\leq \abs{\int_{t_0}^t
 					L\cdot\norm{x_2(\tau)-x_1(\tau)}
@@ -762,7 +757,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\integrald{\tau}}\\
 				&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{eq:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 			\end{align*}
-			Quindi, concludendo, possiamo passare dalla \cref{eq:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza, cioè
+			Quindi, concludendo, possiamo passare dal primo membro della \cref{eq:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza, cioè
 			$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
 			Minoriamo questa distanza con la forma appena trovata \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
 			$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
@@ -806,65 +801,63 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\label{ex:cau_loc_abs_of_norm}
 	È necessario il modulo in \cref{eq:cau_loc_abs_of_norm}?
 	\begin{solution}
-		Consideriamo, ad esempio
-		\begin{align*}
-			&f(x) = \norm{\int_0^6 10\cdot\frac{\sin{x}}{1+x} \integrald{x}} = 4,9413 && \text{(sinistra)}\\
-			&g(x) = \abs{\int_0^6 \norm{10\cdot\frac{\sin{x}}{1+x}} \integrald{x}} = 11,935 && \text{(destra)}
-		\end{align*}
-		Nella $f$, viene calcolata la norma del risultato dell'integrazione definita.\\
-		Nella $g$ si ha invece la norma della funzione, cioè la parte "sotto l'asse $x$" della funzione viene ribaltata sopra l'asse dall'operatore norma, come si può vedere dal grafico. Questo implica che il valore della $g$ sarà sicuramente $\geq$ rispetto alla $f$, in quanto l'integrale è somma di soli infinitesimi positivi.\\
-		Infine, il valore assoluto nella \cref{eq:cau_loc_abs_of_norm} è necessario per evitare che, scambiando gli estremi d'integrazione, si ottenga un valore negativo, che non potrebbe mai essere risultato del primo integrale
-		\begin{center}
-			\begin{tikzpicture}[baseline]
-			\begin{axis} [
-				width=\textwidth / 2 - 10,
-				height=\textwidth / 2 - 10,
-				axis lines = center,
-				axis on top=true,
-				axis equal,
-				ymin = -2,
-				xlabel = $x$,
-				ylabel = {$f(x)$},
-			]
-				\addplot [
-					name path=f,
-					domain=0:7,
-					samples=100,
-					color=red,
-				]
-				{10*sin(deg(x))/(1+x)};
-				\addlegendentry{\raisebox{.5ex}{$10\cdot\frac{\sin{x}}{1+x}$}}
+		Consideriamo, ad esempio, le seguenti due funzioni
+		\begin{figure}[H]
+			\begin{subfigure}{.5\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							axis equal,
+							ymin = -2,
+							ymax = 5,
+							xlabel = $x$,
+							ylabel = {$f(x)$}
+						]
+							\addplot [name path=f, domain=0:7, samples=100, color=red,] {10*sin(deg(x))/(1+x)};
+							\addlegendentry{\raisebox{.5ex}{$10\cdot\frac{\sin{x}}{1+x}$}}
 		
-				\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
-				\addplot[red!30] fill between[of=f and axis, soft clip={domain=0:6}];
-			\end{axis}
-			\end{tikzpicture}
-			~\qquad\qquad
-			\begin{tikzpicture}[baseline]
-			\begin{axis} [
-				width=\textwidth / 2 - 10,
-				height=\textwidth / 2 - 10,
-				axis lines = center,
-				axis on top=true,
-				axis equal,
-				ymin = -2,
-				xlabel = $x$,
-				ylabel = {$g(x)$},
-			]
-				\addplot [
-					name path=g,
-					domain=0:7,
-					samples=100,
-					color=blue,
-				]
-				{abs(10*sin(deg(x))/(1+x))};
-				\addlegendentry{\raisebox{1ex}{$\norm{10\cdot\frac{\sin{x}}{1+x}}$}}
+							\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
+							\addplot[red!30] fill between[of=f and axis, soft clip={domain=0:6}];
+						\end{axis}
+					\end{tikzpicture}
+				}
+			\end{subfigure}
+			\begin{subfigure}{.5\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							axis equal,
+							ymin = -2,
+							ymax = 5,
+							xlabel = $x$,
+							ylabel = {$g(x)$}
+						]
+							\addplot [name path=g, domain=0:7, samples=200, color=blue] {abs(10*sin(deg(x))/(1+x))};
+							\addlegendentry{\raisebox{1ex}{$\norm{10\cdot\frac{\sin{x}}{1+x}}$}}
 
-				\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
-				\addplot[blue!30] fill between[of=g and axis, soft clip={domain=0:6}];
-			\end{axis}
-			\end{tikzpicture}
-		\end{center}
+							\path[name path=axis] (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0);
+							\addplot[blue!30] fill between[of=g and axis, soft clip={domain=0:6}];
+						\end{axis}
+					\end{tikzpicture}
+				}
+			\end{subfigure}
+		\end{figure}
+
+		\noindent I cui integrali (le aree sottese) assumono questi valori
+		\begin{equation*}
+			f(x) = \norm{\int_0^6 10\cdot\frac{\sin{x}}{1+x} \integrald{x}} = 4,9413 \qquad\qquad
+			g(x) = \abs{\int_0^6 \norm{10\cdot\frac{\sin{x}}{1+x}} \integrald{x}} = 11,935
+		\end{equation*}
+		Nella $f$, viene calcolata la norma del risultato dell'integrazione definita.\\
+		Nella $g$ si ha invece la norma della funzione, cioè la parte "sotto l'asse $x$" della funzione viene ribaltata sopra l'asse dall'operatore norma, come si può vedere dal grafico. Questo implica che, sicuramente, $g \geq f$, in quanto $\int g$ è somma di soli infinitesimi positivi.
+
+		Infine, il valore assoluto nella \cref{eq:cau_loc_abs_of_norm} è necessario per evitare che, scambiando gli estremi d'integrazione, si ottenga un valore negativo, che non potrebbe mai essere risultato del primo integrale
 	\end{solution}
 \end{exercise}
 
