@@ -1,6 +1,8 @@
 \chapter{Spazi Metrici}
 
 \section{Preliminari}
+% TODO definzione campo
+
 \begin{definition}[Spazio Vettoriale]
 	Siano $K$ un \textbf{campo} e $V$ un \textbf{insieme}. Si dice che \textbf{Spazio Vettoriale} sul campo $K$ se sono definite due operazioni:
 	\begin{enumerate}
@@ -13,27 +15,37 @@
 \end{definition}
 
 \begin{definition}[Spazio Metrico]
+	\label{def:sp_metrico}
 	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{distanza} (o \textbf{metrica}), vale a dire una funzione $d: X \times X \mapsto \R$ con le seguenti proprietà:
 	\begin{enumerate}
 		\item $d(x,y) \geq 0 \quad \forall x,y \in X$
 		\item $d(x,y) = 0 \quad \forall x,y \in X \iff x=y$
-		\item $d(x,y) = d(y,x) \quad \forall x,y \in X$ \quad\textit{(simmetria)}
-		\item $d(x,z) \leq d(x,y)+d(y,z) \quad \forall x,y,z\in X$ \quad\textit{(disuguaglianza triangolare)}
+		\item $d(x,y) = d(y,x) \quad \forall x,y \in X$ \quad(\textit{simmetria})
+		\item $d(x,z) \leq d(x,y)+d(y,z) \quad \forall x,y,z\in X$ \quad(\textit{disuguaglianza triangolare})
 	\end{enumerate}
-\end{definition}
-
-\begin{definition}[Sottospazio Metrico]
-	Siano $S \subseteq X$ e $d$ metrica su $X$. Allora $d_S = d_{|S \times S}$ è una metrica su $S$, cioè la metrica $d_S$ è la \textbf{metrica indotta}, definita come la \textbf{restrizione} della metrica $d$ ai soli elementi di $S$.
-
-	$(S,d_S)$ è Sottospazio Metrico di $(X,d)$
 \end{definition}
 
 Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Spazio Vettoriale Metrico]
-	Uno Spazio Vettoriale Metrico è uno spazio vettoriale $V$ su cui è definito un prodotto scalare $<\cdot,\cdot·>$ definito positivo, una \textbf{metrica}.
+	Uno Spazio Vettoriale Metrico è uno spazio vettoriale $V$ su cui è definito un prodotto scalare $<\cdot,\cdot·>$ definito positivo, la sua \textbf{metrica}.
 	\begin{note}
 		Analogamente si definisce il Sottospazio Vettoriale Metrico
 	\end{note}
+\end{definition}
+
+\begin{definition}[Metrica Indotta]
+	\label{def:metr_indotta}
+	Siano $(X,d)$ spazio metrico e $S \subseteq X$ con $S \neq \emptyset$\\
+	Allora $d_{|S} = d_{|S \times S}$ è una metrica su $S$, cioè la metrica $d_{|S}$ è la \textbf{metrica indotta}, definita come la \textbf{restrizione} della metrica $d$ ai soli elementi di $S$. Si definisce formalmente come
+	$$\funcdef{d_{|S}}{S \times S}{\R}{(x,y)}{d(x,y)}$$
+\end{definition}
+
+\begin{definition}[Sottospazio Metrico]
+	Siano $(X,d)$ spazio metrico e $S \subseteq X$ con $S \neq \emptyset$\\
+	Allora $(S,d_{|S})$ con la \fullref{def:metr_indotta} è a sua volta Spazio Metrico ed è chiamato \textbf{Sottospazio Metrico di $(X,d)$}
+	\begin{proof}
+		La $d_{|S}$, essendo restrizione della metrica $d$, rispetta ancora tutti i punti della \fullref{def:sp_metrico}.
+	\end{proof}
 \end{definition}
 
 \begin{proposition}
@@ -48,148 +60,150 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{proof}
 \end{proposition}
 
-\example
-$$X=\R^2,\quad d((x_1,y_1),(X_2,y_2))=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$$
-si dimostra che la funzione così definita è una distanza:
-\begin{enumerate}
-	\item $d(x_1,x_2)\ge 0$, è verificata poiché l'argomento della radice è sempre positivo o al più nullo essendo una somma di quadrati, e la radice mantiene le quantità positive.
-	\item $d((x_1,y_1),(x_2,y_2))=0\iff \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}=0$\\
-	$\iff (x_2-x_1)^2+(y_2-y_1)^2=0 $
-	$\iff \left\{\begin{matrix}
-	(x_2-x_1)^2=0\\
-	(y_2-y_1)^2=0\\
-	\end{matrix}\right.\iff
-	\left\{\begin{matrix}
-	x_2=x_1\\
-	y_2=y_1\\
-	\end{matrix}\right.$
-	$\iff (x_1,y_1)=(x_2,y_2)$
-	\item invertendo le prime componenti con le seconde, il quadrato non cambia quindi la simmetria è rispettata 
-	$$d((x_1,y_1),(x_2,y_2))=\sqrt{(x_2-x_1)^2+(y_2-y_1)}=\sqrt{(x_1-x_2)^2+(y_1-y_2)}=d((x_2,y_2),(x_1,y_1))$$
-	\item 
-		\begin{tikzpicture}[scale=0.5]
-			\centering
-		\draw (0,0) node[anchor=north east]{$A=(x_A,y_A)$}
-			-- (4,0) node[anchor=north west]{$C=(x_C,y_C)$}
-			-- (4,4) node[anchor=south]{$B=(x_B,y_B)$}
-			-- cycle;
-		\end{tikzpicture}
-		... ci vorrebbe anche una spiegazione ... 
-\end{enumerate}
-
-\example
-$$X=\R,\quad d(x_1,x_2)=\abs{x_2-x_1}$$
-Le  proprietà 1,2,3 sono soddisfatte per le proprietà del modulo.\\
-La proprietà 4 si può dimostrare: $$d(x_1,x_3)=\abs{x_3-x_1}\le\abs{x_3-x_2}+\abs{x_2-x_1}=d(x_3,x_2)+d(x_2,x_1)$$
-
-\example
-$$X=\R^3\quad d({x_1,y_1,z_1),(x_2,y_2,z_2)}$$
-Analogo al primo esempio
-
-\example
-$$X=\R^n\quad$$
-$$x=(x_1,\ldots,x_n) \quad\quad y=(y_1,\ldots,y_n)$$
-$$d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}$$
-Analogo al primo esempio
-
-\example
-$$X=\cntclass{0}(\realintervalclose{a}{b},\R),a,b\in\R, a<b$$
-$$d_\infty=\sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)}$$
-\begin{enumerate}
-	\item $X$ contiene infiniti elementi(funzioni)
-	\item $d_\infty$ è detta distanza uniforme o distanza della convergenza infinita o distanza della convergenza uniforme
-	\item 
-		\begin{tikzpicture}[scale=1]
-			\begin{axis}[
-				xlabel={$x$},ylabel={$y$},
-				axis lines=middle,
-				samples=41,grid,thick,
-				domain=-1:1,
-				ymin=-1,ymax=4,
-				legend pos=outer north east ]
-				\addplot+[no marks] {e^-(abs(x*x))}; \addlegendentry{$f\left( x \right)$}
-				\addplot+[no marks] {-0.5}; \addlegendentry{$g\left( x \right)$}
-				\draw[<->,line width=1mm, color=green] (axis cs:0,-0.5) -- (axis cs:0,1);
-			\end{axis}
-		\end{tikzpicture}
-\end{enumerate}
-Si verificano le 4 proprietà di distanza:
-\begin{enumerate}
-	\item Se $\sup = \infty$ non va bene poiché l'insieme di arrivo è $\R$, applicando il Thm. di Weierstrass, una funzione continua definita su un intervallo $\realintervalclose{a}{b}$ ammette massimo e minimo e quindi anche il $\sup$ ....(le funzioni sono definite su un intervallo chiuso e limitato e sono continue)
-	\item se e solo se hanno lo stesso dominio e per ogni punto di esso entrambe le funzioni hanno la stessa immagine
-	\item $d_{\infty}(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
-	\item $\abs{h(x)-f(x)}\le\abs{h(x)-g(x)}+\abs{g(x)-f(x)} $, applicando il sup la disuguaglianza resta vera
-\end{enumerate}
-\observation 
-Tutto questo è valido finché $\realintervalclose{a}{b}$ chiuso e limitato altrimenti non vale più Weierstrass \\
-\\
-UN CONTROESEMPIO\\
-\\
-\example
-ferrovia
-\example
-Metrica Discreta
-$X\ne \emptyset,\quad d(x,y)= \left\{\begin{matrix}0&&x=y\\0&&1\ne y\end{matrix}\right.$
+\begin{example}[Esempi di Metriche]
+	\label{ex:metriche}
+	Si dimostri che le seguenti funzioni sono distanze:
+	\begin{note}
+		Si noti che alcuni degli esempi sottostanti sono relativi a metriche trattate molto più avanti e dunque potrebbe essere conveniente ignorarli temporaneamente per tornare qui quando saranno stati fatti i successivi argomenti.
+	\end{note}
 	\begin{enumerate}
-		\item $d(x,y)\ge 0$ per definizione
-		\item $d(x,y)=0\iff x=y$, per definizione (ragiona sul sse) 
-		\item $d(x,y)=d(y,x)$ ...per definizione (fai due casi x=y e l'altro)
-		\item $d(x,y)\le d(y-z)+d(z-x)$ 
+		\item $X=\R^2,\quad d(x,y) = d\bigl((x_1,x_2),(y_1,y_2)\bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^2$}}\\
+			\begin{enumerate}[label=\arabic*]
+				\item $d(x,y) \geq 0$ è verificata poiché l'argomento della radice è sempre positivo o al più nullo essendo una somma di quadrati, e la radice mantiene la positività.
+				\item $d(x,y) = 0 \iff x = y$
+					\begin{align*}
+						d = 0 &\iff \sqrt{(y_1-x_1)^2+(y_2-x_2)^2} = 0\\
+						&\iff (y_1-x_1)^2+(y_2-x_2)^2 = 0\\
+						&\iff \begin{cases}
+							(y_1-x_1)^2=0\\
+							(y_2-x_2)^2=0\\
+						\end{cases}\\
+						&\iff
+						\begin{cases}
+							y_1=x_1\\
+							y_2=x_2\\
+						\end{cases}\\
+						&\iff (x_1,x_2)=(y_1,y_2)
+					\end{align*}
+				\item $d(x,y) = d(y,x)$ invertendo le coordinate di $x$ con quelle di $y$ la somma non cambia, quindi la simmetria è rispettata
+					$$d\bigl((x_1,x_2),(y_1,y_2)\bigr) \bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2} = \sqrt{(y_2-x_2)^2+(y_1-x_1)^2} = d\bigl((y_1,y_2),(x_1,x_2)\bigr)$$
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ da \fullref{prop:dist_sp_norm}, la metrica indotta dalla norma (\fullref{def:norma}), applicata ad $\R^2$ è
+					$$\norm{x - y} = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}$$
+					che corrisponde alla metrica in oggetto. Dunque, grazie alle proprietà dell'operatore $\norm{\;\cdot\;}$ (nello specifico la \textit{disuguaglianza triangolare}), si ottiene
+					$$d(x,y) = \norm{x-y} = \norm{(x-z) + (z-y)} \leq \norm{x-z} + \norm{z-y} = d(x,z) + d(z,y)$$
+					\begin{center}
+						\begin{tikzpicture}[scale=0.5]
+						\draw (0,0) node[anchor=north east]{$x=(x_1,x_2)$}
+							-- (4,4) node[anchor=south]{$y=(y_1,y_2)$}
+							-- (4,0) node[anchor=north west]{$z=(z_1,z_2)$}
+							-- cycle;
+						\end{tikzpicture}
+					\end{center}
+			\end{enumerate}
+		\item $X=\R,\quad d(x,y)=\abs{y-x}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R$}}\\
+			Analogo al primo esempio, nel dettaglio
+			\begin{enumerate}[label=\arabic*.]
+				\item $d(x,y) \geq 0$ per definizione valore assoluto
+				\item $d(x,y) = 0 \iff x = y$ perché $\abs{\;\cdot\;} = 0 \iff \cdot\; = 0$ per definizione valore assoluto
+				\item $d(x,y)=d(y,x)$ perché $\abs{x - y} = \abs{y - x}$ per definizione valore assoluto
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ in quanto
+					$$d(x,y) = \abs{x-y} = \abs{x-z+z-y} \leq \abs{x-z} + \abs{z-y} = d(x,z) + d(z,y)$$
+			\end{enumerate}
+		\item $X=\R^n \;\; \text{con}\; x=(x_1,\ldots,x_n),\; y=(y_1,\ldots,y_n),\quad d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^n$}} \label{ex:dist_eucl}\\
+			Analogo al primo esempio
+		\item $X\ne \emptyset,\quad d(x,y)= \left\{\begin{matrix}0&&x=y\\1&&x \ne y\end{matrix}\right.$ \hfill {\footnotesize\textbf{Metrica Discreta}}\\
+			\begin{enumerate}[label=\arabic*.]
+				\item $d(x,y) \geq 0$ per definizione
+				\item $d(x,y) = 0 \iff x = y$ per definizione
+				\item $d(x,y)=d(y,x)$ per definizione (sia che $x = y$, sia che $x \neq y$)
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ perché $d(x,z) + d(z,y)$ può essere:
+					\begin{itemize}
+						\item $0$ se $x = y = z$, ma in questo caso anche $d(x,y) = 0$
+						\item $1$ se $x = y \neq z$ o $x \neq y = z$, ma in questo caso $d(x,y) \leq 1$
+						\item $2$ se $x \neq y \neq z$, quindi sicuramente $d(x,y) \leq d(x,z) + d(z,y)$
+					\end{itemize}
+			\end{enumerate}
+		\item $X=\cntclass{0}(\realintervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_\infty(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)}$ \hfill
+			{\footnotesize
+				\begin{tabular}{c}
+					\textbf{Distanza della Convergenza Infinita}\\
+					o\\
+					\textbf{Distanza della Convergenza Uniforme}
+				\end{tabular}
+			}\label{ex:dim_dist_conv_unif}\\
+			\begin{note}
+				La metrica viene trattata in \fullref{def:conv_unif}
+			\end{note}
+			\begin{note}
+				$X$ contiene infiniti elementi (funzioni)
+			\end{note}
+			\begin{center}
+				\begin{tikzpicture}[scale=1]
+					\begin{axis}[
+						xlabel={$x$},ylabel={$y$},
+						axis lines=middle,
+						samples=41,grid,thick,
+						domain=-1:1,
+						ymin=-1,ymax=4,
+						legend pos=outer north east ]
+						\addplot+[no marks] {e^-(abs(x*x))}; \addlegendentry{$f\left( x \right)$}
+						\addplot+[no marks] {-0.5}; \addlegendentry{$g\left( x \right)$}
+						\draw[<->,line width=1mm, color=green] (axis cs:0,-0.5) -- (axis cs:0,1);
+					\end{axis}
+				\end{tikzpicture}
+			\end{center}
+			\begin{enumerate}[label=\arabic*.]
+				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\realintervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\realintervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{teo:weier} ed avere la certezza che esista $\sup$ finito.
+				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
+				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene $\abs{g(x)-f(x)}\le\abs{g(x)-h(x)}+\abs{h(x)-f(x)}$. Applicando il sup la disuguaglianza resta vera.
+			\end{enumerate}
+			\begin{note}
+				Si sottolinea che queste conclusioni sono valide finché $\realintervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{teo:weier} necessario per il punto 1. % TODO Serve un controesempio
+			\end{note}
+		\item $X=\R^2$, $d$ distanza Euclidea e $P$ punto arbitrario\\
+			$\quad d_P(x,y)=
+			\begin{cases}
+				\begin{array}{ll}
+					0 & \text{se } x = y\\
+					d(x,P) + d(P,y) & \text{se } x \neq y
+				\end{array}
+			\end{cases}$ \hfill
+			{\footnotesize
+				\begin{tabular}{c}
+					\textbf{Distanza di Parigi}\\
+					o\\
+					\textbf{Distanza Ferroviaria Francese}
+				\end{tabular}
+			} \label{ex:dist_parigi}\\
+			\begin{enumerate}[label=\arabic*.]
+				\item $d(x,y) \geq 0$ per definizione
+				\item $d(x,y) = 0 \iff x = y$ per definizione
+				\item $d(x,y)=d(y,x)$ essendo bassata sulla metrica Euclidea
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo bassata sulla metrica Euclidea
+			\end{enumerate}
+		\item $X=\cntclass{0}(\realintervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}}$ \hfill {\footnotesize\textbf{Distanza Quadratica}}\\
+		\label{ex:dim_dist_quadratica}
+			\begin{note}
+				La metrica viene trattata in \fullref{def:dist_quadratica}
+			\end{note}
+			\begin{enumerate}[label=\arabic*.]
+				\item $d(x,y) \geq 0$ per definizione, essendo integrale di un valore positivo (quadrato) tra estremi ordinati ($a<b$ per ipotesi)
+				\item $d(x,y) = 0 \iff x = y$ Per definizione della metrica, $d_2(f,g) = 0 \iff \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
+				\item $d(x,y)=d(y,x)$ semplicmente $d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}} = \sqrt{\int_a^b\left[f(x)-g(x)\right]^2 \integrald{x}} = d_2(g,f)$
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ ... % TODO Spiegare questo punto
+			\end{enumerate}
 	\end{enumerate}
-\example
-$$X=\R^2$$
-$$x=(x_1,x_2), y=(y_1,y_2)$$
-$$d'(x,y)=\abs{x_1-y-1}+\abs{x_2-y-2}$$
-...\\
-
-\example
-\example
-$$X=\cntclass{0}(\realintervalclose{0}{1},\R)$$
-$$d_2=\int_0^1\abs{g(x)-f(x)}d(x)$$
-\example
-$$X=\cntclass{0}(\realintervalclose{a}{b},\R), a,b\in\R, a<b$$
-$$d_2=\sqrt{\int_a^b\left[g(x)-f(x)\right]^2d(x)}$$
-
-\proposition
-Sia $(X,d)$ s.m. e $A\subseteq X$ e $A\ne \emptyset$, sia $\begin{array}{rcl} d_{|A} : A\times A & \to & \R \\ (x,y) & \to & d(x,y) \end{array} \Rightarrow (A,d_{|A})$ è uno spazio metrico
-\begin{proof}
-	........
-\end{proof}
-
-\definition
-Un insieme è finito se il numero dei suoi elementi è finito
-\definition
-Un insieme è infinito se non è finito
-\definition
-Sia $(X,d)$s.m., $A\subseteq X$, $A\ne \emptyset$ si definisce diametro di A: $$diam(A)=\sup\limits_{x,y\in A}d(x,y)$$
-\definition
-$A$ è limitato $\leftrightharpoons diam(A)$ è finito ($\in\R$)
-\definition
-$A$ è illimitato $\leftrightharpoons diam(A)$ è infinito ($=\infty$)
-\example
-...\\
-...\\
-...\\
-..\\
-....\\
-\observation
-Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgono i viceversa.
-\example 
-.....\\
-....\\
-.....\\
-......\\
-.....\\
-....\\
+\end{example}
 
 \begin{definition}[Norma]
 	\label{def:norma}
 	Dato uno spazio vettoriale $V$ sul campo $\mathbb{K}$, si definisce \textbf{norma} una funzione $\norm{\cdot}:V\mapsto\R$ con le proprietà:
 	\begin{enumerate}
-		\item $\forall x\in V,\quad\norm{x}\ge0$
-		\item $\forall x\in V,\quad\norm{x}=0\iff x=0$
-		\item $\forall x,y\in V,\quad\norm{x+y}\le\norm{x}+\norm{y}$
-		\item $\forall x\in V,\lambda\in\mathbb{K},\quad\norm{\lambda x}=\abs{\lambda}\cdot\norm{x}$
+		\item $\norm{x} \geq 0 \quad \forall x\in V$
+		\item $\norm{x}=0 \iff x = 0 \quad \forall x\in V$
+		\item $\norm{x+y} \leq \norm{x}+\norm{y} \quad \forall x,y\in V$
+		\item $\norm{\lambda x} = \abs{\lambda} \cdot \norm{x} \quad \forall x\in V,\lambda\in\mathbb{K}$
 	\end{enumerate}
 	\begin{note}
 		La funzione Norma associa dunque ad un vettore di qualsiasi dimensione uno scalare, fornendo (anche) una metrica per ordinare vettori tra loro.
@@ -201,48 +215,99 @@ Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgo
 		Nel seguito verranno considerati esclusivamente spazi vettoriali su $\R$ o su $\C$, cioè $\mathbb{K} = \R$ o $\mathbb{K} = \C$
 	\end{note}
 \end{definition}
-$X$ è uno spazio (vettoriale) normato sul campo $\mathbb{K}$ se:
-\begin{example}
-$$X=\R\quad\norm{x}=\abs{x}$$
-\end{example}
-\begin{example}
-	$$X=\R^2\quad\norm{\left[\begin{matrix}x\\y+\end{matrix}\right]}=\sqrt{x^2+y^2}$$
-\end{example}
-\begin{example}
-	$$X=\R^n\quad x\equiv(x_1,\ldots,x_n)\quad \norm{x}=\sqrt{\sum\limits_{i=0}^n}x_i^2$$
-\end{example}
-\begin{example}
-	$$X=\C\quad\norm{x}=\abs{x}$$
-\end{example}
-\begin{example}
-	$$X=\cntclass{0}(\realintervalclose{a}{b},\R)\quad\norm{f}\sup\limits_{x\in\realintervalclose{a}{b}}\abs{f}$$
+
+\begin{example}[Esempi di Spazi Normati]
+	~
+	\begin{enumerate}
+		\item $\R$ con $\norm{x} = \abs{x}$
+		\item $\C$ con $\norm{x} = \abs{x}$
+		\item $\R^n$ con $\norm{x} = \sqrt{\sum\limits_{i=1}^{n}x_i^2}$
+		\item $\cntclass{0}(\realintervalclose{0}{1};\R)$ con $\norm{f} = \sup\limits_{x \in \realintervalclose{0}{1}} \abs{f(x)}$
+	\end{enumerate}
 \end{example}
 
-\proposition
-Sia $X$ uni spazio normato allora $(X,d)$ è uno spazio metrico con $\begin{array}{rcl} d : X\times X & \to & \R \\ (x_1,x_2) & \to & \norm(x_1-x_2) \end{array}$\\
-Inoltre per la distanza così definita valgono le seguenti proprietà:
-\begin{enumerate}
-	\item INVARIANZA PER TRASLAZIONI
-	$$\forall x_1,x_2,x_3\in X \quad d(x_1,x_2)=d(x_1+x_3,x_2+x_3)$$
-	\item POSITIVAMENTE OMOGENEA
-	$$ \forall x_1,x_2\in X, \lambda\in\R\quad d(\lambda x_1,\lambda x_2)=\abs{\lambda}d(x_1,x_2)$$
-\end{enumerate}
-\begin{proof}
-	Per dimostrare che è uno spazio metrico si dimostra che valgono le proprietà di distanza
+\begin{proposition}[Metrica Indotta da una Norma]
+	\label{prop:dist_sp_norm}
+	Sia $V$ uno spazio normato. Allora $(V,d)$ è uno spazio metrico con la distanza
+	$$d(x,y) = \norm{y-x}$$
+	ed inoltre la distanza così definita è:
 	\begin{enumerate}
-		\item
-		\item
-		\item
-		\item
+		\item Invariante per traslazioni:
+			$$\forall x,y,z \in V,\; d(x,y) = d(x+z, y+z)$$
+		\item Positivamente omogenea:
+			$$\forall x,y \in V\: \text{e} \forall \lambda \in \R,\; d(\lambda x, \lambda y) = \abs{\lambda}d(x,y)$$
 	\end{enumerate}
-\end{proof}
+	\begin{proof}
+		~
+		\begin{enumerate}
+			\item $d(x,y) = d(x+z, y+z) = \norm{y+z-x-z} = \norm{y-x} = d(x,y)$
+			\item Con la proprietà 4 della \fullref{def:norma}
+			$$d(\lambda x, \lambda y) = \norm{\lambda y - \lambda x} = \norm{\lambda (y - x)} = \abs{\lambda} \norm{y - x} = \abs{\lambda}d(x,y)$$
+		\end{enumerate}
+	\end{proof}
+	\begin{note}
+		Nel caso in cui $V = \R^n$, la metrica indotta è ovviamente la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
+		$$d(x,y) = \sqrt{\sum\limits_{i=1}^{n} (y_i-x_i)^2 }$$
+	\end{note}
+\end{proposition}
+
+\begin{definition}[Metriche Equivalenti]
+	Siano $d_1$ e $d_2$ due distanze sullo stesso insieme $X$.\\
+	\begin{equation*}
+		\begin{gathered}
+			d_1 \text{ e } d_2 \text{ sono \textbf{equivalenti}}\\
+			\bydef\\
+			\exists c,C \in \realintervalopen{0}{+\infty}:\; \forall x,y \in X \quad c \cdot d_1(x,y) \leq d_2 (x,y) \leq C \cdot d_1 (x,y)
+		\end{gathered}
+	\end{equation*}
+	Cioè se è sempre possibile "limitare" una metrica con l'altra (moltiplicata per un opportuno coefficiente). Questo implica che distanze infinite per una metrica devono esserlo anche per l'altra.
+	\begin{note}
+		Dato uno spazio metrico $(X,d)$, passare dalla distanza $d$ ad un'altra ad essa equivalente è concettualmente analogo ad un cambio di unità di misura. Come esempio si veda \fullref{ex:dist_eqiv}
+	\end{note}
+\end{definition}
+\begin{example}
+	La \hyperref[ex:dist_parigi]{Distanza Ferroviaria Francese da \cref*{ex:metriche} (\nameref*{ex:metriche})} e la \hyperref[ex:dist_eucl]{Metrica Euclidea da \cref*{ex:metriche} (\nameref*{ex:metriche})} non sono equivalenti
+	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+	\begin{solution}
+		Operando in $\R$ e avendo un $n \in \N$:
+		\begin{itemize}
+			\item $P = 0$
+			\item $x = n$
+			\item $y = n+1$
+		\end{itemize}
+		Ora, per ogni $n$ la $d = 1$, mentre la $d_P = 2n+1$, dunque è impossibile trovare un $C \in \realintervalopen{0}{+\infty}$ (quindi finito) tale per cui
+		$$d_P(x,y) \leq C \cdot d(x,y)$$
+	\end{solution}
+\end{example}
+\begin{example}
+	\label{ex:metr_equiv_R2}
+	In $\R^2$, le distanze:
+	\begin{align*}
+		d_1(x,y) \;\; &= \;\; \abs{y_1 - x_1} + \abs{y_2 - x_2}\\
+		d(x,y) \;\; &= \;\; \sqrt{(y_1 - x_1)^2 + (y_2 - x_2)^2}\\
+		d_\infty(x,y) \;\; &= \;\; \max (\abs{y_1 - x_1}, \abs{y_2 - x_2})
+	\end{align*}
+	sono tutte equivalenti tra di loro.
+\end{example}
 
 \definition
-Sia $(X,d)$ spazio metrico e siano $x_0\in X$ e $r\in\mathbb{r}$. Si dice sfera aperta di centro $x_0$ e raggio $r$ l'insieme:
-$$B(x_0,r)=\left\{ x\in X : d(x,y)<r  \right\}$$
-\observation
-se $r=0\Rightarrow B(x_0,r)=\emptyset$\\
-se $r>0\Rightarrow x_0\in B(x_0,r)$
+\begin{definition}[Sfera]
+	Sia $(X,d)$ uno spazio metrico e siano $x_0 \in X$, $r > 0$. Si dice \textbf{Sfera} (o \textbf{Bolla}, o ancora \textbf{Palla}) \textbf{Aperta} di centro $x_0$ e raggio $r$ l'insieme:
+	$$B(x_0,r)=\brackets{x\in X : d(x,y)<r}$$
+\end{definition}
+\begin{observation}
+	Se $r=0\Rightarrow B(x_0,r)=\emptyset$\\
+	Se $r>0\Rightarrow x_0\in B(x_0,r)$
+\end{observation}
+\begin{exercise}
+	Descrivere le sfere nelle distanze dell'\fullref{ex:metr_equiv_R2}.
+	% TODO solution
+\end{exercise}
+
+\begin{definition}[Intorno]
+	Sia $(X,d)$ uno spazio metrico e sia $x \in X$. \textbf{Intorno di} $\boldsymbol{x}$ è un qualunque sottoinsieme di $X$ che contenga una sfera aperta contentente $x$
+\end{definition}
+
 \example
 In $\R$ con $d_E$, $B(x_0,r)$ è un intervallo simmetrico centrato in $x_0$
 \example
@@ -267,6 +332,32 @@ In $\R^3$ con $d_E$, $B(x_0,r)$ è una sfera con centro in $x_0$
 \definition
 Siano $(X,d_1)$ e $(X,d_2)$ spazi metrici. $d_1$ e $d_2$ sono equivalenti $\leftrightharpoons \exists c,C\in\R, c_1>0, c_2>0$ t.c:
 $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
+
+\definition
+Un insieme è finito se il numero dei suoi elementi è finito
+\definition
+Un insieme è infinito se non è finito
+\definition
+Sia $(X,d)$s.m., $A\subseteq X$, $A\ne \emptyset$ si definisce diametro di A: $$diam(A)=\sup\limits_{x,y\in A}d(x,y)$$
+\definition
+$A$ è limitato $\leftrightharpoons diam(A)$ è finito ($\in\R$)
+\definition
+$A$ è illimitato $\leftrightharpoons diam(A)$ è infinito ($=\infty$)
+\example
+...\\
+...\\
+...\\
+..\\
+....\\
+\observation
+Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgono i viceversa.
+\example
+.....\\
+....\\
+.....\\
+......\\
+.....\\
+....\\
 
 
 \section{Successioni e Completezza}
@@ -302,6 +393,10 @@ $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 		Posto $K = K_1 \cup K_2$, per definizione di \textbf{unione}, ogni elemento di $K$ è in $K_1$ o $K_2$.
 		Visto che, per ipotesi, $K_1$ e $K_2$ sono compatti, sappiamo che ogni successione in uno dei due avrà una sottosuccessione convergente nello stesso insieme. A questo punto possiamo concludere che ogni successione in $K$ ammetterà una sottosuccessione convergente ad un elemento $x_\infty \in K_1$ oppure $x_\infty \in K_2 \implies x_\infty \in K$
 	\end{solution}
+\end{exercise}
+\begin{exercise}
+	\label{ex:dist_eqiv}
+	% TODO copiare esercizio 2.42
 \end{exercise}
 
 \section{Limiti e Continuità}
@@ -373,6 +468,7 @@ $$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
 		Cioè la definizione di successione convergente. Ho dunque individuato una sottosuccessione convergente per ogni successione in $f(K)$, verificando così la definizione di spazio Compatto.
 	\end{proof}
 \end{theorem}
+
 \subsection{Uniforme Continuità}
 \begin{definition}[Funzione Uniformemente Continua]
 	\label{def:unif_cont}
