@@ -98,12 +98,16 @@
 
 \newcommand*{\uconvarrow}{\overset{\text{u}}{\to}}
 \newcommand*{\pconvarrow}{\overset{\text{p}}{\to}}
+% Thanks to Werner from https://tex.stackexchange.com/a/47091/206062
+\newcommand{\notimplies}{\mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+\DeclareMathOperator\diam{diam}
 
 % Append the following to an equation in align* blocks to allow tagging single eq.
 \newcommand*{\tageq}{\refstepcounter{equation}\tag{\theequation}}
 
 % Use the following to reference stuff with its name appended.
-% Thanks to Oberdiek from here https://tex.stackexchange.com/a/66096/206062
+% Thanks to Oberdiek from https://tex.stackexchange.com/a/66096/206062
 \newcommand*{\fullref}[1]{%
 	\hyperref[{#1}]{%
 		\autoref*{#1}%

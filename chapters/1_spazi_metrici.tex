@@ -23,6 +23,9 @@
 		\item $d(x,y) = d(y,x) \quad \forall x,y \in X$ \quad(\textit{simmetria})
 		\item $d(x,z) \leq d(x,y)+d(y,z) \quad \forall x,y,z\in X$ \quad(\textit{disuguaglianza triangolare})
 	\end{enumerate}
+	\begin{note}
+		D'ora in poi, quando si userà $d$ come metrica, dove non diversamente specificato, si intenderà la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
+	\end{note}
 \end{definition}
 
 Unendo le due definizioni si giunge naturalmente a
@@ -67,7 +70,7 @@ Unendo le due definizioni si giunge naturalmente a
 		Si noti che alcuni degli esempi sottostanti sono relativi a metriche trattate molto più avanti e dunque potrebbe essere conveniente ignorarli temporaneamente per tornare qui quando saranno stati fatti i successivi argomenti.
 	\end{note}
 	\begin{enumerate}
-		\item $X=\R^2,\quad d(x,y) = d\bigl((x_1,x_2),(y_1,y_2)\bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^2$}}\\
+		\item $X=\R^2,\quad d(x,y) = d\bigl((x_1,x_2),(y_1,y_2)\bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^2$}}
 			\begin{enumerate}[label=\arabic*]
 				\item $d(x,y) \geq 0$ è verificata poiché l'argomento della radice è sempre positivo o al più nullo essendo una somma di quadrati, e la radice mantiene la positività.
 				\item $d(x,y) = 0 \iff x = y$
@@ -100,8 +103,7 @@ Unendo le due definizioni si giunge naturalmente a
 						\end{tikzpicture}
 					\end{center}
 			\end{enumerate}
-		\item $X=\R,\quad d(x,y)=\abs{y-x}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R$}}\\
-			Analogo al primo esempio, nel dettaglio
+		\item $X=\R,\quad d(x,y)=\abs{y-x}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R$}}
 			\begin{enumerate}[label=\arabic*.]
 				\item $d(x,y) \geq 0$ per definizione valore assoluto
 				\item $d(x,y) = 0 \iff x = y$ perché $\abs{\;\cdot\;} = 0 \iff \cdot\; = 0$ per definizione valore assoluto
@@ -111,7 +113,7 @@ Unendo le due definizioni si giunge naturalmente a
 			\end{enumerate}
 		\item $X=\R^n \;\; \text{con}\; x=(x_1,\ldots,x_n),\; y=(y_1,\ldots,y_n),\quad d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^n$}} \label{ex:dist_eucl}\\
 			Analogo al primo esempio
-		\item $X\ne \emptyset,\quad d(x,y)= \left\{\begin{matrix}0&&x=y\\1&&x \ne y\end{matrix}\right.$ \hfill {\footnotesize\textbf{Metrica Discreta}}\\
+		\item $X\ne \emptyset,\quad d(x,y)= \left\{\begin{matrix}0&&x=y\\1&&x \ne y\end{matrix}\right.$ \hfill {\footnotesize\textbf{Metrica Discreta}}\label{ex:dist_discr}
 			\begin{enumerate}[label=\arabic*.]
 				\item $d(x,y) \geq 0$ per definizione
 				\item $d(x,y) = 0 \iff x = y$ per definizione
@@ -130,7 +132,7 @@ Unendo le due definizioni si giunge naturalmente a
 					o\\
 					\textbf{Distanza della Convergenza Uniforme}
 				\end{tabular}
-			}\label{ex:dim_dist_conv_unif}\\
+			}\label{ex:dim_dist_conv_unif}
 			\begin{note}
 				La metrica viene trattata in \fullref{def:conv_unif}
 			\end{note}
@@ -156,12 +158,14 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\realintervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\realintervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{teo:weier} ed avere la certezza che esista $\sup$ finito.
 				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
 				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
-				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene $\abs{g(x)-f(x)}\le\abs{g(x)-h(x)}+\abs{h(x)-f(x)}$. Applicando il sup la disuguaglianza resta vera.
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
+					$$\abs{g(x)-f(x)}\le\abs{g(x)-h(x)}+\abs{h(x)-f(x)}$$
+					Applicando il sup la disuguaglianza resta vera.
 			\end{enumerate}
 			\begin{note}
 				Si sottolinea che queste conclusioni sono valide finché $\realintervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{teo:weier} necessario per il punto 1. % TODO Serve un controesempio
 			\end{note}
-		\item $X=\R^2$, $d$ distanza Euclidea e $P$ punto arbitrario\\
+		\item $X=\R^2$, $d$ distanza Euclidea e $P$ punto arbitrario\newline
 			$\quad d_P(x,y)=
 			\begin{cases}
 				\begin{array}{ll}
@@ -175,14 +179,14 @@ Unendo le due definizioni si giunge naturalmente a
 					o\\
 					\textbf{Distanza Ferroviaria Francese}
 				\end{tabular}
-			} \label{ex:dist_parigi}\\
+			} \label{ex:dist_parigi}
 			\begin{enumerate}[label=\arabic*.]
 				\item $d(x,y) \geq 0$ per definizione
 				\item $d(x,y) = 0 \iff x = y$ per definizione
 				\item $d(x,y)=d(y,x)$ essendo bassata sulla metrica Euclidea
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo bassata sulla metrica Euclidea
 			\end{enumerate}
-		\item $X=\cntclass{0}(\realintervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}}$ \hfill {\footnotesize\textbf{Distanza Quadratica}}\\
+		\item $X=\cntclass{0}(\realintervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}}$ \hfill {\footnotesize\textbf{Distanza Quadratica}}
 		\label{ex:dim_dist_quadratica}
 			\begin{note}
 				La metrica viene trattata in \fullref{def:dist_quadratica}
@@ -216,8 +220,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{note}
 \end{definition}
 
-\begin{example}[Esempi di Spazi Normati]
-	~
+\begin{example}[Esempi di Spazi Normati]\leavevmode\vspace*{-\baselineskip}
 	\begin{enumerate}
 		\item $\R$ con $\norm{x} = \abs{x}$
 		\item $\C$ con $\norm{x} = \abs{x}$
@@ -252,7 +255,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{proposition}
 
 \begin{definition}[Metriche Equivalenti]
-	Siano $d_1$ e $d_2$ due distanze sullo stesso insieme $X$.\\
+	Siano $d_1$ e $d_2$ due distanze sullo stesso insieme $X$.
 	\begin{equation*}
 		\begin{gathered}
 			d_1 \text{ e } d_2 \text{ sono \textbf{equivalenti}}\\
@@ -299,6 +302,13 @@ Unendo le due definizioni si giunge naturalmente a
 	Se $r=0\Rightarrow B(x_0,r)=\emptyset$\\
 	Se $r>0\Rightarrow x_0\in B(x_0,r)$
 \end{observation}
+\begin{example}[Sfere ed Altri Enti]\leavevmode\vspace*{-\baselineskip}
+	\begin{itemize}
+		\item In $\R$ con $d$, $B(x_0,r)$ è un intervallo simmetrico centrato in $x_0$
+		\item In $\R^2$ con $d$, $B(x_0,r)$ è una un cerchio con centro in $x_0$
+		\item In $\R^3$ con $d$, $B(x_0,r)$ è una sfera con centro in $x_0$
+	\end{itemize}
+\end{example}
 \begin{exercise}
 	Descrivere le sfere nelle distanze dell'\fullref{ex:metr_equiv_R2}.
 	% TODO solution
@@ -308,76 +318,243 @@ Unendo le due definizioni si giunge naturalmente a
 	Sia $(X,d)$ uno spazio metrico e sia $x \in X$. \textbf{Intorno di} $\boldsymbol{x}$ è un qualunque sottoinsieme di $X$ che contenga una sfera aperta contentente $x$
 \end{definition}
 
-\example
-In $\R$ con $d_E$, $B(x_0,r)$ è un intervallo simmetrico centrato in $x_0$
-\example
-In $\R^2$ con $d_E$, $B(x_0,r)$ è una un cerchio con centro in $x_0$
-\example
-In $\R^3$ con $d_E$, $B(x_0,r)$ è una sfera con centro in $x_0$
-\example
-
-% TODO le definizioni prima di questa nel capitolo 1
+\begin{definition}[Punti e Spazi Metrici]
+	Siano $(X,d)$ uno Spazio Metrico, $A \subseteq X$ e $x_0 \in X$:
+	\begin{itemize}
+		\item $x_0$ \textbf{Interno} ad $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \subseteq A$\newline
+			{\footnotesize Cioè è possibile individuare una sfera interamente contenuta in $A$}
+		\item $x_0$ \textbf{Esterno} ad $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \subseteq X \setminus A$\newline
+			{\footnotesize Cioè è possibile individuare una sfera interamente contenuta in $X$ e NON in $A$}
+		\item $x_0$ \textbf{di Frontiera} per $A$ \quad $\bydef$ \quad $\forall r > 0,\: B(x_0, r) \nsubseteq A \text{ e } B(x_0, r) \nsubseteq X \setminus A$\newline
+			{\footnotesize Cioè, per qualsiasi $r$, la sfera non appartiene completamente né ad $A$, né a $X \setminus A$}
+		\item $x_0$ \textbf{Isolato} per $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \cap A = {x_0}$\newline
+			{\footnotesize Cioè è possible trovare un $r$ per cui l'intersezione tra la sfera ed $A$ contiene solo $x_0$ (Esempio: i numeri naturali con $r = 0,5$)}
+		\item $x_0$ \textbf{di Accumulazione} per $A$ \quad $\bydef$ \quad $\forall r > 0 \bigl( B(x_0, r) \cap A \bigr) \setminus {x_0} \neq \emptyset$\newline
+			{\footnotesize Cioè, per qualsiasi $r$, l'intersezione tra la sfera ed $A$ è sempre non vuota (non considerando $x_0$ stesso)}
+	\end{itemize}
+\end{definition}
 \begin{definition}
+	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$. Si definisce:
+	\begin{itemize}
+		\item $\circdot{A} = \brackets{x \in X:\; x \text{ è interno ad } A}$ \qquad (\textbf{Parte Interna di} $\boldsymbol{A}$)
+		\item $\partial A = \brackets{x \in X:\; x \text{ è di frontiera per } A}$ \qquad (\textbf{Frontiera di} $\boldsymbol{A}$)
+		\item $\overline{A} = \brackets{x \in X:\; x \brackets{\text{\small\begin{tabular}{c}appartiene ad $A$\\o\\è di accumulazione per $A$\end{tabular}}}}$ \qquad (\textbf{Chiusura di} $\boldsymbol{A}$)
+	\end{itemize}
+	% TODO figura
+\end{definition}
+\begin{example}
+	Siano $X = \R$ con $d(x,y)  = \abs{y-x}$, $A = \brackets{1} \cup \realintervalclop{2}{3}$.\\
+	$1$ è un punto isolato per $A$, $5$ è esterno ad $A$.\\
+	$\overline{A} = \brackets{1} \cup \realintervalclose{2}{3}$, \quad $\circdot{A} = \realintervalopen{2}{3}$, \quad $\partial A = \brackets{1, 2, 3}$
+\end{example}
+\begin{example}
+	Sia $X = \R$ con $d(x,y)  = \abs{y-x}$\\
+	Valgono le uguaglianze $\circdot{\R} = \R$, \quad $\overline{\R} = \R$, \quad $\partial \R = \emptyset$
+\end{example}
+\begin{proposition}
+	\label{prop:chius_sp_metr}
+	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $A \neq \emptyset$. Allora
+	$$\overline{A} = \brackets{x \in A \text{ è \textbf{isolato} per } A} \cup \brackets{x \in X: x \text{ è \textbf{di accumulazione} per } A}$$
+\end{proposition}
+\begin{proposition}
+	\label{prop:relaz_sp_metr_1}
+	Siano $(X,d)$ uno spazio metrico, $x_0 \in X$ e $A \subseteq X$, $A \neq \emptyset$. Allora valgono le seguenti relazioni
+	\begin{enumerate}
+		\item $x_0$ \textbf{isolato} per $A \implies x_0 \in A$
+		\item $x_0$ \textbf{isolato} per $A \implies \begin{cases} A = \brackets{x_0}\\\qquad \text{o}\\\inf\limits_{A \setminus {x_0}} d(x,x_0) > 0\end{cases}$
+		\item $x_0$ \textbf{interno} ad $A \implies x_0 \in A$
+		\item $x_0$ \textbf{esterno} ad $A \iff \inf\limits_A d(x,x_0) > 0$
+		\end{enumerate}
+\end{proposition}
+\begin{proposition}[Condizione Punti Accumulazione]
+	\label{prop:condiz_punt_accumulaz}
+	Siano $(X,d)$ uno spazio metrico, $x_0 \in X$ e $A \subseteq X$, $A \neq \emptyset$. Allora
+	\begin{equation*}
+		\begin{gathered}
+			x_0 \text{ è di \textbf{accumulazione} per } A\\
+			\iff\\
+			\inf \brackets{d(x,x_0) : x \in A, x \neq x_0} = 0
+		\end{gathered}
+	\end{equation*}
+	Cioè se la "minima distanza" tra $x_0$ ed un altro punto qualsiasi di $A$ è $0$.
+\end{proposition}
+\begin{proposition}
+	\label{prop:relaz_sp_metr_2}
+	Siano $(X,d)$ uno spazio metrico, $x_0 \in X$ e $A \subseteq X$, $A \neq \emptyset$. Valgono le seguenti relazioni:
+	\begin{enumerate}
+		\item $\overline{A} = \brackets{x_0 \in X:\; \inf\limits_{x \in A} d(x, x_0) = 0}$
+		\item $\overline{\emptyset} = \emptyset$
+		\item $\partial A = \overline{A} \cap \overline{X \setminus A}$
+		\item $\circdot{A} \cap \partial A \neq \emptyset$
+		\item $\overline{A} = \circdot{A} \cup \partial A$
+	\end{enumerate}
+\end{proposition}
+\begin{exercise}
+	Dimostrare nel dettaglio le proposizioni \fullref{prop:chius_sp_metr}, \fullref{prop:relaz_sp_metr_1}, \fullref{prop:condiz_punt_accumulaz}, \fullref{prop:relaz_sp_metr_2}.
+	% TODO solution
+\end{exercise}
+
+\begin{definition}[Insieme Aperto]
 	\label{def:aperto}
-	Sia $(X,d)$ spazio metrico, sia $A\subseteq X$. Si definisce
+	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
 	$$A\text{ è \textbf{aperto}}\bydef A=\emptyset\quad\text{oppure}\quad A=\circdot{A}$$
 \end{definition}
-
-\begin{definition}
+\begin{definition}[Insieme Chiuso]
 	\label{def:chiuso}
-	Sia $(X,d)$ spazio metrico, sia $A\subseteq X$. Si definisce
+	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
 	$$A\text{ è \textbf{chiuso}}\bydef A=\emptyset\quad\text{oppure}\quad A=\bar{A}$$
 \end{definition}
+\begin{exercise}
+	Dimostrare che in uno spazio metrico $(X,d)$:
+	\begin{enumerate}
+		\item Ogni sfera di raggio strettamente positivo è un aperto
+		\item $\overline{B(x_0,r)} \subseteq \brackets{x \in X:\; d(x,x_0) \leq r}$
+		\item $X$ è aperto ed anche chiuso
+		\item $\emptyset$ è aperto ed anche chiuso
+		\item Sia $A \subseteq X$. Se $A$ è aperto, allora il complementare di $A$ in $X$ è chiuso
+		\item Sia $A \subseteq X$. Se $A$ è chiuso, allora il complementare di $A$ in $X$ è aperto
+		\item Sia $A \subseteq X$. Allora $\overline{A}$ è chiuso e $\circdot{A}$ è aperto
+	\end{enumerate}
+	% TODO solution
+\end{exercise}
+\begin{proposition}
+	Sia $(X,d)$ lo spazio metrico con la Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}).\\
+	Allora, preso un $x_0 \in X$ ed un $r > 0$, l'inclusione $\overline{B(x_0,r)} \subseteq \brackets{x \in X:\; d(x,x_0) \leq r}$ è stretta se e soltanto se $r = 1$
+	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned
+\end{proposition}
+\begin{exercise}
+	Esibire in un opportuno spazio metrico esempi di insiemi né aperti né chiusi.
+	% TODO examples
+\end{exercise}
 
-\definition
-Siano $(X,d_1)$ e $(X,d_2)$ spazi metrici. $d_1$ e $d_2$ sono equivalenti $\leftrightharpoons \exists c,C\in\R, c_1>0, c_2>0$ t.c:
-$$ \forall x,y \in X\quad cd_1(x,y)\le d_2(x,y)\le Cd_1(x,y) $$
+\begin{definition}[Diametro Spazio Metrico]
+	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
+	$$\boldsymbol{\diam}(A) \quad = \quad \sup\limits_{x,y \in A} d(x,y)$$
+	Cioè la "distanza massima" tra due suoi qualsiasi elementi.
+\end{definition}
+\begin{definition}[Spazio Metrico Limitato]
+	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Allora
+	$$A \text{ è \textbf{Limitato}} \quad \bydef \quad \diam(A) \text{ è finito}$$
+	$$A \text{ è \textbf{Illimitato}} \quad \bydef \quad \diam(A) \text{ è infinito}$$
+\end{definition}
+\begin{note}
+	L'insieme vuoto $\emptyset$ ha diametro nullo ed è dunque limitato.
+\end{note}
+\begin{example}[Diametri e Limitatezza in Spazi Metrici]\leavevmode\vspace*{-\baselineskip}
+	\begin{enumerate}
+		\item $\R$ con $d(x,y) = \abs{y-x}$ è uno spazio metrico illimitato. Inoltre se $A \subseteq \R$ con $A \neq \emptyset$, allora $\diam(A) = \sup A - \inf A$
+		\item $\R$ con $d(x,y) = \frac{\abs{y-x}}{1-\abs{y-x}}$ è uno spazio metrico limitato di diametro $1$ (la distanza massima tra due punti con questa metrica è $1$)
+		\item Sia $X$ un insieme con almeno $2$ elementi munito della Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}) è uno spazio metrico limitato di diametro $1$
+		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ con $d(f,g) = \sup\limits_{\realintervalclose{0}{1}} \abs{g(x)-f(x)}$ è uno spazio metrico illimitato utilizzato in \fullref{sect:conv_unif}
+	\end{enumerate}
+\end{example}
+\begin{exercise}
+	Siano $(X,d)$ uno spazio metrico e $A,B\subseteq X$. Dimostrare le seguenti implicazioni:
+	\begin{enumerate}
+		\item $\left.\begin{array}{ll}
+			A \subseteq B\\
+			A \text{ illimitato}
+			\end{array} \quad\right\} \implies B \text{ illimitato}$
+		\item $\left.\begin{array}{ll}
+			A \subseteq B\\
+			B \text{ limitato}
+			\end{array} \quad\right\} \implies A \text{ limitato}$
+		\item $\left.\begin{array}{ll}
+			A \text{ limitato}\\
+			B \text{ limitato}
+			\end{array} \quad\right\} \implies  A \cup B \text{ limitato}$
+	\end{enumerate}
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Dimostrare che in $\R$ le distanze
+	$$d(x,y) = \abs{y-x} \quad \text{e} \quad d(x,y) = \frac{\abs{y-x}}{1+\abs{y-x}}$$
+	non sono equivalenti.
+	\begin{solution}
+		Suggerimento: utilizzare la nozione di limitatezza.
+		% TODO solution
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Dimostrare che in uno spazio metrico $(X,d)$:
+	\begin{enumerate}
+		\item Se $x_0 \in X$ e $r > 0$, allora $\diam \bigl( B(x_0, r) \bigr) \leq 2r$ (si veda \fullref{ex:diam_sp_metr})
+		\item Se $A \subseteq X$ e $x_0 \in A$, allora $A$ è limitato se e solo se esiste un $r>0:\; A \subseteq B(x_0,r)$
+	\end{enumerate}
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Sia $X = \R$ con la distanza $d(x,y) = \abs{y-x}$.\\
+	Dimostrare che $\diam \bigl( B(0,1) \bigr) = 2$
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	\label{ex:diam_sp_metr}
+	Sia $X = \realintervalclose{0}{2}$ con la distanza $d(x,y) = \abs{y-x}$.\\
+	Dimostrare che $\diam \bigl( B(0,1) \bigr) = 1$
+	% TODO solution
+\end{exercise}
 
-\definition
-Un insieme è finito se il numero dei suoi elementi è finito
-\definition
-Un insieme è infinito se non è finito
-\definition
-Sia $(X,d)$s.m., $A\subseteq X$, $A\ne \emptyset$ si definisce diametro di A: $$diam(A)=\sup\limits_{x,y\in A}d(x,y)$$
-\definition
-$A$ è limitato $\leftrightharpoons diam(A)$ è finito ($\in\R$)
-\definition
-$A$ è illimitato $\leftrightharpoons diam(A)$ è infinito ($=\infty$)
-\example
-...\\
-...\\
-...\\
-..\\
-....\\
-\observation
-Ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgono i viceversa.
-\example
-.....\\
-....\\
-.....\\
-......\\
-.....\\
-....\\
+\begin{proposition}
+	Siano $(X,d)$ uno spazio metrico e $A,B\subseteq X$:
+	$$A \subseteq B \implies \diam(A) \leq \diam(B)$$
+	\begin{proof}
+		Immediata % TODO proof
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Dimostrare con esempi che:
+	\begin{enumerate}
+		\item $A \subset B \notimplies \diam(A) < \diam(B)$
+		\item $\diam(A) < \diam(B) \notimplies A \subset B$
+		\item $\diam(A) \leq \diam(B) \notimplies A \subseteq B$
+		\item $\diam(A) = 0 \notimplies A = \emptyset$ % Metrica a lunghezza zero?
+	\end{enumerate}
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Esibire in $\R$, $\R^2$ ed in $\cntclass{0}(\realintervalclose{0}{1}; \R)$ (con le metriche usuali) esempi di insiemi aperti/chiusi e limitati/illimtati.
+\end{exercise}
 
+\begin{definition}[Insieme Finito ed Infinito]
+	Un insieme si dice \textbf{Finito} se il numero dei suoi elementi è finito.\\
+	Un insieme si dice \textbf{Ininito} se non è finito.
+\end{definition}
+\begin{observation}
+	Con la metrica Euclidea, ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgono i viceversa.
+\end{observation}
 
 \section{Successioni e Completezza}
-\begin{definition}
-	% TODO Definizione successione
+\begin{definition}[Successione]
+	Sia $X$ un insieme non vuoto. \textbf{Successione} in $X$ è una funzione $x:\; \N \mapsto X$
+	\begin{note}
+		Altre possibili notazioni per le successioni sono: $x_n$, $(x_n)_{n \in \N}$ e $\brackets{x_n:\; n \in \N}$.
+	\end{note}
 \end{definition}
-\begin{definition}
-	% TODO Successione limitata
+\begin{definition}[Successione Limitata e Illimtata]
+	Una successione $x:\; \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ si dice \textbf{Limitata} se il suo codominio $x(\N)$ è limitato.\\
+	Una successione è \textbf{Illimitata} se il suo codominio $x(\N)$ è illimitato.
 \end{definition}
-\begin{definition}
-	% TODO Successione convergente
+\begin{definition}[Limite per Successioni]
+	\label{def:lim_succ}
+	Data una successione $x:\; \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
+	$$\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0$$
+	Se $\lim\limits_{n \to +\infty} = x_\infty$, allora la successione $x_n$ è \textbf{Convergente} a $x_\infty$. Si può scrivere: $x_n \to x_\infty$ per $n \to \infty$.
+
+	Cioè la convergenza della successione $x:\; \N \mapsto X$ a $x_\infty$ equivale alla convergenza a $0$ della successione di numeri reali $\brackets{d(x_n,x_\infty):\; n \in \N}$
 \end{definition}
+\begin{note}
+	La \fullref{def:lim_succ} è \textit{implicita}, cioè non porta a nessun metodo \textit{costruttivo} per calcolare il limite di una successione. La definizione di limite permette soltanto di verificare se una nota quantità è limite della successione data o meno.
+\end{note}
 \begin{proposition}
 	\label{prop:succ_conv_lim}
 	Data la successione $x: \N \mapsto X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
-	$$\lim\limits_{n\rightarrow+\infty}x_n=x_\infty\iff\forall\varepsilon > 0\;\;\exists\nu\in\N:\quad\forall n>\nu\;\;d(x_n,x_\infty)<\varepsilon$$
+	$$\lim\limits_{n\rightarrow+\infty}x_n=x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon$$
 	\begin{proof}
 		% TODO dimostrazione
 	\end{proof}
 \end{proposition}
+
 \subsection{Insiemi Compatti}
 \begin{definition}[Insieme Compatto]
 	\label{def:compatto}
