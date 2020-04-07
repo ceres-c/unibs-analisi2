@@ -113,7 +113,13 @@ Unendo le due definizioni si giunge naturalmente a
 			\end{enumerate}
 		\item $X=\R^n \;\; \text{con}\; x=(x_1,\ldots,x_n),\; y=(y_1,\ldots,y_n),\quad d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^n$}} \label{ex:dist_eucl}\\
 			Analogo al primo esempio
-		\item $X\ne \emptyset,\quad d(x,y)= \left\{\begin{matrix}0&&x=y\\1&&x \ne y\end{matrix}\right.$ \hfill {\footnotesize\textbf{Metrica Discreta}}\label{ex:dist_discr}
+		\item $X\ne \emptyset,\quad d(x,y)=
+			\begin{cases}
+				\begin{matrix}
+					0&&x=y\\
+					1&&x \ne y
+				\end{matrix}
+			\end{cases}$ \hfill {\footnotesize\textbf{Metrica Discreta}}\label{ex:dist_discr}
 			\begin{enumerate}[label=\arabic*.]
 				\item $d(x,y) \geq 0$ per definizione
 				\item $d(x,y) = 0 \iff x = y$ per definizione
@@ -311,7 +317,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{example}
 \begin{exercise}
 	Descrivere le sfere nelle distanze dell'\fullref{ex:metr_equiv_R2}.
-	% TODO solution
+	% TODO soluzione
 \end{exercise}
 
 \begin{definition}[Intorno]
@@ -319,26 +325,28 @@ Unendo le due definizioni si giunge naturalmente a
 \end{definition}
 
 \begin{definition}[Punti e Spazi Metrici]
+	\label{def:pti_e_spa_metr}
 	Siano $(X,d)$ uno Spazio Metrico, $A \subseteq X$ e $x_0 \in X$:
 	\begin{itemize}
 		\item $x_0$ \textbf{Interno} ad $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \subseteq A$\newline
 			{\footnotesize Cioè è possibile individuare una sfera interamente contenuta in $A$}
 		\item $x_0$ \textbf{Esterno} ad $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \subseteq X \setminus A$\newline
 			{\footnotesize Cioè è possibile individuare una sfera interamente contenuta in $X$ e NON in $A$}
-		\item $x_0$ \textbf{di Frontiera} per $A$ \quad $\bydef$ \quad $\forall r > 0,\: B(x_0, r) \nsubseteq A \text{ e } B(x_0, r) \nsubseteq X \setminus A$\newline
+		\item $x_0$ \textbf{di Frontiera} per $A$ \quad $\bydef$ \quad $\forall r > 0,\; B(x_0, r) \nsubseteq A \text{ e } B(x_0, r) \nsubseteq X \setminus A$\newline
 			{\footnotesize Cioè, per qualsiasi $r$, la sfera non appartiene completamente né ad $A$, né a $X \setminus A$}
-		\item $x_0$ \textbf{Isolato} per $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \cap A = {x_0}$\newline
+		\item $x_0$ \textbf{Isolato} per $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$\newline
 			{\footnotesize Cioè è possible trovare un $r$ per cui l'intersezione tra la sfera ed $A$ contiene solo $x_0$ (Esempio: i numeri naturali con $r = 0,5$)}
-		\item $x_0$ \textbf{di Accumulazione} per $A$ \quad $\bydef$ \quad $\forall r > 0 \bigl( B(x_0, r) \cap A \bigr) \setminus {x_0} \neq \emptyset$\newline
+		\item $x_0$ \textbf{di Accumulazione} per $A$ \quad $\bydef$ \quad $\forall r > 0,\; \bigl( B(x_0, r) \cap A \bigr) \setminus \brackets{x_0} \neq \emptyset$\newline
 			{\footnotesize Cioè, per qualsiasi $r$, l'intersezione tra la sfera ed $A$ è sempre non vuota (non considerando $x_0$ stesso)}
 	\end{itemize}
 \end{definition}
 \begin{definition}
+	\label{def:topologia_spa_metri}
 	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$. Si definisce:
 	\begin{itemize}
-		\item $\circdot{A} = \brackets{x \in X:\; x \text{ è interno ad } A}$ \qquad (\textbf{Parte Interna di} $\boldsymbol{A}$)
-		\item $\partial A = \brackets{x \in X:\; x \text{ è di frontiera per } A}$ \qquad (\textbf{Frontiera di} $\boldsymbol{A}$)
-		\item $\overline{A} = \brackets{x \in X:\; x \brackets{\text{\small\begin{tabular}{c}appartiene ad $A$\\o\\è di accumulazione per $A$\end{tabular}}}}$ \qquad (\textbf{Chiusura di} $\boldsymbol{A}$)
+		\item $\circdot{A} = \brackets{x \in X:\; x \text{ è interno ad } A}$ \hfill \textbf{Parte Interna di} $\boldsymbol{A}$
+		\item $\partial A = \brackets{x \in X:\; x \text{ è di frontiera per } A}$ \hfill \textbf{Frontiera di} $\boldsymbol{A}$
+		\item $\overline{A} = \brackets{x \in X:\; x \brackets{\text{\small\begin{tabular}{c}appartiene ad $A$\\o\\è di accumulazione per $A$\end{tabular}}}}$ \hfill \textbf{Chiusura di} $\boldsymbol{A}$
 	\end{itemize}
 	% TODO figura
 \end{definition}
@@ -354,14 +362,26 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:chius_sp_metr}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $A \neq \emptyset$. Allora
-	$$\overline{A} = \brackets{x \in A \text{ è \textbf{isolato} per } A} \cup \brackets{x \in X: x \text{ è \textbf{di accumulazione} per } A}$$
+	$$\overline{A} = \brackets{x \in A \text{ è \textbf{isolato} per } A} \cup \brackets{x \in A: x \text{ è \textbf{di accumulazione} per } A}$$
+	% WARNING Nel secondo elemento dell'unione, sul libro, è riportato x \in X, non x \in A. Non mi sembrava sensato, dunque l'ho cambiato in questo modo.
+	\begin{proof}
+		Un punto isolato, per definizione, appartiene ad $A$, e rientra quindi automaticamente nella definizione di $\overline{A}$. È dunque necessario dimostrare solo il caso $x_*$ di accumulazione per $A$.\\
+		Partiamo dunque dall'ipotesi:
+		\begin{align*}
+			&x_* \in A \text{ e } x_* \text{ \textbf{non} isolato per } A\\
+			\implies &x_* \in A \text{ e \textbf{non} } [ \exists r > 0:\; B(x_*, r) \cap A = \brackets{x_*} ]\\
+			\implies &x_* \in A \text{ e } [ \forall r > 0:\; B(x_*, r) \cap A \neq \brackets{x_*} ]
+			\intertext{Questo significa che in $B \cap A$ ci son sicuramente altri punti, che poi è come dire}
+			\implies &x_* \in A \text{ e } \underbrace{B(x_*, r) \cap A \setminus X \neq \emptyset}_{\mathclap{\text{Definizione di punto di accumulazione}}}
+		\end{align*}
+	\end{proof}
 \end{proposition}
 \begin{proposition}
 	\label{prop:relaz_sp_metr_1}
 	Siano $(X,d)$ uno spazio metrico, $x_0 \in X$ e $A \subseteq X$, $A \neq \emptyset$. Allora valgono le seguenti relazioni
 	\begin{enumerate}
 		\item $x_0$ \textbf{isolato} per $A \implies x_0 \in A$
-		\item $x_0$ \textbf{isolato} per $A \implies \begin{cases} A = \brackets{x_0}\\\qquad \text{o}\\\inf\limits_{A \setminus {x_0}} d(x,x_0) > 0\end{cases}$
+		\item $x_0$ \textbf{isolato} per $A \implies \begin{cases} A = \brackets{x_0}\\\qquad \text{o}\\\inf\limits_{A \setminus \brackets{x_0}} d(x,x_0) > 0\end{cases}$
 		\item $x_0$ \textbf{interno} ad $A \implies x_0 \in A$
 		\item $x_0$ \textbf{esterno} ad $A \iff \inf\limits_A d(x,x_0) > 0$
 		\end{enumerate}
@@ -391,7 +411,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{proposition}
 \begin{exercise}
 	Dimostrare nel dettaglio le proposizioni \fullref{prop:chius_sp_metr}, \fullref{prop:relaz_sp_metr_1}, \fullref{prop:condiz_punt_accumulaz}, \fullref{prop:relaz_sp_metr_2}.
-	% TODO solution
+	% TODO proofs
 \end{exercise}
 
 \begin{definition}[Insieme Aperto]
@@ -404,6 +424,18 @@ Unendo le due definizioni si giunge naturalmente a
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
 	$$A\text{ è \textbf{chiuso}}\bydef A=\emptyset\quad\text{oppure}\quad A=\bar{A}$$
 \end{definition}
+\begin{observation}
+	$A$ \textbf{non chiuso} $\notimplies$ $A$ aperto\\
+	$A$ \textbf{non aperto} $\notimplies$ $A$ chiuso
+\end{observation}
+\begin{example}
+	\label{ex:ins_non_ap_non_chius}
+	L'insieme $C = \brackets{(x,y) \in \R^2:\; x^2+y^2 \leq 1} \setminus \brackets{(1,0)}$ è né aperto né chiuso.
+	\begin{solution}~\newline
+		Non è chiuso in quanto la sua frontiera è $\partial C = \brackets{(x,y) \in \R^2:\; x^2+y^2 = 1}$, dunque $(1,0) \in \partial C$, ma per definizione $(1,0) \notin \partial C$\\
+		Non è aperto in quanto, prendendo $(0,1) \in C$, è impossibile trovare un intorno di $(0,1)$ contenuto completamente in $C$
+	\end{solution}
+\end{example}
 \begin{exercise}
 	Dimostrare che in uno spazio metrico $(X,d)$:
 	\begin{enumerate}
@@ -415,7 +447,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\item Sia $A \subseteq X$. Se $A$ è chiuso, allora il complementare di $A$ in $X$ è aperto
 		\item Sia $A \subseteq X$. Allora $\overline{A}$ è chiuso e $\circdot{A}$ è aperto
 	\end{enumerate}
-	% TODO solution
+	% TODO soluzione
 \end{exercise}
 \begin{proposition}
 	Sia $(X,d)$ lo spazio metrico con la Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}).\\
@@ -464,7 +496,7 @@ Unendo le due definizioni si giunge naturalmente a
 			B \text{ limitato}
 			\end{array} \quad\right\} \implies  A \cup B \text{ limitato}$
 	\end{enumerate}
-	% TODO solution
+	% TODO soluzione
 \end{exercise}
 \begin{exercise}
 	Dimostrare che in $\R$ le distanze
@@ -472,7 +504,7 @@ Unendo le due definizioni si giunge naturalmente a
 	non sono equivalenti.
 	\begin{solution}
 		Suggerimento: utilizzare la nozione di limitatezza.
-		% TODO solution
+		% TODO soluzione
 	\end{solution}
 \end{exercise}
 \begin{exercise}
@@ -481,18 +513,18 @@ Unendo le due definizioni si giunge naturalmente a
 		\item Se $x_0 \in X$ e $r > 0$, allora $\diam \bigl( B(x_0, r) \bigr) \leq 2r$ (si veda \fullref{ex:diam_sp_metr})
 		\item Se $A \subseteq X$ e $x_0 \in A$, allora $A$ è limitato se e solo se esiste un $r>0:\; A \subseteq B(x_0,r)$
 	\end{enumerate}
-	% TODO solution
+	% TODO soluzione
 \end{exercise}
 \begin{exercise}
 	Sia $X = \R$ con la distanza $d(x,y) = \abs{y-x}$.\\
 	Dimostrare che $\diam \bigl( B(0,1) \bigr) = 2$
-	% TODO solution
+	% TODO soluzione
 \end{exercise}
 \begin{exercise}
 	\label{ex:diam_sp_metr}
 	Sia $X = \realintervalclose{0}{2}$ con la distanza $d(x,y) = \abs{y-x}$.\\
 	Dimostrare che $\diam \bigl( B(0,1) \bigr) = 1$
-	% TODO solution
+	% TODO soluzione
 \end{exercise}
 
 \begin{proposition}
@@ -510,7 +542,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\item $\diam(A) \leq \diam(B) \notimplies A \subseteq B$
 		\item $\diam(A) = 0 \notimplies A = \emptyset$ % Metrica a lunghezza zero?
 	\end{enumerate}
-	% TODO solution
+	% TODO soluzione
 \end{exercise}
 \begin{exercise}
 	Esibire in $\R$, $\R^2$ ed in $\cntclass{0}(\realintervalclose{0}{1}; \R)$ (con le metriche usuali) esempi di insiemi aperti/chiusi e limitati/illimtati.
@@ -526,26 +558,30 @@ Unendo le due definizioni si giunge naturalmente a
 
 \section{Successioni e Completezza}
 \begin{definition}[Successione]
-	Sia $X$ un insieme non vuoto. \textbf{Successione} in $X$ è una funzione $x:\; \N \mapsto X$
+	Sia $X$ un insieme non vuoto. \textbf{Successione} in $X$ è una funzione $x: \N \mapsto X$
 	\begin{note}
-		Altre possibili notazioni per le successioni sono: $x_n$, $(x_n)_{n \in \N}$ e $\brackets{x_n:\; n \in \N}$.
+		Altre possibili notazioni per le successioni sono: $x_n$, $(x_n)_{n \in \N}$ e $\brackets{x_n:\; n \in \N}$.\\
+		Con $x_n$ si indica spesso anche \textbf{il valore assunto} dalla successione $x$ al suo $n-esimo$ elemento.
 	\end{note}
 \end{definition}
 \begin{definition}[Successione Limitata e Illimtata]
-	Una successione $x:\; \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ si dice \textbf{Limitata} se il suo codominio $x(\N)$ è limitato.\\
+	Una successione $x: \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ si dice \textbf{Limitata} se il suo codominio $x(\N)$ è limitato.\\
 	Una successione è \textbf{Illimitata} se il suo codominio $x(\N)$ è illimitato.
 \end{definition}
 \begin{definition}[Limite per Successioni]
 	\label{def:lim_succ}
-	Data una successione $x:\; \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
+	Data una successione $x: \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
 	$$\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0$$
 	Se $\lim\limits_{n \to +\infty} = x_\infty$, allora la successione $x_n$ è \textbf{Convergente} a $x_\infty$. Si può scrivere: $x_n \to x_\infty$ per $n \to \infty$.
 
-	Cioè la convergenza della successione $x:\; \N \mapsto X$ a $x_\infty$ equivale alla convergenza a $0$ della successione di numeri reali $\brackets{d(x_n,x_\infty):\; n \in \N}$
+	Cioè la convergenza della successione $x: \N \mapsto X$ a $x_\infty$ equivale alla convergenza a $0$ della successione di numeri reali $\brackets{d(x_n,x_\infty):\; n \in \N}$
+	\begin{note}
+		Essendo posto $x_\infty \in X$, $x_\infty$ deve appartenere allo spazio metrico. In caso alternativo il limite non esiste.
+	\end{note}
+	\begin{note}
+		Questa definizione è \textit{implicita}, cioè non porta a nessun metodo \textit{costruttivo} per calcolare il limite di una successione. La definizione di limite permette soltanto di verificare se una nota quantità è limite della successione data o meno.
+	\end{note}
 \end{definition}
-\begin{note}
-	La \fullref{def:lim_succ} è \textit{implicita}, cioè non porta a nessun metodo \textit{costruttivo} per calcolare il limite di una successione. La definizione di limite permette soltanto di verificare se una nota quantità è limite della successione data o meno.
-\end{note}
 \begin{proposition}
 	\label{prop:succ_conv_lim}
 	Data la successione $x: \N \mapsto X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
@@ -554,6 +590,319 @@ Unendo le due definizioni si giunge naturalmente a
 		% TODO dimostrazione
 	\end{proof}
 \end{proposition}
+\begin{theorem}[Teorema di Unicità del Limite per Successioni]
+	Sia $(X,d)$ uno spazio metrico e siano $x_\infty, x^\infty$ elementi di $X$ e $x: \N \mapsto X$ una successione in $X$.
+	\begin{equation*}
+		\left.
+		\begin{array}{l}
+			\lim\limits_{n \to +\infty} x_n = x_\infty\\
+			\lim\limits_{n \to +\infty} x_n = x^\infty\\
+		\end{array}
+		\quad\right\}
+		\implies x_\infty = x^\infty
+	\end{equation*}
+	\begin{proof}
+		Per ogni $n \in \N$, per la proprietà 4 da \fullref{def:sp_metrico}
+		$$d(x_\infty, x^\infty) \leq d(x_\infty, x_n) + d(n, x^\infty)$$
+		Passando al $\lim$ per $n \to +\infty$
+		$$\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x^\infty)}_{\begin{tabular}{c}\geq 0\\{\small Per def. distanza}\end{tabular}}
+		\leq
+		\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x_n)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
+		+
+		\underbrace{\lim\limits_{n \to +\infty}d(n, x^\infty)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
+		\leq 2 \varepsilon$$
+		Dovendo essere questa forma valida $\forall \varepsilon > 0$, si concludere che non può esser altro che
+		$$\lim\limits_{n \to +\infty}d(x_\infty, x^\infty) = 0$$
+		Che, per la proprietà 2 da \fullref{def:sp_metrico}, significa
+		$$x_\infty = x^\infty$$
+	\end{proof}
+\end{theorem}
+\begin{proposition}
+	Sia $p \in \N,\; p \geq 2$. In $\R^p$, con $d(x,y) = \norm{y-x}$, una successione $x: \N \to X$ converge a $x_\infty$ se e solo se le $è$ successioni delle componenti convergono alle rispettive componenti di $x_\infty$.
+	\begin{proof}
+		Applicare la \fullref{def:lim_succ} ricordando che
+		$$\abs{y_i} \leq \norm{y} \leq \abs{\sum\limits_{i = 1}^p \abs{y_i}} \qquad \forall y \in \R^p \text{ e per } i = 1,\:\dotsc\:,p$$
+		% TODO actual proof
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Esibire un esempio di successione in $\R^2$ convergente a $(1,1)$ con le distanze introdotte ai punti 3 e 4 dell'\fullref{ex:metriche}.
+	% TODO soluzione
+\end{exercise}
+\begin{exercise}
+	Esibire un esempio di successione in $\C$ convergente a $1+i$ con la distanza $d(z,w) = \abs{w-z}$.
+	% TODO soluzione
+\end{exercise}
+\begin{proposition}
+	\label{prop:pt_accumul_se_succ_conv}
+	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $x_* \in X$. Allora
+	$$x_* \text{ di accumulazione per } A \iff
+	\begin{cases}
+		\begin{tabular}{c} % NOTE This should probably be a box of some kind instead of a tabular
+			esiste una successione di elementi di $A$,\\
+			diversi da $x_*$, convergente a $x_*$
+		\end{tabular}
+	\end{cases}$$
+	\begin{proof}~
+		\begin{itemize}
+			\item[$\implies$] Grazie alla \fullref{prop:condiz_punt_accumulaz}
+				\begin{align*}
+					&x_* \text{ è di accumulazione per } A\\
+					\implies &\inf \brackets{d(x,x_*):\; x \in A, x \neq x_0} = 0
+					\intertext{Che equivale a scrivere}
+					\implies &\forall \varepsilon > 0\: \exists x_\varepsilon \in A:\; x_\varepsilon \neq x_* \text{ e } d(x_\varepsilon, x_*) < \varepsilon
+					\intertext{Quindi si può scegliere arbitrariamente un $\varepsilon = \frac{1}{n}$, ponendo $n \neq 0$ ed arrivare a}
+					\implies &\forall n \in \N \setminus \brackets{0},\: \exists x_n \in A:\; x_n \neq x_* \text{ e } d(x_n,x_*) < \frac{1}{n}
+				\end{align*}
+				La successione delle distanze è convergente a $0$ per $n \to +\infty$, quindi con la \fullref{def:lim_succ} si può concludere che la successione $x_n$ converge a $x_*$
+			\item[$\impliedby$] Dalla \fullref{def:lim_succ}
+				$$\forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \quad x_n \in A,\: x_n \neq x_*, \quad d(x_n,x_*)<\varepsilon$$
+				Ma se $d(x_n,x_*)<\varepsilon$, allora si può anche scrivere $x_n \in B(x_*, \varepsilon)$, quindi sicuramente
+				\begin{align*}
+					\implies & \forall\varepsilon > 0 \quad B(x_*, \varepsilon) \cap A \setminus \brackets{x_*} \neq \emptyset\\
+					\intertext{Dunque stando alla \fullref{def:pti_e_spa_metr}}
+					\implies & x_* \text{ è di accumulazione per } A
+				\end{align*}
+		\end{itemize}
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	\label{coro:succ_conv_sse_x_in_chius_A}
+	Siano $(X,d)$ uno Spazio Metrico, $A \subseteq X$ e $x_* \in X$. Allora:
+	$$x_* \in \overline{A} \iff
+	\begin{cases}
+		\begin{tabular}{c} % NOTE This should probably be a box of some kind instead of a tabular
+			esiste una successione di elementi di $A$,\\
+			diversi da $x_*$, convergente a $x_*$
+		\end{tabular}
+	\end{cases}$$
+	\begin{proof}~
+		\begin{itemize}
+			\item[$\implies$]
+				\begin{itemize}
+					\item Se $x_* \in A$\newline
+						È sufficiente scegliere $x_n = x_*$, successione costante, dunque
+						$$\lim\limits_{n \to +\infty} x_n = \lim\limits_{n \to +\infty} x_* = x_*$$
+					\item Se $x_*$ di accumulazione per $A$\newline
+						Per \fullref{def:topologia_spa_metri} e grazie alla \fullref{prop:pt_accumul_se_succ_conv} si giunge direttamente alla tesi.
+				\end{itemize}
+			\item[$\impliedby$] Per \fullref{def:topologia_spa_metri} e grazie alla \fullref{prop:pt_accumul_se_succ_conv} si giunge direttamente alla tesi.
+		\end{itemize}
+	\end{proof}
+\end{corollary}
+
+\begin{definition}[Condizione di Cauchy]
+	Sia $(X,d)$ uno spazio metrico e $x: \N \mapsto X$ una successione d in $X$.
+	\begin{equation}
+		\begin{gathered}
+			x:\N \mapsto X \text{ è \textbf{di Cauchy}}\\
+			\bydef\\
+			\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon
+		\end{gathered}
+	\end{equation}
+	Cioè se la distanza tra due punti qualsiasi della successione, presi dopo un certo valore $\nu$, è minore di un $\varepsilon$ piccolo a piacere.
+	\begin{note}
+		Questa definizione, differentemente dalla \fullref{def:lim_succ}, è \textit{esplicita} e \textit{intrinseca}: dipende esclusivamente dalla successione e dalla distanza definita.
+	\end{note}
+\end{definition}
+\begin{proposition}
+	\label{prop:se_succ_conv_allora_cau}
+	Sia $(X,d)$ uno spazio metrico.
+	$$x: \N \mapsto X \text{ è \textbf{convergente} } \implies x:\N \mapsto X \text{ è \textbf{di Cauchy}}$$
+	\begin{proof}
+		Sia $x: \N \mapsto X$ convergente a $x_\infty$. Allora
+		$$\lim\limits_{n \to +\infty} x_n \bydef \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d(x_n,x_\infty)<\varepsilon$$
+		Prendendo dunque due elementi qualsiasi $n$ e $m$ con $n,m > \nu$, la distanza di ognuno di essi da $x_\infty$ dovrà essere $<\varepsilon$. Applicando la proprietà 4 da \fullref{def:sp_metrico}, otteniamo
+		$$d(x_n,x_m) \leq \left[ d(x_n,x_\infty)+d(x_m,x_\infty) \right] < 2\varepsilon$$
+		Quindi
+		$$\forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n,m > \nu \quad d(x_n,x_m) \leq \left[ d(x_n,x_\infty)+d(x_m,x_\infty) \right] < 2\varepsilon$$
+		Cioè ci si è ricondotti alla definizione della Condizione di Cauchy
+	\end{proof}
+\end{proposition}
+
+\begin{definition}[Spazio Metrico Completo]
+	\label{def:completo}
+	Uno Spazio Metrico $(X,d)$ si dice \textbf{Completo} se e solo se \textbf{ogni successione di Cauchy in $X$ ammette limite in $X$ stesso}.
+\end{definition}
+\begin{example}[Esempi di Spazi Metrici Completi e non]\leavevmode\vspace*{-\baselineskip}
+	\begin{enumerate}
+		\item $\R$ con $d(x,y) = \abs{y - x}$ è uno spazio metrico completo
+		\item $\mathbb{Q}$ con $d(x,y) = \abs{y - x}$ è uno spazio metrico \textit{non} completo
+		\item $\R^n$ con $d(x,y) = \norm{y - x}$ è uno spazio metrico completo.\\
+			Altre distanze che rendono $\R^n$ uno spazio metrico completo sono, ad esempio
+			\begin{itemize}
+				\item $d(x,y) = \max\limits_{i=1,\:\dotsc\:,n} \abs{y_i - x_i}$
+				\item $d(x,y) = \left( \sum\limits_{i=1}^{n} \abs{y_i - x_i}^\alpha \right)^{\frac{1}{\alpha}}$ con $\alpha \in \realintervalclop{1}{+\infty}$
+			\end{itemize}
+		\item $\realintervalopen{0}{1}$ con $d(x,y) = \abs{y - x}$ è uno spazio metrico \textit{non} completo.
+			\begin{proof}
+				La successione $\brackets{\frac{1}{n}:\; n \in \N, n \neq 0}$ è di Cauchy ma non ammette limite in $\realintervalopen{0}{1}$
+			\end{proof}
+		\item Sia $X$ un insieme con almeno 2 elementi, munito della metrica discreta
+			$$d(x,y)=
+			\begin{cases}
+				\begin{matrix}
+					0&&x=y\\
+					1&&x \ne y
+				\end{matrix}
+			\end{cases}$$
+			$X$ è uno spazio metrico completo in cui le uniche successioni convergenti son le successioni \textbf{definitivamente costanti} (cioè costanti da un certo indice in poi).
+		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ è uno spazio metrico completo con la distanza
+			$$d(f,g) = \sup\limits_{\realintervalclose{0}{1}}\abs{g(x) - f(x)}$$
+			Vedasi \fullref{prop:dist_unif_sp_metr_compl} per la dimostrazione.
+		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ è uno spazio metrico \textit{non} completo con la distanza
+			$$d(f,g) = \sqrt{\int_0^1 \left[ g(x) - f(x) \right]^2 \integrald{x}}$$
+			Vedasi \fullref{prop:dist_quad_sp_metr_non_compl} per la dimostrazione.
+		\item L'insieme $\C$ dei numeri complessi è uno spazio metrico completo con la distanza $d(z,w) = \abs{w-z}$
+	\end{enumerate}
+\end{example}
+\begin{exercise}
+	Esibire una successione di Cauchy di numeri razionali non convergente in $\mathbb{Q}$.
+	\begin{solution}
+		La seguente successione
+		$$\lim\limits_{n \to +\infty} \left( 1+ \frac{1}{n} \right)^n$$
+		è convergente a $e \notin \mathbb{Q}$
+	\end{solution}
+\end{exercise}
+\begin{proposition}
+	\label{prop:subset_compl_e_compl}
+	Siano $(X,d)$ uno spazio metrico \textbf{completo} e $C \subseteq X$ un sottoinsieme \textbf{chiuso} di $X$. Allora $\boldsymbol{(C,d_{|C})}$ \textbf{è sottospazio metrico completo}, con $d_{|C}$ da \fullref{def:metr_indotta}.
+	\begin{proof}
+		Essendo $C$ chiuso, per \fullref{def:chiuso}:
+		$$C = \overline{C} \implies \forall x_* \in C\; x_* \in \overline{C}$$
+		Si può dunque applicare il \fullref{coro:succ_conv_sse_x_in_chius_A} e concludere che
+		$$\forall x_* \in C \text{ esiste un successione di elementi di $C$ convergenti a $x_*$}$$
+		Questo permette di individuare tante successioni $x_i$ quanti sono gli elementi di $C$ e, grazie alla \fullref{prop:se_succ_conv_allora_cau}, si sa che ognuna di queste successioni è di Cauchy.
+
+		Si giunge dunque alla \fullref{def:completo}
+	\end{proof}
+	\begin{note}
+		La chiusura di $C$ è fondamentale perché diversamente non sarebbe applicabile il \fullref{coro:succ_conv_sse_x_in_chius_A} e dunque non si avrebbe certezza sulla convergenza in $C$ delle successioni.
+	\end{note}
+\end{proposition}
+\begin{proposition}
+	\label{prop:se_cau_allora_lim}
+	Sia $(X,d)$ uno spazio metrico. Data la successione $x: N \mapsto X$ \textbf{di Cauchy}:
+	$$x: N \mapsto X \text{\textbf{ di Cauchy}} \implies x: N \mapsto X \text{\textbf{ limitata}}$$
+	\begin{proof}
+		\begin{equation*}
+			\begin{gathered}
+				x: N \mapsto X \text{ di Cauchy}\\
+				\bydef\\
+				\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon
+			\end{gathered}
+		\end{equation*}
+		La dimostrazione prevede di dividere in due "parti" la successione
+		\begin{enumerate}
+			\item Per la definizione di cui sopra è sicuramente possibile individuare un certo $\overline{\nu}$ per cui
+				$$\exists \overline{\nu}:\; \forall n > \overline{\nu} \quad d(x_n, x_{\overline{\nu}}) < 1 \text{ (1 è scelto arbitrariamente)}$$
+				In tal modo è stata esplicitata la limitatezza di $x$ \textit{da $\overline{\nu}$ in poi}.
+			\item Si ponga invece $K = \max\limits_{n=0,\: \dotsc \:, \overline{\nu}-1} d(x_n, x_{\overline{\nu}})$, cioè $K$ è la massima tra tutte le distanze $d(x_n, x_{\overline{\nu}})$ con $n < \overline{\nu}$.\\
+				Essendo $n < \overline{\nu}$, $n$ è sicuramente finito, per cui anche $K$ sarà finito. Infatti, avendo un numero finito $n$ di valori $x_n$ assunti dalla successione, anche il massimo di tali valori (cioé $K$) sarà finito.\\
+				In questo modo si è trovato un valore $K$ che limita la $x$ \textit{prima di} $\overline{\nu}$.
+		\end{enumerate}
+		Quindi, concludendo, sicuramente
+		$$\forall n \in \N \quad d(x_n, x_{\overline{\nu}}) < \max \brackets{K, 1}$$
+		Cioè la successione è limitata.
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	\label{ex:succ_lim_non_cau}
+	Definire in un opportuno spazio metrico una successione limitata non di Cauchy.
+	\begin{solution}
+		In $(\N,d)$ la successione $x(n) = (-1)^n$.
+	\end{solution}
+\end{exercise}
+\begin{corollary}
+	Sia $(X,d)$ uno spazio metrico. Data la successione $x: N \mapsto X$ \textbf{convergente}:
+	$$x: N \mapsto X \text{\textbf{ convergente}} \implies x: N \mapsto X \text{\textbf{ limitata}}$$
+	\begin{proof}
+		Grazie alla \fullref{prop:se_succ_conv_allora_cau} ed alla \fullref{prop:se_cau_allora_lim}
+		$$\text{convergente } \implies \text{ di Cauchy } \implies \text{ limitata}$$
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	Definire in un opportuno spazio metrico una successione limitata non convergente.
+	\begin{solution}
+		Come da \fullref{ex:succ_lim_non_cau} % TODO magari un'altra successione qui
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Siano $(X,d)$ uno spazio metrico completo, $A \subseteq X$ chiuso e non vuoto. Allora, detta $d_{|A}$ la restrizione di $d$ ad $A$, $(A,d_{|A})$ è uno spazio metrico completo.\\
+	È indispensabile l'ipotesi "\textit{$A$ chiuso}"?
+	\begin{solution}
+		Vedere nota alla \fullref{prop:subset_compl_e_compl}
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Dimostrare che ogni sottosuccessione di una successione di Cauchy è a sua volta una successione di Cauchy.
+	% TODO soluzione
+\end{exercise}
+\begin{exercise}
+	Dimostrare che se una successione ammette una sottosuccessione convergente, allora l'intera successione è convergente.
+	% TODO soluzione
+\end{exercise}
+
+\subsection{Insiemi Connessi}
+Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare una definizione formale conviene prima caratterizzare gli insiemi formati \textit{da più pezzi} e poi definire come connessi quelli \textit{non} formati \textit{da più pezzi}.
+\begin{definition}[Insiemi Separati]
+	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $B \subseteq X$
+	$$A \text{ e } B \text{ sono \textbf{Separati}} \bydef \overline{A} \cap B = \emptyset \text{ e } A \cap \overline{B} = \emptyset$$
+\end{definition}
+\begin{definition}[Insieme Connesso o Sconnesso]
+	Un insieme è \textbf{Sconnesso} se e solo se è \textbf{unione} di due insiemi \textbf{separati}.\\
+	Un insieme è \textbf{Connesso} se e solo se \textbf{non è Sconnesso}.
+	\begin{note}
+		In uno spazio metrico un insieme può essere alternativamente connesso o sconnesso, ma sicuramente deve essere di un tipo o dell'altro. Ciò differisce con la classificazione Aperto/Chiuso secondo la quale potevano esistere insiemi né aperti né chiusi (vedasi \fullref{ex:ins_non_ap_non_chius})
+	\end{note}
+\end{definition}
+\begin{example}
+	In $\R$ con l'usuale distanza Euclidea:
+	\begin{enumerate}
+		\item $\realintervalclose{0}{1}$ e $\realintervalopcl{1}{2}$ non sono separati
+		\item $\realintervalclop{0}{1}$ e $\realintervalopcl{1}{2}$ sono separati
+		\item $\brackets{0} \cup \realintervalclose{1}{2}$ è sconnesso
+		\item $\R$ è connesso
+	\end{enumerate}
+\end{example}
+\begin{exercise}
+	Dimostrare che gli insiemi $\N$, $\mathbb{Z}$ e $\mathbb{Q}$ sono sottoinsiemi sconnessi di $\R$ con la distanza Euclidea.
+	% TODO soluzione
+\end{exercise}
+\begin{exercise}
+	Dimostrare che se due insiemi sono separati, allora sono disgiunti. Esibire un controesempio all'implicazione inversa.
+	% TODO soluzione
+\end{exercise}
+\begin{exercise}
+	Esibire esempi di insiemi:
+	\begin{enumerate}
+		\item connessi/sconnessi ed aperti/chiusi
+		\item connessi/sconnessi e limitati/illimitati
+	\end{enumerate}
+	% TODO soluzione
+\end{exercise}
+
+\begin{proposition}
+	In $\R$ con la metrica Euclidea, sia $A \subseteq \R$.
+	$$A \text{ è \textbf{Connesso}} \iff A \text{ è un \textbf{Intervallo}}$$
+	\begin{proof}
+		Omessa
+	\end{proof}
+\end{proposition}
+\begin{proposition}[Poligonale Congiungente due Punti]
+	\label{prop:polig_in_aperto_connesso}
+	In $\R^n$ con la distanza Euclidea, sia $A$ un \textbf{aperto connesso}. Allora, comunque scelti $x$ e $y$ in $A$, esiste una \textbf{poligonale} interamente contenuta in $A$ con i lati paralleli agli assi e congiungente $x$ a $y$.
+	% TODO disegno
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Mostrare con un esempio che nella \fullref{prop:polig_in_aperto_connesso} l'ipotesi "\textit{$A$ aperto}" è essenziale.
+	\begin{solution}
+		Dato lo spazio metrico $(\R^2,d)$, tutti i punti del sottoinsieme $\brackets{x \in \R^2:\;x^2 + y^2 = 1}$ sono di frontiera, dunque non è un aperto. È impossibile individuare una poligonale che colleghi due qualsiasi punti della circonferenza in quanto, appunto circonferenza.
+	\end{solution}
+\end{exercise}
 
 \subsection{Insiemi Compatti}
 \begin{definition}[Insieme Compatto]
@@ -579,7 +928,7 @@ Unendo le due definizioni si giunge naturalmente a
 \section{Limiti e Continuità}
 \begin{definition}
 	Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l\in{Y}$ \\
-	$\lim\limits_{x \rightarrow x_0} = l \bydef \forall{\varepsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x\ne{x_0} : d_y(f(x),l)<\varepsilon$
+	$\lim\limits_{x \rightarrow x_0} = l \bydef \forall{\varepsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x \neq x_0 : d_y(f(x),l)<\varepsilon$
 \end{definition}
 
 \begin{proposition}
@@ -653,7 +1002,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\begin{center}
 		$f$ è \textbf{uniformemente continua} in $A$\\
 		$\bydef$\\
-		$\forall \epsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale } d_Y\bigl(f(x),f(x_0)\bigr) < \epsilon$
+		$\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale } d_Y\bigl(f(x),f(x_0)\bigr) < \varepsilon$
 	\end{center}
 \end{definition}
 \begin{exercise}
