@@ -24,7 +24,7 @@
 		\item $d(x,z) \leq d(x,y)+d(y,z) \quad \forall x,y,z\in X$ \quad(\textit{disuguaglianza triangolare})
 	\end{enumerate}
 	\begin{note}
-		D'ora in poi, quando si userà $d$ come metrica, dove non diversamente specificato, si intenderà la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
+		D'ora in poi, quando si userà $d$ come metrica, dove non diversamente specificato, si intenderà la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})} % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 	\end{note}
 \end{definition}
 
@@ -161,7 +161,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\end{tikzpicture}
 			\end{center}
 			\begin{enumerate}[label=\arabic*.]
-				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\realintervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\realintervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{teo:weier} ed avere la certezza che esista $\sup$ finito.
+				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\realintervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\realintervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{teo:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
 				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
 				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
@@ -169,7 +169,7 @@ Unendo le due definizioni si giunge naturalmente a
 					Applicando il sup la disuguaglianza resta vera.
 			\end{enumerate}
 			\begin{note}
-				Si sottolinea che queste conclusioni sono valide finché $\realintervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{teo:weier} necessario per il punto 1. % TODO Serve un controesempio
+				Si sottolinea che queste conclusioni sono valide finché $\realintervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{teo:weier_analisi_1} necessario per il punto 1. % TODO Serve un controesempio
 			\end{note}
 		\item $X=\R^2$, $d$ distanza Euclidea e $P$ punto arbitrario\newline
 			$\quad d_P(x,y)=
@@ -256,11 +256,13 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{proof}
 	\begin{note}
 		Nel caso in cui $V = \R^n$, la metrica indotta è ovviamente la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
+		% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 		$$d(x,y) = \sqrt{\sum\limits_{i=1}^{n} (y_i-x_i)^2 }$$
 	\end{note}
 \end{proposition}
 
 \begin{definition}[Metriche Equivalenti]
+	\label{def:metr_equiv}
 	Siano $d_1$ e $d_2$ due distanze sullo stesso insieme $X$.
 	\begin{equation*}
 		\begin{gathered}
@@ -451,8 +453,8 @@ Unendo le due definizioni si giunge naturalmente a
 \end{exercise}
 \begin{proposition}
 	Sia $(X,d)$ lo spazio metrico con la Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}).\\
+	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 	Allora, preso un $x_0 \in X$ ed un $r > 0$, l'inclusione $\overline{B(x_0,r)} \subseteq \brackets{x \in X:\; d(x,x_0) \leq r}$ è stretta se e soltanto se $r = 1$
-	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned
 \end{proposition}
 \begin{exercise}
 	Esibire in un opportuno spazio metrico esempi di insiemi né aperti né chiusi.
@@ -476,7 +478,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\begin{enumerate}
 		\item $\R$ con $d(x,y) = \abs{y-x}$ è uno spazio metrico illimitato. Inoltre se $A \subseteq \R$ con $A \neq \emptyset$, allora $\diam(A) = \sup A - \inf A$
 		\item $\R$ con $d(x,y) = \frac{\abs{y-x}}{1-\abs{y-x}}$ è uno spazio metrico limitato di diametro $1$ (la distanza massima tra due punti con questa metrica è $1$)
-		\item Sia $X$ un insieme con almeno $2$ elementi munito della Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}) è uno spazio metrico limitato di diametro $1$
+		\item Sia $X$ un insieme con almeno $2$ elementi munito della Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}) è uno spazio metrico limitato di diametro $1$ % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ con $d(f,g) = \sup\limits_{\realintervalclose{0}{1}} \abs{g(x)-f(x)}$ è uno spazio metrico illimitato utilizzato in \fullref{sect:conv_unif}
 	\end{enumerate}
 \end{example}
@@ -585,7 +587,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:succ_conv_lim}
 	Data la successione $x: \N \mapsto X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
-	$$\lim\limits_{n\rightarrow+\infty}x_n=x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon$$
+	$$\lim\limits_{n\rightarrow+\infty}x_n = x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon$$
 	\begin{proof}
 		% TODO dimostrazione
 	\end{proof}
@@ -618,6 +620,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{proof}
 \end{theorem}
 \begin{proposition}
+	\label{prop:succ_conv_se_comp_conv}
 	Sia $p \in \N,\; p \geq 2$. In $\R^p$, con $d(x,y) = \norm{y-x}$, una successione $x: \N \to X$ converge a $x_\infty$ se e solo se le $è$ successioni delle componenti convergono alle rispettive componenti di $x_\infty$.
 	\begin{proof}
 		Applicare la \fullref{def:lim_succ} ricordando che
@@ -633,8 +636,8 @@ Unendo le due definizioni si giunge naturalmente a
 	Esibire un esempio di successione in $\C$ convergente a $1+i$ con la distanza $d(z,w) = \abs{w-z}$.
 	% TODO soluzione
 \end{exercise}
-\begin{proposition}
-	\label{prop:pt_accumul_se_succ_conv}
+\begin{proposition}[Caratterizzazione dei Punti di Accumulazione]
+	\label{prop:caratteriz_pti_accumul}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $x_* \in X$. Allora
 	$$x_* \text{ di accumulazione per } A \iff
 	\begin{cases}
@@ -684,9 +687,9 @@ Unendo le due definizioni si giunge naturalmente a
 						È sufficiente scegliere $x_n = x_*$, successione costante, dunque
 						$$\lim\limits_{n \to +\infty} x_n = \lim\limits_{n \to +\infty} x_* = x_*$$
 					\item Se $x_*$ di accumulazione per $A$\newline
-						Per \fullref{def:topologia_spa_metri} e grazie alla \fullref{prop:pt_accumul_se_succ_conv} si giunge direttamente alla tesi.
+						Per \fullref{def:topologia_spa_metri} e grazie alla \fullref{prop:caratteriz_pti_accumul} si giunge direttamente alla tesi.
 				\end{itemize}
-			\item[$\impliedby$] Per \fullref{def:topologia_spa_metri} e grazie alla \fullref{prop:pt_accumul_se_succ_conv} si giunge direttamente alla tesi.
+			\item[$\impliedby$] Per \fullref{def:topologia_spa_metri} e grazie alla \fullref{prop:caratteriz_pti_accumul} si giunge direttamente alla tesi.
 		\end{itemize}
 	\end{proof}
 \end{corollary}
@@ -798,7 +801,7 @@ Unendo le due definizioni si giunge naturalmente a
 				$$\exists \overline{\nu}:\; \forall n > \overline{\nu} \quad d(x_n, x_{\overline{\nu}}) < 1 \text{ (1 è scelto arbitrariamente)}$$
 				In tal modo è stata esplicitata la limitatezza di $x$ \textit{da $\overline{\nu}$ in poi}.
 			\item Si ponga invece $K = \max\limits_{n=0,\: \dotsc \:, \overline{\nu}-1} d(x_n, x_{\overline{\nu}})$, cioè $K$ è la massima tra tutte le distanze $d(x_n, x_{\overline{\nu}})$ con $n < \overline{\nu}$.\\
-				Essendo $n < \overline{\nu}$, $n$ è sicuramente finito, per cui anche $K$ sarà finito. Infatti, avendo un numero finito $n$ di valori $x_n$ assunti dalla successione, anche il massimo di tali valori (cioé $K$) sarà finito.\\
+				Essendo $n < \overline{\nu}$, $n$ è sicuramente finito, per cui anche $K$ sarà finito. Infatti, avendo un numero finito $n$ di valori $x_n$ assunti dalla successione, anche il massimo di tali valori (cioè $K$) sarà finito.\\
 				In questo modo si è trovato un valore $K$ che limita la $x$ \textit{prima di} $\overline{\nu}$.
 		\end{enumerate}
 		Quindi, concludendo, sicuramente
@@ -839,6 +842,7 @@ Unendo le due definizioni si giunge naturalmente a
 	% TODO soluzione
 \end{exercise}
 \begin{exercise}
+	\label{ex:sottsucc_conv_succ_conv}
 	Dimostrare che se una successione ammette una sottosuccessione convergente, allora l'intera successione è convergente.
 	% TODO soluzione
 \end{exercise}
@@ -886,7 +890,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	In $\R$ con la metrica Euclidea, sia $A \subseteq \R$.
 	$$A \text{ è \textbf{Connesso}} \iff A \text{ è un \textbf{Intervallo}}$$
 	\begin{proof}
-		Omessa
+		Omessa.
 	\end{proof}
 \end{proposition}
 \begin{proposition}[Poligonale Congiungente due Punti]
@@ -907,50 +911,269 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \subsection{Insiemi Compatti}
 \begin{definition}[Insieme Compatto]
 	\label{def:compatto}
-	Sia $(X,d)$ uno spazio metrico e sia $A \subseteq X$. $A$ è compatto se e solo se ogni successione di elementi di $A$ ammette una sottosuccessione avente limite in $A$.
+	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$. $A$ è \textbf{Compatto} se e solo se \textbf{ogni successione di elementi di $A$ ammette una sottosuccessione avente limite in $A$}.
 	\begin{note}
 		Questa è la definizione di \textbf{Compattezza per Successioni}, in spazi più generali può essere necessario utilizzare una definizione più debole che, nel caso degli spazi metrici, coincide con la precedente.
 	\end{note}
 \end{definition}
+\begin{proposition}
+	\label{prop:compat_chius_lim}
+	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$
+	$$A \text{ \textbf{compatto}} \implies A \text{ \textbf{chiuso e limitato}}$$
+	\begin{proof}
+		Per assurdo negando una per una le conclusioni.
+		\begin{itemize}
+			\item $A$ non è chiuso
+				\begin{align*}
+					&A \text{ non è chiuso}\\
+					\implies &A \neq \overline{A}\\
+					\implies &A \subset \overline{A}\\
+					\implies &\exists x_0 \in \overline{A},\; x_0 \notin A\\
+					\shortintertext{Dunque, per \fullref{def:topologia_spa_metri}, si deve concludere che}
+					\implies &\exists x_0 \text{ di accumulazione per } A,\; x_0 \notin A\\
+					\shortintertext{Quindi dalla \fullref{prop:caratteriz_pti_accumul}}
+					\implies &x:\; \N \mapsto X \text{ con }
+						\begin{cases}
+							x_n \in A\; \forall n\\
+							\lim\limits_{n \to +\infty} x_n = x_0, x_0 \notin A
+						\end{cases}\\
+					\shortintertext{Cioè abbiamo ottenuto una successione non convergente in $A$, dunque negando l'ipotesi}
+					\implies &A \text{ non è compatto - \textit{Assurdo}}
+				\end{align*}
+			\item $A$ non è limitato
+				\begin{align*}
+					&A \text{ non è limitato}\\
+					\implies &\sup \brackets{d(x,y): x,y \in A} = + \infty\\
+					\shortintertext{Fissato dunque un $x_0 \in A$, continuerò ad aver distanza infinita, in quanto $A$ non limitato per ipotesi.}
+					\implies &\sup\limits_{x \in A} d(x,x_0) = + \infty\\
+					\implies &\forall n \in \N,\; \exists x_n \in A:\; d(x_n, x_0) > n
+					\shortintertext{Dunque qualsiasi sottosuccessione di $x:\; \N \mapsto X$ è illimitata}
+					\implies &x:\; \N \mapsto X \text{ è una successione in $A$ senza sottosuccessioni convergenti}\\
+					\implies &A \text{ non è compatto - \textit{Assurdo}}
+				\end{align*}
+		\end{itemize}
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	\label{prop:compat_chius_lim_Rn}
+	In $\R^n$ con l'usuale metrica Euclidea, sia $A \subseteq \R^n$. Allora:
+	$$A \text{ è \textbf{Compatto}} \iff A \text{ è \textbf{Chiuso e Limitato}}$$
+	\begin{proof}
+		Omessa a lezione.\\
+		\color{not_explained_section_color}
+		Nel caso $n = 1$, segue dalle (note) proprietà di $\R$. Nel caso $n > 1$, si veda \fullref{ex:compat_chius_lim_Rn}.
+		\color{black}
+	\end{proof}
+\end{proposition}
+\begin{note}
+	La \fullref{prop:compat_chius_lim} vale in ogni spazio metrico, mentre la \fullref{prop:compat_chius_lim_Rn} solo in $A \subseteq R^n$
+\end{note}
+\color{not_explained_section_color}
+\begin{exercise}
+	\label{ex:compat_chius_lim_Rn}
+	Completare la dimostrazione della \fullref{prop:compat_chius_lim_Rn}.\\
+	Suggerimento: utilizzare il caso $n = 1$ e la e la \fullref{prop:succ_conv_se_comp_conv}
+\end{exercise}
+\begin{exercise}
+	Confrontare la dimostrazione della \fullref{prop:compat_chius_lim_Rn} con \fullref{ex:BBBBBBBBBB}
+\end{exercise}
+\color{black}
+\begin{exercise}
+	In uno spazio metrico, esibire esempi di insiemi connessi/sconnessi e compatti/non compatti.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	In $\R$ con la distanza Euclidea, esibire esempi di insiemi che siano itnervalli/non intervalli compatti/non compatti
+	% TODO solution
+\end{exercise}
 \begin{exercise}
 	\label{ex:unione_compatti}
 	Sia $(X,d)$ uno spazio metrico. Siano $K_1$ e $K_2$ due sottoinsiemi compatti di $X$. Allora $K_1 \cup K_2$ è compatto
 	\begin{solution}
-		Posto $K = K_1 \cup K_2$, per definizione di \textbf{unione}, ogni elemento di $K$ è in $K_1$ o $K_2$.
+		Posto $K = K_1 \cup K_2$, per definizione di \textbf{unione}, ogni elemento di $K$ è in $K_1$ o $K_2$.\\
 		Visto che, per ipotesi, $K_1$ e $K_2$ sono compatti, sappiamo che ogni successione in uno dei due avrà una sottosuccessione convergente nello stesso insieme. A questo punto possiamo concludere che ogni successione in $K$ ammetterà una sottosuccessione convergente ad un elemento $x_\infty \in K_1$ oppure $x_\infty \in K_2 \implies x_\infty \in K$
 	\end{solution}
 \end{exercise}
+
+\begin{proposition}
+	Sia $(X,d)$ uno spazio metrico. Allora
+	$$X \text{ è \textbf{Compatto}} \implies X \text{ è \textbf{Completo}}$$
+	\begin{proof}
+		Sia $x: \N \mapsto X$ una successione di Cauchy di elementi di $X$.\\
+		$X$ è compatto quindi, per definizione, esiste una sottosuccessione convergente ad un $x_\infty \in X$. Ciò implica, grazie all'\fullref{ex:sottsucc_conv_succ_conv}, che l'intera successione converga a $x_\infty$, dunque $X$ è completo.
+	\end{proof}
+\end{proposition}
+
+\begin{observation}
+	Sia $X$ un insieme munito di due distanze tra loro equivalenti $d_1$ e $d_2$ (si veda \fullref{def:metr_equiv}). Allora \textit{ciò che vale in $(X, d_1)$, vale in $(X, d_2)$}\\
+	Il seguente esercizio rende rigorosa questa affermazione
+\end{observation}
 \begin{exercise}
 	\label{ex:dist_eqiv}
-	% TODO copiare esercizio 2.42
+	Sia $X$ un insieme munito delle due distanze $d_1$ e $d_2$ tra loro equivalenti. \textbf{Se un insieme è aperto} (chiuso, compatto, connesso, limitato) \textbf{in} $\boldsymbol{(X,d_1)}$, allora \textbf{lo è anche in} $\boldsymbol{(X,d_2)}$.\\
+	Inoltre, \textbf{se} $\boldsymbol{\lim\limits_{n \to +\infty} x_n = x_\infty}$ \textbf{in} $\boldsymbol{(X,d_1)}$, allora $\boldsymbol{\lim\limits_{n \to +\infty} x_n = x_\infty}$ \textbf{anche in in} $\boldsymbol{(X,d_2)}$
+	% TODO solution
+\end{exercise}
+\begin{example}
+	Sia $(X,d)$ lo spazio $\R^n$ munito della distanza Euclidea. Sia $d_p$ come in \hyperref[ex:dist_parigi]{\cref*{ex:metriche} (\nameref*{ex:metriche})} con $p \in \R^n$\\
+	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise	
+	È interessante notare che in $(X,d)$, $d_p$ stessa non è continua e quindi gli insiemi aperti (chiusi) rispetto a $d_p$, possono non essere aperti (chiusi) rispetto alla distanza Euclidea. Di conseguenza son proprietà diverse nei due spazi metrici: convergenza di successioni, continuità di funzioni, connessione, compattezza, essere o meno punto di accumulazione, punto interno, punto esterno\dots
+\end{example}
+\begin{exercise}
+	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$ un \textbf{compatto}. Dimostrare che se $C \subseteq A$ \textbf{è un chiuso}, allora è anche \textbf{compatto}.\\
+	L'ipotesi "\textit{$C$ chiuso}" è indispensabile? 
 \end{exercise}
 
 \section{Limiti e Continuità}
-\begin{definition}
-	Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l\in{Y}$ \\
-	$\lim\limits_{x \rightarrow x_0} = l \bydef \forall{\varepsilon},\exists\delta : \forall{x}\in A : d_x(x,x_0)<\delta e x \neq x_0 : d_y(f(x),l)<\varepsilon$
+\begin{definition}[Limite per Funzione]
+	\label{def:lim_funz}
+	Siano:
+	\begin{itemize}
+		\item $(X,d_X)$ e $(Y,d_Y)$ spazi metrici
+		\item $A \subseteq X$
+		\item $x_0$ di accumulazione per $A$
+		\item $f:\; A \mapsto Y$ una funzione
+		\item $l \in Y$
+	\end{itemize}
+	Allora si definisce
+	\begin{equation*}
+		\begin{gathered}
+			\lim\limits_{x \to x_0} f(x) = l\\
+			\bydef\\
+			\forall \varepsilon > 0,\; \exists \delta > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta \text{ e } x \neq x_0 \text{ vale } d_Y(f(x),l)<\varepsilon
+		\end{gathered}
+	\end{equation*}
+	Che si legge \textit{il limite per $x$ tendente a $x_0$ di $f(x)$ converge a $l$ per $x$ tendente a $x_0$}.
 \end{definition}
+\begin{exercise}
+	Sarebbe comodo definire
+	\begin{equation*}
+		\begin{gathered}
+			\lim\limits_{x \to x_0} f(x) = l\\
+			\bydef\\
+			\lim\limits_{x \to x_0} d(f(x), l) = 0
+		\end{gathered}
+	\end{equation*}
+	Perché non è corretto farlo?
+	\begin{solution}
+		Non è corretto perché questa definizione implica $l = f(x)$ con $x \to x_0$ per proprietà 2 di \fullref{def:sp_metrico}. Ciò è diverso aalla \fullref{def:lim_funz} ed è inoltre più restrittivo, in quanto, con questa definizione "semplificata", sarebbe richiesto $x_0 \in A$, mentre $x_0$ deve essere solo di accumulazione nell'altro caso. Un punto di accumulazione non è necessariamente incluso nell'insieme a cui è riferito.
+	\end{solution}
+\end{exercise}
 
-\begin{proposition}
-	Siano $(X,d_x)$ e $(Y,d_y)$ spazi metrici, $A\subseteq{X}$,$x_0$ di accumulazione per $A$, $f:A\rightarrow{Y}$ una funzione e $l'\in{Y}$,$l''\in{Y}$
+\begin{theorem}[Teorema di Unicità del Limite per Funzioni]
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f:\; A \mapsto Y$ una funzione e $l', l'' \in Y$
+	\begin{equation*}
+		\left.
+		\begin{array}{c}
+			\lim\limits_{x \to x_0} f(x) = l'\\
+			\lim\limits_{x \to x_0} f(x) = l''
+		\end{array}
+		\right\}
+		\implies l' = l''
+	\end{equation*}
+	\begin{proof}
+		\begin{equation*}
+			\begin{gathered}
+				\left.
+				\begin{array}{c}
+					\lim\limits_{x \to x_0} f(x) = l'\\
+					\lim\limits_{x \to x_0} f(x) = l''
+				\end{array}
+				\right\} \implies\\
+				\implies
+				\begin{cases}
+					\forall \varepsilon > 0,\; \exists \delta' > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta' \text{ e } x \neq x_0 \text{ vale } d_Y(f(x),l')<\varepsilon\\
+					\forall \varepsilon > 0,\; \exists \delta'' > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta'' \text{ e } x \neq x_0 \text{ vale } d_Y(f(x),l'')<\varepsilon
+				\end{cases}
+			\end{gathered}
+		\end{equation*}
+		Posto $\delta = \min \brackets{\delta', \delta''}$, si può sicuramente concludere
+		\begin{equation*}
+			\begin{gathered}
+				\forall \varepsilon > 0,\; \exists \delta > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta \text{ e } x \neq x_0 \text{ vale } d_Y(f(x),l')<\varepsilon \text{ e vale } d_Y(f(x),l'') <\varepsilon\\
+				\implies \forall \varepsilon > 0 \quad d_Y(l', l'') < 2 \varepsilon\\
+				\implies d_Y(l', l'') = 0
+			\end{gathered}
+		\end{equation*}
+	\end{proof}
+\end{theorem}
+
+\begin{proposition}[Continuità per Successioni]
+	\label{prop:funz_cont_per_succ}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f:\; A \mapsto Y$ e $l \in Y$
+	\begin{equation*}
+		\begin{gathered}
+			\lim\limits_{x \to x_0} f(x) = l\\
+			\iff\\
+			\forall \text{ successione } x: \N \mapsto X \text{ tale che } \lim\limits_{x \to +\infty} x_n = x_0 \text{ e } x_n \neq x_0\\
+			\text{vale} \lim\limits_{n \to +\infty} f(x_n) = l
+		\end{gathered}
+	\end{equation*}
+	\begin{note}
+		Specificare "\textit{$\forall$ successione}" è fondamentale in quanto bisogna considerare tutti i punti $x \in A$, non solo le divisioni discrete degli $n \in \N$
+	\end{note}
+	\begin{proof}~
+		\begin{itemize}
+			\item[$\implies$] Dalle \fullref{def:lim_funz} e \fullref{def:lim_succ}
+				\begin{align*}
+					\lim\limits_{x \to x_0} f(x) = l &\implies
+					\begin{cases}
+						\forall \varepsilon > 0,\; \exists \delta > 0:\; \forall x \in A\;\\
+						d(x,x_0) < \delta,\; x \neq x_0 \quad d(f(x),l)<\varepsilon
+					\end{cases}\\
+					\lim\limits_{n \to +\infty} x_n = x_0 &\implies
+					\begin{cases}
+						\forall \delta > 0\; \exists \nu \in \N:\; \forall n \in \N,\; n \geq \nu,\; x_n \in A\\
+						x_n \neq x_0 \quad d(x_n, x_0) < \delta
+					\end{cases}
+				\end{align*}
+				Con il secondo limite per la successione $x_n$ convergente a $x_0$ costruita appositamente e sicuramente sempre esistente, grazie alla \fullref{prop:caratteriz_pti_accumul}.\\
+				Unendo le due definizioni di cui sopra, si ottiene la
+				\begin{equation*}
+					\begin{gathered}
+						\forall \varepsilon > 0\; \exists \delta > 0\; \exists \nu \in \N:\; \forall n \in \N,\; n \geq \nu,\; x_n \in A\; x_n \neq x_0\\
+						d(x_n, x_0) < \delta \quad d\bigl(f(x_n), l\bigr) < \varepsilon
+					\end{gathered}
+				\end{equation*}
+				\begin{note}
+					La prima parte si può leggere come $\forall \varepsilon > 0\; \exists \delta > 0$. Il $\delta$ viene poi usato per scegliere un $\nu = \delta$ e per questo $\nu$ vale il resto dell'espressione.
+				\end{note}
+				Che corrisponde alla definizione di limite per funzione di $f(x_n)$
+			\item[$\impliedby$] Per assurdo, negando $\lim\limits_{n \to +\infty} f(x_n) = l$.
+				\begin{align*}
+					&\text{non } \lim\limits_{n \to +\infty} f(x_n) = l\\
+					\implies & \exists \varepsilon > 0:\; \forall \delta > 0\; \exists x_\delta \in A,\; x_\delta \neq x_0, \quad d(x_\delta, x_0) < \delta, \quad d \bigl( f(x_\delta), l \bigr) > \varepsilon\\
+					\intertext{Ponendo $\delta = \frac{1}{n+1}$ si passa alla successione convergente a $0$, dunque compatibile con il $\delta$ precedente}
+					\implies & \exists \varepsilon > 0:\; \forall n \in \N,\; \exists x_n \in A,\; x_n \neq x_0, \quad d(x_n, x_0) < \frac{1}{n+1}, \quad d \bigl( f(x_n), l \bigr) > \varepsilon\\
+					\intertext{Essendo $d \bigl( f(x_n), l \bigr) > \varepsilon$ si sa per certo che non avrò limite ad $l$}
+					\implies & \begin{cases}
+						\begin{array}{c}
+							\text{Esiste una successione } x_n,\; x_n \in A,\; x_n \neq x_0, \quad \lim\limits_{n \to +\infty} x_n = x_0\\
+							\text{e}\\
+							\lim\limits_{n \to +\infty} f(x_n) \text{ o non esiste, oppure non è } l
+						\end{array}
+					\end{cases}
+				\end{align*}
+				Quindi l'ipotesi è contraddetta.
+		\end{itemize}
+	\end{proof}
 \end{proposition}
 
 \begin{definition}[Funzione Continua]
 	\label{def:funz_cont}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e sia $x_0 \in A$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
 		\begin{gathered}
 			f \text{ è \textbf{continua} in } x_0 \iff\\
-			\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \text{ vale } d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
+			\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
 		\end{gathered}
 	\end{equation*}
-
+	Inoltre
 	\begin{center}
-		$f$ è \textbf{continua} in $A\bydef$\\
-		$f$ è continua \textbf{in ogni punto} di $A$
+		$f$ è \textbf{continua} in $A\bydef$ $f$ è continua \textbf{in ogni punto} di $A$
 	\end{center}
 	\begin{note}
-		Non andrebbe detto semplicemente $f$ \textit{è continua} perché la continuità dipende in modo essenziale dall'insieme di punti su cui la funzione viene considerata. In assenza di ulteriori specificazioni, spesso si sottointende che l'insieme in esame è l'intero dominio della funzione.
+		Non andrebbe detto semplicemente "$f$ \textit{è continua}" perché la continuità dipende in modo essenziale dall'insieme di punti su cui la funzione viene considerata. In assenza di ulteriori specificazioni, spesso si sottointende che l'insieme in esame è l'intero dominio della funzione.
 	\end{note}
 	\begin{note}
 		Ha senso valutare la continuità di una funzione esclusivamente nell'insieme in cui è definita. Quindi una frase come:\\
@@ -962,14 +1185,214 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		La continuità di una funzione dipende in modo esssenziale anche dalla distanza adottata, tuttavia è prassi sottointendere questa precisazione, soprattutto per funzioni $\R^n \mapsto \R^n$, se la distanza adottata è quella Euclidea.
 	\end{note}
 \end{definition}
+\begin{observation}
+	Alcuni testi definiscono la continuità semplicemente attraverso la nozione di limite. Il $\lim\limits_{x \to x_0} f(x)$ è però definito solo se $x_0$ è punto di accumulazione del dominio di $f$, come da \fullref{def:lim_funz}.\\
+	Una definizione di continuità basata sul limite non permetterebbe, ad esempio, di valutare la continuità della funzione $x \mapsto \sqrt{x^2(x-1)}$ su tutto il suo insieme di definizione.
+\end{observation}
+\begin{exercise}
+	Data
+	$$\funcdef{f}{\R}{\R}{x}{\sqrt{x^2(x-1)}}$$
+	determinare l'insieme di definizione e l'insieme dei punti in cui è continua.
+	% TODO solution
+\end{exercise}
+\begin{exercise}[Continuità in Punti Isolati]
+	\label{ex:f_cont_in_pto_isol}
+	Formulare con precisione e dimostrare: ogni funzione è continua in ogni suo punto isolato del suo insieme di definizione.
+	\begin{solution}\hfill\\
+		Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$ \textbf{Punto Isolato}. Allora $f$ è \textbf{Continua in} $\boldsymbol{x_0}$
+		\begin{proof}\hfill\\
+			Per \fullref{def:pti_e_spa_metr}
+			$$\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$$
+			Quindi esiste una sfera centrata in $x_0$ che non contenga altri punti oltre $x_0$.
+			Ricordando la \fullref{def:funz_cont}
+			$$\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon$$
+			Si vede che questo unico $x_0$ rispetta la condizione $d_X(x,x_0)<\delta$, inoltre è sicuramente valida la condizione $\bigl(f(x),f(x_0)\bigr) < \varepsilon$, verificando la continuità in $x_0$
+		\end{proof}
+	\end{solution}
+\end{exercise}
+
+\begin{proposition}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$
+	\begin{equation}
+		f \text{ è \textbf{Continua} in } x_0 \iff
+		\begin{cases}
+			\begin{array}{c}
+				x_0 \text{ è \textbf{isolato} per } A\\
+				oppure\\
+				x_0 \text{ è \textbf{di accumulazione} per } A \text{ e } \lim\limits_{x \to x_0} f(x) = f(x_0)
+			\end{array}
+		\end{cases}
+	\end{equation}
+	\begin{proof}~
+		\begin{itemize}
+			\item $x_0$ di accumulazione: per definizione di $f$ continua
+			\item $x_0$ isolato: per \fullref{def:pti_e_spa_metr}
+				$$\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$$
+				Posto ora $r = \delta$, si ottiene che, per certo, $x = x_0$, che è quanto richiesto per verificare la continuità
+		\end{itemize}
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $k \in Y$. Sia $f:X \mapsto Y$ definita da $f(x) = k \; \forall x \in X$.\\
+	Dimostrare che $f$ è continua su $X$
+	% TODO solution
+\end{exercise}
+
+\begin{proposition}[Continuità e Continuità per Successioni]
+	\label{prop:cont_e_cont_per_succ}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$
+	\begin{equation*}
+		\begin{gathered}
+			f \text{ è \textbf{Continua} in } x_0\\
+			\iff\\
+			\underbrace{\forall \text{ successione } x:\N \mapsto A:\; \lim\limits_{n \to +\infty} x_n = x_0}_{\text{cioè per ogni successione convergente a } x_0} \text{ vale } \lim\limits_{n \to +\infty} f(x_n) = f(x_0)
+		\end{gathered}
+	\end{equation*}
+	\begin{note}
+		Il primo limite è in $X$, il secondo in $Y$
+	\end{note}
+	\begin{note}
+		Questo enunciato mostra l'equivalenza tra la \fullref{def:funz_cont} e \fullref{prop:funz_cont_per_succ}.
+	\end{note}
+	\begin{proof}~
+		\begin{itemize}
+			\item[$\implies$]
+			$$f \text{ continua in } x_0 \iff
+				\begin{cases}
+					\begin{array}{c}
+						x_0 \text{ di accumulazione}\\
+						oppure\\
+						x_0 \text{ isolato}
+					\end{array}
+				\end{cases}$$
+				Dividendo nei due casi:
+				\begin{itemize}
+					\item $x_0$ di accumulazione:\\
+						Sia $x:\; \N \mapsto X$ una successione convergente a $x_0$ con $x_0 \in A$, da cui, per \fullref{def:lim_succ}
+						\begin{align*}
+							& \lim\limits_{n \to +\infty} x_n = x_0 \implies\\
+							\implies & \forall \delta > 0\; \exists \nu \in \N:\; \forall n \in \N,\; n \geq \nu \quad d_X(x_n, x_0) < \delta
+						\end{align*}
+						Essendo, per ipotesi, $f$ continua in $x_0$
+						\begin{equation*}
+							\forall \varepsilon > 0\; \exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \text{ vale } d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
+						\end{equation*}
+						Procedendo come nella prima parte della dimostrazione di \fullref{prop:funz_cont_per_succ}, si ottiene:
+						\begin{equation*}
+							\forall \varepsilon > 0\; \exists \nu > 0:\quad \forall n \in \N \text{ con } n > \nu \text{ vale } d_Y \bigl(f(x_n),f(x_0)\bigr) < \varepsilon
+						\end{equation*}
+						Che è la definizione di $\lim\limits_{n \to +\infty} f(x_n) = f(x_0)$
+					\item $x_0$ isolato:\\
+						L'unica successione di elementi di $A$ convergente a $x_0$ è la successione costante $x_n = x_0$, dunque sicuramente $\lim\limits_{n \to +\infty} f(x_n) = f(x_0)$
+				\end{itemize}
+			\item[$\impliedby$] Dividendo ancora nei due casi:
+				\begin{itemize}
+					\item $x_0$ di accumulazione:\\
+						Ponendo, per assurdo
+						\begin{align*}
+							&f \text{ \textit{non} continua in } x_0\\
+							\implies & \exists \varepsilon > 0:\; \forall \delta > 0\; \exists x \in A, \quad d_X(x, x_0) < \delta, \quad d_Y \bigl( f(x), f(x_0) \bigr) > \\limvarepsilon
+							\intertext{Procedendo di nuovo come nella dimostrazione di \fullref{prop:funz_cont_per_succ}, posto $\delta = \frac{1}{n+1}$ si passa alla successione convergente a $0$, dunque compatibile con il $\delta$ precedente}
+							\implies & \exists \varepsilon > 0:\; \forall n \in \N\; \exists x_n \in A, \quad d_X(x_n, x_0) < \frac{1}{n+1}, \quad d_Y \bigl( f(x_n), f(x_0) \bigr) > \varepsilon
+							% WARNING La distanza d_Y, sul libro, è misurata tra f(x) e f(x_0), non tra f(x_n) e f(x_0). Non mi sembrava sensato, dunque l'ho cambiato in questo modo.
+						\end{align*}
+						Quindi si è costruita una successione $x:\; \N \mapsto X$ ($X$ generico) convergente a $x_0$, ma la successione $f \circ x$ (cioè la $\brackets{f(x_n):\; n \in \N}$) non convergerebbe a $f(x_0)$. Questo è contrario all'ipotesi da cui si è partiti, per cui $\lim\limits_{n \to +\infty} f(x_n) = f(x_0)$
+					\item $x_0$ isolato:\\
+						Immediatamente da \fullref{ex:f_cont_in_pto_isol}
+				\end{itemize}
+		\end{itemize}
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x: \N \in X$ una successione in $A$
+	\begin{equation*}
+		\left.
+		\begin{array}{c}
+			f \text{ \textbf{Continua} in } A\\
+			e\\
+			\exists \lim\limits_{n \to +\infty} x_n \in A
+		\end{array}
+		\right\} \implies
+		\lim\limits_{n \to +\infty} f(x_n) = f\left( \lim\limits_{n \to +\infty} x_n \right)
+	\end{equation*}
+	\begin{proof}
+		Essendo $f$ continua per ipotesi, dalla \fullref{prop:cont_e_cont_per_succ} è noto che
+		$$\forall \text{ successione } x:\N \mapsto A:\; \lim\limits_{n \to +\infty} x_n = x_0 \quad \lim\limits_{n \to +\infty} f(x_n) = f(x_0)$$
+		Inoltre $\lim\limits_{n \to +\infty} x_n = x_0 \in A$ per ipotesi e, grazie alla continuità di $f$, $\exists f(x_0) \quad \forall x_0 \in A$.\\
+		Unendo le due conclusioni si ottiene la tesi
+		$$\lim\limits_{n \to +\infty} f(x_n) = f(x_0) = f\left( \lim\limits_{n \to +\infty} x_n \right)$$
+	\end{proof}
+\end{corollary}
+
+\begin{proposition}[Continuità di $f$ in un Insieme]
+	\label{prop:funz_cont_per_succ_in_ins}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$.
+	\begin{equation}
+		\begin{gathered}
+			f \text{ \textbf{Continua} in } A\\
+			\iff\\
+			\underbrace{\forall x_0 \in A}_{\mathclap{\text{unica aggiunta}}} \; \forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
+		\end{gathered}
+	\end{equation}
+	\begin{note}
+		Questa proposizione espande la \fullref{def:funz_cont} di continuità su un insieme grazie alla stessa definizione di continuità in un punto
+	\end{note}
+	\begin{proof}
+		Segue direttamente dalla \fullref{def:funz_cont}
+	\end{proof}
+\end{proposition}
+
+\begin{proposition}[Continuità Funzioni Composte]
+	Siano $(X,d_X)$, $(Y,d_Y)$ e $(Z,d_Z)$ spazi metrici e siano
+	\begin{itemize}
+		\item $f: A \mapsto Y$ con $A \subseteq X$
+		\item $g: B \mapsto Z$ con $B \subseteq Y$
+		\item $x_0 \in A$
+		\item $f(x_0) \in B$
+	\end{itemize}
+	\begin{equation*}
+		\left.
+		\begin{array}{l}
+			f \text{ \textbf{Continua} in } x_0\\
+			g \text{ \textbf{Continua} in } f(x_0)
+		\end{array}
+		\right\} \implies
+		(g \circ f) \text{ è \textbf{Continua} in } x_0
+	\end{equation*}
+	\begin{proof}
+		Dalla \fullref{def:funz_cont}
+		\begin{align*}
+			f \text{ continua in } x_0 &\implies \forall \eta > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \eta\\
+			\shortintertext{Da $d_Y \bigl(f(x),f(x_0)\bigr) < \eta$ sappiamo che la distanza in $Y$ è limitata, dunque possiamo utilizzarla nella seguente definizione}
+			g \text{ continua in } f(x_0) &\implies \forall \varepsilon > 0\;\;\exists \eta > 0:\quad \forall y \in B \text{ con } d_Y\bigl(y,f(x_0)\bigr) < \eta \quad \text{vale} \quad d_Z \Bigl( g(y), g \bigl( f(x_0) \bigr) \Bigr) < \varepsilon
+		\end{align*}
+		\begin{note}
+			$\eta$ è la lettera greca Eta
+		\end{note}
+		Dunque, posto $y = f(x)$
+		\begin{equation*}
+			\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale} \quad d_Z \Bigl( g \bigl( f(x) \bigr), g \bigl( f(x_0) \bigr) \Bigr) < \varepsilon
+		\end{equation*}
+		Oppure, ugualmente, utilizzando il formalismo delle composizioni di funzioni
+		\begin{equation*}
+			\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale} \quad d_Z \bigl( (g \circ f)(x), (g \circ f)(x_0) \bigr) < \varepsilon
+		\end{equation*}
+		Che è, per \fullref{def:funz_cont}, la continuità di $g \circ f$ in $x_0$
+	\end{proof}
+\end{proposition}
 
 \begin{theorem}[Teorema generale di Weierstrass]
 	\label{teo:weier_generale}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
-	$$\left.\begin{array}{ll}
-		K\;\text{compatto} \\
-		f\;\text{continua su } K
-		\end{array} \quad\right\} \implies f(K)\;\text{compatto}$$
+	\begin{equation*}
+		\left.
+		\begin{array}{l}
+		K \text{ \textbf{Compatto}} \\
+		f \text{ \textbf{Continua} su } K
+		\end{array}
+		\right\} \implies
+		f(K) \text{ \textbf{Compatto}}
+	\end{equation*}
 	\begin{proof}
 		Siano le successioni
 		\begin{itemize}
@@ -979,44 +1402,146 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\begin{note}
 			Abbiamo una successione che, attraverso la $f$ (non direttamente: le successioni non sono $X \mapsto Y$!), associa indirettamente valori in $K \subseteq X$ a valori in $f(K) \subseteq Y$
 		\end{note}
-		La successione $x$ ammette una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$ dalla \fullref{def:compatto}, avendo $K$ compatto per ipotesi, ed essendo $x$ a valori in $K$.\\
-		Data la continuità di $f$ in $K$, abbiamo $y_{n_k} = f(x_{n_k}) \in f(K)$, ma essendo $x_{n_k}$ convergente ad $\overline{x}$, anche $y_{n_k}$ converge, verificando così la definizione di spazio Compatto.
+		La successione $x$ ammettrà sicuramente una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$. Questo per \fullref{def:compatto}, avendo $K$ compatto per ipotesi, ed essendo $x$ a valori in $K$.\\
+		Data la continuità di $f$ in $K$, abbiamo $y_{n_k} = f(x_{n_k}) \in f(K)$, ma essendo $x_{n_k}$ convergente ad $\overline{x}$, anche $y_{n_k}$ converge, verificando così la \fullref{def:compatto}.
 	\end{proof}
 	\begin{proof} (Alternativa)\\
 		La successione $x$ ammette una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$, dunque da \fullref{prop:succ_conv_lim}:
 		$$\lim\limits_{n\rightarrow+\infty}x_n=x_*\iff\forall\eta > 0\;\;\exists\nu\in\N:\quad\forall n>\nu\;\;d(x_n,x_*)<\eta$$
-		Dalla \fullref{def:funz_cont} e sapendo che $f(x)$ è continua, sappiamo che:
+		Dalla \fullref{def:funz_cont} e sapendo che $f(x)$ è continua per ipotesi, si ottiene:
 		$$\forall\varepsilon > 0\;\;\exists\delta > 0:\quad\forall x \in K\;\;d_X (x,x_*)<\delta\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon$$
-		Unisco ora le due definizioni:
+		Unendo ora le due definizioni:
 		$$\forall \varepsilon > 0\;\;\exists \nu \in \N:\quad \forall n > \nu\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon$$
 		Che equivale, per come è definita $y_n$, a
 		$$\lim\limits_{n\rightarrow +\infty}y_n = y_*$$
-		Cioè la definizione di successione convergente. Ho dunque individuato una sottosuccessione convergente per ogni successione in $f(K)$, verificando così la definizione di spazio Compatto.
+		Cioè la definizione di successione convergente. Ho dunque individuato una sottosuccessione convergente per ogni successione in $f(K)$, verificando così la \fullref{def:compatto}.
 	\end{proof}
 \end{theorem}
+\begin{exercise}[Teorema di Weierstrass - Analisi 1]
+	\label{teo:weier_analisi_1}
+	Cosa c'entra il \fullref{teo:weier_generale} con il "vecchio" Teorema di Weierstrass di Analisi 1?
+	\begin{solution}
+		Considerando il caso $X = \R$, $Y = \R$ (ma le stesse considerazioni valgono anche per $\R^n$) si ottiene
+		\begin{center}
+			$f:K \mapsto f(K)$ con $f(K)$ compatto.
+		\end{center}
+		Il fatto che $f(K)$ sia compatto sia compatto implica, in $\R^n$, che sia \textbf{Chiuso} e \textbf{Limitato} per \fullref{prop:compat_chius_lim}.
+		\begin{itemize}
+			\item Essendo limitato, per certo $\exists \sup \in \R \neq \infty$ e $\exists \inf \in \R \neq \infty$
+			\item Essendo chiuso, sicuramente $\sup = \max$ e $\inf = \min$
+		\end{itemize}
+		Dunque $f$ ammette $\max$ e $\min \in \R \neq \infty$, che è la conclusione del Teorema di Weierstrass in Analisi 1.
+	\end{solution}
+\end{exercise}
+\begin{proposition}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
+	\begin{equation*}
+		\left.
+		\begin{array}{l}
+		K \text{ \textbf{Connesso}} \\
+		f \text{ \textbf{Continua} su } K
+		\end{array}
+		\right\} \implies
+		f(K) \text{ \textbf{Connesso}}
+	\end{equation*}
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Sia $(X,d)$ uno spazio metrico. Dimostrare che, fissato un punto $x_0 \in X$, la funzione:
+	$$\funcdef{f}{X}{\R}{x}{d(x,x_0)}$$
+	è continua in $X$
+	% TODO solution
+\end{exercise}
 
 \subsection{Uniforme Continuità}
 \begin{definition}[Funzione Uniformemente Continua]
-	\label{def:unif_cont}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto Y$ con $A \subseteq X$.
-	\begin{center}
-		$f$ è \textbf{uniformemente continua} in $A$\\
-		$\bydef$\\
-		$\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale } d_Y\bigl(f(x),f(x_0)\bigr) < \varepsilon$
-	\end{center}
+	\label{def:funz_unif_cont}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:A \mapsto Y$ con $A \subseteq X$.
+	\begin{equation*}
+		\begin{gathered}
+			f \text{ è \textbf{Uniformemente Continua} in } A\\
+			\bydef\\
+			\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale } d_Y\bigl(f(x),f(x_0)\bigr) < \varepsilon
+		\end{gathered}
+	\end{equation*}
+	Cioè è una funzione continua per la quale piccole variazioni della $x$ implicano piccole variazioni di $f(x)$. Graficamente si può vedere che il grafico "non impenna" e non "oscilla liberamente".
 \end{definition}
 \begin{exercise}
 	\label{ex:cont_unif_cont_comparision}
-	Confrontare la \fullref{prop:AAA} con la \fullref{def:unif_cont}
-	% TODO Proposizione 3.12 dal libro e soluzione
+	Confrontare la \fullref{prop:funz_cont_per_succ_in_ins} con la \fullref{def:funz_unif_cont}
+	\begin{solution}
+		In \fullref{prop:funz_cont_per_succ_in_ins} si definiva la continuità della funzione sull'insieme applicando la \fullref{def:funz_cont} a ogni $x_0 \in A$, cioè ogni punto di $A$. Questo non ha particolari implicazioni sul comportamento della funzione, informa solamente sulla continuità in ogni punto di $A$.\\
+		\fullref{def:funz_unif_cont} invece prevede, per definizione, la possibilità di scegliere un qualsiasi $x_0$ quando $\varepsilon$ è già stato scelto. Ciò implica che $\varepsilon$ debba essere valido per ogni $x_0 \in A$, non scelto \textit{a priori}.
+	\end{solution}
 \end{exercise}
 \begin{proposition}
 	\label{prop:if_unif_cont_then_conf}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto Y$ con $A \subseteq X$. Se $f$ è \textbf{uniformemente continua} in $A$, allora $f$ è \textbf{continua} in $A$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto Y$ con $A \subseteq X$.\\
+	Se $f$ è \textbf{uniformemente continua} in $A$, allora $f$ è \textbf{continua} in $A$.
 	\begin{proof}
-		Deriva da \fullref{ex:cont_unif_cont_comparision}
+		Deriva da \fullref{ex:cont_unif_cont_comparision} in quanto, se è possibile scegleire un qualsiasi $x_0$ quando $\varepsilon$ è già stato fissato, sicuramente sarà possibile fare questa scelta anche in ordine inverso (la continuità è condizione condizione meno stringente).
 	\end{proof}
 \end{proposition}
+\begin{exercise}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e $k \in Y$. Data $f:\; X \mapsto Y$ definita da $f(x) = k\;\; \forall x \in X$.\\
+	Dimostrare che $f$ è uniformemente continua.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Formulare e dimostrare il teorema sulla uniforme continuità della composizione di funzioni uniformemente continue in spazio metrici.
+	% TODO solution
+\end{exercise}
+\begin{example}
+	Sia $f:\; \R \mapsto \R$ data da $f(x) = x^2$. $f$ è continua in $\R$, ma \textit{non} è uniformemente continua in $\R$
+\end{example}
+\begin{exercise}
+	Esibire esempi di funzioni $f:\; \R \mapsto \R$ che siano limitate/illimitate ed uniformemente continue.
+\end{exercise}
+\begin{example}
+	Sia $f:\; \realintervalopcl{0}{1} \mapsto \R$ data da $f(x) = \sin(\frac{1}{x})$.\\
+	In $\realintervalopcl{0}{1}$, $f$ è continua e limitata, ma non è uniformemente continua.
+\end{example}
+
+\begin{proposition}[Teorema di Cantor]
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
+	\begin{equation*}
+		\left.
+		\begin{array}{l}
+		K \text{ \textbf{Compatto}} \\
+		f \text{ \textbf{Continua} su } K
+		\end{array}
+		\right\} \implies
+		f \text{ \textbf{Uniformemente Continua} su } K
+	\end{equation*}
+	\begin{proof} Per assurdo negando la conclusione.\\
+		\begin{align*}
+			&f \text{ non è uniformemente continua in } K\\
+			\implies & \exists \varepsilon > 0 \text{ tale che } \forall \delta > 0 \quad \exists x', x'' \in K \text{ con } d(x', x'') < \delta \text{ e } d \bigl( f(x'), f(x'') \bigr) > \varepsilon
+			\intertext{Ponendo $\delta = \frac{1}{n+1}$ si passa alla successione convergente a $0$, dunque compatibile con il $\delta$ precedente}
+			\implies & \exists \varepsilon > 0 \text{ tale che } \forall n \in \N \quad \exists x_n', x_n'' \in K \text{ con } \underbrace{d(x_n', x_n'') < \frac{1}{n+1}}_{\text{(1)}} \text{ e } \underbrace{d \bigl( f(x_n'), f(x_n'') \bigr) > \varepsilon}_{\text{(2)}} \tageq\label{eq:th_cantor}
+		\end{align*}
+		Essendo $K$ compatto per ipotesi, per le due successioni $x_n'$ e $x_n''$ esistono due sottosuccessioni $x_{n_k}'$ e $x_{n_k}''$ convergenti a $x_\infty', x_\infty'' \in K$.\\
+		Da (1) di \cref{eq:th_cantor} si sa che $\lim\limits_{n \to +\infty} d(x_n', x_n'') = 0$, dunque $x_\infty' = x_\infty''$ per $n \to +\infty$\\
+		Da (2) di \cref{eq:th_cantor}, d'altro canto, è esplicitato che $d \bigl( f(x_n'), f(x_n'') \bigr)$ rimane sempre $> \varepsilon$ strettamente positivo, dunque è negata la \fullref{def:funz_cont} in $x_\infty' = x_\infty''$. Così è negata l'ipotesi sulla continuità della funzione.
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$ e $f:A \mapsto Y$ \textbf{Uniformemente Continua} su $A$. Allora, per ogni successione $x:\N \mapsto X$ \textbf{di Cauchy} in $X$, la successione $\boldsymbol{f \circ x}$ delle immagini $f(x_n)$ \textbf{è di Cauchy} in $Y$.
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$ e $f:A \mapsto Y$ \textbf{Uniformemente Continua} su $A$. Allora esiste un'unica funzione
+	$$\overline{f}: \overline{A} \mapsto Y$$
+	continua su $\overline{A}$ e tale che $f_{|A} = f$ (cioè la $f$ ristretta ad $A$, dove definita, corrisponde a $f$)
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{proposition}
+
 \subsection{Lipschitzianità}
 \begin{definition}[Funzione Lipschitziana]
 	\label{def:lips}
@@ -1133,5 +1658,5 @@ Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$
 	\end{proof}
 \end{theorem}
 
-\section{Funzioni a Valori in \texorpdfstring{$\protect \R$}{R}}
+\section{Funzioni a Valori in \texorpdfstring{$\protect \R^n$}{Rn}}
 %TODO This section is a placeholder
