@@ -1199,8 +1199,10 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\label{ex:f_cont_in_pto_isol}
 	Formulare con precisione e dimostrare: ogni funzione è continua in ogni suo punto isolato del suo insieme di definizione.
 	\begin{solution}\hfill\\
+		\renewcommand\qedsymbol{$\square$} % To restore the default empty square for the proof environment below
 		Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$ \textbf{Punto Isolato}. Allora $f$ è \textbf{Continua in} $\boldsymbol{x_0}$
-		\begin{proof}\hfill\\
+		\begin{proof}
+			\let\qed\relax % In order to avoid having two squares, hide the innermost one
 			Per \fullref{def:pti_e_spa_metr}
 			$$\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$$
 			Quindi esiste una sfera centrata in $x_0$ che non contenga altri punti oltre $x_0$.
@@ -1867,47 +1869,77 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \section{Il Teorema delle Contrazioni}
 \begin{definition}[Contrazione]
 	\label{def:contrazione}
-	Sia $(X, d)$ uno spazio metrico. Si dice contrazione una funzione T: $X \mapsto X$ soddisfacente a:
-	\begin{align}
+	Sia $(X, d)$ uno spazio metrico. Si dice \textbf{Contrazione} una funzione T: $X \mapsto X$ soddisfacente a:
+	\begin{equation}
 		\label{eq:def_contrazione}
-		\exists K \in [0, 1[\;\text{tale che}\;\forall x',x''\in X\;\text{vale}\\
-		d_X(T(x''), T(x')) \le K \cdot d_X(x'', x').
-	\end{align}
-
-
-	Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e
-	Lipschitziana con costante di Lipschitz strettamente minore di 1.
-	E generalmente inutile considerare contrazioni definite tra spazi diversi. Data una funzione
-	$T: X\rightarrow Y$ Lipschitziana, è sempre possibile riscalare la distanza in uno dei due spazi X o Y
-	per ottenere una costante di Lipschitz minore di 1.
+		\exists K \in [0, 1[ \text{ tale che } \forall x',x'' \in X \quad \text{vale} \quad d_X \bigl( T(x''), T(x') \bigr) \leq K \cdot d_X(x'', x')
+	\end{equation}
+	Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e Lipschitziana con costante di Lipschitz strettamente minore di $1$.\\
+	È generalmente inutile considerare contrazioni definite tra spazi diversi. Infatti, data una funzione $T: X\rightarrow Y$ Lipschitziana, sarebbe sempre possibile riscalare la distanza in uno dei due spazi X o Y per ottenere una costante di Lipschitz minore di 1.
 	\begin{note}
 		D'ora in poi si utilizzerà spesso la notazione $Tx$ per intendere $T(x)$
 	\end{note}
 \end{definition}
+\begin{example}[Esempi di Contrazioni]\leavevmode\vspace*{-\baselineskip}
+	\begin{enumerate}
+		\item $f: \R \mapsto \R$ data da $f(x) = \frac{x}{2}$. $f$ è una contrazione.
+		\item $f: \realintervalclose{0}{2} \mapsto \realintervalclose{0}{2}$ data da $f(x) = 1 + \frac{x}{2}$. $f$ è una contrazione
+		\item $f: \R^2 \mapsto \R^2$ data da $f(x,y)=
+			\begin{bmatrix}
+				\frac{1}{3} & 0\\[1ex]
+				0 & \frac{1}{5}
+			\end{bmatrix} \cdot
+			\begin{bmatrix}
+				x\\[1ex]
+				y
+			\end{bmatrix}$. $f$ è una contrazione
+	\end{enumerate}
+\end{example}
+\begin{exercise}
+	La composizione di contrazioni è una contrazione. Enunciare formalmente e dimostrare.\\
+	Esibire esempi che mostrino come la somma ed il prodotto di contrazioni possano non essere contrazioni.
+	\begin{solution}\hfill\\
+		Sia $(X, d)$ uno spazio metrico, siano $f,g:X\mapsto X$ \textbf{due contrazioni} in $X$. Allora $f\circ g$ è una \textbf{contrazione}
+		\begin{proof}
+			\renewcommand\qedsymbol{$\square$}
+			Sappiamo che:
+			\begin{equation*}
+				\begin{gathered}
+					\forall x',x'' \in X,\; d \bigl( f(x''), f(x') \bigr) \leq K_f \cdot d(x'', x')\\
+					\forall x',x'' \in X,\; d \bigl( g(x''), g(x') \bigr) \leq K_g \cdot d(x'', x').
+				\end{gathered}
+			\end{equation*}
+			$f \circ g=f\bigl( g(x) \bigr)$, quindi presi $x',x''\in X$ si ha
+			$$d \Bigl( f\bigl(g(x'')\bigr), f\bigl(g(x')\bigr) \Bigr) \leq K_f \cdot d \bigl( g(x''), g(x') \bigr) \leq K_f K_g \cdot d(x'',x')$$
+		\end{proof}
+		\noindent Esempi: % TODO esempi
+	\end{solution}
+\end{exercise}
 
-ESEMPI:\\
-\begin{enumerate}
-	\item $f: \R \rightarrow \R$ data da $f(x) = \frac{x}{2}$. $f$ è una contrazione.
-	\item $f: [0,2] \rightarrow [0,2]$ data da $f(x) = 1+\frac{x}{2}. f$ è una contrazione
-	\item $f: \R^2 \rightarrow \R^2$ data da $f(x,y)=\begin{bmatrix} \frac{1}{3}&&0\\0&&\frac{1}{5}\end{bmatrix}$ è una contrazione
-\end{enumerate}
+\begin{proposition}
+	Sia $f \in \cntclass{1}(\R^n;\R^n)$. Se esiste $k \in \realintervalclop{0}{1}$ tale che per ogni $x \in \R^n$ vale $\norm{Df(x)} < k$, allora $f$ è \textbf{contrazione}.
+	\begin{proof}
+		Segue dal \fullref{teo:accresc_fin}
+	\end{proof}
+\end{proposition}
 
-\proposition
-Sia $(X, d)$ uno spazio metrico, siano $f,g:X\rightarrow X$ due contrazioni in $X \Rightarrow f\circ g$ è una contrazione
-\begin{proof}
-	Sappiamo che\\
-	$$\forall x',x''\in X, d(fx'', fx')\le K_fd(x'', x').$$
-	$$\forall x',x''\in X, d(gx'', gx')\le K_gd(x'', x').$$
-	$f\circ g=f(g(x))$, quindi presi $x',x''\in X$ si ha che: $$d(fg(x''), fg(x'))\le K_fd(g(x''), g(x'))\le K_fK_gd(x'',x').$$
-\end{proof}
-
-\proposition
-Sia $f \in C1(R^n;R^n)$. Se $\exists k \in [0, 1[$ tale che $\forall x \in \R^n$ vale $\norm{Df(x)}  < k$, allora $f$ è una contrazione.
-
-\begin{theorem}[Teorema delle Contrazioni]
+\begin{theorem}[Teorema delle Contrazioni]\leavevmode\vspace*{-\baselineskip}
 	\label{teo:contrazioni}
-	Sia $(X, d)$ uno spazio metrico completo in cui è definita una contrazione
-	$T: X \rightarrow X$. Allora esiste un unico punto fisso di $T$ in $X$.
+	\begin{note}
+		Questo teorema è anche noto come \textit{Teorema di Banach-Cacioppoli}
+	\end{note}
+	Sia $(X, d)$ uno spazio metrico e $T: X \mapsto X$. Allora
+	\begin{equation*}
+		\left.
+			\begin{array}{l}
+				X \text{ \textbf{Completo}}\\
+				T \text{ \textbf{Contrazione}}
+			\end{array}
+		\right\}
+		\implies
+		\exists! \; x_* \in X: \quad T(x_*) = x_*
+	\end{equation*}
+	Cioè esiste un \textbf{unico punto fisso} di $T$ in $X$.
 	\begin{proof}
 		Costruisco una successione di elementi di $X$ nel seguente modo:\\
 		scelgo $x_0\in X$,\\
