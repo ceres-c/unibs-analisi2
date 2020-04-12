@@ -20,24 +20,24 @@ Alcune classi di funzioni $f:A\subseteq\R^n\rightarrow\R^m$ hanno nomi particola
 \definition
 sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\circdot{A}$, $h,k\in\R$
 chiamo derivata parziale rispetto a $x$ di $f$ in $(x_0,y_0)$ la quantità (se esiste finita)
-$$\partial_xf(x_0,y_0) = \lim\limits_{h\rightarrow{0}}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}$$
+\[\partial_xf(x_0,y_0) = \lim\limits_{h\rightarrow{0}}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}\]
 chiamo derivata parziale rispetto a $y$ di $f$ in $(x_0,y_0)$ la quantità (se esiste finita)
-$$\partial_yf(x_0,y_0) = \lim\limits_{h\rightarrow{0}}\frac{f(x_0,y_0+k)-f(x_0,y_0)}{h}$$
+\[\partial_yf(x_0,y_0) = \lim\limits_{h\rightarrow{0}}\frac{f(x_0,y_0+k)-f(x_0,y_0)}{h}\]
 \definition
 sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\circdot{A}$, $i=1,...,n$
-$$\partial_if(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+te_i)-f(x_0)}{t}$$
+\[\partial_if(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+te_i)-f(x_0)}{t}\]
 dove $(e_1,...,e_n)$ rappresentano la base canonica di $R^n$\\
 \observation nella prima definizione la derivata è un valore reale mentre nella seconda è un vettore di $R^m$\\
 \observation le proprietà e le regole di derivazione sono le stesse di Analisi 1
 \definition
 sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\circdot{A}$, sia $v\in\R^2 con \norm{v}=1 $
 diciamo derivata nella direzione $v$ della funzione $f$ nel punto $(x_0,y_0)$ il limite (se esiste finito)\\
-$$D_vf(x_0,y_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv_1,y_0+tv_2)-f(x_0,y_0)}{t}$$
+\[D_vf(x_0,y_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv_1,y_0+tv_2)-f(x_0,y_0)}{t}\]
 dove $v_1,v_2$ sono le componenti di $v(v=\begin{bmatrix}v_1\\v_2\end{bmatrix})$
 \definition
 sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\circdot{A}$, sia $v\in\R^n con \norm{v}=1 $
 diciamo derivata nella direzione $v$ della funzione $f$ nel punto $x_0$ il limite (se esiste finito)\\
-$$D_vf(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv)-f(x_0)}{t}$$
+\[D_vf(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv)-f(x_0)}{t}\]
 \proposition
 (ANALISI 1): sia $f:A\subseteq \R\rightarrow\R$ e $x_0\in\circdot{A}$\\
 $f$ è differenziabile $\iff$ $\exists m\in \R $ t.c. $f(x_0+h)=f(x_0)+mh+o(h)$ per $h\rightarrow 0$
@@ -114,7 +114,7 @@ $\partial_{x}f(x,y)$ e $\exists \partial_{y}f(x,y)$ continue in $x_0$\\
 $\Rightarrow f$ è differenziabile in $(x_0,y_0)$\\
 \begin{proof}
 	devo dimostrare che
-	$$\lim\limits_{(h,k)\rightarrow (0,0)}\frac{f(x_0+h,y_0+k)-f(x_0,y_0)-\nabla f(x_0,y_0\begin{bmatrix}h\\k\end{bmatrix})}{\sqrt{h^2+k^2}} = 0$$
+	\[\lim\limits_{(h,k)\rightarrow (0,0)}\frac{f(x_0+h,y_0+k)-f(x_0,y_0)-\nabla f(x_0,y_0\begin{bmatrix}h\\k\end{bmatrix})}{\sqrt{h^2+k^2}} = 0\]
 	dove $\nabla f(x_0,y_0)= \begin{bmatrix}\partial_xf(x_0,y,0) && \partial_yf(x_0,y_0)\end{bmatrix}$\\
 
 	\begin{tikzpicture}
@@ -159,19 +159,19 @@ $\Rightarrow f$ è differenziabile in $(x_0,y_0)$\\
 	\end{tikzpicture}
 	devo calcolare lo scarto della funzione tra i punti $(x_0+h,y_0+k)$ e $(x_0,y_0)$. Ho a disposizione le derivate parziali che mi danno informazioni lungo le parallele agli assi quindi non muovo lungo la diagonale ma lungo i percorsi D,A e B,C\\
 	Il limite  (<-) fa zero se il numeratore è zero, allora guardo solo quello.\\
-	$$f(x_0+h,y_0+k) -f(x_0,y_0)- \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k$$
+	\[f(x_0+h,y_0+k) -f(x_0,y_0)- \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k\]
 	riscrivo tale quantità seguendo il percorso D,A
-	$$ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k$$
+	\[ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k\]
 	chiamo $\varphi (x) = f(x,y_0)$ quindi $f(x_0+h,y_0)-f(x_0,y_0) = \varphi (x_0+h)-\varphi (x_0)$\\
 	la funzione $\varphi $ è una funzione reale di una variabile reale ed in virtù del teorema di Lagrange $\varphi (x_0+h)-\varphi (x_0) = \varphi'(x_0 + \beta h)h$ per $\beta\in ]0,1[ $, per come definita $\varphi$ si ha che $\varphi'(x_0 + \beta h)h = \partial_{x}f(x_0+\beta h,y_0)h$\\
 	con un ragionamento del tutto analogo si può definire $\varPsi (x) = f(x_0+h,y)$ e si ha che $\varPsi (y_0+h)-\varPsi (y_0) = \varPsi'(y_0 + \alpha k)k = \partial_{y}f(x_0+h,y_0+\alpha k)k$ per $\alpha\in ]0,1[ $\\
 	Quindi
-	$$ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = $$
-	$$= [\partial_{x}f(x_0+\beta h,y_0)h] + [\partial_{y}f(x_0+h,y_0+\alpha k)k] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = $$
-	$$= [\partial_{x}f(x_0+\beta h,y_0)h - \partial{x}f(x_0,y_0)h] + [\partial_{y}f(x_0+h,y_0+\alpha k)k  - \partial{y}f(x_0,y_0)k] $$
+	\[ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = \]
+	\[= [\partial_{x}f(x_0+\beta h,y_0)h] + [\partial_{y}f(x_0+h,y_0+\alpha k)k] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = \]
+	\[= [\partial_{x}f(x_0+\beta h,y_0)h - \partial{x}f(x_0,y_0)h] + [\partial_{y}f(x_0+h,y_0+\alpha k)k  - \partial{y}f(x_0,y_0)k] \]
 	Adesso la riscrivo recuperando il denominatore 	'e devo verificare che il limite per $(h,k)\rightarrow (0,0)$ tenda a zero.\\
 	
-	$$[\partial_{x}f(x_0+\beta h,y_0)-\partial{x}f(x_0,y_0)] \frac{h}{\sqrt{h^2+k^2}} + [\partial_{y}f(x_0+h,y_0+\alpha k) - \partial{y}f(x_0,y_0)]\frac{k}{\sqrt{h^2+k^2}} $$
+	\[[\partial_{x}f(x_0+\beta h,y_0)-\partial{x}f(x_0,y_0)] \frac{h}{\sqrt{h^2+k^2}} + [\partial_{y}f(x_0+h,y_0+\alpha k) - \partial{y}f(x_0,y_0)]\frac{k}{\sqrt{h^2+k^2}} \]
 	Le derivate parziali sono continue quindi per $(h,k)\rightarrow (0,0)$ i numeratori tendono a zero\\
 	Inoltre le due frazioni per $(h,k)\rightarrow (0,0)$ sono quantità limitate tra $-1$ e $1$ quindi si può dire che il limite cercato fa 0.
 \end{proof}
@@ -205,9 +205,9 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 	$g$ è differenziabile in $x_0$, allora $g(x_0+h)=f(x_0)+Dg(x_0)h+o(h)$ per $h\rightarrow 0$\\
 	$f$ è differenziabile in $g(x_0)$ allora $g(g(x_0)+k)=f(g(x_0))+Df(g(x_0))k+o(k)$ per $k\rightarrow 0$\\
 	valuto ora 
-	$$(f\circ g)(x_0+h) = f(g(x_0+h)+Dg(x_0)h+o(h)) = $$ 
-	$$=f(g(x_0))+Df(g(x_0))(Dg(x_0)h+o(h))+o(Dg(x_0)h+o(h)) = $$
-	$$=(f\circ g)(x_0) + Df(g(x_0))Dg(x_0)h+Df(g(x_0))o(h)+Dg(x_0)o(h)+o(h)$$
+	\[(f\circ g)(x_0+h) = f(g(x_0+h)+Dg(x_0)h+o(h)) = \] 
+	\[=f(g(x_0))+Df(g(x_0))(Dg(x_0)h+o(h))+o(Dg(x_0)h+o(h)) = \]
+	\[=(f\circ g)(x_0) + Df(g(x_0))Dg(x_0)h+Df(g(x_0))o(h)+Dg(x_0)o(h)+o(h)\]
 	
 	con $h$ un vettore $n\times 1$\\
 	con $Dg$ una matrice $m\times n$\\
@@ -229,8 +229,8 @@ Siano $x_0,x_1\in \R^n$, si dice segmento di estremi $x_0$ e $x_1$ l'insieme $S=
 		$\norm{A}$ con $A\in Mat(n\times m)$,  $\norm{A}=\sup\limits_{\norm{x}=1: x\in \R^n}\norm{Ax} = \sup\limits_{x\in \R^n \setminus \{0\}}\frac{\norm{Ax} }{\norm{x} } $ questa è chiamata norma operativa
 	\end{observation}
 	\begin{note}
-		$$\norm{Ax} \le \norm{A} \norm{x}  $$
-		$$\norm{AB} \le \norm{A} \norm{B}  $$
+		\[\norm{Ax} \le \norm{A} \norm{x}  \]
+		\[\norm{AB} \le \norm{A} \norm{B}  \]
 	\end{note}
 	\begin{proof}
 		sia $F:[0,1]\rightarrow \R$ che $t\rightarrow f(tx_1+(1-t)x_0)$\\
@@ -272,12 +272,12 @@ con la notazione della definizione precedente, $f$ è una funzione definita in u
 per una funzione scalare $f:A\subseteq \R^n \rightarrow \R$, la derivata prima è un vettore (il gradiente $\nabla$ in $R^{1\times n}$), la derivata seconda è una matrice in $R^{1\times n \times n}$, la derivata terza è una super matrice ...
 \definition
 sia $f:A\subseteq \R^n \rightarrow \R$ e $x_0\in\circdot{A}$, $f$ ammette tutte le derivate parziali seconde in $x_0$. La matrice di queste derivate seconde si chiama Matrice Hessiana di $f$ in $x_0$
-$$H_f(x_0)=D^2f(x_0) = \begin{bmatrix}
+\[H_f(x_0)=D^2f(x_0) = \begin{bmatrix}
 \frac{\partial^2f}{\partial{x_1}\partial{x_1}} && \frac{\partial^2f}{\partial{x_2}\partial{x_1}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_1}} \\
 \frac{\partial^2f}{\partial{x_1}\partial{x_2}} && \frac{\partial^2f}{\partial{x_2}\partial{x_2}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_2}} \\
 \vdots && \vdots && \ddots && \vdots \\
 \frac{\partial^2f}{\partial{x_1}\partial{x_n}} && \frac{\partial^2f}{\partial{x_2}\partial{x_n}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_n}} \\
-\end{bmatrix}$$ 
+\end{bmatrix}\] 
 ESEMPI:\\
 ...\\
 ...\\
@@ -326,27 +326,27 @@ $\exists \partial^2_{xy}f(x,y)$ e $\exists \partial^2_{yx}f(x,y)$ in un intorno 
 	%\draw node[anchor=south west] at (X0hY0k) {$(x_0+h,y_0+k)$};
 	\end{tikzpicture}\\
 	L'idea è quella di calcolare $q$ in due modi diversi e osservare che le due scritture rappresentano la stessa quntità quindi sono uguali.\\
-	$$q=[f(x_0+h,y_0+k)-f(x_0+h,y_0)]-[f(x_0,y_0+k)-f(x_0,y_0)]$$
+	\[q=[f(x_0+h,y_0+k)-f(x_0+h,y_0)]-[f(x_0,y_0+k)-f(x_0,y_0)]\]
 	scelgo una funzione $\varphi(h)=f(x_0+h,y_0+k)-f(x_0+h,y_0)$
-	$$q=\varphi(h)-\varphi(0) = \varphi'(\alpha' h)h$$
+	\[q=\varphi(h)-\varphi(0) = \varphi'(\alpha' h)h\]
 	valida per $\alpha'\in ]0,1[$ e $\varphi'(h)=\partial_{x}f(x_0+h,y_0+k)-\partial_{x}f(x_0+h,y_0)$
-	$$q = [\partial_{x}f(x_0+\alpha'h,y_0+k)-\partial_{x}f(x_0\alpha'h+,y_0)]h$$
+	\[q = [\partial_{x}f(x_0+\alpha'h,y_0+k)-\partial_{x}f(x_0\alpha'h+,y_0)]h\]
 	scelgo una funzione $\varPhi(k)=\partial{x}f(x_0+h,y_0+k)$
-	$$q=[\varPhi(k)-\varPhi(0)]h=\varPhi'(\beta'k)hk$$
+	\[q=[\varPhi(k)-\varPhi(0)]h=\varPhi'(\beta'k)hk\]
 	valida per $\beta'\in ]0,1[$ e $\varPhi'(k)=\partial_{y}\partial_{x}f(x_0+\alpha'h,y_0+k)$
-	$$q = \partial^2_{xy}f(x_0+\alpha'h,y_0+\beta'k)hk$$
+	\[q = \partial^2_{xy}f(x_0+\alpha'h,y_0+\beta'k)hk\]
 	Ma $q$ può anche essere calcolata in un secondo modo
-	$$q=[f(x_0+h,y_0+k)-f(x_0,y_0+k)]-[f(x_0+h,y_0)-f(x_0,y_0)]$$
+	\[q=[f(x_0+h,y_0+k)-f(x_0,y_0+k)]-[f(x_0+h,y_0)-f(x_0,y_0)]\]
 	scelgo una funzione $\psi(k)=f(x_0+h,y_0+k)-f(x_0,y_0+k)$
-	$$q=\psi(k)-\varphi(0) = \psi'(\alpha''k)k$$
+	\[q=\psi(k)-\varphi(0) = \psi'(\alpha''k)k\]
 	valida per $\alpha''\in ]0,1[$ e $\psi'(k)=\partial_{y}f(x_0+h,y_0+k)-\partial_{y}f(x_0,y_0+k)$
-	$$q = [\partial_{y}f(x_0+h,y_0+\alpha''k)-\partial_{y}f(x_0,y_0+\alpha''k)]k$$
+	\[q = [\partial_{y}f(x_0+h,y_0+\alpha''k)-\partial_{y}f(x_0,y_0+\alpha''k)]k\]
 	scelgo una funzione $\Psi(h)=\partial{y}f(x_0+h,y_0+\alpha''k)$
-	$$q=[\Psi(h)-\varPhi(0)]k=\Psi'(\beta''k)hk$$
+	\[q=[\Psi(h)-\varPhi(0)]k=\Psi'(\beta''k)hk\]
 	valida per $\beta''\in ]0,1[$ e $\Psi'(h)=\partial_{x}\partial_{y}f(x_0+h,y_0+\beta''k)$
-	$$q = \partial^2_{xy}f(x_0+\alpha''h,y_0+\beta''k)hk$$
+	\[q = \partial^2_{xy}f(x_0+\alpha''h,y_0+\beta''k)hk\]
 	Abbiamo quindi trovato che 
-	$$ \partial^2_{xy}f(x_0+\alpha'h,y_0+\beta'k)hk = \partial^2_{xy}f(x_0+\alpha''h,y_0+\beta''k)hk$$
+	\[ \partial^2_{xy}f(x_0+\alpha'h,y_0+\beta'k)hk = \partial^2_{xy}f(x_0+\alpha''h,y_0+\beta''k)hk\]
 	Ci sarebbe un disegno ...\\
 	...\\
 	Abbiamo trovato che le derivate parziali seconde miste coincidono in due punti ad esempio quelli segnati con il cerchio, poiché $\alpha',\alpha'',\beta{'},\beta''$ li abbiamo scelti in $]0,1[$\\
@@ -465,19 +465,19 @@ $\exists !\varphi : \R^n\rightarrow \R^m$ t.c.: $f(x,y)=0 \iff y=\varphi(x)$
 		$\norm{T(x,y_2)-T(x,y_1)} \le \sup\limits_{\widetilde{y}\in segmento}\norm{D_yT(x,\widetilde{y})}\norm{y_2-y_1} $  accrescimenti finiti.\\
 		Poichè le sfere sono insiemi convessi è stato possibile applicare il Teorema degli accresscimenti finiti.\\
 		Presa $T(x,y) = y-[D_yf(x_0,y_0)]^{-1}f(x,y)$, la derivo rispetto a $y$:
-		$$D_yT(x,y)= I_\R^m-[D_yf(x_0,y_0)]^{-1}D_yf(x,y) = $$
-		$$=[D_yf(x_0,y_0)]^{-1}][D_yf(x_0,y_0)-D_yf(x,y)]$$
+		\[D_yT(x,y)= I_\R^m-[D_yf(x_0,y_0)]^{-1}D_yf(x,y) = \]
+		\[=[D_yf(x_0,y_0)]^{-1}][D_yf(x_0,y_0)-D_yf(x,y)]\]
 		Osserviamo che abbiamo ottenuto una matrice come costante moltiplicativa, al secondo membro abbiamo la differenza di due valori di una funzione, che per ipotesi è una funzione continua ($D_yf(x,y)$ continua), allora per $r_x$ e $r_y$ sufficientemente piccoli ho che:\\
 		$\norm{D_yT(x,y)} \le \frac{1}{2}$, è scelto questo valore poiché è comodo al fine di dimostrare la contrazione...\\
-		$$\norm{D_yT(x,y)} \le \norm{D_yf(x_0,y_0)]^{-1}} \norm{D_yf(x_0,y_0)-D_yf(x,y)}\le\frac{1}{2} $$  
-		$$\norm{T(x,y_2)-T(x,y_1)}\le\frac{1}{2}\norm{y_2-y_1} $$
+		\[\norm{D_yT(x,y)} \le \norm{D_yf(x_0,y_0)]^{-1}} \norm{D_yf(x_0,y_0)-D_yf(x,y)}\le\frac{1}{2} \]  
+		\[\norm{T(x,y_2)-T(x,y_1)}\le\frac{1}{2}\norm{y_2-y_1} \]
 		Se dimostriamo che $T$ è ben definita abbiamo dimostrato che $T$ è una contrazione.\\
 		Per verificare che $T$ è en definita bisogna mostrare che $T(x,y)\subseteq\overline{B(y_0,r_y)}$ quindi si mostra che la distanza tra $T(x,y)$ e il centro è minore di $r_y$
-		$$\norm{T(x,y) - y_0}\le\norm{T(x,y)-T(x,y_0)}+\norm{T(x,y_0)-y_0} \le$$
-		$$\le\frac{1}{2}\norm{y-y_0}+\norm{y_0-[D_yf(x_0,y_0)]^{-1}f(x,y_0)-y_0}\le$$
-		$$\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-0}\le$$
-		$$\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-f(x_0,y_0)}\le$$
-		$$\le\frac{1}{2}r_y+\frac{1}{2}r_y\le r_y$$
+		\[\norm{T(x,y) - y_0}\le\norm{T(x,y)-T(x,y_0)}+\norm{T(x,y_0)-y_0} \le\]
+		\[\le\frac{1}{2}\norm{y-y_0}+\norm{y_0-[D_yf(x_0,y_0)]^{-1}f(x,y_0)-y_0}\le\]
+		\[\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-0}\le\]
+		\[\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-f(x_0,y_0)}\le\]
+		\[\le\frac{1}{2}r_y+\frac{1}{2}r_y\le r_y\]
 		Allora $T$ è ben definita perché $T(x,y)\in\overline{B(y_0,r_y)}$.\\
 		In conclusione con $\mathcal{X}=\overline{B(x_0,r_x)}$ e $\mathcal{Y}=\overline{B(y_0,r_y)}$ ho che $T:\mathcal{X}\times\mathcal{Y}\rightarrow\mathcal{Y}$ è tale che $\forall x\in\mathcal{X}$ la funzione $y\rightarrow T(x,y)$ è una contrazione e $\overline{B(y_0,r_y)}$ è completo.\\
 		quaolcosa sui completi.........\\
@@ -586,11 +586,11 @@ Prima di continuare un paio di osservazioni sulle forme quadratiche.\\
 \definition
 forma quadratica su $R^n \bydef q:R^n\rightarrow \R$ che $x\rightarrow x^TQx$ con $Q\in Mat(n\times n)$ simmetrica\\
 ESEMPI:n=2\\
-$$
+\[
 Q=\begin{bmatrix}1&&0\\0&&1\end{bmatrix}\quad
 Q=\begin{bmatrix}-1&&0\\0&&-1\end{bmatrix}\quad
 Q=\begin{bmatrix}-1&&0\\0&&1\end{bmatrix}\quad 
-$$
+\]
 SEMPRE POSITIVA SEMPRE NEGATIVA CAMBIA SEGNO\\
 SEMPRE POSITIVA SEMPRE NEGATIVA CAMBIA SEGNO\\
 SEMPRE POSITIVA SEMPRE NEGATIVA CAMBIA SEGNO\\
@@ -641,10 +641,10 @@ Sia $q:R^n\rightarrow \R$ una forma quadratica, se $q$ è definita positiva $\Ri
 Ora dobbiamo cercare di capire se $q$ è definita positiva\\
 Ad esempio: $Q=\begin{bmatrix}1&&0&&0\\0&&-1&&0\\0&&0&&0\end{bmatrix}$ è facile capire che è semodefinita positiva poiché è in diagonale, quindi la prima cosa da fare è trovare una forma diagonale per $Q$\\
 un procedimento pratico e veloce è il seguente:\\
-$$Q=\begin{bmatrix}q_{11}&&q_{12}&&q_{13}&&\ldots\\q_{21}&&q_{22}&&q_{23}&&\ldots\\q_{31}&&q_{32}&&q_{33}&&\ldots\\\vdots&&\vdots&&\vdots&&\ddots\end{bmatrix}\rightarrow\begin{bmatrix}\lambda_{1}&&0&&0&&\ldots\\0&&\lambda_{2}&&0&&\ldots\\0&&0&&\lambda_{3}&&\ldots\\\vdots&&\vdots&&\vdots&&\ddots\end{bmatrix}$$
-$$\lambda=q_{11},\quad\lambda_{2}=\frac{detQ_2}{q_11}\quad\lambda_{3}=\frac{detQ_3}{detQ_2}\quad ...\quad \lambda_{i}=\frac{detQ_i}{detQ_{i-1}}$$
+\[Q=\begin{bmatrix}q_{11}&&q_{12}&&q_{13}&&\ldots\\q_{21}&&q_{22}&&q_{23}&&\ldots\\q_{31}&&q_{32}&&q_{33}&&\ldots\\\vdots&&\vdots&&\vdots&&\ddots\end{bmatrix}\rightarrow\begin{bmatrix}\lambda_{1}&&0&&0&&\ldots\\0&&\lambda_{2}&&0&&\ldots\\0&&0&&\lambda_{3}&&\ldots\\\vdots&&\vdots&&\vdots&&\ddots\end{bmatrix}\]
+\[\lambda=q_{11},\quad\lambda_{2}=\frac{detQ_2}{q_11}\quad\lambda_{3}=\frac{detQ_3}{detQ_2}\quad ...\quad \lambda_{i}=\frac{detQ_i}{detQ_{i-1}}\]
 Questo perché se dobbiamo valutare il segno dell'incremento della f ci servono le variazioni sulle quadriche. Se $f$ è $\cntclass{2}$ scrivo lo sviluppo di Taylor al secondo ordine:\\
-$$f(x)-f(x_0)=\nabla f(x_0)(x-x_0)+\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\norm{x-x_0}^2)$$
+\[f(x)-f(x_0)=\nabla f(x_0)(x-x_0)+\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\norm{x-x_0}^2)\]
 max e min dove $\nabla f(x_0)=0$ per Fermat, l'o piccolo è trascurabile, allora il segno della derivata dipende dalla forma quadratica al secondo membro.
 \proposition
 sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
@@ -688,8 +688,8 @@ Sia $A\subseteq \R^2$ e $f:A\rightarrow \R$\\
 La suferficie $z=f(x,y)$ è il grafico di $f$, è unsottoinsieme di $R^3$\\
 Se $c\in \R$, la curva di livello $c$ di $f$ è l'insieme $f^{-1}(c)\{(x,y)\in A: f(x,y)=c\}$\\
 Se $f$ 	'e differenziabile in $(x_0,y_0)\in\circdot{A}$ il piano tangente alla superficie $z=f(x,y)$ in $(x_0,y_0)$ ha equazione:\\
-$$z=f(x_0,y_0)+\nabla f(x_0,y_0)\begin{bmatrix}(x-x0)\\(y-y_0)\end{bmatrix}$$ 
-$$z=f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+\partial_yf(x_0,y_0)(y-y_0)$$
+\[z=f(x_0,y_0)+\nabla f(x_0,y_0)\begin{bmatrix}(x-x0)\\(y-y_0)\end{bmatrix}\] 
+\[z=f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+\partial_yf(x_0,y_0)(y-y_0)\]
 \observation
 geometricamente, il gradiente di una funzione indica la direzione di $R^n$ in cui si ha la massima variazione del valore di f, nel verso di incremento positivo di $f$,
 \observation 
@@ -716,8 +716,8 @@ un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al v
 	La retta tangente in $x_0$ a $y=\varphi(x)$ è $y=y_0+\varphi'(x_0)(x-x_0)$\\
 	questo vuole dire che un vettore tangente a $y=\varphi(x)$ in $(x_0,y_0)$ è $\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix}$.\\
 	... calcolo il prodotto scalare\\
-	$$\nabla f(x_0,y_0)\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} = \begin{bmatrix}\partial_x f(x_0,y_0)&&\partial_y f(x_0,y_0)\end{bmatrix}\begin{bmatrix}1\\-\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}\end{bmatrix} =$$ 
-	$$=\partial_x f(x_0,y_0) -\partial_y f(x_0,y_0)\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}=0$$
+	\[\nabla f(x_0,y_0)\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} = \begin{bmatrix}\partial_x f(x_0,y_0)&&\partial_y f(x_0,y_0)\end{bmatrix}\begin{bmatrix}1\\-\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}\end{bmatrix} =\] 
+	\[=\partial_x f(x_0,y_0) -\partial_y f(x_0,y_0)\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}=0\]
 	Allora il graadiente è perpendicolare alla curva di livello.\\
 	Guardiamo ora al caso in cui $\partial_yf(x_0,y_0)= 0$ e $\partial_xf(x_0,y_0)\ne 0$ quindi il gradiente è non nullo.\\
 	Applicando lo stesso ragionamento id sopra, solo esplicitando la $x$ in funzione della $y$. Quindi $x=\psi(x)$ e $\psi{'}(y_0)=-\frac{\partial_y f(x_0,y_0)}{\partial_x f(x_0,y_0)}$
@@ -727,7 +727,7 @@ un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al v
 Spesso la ricerca di punti di massimo o minimo di una funzione $f:A\rightarrow \R, A\subseteq \R^n$ deve essere ristrettaad un sottoinsieme $B\subseteq A$ a causa di eventuali vincoli a cui le variabili indipendenti devono soddisfare. L0insieme $B$ può essere generalmente descritto da una funzione $\varphi :A\rightarrow \R^p$, nel senso che $B=\{x\in A:\varphi (x)\le 0\}$\\
 NOTA::: direi n>1 poiché se ho una sola variabile e la vincolo ...??????? booooo .\\
 Questo problema è usualmente abbreviato in:
-$$\max\limits_{\varphi \le 0}\quad o \quad\min\limits_{\varphi \le 0}$$
+\[\max\limits_{\varphi \le 0}\quad o \quad\min\limits_{\varphi \le 0}\]
 può essere affrontato in due passi:\\
 \begin{enumerate}
 	\item ricerca dei punti di estremo di $f$ interni a $B$, problema gia affrontato.
@@ -752,11 +752,11 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 	$g(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \iff y=\varphi(x)$\\
 	Osserviamo che dire $(x_0,y_0)$ di massimo o minimo per $f$ ristretta a $g(x,y)=0\iff x_0$ è di massimo o di minimo per la funzione $x\rightarrow f(x,\varphi(x))$.\\
 	Per il teorema di Fermat $\left.\frac{\mathrm{d}}{\mathrm{d}x}(f(x,\varphi(x)))\right\|_{x=x_0}=0$, punto stazionario ha derivata nulla, e la derivata di quella funzione in $x_0$ è:
-	$$\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)$$ 
+	\[\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)\] 
 	allora
-	$$0=\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)=$$
-	$$=\partial_xf(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\frac{\partial_xg(x_0,\varphi(x_0))}{\partial_yg(x_0,\varphi(x_0))}=$$\\
-	$$=\partial_xf(x_0,\varphi(x_0))\partial_yg(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\partial_xg(x_0,\varphi(x_0))=det\left(\begin{matrix}\partial_xf(x_0,y_0)&&\partial_yf(x_0,y_0)\\\partial_xg(x_0,y_0)&&\partial_yg(x_0,y_0)\end{matrix}\right)=0$$\\
+	\[0=\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)=\]
+	\[=\partial_xf(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\frac{\partial_xg(x_0,\varphi(x_0))}{\partial_yg(x_0,\varphi(x_0))}=\]\\
+	\[=\partial_xf(x_0,\varphi(x_0))\partial_yg(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\partial_xg(x_0,\varphi(x_0))=det\left(\begin{matrix}\partial_xf(x_0,y_0)&&\partial_yf(x_0,y_0)\\\partial_xg(x_0,y_0)&&\partial_yg(x_0,y_0)\end{matrix}\right)=0\]\\
 	questo equivale a dire che i vettori riga della matrice sono paralleli quindi $\exists\alpha\in \R : \nabla f(x_0,y_0)=\lambda\nabla g(x_0,y_0)$.\\
 	Non è uguale scrivere $\exists\alpha\in \R : \nabla g(x_0,y_0)=\lambda\nabla f(x_0,y_0)$ poiché non c'è certezza sul valore di $\nabla f(x_0,y_0)$ che se nullo negherebbe l'ipotesi di $\nabla g(x_0,y_0)\ne 0$\\
 	Se guardiamo ora il caso in cui $\partial_yg(x_0,y_0)=0$ e $\partial_xg(x_0,y_0)\ne 0$.\\
@@ -771,7 +771,7 @@ Se $x_0$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda_1,\ld
 \begin{proposition}[Teorema Fondamentale del Calcolo Integrale]
 	\label{teo:fondament_calcolo_integ}
 	Sia $I\subseteq \R$ un intervallo e sia $x_0\in I$. Data $f\in c^0(I;R)$ la funzione:
-	$$\begin{array}{rcl} F: I & \to & \R \\ x & \to & \int_{x_0}^{x}f(t)\integrald{t} \end{array}$$
+	\[\begin{array}{rcl} F: I & \to & \R \\ x & \to & \int_{x_0}^{x}f(t)\integrald{t} \end{array}\]
 	Si ha $F\in \cntclass{1}(I;R)$ e $F'(x)=f(x)$ $\forall x \in I$
 \end{proposition}[]
 \proposition
@@ -782,15 +782,15 @@ $\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to 
 Sia $A\subseteq \R^n$ un aperto, data $f\in \cntclass{1}(A\times \R;R)$ la funzione \\
 $\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to & \int_{\alpha}^{\beta}f(x,t)\integrald{t} \end{array}$\\
 è di classe $\cntclass{1}(R\times \R\times A;R)$ ed inoltre, $\forall (\alpha,\beta,x)\in \R\times \R\times A$ e $\forall i=1,\ldots,n$\\
-$$\frac{\partial F}{\partial \alpha}=-f(x,\alpha)$$
-$$\frac{\partial F}{\partial \beta}=f(x,\beta)$$
-$$\frac{\partial F}{\partial x_i}=\int_{\alpha}^{\beta}\frac{\partial F}{\partial x_i}(x,t)\integrald{t}$$
-$$\nabla F=\int_{\alpha}^{\beta}\nabla f(x,t)\integrald{t}$$
+\[\frac{\partial F}{\partial \alpha}=-f(x,\alpha)\]
+\[\frac{\partial F}{\partial \beta}=f(x,\beta)\]
+\[\frac{\partial F}{\partial x_i}=\int_{\alpha}^{\beta}\frac{\partial F}{\partial x_i}(x,t)\integrald{t}\]
+\[\nabla F=\int_{\alpha}^{\beta}\nabla f(x,t)\integrald{t}\]
 \corollary
 Sia $A\subseteq \R^n$ un aperto, date le funzioni $\alpha:x\rightarrow \R, \beta:x\rightarrow \R, f:x\rightarrow \R, $ di classe $\cntclass{1}$ , la funzione \\
 $\begin{array}{rcl} F: A & \to & \R \\ (x) & \to & \int_{\alpha(x)}^{\beta(x)}f(x,t)\integrald{t} \end{array}$\\
 è di classe $\cntclass{1}(R\times \R\times A;R)$ ed inoltre, $\forall x_0 \in A$:
-$$\nabla F(x_0,y_0)=f(x_0,\beta)\nabla\beta(x_0)-f(x_0,\alpha)\nabla\alpha(x_0)+\int_{\alpha(x_0)}^{\beta(x_0)}\nabla f(x,t)\integrald{t}$$
+\[\nabla F(x_0,y_0)=f(x_0,\beta)\nabla\beta(x_0)-f(x_0,\alpha)\nabla\alpha(x_0)+\int_{\alpha(x_0)}^{\beta(x_0)}\nabla f(x,t)\integrald{t}\]
 
 \section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}
 \label{sec:fun_in_C}
@@ -808,11 +808,11 @@ Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \mapsto \C$ può essere ident
 	Sia $A \subseteq \R$ e sia $t_0 \in \circdot{A}$. Allora
 	\begin{itemize}
 		\item Se due funzioni $f,g: A \mapsto \C$ sono differenziabili in $t_0$, anche le funzioni $f+g$ e $f \cdot g$ sono differenziabili in $t_0$. Inoltre
-			$$(f+g)'(t_0) = f'(t_0) + g'(t_0) \qquad\text{e}\qquad (f \cdot g)'(t_0) = f'(t_0)g(t_0)+f(t_0)g'(t_0)$$
+			\[(f+g)'(t_0) = f'(t_0) + g'(t_0) \qquad\text{e}\qquad (f \cdot g)'(t_0) = f'(t_0)g(t_0)+f(t_0)g'(t_0)\]
 		\item Per ogni $\lambda \in \C$, anche $\lambda f$ è differenziabile e
-			$$(\lambda f)'(t_0) = \lambda f'(t_0)$$
+			\[(\lambda f)'(t_0) = \lambda f'(t_0)\]
 		\item Se $g(t_0) \neq 0$, anche $1/g$ e $f/g$ sono differenziabili in $t_0$ e
-			$$(1/g)'(t_0) = - \frac{g'(t_0)}{g^2(t_0)} \qquad\text{e}\qquad (f/g)'(t_0) = \frac{f'(t_0)g(t_0)-f(t_0)g'(t_0)}{g^2(t_0)}$$
+			\[(1/g)'(t_0) = - \frac{g'(t_0)}{g^2(t_0)} \qquad\text{e}\qquad (f/g)'(t_0) = \frac{f'(t_0)g(t_0)-f(t_0)g'(t_0)}{g^2(t_0)}\]
 	\end{itemize}
 	\begin{proof}
 		Omessa
@@ -824,12 +824,12 @@ Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \mapsto \C$ può essere ident
 \end{exercise}
 \begin{definition}[Funzione Esponenziale con Esponente Complesso]
 	La Funzione Esponenziale con Esponente Complesso è così definita:
-	$$e^{x+iy} = e^x \cdot (\cos y + i \sin y)$$
+	\[e^{x+iy} = e^x \cdot (\cos y + i \sin y)\]
 \end{definition}
 \begin{proposition}
 	\label{prop:deriv_exp_in_C}
 	Qualunque sia $\lambda \in \C$,
-	$$\frac{d}{dt}e^{\lambda t} = \lambda e^{\lambda t}$$
+	\[\frac{d}{dt}e^{\lambda t} = \lambda e^{\lambda t}\]
 	\begin{proof}
 		Omessa
 	\end{proof}

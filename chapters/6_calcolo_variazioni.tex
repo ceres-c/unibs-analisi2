@@ -2,21 +2,21 @@
 \section{Preliminari}
 Il calcolo delle variazioni si occupa dell'ottimizzazione di funzioni $ F : X \mapsto \R $, dove $X$ è un insieme di funzioni.\\
 In questo capitolo varranno considerati univocamente funzionali integrali del tipo
-$$\begin{array}{rcl} F: X & \to & \R \\
-x & \to & \int_{a}^b f(t,x(t), x'(t))\integrald{t}\end{array}$$
+\[\begin{array}{rcl} F: X & \to & \R \\
+x & \to & \int_{a}^b f(t,x(t), x'(t))\integrald{t}\end{array}\]
 eventualmente soggetti a vincoli sui valori $x(a)$ e $x(b)$ o sul valore di un integrale del tipo $\int_a^b \varphi(x(t))\integrald{t}$.\\
 Dove:
-$$f: \realintervalclose{a}{b}\times \R ^n\times \R ^n \mapsto \R$$
-$$X=\left\{x\in \cntclass{1}(\realintervalclose{a}{b}); \R ^n\text{ t.c.: }x(a)=x_a, x(b)=x_b \right\},\text{ con }x_a,x_b\in \R ^n$$
+\[f: \realintervalclose{a}{b}\times \R ^n\times \R ^n \mapsto \R\]
+\[X=\left\{x\in \cntclass{1}(\realintervalclose{a}{b}); \R ^n\text{ t.c.: }x(a)=x_a, x(b)=x_b \right\},\text{ con }x_a,x_b\in \R ^n\]
 \proposition
 Sia $f\in \cntclass{1}(A\times \R ; \R )$ con $a\subseteq \R ^n$\\
 Se $\begin{array}{ccc} F: \R \times \R \times A & \to & \R \\
 x & \to & \int_{\alpha}^\beta f(x,t)\integrald{t}\end{array}$
 Allora:
-$$ F\in \cntclass{1}$$
-$$ \partial_\alpha F(\alpha,\beta,x)=-f(x,\alpha)$$
-$$ \partial_\beta F(\alpha,\beta,x)=f(x,\beta)$$
-$$ \nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)\integrald{t}$$
+\[ F\in \cntclass{1}\]
+\[ \partial_\alpha F(\alpha,\beta,x)=-f(x,\alpha)\]
+\[ \partial_\beta F(\alpha,\beta,x)=f(x,\beta)\]
+\[ \nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)\integrald{t}\]
 \definition ?????????????? R OPPURE RN\\
 Sia $I\in \R $ un intervallo. Curva su $I$ $ \R \bydef$ una funzione $\gamma:I\subseteq \R ^n$ che sia continua.
 \observation
@@ -29,25 +29,25 @@ DISEGNO\\
 \definition
 Una curva $\gamma : \realintervalclose{a}{b} \mapsto \R^n$ si dice rettificabile $\bydef f(\gamma)<+\infty$
 \observation
-$$\sum\limits_{i=1}^{N}\norm{\gamma(t_i)-\gamma(t_{i-1})} $$
+\[\sum\limits_{i=1}^{N}\norm{\gamma(t_i)-\gamma(t_{i-1})} \]
 per il teorema del valore medio differenziale(accrescimenti finiti)
-$$\sum\limits_{i=1}^{N}\norm{ \gamma'(t_i)(t_i-t_{i-1})} =??$$
-$$\int_{a}^{b}\norm{ \gamma'(t)} \integrald{t}$$
+\[\sum\limits_{i=1}^{N}\norm{ \gamma'(t_i)(t_i-t_{i-1})} =??\]
+\[\int_{a}^{b}\norm{ \gamma'(t)} \integrald{t}\]
 \proposition
 Se $\gamma\in \cntclass{1}(\realintervalclose{a}{b}; \R ^n)\Rightarrow l(\gamma)=\int_a^b\norm{\gamma'(t)}\integrald{t}$
 \observation
 Se $\gamma$ è la traiettoria di un punto materiale,allora $\norm{\gamma}$ è la norma della velocità istantanea, e quindi $l(\gamma)$ è lo spazio che si percorre, cioè l'integrale della velocità valutato tra $t??????t_i$ due istanti di tempo entro i quali si mantiene tale velocità.
 \observation
 Nel caso specifico sarà:
-$$ X=\left\{ x\in \cntclass{1}(\left[a,b\right]; \R 2): x(a)=A, x(b)=B \right\} $$
-$$\begin{array}{ccc} 
+\[ X=\left\{ x\in \cntclass{1}(\left[a,b\right]; \R 2): x(a)=A, x(b)=B \right\} \]
+\[\begin{array}{ccc} 
 F: X & \to & \R \\
 x & \to & \int_{a}^b \norm{x'(t)}\integrald{t}
-\end{array}$$
-$$\begin{array}{ccc} 
+\end{array}\]
+\[\begin{array}{ccc} 
 f: \left[a,b\right]\times \R ^2\times \R ^2 & \to & \R \\
 (t,x, x') & \to &  \norm{x'(t)}
-\end{array}$$
+\end{array}\]
 \section{L'Equazione di Eulero}
 LEMMA:::LEMMA FONDAMENTALE DEL CALCOLO DELLE VARIAZIONI\\
 Sia $f\in \cntclass{0}(\left[0,1\right]; \R )$ t.c.: $\forall v\in \cntclass{0}(\left[0,1\right]; \R )$ con $v(0)=v(1)=0$ si abbia $\int_0^1 f(x)v(x)\integrald{x}=0$\\
@@ -80,7 +80,7 @@ Allora $f(x)\equiv 0\forall x\in\left[0,1\right]$
 	0&&x\ge x_0+\delta
 	\end{matrix}\right.$POSSIBILIPLAUSIBILIERRORI\\
 	Se calcoliamo
-	$$\int_0^1f(x)v(x)\integrald{x}=\int_a^bf(x)v(x)\integrald{x}\ge\frac{1}{2}f(x_0)\int_a^bv(x)\integrald{x}=\frac{1}{2}f(x_0)\frac{b-a}{2}>0$$
+	\[\int_0^1f(x)v(x)\integrald{x}=\int_a^bf(x)v(x)\integrald{x}\ge\frac{1}{2}f(x_0)\int_a^bv(x)\integrald{x}=\frac{1}{2}f(x_0)\frac{b-a}{2}>0\]
 	Se avessi preso $f(x_0)<0$ prendo $v=-v$ e il resto segue...
 \end{proof}
 \observation
@@ -109,7 +109,7 @@ Sia $f\in \cntclass{0}(\left[a,b\right]; \R )$ e $k\in\mathbb{N}$ tale che $\for
 	\end{tikzpicture}
 	\'E sempre lo stesso lemma con l'aggiunta che la funzione $v$ sia di classe $\cntclass{k}$.\\
 	Se si chiama $u$ la funzione blu e $v$ la funzione rossa abbiamo:
-	$$\int_0^1 f(x)u(x)\integrald{x}>0$$
+	\[\int_0^1 f(x)u(x)\integrald{x}>0\]
 	Se $v$ è un po più regolare , prendiamo $v=u^(k+1)(x)$. cioè se vogliamo $v\in \cntclass{k}$ prendiamo.....\\
 	LA DINMOSTRAZIONE E A ME INCOMPRENSIBILE.
 \end{proof}

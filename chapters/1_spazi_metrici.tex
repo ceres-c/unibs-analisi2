@@ -40,7 +40,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\label{def:metr_indotta}
 	Siano $(X,d)$ spazio metrico e $S \subseteq X$ con $S \neq \emptyset$\\
 	Allora $d_{|S} = d_{|S \times S}$ è una metrica su $S$, cioè la metrica $d_{|S}$ è la \textbf{metrica indotta}, definita come la \textbf{restrizione} della metrica $d$ ai soli elementi di $S$. Si definisce formalmente come
-	$$\funcdef{d_{|S}}{S \times S}{\R}{(x,y)}{d(x,y)}$$
+	\[\funcdef{d_{|S}}{S \times S}{\R}{(x,y)}{d(x,y)}\]
 \end{definition}
 
 \begin{definition}[Sottospazio Metrico]
@@ -89,11 +89,11 @@ Unendo le due definizioni si giunge naturalmente a
 						&\iff (x_1,x_2)=(y_1,y_2)
 					\end{align*}
 				\item $d(x,y) = d(y,x)$ invertendo le coordinate di $x$ con quelle di $y$ la somma non cambia, quindi la simmetria è rispettata
-					$$d\bigl((x_1,x_2),(y_1,y_2)\bigr) \bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2} = \sqrt{(y_2-x_2)^2+(y_1-x_1)^2} = d\bigl((y_1,y_2),(x_1,x_2)\bigr)$$
+					\[d\bigl((x_1,x_2),(y_1,y_2)\bigr) \bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2} = \sqrt{(y_2-x_2)^2+(y_1-x_1)^2} = d\bigl((y_1,y_2),(x_1,x_2)\bigr)\]
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ da \fullref{prop:dist_sp_norm}, la metrica indotta dalla norma (\fullref{def:norma}), applicata ad $\R^2$ è
-					$$\norm{x - y} = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}$$
+					\[\norm{x - y} = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}\]
 					che corrisponde alla metrica in oggetto. Dunque, grazie alle proprietà dell'operatore $\norm{\;\cdot\;}$ (nello specifico la \textit{disuguaglianza triangolare}), si ottiene
-					$$d(x,y) = \norm{x-y} = \norm{(x-z) + (z-y)} \leq \norm{x-z} + \norm{z-y} = d(x,z) + d(z,y)$$
+					\[d(x,y) = \norm{x-y} = \norm{(x-z) + (z-y)} \leq \norm{x-z} + \norm{z-y} = d(x,z) + d(z,y)\]
 					\begin{center}
 						\begin{tikzpicture}[scale=0.5]
 						\draw (0,0) node[anchor=north east]{$x=(x_1,x_2)$}
@@ -109,7 +109,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y) = 0 \iff x = y$ perché $\abs{\;\cdot\;} = 0 \iff \cdot\; = 0$ per definizione valore assoluto
 				\item $d(x,y)=d(y,x)$ perché $\abs{x - y} = \abs{y - x}$ per definizione valore assoluto
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ in quanto
-					$$d(x,y) = \abs{x-y} = \abs{x-z+z-y} \leq \abs{x-z} + \abs{z-y} = d(x,z) + d(z,y)$$
+					\[d(x,y) = \abs{x-y} = \abs{x-z+z-y} \leq \abs{x-z} + \abs{z-y} = d(x,z) + d(z,y)\]
 			\end{enumerate}
 		\item $X=\R^n \;\; \text{con}\; x=(x_1,\ldots,x_n),\; y=(y_1,\ldots,y_n),\quad d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^n$}} \label{ex:dist_eucl}\\
 			Analogo al primo esempio
@@ -165,7 +165,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
 				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
-					$$\abs{g(x)-f(x)}\le\abs{g(x)-h(x)}+\abs{h(x)-f(x)}$$
+					\[\abs{g(x)-f(x)}\le\abs{g(x)-h(x)}+\abs{h(x)-f(x)}\]
 					Applicando il sup la disuguaglianza resta vera.
 			\end{enumerate}
 			\begin{note}
@@ -238,26 +238,26 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}[Metrica Indotta da una Norma]
 	\label{prop:dist_sp_norm}
 	Sia $V$ uno spazio normato. Allora $(V,d)$ è uno spazio metrico con la distanza
-	$$d(x,y) = \norm{y-x}$$
+	\[d(x,y) = \norm{y-x}\]
 	ed inoltre la distanza così definita è:
 	\begin{enumerate}
 		\item Invariante per traslazioni:
-			$$\forall x,y,z \in V,\; d(x,y) = d(x+z, y+z)$$
+			\[\forall x,y,z \in V,\; d(x,y) = d(x+z, y+z)\]
 		\item Positivamente omogenea:
-			$$\forall x,y \in V\: \text{e} \forall \lambda \in \R,\; d(\lambda x, \lambda y) = \abs{\lambda}d(x,y)$$
+			\[\forall x,y \in V\: \text{e} \forall \lambda \in \R,\; d(\lambda x, \lambda y) = \abs{\lambda}d(x,y)\]
 	\end{enumerate}
 	\begin{proof}
 		~
 		\begin{enumerate}
 			\item $d(x,y) = d(x+z, y+z) = \norm{y+z-x-z} = \norm{y-x} = d(x,y)$
 			\item Con la proprietà 4 della \fullref{def:norma}
-			$$d(\lambda x, \lambda y) = \norm{\lambda y - \lambda x} = \norm{\lambda (y - x)} = \abs{\lambda} \norm{y - x} = \abs{\lambda}d(x,y)$$
+			\[d(\lambda x, \lambda y) = \norm{\lambda y - \lambda x} = \norm{\lambda (y - x)} = \abs{\lambda} \norm{y - x} = \abs{\lambda}d(x,y)\]
 		\end{enumerate}
 	\end{proof}
 	\begin{note}
 		Nel caso in cui $V = \R^n$, la metrica indotta è ovviamente la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
 		% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
-		$$d(x,y) = \sqrt{\sum\limits_{i=1}^{n} (y_i-x_i)^2 }$$
+		\[d(x,y) = \sqrt{\sum\limits_{i=1}^{n} (y_i-x_i)^2 }\]
 	\end{note}
 \end{proposition}
 
@@ -287,7 +287,7 @@ Unendo le due definizioni si giunge naturalmente a
 			\item $y = n+1$
 		\end{itemize}
 		Ora, per ogni $n$ la $d = 1$, mentre la $d_P = 2n+1$, dunque è impossibile trovare un $C \in \realintervalopen{0}{+\infty}$ (quindi finito) tale per cui
-		$$d_P(x,y) \leq C \cdot d(x,y)$$
+		\[d_P(x,y) \leq C \cdot d(x,y)\]
 	\end{solution}
 \end{example}
 \begin{example}
@@ -304,7 +304,7 @@ Unendo le due definizioni si giunge naturalmente a
 \definition
 \begin{definition}[Sfera]
 	Sia $(X,d)$ uno spazio metrico e siano $x_0 \in X$, $r > 0$. Si dice \textbf{Sfera} (o \textbf{Bolla}, o ancora \textbf{Palla}) \textbf{Aperta} di centro $x_0$ e raggio $r$ l'insieme:
-	$$B(x_0,r)=\brackets{x\in X : d(x,y)<r}$$
+	\[B(x_0,r)=\brackets{x\in X : d(x,y)<r}\]
 \end{definition}
 \begin{observation}
 	Se $r=0\Rightarrow B(x_0,r)=\emptyset$\\
@@ -364,7 +364,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:chius_sp_metr}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $A \neq \emptyset$. Allora
-	$$\overline{A} = \brackets{x \in A \text{ è \textbf{isolato} per } A} \cup \brackets{x \in A: x \text{ è \textbf{di accumulazione} per } A}$$
+	\[\overline{A} = \brackets{x \in A \text{ è \textbf{isolato} per } A} \cup \brackets{x \in A: x \text{ è \textbf{di accumulazione} per } A}\]
 	% WARNING Nel secondo elemento dell'unione, sul libro, è riportato x \in X, non x \in A. Non mi sembrava sensato, dunque l'ho cambiato in questo modo.
 	\begin{proof}
 		Un punto isolato, per definizione, appartiene ad $A$, e rientra quindi automaticamente nella definizione di $\overline{A}$. È dunque necessario dimostrare solo il caso $x_*$ di accumulazione per $A$.\\
@@ -419,12 +419,12 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Insieme Aperto]
 	\label{def:aperto}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
-	$$A\text{ è \textbf{aperto}}\bydef A=\emptyset\quad\text{oppure}\quad A=\circdot{A}$$
+	\[A\text{ è \textbf{aperto}}\bydef A=\emptyset\quad\text{oppure}\quad A=\circdot{A}\]
 \end{definition}
 \begin{definition}[Insieme Chiuso]
 	\label{def:chiuso}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
-	$$A\text{ è \textbf{chiuso}}\bydef A=\emptyset\quad\text{oppure}\quad A=\bar{A}$$
+	\[A\text{ è \textbf{chiuso}}\bydef A=\emptyset\quad\text{oppure}\quad A=\bar{A}\]
 \end{definition}
 \begin{observation}
 	$A$ \textbf{non chiuso} $\notimplies$ $A$ aperto\\
@@ -463,13 +463,13 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{definition}[Diametro Spazio Metrico]
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
-	$$\boldsymbol{\diam}(A) \quad = \quad \sup\limits_{x,y \in A} d(x,y)$$
+	\[\boldsymbol{\diam}(A) \quad = \quad \sup\limits_{x,y \in A} d(x,y)\]
 	Cioè la "distanza massima" tra due suoi qualsiasi elementi.
 \end{definition}
 \begin{definition}[Spazio Metrico Limitato]
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Allora
-	$$A \text{ è \textbf{Limitato}} \quad \bydef \quad \diam(A) \text{ è finito}$$
-	$$A \text{ è \textbf{Illimitato}} \quad \bydef \quad \diam(A) \text{ è infinito}$$
+	\[A \text{ è \textbf{Limitato}} \quad \bydef \quad \diam(A) \text{ è finito}\]
+	\[A \text{ è \textbf{Illimitato}} \quad \bydef \quad \diam(A) \text{ è infinito}\]
 \end{definition}
 \begin{note}
 	L'insieme vuoto $\emptyset$ ha diametro nullo ed è dunque limitato.
@@ -502,7 +502,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{exercise}
 \begin{exercise}
 	Dimostrare che in $\R$ le distanze
-	$$d(x,y) = \abs{y-x} \quad \text{e} \quad d(x,y) = \frac{\abs{y-x}}{1+\abs{y-x}}$$
+	\[d(x,y) = \abs{y-x} \quad \text{e} \quad d(x,y) = \frac{\abs{y-x}}{1+\abs{y-x}}\]
 	non sono equivalenti.
 	\begin{solution}
 		Suggerimento: utilizzare la nozione di limitatezza.
@@ -531,7 +531,7 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{proposition}
 	Siano $(X,d)$ uno spazio metrico e $A,B\subseteq X$:
-	$$A \subseteq B \implies \diam(A) \leq \diam(B)$$
+	\[A \subseteq B \implies \diam(A) \leq \diam(B)\]
 	\begin{proof}
 		Immediata % TODO proof
 	\end{proof}
@@ -573,7 +573,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Limite per Successioni]
 	\label{def:lim_succ}
 	Data una successione $x: \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
-	$$\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0$$
+	\[\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0\]
 	Se $\lim\limits_{n \to +\infty} = x_\infty$, allora la successione $x_n$ è \textbf{Convergente} a $x_\infty$. Si può scrivere: $x_n \to x_\infty$ per $n \to \infty$.
 
 	Cioè la convergenza della successione $x: \N \mapsto X$ a $x_\infty$ equivale alla convergenza a $0$ della successione di numeri reali $\brackets{d(x_n,x_\infty):\; n \in \N}$
@@ -587,7 +587,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:succ_conv_lim}
 	Data la successione $x: \N \mapsto X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
-	$$\lim\limits_{n\rightarrow+\infty}x_n = x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon$$
+	\[\lim\limits_{n\rightarrow+\infty}x_n = x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon\]
 	\begin{proof}
 		% TODO dimostrazione
 	\end{proof}
@@ -605,18 +605,18 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{equation*}
 	\begin{proof}
 		Per ogni $n \in \N$, per la proprietà 4 da \fullref{def:sp_metrico}
-		$$d(x_\infty, x^\infty) \leq d(x_\infty, x_n) + d(n, x^\infty)$$
+		\[d(x_\infty, x^\infty) \leq d(x_\infty, x_n) + d(n, x^\infty)\]
 		Passando al $\lim$ per $n \to +\infty$
-		$$\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x^\infty)}_{\begin{tabular}{c}\geq 0\\{\small Per def. distanza}\end{tabular}}
+		\[\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x^\infty)}_{\begin{tabular}{c}\geq 0\\{\small Per def. distanza}\end{tabular}}
 		\leq
 		\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x_n)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
 		+
 		\underbrace{\lim\limits_{n \to +\infty}d(n, x^\infty)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
-		\leq 2 \varepsilon$$
+		\leq 2 \varepsilon\]
 		Dovendo essere questa forma valida $\forall \varepsilon > 0$, si concludere che non può esser altro che
-		$$\lim\limits_{n \to +\infty}d(x_\infty, x^\infty) = 0$$
+		\[\lim\limits_{n \to +\infty}d(x_\infty, x^\infty) = 0\]
 		Che, per la proprietà 2 da \fullref{def:sp_metrico}, significa
-		$$x_\infty = x^\infty$$
+		\[x_\infty = x^\infty\]
 	\end{proof}
 \end{theorem}
 \begin{proposition}
@@ -624,7 +624,7 @@ Unendo le due definizioni si giunge naturalmente a
 	Sia $p \in \N,\; p \geq 2$. In $\R^p$, con $d(x,y) = \norm{y-x}$, una successione $x: \N \to X$ converge a $x_\infty$ se e solo se le $è$ successioni delle componenti convergono alle rispettive componenti di $x_\infty$.
 	\begin{proof}
 		Applicare la \fullref{def:lim_succ} ricordando che
-		$$\abs{y_i} \leq \norm{y} \leq \abs{\sum\limits_{i = 1}^p \abs{y_i}} \qquad \forall y \in \R^p \text{ e per } i = 1,\:\dotsc\:,p$$
+		\[\abs{y_i} \leq \norm{y} \leq \abs{\sum\limits_{i = 1}^p \abs{y_i}} \qquad \forall y \in \R^p \text{ e per } i = 1,\:\dotsc\:,p\]
 		% TODO actual proof
 	\end{proof}
 \end{proposition}
@@ -639,13 +639,13 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}[Caratterizzazione dei Punti di Accumulazione]
 	\label{prop:caratteriz_pti_accumul}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $x_* \in X$. Allora
-	$$x_* \text{ di accumulazione per } A \iff
+	\[x_* \text{ di accumulazione per } A \iff
 	\begin{cases}
 		\begin{tabular}{c} % NOTE This should probably be a box of some kind instead of a tabular
 			esiste una successione di elementi di $A$,\\
 			diversi da $x_*$, convergente a $x_*$
 		\end{tabular}
-	\end{cases}$$
+	\end{cases}\]
 	\begin{proof}~
 		\begin{itemize}
 			\item[$\implies$] Grazie alla \fullref{prop:condiz_punt_accumulaz}
@@ -659,7 +659,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\end{align*}
 				La successione delle distanze è convergente a $0$ per $n \to +\infty$, quindi con la \fullref{def:lim_succ} si può concludere che la successione $x_n$ converge a $x_*$
 			\item[$\impliedby$] Dalla \fullref{def:lim_succ}
-				$$\forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \quad x_n \in A,\: x_n \neq x_*, \quad d(x_n,x_*)<\varepsilon$$
+				\[\forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \quad x_n \in A,\: x_n \neq x_*, \quad d(x_n,x_*)<\varepsilon\]
 				Ma se $d(x_n,x_*)<\varepsilon$, allora si può anche scrivere $x_n \in B(x_*, \varepsilon)$, quindi sicuramente
 				\begin{align*}
 					\implies & \forall\varepsilon > 0 \quad B(x_*, \varepsilon) \cap A \setminus \brackets{x_*} \neq \emptyset\\
@@ -672,20 +672,20 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{corollary}
 	\label{coro:succ_conv_sse_x_in_chius_A}
 	Siano $(X,d)$ uno Spazio Metrico, $A \subseteq X$ e $x_* \in X$. Allora:
-	$$x_* \in \overline{A} \iff
+	\[x_* \in \overline{A} \iff
 	\begin{cases}
 		\begin{tabular}{c} % NOTE This should probably be a box of some kind instead of a tabular
 			esiste una successione di elementi di $A$,\\
 			diversi da $x_*$, convergente a $x_*$
 		\end{tabular}
-	\end{cases}$$
+	\end{cases}\]
 	\begin{proof}~
 		\begin{itemize}
 			\item[$\implies$]
 				\begin{itemize}
 					\item Se $x_* \in A$\newline
 						È sufficiente scegliere $x_n = x_*$, successione costante, dunque
-						$$\lim\limits_{n \to +\infty} x_n = \lim\limits_{n \to +\infty} x_* = x_*$$
+						\[\lim\limits_{n \to +\infty} x_n = \lim\limits_{n \to +\infty} x_* = x_*\]
 					\item Se $x_*$ di accumulazione per $A$\newline
 						Per \fullref{def:topologia_spa_metri} e grazie alla \fullref{prop:caratteriz_pti_accumul} si giunge direttamente alla tesi.
 				\end{itemize}
@@ -711,14 +711,14 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:se_succ_conv_allora_cau}
 	Sia $(X,d)$ uno spazio metrico.
-	$$x: \N \mapsto X \text{ è \textbf{convergente} } \implies x:\N \mapsto X \text{ è \textbf{di Cauchy}}$$
+	\[x: \N \mapsto X \text{ è \textbf{convergente} } \implies x:\N \mapsto X \text{ è \textbf{di Cauchy}}\]
 	\begin{proof}
 		Sia $x: \N \mapsto X$ convergente a $x_\infty$. Allora
-		$$\lim\limits_{n \to +\infty} x_n \bydef \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d(x_n,x_\infty)<\varepsilon$$
+		\[\lim\limits_{n \to +\infty} x_n \bydef \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d(x_n,x_\infty)<\varepsilon\]
 		Prendendo dunque due elementi qualsiasi $n$ e $m$ con $n,m > \nu$, la distanza di ognuno di essi da $x_\infty$ dovrà essere $<\varepsilon$. Applicando la proprietà 4 da \fullref{def:sp_metrico}, otteniamo
-		$$d(x_n,x_m) \leq \left[ d(x_n,x_\infty)+d(x_m,x_\infty) \right] < 2\varepsilon$$
+		\[d(x_n,x_m) \leq \left[ d(x_n,x_\infty)+d(x_m,x_\infty) \right] < 2\varepsilon\]
 		Quindi
-		$$\forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n,m > \nu \quad d(x_n,x_m) \leq \left[ d(x_n,x_\infty)+d(x_m,x_\infty) \right] < 2\varepsilon$$
+		\[\forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n,m > \nu \quad d(x_n,x_m) \leq \left[ d(x_n,x_\infty)+d(x_m,x_\infty) \right] < 2\varepsilon\]
 		Cioè ci si è ricondotti alla definizione della Condizione di Cauchy
 	\end{proof}
 \end{proposition}
@@ -742,19 +742,19 @@ Unendo le due definizioni si giunge naturalmente a
 				La successione $\brackets{\frac{1}{n}:\; n \in \N, n \neq 0}$ è di Cauchy ma non ammette limite in $\realintervalopen{0}{1}$
 			\end{proof}
 		\item Sia $X$ un insieme con almeno 2 elementi, munito della metrica discreta
-			$$d(x,y)=
+			\[d(x,y)=
 			\begin{cases}
 				\begin{matrix}
 					0&&x=y\\
 					1&&x \ne y
 				\end{matrix}
-			\end{cases}$$
+			\end{cases}\]
 			$X$ è uno spazio metrico completo in cui le uniche successioni convergenti son le successioni \textbf{definitivamente costanti} (cioè costanti da un certo indice in poi).
 		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ è uno spazio metrico completo con la distanza
-			$$d(f,g) = \sup\limits_{\realintervalclose{0}{1}}\abs{g(x) - f(x)}$$
+			\[d(f,g) = \sup\limits_{\realintervalclose{0}{1}}\abs{g(x) - f(x)}\]
 			Vedasi \fullref{prop:dist_unif_sp_metr_compl} per la dimostrazione.
 		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ è uno spazio metrico \textit{non} completo con la distanza
-			$$d(f,g) = \sqrt{\int_0^1 \left[ g(x) - f(x) \right]^2 \integrald{x}}$$
+			\[d(f,g) = \sqrt{\int_0^1 \left[ g(x) - f(x) \right]^2 \integrald{x}}\]
 			Vedasi \fullref{prop:dist_quad_sp_metr_non_compl} per la dimostrazione.
 		\item L'insieme $\C$ dei numeri complessi è uno spazio metrico completo con la distanza $d(z,w) = \abs{w-z}$
 	\end{enumerate}
@@ -763,7 +763,7 @@ Unendo le due definizioni si giunge naturalmente a
 	Esibire una successione di Cauchy di numeri razionali non convergente in $\mathbb{Q}$.
 	\begin{solution}
 		La seguente successione
-		$$\lim\limits_{n \to +\infty} \left( 1+ \frac{1}{n} \right)^n$$
+		\[\lim\limits_{n \to +\infty} \left( 1+ \frac{1}{n} \right)^n\]
 		è convergente a $e \notin \mathbb{Q}$
 	\end{solution}
 \end{exercise}
@@ -772,9 +772,9 @@ Unendo le due definizioni si giunge naturalmente a
 	Siano $(X,d)$ uno spazio metrico \textbf{completo} e $C \subseteq X$ un sottoinsieme \textbf{chiuso} di $X$. Allora $\boldsymbol{(C,d_{|C})}$ \textbf{è sottospazio metrico completo}, con $d_{|C}$ da \fullref{def:metr_indotta}.
 	\begin{proof}
 		Essendo $C$ chiuso, per \fullref{def:chiuso}:
-		$$C = \overline{C} \implies \forall x_* \in C\; x_* \in \overline{C}$$
+		\[C = \overline{C} \implies \forall x_* \in C\; x_* \in \overline{C}\]
 		Si può dunque applicare il \fullref{coro:succ_conv_sse_x_in_chius_A} e concludere che
-		$$\forall x_* \in C \text{ esiste un successione di elementi di $C$ convergenti a $x_*$}$$
+		\[\forall x_* \in C \text{ esiste un successione di elementi di $C$ convergenti a $x_*$}\]
 		Questo permette di individuare tante successioni $x_i$ quanti sono gli elementi di $C$ e, grazie alla \fullref{prop:se_succ_conv_allora_cau}, si sa che ognuna di queste successioni è di Cauchy.
 
 		Si giunge dunque alla \fullref{def:completo}
@@ -786,7 +786,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:se_cau_allora_lim}
 	Sia $(X,d)$ uno spazio metrico. Data la successione $x: N \mapsto X$ \textbf{di Cauchy}:
-	$$x: N \mapsto X \text{\textbf{ di Cauchy}} \implies x: N \mapsto X \text{\textbf{ limitata}}$$
+	\[x: N \mapsto X \text{\textbf{ di Cauchy}} \implies x: N \mapsto X \text{\textbf{ limitata}}\]
 	\begin{proof}
 		\begin{equation*}
 			\begin{gathered}
@@ -798,14 +798,14 @@ Unendo le due definizioni si giunge naturalmente a
 		La dimostrazione prevede di dividere in due "parti" la successione
 		\begin{enumerate}
 			\item Per la definizione di cui sopra è sicuramente possibile individuare un certo $\overline{\nu}$ per cui
-				$$\exists \overline{\nu}:\; \forall n > \overline{\nu} \quad d(x_n, x_{\overline{\nu}}) < 1 \text{ (1 è scelto arbitrariamente)}$$
+				\[\exists \overline{\nu}:\; \forall n > \overline{\nu} \quad d(x_n, x_{\overline{\nu}}) < 1 \text{ (1 è scelto arbitrariamente)}\]
 				In tal modo è stata esplicitata la limitatezza di $x$ \textit{da $\overline{\nu}$ in poi}.
 			\item Si ponga invece $K = \max\limits_{n=0,\: \dotsc \:, \overline{\nu}-1} d(x_n, x_{\overline{\nu}})$, cioè $K$ è la massima tra tutte le distanze $d(x_n, x_{\overline{\nu}})$ con $n < \overline{\nu}$.\\
 				Essendo $n < \overline{\nu}$, $n$ è sicuramente finito, per cui anche $K$ sarà finito. Infatti, avendo un numero finito $n$ di valori $x_n$ assunti dalla successione, anche il massimo di tali valori (cioè $K$) sarà finito.\\
 				In questo modo si è trovato un valore $K$ che limita la $x$ \textit{prima di} $\overline{\nu}$.
 		\end{enumerate}
 		Quindi, concludendo, sicuramente
-		$$\forall n \in \N \quad d(x_n, x_{\overline{\nu}}) < \max \brackets{K, 1}$$
+		\[\forall n \in \N \quad d(x_n, x_{\overline{\nu}}) < \max \brackets{K, 1}\]
 		Cioè la successione è limitata.
 	\end{proof}
 \end{proposition}
@@ -818,10 +818,10 @@ Unendo le due definizioni si giunge naturalmente a
 \end{exercise}
 \begin{corollary}
 	Sia $(X,d)$ uno spazio metrico. Data la successione $x: N \mapsto X$ \textbf{convergente}:
-	$$x: N \mapsto X \text{\textbf{ convergente}} \implies x: N \mapsto X \text{\textbf{ limitata}}$$
+	\[x: N \mapsto X \text{\textbf{ convergente}} \implies x: N \mapsto X \text{\textbf{ limitata}}\]
 	\begin{proof}
 		Grazie alla \fullref{prop:se_succ_conv_allora_cau} ed alla \fullref{prop:se_cau_allora_lim}
-		$$\text{convergente } \implies \text{ di Cauchy } \implies \text{ limitata}$$
+		\[\text{convergente } \implies \text{ di Cauchy } \implies \text{ limitata}\]
 	\end{proof}
 \end{corollary}
 \begin{exercise}
@@ -851,7 +851,7 @@ Unendo le due definizioni si giunge naturalmente a
 Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare una definizione formale conviene prima caratterizzare gli insiemi formati \textit{da più pezzi} e poi definire come connessi quelli \textit{non} formati \textit{da più pezzi}.
 \begin{definition}[Insiemi Separati]
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $B \subseteq X$
-	$$A \text{ e } B \text{ sono \textbf{Separati}} \bydef \overline{A} \cap B = \emptyset \text{ e } A \cap \overline{B} = \emptyset$$
+	\[A \text{ e } B \text{ sono \textbf{Separati}} \bydef \overline{A} \cap B = \emptyset \text{ e } A \cap \overline{B} = \emptyset\]
 \end{definition}
 \begin{definition}[Insieme Connesso o Sconnesso]
 	Un insieme è \textbf{Sconnesso} se e solo se è \textbf{unione} di due insiemi \textbf{separati}.\\
@@ -888,7 +888,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}
 	In $\R$ con la metrica Euclidea, sia $A \subseteq \R$.
-	$$A \text{ è \textbf{Connesso}} \iff A \text{ è un \textbf{Intervallo}}$$
+	\[A \text{ è \textbf{Connesso}} \iff A \text{ è un \textbf{Intervallo}}\]
 	\begin{proof}
 		Omessa.
 	\end{proof}
@@ -919,7 +919,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}
 	\label{prop:compat_chius_lim}
 	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$
-	$$A \text{ \textbf{compatto}} \implies A \text{ \textbf{chiuso e limitato}}$$
+	\[A \text{ \textbf{compatto}} \implies A \text{ \textbf{chiuso e limitato}}\]
 	\begin{proof}
 		Per assurdo negando una per una le conclusioni.
 		\begin{itemize}
@@ -957,7 +957,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}
 	\label{prop:compat_chius_lim_Rn}
 	In $\R^n$ con l'usuale metrica Euclidea, sia $A \subseteq \R^n$. Allora:
-	$$A \text{ è \textbf{Compatto}} \iff A \text{ è \textbf{Chiuso e Limitato}}$$
+	\[A \text{ è \textbf{Compatto}} \iff A \text{ è \textbf{Chiuso e Limitato}}\]
 	\begin{proof}
 		Omessa a lezione.\\
 		\color{not_explained_section_color}
@@ -997,7 +997,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}
 	Sia $(X,d)$ uno spazio metrico. Allora
-	$$X \text{ è \textbf{Compatto}} \implies X \text{ è \textbf{Completo}}$$
+	\[X \text{ è \textbf{Compatto}} \implies X \text{ è \textbf{Completo}}\]
 	\begin{proof}
 		Sia $x: \N \mapsto X$ una successione di Cauchy di elementi di $X$.\\
 		$X$ è compatto quindi, per definizione, esiste una sottosuccessione convergente ad un $x_\infty \in X$. Ciò implica, grazie all'\fullref{ex:sottsucc_conv_succ_conv}, che l'intera successione converga a $x_\infty$, dunque $X$ è completo.
@@ -1191,7 +1191,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{observation}
 \begin{exercise}
 	Data
-	$$\funcdef{f}{\R}{\R}{x}{\sqrt{x^2(x-1)}}$$
+	\[\funcdef{f}{\R}{\R}{x}{\sqrt{x^2(x-1)}}\]
 	determinare l'insieme di definizione e l'insieme dei punti in cui è continua.
 	% TODO solution
 \end{exercise}
@@ -1204,10 +1204,10 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\begin{proof}
 			\let\qed\relax % In order to avoid having two squares, hide the innermost one
 			Per \fullref{def:pti_e_spa_metr}
-			$$\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$$
+			\[\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}\]
 			Quindi esiste una sfera centrata in $x_0$ che non contenga altri punti oltre $x_0$.
 			Ricordando la \fullref{def:funz_cont}
-			$$\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon$$
+			\[\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon\]
 			Si vede che questo unico $x_0$ rispetta la condizione $d_X(x,x_0)<\delta$, inoltre è sicuramente valida la condizione $\bigl(f(x),f(x_0)\bigr) < \varepsilon$, verificando la continuità in $x_0$
 		\end{proof}
 	\end{solution}
@@ -1229,7 +1229,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\begin{itemize}
 			\item $x_0$ di accumulazione: per definizione di $f$ continua
 			\item $x_0$ isolato: per \fullref{def:pti_e_spa_metr}
-				$$\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$$
+				\[\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}\]
 				Posto ora $r = \delta$, si ottiene che, per certo, $x = x_0$, che è quanto richiesto per verificare la continuità
 		\end{itemize}
 	\end{proof}
@@ -1259,14 +1259,14 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\begin{proof}~
 		\begin{itemize}
 			\item[$\implies$]
-			$$f \text{ continua in } x_0 \iff
+			\[f \text{ continua in } x_0 \iff
 				\begin{cases}
 					\begin{array}{c}
 						x_0 \text{ di accumulazione}\\
 						oppure\\
 						x_0 \text{ isolato}
 					\end{array}
-				\end{cases}$$
+				\end{cases}\]
 				Dividendo nei due casi:
 				\begin{itemize}
 					\item $x_0$ di accumulazione:\\
@@ -1319,10 +1319,10 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{equation*}
 	\begin{proof}
 		Essendo $f$ continua per ipotesi, dalla \fullref{prop:cont_e_cont_per_succ} è noto che
-		$$\forall \text{ successione } x:\N \mapsto A:\; \lim\limits_{n \to +\infty} x_n = x_0 \quad \lim\limits_{n \to +\infty} f(x_n) = f(x_0)$$
+		\[\forall \text{ successione } x:\N \mapsto A:\; \lim\limits_{n \to +\infty} x_n = x_0 \quad \lim\limits_{n \to +\infty} f(x_n) = f(x_0)\]
 		Inoltre $\lim\limits_{n \to +\infty} x_n = x_0 \in A$ per ipotesi e, grazie alla continuità di $f$, $\exists f(x_0) \quad \forall x_0 \in A$.\\
 		Unendo le due conclusioni si ottiene la tesi
-		$$\lim\limits_{n \to +\infty} f(x_n) = f(x_0) = f\left( \lim\limits_{n \to +\infty} x_n \right)$$
+		\[\lim\limits_{n \to +\infty} f(x_n) = f(x_0) = f\left( \lim\limits_{n \to +\infty} x_n \right)\]
 	\end{proof}
 \end{corollary}
 
@@ -1409,13 +1409,13 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 	\begin{proof} (Alternativa)\\
 		La successione $x$ ammette una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$, dunque da \fullref{prop:succ_conv_lim}:
-		$$\lim\limits_{n\rightarrow+\infty}x_n=x_*\iff\forall\eta > 0\;\;\exists\nu\in\N:\quad\forall n>\nu\;\;d(x_n,x_*)<\eta$$
+		\[\lim\limits_{n\rightarrow+\infty}x_n=x_*\iff\forall\eta > 0\;\;\exists\nu\in\N:\quad\forall n>\nu\;\;d(x_n,x_*)<\eta\]
 		Dalla \fullref{def:funz_cont} e sapendo che $f(x)$ è continua per ipotesi, si ottiene:
-		$$\forall\varepsilon > 0\;\;\exists\delta > 0:\quad\forall x \in K\;\;d_X (x,x_*)<\delta\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon$$
+		\[\forall\varepsilon > 0\;\;\exists\delta > 0:\quad\forall x \in K\;\;d_X (x,x_*)<\delta\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon\]
 		Unendo ora le due definizioni:
-		$$\forall \varepsilon > 0\;\;\exists \nu \in \N:\quad \forall n > \nu\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon$$
+		\[\forall \varepsilon > 0\;\;\exists \nu \in \N:\quad \forall n > \nu\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon\]
 		Che equivale, per come è definita $y_n$, a
-		$$\lim\limits_{n\rightarrow +\infty}y_n = y_*$$
+		\[\lim\limits_{n\rightarrow +\infty}y_n = y_*\]
 		Cioè la definizione di successione convergente. Ho dunque individuato una sottosuccessione convergente per ogni successione in $f(K)$, verificando così la \fullref{def:compatto}.
 	\end{proof}
 \end{theorem}
@@ -1452,7 +1452,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 \begin{exercise}
 	Sia $(X,d)$ uno spazio metrico. Dimostrare che, fissato un punto $x_0 \in X$, la funzione:
-	$$\funcdef{f}{X}{\R}{x}{d(x,x_0)}$$
+	\[\funcdef{f}{X}{\R}{x}{d(x,x_0)}\]
 	è continua in $X$
 	% TODO solution
 \end{exercise}
@@ -1615,7 +1615,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 \begin{proposition}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$ e $f:A \mapsto Y$ \textbf{Uniformemente Continua} su $A$. Allora esiste un'unica funzione
-	$$\overline{f}: \overline{A} \mapsto Y$$
+	\[\overline{f}: \overline{A} \mapsto Y\]
 	continua su $\overline{A}$ e tale che $f_{|A} = f$ (cioè la $f$ ristretta ad $A$, dove definita, corrisponde a $f$)
 	\begin{proof}
 		Omessa.
@@ -1646,7 +1646,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{definition}[Costante di Lipschitz]
 	\label{def:cost_lips}
 	Fissate le distanze $d_X$ e $d_Y$ e la funzione $f$, allora la più piccola $L$ positiva soddisfacente
-	$$d_Y\bigl(f(x''),f(x')\bigr)\leq L \cdot d_X(x'',x') \qquad \forall x',x'' \in X$$
+	\[d_Y\bigl(f(x''),f(x')\bigr)\leq L \cdot d_X(x'',x') \qquad \forall x',x'' \in X\]
 	si definisce \textbf{Costante di Lipschitz} della funzione $f$ in $X$
 \end{definition}
 \begin{example}
@@ -1753,42 +1753,42 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Sia $f: X \mapsto Y$ una funzione \textbf{Lipschitziana}. Allora $f$ è \textbf{Uniformemente Continua} su $X$.
 	\begin{proof}
 		Dall'ipotesi di Lipschitzianità, applicando la \fullref{def:lips}, si sa per certo che
-		$$d_Y\bigl(f(x''),f(x')\bigr) \leq L \cdot d_X(x'',x')$$
+		\[d_Y\bigl(f(x''),f(x')\bigr) \leq L \cdot d_X(x'',x')\]
 		Posti ora
 		\begin{itemize}
 			\item $d_X(x'',x') < \delta$ senza perdere generalità (il $\delta$ nella unif. continuità è a scelta)
 			\item $\delta = \frac{\varepsilon}{L}$ come semplice posizione
 		\end{itemize}
 		Si ottiene
-		$$d_Y\bigl(f(x''),f(x')\bigr) \leq L \cdot d_X(x'',x') < L \cdot \delta = L \cdot \frac{\varepsilon}{L} = \varepsilon$$
+		\[d_Y\bigl(f(x''),f(x')\bigr) \leq L \cdot d_X(x'',x') < L \cdot \delta = L \cdot \frac{\varepsilon}{L} = \varepsilon\]
 		Da cui, prendendo il primo e l'ultimo membro,
-		$$d_Y\bigl(f(x''),f(x')\bigr) < \varepsilon$$
+		\[d_Y\bigl(f(x''),f(x')\bigr) < \varepsilon\]
 		che è la condizione di uniforme continuità.
 	\end{proof}
 \end{proposition}
 \begin{example}
 	La funzione
-	$$\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{\sqrt{x}}$$
+	\[\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{\sqrt{x}}\]
 	è uniformemente continua ma non è Lipschitziana. Vedere grafico in \fullref{ex:lips_graphs}
 \end{example}
 \begin{example}
 	La funzione
-	$$\funcdef{f}{\R}{\R}{x}{\begin{cases}
+	\[\funcdef{f}{\R}{\R}{x}{\begin{cases}
 		\begin{array}{ll}
 			x \cdot \sin \left(\frac{1}{x}\right) & \text{se } x \neq 0\\
 			0 & \text{se } x = 0\\
 		\end{array}
-	\end{cases}}$$
+	\end{cases}}\]
 	è uniformemente continua ma non è Lipschitziana.
 \end{example}
 \begin{example}
 	La funzione
-	$$\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{x^2}$$
+	\[\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{x^2}\]
 	è di classe $\cntclass{\infty}$ ma non è Lipschitziana. Vedere grafico in \fullref{ex:lips_graphs}
 \end{example}
 \begin{example}
 	La funzione
-	$$\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{\abs{x}}$$
+	\[\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{\abs{x}}\]
 	è Lipschitziana ma non è derivabile in $0$.
 \end{example}
 \begin{exercise}
@@ -1812,7 +1812,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{definition}[Norma di Matrice]
 	\label{def:norm_matr}
 	Sia $A \in \mat (m \times n)$. \textbf{Norma} di $A$ è la quantità
-	$$\norm{A} = \;\; \max\limits_{\raisebox{-1ex}{${\scriptstyle x \in \overline{B(0,1)} }$}} \; \norm{A \; x}$$
+	\[\norm{A} = \;\; \max\limits_{\raisebox{-1ex}{${\scriptstyle x \in \overline{B(0,1)} }$}} \; \norm{A \; x}\]
 	con $x$ vettore $\in \R^n$ e $A \; x \in \R^m$ risultato del prodotto righe per colonne.
 \end{definition}
 \begin{exercise}
@@ -1837,7 +1837,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}
 	\label{prop:proprieta_norm_matr}
 	Sia $A \in \mat(m \times n)$. Allora
-	$$\norm{A \; x} \leq \norm{A} \cdot \norm{x}$$
+	\[\norm{A \; x} \leq \norm{A} \cdot \norm{x}\]
 	\begin{proof}
 		Sia $x = 0$ la tesi è immediata.\\
 		Sia $x \neq 0$, allora
@@ -1862,7 +1862,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 \begin{exercise}
 	Se $A$ e $B$ sono matrici tali che se ne possa fare il prodotto (regole del prodotto righe per colonne), dimostrare che
-	$$\norm{A \cdot B} \leq \norm{A} \cdot \norm{B}$$
+	\[\norm{A \cdot B} \leq \norm{A} \cdot \norm{B}\]
 	% TODO solution
 \end{exercise}
 
@@ -1910,7 +1910,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 				\end{gathered}
 			\end{equation*}
 			$f \circ g=f\bigl( g(x) \bigr)$, quindi presi $x',x''\in X$ si ha
-			$$d \Bigl( f\bigl(g(x'')\bigr), f\bigl(g(x')\bigr) \Bigr) \leq K_f \cdot d \bigl( g(x''), g(x') \bigr) \leq K_f K_g \cdot d(x'',x')$$
+			\[d \Bigl( f\bigl(g(x'')\bigr), f\bigl(g(x')\bigr) \Bigr) \leq K_f \cdot d \bigl( g(x''), g(x') \bigr) \leq K_f K_g \cdot d(x'',x')\]
 		\end{proof}
 		\noindent Esempi: % TODO esempi
 	\end{solution}
@@ -1948,28 +1948,28 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		...\\
 		$x_n = Tx_{n-1}$\\
 		La successione ${x_n: n \in N }$ così costruita è una successione di Cauchy. Infatti, presi $n, m \in N$ con $m > n$ si ha:
-		$$d(x_{m},x_{n}) = d(Tx_{m-1},x_{n-1}) \le Kd(x_{m-1},x_{n-1})=$$
-		$$=Kd(x_{m-1},x_{n-1}) = Kd(Tx_{m-2},x_{n-2}) \le K^2d(x_{m-2},x_{n-2})=$$
-		$$=...=$$
-		$$=...=K^nd(x_{m-n},x_{0})\le$$
-		$$\le K^{n}\sum\limits_0^{m-n+1}(d(x_{m-n-i},x_{m-n-i-1}))=$$
-		$$\le \sum\limits_0^{m-n+1}(d(Tx_{m-n-i-1},Tx_{m-n-i-2}))$$
+		\[d(x_{m},x_{n}) = d(Tx_{m-1},x_{n-1}) \le Kd(x_{m-1},x_{n-1})=\]
+		\[=Kd(x_{m-1},x_{n-1}) = Kd(Tx_{m-2},x_{n-2}) \le K^2d(x_{m-2},x_{n-2})=\]
+		\[=...=\]
+		\[=...=K^nd(x_{m-n},x_{0})\le\]
+		\[\le K^{n}\sum\limits_0^{m-n+1}(d(x_{m-n-i},x_{m-n-i-1}))=\]
+		\[\le \sum\limits_0^{m-n+1}(d(Tx_{m-n-i-1},Tx_{m-n-i-2}))\]
 		per ogni termine di questa sommatoria si può applicare lo stesso ragionamento
-		$$\le K^{n}\sum\limits_0^{m-n+1}(K^{m-n-2}d(Tx_{0},x_{0}))=$$
-		$$\le K^{n}d(Tx_{0},x_{0})\sum\limits_0^{m-n+1}K^{m-n-2}=K^n\frac{1-K^{m-n-1}}{1-K}d(Tx_{0},x_{0}) \le \frac{K^n}{1-K}d(Tx_{0},x_{0})$$
+		\[\le K^{n}\sum\limits_0^{m-n+1}(K^{m-n-2}d(Tx_{0},x_{0}))=\]
+		\[\le K^{n}d(Tx_{0},x_{0})\sum\limits_0^{m-n+1}K^{m-n-2}=K^n\frac{1-K^{m-n-1}}{1-K}d(Tx_{0},x_{0}) \le \frac{K^n}{1-K}d(Tx_{0},x_{0})\]
 		Ho quindi trovato che $d(x_{m},x_{n})\le\frac{K^n}{1-K}d(Tx_{0},x_{0})$\\
 		L’ultima espressione ottenuta può essere resa arbitrariamente piccola (in modulo) pur di
 		prendere $n$, e quindi anche $m$, sufficientemente elevato. La completezza di $X$ implica quindi
 		che esiste il limite $\lim\limits_{n\rightarrow +\infty}xn$. Sia $x^*$ questo limite. $x^*$ è un punto fisso per $T$. Infatti, grazie
 		alla continuità di $T$:
-		$$T(x^*)=T{\lim\limits_{n\rightarrow +\infty}xn}$$
+		\[T(x^*)=T{\lim\limits_{n\rightarrow +\infty}xn}\]
 	\end{proof}
 \end{theorem}
 
 \begin{definition}[Funzione Iterata]
 	\label{def:iterata}
 	Data $F:X\mapsto X$, si dice funzione iterata $n$ volte di $F$ la $F^n$ che corrisponde all'applicazione $n$ volte di $F$ su sè stessa. Formalmente:
-	$$f^{n+1} = f \circ f^n \quad \forall n \in \N\setminus\brackets{0}$$
+	\[f^{n+1} = f \circ f^n \quad \forall n \in \N\setminus\brackets{0}\]
 	Se $n = 0$, per definizione, $f^0 = \mathrm{Id}_X$ con $\mathrm{Id}_X$ funzione identità su $X$
 \end{definition}
 
@@ -1982,11 +1982,11 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{note}
 	\begin{proof}
 		Per il \fullref{teo:contrazioni} esiste un unico punto fisso $x_* \in X$ per $T^n$, quindi
-		$$T^nx_* = x_*$$
+		\[T^nx_* = x_*\]
 		applicando $T$ ad entrambi i membri
-		$$T(T^{n}x_*) = Tx_*$$
+		\[T(T^{n}x_*) = Tx_*\]
 		e per la \fullref{def:iterata}
-		$$T(T^{n}x_*) = T^n(Tx_*) = Tx_*$$
+		\[T(T^{n}x_*) = T^n(Tx_*) = Tx_*\]
 		Dunque $Tx_*$ è punto fisso della $T^n$. Avevamo però già trovato che $x_*$ era punto fisso della $T^n$ e, per il \fullref{teo:contrazioni}, può esistere un unico punto fisso. Ciò permette di concludere che $Tx_* = x_*$
 	\end{proof}
 \end{theorem}

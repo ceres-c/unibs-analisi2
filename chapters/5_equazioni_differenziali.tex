@@ -36,8 +36,8 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		Alternativamente si può indicare $f$ come $f: \boldsymbol{I \times} A \mapsto \R^m$ a patto di considerare $A\subseteq \R^{(1+n)k}$
 	\end{note}
 	\textbf{Soluzione} di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ (in quanto la $x$ è funzione di $t \in I$) definita sull'intervallo $I$, derivabile $n$ volte in $I$ (e dunque continua in $I$) e tale che $\forall t\in I$
-	$$(t,x, x',\:\dotsc\:,x^{(n)}) \in A$$
-	$$f(t,x, x',\:\dotsc\:,x^{(n)})=0$$
+	\[(t,x, x',\:\dotsc\:,x^{(n)}) \in A\]
+	\[f(t,x, x',\:\dotsc\:,x^{(n)})=0\]
 	\textbf{Soluzione massimale} di un equazione differenziale ordinaria è una soluzione $x_m:I_m\to \R^k$ tale che nessuna soluzione possa essere definita in un intervallo $I$ con $I_m\subseteq I$. Cioè è la soluzione definita sull'intervallo maggiore possibile.
 
 	\begin{note} \hypertarget{def:equaz_diff_sol}{}
@@ -66,7 +66,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{exercise}
 \begin{definition}[Equazione Differenziale Ordinaria in Forma Normale]
 	Un'equazione differenziale è in \textbf{Forma Normale} se e solo se si presenta nella forma 
-	$$x^{(n)} = g(t,x, x',\:\dotsc\:,x^{(n-1)})$$
+	\[x^{(n)} = g(t,x, x',\:\dotsc\:,x^{(n-1)})\]
 	Cioè se la derivata di ordine più alto è isolata al primo membro.
 \end{definition}
 \begin{observation}
@@ -80,19 +80,19 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$, cioè in cui compaiono solamente derivate prime.
 	\begin{proof}
 		Data l'equazione
-		$$x^{(n)} = g(t,x, x', x'',\:\dotsc\:,x^{(n-1)})$$
+		\[x^{(n)} = g(t,x, x', x'',\:\dotsc\:,x^{(n-1)})\]
 		sia $y$ il vettore $y = \rvect{x &  x' &  x'' & \cdots & x^{(n-1)}}$. Abbiamo ora che le componenti del vettore sono
-		$$y_1=x\qquad y_2= x'\qquad y_3= x''\qquad \dots\qquad y_n=x^{(n-1)}$$
+		\[y_1=x\qquad y_2= x'\qquad y_3= x''\qquad \dots\qquad y_n=x^{(n-1)}\]
 		ed al contempo
-		$$y_1'= x'=y_2\qquad y_2'= x''=y_3\qquad y_3'= x'''=y_4\qquad\cdots\qquad y_{n-1}'=x^{(n-1)}=y_n$$
+		\[y_1'= x'=y_2\qquad y_2'= x''=y_3\qquad y_3'= x'''=y_4\qquad\cdots\qquad y_{n-1}'=x^{(n-1)}=y_n\]
 		Cioè, differenziando l'$i-esimo$ elemento (funzione) del vettore $y$, mi "sposto" all'elemento (funzione) $i+1$ di $y$. A questo punto tutti gli elementi di $y$ sono equazioni differenziali del primo ordine.\\
 		Quindi l'equazione può essere scritta come il seguente sistema del primo ordine
-		$$\begin{cases}
+		\[\begin{cases}
 			y_1'\quad=\quad y_2\\
 			y_2'\quad=\quad y_3\\
 			\vdots\\
 			y_n' \quad = \quad g(t, y_1, y_2,\dots,y_n)
-		\end{cases}$$
+		\end{cases}\]
 	\end{proof}
 \end{proposition}
 \begin{example}
@@ -104,7 +104,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{definition}[Problema di Cauchy del Primo Ordine]
 	\label{def:prob_cauchy_ord_1}
 	Si dice Problema di Cauchy del Primo Ordine il problema di determinare una soluzione di un'equazione differenziale ordinaria del primo ordine, soddisfacente ad una condizione iniziale.
-	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
+	\[\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\]
 	Dove $f:I\times A\to \R^n$, $I\subseteq \R$ è un intervallo, $t_0\in\circdot{I}$, $A\subseteq \R^n$, $x_0\in\circdot{A}$.\\
 	Soluzione di un problema di Cauchy è una funzione $x:J\to \R^n$, definita in un intervallo $J$ contenente $t_0$ nella sua parte interna, quindi $t_0\in J\subseteq I$.\\
 	La funzione $x$ è soluzione dell'equazione differenziale $x'=f(t,x)$ ed è tale che:
@@ -126,23 +126,23 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{definition}[Problema di Cauchy di Ordine $n$]
 	Si dice problema di Cauchy di ordine $n$ il seguente problema:\\
 	Determinare una soluzione di un'equazione differenziale ordinaria di ordine $n$ soddisfacente a $n$ condizioni iniziali:
-	$$\begin{cases}
+	\[\begin{cases}
 		x^{(n)}=f(t,x,x',\dotsc,x^{(n-1)})\\
 		x(t_0)=\alpha_0\\
 		x'(t_0)=\alpha_1\\
 		\vdots\\
 		x^{(n-1)}(t_0)=\alpha_{n-1}
-	\end{cases}$$
+	\end{cases}\]
 \end{definition}
 \begin{note}
 	Le condizioni iniziali devono essere assegnate tutte nello steso istante.
 \end{note}
 \begin{example}
-	il problema di Cauchy $$\begin{cases}x'=x\\x(0)=1\end{cases}$$
+	il problema di Cauchy \[\begin{cases}x'=x\\x(0)=1\end{cases}\]
 	ammette, tra le altre, anche le seguenti soluzioni, tecnicamente distinte tra loro
-	$$\funcdef{f_1}{ \realintervalclose{-1}{1} }{\R}{t}{e^t} \qquad \funcdef{f_2}{ \realintervalclose{-2}{10} }{\R}{t}{e^t}$$
+	\[\funcdef{f_1}{ \realintervalclose{-1}{1} }{\R}{t}{e^t} \qquad \funcdef{f_2}{ \realintervalclose{-2}{10} }{\R}{t}{e^t}\]
 	La soluzione massimale è
-	$$\funcdef{f_M}{\R}{\R}{t}{e^t}$$
+	\[\funcdef{f_M}{\R}{\R}{t}{e^t}\]
 	con intervallo di partenza $\R$, avente evidentemente diametro maggiore possibile.
 \end{example}
 \begin{proposition}
@@ -154,7 +154,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 
 \begin{proposition}
 	Ogni problema di Cauchy del primo ordine con secondo membro continuo
-	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
+	\[\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\]
 	è equivalente ad un'equazione integrale del tipo
 	\begin{equation}
 		\label{eq:volterra}
@@ -162,9 +162,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{equation}
 	\begin{proof}
 		Integrando ambo i membri della prima equazione del problema di ottiene:
-		$$\int_{t_0}^{t}( x')\integrald{\tau}=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
-		$$x(t)-x(t_0)=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
-		$$x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}$$
+		\[\int_{t_0}^{t}( x')\integrald{\tau}=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}\]
+		\[x(t)-x(t_0)=\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}\]
+		\[x(t)=x_0+\int_{t_0}^{t}(f(\tau,x(\tau)))\integrald{\tau}\]
 	\end{proof}
 \end{proposition}
 \begin{definition}[Equazione di Volterra]
@@ -178,7 +178,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 
 \begin{example}[Un Problema di Cauchy senza soluzione]
 	Sia
-	$$\funcdef	{f}
+	\[\funcdef	{f}
 				{\R}
 				{\R}
 				{x}
@@ -187,12 +187,12 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 							+1 & \text{se } x < 0\\
 							-1 & \text{se } x \geq 0
 						\end{array}
-					\end{cases}}$$
+					\end{cases}}\]
 	Allora il Problema di Cauchy
-	$$\begin{cases}
+	\[\begin{cases}
 		x'=f(x)\\
 		x(0) = 0
-	\end{cases}$$
+	\end{cases}\]
 	Non ammette soluzioni. %  perché la condizione $x(0) = 0$ non è mai verificata.
 
 	\begin{solution}
@@ -213,18 +213,18 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\end{tikzpicture}
 		\end{center}
 		La $f$ è definita su tutto $\R$, ma non è possibile trovare una funzione di primo grado, derivabile su tutto $\R$, la cui derivata prima assuma quei valori. Infatti la
-		$$\begin{cases}
+		\[\begin{cases}
 			\begin{array}{ll}
 				x & \text{se } t < 0\\
 				-x & \text{se } t \geq 0
 			\end{array}
-		\end{cases}$$
+		\end{cases}\]
 		non è derivabile in $t = 0$, perché le derivate destra e sinistra assumono valori diversi.
 	\end{solution}
 \end{example}
 \begin{example}[Un Problema di Cauchy con infinite soluzioni]
 	Sia
-	$$\funcdef{f}{\R}{\R}{x}{\sqrt{\abs{x}}}$$
+	\[\funcdef{f}{\R}{\R}{x}{\sqrt{\abs{x}}}\]
 	Allora il Problema di Cauchy
 	\begin{equation*}
 		\begin{cases}
@@ -255,11 +255,11 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{observation}
 \begin{exercise}
 	Sia $s:\R \mapsto \R$ data da
-	$$s(t) =
+	\[s(t) =
 	\begin{cases}
 		1 \qquad \text{se } t \geq 0
 		0 \qquad \text{se } t < 0
-	\end{cases}$$
+	\end{cases}\]
 	Risolvere i seguenti Problemi di Cauchy, al variare di $t_0$ (si supponga $t_0 \neq 0,1$):
 
 	\begin{minipage}{0.5\linewidth}
@@ -317,9 +317,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{definition}[Funzione Localmente Lipschitziana]
 	\label{def:loc_lips}
 	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{Localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t \in I$ se
-	$$\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I$$
+	\[\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I\]
 	vale che
-	$$\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L$$
+	\[\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L\]
 	Una funzione è uniformemente lipschitziana (\textbf{unif. lips.}) in un'intervallo $I$ se, in parole povere, è possibile individuare per ogni punto di $I$ una sfera $B$ di raggio $r$ in cui la funzione è lipschitziana.
 \end{definition}
 \begin{note}
@@ -425,7 +425,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		% TODO Magari scrivere proposizione prodotto cartesiano di aperti = aperto.
 		Chiamiamo ora $S=I\times A$ l'insieme di partenza della $f$. Grazie alla \fullref{prop:polig_in_aperto_connesso} sappiamo che esiste una poligonale interamente contenuta in $S$ congiungente due qualunque punti dell'aperto $S$.\\
 		È ora possibile applicare il \fullref{teo:accresc_fin} ad uno qualunque dei segmenti formanti la poligonale appena individuata. Vale quindi la
-		$$\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$$
+		\[\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}\]
 		che è direttamente comparabile alla \fullref{def:loc_lips} della funzione in ciascuno dei segmenti della poligonale, da cui la tesi.
 	\end{proof}
 \end{proposition}
@@ -434,7 +434,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{proposition}[Teorema di Peano]
 	\label{teo:peano}
 	Si consideri il seguente problema di Cauchy:
-	$$\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.$$
+	\[\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.\]
 	con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
 	\begin{enumerate}
 		\item $t_0\in \circdot{I}, x_0\in \circdot{A}$
@@ -624,7 +624,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{theorem}[Teorema di Cauchy Locale - Prima Parte]
 	\label{teo:cau_locale_part_1}
 	Si consideri il problema di Cauchy:
-	$$\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}$$
+	\[\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\]
 	con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
 	\begin{enumerate}
 		\item $t_0\in \circdot{I},\:x_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
@@ -670,7 +670,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			L'idea alla base della dimostrazione è che vogliamo riuscire a trasformare il problema di Cauchy in un problema di punto fisso mediante una funzione avente come parametro $x$ stesso.
 		\end{note}
 		Da \fullref{def:equaz_volterra} sappiamo che la prima equazione del problema in ipotesi corrisponde all'integrale
-		$$x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}$$
+		\[x(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,x(\tau)\bigr)\Bigr)\integrald{\tau}\]
 		Definiamo quindi $T$, funzione del tipo
 		\begin{equation}
 			\label{eq:cauch_proof_T}
@@ -684,7 +684,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\item $L$ costante di Lipshitz di $f$ in $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\times\overline{B(x_0,\rho)}$. È possibile individuare $L$ in quanto $f$ loc. lips. per ipotesi in $I\times A$, e dunque \textbf{loc. lips. in sottointervalli/insiemi}
 		\end{itemize}
 		Sia ora
-		$$V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}$$
+		\[V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}\]
 		\begin{note}
 			V è il maggiore tra i valori assunti dalla derivata prima $\bigl(x'=f(t,x)\bigr)$ di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \fullref{prop:compat_chius_lim}).
 		\end{note}
@@ -704,7 +704,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\end{itemize}
 		Questo $\delta$, dunque, rappresenta, dal punto di vista concettuale, quale sia la più restrittiva ($\min$) tra tutte le possibili variazioni della $f(x)$ rispetto alla $x$.\\
 		A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
-		$$X = \brackets{g\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}$$
+		\[X = \brackets{g\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}\]
 		\begin{note}
 			Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra} sarebbe possibile sceglierla non continua, ma non si considera il caso.
 		\end{note}
@@ -758,9 +758,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 				&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{eq:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
 			\end{align*}
 			Quindi, concludendo, possiamo passare dal primo membro della \cref{eq:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza, cioè
-			$$\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)$$
+			\[\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)\]
 			Minoriamo questa distanza con la forma appena trovata \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
-			$$d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)$$
+			\[d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)\]
 			Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per \fullref{def:contrazione}.
 			\end{proof}
 		\end{itemize}
@@ -773,7 +773,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 				\begin{equation}
 					t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \realintervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{eq:cau_loc_tM_J1J2_supset}
 				\end{equation}
-				$$x_M = x_1(t_M) = x_2(t_M)$$
+				\[x_M = x_1(t_M) = x_2(t_M)\]
 				Quindi $t_M$ è l'\textit{ultimo istante} in cui $x_1$ e $x_2$ coincidono.
 
 				Essendo
@@ -782,11 +782,11 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\item $x_M \in \circdot{A}$ per \hyperlink{def:equaz_diff_sol}{nota definizione equazione differenziale}
 				\end{itemize}
 				ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
-				$$\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}$$
+				\[\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}\]
 				ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
-				$$t_M = \min \brackets{\sup J_1, \sup J_2}$$
+				\[t_M = \min \brackets{\sup J_1, \sup J_2}\]
 				Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
-				$$t_m = \max \brackets{\inf J_1, \inf J_2}$$
+				\[t_m = \max \brackets{\inf J_1, \inf J_2}\]
 				Quindi, prendendo $\realintervalclose{t_m}{t_M}$, abbiamo identificato $J_1 \cap J_2$ stessa.
 		\end{itemize}
 		Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
@@ -886,9 +886,9 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{array} \quad\right\}$\quad cioè \quad$k,\,\delta\in\cntclass{0}(\realintervalclose{a}{b},\R^{+})$
 	\end{itemize}
 	con:
-	$$\qquad \delta(t)\le \delta_0+\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}$$
+	\[\qquad \delta(t)\le \delta_0+\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}\]
 	Allora
-	$$\delta(t)\le\delta_0e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \quad \forall t \in \realintervalclose{a}{b}$$
+	\[\delta(t)\le\delta_0e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \quad \forall t \in \realintervalclose{a}{b}\]
 	Questo lemma permette di limitare una funzione che soddisfa una disuguaglianza integrale con la soluzione della corrispondente equazione. Ci si porta da una stima implicita di $\delta$ (sotto il segno di integrale) ad una stima esplicita.
 	\begin{proof}
 		Dividiamo in due casi
@@ -917,11 +917,11 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 				Da cui la tesi\\
 			\item Se $\delta_0 = 0$\\
 				Minoriamo, poiché $\delta_0 = 0$, con un $\epsilon > 0$
-				$$\delta(t) \leq 0 + \int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau} \leq \epsilon + \int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau} \qquad \forall \epsilon > 0$$
+				\[\delta(t) \leq 0 + \int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau} \leq \epsilon + \int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau} \qquad \forall \epsilon > 0\]
 				Essendo $\epsilon > 0$, mi trovo con una forma analoga al caso precedente, dunque
-				$$\delta(t) \leq \epsilon \cdot e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \qquad \forall \epsilon > 0$$
+				\[\delta(t) \leq \epsilon \cdot e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \qquad \forall \epsilon > 0\]
 				Dovendo essere $\delta(t) \leq \epsilon \quad \forall \epsilon > 0$, posso concludere che
-				$$\delta(t) \leq 0$$
+				\[\delta(t) \leq 0\]
 				Ma, per ipotesi, $\delta(t) \geq 0 \implies \delta(t) = 0$
 		\end{itemize}
 	\end{proof}
@@ -948,7 +948,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\item $f,g$ sono localmente Lipschitziane in $x\in A$ uniformemente rispetto a $t\in I$
 	\end{enumerate}
 	Allora esiste un $\delta >0$ tale che sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \realintervalclose{t_0-\delta}{t_0+\delta}$ vale:
-	$$\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}$$
+	\[\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}\]
 	dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
 	\begin{note}
 		Questo significa che, con problemi diversi tra loro, se ($x_0$ e $y_0$), ($f$ e $g$) sono vicine tra loro ("a coppie"), allora sono vicine anche le soluzioni, ma per $t$ vicine.
@@ -1041,10 +1041,10 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	ha soluzione $x_p(t) = p \cdot e^t$.
 	\begin{itemize}
 		\item Se $t \to T \in \R$:
-		$$\lim_{p \to 0}\Bigl(\lim_{t \to T} (p \cdot e^t)\Bigr) = 0 \qquad\text{e}\qquad \lim_{t \to T}\Bigl(\lim_{p \to 0} (p \cdot e^t)\Bigr) = 0$$
+		\[\lim_{p \to 0}\Bigl(\lim_{t \to T} (p \cdot e^t)\Bigr) = 0 \qquad\text{e}\qquad \lim_{t \to T}\Bigl(\lim_{p \to 0} (p \cdot e^t)\Bigr) = 0\]
 		I risultati coincidono, quindi c'è continuità nel parametro.
 		\item Se $T \to +\infty$:
-		$$\lim_{p \to 0}\Bigl(\lim_{t \to +\infty} (p \cdot e^t)\Bigr) = 0 \qquad\text{e}\qquad \lim_{t \to +\infty}\Bigl(\lim_{p \to 0} (p \cdot e^t)\Bigr) = 0$$
+		\[\lim_{p \to 0}\Bigl(\lim_{t \to +\infty} (p \cdot e^t)\Bigr) = 0 \qquad\text{e}\qquad \lim_{t \to +\infty}\Bigl(\lim_{p \to 0} (p \cdot e^t)\Bigr) = 0\]
 		I risultati son differenti, ma non solo, infatti stimando con parametri diversi mi troverei in questa situazione:
 		\begin{equation}
 			\label{eq:ex_cau_dip_cont_exp_dist}
@@ -1067,10 +1067,10 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	ha soluzione $x_p(t) = p \cdot t$, cioè parametri $p$ diversi danno rette con inclinazioni diverse.
 	\begin{itemize}
 		\item Se $t \to T \in \R$:
-		$$\lim_{p \to 0}\Bigl(\lim_{t \to T} x_p(t)\Bigr)=0 \qquad\text{e}\qquad \lim_{t \to T}\Bigl(\lim_{p \to 0} x_p(t)\Bigr)=0$$
+		\[\lim_{p \to 0}\Bigl(\lim_{t \to T} x_p(t)\Bigr)=0 \qquad\text{e}\qquad \lim_{t \to T}\Bigl(\lim_{p \to 0} x_p(t)\Bigr)=0\]
 		I risultati coincidono, quindi c'è continuità nel parametro.
 		\item Se $T \to +\infty$:
-		$$\lim_{p \to 0}\Bigl(\lim_{t \to +\infty} x_p(t)\Bigr)=+\infty \qquad\text{e}\qquad \lim_{t \to +\infty}\Bigl(\lim_{p \to 0} x_p(t)\Bigr)=0$$
+		\[\lim_{p \to 0}\Bigl(\lim_{t \to +\infty} x_p(t)\Bigr)=+\infty \qquad\text{e}\qquad \lim_{t \to +\infty}\Bigl(\lim_{p \to 0} x_p(t)\Bigr)=0\]
 		Essendo diversi, non c'è continuità.
 	\end{itemize}
 	\begin{note}
@@ -1199,7 +1199,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\begin{itemize}
 			\item $X = \cntclass{0}(I,\R^n)$
 			\item $T$ definita come la \cref{eq:cauch_proof_T}, cioè
-			$$\funcdef{T}{X}{X}{ \bigl(T(x)\bigr)(t) }{ x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau} }$$
+			\[\funcdef{T}{X}{X}{ \bigl(T(x)\bigr)(t) }{ x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau} }\]
 		\end{itemize}
 		I punti fissi di $T$ sono tutte e sole le soluzioni di \cref{eq:cau_glob_thesis}. Grazie al \fullref{teo:iterata_contraz}, per dimostare l'esistenza di un unico punto fisso, basta dimostrare che un'iterata di $T$ (\fullref{def:iterata}) è contrazione.\\
 		Nel dettaglio andremo a dimostrare per induzione la seguente forma:
@@ -1259,7 +1259,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \begin{definition}[Funzione Sublineare]
 	\label{def:sublineare}
 	Una funzione $f:I\times\R^n\mapsto\R^n$ con $I$ intervallo in $\R$, si dice \textbf{sublineare} se esistono due costanti $A, B:\; \forall t \in I,\;\forall x \in \R^n$ vale:
-	$$\norm{f(t,x)}\leq A + B \norm{x}$$
+	\[\norm{f(t,x)}\leq A + B \norm{x}\]
 	\begin{note}
 		In sostanza una funzione è sublineare se esiste una retta tale per cui il grafico della funzione è tutto nella regione di piano delimitata da questa retta, cioè il suo grafico "non si impenna".
 		\begin{center}
@@ -1403,30 +1403,30 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			\end{cases}
 		\end{equation}
 		Se $T_M < \sup I$, \cref{eq:cau_glob_new_problem} soddisfa le ipotesi del \fullref{teo:cau_locale_part_1}, dunque $\varphi$ può essere estesa oltre $T_M$ ad una funzione definita almeno su $\realintervalclop{t_0}{T_M+\delta}$ con $\delta > 0$ scelto opportunamente. Questa possibilità di estendere la $\varphi$ è però in contraddizione con la definizione di $T_M$ in \cref{eq:cau_glob_T_M}, dunque si deve concludere che
-		$$T_M = \sup I$$
+		\[T_M = \sup I\]
 		Procedimento analogo si può svolgere per
 		\begin{equation*}
 			T_m = \inf \brackets{\overline{t_m} \in I: \varphi\;\text{\itshape risolve \cref{eq:cau_glob_thesis_prob} su}\; \realintervalopcl{\overline{t_m}}{t_0} }
 		\end{equation*}
 		I passaggi rimangono uguali fino a \cref{eq:cau_glob_gronwall} che diventa
-		$$\norm{\varphi(t)} \leq \bigl(\norm{x_0} + A(T_M-t_0)\bigr)e^{B(\boldsymbol{t_0-T_m})}$$
+		\[\norm{\varphi(t)} \leq \bigl(\norm{x_0} + A(T_M-t_0)\bigr)e^{B(\boldsymbol{t_0-T_m})}\]
 		E, a sua volta, \cref{eq:cau_glob_dfi_sup} diventa
 		\begin{align*}
 			\norm{\varphi'(t)} &= \norm{f\bigl(t,\varphi(t)\bigr)}\\
 			&\geq \min \limits_{t \in \realintervalopcl{T_m}{t_0}} \norm{f(t,x)}
 		\end{align*}
 		Dunque
-		$$T_m = \inf I$$
+		\[T_m = \inf I\]
 
 		Grazie a come sono definiti $T_M$ e $T_m$, è stata quindi trovata una soluzione sull'intervallo $I$ che si può dire \textbf{globale} per quanto appena dimostrato.
 	\end{proof}
 \end{theorem}
 \begin{example}[Esempio critico al \fullref{teo:cau_globale}]
 	Dato il Problema di Cauchy
-	$$\begin{cases}
+	\[\begin{cases}
 		x' = (1-\cos x) x^2\\
 		x(0) = x_0
-	\end{cases}$$
+	\end{cases}\]
 	% TODO riprendere da pag 22 file 4 appunti
 \end{example}
 \begin{example}
@@ -1537,7 +1537,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{sec:fun_in_C}, in particolare \fullref{ex:ext_def_in_C}
 \begin{definition}[Equazione Differenziale Ordinaria Lineare]
 	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f \quad : I \mapsto \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
-	$$x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)$$
+	\[x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)\]
 	Se $f = 0$ l'equazione si dice \textbf{Omogenea}.
 \end{definition}
 \begin{proposition}[Estensione in $\C$ del Teorema di Cauchy Globale per Lipschitziane]
@@ -1590,7 +1590,7 @@ Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{s
 						{\left[\begin{matrix} X_2\\X_3\\\vdots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]}
 		\end{equation*}
 		è lineare in $X$ (compaiono solo elementi di grado 1) e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\C^n$
-		$$\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}$$ % TODO this meeds to be explained
+		\[\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}\] % TODO this meeds to be explained
 		Sono quindi soddisfatte le ipotesi di \fullref{teo:cau_glob_lips} e si ha la tesi.
 	\end{proof}
 \end{proposition}
@@ -1626,7 +1626,7 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 	è un sottospazio vettoriale di $\cntclass{n}(I;\C)$ di dimensione $n$
 	\begin{proof}
 		Se $x_1, x_2$ sono soluzioni e se $\lambda, \mu \in \C$, allora anche $\lambda x_1 + \mu x_2$ è soluzione, infatti, per la \fullref{prop:linearita_eq_diff}
-		$$L(x_1+x_2) = L(x_1)+L(x_2) \quad\forall x_1,x_2\in \cntclass{n}(I;\C) = 0$$
+		\[L(x_1+x_2) = L(x_1)+L(x_2) \quad\forall x_1,x_2\in \cntclass{n}(I;\C) = 0\]
 		Ciò permette, grazie alla \fullref{prop:subspace_condition}, di concludere che l'insieme delle soluzioni è sottospazio di $\cntclass{n}(I;\C)$
 
 		Fissato $t_0 \in \circdot{I}$ e scelta una base $(E_1,\:\dotsc\:,E_n)$ di $\C^n$, sia $x_k$, per $k=1,\:\dotsc\:,n$ la soluzione del seguente Problema di Cauchy
@@ -1673,21 +1673,21 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 
 \begin{definition}[Sistema Fondamentale di Soluzioni]
 	Dato $\ker L$, lo spazio vettoriale delle soluzioni, una base di $\ker L$ è \textbf{Sistema Fondamentale di Soluzioni} dell'equazione omogenea
-	$$x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = 0$$
+	\[x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = 0\]
 \end{definition}
 \begin{definition}[Soluzione Particolare]
 	\textbf{Soluzione Particolare} dell'equazione lineare non omogenea
-	$$x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = f(t)$$
+	\[x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = f(t)\]
 	è una qualunque soluzione di questa equazione.
 \end{definition}
 
 \begin{proposition}
 	Nota una soluzione particolare $\overline{x}$ dell'equazione non omogenea
-	$$x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = f(t)$$
+	\[x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = f(t)\]
 	e noto un sistema fondamentale di soluzioni $(x_1,\:\dotsc\:,x_n)$ dell'equazione imogenea
-	$$x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = 0$$
+	\[x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = 0\]
 	ogni soluzione $x$ dell'equazione non omogenea può essere scritta come
-	$$x = \overline{x} + \sum\limits_{k=1}^n \alpha_k x_k$$
+	\[x = \overline{x} + \sum\limits_{k=1}^n \alpha_k x_k\]
 	per opportune costanti $\alpha_1,\:\dotsc\:,\alpha_n \in \C$
 	\begin{proof}
 		% TODO proof
@@ -1714,39 +1714,39 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \section{Equazioni Lineari a Coefficienti Costanti}
 \begin{definition}[Equazione Differenziale Ordinaria Lineare a Coefficienti Costanti]
 	Dati i coefficienti $a_0,\:a_1,\:\dotsc\:,a_{n-1},b \in \C$ si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine $\boldsymbol{n}$ a Coefficienti Costanti} l'equazione differenziale
-	$$x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x' + a_0 \cdot x = b$$
+	\[x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x' + a_0 \cdot x = b\]
 	Se $b=0$, l'equazione si dice \textbf{omogenea}.\\
 	La sua \textbf{Equazione Caratteristica} è l'equazione algebrica
-	$$\lambda^n + a_{n-1} \lambda^{n-1} +\:\ldots\:+ a_1 \lambda + a_0 = 0$$
+	\[\lambda^n + a_{n-1} \lambda^{n-1} +\:\ldots\:+ a_1 \lambda + a_0 = 0\]
 \end{definition}
 \begin{observation}
 	Nella risoluzione di equazioni differenziali lineari la funzione esponenziale $t \mapsto e^{\lambda t}$ riveste un ruolo molto particolare. Questa funzione è un \textit{autovalore} dell'operatore di derivazione $D$ relativo all'\textit{autovalore} $\lambda$, risolve infatti $Dx=\lambda \cdot x$, come da \fullref{prop:deriv_exp_in_C}.
 \end{observation}
 \begin{proposition}
 	Data l'equazione
-	$$x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b$$
+	\[x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b\]
 	allora
 	\begin{center}
 		$x(t)=e^{\lambda t}$ risolve l'equazione omogenea $\iff$ $\lambda$ è soluzione dell'equazione caratteristica.
 	\end{center}
 	\begin{proof}
 		Sia $L$ l'operatore definito dal membro sinistro dell'equazione come nella \fullref{prop:linearita_eq_diff}. Allora se $x(t) = e^{\lambda t}$, si ha che
-		$$\bigl(L(x)\bigr)(t) = \bigl( \lambda^n + a_{n-1}\lambda^{n-1} +\:\ldots\:+ a_1 \lambda + a_0 \bigr) e^{\lambda t}$$
+		\[\bigl(L(x)\bigr)(t) = \bigl( \lambda^n + a_{n-1}\lambda^{n-1} +\:\ldots\:+ a_1 \lambda + a_0 \bigr) e^{\lambda t}\]
 	\end{proof}
 \end{proposition}
 \begin{lemma}
 	Sia $x(t)=t \cdot e^{\lambda t}$. Allora, per ogni $n\in\N,\;n \geq 1$ si ha
-	$$x^{(n)}(t)=\left(\lambda^nt+n\lambda^{n-1}\right) e^{\lambda t}$$
+	\[x^{(n)}(t)=\left(\lambda^nt+n\lambda^{n-1}\right) e^{\lambda t}\]
 	\begin{proof}
 		Per induzione su $n$.\\
 		Se $n=0$, allora $x^{(0)} = x$. Supposto vero che
-		$$x^{(n-1)}(t) = \bigl( \lambda^{n-1} t + (n-1) \lambda^{n-2} \bigr) e^{\lambda t}$$
+		\[x^{(n-1)}(t) = \bigl( \lambda^{n-1} t + (n-1) \lambda^{n-2} \bigr) e^{\lambda t}\]
 		Da cui, derivando rispetto a $t$, si ottiene la tesi.
 	\end{proof}
 \end{lemma}
 \begin{proposition}
 	Data l'equazione
-	$$x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b$$
+	\[x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b\]
 	allora
 	\begin{center}
 		$x(t)= t \cdot e^{\lambda t}$ risolve l'equazione omogenea\\
@@ -1765,7 +1765,7 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \end{proposition}
 \begin{proposition}
 	Sia $m \in \N$. Data l'equazione
-	$$x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b$$
+	\[x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x'+a_0 \cdot x = b\]
 	allora
 	\begin{center}
 		$x(t)= t^m \cdot e^{\lambda t}$ risolve l'equazione omogenea\\
@@ -1778,25 +1778,25 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \end{proposition}
 \begin{example}
 	L'equazione lineare del secondo ordine a coefficienti costanti
-	$$x'' -2x' +x = 0$$
+	\[x'' -2x' +x = 0\]
 	ha equazione caratteristica
-	$$\lambda^2 - 2\lambda + 1 = 0$$
+	\[\lambda^2 - 2\lambda + 1 = 0\]
 	ed integrale generale
-	$$\bigl( x_1(t) = e^t,\;x_2(t) = t e^t \bigr)$$
+	\[\bigl( x_1(t) = e^t,\;x_2(t) = t e^t \bigr)\]
 \end{example}
 \color{black}
 
 \section{Esempi}
 \subsection{La Legge di Malthus}
 Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.
-$$ x'=k\cdot x$$
+\[ x'=k\cdot x\]
 dove $x$ è il numero di membri della popolazione e $k$ è una costante positiva legata alla prolificità della specie in esame, generalmente calcolata come differenza tra i tassi di natalità e di mortalità.\\
 Il problema di Cauchy è quindi
-$$\begin{cases}
+\[\begin{cases}
 	x'=k\cdot x\\
 	x(t_0)=x_0\\
 \end{cases}
-\qquad\text{con $x\in \R, k>0 $ e $ x_0=0$}$$
+\qquad\text{con $x\in \R, k>0 $ e $ x_0=0$}\]
 
 \begin{center}
 	\begin{tikzpicture}[scale=1] %[x={10.0pt},y={10.0pt}]

@@ -26,7 +26,7 @@ Sia $A\subseteq \R$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni de
 \end{description}
 \observation
 La convergenza puntuale su $A$ della successione $f_n$ verso $f$ è indicata con
-$$f_n \pconvarrow f\quad su A$$
+\[f_n \pconvarrow f\quad su A\]
 \proposition METAPROPOSIZIONE:\\
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
 Se $f_n \pconvarrow f$ su $B$ e se $f_n$ ha la proprietà $P$ allora il limite $f$ ha la proprietà $P$.\\
@@ -51,8 +51,8 @@ $\lim\limits_{n\to\infty}f_n(x)=\lim\limits_{n\to\infty}\frac{1}{n}sin(x)=0\quad
 			\end{axis}
 	\end{tikzpicture}
 \end{center}
-$$\lim\limits_{n\to\infty}e^{nx} = \left\{\begin{matrix} 0 && x<0\\1&&x=0\\\infty&&x>0 \end{matrix}\right.$$
-$$f_n \pconvarrow f\quad su B=\left]-\infty,0\right]$$
+\[\lim\limits_{n\to\infty}e^{nx} = \left\{\begin{matrix} 0 && x<0\\1&&x=0\\\infty&&x>0 \end{matrix}\right.\]
+\[f_n \pconvarrow f\quad su B=\left]-\infty,0\right]\]
 \observation
 La continuità non passa al limite come proprietà $P$
 
@@ -73,13 +73,13 @@ La continuità non passa al limite come proprietà $P$
 			\end{axis}
 	\end{tikzpicture}
 \end{center}
-$$\lim\limits_{n\to\infty}x^{n} = \left\{\begin{matrix}+\infty&&x\in\left]1,+\infty\right[\\ 1 && x\in\left\{1\right\}\\0&&x\in\left]-1,1\right[\\\nexists &&x\in\left]-\infty,-1\right] \end{matrix}\right.$$
-$$f_n \pconvarrow f\quad su B=\left]-1,1\right]$$
+\[\lim\limits_{n\to\infty}x^{n} = \left\{\begin{matrix}+\infty&&x\in\left]1,+\infty\right[\\ 1 && x\in\left\{1\right\}\\0&&x\in\left]-1,1\right[\\\nexists &&x\in\left]-\infty,-1\right] \end{matrix}\right.\]
+\[f_n \pconvarrow f\quad su B=\left]-1,1\right]\]
 \proposition PROPRIETÀ P:MONOTONIA\\
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
 Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è debolmente crescente su $B$ allora il limite $f$ è debolmente crescente su $B$.
 \begin{proof}
-	Dire che $f_n$ è debolmente crescente su $B$ significa che $$\forall x_1,x_2\in B \quad x_1\le x_2 \Rightarrow fn(x_1)\le f_n(x_2)$$
+	Dire che $f_n$ è debolmente crescente su $B$ significa che \[\forall x_1,x_2\in B \quad x_1\le x_2 \Rightarrow fn(x_1)\le f_n(x_2)\]
 	se si fa tendere $n\to\infty$ si ha che $f(x_1)\le f(x_2)$, e questo nell'insieme $B$ dove i limiti puntuali delle funzioni esistono per ipotesi
 \end{proof}
 \observation
@@ -118,10 +118,10 @@ $\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \foral
 	Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni definite su $A$ a valori in $\R$.
 	\begin{itemize}
 		\item La \textbf{successione} $\left\{f_n:n\in \N\right\}$ è uniformemente convergente su $B$ se esiste una funzione $f:B\mapsto \R$ tale che:
-		$$\lim\limits_{n \to +\infty} \sup\limits_{x\in B}\abs{f_n(x)-f(x)}=0$$\\
+		\[\lim\limits_{n \to +\infty} \sup\limits_{x\in B}\abs{f_n(x)-f(x)}=0\]\\
 		La funzione $f$ è il \textbf{limite uniforme della successione} $f_n$
 		\item La \textbf{serie} $\sum\limits_{n=0}^{+\infty}f_n$ è uniformemente convergente su $B$ se esiste una funzione $F:B\mapsto \R$ tale che:
-		$$\lim\limits_{n\to +\infty} \sup\limits_{x\in B}\abs{F(x)-\sum\limits_{k=0}^n f_k(x)}=0$$
+		\[\lim\limits_{n\to +\infty} \sup\limits_{x\in B}\abs{F(x)-\sum\limits_{k=0}^n f_k(x)}=0\]
 		la funzione $F$ è il \textbf{limite uniforme della serie} $\sum\limits_{n=0}^{\infty}f_n$
 	\end{itemize}
 	La convergenza uniforme su $B$ della successione $f_n$ verso $f$ è indicata con "$f_n \uconvarrow f$ su $B$".
@@ -165,9 +165,9 @@ se $f_n \uconvarrow f$ su $B$ e $f_n \uconvarrow \overline{f}$ su $B$ allora $f=
 \example $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
 Abbiamo gia calcolato che $f_n \pconvarrow 0$ su $A$.\\
 Sia ha anche convergenza uniforme :\\
-$$\lim\limits_{n\to\infty}\sup{ \R}\abs{f_n(x)-0} = \lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}$$
+\[\lim\limits_{n\to\infty}\sup{ \R}\abs{f_n(x)-0} = \lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}\]
 Osservo che $\abs{asin(x)}\le\abs{a}$ quindi
-$$\lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}\le\lim\limits_{n\to\infty}\frac{1}{n}=0$$
+\[\lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}\le\lim\limits_{n\to\infty}\frac{1}{n}=0\]
 Allora $f_n \uconvarrow f$ su $A$
 
 \example $f_n(x)=sin\left(\frac{1}{n}x\right)$ con $A\equiv \R$
@@ -188,7 +188,7 @@ $f_n \uconvarrow f$ su $A$ e $f_n\in \cntclass{0}(A; \R)\,\,\forall n\in\N$ allo
 %$f_n$ è continua $\forall n$ perchè compositione di funzioni continue.\\
 %Il limite puntuale di questa successione di funzioni è $f\left( x \right)=\abs{x}$ su $A$\\
 %Si può verificare che $f\left(x\right)=\abs{x}$ è anche limite uniforme su $A$ poichè
-%$$ \lim\limits_{n\to\infty}\sup\limits_{x\in A} \abs{\sqrt{x^2+\frac{1}{n}}-\left|x}\right| $$
+%\[ \lim\limits_{n\to\infty}\sup\limits_{x\in A} \abs{\sqrt{x^2+\frac{1}{n}}-\left|x}\right| \]
 %analizzando il contenuto del modulo si trova che la sua derivata vale $\frac{1}{2\sqrt{x^2+\frac{1}{n}}}-sgn\left(x\right)$ che si annulla in $x=\pm\sqrt{\frac{1}{4}-\frac{1}{n}}$
 ..........\\
 ..........\\
@@ -202,14 +202,14 @@ La successione $\left\{ f_n:n\in\N \right\}$ soddisfa alla condizione di Cauchy 
 \begin{proof}
 	La successione $\left\{ f_n:n\in\N\right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\forall x\in B$ la successione $\left\{ f_n(x) :n\in\N \right\}$ è di Cauchyin $ \R$ allora $\forall x \in B$ la successione $\left\{ f_n(x):n\in\N \right\}$ ha limite in $ \R$.(cioè c'è il limite puntuale).\\
 	Sia $f(x)$ questo limite, $f$ è anche il limite uniforme della successione $\left\{ f_n:n\in\N \right\}$, infatti:
-	$$\forall\epsilon>0, \exists\nu\in\N: \forall h,k>\nu \forall x\in B \quad \abs{f_h-f_k}<\epsilon$$
-	$$\sup\limits_B\abs{f_h(x)-f_k(x)}, \forall h,k>\nu$$
-	$$\Rightarrow \abs{f_h(x)-f_k}<\epsilon,\forall h.k>\nu, \forall x \in B$$
+	\[\forall\epsilon>0, \exists\nu\in\N: \forall h,k>\nu \forall x\in B \quad \abs{f_h-f_k}<\epsilon\]
+	\[\sup\limits_B\abs{f_h(x)-f_k(x)}, \forall h,k>\nu\]
+	\[\Rightarrow \abs{f_h(x)-f_k}<\epsilon,\forall h.k>\nu, \forall x \in B\]
 	a questo punto si passa al limite e la disuguaglianza diventa debole.
-	$$\Rightarrow \lim\limits_{n\to\infty}\abs{f_h(x)-f_k(x)}\le\epsilon, \forall h>\nu, \forall x\in B$$
-	$$\Rightarrow\abs{f_h(x)-f(x)}\le\epsilon, \forall h>\nu, \forall x\in B$$
-	$$\Rightarrow\sup\limits_B\abs{f_h-f}\le\epsilon, \forall h>\nu$$
-	$$\Rightarrow f_n \uconvarrow f\quad su B$$
+	\[\Rightarrow \lim\limits_{n\to\infty}\abs{f_h(x)-f_k(x)}\le\epsilon, \forall h>\nu, \forall x\in B\]
+	\[\Rightarrow\abs{f_h(x)-f(x)}\le\epsilon, \forall h>\nu, \forall x\in B\]
+	\[\Rightarrow\sup\limits_B\abs{f_h-f}\le\epsilon, \forall h>\nu\]
+	\[\Rightarrow f_n \uconvarrow f\quad su B\]
 \end{proof}
 \begin{proposition}
 	\label{prop:dist_unif_sp_metr_compl}
@@ -246,20 +246,20 @@ so che $f_n \pconvarrow f$ su $\left[0,1\right]$ e $f(x)=\left\{\begin{matrix}0&
 Tutta la successione di funzioni $f_n$ converge puntualmente a $f$ quindi se estraggo una sottosuccessione comunque venga scelta questa sottosuccessione converge ancora a $f$ puntualmente. Ma la $f$ non è continua mentre il limite uniforme di funzioni continue è una funzione continua allora nessuna sottosuccessione ammette limite uniforme.\\
 
 ESEMPIO:: OPERATORE DERIVATA 0\\
-$$D$$
+\[D\]
 
 ESEMPIO:: OPERATORE DERIVATA 1\\
-$$D$$
+\[D\]
 
 ESEMPIO:: OPERATORE INTEGRALE\\
-$$I$$
+\[I\]
 
 \proposition
 fissati $a,b\in \R$ con $a<b$ se la successione $\left\{f_n:n\in\N\right\}$ in $\cntclass{0}(\left[a,b\right], \R) \uconvarrow f$ su $\left[a,b\right]$\\
 $f_n$ e $f$ sono integrabili secondo Rimmmmmmmn allora lasuccessione $\left\{\int_a^bf_n(x)\integrald{x}:n\in\N\right\}$ converge a $\int_a^bf(x)\integrald{x}$
 \observation
 La convergenza uniforme passa sotto il segno di integrale
-$$\int_a^b\left(\lim\limits_{n\to\infty}fn\right)(x)\integrald{x}=\lim\limits_{n\to\infty}\left(\int_a^bfn(x)\integrald{x}\right)$$
+\[\int_a^b\left(\lim\limits_{n\to\infty}fn\right)(x)\integrald{x}=\lim\limits_{n\to\infty}\left(\int_a^bfn(x)\integrald{x}\right)\]
 \proposition convergono le derivare allora convergono le funzioni\\
 Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\left\{f_n:n\in\N\right\}$ con $f_n:\left[a,b\right]\to \R$
 \begin{enumerate}
@@ -275,12 +275,12 @@ Allora
 \end{enumerate}
 \begin{proof}
 	Per il teorema fondamentale del calcolo integrale
-	$$f_n(x)=f_n(x_0)+\int_{x_0}^{x}f_n'(t)\integrald{t}$$
+	\[f_n(x)=f_n(x_0)+\int_{x_0}^{x}f_n'(t)\integrald{t}\]
 	per $n\to\infty$
-	$$f(x)=l+\int_{x_0}^{x}g(t)\integrald{t}$$
+	\[f(x)=l+\int_{x_0}^{x}g(t)\integrald{t}\]
 	Quindi le $f_n$ convergono puntualmente alla funzione $f(x)$, per la convergenza uniforme calcolo:
-	$$ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\abs{f_n(x)-f(x)}\le\lim\limits_{n\to+\infty}(\abs{f_n(x_0)-f(x_0)}+\abs{\int_{x_0}^x \abs{f_n'(t)-g(t)}\integrald{t}})\le$$
-	$$\lim\limits_{n\to+\infty}\left[ \abs{f_n(x_0)-f(x_0)}+\abs{b-a}\sup\limits_{\left[a,b\right]}\abs{f_n'(x)-g(x)} \right] = $$
+	\[ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\abs{f_n(x)-f(x)}\le\lim\limits_{n\to+\infty}(\abs{f_n(x_0)-f(x_0)}+\abs{\int_{x_0}^x \abs{f_n'(t)-g(t)}\integrald{t}})\le\]
+	\[\lim\limits_{n\to+\infty}\left[ \abs{f_n(x_0)-f(x_0)}+\abs{b-a}\sup\limits_{\left[a,b\right]}\abs{f_n'(x)-g(x)} \right] = \]
 	Questo perché per ipotesi $f'_n=g$ e il limite fa $0$.
 	Allora $f_n \uconvarrow f$ su $\left[a,b\right]$\\
 	Inoltre si sa che $f_n\in \cntclass{1}$ allora $f_n'\in \cntclass{0}$ allora il limite uniforme di funzioni continue è una funzione continua allora $g$ è una funzione continua.\\
@@ -309,7 +309,7 @@ Serve $\left[a,b\right]$ limitato .......\\
 \end{corollary}
 \observation
 In altre parole questa proposizione afferma che sotto opportune ipotesi
-$$\left(\sum\limits_{n=0}^{+\infty} f_n \right)' =  \sum\limits_{n=0}^{+\infty}f_n'$$
+\[\left(\sum\limits_{n=0}^{+\infty} f_n \right)' =  \sum\limits_{n=0}^{+\infty}f_n'\]
 \definition
 Siano $A\subseteq  \R$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni con $f_n:A\to \R$\\
 $\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \bydef \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}<+\infty$(è convergente)
@@ -346,7 +346,7 @@ Convergenza Totale $\Rightarrow$ Convergenza Uniforme $\Rightarrow$ Convergenza 
 \section{Serie di Funzioni Particolari}
 Questa sezione è dedicata ad alcune tecniche di approssimazione  basate su serie di funzioni particolari\\
 In generale, un'approssimazione si riconduce ad una formula del tipo\\
-$$\left[\text{quantità da calcolare}\right]=\left[\text{quantità approssimante}\right]+ errore$$
+\[\left[\text{quantità da calcolare}\right]=\left[\text{quantità approssimante}\right]+ errore\]
 La qualità dell'approssimazione è descritta dal senso in cui l'errore è piccolo.\\
 \subsection{Serie di Potenze}
 \definition
@@ -367,9 +367,9 @@ Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\
 	devo dimostrare che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\abs{a_nz^n}<+\infty$.\\
 	E\' facile vedere che $a_nz^n=a_nw^n\left(\frac{z}{w}\right)^n$.\\
 	Quindi passando al modulo e poi al sup si ottiene.\\
-	$$\sup\limits_{B(0,r)}\abs{a_nz^n}=\sup\limits_{B(0,r)}\abs{a_nw^n}\abs{\frac{z}{w}}^n\le$$
+	\[\sup\limits_{B(0,r)}\abs{a_nz^n}=\sup\limits_{B(0,r)}\abs{a_nw^n}\abs{\frac{z}{w}}^n\le\]
 	Siccome $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge  quindi il suo termine generale tende a $0$.\\
-	$$\le\sup\limits_{B(0,r)}\abs{\frac{z}{w}}^n\le\left(\frac{r}{\abs{w}}\right)^n $$
+	\[\le\sup\limits_{B(0,r)}\abs{\frac{z}{w}}^n\le\left(\frac{r}{\abs{w}}\right)^n \]
 	per ipotesi $r<\abs{w}$ e questo è il termine generale di una serie geometrica convergente.\\
 	Ne segue che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\abs{a_nz^n}$ è maggiorato da $\left( \frac{r}{\abs{w}}\right)^n$ e quindi la serie converge totalmente.
 \end{proof}
@@ -443,8 +443,8 @@ $\\
 ...\\
 ...\\
 ESEMPIO:: $e^{iy}$ con $y\in \R$
-$$e^{iy} = \sum\limits_{n=0}^{+\infty}\frac{1}{n!}(iy)^n = \sum\limits_{n=0}^{+\infty}\frac{1}{(2n)!}(iy)^{2n} + \sum\limits_{n=0}^{+\infty}\frac{1}{(2n+1)!}(iy)^{2n+1} = $$
-$$ = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n)!}(y)^{2n} + i\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n+1)!}(y)^{2n+1} = cos(y)+isin(y)$$
+\[e^{iy} = \sum\limits_{n=0}^{+\infty}\frac{1}{n!}(iy)^n = \sum\limits_{n=0}^{+\infty}\frac{1}{(2n)!}(iy)^{2n} + \sum\limits_{n=0}^{+\infty}\frac{1}{(2n+1)!}(iy)^{2n+1} = \]
+\[ = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n)!}(y)^{2n} + i\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n+1)!}(y)^{2n+1} = cos(y)+isin(y)\]
 \begin{enumerate}
 	\item $i^{2n}=\left(i^2\right)^n=(-1)^n$
 	\item $i^{2n+1}=i\left(i^2\right)^n=i(-1)^n$
@@ -461,12 +461,12 @@ ALTRO GRAFICO::::::::::::::::\\
 
 \subsection{Serie di Taylor}
 ESEMPIO:: $ln(1+z)$. Calcolare la Serie di Taylor.\\
-$$D\left[ln(1+z)\right] = \frac{1}{1+z} = \sum\limits_{n=0}^{+\infty}(-1)^nz^n$$
-$$\int \sum\limits_{n=0}^{+\infty}(-1)^nz^n dz = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{n+1}z^{n+1}=\sum\limits_{n=1}^{+\infty}\frac{(-1)^{n-1}}{n}z^n$$
+\[D\left[ln(1+z)\right] = \frac{1}{1+z} = \sum\limits_{n=0}^{+\infty}(-1)^nz^n\]
+\[\int \sum\limits_{n=0}^{+\infty}(-1)^nz^n dz = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{n+1}z^{n+1}=\sum\limits_{n=1}^{+\infty}\frac{(-1)^{n-1}}{n}z^n\]
 \begin{lemma}
 	\label{lemma:taylor_rad_convergency}
 	Sia $\brackets{a_n:n \in \N}$ una successione a valori in $\C$. Le serie:
-	$$\sum_{n=0}^{+\infty} a_n z^n ,\qquad \sum_{n=1}^{+\infty} n a_n z^{n-1} \qquad\text{e}\qquad \sum_{n=0}^{+\infty} \frac{a_n}{n+1}z^{n+1}$$
+	\[\sum_{n=0}^{+\infty} a_n z^n ,\qquad \sum_{n=1}^{+\infty} n a_n z^{n-1} \qquad\text{e}\qquad \sum_{n=0}^{+\infty} \frac{a_n}{n+1}z^{n+1}\]
 	hanno lo stesso raggio di convergenza
 	\begin{proof}
 		Omessa
@@ -486,16 +486,16 @@ Se $f$ è analitica su $\left]-r;r\right[$ per $r\in \R$ e $r>0\Rightarrow f\in 
 \end{proof}
 \proposition PROP+PROOF\\
 Sia $f:\left]-r,r\right[\to \R$ e $f$ analitica su $\left]-r,r\right[ \bydef f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \Rightarrow$ ho convergenza totale $\Rightarrow$ ho convergenza uniforme di funzioni continue
-$$\Rightarrow f\in \cntclass{0}(\left]-r,r\right[; \R),\quad a_0=f(0)$$
+\[\Rightarrow f\in \cntclass{0}(\left]-r,r\right[; \R),\quad a_0=f(0)\]
 La serie delle derivate $\sum\limits_{n=0}^{+\infty}na_nx^{n-1}$ converge totalmente su $\left]-r,r\right[$ cioè
-$$\sum\limits_{n=0}^{+\infty}f'(x)=\sum\limits_{n=0}^{+\infty}na_nx^{n-1} \uconvarrow g$$
-$$\sum\limits_{n=0}^{+\infty}fn(0)\to f(0), f_n\in ????????????$$
+\[\sum\limits_{n=0}^{+\infty}f'(x)=\sum\limits_{n=0}^{+\infty}na_nx^{n-1} \uconvarrow g\]
+\[\sum\limits_{n=0}^{+\infty}fn(0)\to f(0), f_n\in ????????????\]
 Allora la serie delle derivate converge alla derivata della serie
-$$\Rightarrow \in \cntclass{1}(\left]-r,r\right[; \R),\quad a_1=f'(0)$$
+\[\Rightarrow \in \cntclass{1}(\left]-r,r\right[; \R),\quad a_1=f'(0)\]
 Questo ragionmento può essere ripetuto:
-$$\Rightarrow \forall k\in\N,\quad f\in \cntclass{k}(\left]-r,+r\right[),\quad a_k=k!f^{(k)}(0)$$
+\[\Rightarrow \forall k\in\N,\quad f\in \cntclass{k}(\left]-r,+r\right[),\quad a_k=k!f^{(k)}(0)\]
 e analogamente
-$$f\in \cntclass{\infty}(\left]-r,r\right[; \R),\quad f(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$$
+\[f\in \cntclass{\infty}(\left]-r,r\right[; \R),\quad f(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
 \observation Qui abbiamo detto se $f$ è analitica $\Rightarrow \ldots$, vorrei fare un qualche tipo di viceversa per poter capire se $f$ è analitica o no.
 \proposition
 Sia $f:\left]-r,r\right[\to \R$
@@ -531,10 +531,10 @@ ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{mat
 	itero il ragionamento......\\
 	.......\\
 	\item In (1) abbiamo visto  che tutte le derivate nello zero si annullavano, cioè
-	$$\forall n\in\N, f^{(n)}(0)=0\Rightarrow \sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$$
+	\[\forall n\in\N, f^{(n)}(0)=0\Rightarrow \sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
 	è la serie identicamente nulla  che banalmente converge totalmente su tutto $ \R$
 	\item Anche osservandoil grafico è chiaro che la $f$ non è la funzione identicamente nulla cioè è diversa dal suo sviluppo in serie
-	$$f(x)\ne\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$$
+	\[f(x)\ne\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
 \end{enumerate}
 Il Problema nasce dall'$o(x^n)$ che scriviamo alla fine dello sviluppo n-esimo di questa funzione, perché l'intorno in cui si ha $o(x^n)$ diventa sempre più piccolo.
 GRAFICO...\\
@@ -598,7 +598,7 @@ x+T\in A\\f(x+T)=f(x)
 
 
 ESEMPIO:: $\lfloor x \rfloor = \text{ parte intera } = \max\left\{k\in\mathbb{Z}:k\le x\right\}$
-$$\lfloor \pi \rfloor=3, \quad \lfloor \sqrt{2} \rfloor = 1 \quad \lfloor -e \rfloor = -3 $$
+\[\lfloor \pi \rfloor=3, \quad \lfloor \sqrt{2} \rfloor = 1 \quad \lfloor -e \rfloor = -3 \]
 \begin{center}
 	\begin{tikzpicture}
 		\draw[->] (-4,0) -- (4,0) node[anchor=north west] {$x$};
@@ -630,7 +630,7 @@ ESEMPIO:: $mant(x)=\text{ mantissa di x } = x- \lfloor x \rfloor$
 La funzione costante è $T$-periodica $\forall T>0$, ma non ha un periodo minimo, per questo motivo non la consideriamo.
 \observation
 Sia $f:A\to \R$ $T$-periodica. Allora possiamo definire $\overline{f}:\overline{A}\to \R$ che sia $2\pi$-periodica data da:
-$$x\to f\left(\frac{T}{2\pi}x\right),\quad \overline{A}=\frac{2\pi}{T}A$$
+\[x\to f\left(\frac{T}{2\pi}x\right),\quad \overline{A}=\frac{2\pi}{T}A\]
 \proposition
 Siano $A\subseteq \R$, $f:A\to \R$ e $T>0$\\
 $f$ è $T$-periodica $\Rightarrow \forall n\in\N$, $f$ è $nT$-periodica.
@@ -638,7 +638,7 @@ $f$ è $T$-periodica $\Rightarrow \forall n\in\N$, $f$ è $nT$-periodica.
 Sia $f:\left[0,2\pi\right[\to \R \Rightarrow \exists ! \hat{f}: \R\to \R$ t.c.: $\left\{\begin{matrix} \hat{f} 2\pi-periodica\\\hat{f}_{\left|\left[0,2\pi\right]\right.}=f\end{matrix}\right.$
 \begin{proof}
 	$\forall x\in \R. \exists ! \hat{x}\in\left[0,2\pi\right[$ t.c.: $x=2\pi\cdot k+\hat{x}$ con $k\in\mathbb{Z}$ e $k=\left[??????\right]$\\
-	$$\hat{f}(x)=f(\hat{x})$$
+	\[\hat{f}(x)=f(\hat{x})\]
 \end{proof}
 cioè se noi estendiamo una funzione definita su $\left[0,2\pi\right[$ a tutto $ \R$ otteniamo una funzione unica e periodica.
 \observation
@@ -650,12 +650,12 @@ Con i polinomi di Taylor ........\\
 ........\\
 \definition
 Dati $2n+1$ numeri reali $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n$ si dice polinomio trigonometrico di coefficienti $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n$ la funzione:
-$$\begin{array}{rcl} p: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{N}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}$$
+\[\begin{array}{rcl} p: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{N}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}\]
 \observation
 Essendo un'approssimazione, si deve aggiungere l'errore. Come è fatto?. Per far uscire conti giusti e comodi andrebbe usata la distanza quadratica , ma questo prevede una lunga parte introduttiva, noi allora lo stimiamo con la distanza infinita.
 \definition
 Date due successioni di numeri reali $\left\{a_n:n\in\N\right\}$,$\left\{b_n:n\in\N\setminus\left\{0\right\}\right\}$, si defininisce serie trigonometrica di coefficienti  $\left\{a_n:n\in\N\right\}$,$\left\{b_n:n\in\N\setminus\left\{0\right\}\right\}$ la serie
-$$\begin{array}{rcl} \mathfrak{F}: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}$$
+\[\begin{array}{rcl} \mathfrak{F}: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}\]
 LEMMA::\\
 Se $h,k\in\N$ valgono le seguenti uguaglianze:
 \begin{description}
@@ -674,144 +674,144 @@ Se $h,k\in\N$ valgono le seguenti uguaglianze:
 ESERCIZIO:: IL POLINOMIO DI FOURIER FORNISCE LA MIGLIORE APPROSSIMAZIONE NEL SENSO DELLA DISTANZA QUADRATICA.\\
 Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, quale è la funzione a lei più vicina nel senso della distanza quadratica?\\
 Fisso $N\in\N$ e prendo il polinomio trigonometrico di grado $N$
-$$p_N(x)=\trigonpol{n}{1}{N}$$
+\[p_N(x)=\trigonpol{n}{1}{N}\]
 con $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n\in \R$, il problema è quello di minimizzare $d_2(f,p_n)$ quindi un problema di minimo. Stiamo cercando i coefficienti del polinomio trigonometrico quindi studiamo una funzione $\varphi(a_0,a_1,\dotsc,a_N,b_1,\dotsc,b_N) = \sqrt{\int_{-\pi}^{\pi}\left[f(x)-p_n(x)\right]^2}\integrald{x}$.\\
 Essendo la funzione radice quadrata monotona crescente ne studiamo solo il radicando:
-$$\varphi(a_0,a_1,\dotsc,a_N,b_1,\dotsc,b_N)=\int_{-\pi}^{\pi}\left[\trigonpol{n}{1}{N}-f(x)\right]^2dx$$
+\[\varphi(a_0,a_1,\dotsc,a_N,b_1,\dotsc,b_N)=\int_{-\pi}^{\pi}\left[\trigonpol{n}{1}{N}-f(x)\right]^2dx\]
 \observation
 con $f\in \cntclass{1}$:
-$$F(\alpha,\beta,x)=\int_{\alpha}^{\beta}f(x,t)\integrald{t}$$
-$$\partial_\alpha F(\alpha,\beta,x)=-f(x,\alpha)\integrald{t}$$
-$$\partial_\beta F(\alpha,\beta,x)=f(x,\beta)\integrald{t}$$
-$$\nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)\integrald{t}$$
+\[F(\alpha,\beta,x)=\int_{\alpha}^{\beta}f(x,t)\integrald{t}\]
+\[\partial_\alpha F(\alpha,\beta,x)=-f(x,\alpha)\integrald{t}\]
+\[\partial_\beta F(\alpha,\beta,x)=f(x,\beta)\integrald{t}\]
+\[\nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)\integrald{t}\]
 Qudindi applicando al nostro caso otteniamo
-$$\partial_{a_0}\varphi = \int_{-\pi}^{\pi}\partial_{a_0}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=$$
-$$ = \int_{-\pi}^{\pi} \frac{1}{2}2\left(\trigonpol{n}{1}{N}-f(x)\right)\integrald{x}=$$
-$$ =  \int_{-\pi}^{\pi} \frac{a_0}{2}\integrald{x} + $$
-$$\int_{-\pi}^{\pi} a_1cos(x)\integrald{x} +
+\[\partial_{a_0}\varphi = \int_{-\pi}^{\pi}\partial_{a_0}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=\]
+\[ = \int_{-\pi}^{\pi} \frac{1}{2}2\left(\trigonpol{n}{1}{N}-f(x)\right)\integrald{x}=\]
+\[ =  \int_{-\pi}^{\pi} \frac{a_0}{2}\integrald{x} + \]
+\[\int_{-\pi}^{\pi} a_1cos(x)\integrald{x} +
 \ldots +
-\int_{-\pi}^{\pi} a_Ncos(Nx)\integrald{x} + $$
-$$\int_{-\pi}^{\pi} b_1sin(x)\integrald{x} +
+\int_{-\pi}^{\pi} a_Ncos(Nx)\integrald{x} + \]
+\[\int_{-\pi}^{\pi} b_1sin(x)\integrald{x} +
 \ldots +
-\int_{-\pi}^{\pi} b_Nsin(Nx)\integrald{x} - $$
-$$ \int_{-\pi}^{\pi} f(x)\integrald{x} = $$
+\int_{-\pi}^{\pi} b_Nsin(Nx)\integrald{x} - \]
+\[ \int_{-\pi}^{\pi} f(x)\integrald{x} = \]
 L'integrale di una sinusoide su un multiplo intero del periodo è $0$ quindi
-$$=\pi a_0-\int_{-\pi}^{\pi}f(x)\integrald{x}$$
+\[=\pi a_0-\int_{-\pi}^{\pi}f(x)\integrald{x}\]
 Calcolando direttamente anche le derivate seconde si ottiene che
-$$\partial^2_{a_0a_0}=\pi\quad\partial^2_{a_0a_n}=0\quad\partial^2_{a_0b_n}=0\quad\forall n=1,\dotsc,N$$
+\[\partial^2_{a_0a_0}=\pi\quad\partial^2_{a_0a_n}=0\quad\partial^2_{a_0b_n}=0\quad\forall n=1,\dotsc,N\]
 
-$$\partial_{a_k}\varphi = \int_{-\pi}^{\pi}\partial_{a_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=$$
-$$ = \int_{-\pi}^{\pi} 2cos(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]\integrald{x}=$$
-$$ =  \cancel{\int_{-\pi}^{\pi} a_0cos(kx)\integrald{x}} + $$
-$$\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)cos(kx)\integrald{x}} +
+\[\partial_{a_k}\varphi = \int_{-\pi}^{\pi}\partial_{a_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=\]
+\[ = \int_{-\pi}^{\pi} 2cos(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]\integrald{x}=\]
+\[ =  \cancel{\int_{-\pi}^{\pi} a_0cos(kx)\integrald{x}} + \]
+\[\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)cos(kx)\integrald{x}} +
 \ldots +
 \int_{-\pi}^{\pi} 2a_kcos(kx)cos(kx)\integrald{x}
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)cos(kx)\integrald{x}} + $$
-$$\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)cos(kx)\integrald{x}} +
+\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)cos(kx)\integrald{x}} + \]
+\[\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)cos(kx)\integrald{x}} +
 \ldots +
 \cancel{\int_{-\pi}^{\pi} 2b_ksin(kx)cos(kx)}\integrald{x}
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)cos(kx)\integrald{x}} - $$
-$$\int_{-\pi}^{\pi} 2f(x)cos(kx)\integrald{x} = $$
+\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)cos(kx)\integrald{x}} - \]
+\[\int_{-\pi}^{\pi} 2f(x)cos(kx)\integrald{x} = \]
 E anche applicando il lemma
-$$=2\pi\left[a_k-\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\right]$$
+\[=2\pi\left[a_k-\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\right]\]
 Calcolando direttamente anche le derivate seconde si ottiene che
-$$\partial^2_{a_ka_0}=\pi\quad\partial^2_{a_ka_n}=
+\[\partial^2_{a_ka_0}=\pi\quad\partial^2_{a_ka_n}=
 \left\{\begin{matrix}
 0&&n\ne k\\2\pi&&n=k
 \end{matrix}\right.
-\quad\partial^2_{a_kb_n}=0\quad\forall n=1,\dotsc,N$$
+\quad\partial^2_{a_kb_n}=0\quad\forall n=1,\dotsc,N\]
 
-$$\partial_{b_k}\varphi = \int_{-\pi}^{\pi}\partial_{b_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=$$
-$$ = \int_{-\pi}^{\pi} 2sin(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]\integrald{x}=$$
-$$ =  \cancel{\int_{-\pi}^{\pi} a_0sin(kx)\integrald{x}} + $$
-$$\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)sin(kx)\integrald{x}} +
+\[\partial_{b_k}\varphi = \int_{-\pi}^{\pi}\partial_{b_k}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=\]
+\[ = \int_{-\pi}^{\pi} 2sin(kx) \left[\trigonpol{n}{1}{N}-f(x)\right]\integrald{x}=\]
+\[ =  \cancel{\int_{-\pi}^{\pi} a_0sin(kx)\integrald{x}} + \]
+\[\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)sin(kx)\integrald{x}} +
 \ldots +
 \cancel{\int_{-\pi}^{\pi} 2a_kcos(kx)sin(kx)}\integrald{x}
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)sin(kx)\integrald{x}} + $$
-$$\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)sin(kx)\integrald{x}} +
+\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)sin(kx)\integrald{x}} + \]
+\[\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)sin(kx)\integrald{x}} +
 \ldots +
 \int_{-\pi}^{\pi} 2b_ksin(kx)sin(kx)\integrald{x}
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)sin(kx)\integrald{x}} - $$
-$$\int_{-\pi}^{\pi} 2f(x)sin(kx)\integrald{x} = $$
+\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)sin(kx)\integrald{x}} - \]
+\[\int_{-\pi}^{\pi} 2f(x)sin(kx)\integrald{x} = \]
 E anche applicando il lemma
-$$=2\pi\left[b_k-\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\right]$$
+\[=2\pi\left[b_k-\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\right]\]
 Calcolando direttamente anche le derivate seconde si ottiene che
-$$\partial^2_{b_ka_0}=\pi\quad\partial^2_{b_ka_n}=
+\[\partial^2_{b_ka_0}=\pi\quad\partial^2_{b_ka_n}=
 \left\{\begin{matrix}
 0&&n\ne k\\2\pi&&n=k
 \end{matrix}\right.
-\quad\partial^2_{b_kb_n}=0\quad\forall n=1,\dotsc,N$$
+\quad\partial^2_{b_kb_n}=0\quad\forall n=1,\dotsc,N\]
 Si verifica la condizione $\nabla\varphi = 0$ con
 \begin{description}
 	\item[$\ast$] $a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}$
 	\item[$\ast$] $a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}$
 	\item[$\ast$] $b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}$
 \end{description}
-La matrice Hessiana di $\varphi$ risulta $$H_{\varphi}=\left[\begin{matrix}
+La matrice Hessiana di $\varphi$ risulta \[H_{\varphi}=\left[\begin{matrix}
 \pi&&0&&0&&\ldots&&0\\
 0&&2\pi&&0&&\ldots&&0\\
 0&&0&&2\pi&&\ldots&&0\\
 \vdots&&\vdots&&\vdots&&\ddots&&\vdots\\
 0&&0&&0&&0\ldots&&2\pi
-\end{matrix}\right]$$
+\end{matrix}\right]\]
 è una matrice diagonale quindi si leggono direttamente tutti gli autovalori che sono strettamente positivi quindi la forma quadratica è definita positiva ed il punto in questione è un punto di minimo assoluto.
 \definition
 Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
-$$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}$$
-$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}$$
-$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}$$
+\[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}\]
+\[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
+\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
 La serie di Fourier di $f$ è
-$$\trigonpol{k}{1}{+\infty}$$
+\[\trigonpol{k}{1}{+\infty}\]
 \proposition
 Sia $F: \realintervalclose{-\pi}{\pi} \mapsto \R$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\N\right\}$ e $\left\{a_n:n\in\N\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
-$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)cos(kx)\integrald{x}\quad k\in\N$$
-$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}$$
+\[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)cos(kx)\integrald{x}\quad k\in\N\]
+\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
 ESEMPIO+DIMOSTRAZIONE:::\\
 sia $f(x)=\trigonpol{n}{1}{+\infty}$. Allora:\\
-$$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}\trigonpol{n}{1}{+\infty}\integrald{x}=$$
-$$
+\[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}\trigonpol{n}{1}{+\infty}\integrald{x}=\]
+\[
 = \frac{1}{\pi}\int_{-\pi}^{\pi}\frac{a_0}{2} +
 \frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} a_ncos(nx)\right)\integrald{x} +
 \frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} b_ncos(nx)\right)\integrald{x}
-$$
+\]
 Poiché si ha convergenza uniforme si può portare l'integrale dentro la sommatoria.
-$$
+\[
 = \frac{1}{\pi}\int_{-\pi}^{\pi}\frac{a_0}{2} +
 \cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} a_ncos(nx)\integrald{x}} +
 \cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} b_ncos(nx)\integrald{x}}=
-$$
-$$=\frac{1}{\pi}\frac{a_0}{2}\left(\pi-(-\pi)\right)=a_0$$
+\]
+\[=\frac{1}{\pi}\frac{a_0}{2}\left(\pi-(-\pi)\right)=a_0\]
 
 
-$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}=$$
-$$\frac{1}{\pi}\left[
+\[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}=\]
+\[\frac{1}{\pi}\left[
 \cancel{\int_{-\pi}^{\pi}\frac{a_0}{2}cos(kx)\integrald{x}}+
 \int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}a_ncos(nx)cos(kx)\right)\integrald{x}+
 \cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}b_nsin(nx)cos(kx)\right)\integrald{x}}
-\right]=$$
-$$\frac{1}{\pi}\left[
+\right]=\]
+\[\frac{1}{\pi}\left[
 \cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{k-1} a_ncos(nx)cos(kx)\right)\integrald{x}}+
 \int_{-\pi}^{\pi}a_kcos(kx)cos(kx)\integrald{x}+
 \cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=k+1}^{+\infty}a_ncos(nx)cos(kx)\right)}\integrald{x}
-\right]=$$
-$$=\frac{1}{\pi}\pi a_k=a_k$$
+\right]=\]
+\[=\frac{1}{\pi}\pi a_k=a_k\]
 
-$$b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}=$$
-$$\frac{1}{\pi}\left[
+\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}=\]
+\[\frac{1}{\pi}\left[
 \cancel{\int_{-\pi}^{\pi}\frac{a_0}{2}sin(kx)\integrald{x}}+
 \int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}a_ncos(nx)sin(kx)\right)\integrald{x}+
 \cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty}b_nsin(nx)sin(kx)\right)\integrald{x}}
-\right]=$$
-$$\frac{1}{\pi}\left[
+\right]=\]
+\[\frac{1}{\pi}\left[
 \cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{k-1} a_ncos(nx)sin(kx)\right)\integrald{x}}+
 \int_{-\pi}^{\pi}a_kcos(kx)sin(kx)\integrald{x}+
 \cancel{\int_{-\pi}^{\pi}\left(\sum\limits_{n=k+1}^{+\infty}a_ncos(nx)sin(kx)\right)}\integrald{x}
-\right]=$$
-$$=\frac{1}{\pi}\pi b_k=b_k$$
+\right]=\]
+\[=\frac{1}{\pi}\pi b_k=b_k\]
 \observation
 Se $d_2(f,\text{polinomio di Fourier})$ \`{e} minima $\Rightarrow$ il polinomio di Fourier \`{e} costruito con i coefficienti di Fourier di $f$.
 \observation
@@ -834,15 +834,15 @@ I coefficienti di Fourier non possono identificare univocamente puntualmente una
 \subsubsection{Punto Di Vista Geometrico}
 In $R^2$ Ci sono $2$ vettori $\hat{i},\hat{j}$ della base, se $\underline{v}\in \R^2 \Rightarrow \underline{v}=v_1\cdot \hat{i}+v_2\cdot \hat{j}$ con $v_1,v_2$ componenti di $\underline{v}$\\
 Calcolo delle componenti:\\
-$$\underline{v}\cdot \hat{i} = v_1\cdot \hat{i\cdot }\hat{i}+v_2\cdot \hat{j}\cdot \hat{i}=v_1$$
-$$\underline{v}\cdot \hat{j} = v_1\cdot \hat{i}\cdot \hat{j}+v_2\cdot \hat{j}\cdot \hat{j}=v_2$$
+\[\underline{v}\cdot \hat{i} = v_1\cdot \hat{i\cdot }\hat{i}+v_2\cdot \hat{j}\cdot \hat{i}=v_1\]
+\[\underline{v}\cdot \hat{j} = v_1\cdot \hat{i}\cdot \hat{j}+v_2\cdot \hat{j}\cdot \hat{j}=v_2\]
 Questo vale perché $\hat{i},\hat{j}$ è una base ortonormale.
 In $R^3$ Ci sono $3$ vettori $\hat{i},\hat{j},\hat{k}$ della base, se $\underline{v}\in \R^3 \Rightarrow \underline{v}=v_1\hat{i}+v_2\hat{j}+v_3\hat{k}$ con $v_1,v_2,v_3$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
-$$ v_1=\underline{v}\cdot \hat{i}\quad v_2=\underline{v}\cdot \hat{j}\quad v_3=\underline{v}\cdot \hat{k}  $$
+\[ v_1=\underline{v}\cdot \hat{i}\quad v_2=\underline{v}\cdot \hat{j}\quad v_3=\underline{v}\cdot \hat{k}  \]
 In $R^n$ Ci sono $n$ vettori $e_1,e_2,\dotsc,e_n$ della base, se $\underline{v}\in \R^n \Rightarrow \underline{v}=v_1\cdot e_1+v_2\cdot e_2+\ldots+v_n\cdot e_n=\sum\limits_{k=1}^{n}v_k\cdot e_k$ con $v_1,v_2,\dotsc,v_n$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
-$$v_k=\underline{v}\cdot e_k$$
+\[v_k=\underline{v}\cdot e_k\]
 \\
 Con le Serie di Fourier su esegue la stessa operazione sullo spazi $\cntclass{0}(\realintervalclose{-\pi}{\pi}; \R)$. Come elementi di base si ha un insieme di funzioni:
 \begin{enumerate}
@@ -864,38 +864,38 @@ Si possono osservare due cose:
 Il prodotto scalare in $\cntclass{0} \bydef \left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)\integrald{x}$
 Altre simbologie usate sono: $ f\bullet g $, $(f|g)$
 \observation linearità\\
-$$\left<(\alpha\cdot f+\beta\cdot g), h \right>= \int_{-\pi}^{pi} (\alpha\cdot f(x)+\beta\cdot g(x))\cdot h(x) \integrald{x}=$$
-$$=\int_{-\pi}^{pi} \left[\alpha\cdot f(x)\cdot h(x)+\beta\cdot g(x)\cdot h(x) \right]\integrald{x}= $$
-$$=\alpha\int_{-\pi}^{pi} \cdot f(x)\cdot h(x) \integrald{x}+\beta\int_{-\pi}^{pi} \cdot g(x)\cdot h(x) \integrald{x} =$$
-$$\alpha\left<f,h\right>+\beta\left<g,h\right>$$
+\[\left<(\alpha\cdot f+\beta\cdot g), h \right>= \int_{-\pi}^{pi} (\alpha\cdot f(x)+\beta\cdot g(x))\cdot h(x) \integrald{x}=\]
+\[=\int_{-\pi}^{pi} \left[\alpha\cdot f(x)\cdot h(x)+\beta\cdot g(x)\cdot h(x) \right]\integrald{x}= \]
+\[=\alpha\int_{-\pi}^{pi} \cdot f(x)\cdot h(x) \integrald{x}+\beta\int_{-\pi}^{pi} \cdot g(x)\cdot h(x) \integrald{x} =\]
+\[\alpha\left<f,h\right>+\beta\left<g,h\right>\]
 
 Ripetiamolo stesso ragionamento applicato in $ \R^2, \R^3,$ e $ \R^n$ per ricavare le componenti, possiamo fare questo perché abbiamo una base e abbiamo definito un prodotto scalare.\\
 Se $f(x)=\trigonpol{n}{1}{+\infty} \Rightarrow $
-$$a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dxs=\frac{1}{\pi}\left<f,c_0\right> $$
-$$a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}=\frac{1}{\pi}\left<f,c_k\right> $$
-$$b_k\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}=\frac{1}{\pi}\left<f,s_k\right>$$
+\[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dxs=\frac{1}{\pi}\left<f,c_0\right> \]
+\[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}=\frac{1}{\pi}\left<f,c_k\right> \]
+\[b_k\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}=\frac{1}{\pi}\left<f,s_k\right>\]
 Quindi come prima le componenti di un vettore si ottengono moltiplicando(prodotto scalare) il vettore per gli elementi della base.\\
 PER IL LEMMA:\\
-$$
+\[
 \left<c_h,c_k\right>=
 \left\{\begin{matrix}
 0&&h\ne k\\
 2\pi&&0=h=k\\
 \pi&&0\ne h=k\\
 \end{matrix}\right.
-$$
-$$ \left<c_h,s_k\right>=0$$
-$$
+\]
+\[ \left<c_h,s_k\right>=0\]
+\[
 \left<s_h,s_k\right>=
 \left\{\begin{matrix}
 0&&h\ne k\\
 \pi&&0\ne h=k\\
 \end{matrix}\right.
-$$
+\]
 Il prodotto scalare di elementi diversi è nullo quindi la base è ortogonale, ma non è ortonormale in quanto il prodotto scalare tra due elementi diversi della base non è unitario.(ecco perché gli $\frac{1}{\pi})$ e $\frac{a_0}{2}$)\\
 In generale in geometria non è difficile normalizzare una base, è sufficiente dividere tutti gli elementi per la loro norma. In questo caso decidiamo di non applicare questo ragionamento poiché la norma vale $\sqrt{\pi}$ e se normalizziamo dobbiamo aggiungere questo termini ......\\
 Il prodotto scalare in $\cntclass{0}$ è molto legato alla $d_2$ infatti:
-$$\norm{f}_2=\sqrt{\left<f,f\right>}=\sqrt{\int_{-\pi}^{\pi}f(x)\cdot f(x)\integrald{x}}\sqrt{\int_{-\pi}^{\pi}\left[f(x)\right]^2dx}$$
+\[\norm{f}_2=\sqrt{\left<f,f\right>}=\sqrt{\int_{-\pi}^{\pi}f(x)\cdot f(x)\integrald{x}}\sqrt{\int_{-\pi}^{\pi}\left[f(x)\right]^2dx}\]
 Continuano le analogie:\\
 In $ \R^2$ ........\\
 In $ \R^3$ .........\\
@@ -906,33 +906,33 @@ In $ \R^3$ .........\\
 Passando in dimensione infinita, abbiamo una funzione $f$ (come vettore $\underline{v}$) nello spazio, e fare il polinomio di Fourier  vuole dire proiettare la funzione $f$ in uno spazio fatto dai primi $2n+1$ elementi della base che è uno spazio di dimensione finita.\\
 \\
 Esempio:::: Non ogni funzione ammette coefficienti di Fourier finiti. La funzione
-$$\begin{array}{rcl} f: \left[-\pi,\pi\right] & \to &  \R \\
-x & \to & \left\{\begin{matrix} 0 && x=0\\\frac{1}{x^2}&&x\ne 0 \end{matrix}\right. \end{array}$$
+\[\begin{array}{rcl} f: \left[-\pi,\pi\right] & \to &  \R \\
+x & \to & \left\{\begin{matrix} 0 && x=0\\\frac{1}{x^2}&&x\ne 0 \end{matrix}\right. \end{array}\]
 non ammette coefficienti di Fourier finiti.\\
 Esempio::: Una funzione può ammettere tutti i coefficienti di Fourier finiti ed una serie di Fourier convergente, ma ad un limite diverso da $f$.La funzione.
-$$\begin{array}{rcl} f: \left[-\pi,\pi\right] & \to &  \R \\
-x & \to & \left\{\begin{matrix} -1 && x<0\\1&&x>0 \end{matrix}\right. \end{array}$$
+\[\begin{array}{rcl} f: \left[-\pi,\pi\right] & \to &  \R \\
+x & \to & \left\{\begin{matrix} -1 && x<0\\1&&x>0 \end{matrix}\right. \end{array}\]
 ha coefficienti di Fourier
-$$a_k=0\quad\forall k,\quad\quad \left\{\begin{matrix}0 && k\text{ dispari }\\ \frac{4}{k\pi}&& k \text{ pari } \end{matrix}\right.$$
+\[a_k=0\quad\forall k,\quad\quad \left\{\begin{matrix}0 && k\text{ dispari }\\ \frac{4}{k\pi}&& k \text{ pari } \end{matrix}\right.\]
 e serie di Fourier
-$$ F_f(x)= \frac{4}{\pi}\sum\limits_{k=0}^{+\infty}\frac{sin(2h+1)x}{2h+1} $$
+\[ F_f(x)= \frac{4}{\pi}\sum\limits_{k=0}^{+\infty}\frac{sin(2h+1)x}{2h+1} \]
 questa serie converge puntualmente in $0$ ma $F_f(0)\ne f(0)$\\
 
 ESEMPIO:: Due funzioni diverse possono avere gli stessi coefficienti di Fourier:
-$$\begin{array}{rcl} f: \left[-\pi,\pi\right] & \to &  \R \\
-x & \to & \left\{\begin{matrix} -1 && x<0\\0&&x= 0\\1&&x>0 \end{matrix}\right.\end{array}$$
-$$\begin{array}{rcl} g: \left[-\pi,\pi\right] & \to &  \R \\
-x & \to & \left\{\begin{matrix} -1 && x<0\\\pi&&x= 0\\1&&x>0 \end{matrix}\right.\end{array}$$
+\[\begin{array}{rcl} f: \left[-\pi,\pi\right] & \to &  \R \\
+x & \to & \left\{\begin{matrix} -1 && x<0\\0&&x= 0\\1&&x>0 \end{matrix}\right.\end{array}\]
+\[\begin{array}{rcl} g: \left[-\pi,\pi\right] & \to &  \R \\
+x & \to & \left\{\begin{matrix} -1 && x<0\\\pi&&x= 0\\1&&x>0 \end{matrix}\right.\end{array}\]
 \observation
 Sia $f$ una funzione pari $\Rightarrow bn=0 \forall n=1,2,\dotsc,+\infty$
 \observation
 Sia $f$ una funzione dispari $\Rightarrow an=0 \forall n=0,1,,\dotsc,+\infty$
 \observation
 Siano
-$$f(x)=\frac{a_0}{2}+\sum\limits_{n=}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right)$$
-$$\varphi(x)=\frac{\alpha_0}{2}+\sum\limits_{n=}^{+\infty}\left(\alpha_ncos(nx)+\beta_nsin(nx)\right)$$
+\[f(x)=\frac{a_0}{2}+\sum\limits_{n=}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right)\]
+\[\varphi(x)=\frac{\alpha_0}{2}+\sum\limits_{n=}^{+\infty}\left(\alpha_ncos(nx)+\beta_nsin(nx)\right)\]
 Allora
-$$ F(x)=(f+\varphi)(x)=\frac{A_0}{2}+\sum\limits_{n=}^{+\infty}\left(A_ncos(nx)+B_nsin(nx)\right)$$
+\[ F(x)=(f+\varphi)(x)=\frac{A_0}{2}+\sum\limits_{n=}^{+\infty}\left(A_ncos(nx)+B_nsin(nx)\right)\]
 con $A_n=a_n+\alpha_n$. $B_n=b_n+\beta_n$.
 cioè i coefficienti di Fourier dipendono linearmente dalla funzione.\\
 Esempio::: $B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}(f(x)+\varphi(x))sin(3x)\integrald{x}=$\\
@@ -945,13 +945,13 @@ Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\
 	\begin{enumerate}
 		\item In ogni punto di $\realintervalclose{a}{b}\setminus\left\{x_1,x_2,\dotsc,x_n\right\}$ f è continua
 		\item $i=1,2,\dotsc,n$ esistono finiti entrambi i limiti:
-		$$\lim\limits_{x\to x_i^{-}}f(x)\quad \lim\limits_{x\to x_i^{+}}f(x)$$
+		\[\lim\limits_{x\to x_i^{-}}f(x)\quad \lim\limits_{x\to x_i^{+}}f(x)\]
 	\end{enumerate}
 \end{definition}
 
 \observation
 Dato $A\subseteq \R$ e data una funzione $f:A \mapsto \R$, se $x_0$ è punto interno ad $A$, è comoda la notazione
-$$f(x-)=\lim\limits_{\xi\to x^{-}}f(\xi)\quad f(x+)=\lim\limits_{\xi\to x^{+}}f(\xi)$$
+\[f(x-)=\lim\limits_{\xi\to x^{-}}f(\xi)\quad f(x+)=\lim\limits_{\xi\to x^{+}}f(\xi)\]
 Ovviamente se $f$ è continua in $x$ allora $f(x-)=f(x)=f(x+)$
 ESEMPIII:::\\
 GRAFICO::::\\
@@ -966,8 +966,8 @@ Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, $f$ è continua a tratti $\Ri
 Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$,\\
 -$f$ è continua a tratti\\
 -$\forall \overline{x} \in\realintervalclose{-\pi}{\pi}$, esistono finiti:\\
-$$ \lim\limits_{x\to\overline{x}^{-}}=\frac{f(x)-f(\overline{x}-)}{x-\overline{x}} $$
-$$ \lim\limits_{x\to\overline{x}^{+}}=\frac{f(x)-f(\overline{x}+)}{x-\overline{x}} $$
+\[ \lim\limits_{x\to\overline{x}^{-}}=\frac{f(x)-f(\overline{x}-)}{x-\overline{x}} \]
+\[ \lim\limits_{x\to\overline{x}^{+}}=\frac{f(x)-f(\overline{x}+)}{x-\overline{x}} \]
 Allora:\\
 La serie di Fourier di $f$ converge puntualmente in $\overline{x}$ e $F_f(\overline{x})=\frac{f(\overline{x}-)-\overline{x}+}{2}$ (che è il punto medio del salto.)
 \observation NIENTE CUSPIDI E NIENTE TANGENZE VERTICALI.
@@ -986,7 +986,7 @@ Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$.Se:\\
 		\item[-] $f'$ continua in $x$
 	\end{description}
 	\item[$\ast$] $\forall i=1,2,\dotsc,n$ e $\forall x\in\realintervalclose{-\pi}{\pi}$ esistono finiti
-	$$\lim\limits_{x\to x_i^{-}}\frac{f(x)-f(x_i-)}{x-x_i}\qquad \lim\limits_{x\to x_i^{+}}\frac{f(x)-f(x_i+)}{x-x_i}$$
+	\[\lim\limits_{x\to x_i^{-}}\frac{f(x)-f(x_i-)}{x-x_i}\qquad \lim\limits_{x\to x_i^{+}}\frac{f(x)-f(x_i+)}{x-x_i}\]
 
 \end{description}
 Allora\\
