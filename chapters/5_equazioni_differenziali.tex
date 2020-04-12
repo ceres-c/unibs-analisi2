@@ -422,8 +422,8 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	Siano $I\subseteq \R$ un intervallo aperto e $A\subseteq \R^n$ un aperto. Ogni funzione $f\in\cntclass{1}(I\times A;\R^n)$ è loc. lips. in $x\in A$ uniformemente rispetto a $t\in I$
 	\begin{proof}
 		Il prodotto cartesiano $I\times A$, essendo prodotto cartesiano di aperti in $\R^n$ con metrica euclidea (si suppone sia in uso questa metrica), è a sua volta un aperto. Questo risultato è dovuto alla definizione stessa del prodotto cartesiano di $\R$ con metrica euclidea.\\
-		% TODO scrivere proposizione poligonale capitolo 1. Magari anche proposizione prodotto cartesiano di aperti = aperto.
-		Chiamiamo ora $S=I\times A$ l'insieme di partenza della $f$. Grazie alla \fullref{prop:polig_cong_aperto} sappiamo che esiste una poligonale interamente contenuta in $S$ congiungente due qualunque punti dell'aperto $S$.\\
+		% TODO Magari scrivere proposizione prodotto cartesiano di aperti = aperto.
+		Chiamiamo ora $S=I\times A$ l'insieme di partenza della $f$. Grazie alla \fullref{prop:polig_in_aperto_connesso} sappiamo che esiste una poligonale interamente contenuta in $S$ congiungente due qualunque punti dell'aperto $S$.\\
 		È ora possibile applicare il \fullref{teo:accresc_fin} ad uno qualunque dei segmenti formanti la poligonale appena individuata. Vale quindi la
 		$$\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$$
 		che è direttamente comparabile alla \fullref{def:loc_lips} della funzione in ciascuno dei segmenti della poligonale, da cui la tesi.
@@ -686,7 +686,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		Sia ora
 		$$V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}$$
 		\begin{note}
-			V è il maggiore tra i valori assunti dalla derivata prima $\bigl(x'=f(t,x)\bigr)$ di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \fullref{prop:int_compatto}).\\% TODO in cap. 1, prop 2.35: compatto <=> chiuso+limtato (intervallo)
+			V è il maggiore tra i valori assunti dalla derivata prima $\bigl(x'=f(t,x)\bigr)$ di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \fullref{prop:compat_chius_lim}).
 		\end{note}
 		Definiamo dunque un generico $\delta>0$
 		\begin{equation}

@@ -696,13 +696,13 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{definition}[Condizione di Cauchy]
 	Sia $(X,d)$ uno spazio metrico e $x: \N \mapsto X$ una successione d in $X$.
-	\begin{equation}
+	\begin{equation*}
 		\begin{gathered}
 			x:\N \mapsto X \text{ è \textbf{di Cauchy}}\\
 			\bydef\\
 			\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon
 		\end{gathered}
-	\end{equation}
+	\end{equation*}
 	Cioè se la distanza tra due punti qualsiasi della successione, presi dopo un certo valore $\nu$, è minore di un $\varepsilon$ piccolo a piacere.
 	\begin{note}
 		Questa definizione, differentemente dalla \fullref{def:lim_succ}, è \textit{esplicita} e \textit{intrinseca}: dipende esclusivamente dalla successione e dalla distanza definita.
@@ -1213,7 +1213,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$
-	\begin{equation}
+	\begin{equation*}
 		f \text{ è \textbf{Continua} in } x_0 \iff
 		\begin{cases}
 			\begin{array}{c}
@@ -1222,7 +1222,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 				x_0 \text{ è \textbf{di accumulazione} per } A \text{ e } \lim\limits_{x \to x_0} f(x) = f(x_0)
 			\end{array}
 		\end{cases}
-	\end{equation}
+	\end{equation*}
 	\begin{proof}~
 		\begin{itemize}
 			\item $x_0$ di accumulazione: per definizione di $f$ continua
@@ -1327,13 +1327,13 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}[Continuità di $f$ in un Insieme]
 	\label{prop:funz_cont_per_succ_in_ins}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$.
-	\begin{equation}
+	\begin{equation*}
 		\begin{gathered}
 			f \text{ \textbf{Continua} in } A\\
 			\iff\\
 			\underbrace{\forall x_0 \in A}_{\mathclap{\text{unica aggiunta}}} \; \forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
 		\end{gathered}
-	\end{equation}
+	\end{equation*}
 	\begin{note}
 		Questa proposizione espande la \fullref{def:funz_cont} di continuità su un insieme grazie alla stessa definizione di continuità in un punto
 	\end{note}
@@ -1466,8 +1466,86 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 			\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale } d_Y\bigl(f(x),f(x_0)\bigr) < \varepsilon
 		\end{gathered}
 	\end{equation*}
-	Cioè è una funzione continua per la quale piccole variazioni della $x$ implicano piccole variazioni di $f(x)$. Graficamente si può vedere che il grafico "non impenna" e non "oscilla liberamente".
+	Cioè è una funzione continua per la quale piccole variazioni della $x$ implicano piccole variazioni di $f(x)$.\\
+	Graficamente si può vedere che il grafico "non impenna" e non "oscilla liberamente". Buon indicatore della uniforme continuità è la presenza di asintoti orizzontali.
 \end{definition}
+\begin{example}
+	\label{ex:unif_cont_graphs}
+
+	~
+	\begin{figure}[H]
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend},
+						ymin = -1.5,
+						ymax = 1.5
+					]
+						\addplot [domain=-5:5,samples=100] {tanh(x)};
+						\addlegendentry{\raisebox{.5ex}{$\tanh(x)$}}
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{Sì unif. cont.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend}
+					]
+						\addplot [domain=-2:2,samples=100] {x^2};
+						\addlegendentry{\raisebox{.5ex}{$x^2$}}
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{No unif. cont.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend},
+						ymin = -1.5,
+						ymax = 1.5
+					]
+						\addplot[domain=-4:4, samples=150] {sin(deg(x^2))};
+						\addlegendentry{\raisebox{.5ex}{$\sin({x^2})$}}
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{No unif. cont.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend},
+						ymin = -1.5,
+						ymax = 1.5
+					]
+						\addplot[domain=-4:4, samples=150] {(1/x)*sin(deg(x^2))};
+						\addlegendentry{\raisebox{.5ex}{$\frac{1}{x}\sin({x^2})$}}
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{Sì unif. cont.}
+		\end{subfigure}
+	\end{figure}
+\end{example}
 \begin{exercise}
 	\label{ex:cont_unif_cont_comparision}
 	Confrontare la \fullref{prop:funz_cont_per_succ_in_ins} con la \fullref{def:funz_unif_cont}
@@ -1552,16 +1630,239 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\item $f:A \mapsto Y$
 	\end{itemize}
 	Allora
-	\begin{center}
-		$f$ è \textbf{Lipschitziana}
-	\end{center}
-	\begin{equation*}\label{eq1}
+	\begin{equation*}
 		\begin{gathered}
-			\leftrightharpoons \\
-			\exists L > 0:\; \forall x_1,\,x_2 \in X,\;d_Y\bigl(f(x_1),f(x_2)\bigr)\leq L \cdot d_X(x_1,x_2)
+			f \text{ è \textbf{Lipschitziana}}\\
+			\bydef\\
+			\exists L > 0:\; \forall x',\,x'' \in X, \quad d_Y\bigl(f(x''),f(x')\bigr) \leq L \cdot d_X(x'',x')
 		\end{gathered}
 	\end{equation*}
+	\begin{note}
+		La costante $L$ sopra introdotta non è univocamente determinata. Nei risultati seguenti non sarà mai rilevante \textit{il valore} di $L$, ma il fatto stesso che $L$ esista.
+	\end{note}
 \end{definition}
+\begin{definition}[Costante di Lipschitz]
+	\label{def:cost_lips}
+	Fissate le distanze $d_X$ e $d_Y$ e la funzione $f$, allora la più piccola $L$ positiva soddisfacente
+	$$d_Y\bigl(f(x''),f(x')\bigr)\leq L \cdot d_X(x'',x') \qquad \forall x',x'' \in X$$
+	si definisce \textbf{Costante di Lipschitz} della funzione $f$ in $X$
+\end{definition}
+\begin{example}
+	\label{ex:lips_graphs}
+	~
+	\begin{figure}[H]
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend}
+					]
+						\addplot [domain=-3:-2.5,samples=10] {-x-2};
+						\addplot [domain=-2.5:-1.5,samples=10] {x+3};
+						\addplot [domain=-1.5:-.5,samples=10] {-x};
+						\addplot [domain=-.5:1,samples=10] {x+1};
+						\addplot [domain=1:1.5,samples=10] {-x+3};
+						\addplot [domain=1.5:3,samples=10] {x};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{Sì lips.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend}
+					]
+						\addplot [domain=-2:2,samples=100] {x^2};
+						\addlegendentry{\raisebox{.5ex}{$x^2$}}
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{No lips.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						ymin = -2,
+						ymax = 2
+					]
+						\addplot[domain=-2:0, samples=10] {1};
+						\addplot[domain=0:2, samples=10] {-1};
+						\draw[black,fill=black] (axis cs:0,-1) circle (2pt);
+						\draw[black,fill=white] (axis cs:0,1) circle (2pt);
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{No lips.}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend}
+					]
+						\addplot [domain=0:.2,samples=100,smooth] {sqrt(x)};
+						\addplot [domain=.2:3,samples=50] {sqrt(x)};
+						\addlegendentry{\raisebox{.5ex}{$\sqrt{x}$}}
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{No lips.\newline (Sì unif. cont.)}
+		\end{subfigure}
+	\end{figure}
+\end{example}
+\begin{example}
+	Sono dati gli spazi metrici $(X,d_X)$ e $(Y,d_Y)$ ed una funzione Lipschitziana $f: X \mapsto Y$.\\
+	Determinare una nuova distanza $\delta_X$ su $X$ che sia equivalente a $d_X$ ed in modo che la costante di Lipschitz di $f$ rispetto a $\delta_X$ sia minore o uguale ad $1$.
+	% TODO solution
+\end{example}
+\begin{example}
+	Sono dati gli spazi metrici $(X,d_X)$ e $(Y,d_Y)$ ed una funzione Lipschitziana $f: X \mapsto Y$.\\
+	Determinare una nuova distanza $\delta_Y$ su $Y$ che sia equivalente a $d_Y$ ed in modo che la costante di Lipschitz di $f$ rispetto a $\delta_Y$ sia minore o uguale ad $1$.
+	% TODO solution
+\end{example}
+\begin{exercise}
+	Sia $f: \R \mapsto \R$. Come si fa a capire se $f$ è Lipschitziana o no dal suo grafico?
+\end{exercise}
+
+\begin{proposition}
+	Siano $A \subseteq \R^n$ un insieme \textbf{Convesso} (\fullref{def:convesso}) e $f \in \cntclass{1}(A;\R)$. Se tutte le derivate parziali sono limtate in $A$ , allora $f$ è Lipschitziana.
+	\begin{proof}
+		Segue direttamente da \fullref{def:convesso} e \fullref{teo:accresc_fin}
+	\end{proof}
+	% TODO reference a questa proposizione dove si parlerà di convessi
+\end{proposition}
+
+\begin{proposition}
+	Sia $f: X \mapsto Y$ una funzione \textbf{Lipschitziana}. Allora $f$ è \textbf{Uniformemente Continua} su $X$.
+	\begin{proof}
+		Dall'ipotesi di Lipschitzianità, applicando la \fullref{def:lips}, si sa per certo che
+		$$d_Y\bigl(f(x''),f(x')\bigr) \leq L \cdot d_X(x'',x')$$
+		Posti ora
+		\begin{itemize}
+			\item $d_X(x'',x') < \delta$ senza perdere generalità (il $\delta$ nella unif. continuità è a scelta)
+			\item $\delta = \frac{\varepsilon}{L}$ come semplice posizione
+		\end{itemize}
+		Si ottiene
+		$$d_Y\bigl(f(x''),f(x')\bigr) \leq L \cdot d_X(x'',x') < L \cdot \delta = L \cdot \frac{\varepsilon}{L} = \varepsilon$$
+		Da cui, prendendo il primo e l'ultimo membro,
+		$$d_Y\bigl(f(x''),f(x')\bigr) < \varepsilon$$
+		che è la condizione di uniforme continuità.
+	\end{proof}
+\end{proposition}
+\begin{example}
+	La funzione
+	$$\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{\sqrt{x}}$$
+	è uniformemente continua ma non è Lipschitziana. Vedere grafico in \fullref{ex:lips_graphs}
+\end{example}
+\begin{example}
+	La funzione
+	$$\funcdef{f}{\R}{\R}{x}{\begin{cases}
+		\begin{array}{ll}
+			x \cdot \sin \left(\frac{1}{x}\right) & \text{se } x \neq 0\\
+			0 & \text{se } x = 0\\
+		\end{array}
+	\end{cases}}$$
+	è uniformemente continua ma non è Lipschitziana.
+\end{example}
+\begin{example}
+	La funzione
+	$$\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{x^2}$$
+	è di classe $\cntclass{\infty}$ ma non è Lipschitziana. Vedere grafico in \fullref{ex:lips_graphs}
+\end{example}
+\begin{example}
+	La funzione
+	$$\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{\abs{x}}$$
+	è Lipschitziana ma non è derivabile in $0$.
+\end{example}
+\begin{exercise}
+	La composizione di funzioni Lipschitziane è Lipschitziana?\\
+	Per funzioni reali di variabile reale, la somma/il prodotto di funzioni Lipschitziane è una funzione Lipschitziana?\\
+	Enunciare formalmente e dimostrare.
+	% TODO solution
+\end{exercise}
+
+\begin{proposition}
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto \R^n$ con $A \subseteq X$.\\
+	\begin{equation*}
+		f \text{ è \textbf{Lipschitziana}} \iff \text{\textbf{ogni componente di} } f \text{ \textbf{è Lipschitziana}}
+	\end{equation*}
+	\begin{proof}
+		Immediata.
+		% TODO actual proof
+	\end{proof}
+\end{proposition}
+
+\begin{definition}[Norma di Matrice]
+	\label{def:norm_matr}
+	Sia $A \in \mat (m \times n)$. \textbf{Norma} di $A$ è la quantità
+	$$\norm{A} = \;\; \max\limits_{\raisebox{-1ex}{${\scriptstyle x \in \overline{B(0,1)} }$}} \; \norm{A \; x}$$
+	con $x$ vettore $\in \R^n$ e $A \; x \in \R^m$ risultato del prodotto righe per colonne.
+\end{definition}
+\begin{exercise}
+	Verificare che la norma introdotta in \fullref{def:norm_matr} soddisfi alle condizioni della \fullref{def:norma} con $V = \mat (m \times n)$
+\end{exercise}
+\begin{exercise}
+	\label{ex:matr_form_alt}
+	Con la notazione della \fullref{def:norm_matr}, verificare le seguenti uguaglianze
+	{
+	\renewcommand*{\arraystretch}{1.5} % To improve the spacing of this array
+	\begin{equation*}
+		\begin{array}{rll}
+			\norm{A}	& =\sup\limits_{\raisebox{-1ex}{${\scriptstyle x \in \overline{B(0,1)} }$}} \; \norm{A \; x}	& =\sup\limits_{x \in B(0,1)} \; \norm{A \; x}\\
+						& =\max\limits_{\norm{x} = 1} \; \norm{A \; x}													& =\sup\limits_{\norm{x} = 1} \; \norm{A \; x}\\
+						& =\sup\limits_{x \in \R^n \setminus \brackets{0}} \frac{\norm{A \; x}}{\norm{x}}
+		\end{array}
+	\end{equation*}
+	}
+	% TODO solution
+\end{exercise}
+
+\begin{proposition}
+	\label{prop:proprieta_norm_matr}
+	Sia $A \in \mat(m \times n)$. Allora
+	$$\norm{A \; x} \leq \norm{A} \cdot \norm{x}$$
+	\begin{proof}
+		Sia $x = 0$ la tesi è immediata.\\
+		Sia $x \neq 0$, allora
+		\begin{align*}
+			\norm{A \; x} &= \norm{A \; x \cdot \frac{\norm{x}}{\norm{x}}} = \norm{\norm{x} \cdot \left( A \frac{x}{\norm{x}} \right)}\\
+			&= \norm{x} \cdot \norm{A \frac{x}{\norm{x}}}
+			\intertext{Essendo $\frac{x}{\norm{x}}$ il versore di $x$, esso ha, per definizione, norma unitaria e, grazie a \fullref{ex:matr_form_alt}, si sa che $\norm{A} \leq \sup\limits_{\norm{x} = 1} \; \norm{A \; x}$, dunque}
+			&\leq \norm{A} \cdot \norm{x}
+		\end{align*}
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Esibire una matrice $A \in \mat(2 \times 3)$ tale che $\norm{A} = 2$
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Sia $f:\R^n \mapsto \R^n$ una funzione lineare. Allora è Lipschitziana (rispetto alla metrica Euclidea). Suggerimento: utilizzare la \fullref{prop:proprieta_norm_matr}
+	\begin{note}
+		In spazi più generali di $\R^n$ (spazi di dimensione \textit{infinita}) l'affermazione contenuta in questo esercizio può essere falsa. Vedasi \fullref{prop:dist_lin_non_cont}
+	\end{note}
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Se $A$ e $B$ sono matrici tali che se ne possa fare il prodotto (regole del prodotto righe per colonne), dimostrare che
+	$$\norm{A \cdot B} \leq \norm{A} \cdot \norm{B}$$
+	% TODO solution
+\end{exercise}
 
 \section{Il Teorema delle Contrazioni}
 \begin{definition}[Contrazione]
