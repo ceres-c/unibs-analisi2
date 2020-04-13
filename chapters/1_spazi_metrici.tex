@@ -134,8 +134,8 @@ Unendo le due definizioni si giunge naturalmente a
 		\item $X=\cntclass{0}(\realintervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_\infty(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)}$ \hfill
 			{\footnotesize
 				\begin{tabular}{c}
-					\textbf{Distanza della Convergenza Infinita}\\
-					o\\
+					\textbf{Distanza della Convergenza Infinita}\\[-1ex]
+					o\\[-1ex]
 					\textbf{Distanza della Convergenza Uniforme}
 				\end{tabular}
 			}\label{ex:dim_dist_conv_unif}
@@ -181,8 +181,8 @@ Unendo le due definizioni si giunge naturalmente a
 			\end{cases}$ \hfill
 			{\footnotesize
 				\begin{tabular}{c}
-					\textbf{Distanza di Parigi}\\
-					o\\
+					\textbf{Distanza di Parigi}\\[-1ex]
+					o\\[-1ex]
 					\textbf{Distanza Ferroviaria Francese}
 				\end{tabular}
 			} \label{ex:dist_parigi}
@@ -348,7 +348,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\begin{itemize}
 		\item $\circdot{A} = \brackets{x \in X:\; x \text{ è interno ad } A}$ \hfill \textbf{Parte Interna di} $\boldsymbol{A}$
 		\item $\partial A = \brackets{x \in X:\; x \text{ è di frontiera per } A}$ \hfill \textbf{Frontiera di} $\boldsymbol{A}$
-		\item $\overline{A} = \brackets{x \in X:\; x \brackets{\text{\small\begin{tabular}{c}appartiene ad $A$\\o\\è di accumulazione per $A$\end{tabular}}}}$ \hfill \textbf{Chiusura di} $\boldsymbol{A}$
+		\item $\overline{A} = \brackets{x \in X:\; x \brackets{\text{\small\begin{tabular}{c}appartiene ad $A$\\[-1ex] o\\[-1ex] è di accumulazione per $A$\end{tabular}}}}$ \hfill \textbf{Chiusura di} $\boldsymbol{A}$
 	\end{itemize}
 	% TODO figura
 \end{definition}
@@ -642,7 +642,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\[x_* \text{ di accumulazione per } A \iff
 	\begin{cases}
 		\begin{tabular}{c} % NOTE This should probably be a box of some kind instead of a tabular
-			esiste una successione di elementi di $A$,\\
+			esiste una successione di elementi di $A$,\\[-.5ex]
 			diversi da $x_*$, convergente a $x_*$
 		\end{tabular}
 	\end{cases}\]
@@ -675,7 +675,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\[x_* \in \overline{A} \iff
 	\begin{cases}
 		\begin{tabular}{c} % NOTE This should probably be a box of some kind instead of a tabular
-			esiste una successione di elementi di $A$,\\
+			esiste una successione di elementi di $A$,\\[-.5ex]
 			diversi da $x_*$, convergente a $x_*$
 		\end{tabular}
 	\end{cases}\]
@@ -695,6 +695,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{corollary}
 
 \begin{definition}[Condizione di Cauchy]
+	\label{def:cond_cau}
 	Sia $(X,d)$ uno spazio metrico e $x: \N \mapsto X$ una successione d in $X$.
 	\begin{equation*}
 		\begin{gathered}
@@ -1561,7 +1562,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto Y$ con $A \subseteq X$.\\
 	Se $f$ è \textbf{uniformemente continua} in $A$, allora $f$ è \textbf{continua} in $A$.
 	\begin{proof}
-		Deriva da \fullref{ex:cont_unif_cont_comparision} in quanto, se è possibile scegleire un qualsiasi $x_0$ quando $\varepsilon$ è già stato fissato, sicuramente sarà possibile fare questa scelta anche in ordine inverso (la continuità è condizione condizione meno stringente).
+		Deriva da \fullref{ex:cont_unif_cont_comparision} in quanto, se è possibile scegliere un qualsiasi $x_0$ quando $\varepsilon$ è già stato fissato, sicuramente sarà possibile fare questa scelta anche in ordine inverso (la continuità è condizione condizione meno stringente).
 	\end{proof}
 \end{proposition}
 \begin{exercise}
@@ -1750,6 +1751,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{proposition}
+	\label{prop:se_lips_allora_unif_cont}
 	Sia $f: X \mapsto Y$ una funzione \textbf{Lipschitziana}. Allora $f$ è \textbf{Uniformemente Continua} su $X$.
 	\begin{proof}
 		Dall'ipotesi di Lipschitzianità, applicando la \fullref{def:lips}, si sa per certo che
@@ -1941,28 +1943,148 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{equation*}
 	Cioè esiste un \textbf{unico punto fisso} di $T$ in $X$.
 	\begin{proof}
-		Costruisco una successione di elementi di $X$ nel seguente modo:\\
-		scelgo $x_0\in X$,\\
-		$x_1 = Tx_0$\\
-		$x_2 = Tx_1$\\\\
-		...\\
-		$x_n = Tx_{n-1}$\\
-		La successione ${x_n: n \in N }$ così costruita è una successione di Cauchy. Infatti, presi $n, m \in N$ con $m > n$ si ha:
-		\[d(x_{m},x_{n}) = d(Tx_{m-1},x_{n-1}) \le Kd(x_{m-1},x_{n-1})=\]
-		\[=Kd(x_{m-1},x_{n-1}) = Kd(Tx_{m-2},x_{n-2}) \le K^2d(x_{m-2},x_{n-2})=\]
-		\[=...=\]
-		\[=...=K^nd(x_{m-n},x_{0})\le\]
-		\[\le K^{n}\sum\limits_0^{m-n+1}(d(x_{m-n-i},x_{m-n-i-1}))=\]
-		\[\le \sum\limits_0^{m-n+1}(d(Tx_{m-n-i-1},Tx_{m-n-i-2}))\]
-		per ogni termine di questa sommatoria si può applicare lo stesso ragionamento
-		\[\le K^{n}\sum\limits_0^{m-n+1}(K^{m-n-2}d(Tx_{0},x_{0}))=\]
-		\[\le K^{n}d(Tx_{0},x_{0})\sum\limits_0^{m-n+1}K^{m-n-2}=K^n\frac{1-K^{m-n-1}}{1-K}d(Tx_{0},x_{0}) \le \frac{K^n}{1-K}d(Tx_{0},x_{0})\]
-		Ho quindi trovato che $d(x_{m},x_{n})\le\frac{K^n}{1-K}d(Tx_{0},x_{0})$\\
-		L’ultima espressione ottenuta può essere resa arbitrariamente piccola (in modulo) pur di
-		prendere $n$, e quindi anche $m$, sufficientemente elevato. La completezza di $X$ implica quindi
-		che esiste il limite $\lim\limits_{n\rightarrow +\infty}xn$. Sia $x^*$ questo limite. $x^*$ è un punto fisso per $T$. Infatti, grazie
-		alla continuità di $T$:
-		\[T(x^*)=T{\lim\limits_{n\rightarrow +\infty}xn}\]
+		La dimostrazione si divide in 3 passaggi
+		\begin{enumerate}
+			\item \textit{Individuazione di una Successione di Cauchy}\\
+				Dato un generico $x_0 \in X$ si costruisce una successione $x$ nel seguente modo:
+				\begin{equation}
+					\label{eq:teo_contraz_succ}
+					\begin{matrix}x_0 \in X & \quad & x_1 = T(x_0) & \quad & x_2 = T(x_1) & \quad & \dotsc & \quad & x_{n+1} = T(x_n)\end{matrix}
+				\end{equation}
+				La  successione $x:\N \mapsto X$ è sicuramente ad elementi in $X$ in quanto $T$, contrazione, è per definizione $T: X \mapsto X$. È necessario dimostrare che la $x$ sia di Cauchy (\fullref{def:cond_cau}) cioè che:
+				\[\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon\]
+				Presi ora due qualunque $n$ e $m$ e sfruttando il modo in cui è definita $T$
+				\begin{align*}
+					d(x_n, x_m) &= d \bigl( T(x_{n-1}), T(x_{m-1}) \bigr)
+					\shortintertext{Grazie al fatto che $T$ è contrazione per definizione, esiste un $K \in \realintervalclop{0}{1}$}
+					&\leq K \cdot d(x_{n-1}, x_{m-1})\\
+					&= d \bigl( T(x_{n-2}), T(x_{m-2}) \bigr)\\
+					&\leq K^2 \cdot d(x_{n-2}, x_{m-2})
+					\shortintertext{Ipotizzando ora $n < m$, sicuramente dopo un $n$ numero di passi analoghi si arriverà a $0$}
+					&\leq K^n \cdot d(x_0, x_{m-n})
+				\end{align*}
+				Quindi, andando dal primo all'ultimo passaggio, si è ottenuta la disuguaglianza
+				\begin{equation}
+					\label{eq:teo_contraz_disug_dist_mn}
+					d(x_n, x_m) \leq K^n \cdot d(x_0, x_{m-n})
+				\end{equation}
+				Ora, applicando ripetutamente la disuguaglianza triangolare al secondo membro della \cref{eq:teo_contraz_disug_dist_mn}
+				\begin{align*}
+					K^n \cdot d(x_0, x_{m-n}) &\leq K^n \cdot \Bigl( d(x_0, x_1) + d(x_1, x_2) + \dotsc + d(x_{m-n-1}, x_{m-n}) \Bigr)
+					\shortintertext{Applicando ora quanto ottenuto in \cref{eq:teo_contraz_disug_dist_mn} a tutti gli addendi tranne il primo (che avrebbe $n = 0$)}
+					&\leq K^n \cdot \Bigl( d(x_0, x_1) + K \cdot d(x_0, x_1) + \dotsc + K^{m-n-1} \cdot d(x_0, x_1) \Bigr)\\
+					&\leq K^n \cdot (1 + K + \dotsc + K^{m-n-1}) \cdot d(x_0, x_1)
+				\end{align*}
+				Quindi riassumento, partendo dal primo membro dalla \cref{eq:teo_contraz_disug_dist_mn}, si è arrivati a
+				\begin{equation}
+					\label{eq:teo_contraz_disug_dist_mn_fin}
+					d(x_n, x_m) \leq K^n \cdot (\underbrace{1 + K + \dotsc + K^{m-n-1}}_{\text{(1)}}) \cdot d(x_0, x_1)
+				\end{equation}
+		
+				Posta ora la (1) di \cref{eq:teo_contraz_disug_dist_mn_fin} come $s$ si ha:
+				\[s = 1 + K + \dotsc + K^{m-n-1} \qquad \text{e} \qquad K \cdot s = K + K^2 + \dotsc + K^{m-n}\]
+				Da cui, eseguendo la differenza tra $s$ e $K \cdot s$
+				\begin{align*}
+					&s - K \cdot s\\
+					= &(1 + \cancel{K} + \cancel{\dotsc} + K^{m-n-1}) - (\cancel{K} + \cancel{K^2} + \cancel{\dotsc} + K^{m-n})\\
+					= &1 - K^{m-n}
+				\end{align*}
+				si ottiene l'equivalenza
+				\begin{align*}
+					s - K \cdot s &= 1 - K^{m-n}\\
+					s (1 - K) &= 1 - K^{m-n}\\
+					s &= \frac{1 - K^{m-n}}{1 - K}
+				\end{align*}
+				Sostituendo la formulazione di $s$ appena trovata in \cref{eq:teo_contraz_disug_dist_mn_fin} si ottiene
+				\begin{equation}
+					\label{eq:teo_contraz_disug_s}
+					d(x_n, x_m) \leq K^n \cdot \frac{1 - K^{m-n}}{1 - K} \cdot d(x_0, x_1)
+				\end{equation}
+				Essendo $k \in \realintervalclop{0}{1}$, eseguendone l'elevamento a potenza otterrò un numero ancor più piccolo. È dunque certo che
+				\[1 - K^{m-n} \geq 1 - K \implies \frac{1 - K^{m-n}}{1 - K} \leq 1\]
+				per cui è sicuramente possibile minorare la \cref{eq:teo_contraz_disug_s} che diventa
+				\begin{equation}
+					\label{eq:teo_contraz_disug_dist_01}
+					d(x_n, x_m) \leq K^n \cdot d(x_0, x_1)
+				\end{equation}
+				\vspace*{-4ex}
+				\begin{note}
+					La \cref{eq:teo_contraz_disug_dist_01}, per come è scritta, fornisce un importante risultato. Grazie a questa equazione, noto $n$ e calcolando solo la distanza tra gli elementi $0$ ed $1$ della successione (facilmente individuabili) si ha un limite superiore per la $d(x_n, x_m) \; \forall n,m$. Non sarebbe stato invece possibile calcolare la $d(x_0, x_{n-m})$ trovata ancora prima.
+				\end{note}
+				Questa minorazione permette di verificare la definizione di successione di Cauchy, dunque la $x$ definita in \cref{eq:teo_contraz_succ} è di Cauchy.
+				\qed
+			\item \textit{Individuazione del Punto Fisso}\\
+				La successione $x$ definita in \cref{eq:teo_contraz_succ} ammette sicuramente $\lim x \in X$ per \fullref{def:completo}, essendo stata dimostrata di Cauchy nel passo precedente. Inoltre
+				\[
+					T \text{ Contrazione}
+					\quad \overset{
+						\mathclap{
+							\rule[-\baselineskip]{0pt}{\baselineskip}
+							\text{
+								\begin{tabular}{c}
+									Come da\\[-1ex]
+									\fullref{def:contrazione}
+								\end{tabular}
+							}
+						}
+					}{\implies} \quad T \text{ Lipschitziana}
+					\quad \overset{
+						\mathclap{
+							\rule[-\baselineskip]{0pt}{\baselineskip}
+							\text{
+								\begin{tabular}{c}
+									Per\\[-1ex]
+									\fullref{prop:se_lips_allora_unif_cont}
+								\end{tabular}
+							}
+						}
+					}{\implies} \quad T \text{ Unif. Cont.}
+					\quad \overset{
+						\mathclap{
+							\rule[-\baselineskip]{0pt}{\baselineskip}
+							\text{
+								\begin{tabular}{c}
+									Per\\[-1ex]
+									\fullref{prop:if_unif_cont_then_conf}
+								\end{tabular}
+							}
+						}
+					}{\implies} \quad T \text{ Continua}
+				\]
+				Posto quindi
+				\begin{align*}
+					T(x_*) &= T \bigl( \; \lim\limits_{n \to +\infty} x_n \; \bigr)
+					\shortintertext{Grazie alla continuità di $T$}
+					&= \lim\limits_{n \to +\infty} \bigl(T(x_n)\bigr)
+					\shortintertext{Dunque, per come è definita $x$}
+					&= \lim\limits_{n \to +\infty} ( x_{n+1} )
+					\shortintertext{Dunque, essendo $x$ di Cacuhy}
+					&= x_*
+				\end{align*}
+				\qed
+			\item \textit{Dimostrazione unicità punto fisso}\\
+				Si suppone non sia unico
+				\[x_0, y_0 \in X \;\; x_0 \neq y_0 \qquad T(x_0) = x_0,\; T(y_0) = y_0\]
+				Calcolando la distanza tra i due punti, sfruttando il fatto che siano punti fissi per definizione ed, infine, essendo $T$ contrazione si ottiene
+				\begin{equation*}
+					\begin{gathered}
+						d(x_0, y_0) = d\bigl( T(x_0), T(y_0) \bigr) \leq K \cdot d(x_0, y_0)\\
+						\implies\\
+						d(x_0, y_0) - K \cdot d(x_0, y_0) \leq 0
+					\end{gathered}
+				\end{equation*}
+				\begin{equation}
+					\label{eq:teo_contraz_unicita}
+					(1-K) \bigl( d(x_0, y_0) \bigr) \leq 0
+				\end{equation}
+				Però
+				\begin{itemize}
+					\item $1-k > 0$ strettamente positivo perché, per \fullref{def:contrazione} $k \in \realintervalclop{0}{1}$
+					\item $d(x_0, y_0) \geq 0$ per \fullref{def:sp_metrico}
+				\end{itemize}
+				Allora deve essere per forza $d(x_0, y_0) = 0$ per non contraddire la \cref{eq:teo_contraz_unicita}, dunque per proprietà delle distanze $x_0 = y_0$.
+				% No need for QED symbol here since one is provided by the proof environment
+		\end{enumerate}
 	\end{proof}
 \end{theorem}
 
