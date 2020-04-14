@@ -2009,6 +2009,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 				\end{equation}
 				\vspace*{-4ex}
 				\begin{note}
+					\hypertarget{note:teo_contraz_note}{}
 					La \cref{eq:teo_contraz_disug_dist_01}, per come è scritta, fornisce un importante risultato. Grazie a questa equazione, noto $n$ e calcolando solo la distanza tra gli elementi $0$ ed $1$ della successione (facilmente individuabili) si ha un limite superiore per la $d(x_n, x_m) \; \forall n,m$. Non sarebbe stato invece possibile calcolare la $d(x_0, x_{n-m})$ trovata ancora prima.
 				\end{note}
 				Questa minorazione permette di verificare la definizione di successione di Cauchy, dunque la $x$ definita in \cref{eq:teo_contraz_succ} è di Cauchy.
@@ -2087,20 +2088,152 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\end{enumerate}
 	\end{proof}
 \end{theorem}
+\begin{exercise}
+	I passaggi da \cref{eq:teo_contraz_disug_dist_mn} a \cref{eq:teo_contraz_disug_dist_01} sono necessari?
+	\begin{solution}
+		Vedere \hyperlink{note:teo_contraz_note}{nota alla dimostrazione del \nameref*{teo:contrazioni}}
+	\end{solution}
+\end{exercise}
+\begin{example}
+	Se $X$ \textit{non} è completo:\\
+	Siano $X = \realintervalopen{0}{1}$ e $T: X \mapsto X$ data $T(x) = \frac{x}{2}$. $T$ è una contrazione senza punti fissi in $X$
+\end{example}
+\begin{example}
+	Se $T$ è \textit{quasi} una contrazione possono non esserci punti fissi:\\
+	Sia $X = \R$ e sia $T:X \mapsto X$ data da $T(x) = x + \frac{\pi}{2} - \arctan x$. Grazie al Teorema di Lagrange (da Analisi 1, essendo in $\R$) si può facilmente dimostrare che $\forall x', x'' \in X$
+	\[\abs{T(x'') - T(x')} < \abs{x'' - x'}\]
+	però $T$ non è una contrazione ed infatti non ammette punti fissi.
+\end{example}
+\begin{example}
+	Se $T$ è \textit{quasi} una contrazione possono esserci infiniti punti fissi:\\
+	Sia $X = \R$ e sia $T:X \mapsto X$ data da $T(x) = x$. Evidentemente
+	\[\abs{T(x'') - T(x')} = \abs{x'' - x'}\]
+	e $T$ ammette infiniti punti fissi.
+\end{example}
+\begin{exercise}
+	Sia $f \realintervalclose{0}{1} \mapsto \realintervalclose{1}{2}$ data da $f(x) = 1 + \frac{x}{2}$\\
+	$f$ è una funzione Lipschitziana con costante di Lipschitz $\frac{1}{2}$ definita tra spazi metrici completi ma senza punti fissi. È in contraddizione con il \fullref{teo:contrazioni}?
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Sia $f:\R \mapsto \R$ derivabile su $\R$ e tale che $f'(x) \leq \frac{1}{2} \; \forall x \in \R$.\\
+	Dimostrare che allora esiste un unico $x_* \in \R$ tale che $f(x_*) = x_*$
+	% TODO solution
+\end{exercise}
+
+\begin{observation}
+	\label{obs:contr_con_para}
+	È utile considerare \textbf{contrazioni} che dipendono da uno o più \textbf{parametri}. Siano $(X,d)$ uno spazio metrico completo, $P$ un \textbf{insieme} di parametri e $T:X \times P \mapsto X$.\\
+	Grazie al \fullref{teo:contrazioni} è data l'esistenza di un punto fisso di $T$ indipendentemente dal parametro. È dunque possibile definire una funzione $\varphi: P \mapsto X$ che ad ogni parametro $p \in P$ associa $\varphi(p)$, unico punto fisso della contrazione.\\
+	In generale, la regolarità della funzione $\varphi$ è la stessa con cui $T$ dipende dal parametro $p$. Vedasi \fullref{teo:contr_con_para_definisce_funz_cont} e \fullref{teo:contr_con_para_lips_definisce_funz_lips}
+\end{observation}
+
+\begin{definition}[Contrazione con Parametro]
+	\label{def:contrazione_parametro}
+	Siano $(X,d)$ uno spazio metrico e $P$ un \textbf{Insieme}
+	\begin{equation*}
+		\begin{gathered}
+			T \text{ è una \textbf{Contrazione} in } x \in X \text{ \textbf{Uniformemente} in } p \in P\\
+			\bydef\\
+			\exists K \in \realintervalclop{0}{1}: \; \forall p \in P,\; \forall x', x'' \in X \quad \text{vale} \quad d \Bigl( T\bigl( x', p \bigr), T\bigl( x'', p \bigr) \Bigr) \leq K \cdot d(x', x'')
+		\end{gathered}
+	\end{equation*}
+	Cioè, indipendentemente da qualsiasi $p \in P$, la $T$ rimane contrazione.
+\end{definition}
+
+\color{not_explained_section_color}
+\begin{theorem}
+	\label{teo:contr_con_para_definisce_funz_cont}
+	Siano
+	\begin{itemize}
+		\item $(X,d_X)$ uno spazio metrico completo
+		\item $(P,d_P)$ uno spazio metrico
+		\item $T:X \times P \mapsto X$ una contrazione in $x \in X$ uniformemente in $p \in P$
+		\item $T$ continua
+	\end{itemize}
+	Allora $\forall p \in P$ esiste un unico punto fisso $x_p$ per la funzione $x \mapsto T(x,p)$ e la funzione $p \mapsto x_p$ è continua.
+	\begin{proof}
+		Come già detto in \fullref{obs:contr_con_para}, il \fullref{teo:contrazioni} assicura l'esistenza di una funzione $\varphi: P \mapsto X$ che ad ogni $p \in P$ associa un unico punto fisso di $x \mapsto T(x,p)$. $\varphi$ è continua. Infatti se $p_n \to p_0$
+		\begin{align*}
+					&d_X \bigl( \varphi(p_n), \varphi(p_0) \bigr) =
+			\shortintertext{Essendo $\varphi(p_n)$ per definizione punto fisso di $T$ con parametro $p_n$}
+			=\;\;	&d_X \Bigl( T \bigl( \varphi(p_n), p_n \bigr), T \bigl( \varphi(p_0), p_0 \bigr) \Bigr)
+			\shortintertext{Applicando la disuguaglianza triangolare}
+			\leq\;\;&d_X \Bigl( T \bigl( \varphi(p_n), p_n \bigr), T \bigl( \varphi(p_0), p_n \bigr) \Bigr) +
+					d_X \Bigl( T \bigl( \varphi(p_0), p_n \bigr), T \bigl( \varphi(p_0), p_0 \bigr) \Bigr)
+			\shortintertext{Con la definizione di contrazioni}
+			\leq\;\;&K \cdot d_X \bigl( \varphi(p_n), \varphi(p_0) \bigr) +
+					d_X \Bigl( T \bigl( \varphi(p_0), p_n \bigr), T \bigl( \varphi(p_0), p_0 \bigr) \Bigr)
+		\end{align*}
+		Dunque
+		\[d_X \bigl( \varphi(p_n), \varphi(p_0) \bigr) \leq K \cdot d_X \bigl( \varphi(p_n), \varphi(p_0) \bigr) + d_X \Bigl( T \bigl( \varphi(p_0), p_n \bigr), T \bigl( \varphi(p_0), p_0 \bigr) \Bigr)\]
+		Da cui, infine
+		\[d_X \bigl( \varphi(p_n), \varphi(p_0) \bigr) \leq \frac{1}{1-K} \cdot d_X \Bigl( T \bigl( \varphi(p_0), p_n \bigr), T \bigl( \varphi(p_0), p_0 \bigr) \Bigr)\]
+		Ed il secondo membro tende a $0$ per $n \to +\infty$ grazie alla continuità di $T$, quindi da \fullref{prop:cont_e_cont_per_succ} la $\varphi$ è continua.
+	\end{proof}
+\end{theorem}
+
+\begin{definition}[Contrazione Lipschitziana in Parametro]
+	\label{def:contr_lips_para}
+	Siano $(X,d_X)$ e $(P,d_P)$ spazi metrici
+	\begin{equation*}
+		\begin{gathered}
+			T \text{ è una \textbf{Contrazione} in } x \in X \text{ \textbf{Lipschitziana} in } p \in P\\
+			\bydef\\
+			\exists K \in \realintervalclop{0}{1}, \exists L > 0: \; \forall p', p'' \in P, \forall x', x'' \in X \text{ vale}\\
+			d_X \bigl( T( x', p'), T(x'', p'') \bigr) \leq K \cdot d_X(x', x'') + L \cdot d_P (p', p'')
+		\end{gathered}
+	\end{equation*}
+	Cioè, si aggiunge la Lipschitzianità rispetto al parametro
+\end{definition}
+\begin{theorem}
+	\label{teo:contr_con_para_lips_definisce_funz_lips}
+	Siano
+	\begin{itemize}
+		\item $(X,d_X)$ uno spazio metrico completo
+		\item $(P,d_P)$ uno spazio metrico
+		\item $T:X \times P \mapsto X$ una contrazione in $x \in X$ Lipschitziana in $p \in P$
+	\end{itemize}
+	Allora esiste un'unica funzione Lipschitziana $\varphi: P \mapsto X$ tale che $\varphi(p)$ è l'unico punto fisso della funzione $x \mapsto T(x,p)$
+	\begin{note}
+		L'unicità del punto fisso implica automaticamente l'unicità della funzione $\varphi$
+	\end{note}
+	\begin{proof}
+		Come già detto in \fullref{obs:contr_con_para}, il \fullref{teo:contrazioni} assicura l'esistenza di una funzione $\varphi: P \mapsto X$ che ad ogni $p \in P$ associa un unico punto fisso di $x \mapsto T(x,p)$. $\varphi$ è Lipschitziana. Infatti
+		\begin{align*}
+			&d_X \bigl( \varphi(p'), \varphi(p'') \bigr) =
+			\shortintertext{Essendo $\varphi(p)$ per definizione punto fisso di $T$ con parametro $p$}
+			=\;\;	&d_X \Bigl( T \bigl( \varphi(p'), p' \bigr), T \bigl( \varphi(p''), p'' \bigr) \Bigr)
+			\shortintertext{Applicando la \fullref{def:contr_lips_para}}
+			\leq\;\;&K \cdot d_X \bigl( \varphi(p'), \varphi(p'') \bigr) + L \cdot d_P(p', p'')
+		\end{align*}
+		Dunque
+		\[d_X \bigl( \varphi(p'), \varphi(p'') \bigr) \leq K \cdot d_X \bigl( \varphi(p'), \varphi(p'') \bigr) + L \cdot d_P(p', p'')\]
+		Da cui, infine
+		\[d_X \bigl( \varphi(p'), \varphi(p'') \bigr) \leq \frac{L}{1-K} \cdot d_P (p', p'')\]
+		Che dimostra la Lipschitzianità di $\varphi$
+	\end{proof}
+\end{theorem}
+
+\begin{exercise}
+	Nel presente capitolo, ambientato in spazi metrici, non viene trattata la derivabilità del punto fisso rispetto al parametro. Perché?
+	% TODO solution
+\end{exercise}
 
 \begin{definition}[Funzione Iterata]
 	\label{def:iterata}
-	Data $F:X\mapsto X$, si dice funzione iterata $n$ volte di $F$ la $F^n$ che corrisponde all'applicazione $n$ volte di $F$ su sè stessa. Formalmente:
+	Data $F:X\mapsto X$, si dice \textbf{Funzione Iterata} $n$ volte di $F$ la $F^n$ che corrisponde all'\textbf{applicazione} $n$ volte di $F$ \textbf{su sè stessa}. Formalmente:
 	\[f^{n+1} = f \circ f^n \quad \forall n \in \N\setminus\brackets{0}\]
 	Se $n = 0$, per definizione, $f^0 = \mathrm{Id}_X$ con $\mathrm{Id}_X$ funzione identità su $X$
 \end{definition}
 
 \begin{theorem}[Teorema dell'Iterata Contrazione]
 	\label{teo:iterata_contraz}
-	Sia $(X,d_X)$ uno spazio metrico completo e sia $T:X\mapsto X : \exists n \in \N, T^n$ \textbf{iterata} è contrazione.\\
+	Sia $(X,d_X)$ uno spazio metrico completo e sia $T:X\mapsto X : \exists n \in \N, T^n$ \textbf{Iterata} è contrazione.\\
 	Allora $T$ ammette un unico punto fisso in $X$
 	\begin{note}
-		La $n$ non è univocamente definita e non potrebbe esserlo. Se infatti $T^n$ è contrazione, allora anche $T^{2n},\, T^{3n},\, \cdots,\, T^{\alpha n}$ lo sono.
+		La $n$ non è univocamente definita e non potrebbe esserlo.\\
+		Se infatti $T^n$ è contrazione, allora anche $T^{2n},\, T^{3n},\, \cdots,\, T^{\alpha n}$ lo sono.
 	\end{note}
 	\begin{proof}
 		Per il \fullref{teo:contrazioni} esiste un unico punto fisso $x_* \in X$ per $T^n$, quindi
@@ -2112,6 +2245,10 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		Dunque $Tx_*$ è punto fisso della $T^n$. Avevamo però già trovato che $x_*$ era punto fisso della $T^n$ e, per il \fullref{teo:contrazioni}, può esistere un unico punto fisso. Ciò permette di concludere che $Tx_* = x_*$
 	\end{proof}
 \end{theorem}
+\begin{exercise}
+	Enunciare e dimostrare formalmente il \textit{Teorema dell'Iterata Contrazione con Parametro}
+\end{exercise}
+\color{black}
 
 \section{Funzioni a Valori in \texorpdfstring{$\protect \R^n$}{Rn}}
 %TODO This section is a placeholder
