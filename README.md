@@ -10,10 +10,10 @@ Gli appunti non sono stati validati dal professore, dunque non si escludono erro
 Per compilare questo documento è necessario aggiungere l'opzione `-shell-escape` ai parametri del compilatore LaTeX. L'argomento è necessario perché i grafici TikZ sono configurati per essere buildati solo la prima volta ed mantenuti in cache nella cartella `build`. Per via della loro natura temporanea non sono parte del repo.
 
 # Authors #
-- [Mauro Conte](https://github.com/GoldMyr1994): Autore originale del documento, tutto ciò che è presente dal primo commit è opera sua. Collaboratore dalle versioni successive
-- [Federico Cerutti](https://ceres-c.it): Integrazioni al documento
+- [Federico Cerutti](https://ceres-c.it): Riscrittura del documento al fine di mantenerlo il più possibile vicino al libro di riferimento, con integrazioni da appunti
+- [Mauro Conte](https://github.com/GoldMyr1994): Autore originale del LaTeX: tutto ciò che è presente nel primo commit è opera sua. Collaboratore nelle versioni successive
 - [Giuliana Beretta](https://www.linkedin.com/in/giuliana-beretta-578b4914b/): Autrice del manoscritto originale, sorgente per la stesura della prima versione di questo documento
-- [Rinaldo M. Colombo](http://rinaldo-colombo.unibs.it/): Autore della dispensa originale a cui questi appunti cercano di attenersi
+- [Rinaldo M. Colombo](http://rinaldo-colombo.unibs.it/): Autore della dispensa di riferimento a cui questi appunti cercano di attenersi
 
 # Disclaimer #
 Questi appunti non son stati né revisionati né approvati dal professore del corso.
