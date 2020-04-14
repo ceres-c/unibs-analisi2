@@ -30,6 +30,7 @@
 
 Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Spazio Vettoriale Metrico]
+	\label{def:sp_vett_normato}
 	Uno Spazio Vettoriale Metrico è uno spazio vettoriale $V$ su cui è definito un prodotto scalare $<\cdot,\cdot·>$ definito positivo, la sua \textbf{metrica}.
 	\begin{note}
 		Analogamente si definisce il Sottospazio Vettoriale Metrico
@@ -2251,4 +2252,58 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \color{black}
 
 \section{Funzioni a Valori in \texorpdfstring{$\protect \R^n$}{Rn}}
-%TODO This section is a placeholder
+In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo spazio metrico $\R$ dotato dell'usuale metrica Euclidea: $d(x,y) = \sqrt{\sum\limits_{i = 1}^{k} (y_i - x_i)^2}$ da \fullref{ex:metriche}. Questo spazio si dice anche \fullref{def:sp_vett_normato}
+
+Diverse dimostrazioni di questo capitolo sono omesse in quanto estremamente simili a quelle di Analisi 1.
+\subsection{Il Caso Generale}
+\begin{proposition}
+	\label{prop:lim_in_R_somma_prod}
+	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $f:A \mapsto \R^n$ e $g:A \mapsto \R^n$. Sia $x_0$ di accumulazione per $A$
+	\begin{equation*}
+		\left.
+		\begin{array}{r}
+			\lim\limits_{x \to x_0} f(x) \text{ esiste finito}\\
+			\lim\limits_{x \to x_0} g(x) \text{ esiste finito}
+		\end{array}
+		\right\}
+		\implies
+		\left\{
+		\begin{array}{l}
+			\lim\limits_{x \to x_0} (f + g)(x) \text{ esiste finito e } \lim\limits_{x \to x_0} (f + g)(x) = \lim\limits_{x \to x_0} f(x) + \lim\limits_{x \to x_0} g(x)\\
+			\lim\limits_{x \to x_0} (f \cdot g)(x) \text{ esiste finito e } \lim\limits_{x \to x_0} (f \cdot g)(x) = \lim\limits_{x \to x_0} f(x) \cdot \lim\limits_{x \to x_0} g(x)
+		\end{array}
+		\right.
+	\end{equation*}
+	\begin{note}
+		$f \cdot g$ indica il prodotto scalare $f \cdot g = \sum\limits_{i = 1}^{n} f_i \cdot g_i$
+	\end{note}
+	\begin{proof}
+		Omessa.
+	\end{proof}
+	\begin{exercise}
+		Dimostrare la \fullref{prop:lim_in_R_somma_prod}
+		\begin{solution}
+			Dalla \fullref{def:lim_funz}
+			\begin{equation*}
+				\begin{gathered}
+					\forall \varepsilon > 0,\; \exists \delta_f > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta_f \text{ e } x \neq x_0 \text{ vale } \norm{f(x) - l_f} < \varepsilon\\
+					\forall \varepsilon > 0,\; \exists \delta_g > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta_g \text{ e } x \neq x_0 \text{ vale } \norm{g(x) - l_g} < \varepsilon
+				\end{gathered}
+			\end{equation*}
+			Fissato $\varepsilon$, si può scegliere $\delta = \min \brackets{\delta_f, \delta_g}$ e quindi è possibile dire che
+			\begin{equation}
+				\label{eq:lim_somma_fun}
+				\forall \varepsilon > 0,\; \exists \delta: \forall x \in A \text{ con } d_X(x,x_0) < \delta \text{ e } x \neq x_0 \text{ vale } \norm{(f + g)(x) - (l_f + l_g)} < \varepsilon
+			\end{equation}
+			Essendo
+			\begin{align*}
+				&\norm{(f + g)(x) - (l_f + l_g)}\\
+				=&\norm{\bigl( f(x) - l_f \bigr) + \bigl( g(x) - l_g \bigr)}
+				\shortintertext{Per proprietà 3 da \fullref{def:norma}}
+				\leq &\norm{f(x) - l_f} + \norm{g(x) - l_g}
+			\end{align*}
+			Quest'ultima forma è sicuramente $< \varepsilon$ per \cref{eq:lim_somma_fun}, quindi la somma dei limiti corrisponde al limite della somma.\\
+			Analogamente si svolge per il prodotto.
+		\end{solution}
+	\end{exercise}
+\end{proposition}
