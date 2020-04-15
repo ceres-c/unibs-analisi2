@@ -1,49 +1,79 @@
 \chapter{Calcolo Differenziale}
 
+In questo capitolo sono trattate funzioni $f: A \mapsto \R^m$ con $A \subseteq \R^n$, dove $r,m \in \N$ e $n,m \geq 1$.\\
+Generalmente, effetuata una dimostrazione per $m = 1$ è abbastanza semplice passare ad un $m > 1$ \textit{affiancando} le componenti, mentre non è altrettanto triviale il passaggio a $n > 1$.
+
 \section{Preliminari}
-La base canonica di $R^n$ è indicata con $(e_1,...,e_i)$, $e_i$ è il vettore di $R^n$ con tutte le componenti nulle tranne la i-esima che vale 1.\\
-Un generico vettore $x$ si può quindi scrivere come combinazione lineare dei vettori di base $x=\sum\limits_{j=1}^{i}\alpha_j e_j$.\\
-Nel caso n=2 è usata la notazione $(x,y)=xi+yj$\\
-Nel caso n=3 è usata la notazione $(x,y,z)=xi+yj+zk$\\
+In $\R^n$ verranno usate le (note) strutture vettoriale con la metrica Euclidea di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})} % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+
+La base canonica di $R^n$ è indicata con $(e_1,\:\dotsc\:,e_n)$, $e_i$ è il vettore di $R^n$ con tutte le componenti nulle tranne la i-esima che vale 1. È dunque possibile scrivere un generico vettore $x$ si può quindi scrivere come combinazione lineare dei vettori della base canonica $x=\sum\limits_{i=1}^{n} x_i e_i$.
+
+Nel caso $n=2$ è usata la notazione $(x,y)=xi+yj$. Nel caso $n=3$ è usata la notazione $(x,y,z)=xi+yj+zk$
+
 Alcune classi di funzioni $f:A\subseteq\R^n\rightarrow\R^m$ hanno nomi particolari:
 \begin{itemize}
-	\item 
-	$n=1$,$m=1$:$f$ è una funzione reale di una variabile reale;
-	\item 
-	$n=1$,$m>1$:$f$ è una curva in $R^m$ (purché sia almeno continua e definita su un intervallo)
-	\item 
-	$n>1$,$m=1$:$f$ è un campo scalare
-	\item
-	$n>1$,$m>1$:$f$ è un campo vettoriale
+	\item $n=1$,$m=1$: $f$ è una \textit{funzione reale di una variabile reale};
+	\item $n=1$,$m>1$: $f$ è una \textit{curva} in $R^m$ (purché $f$ sia almeno continua e $A$ su un intervallo)
+	\item $n>1$,$m=1$: $f$ è un \textit{campo scalare}
+	\item $n>1$,$m>1$: $f$ è un \textit{campo vettoriale} (soprattutto nei casi $n=m=2$ e $n=m=3$)
 \end{itemize}
+
 \section{Derivate Parziali e Direzionali}
-\definition
-sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\circdot{A}$, $h,k\in\R$
-chiamo derivata parziale rispetto a $x$ di $f$ in $(x_0,y_0)$ la quantità (se esiste finita)
-\[\partial_xf(x_0,y_0) = \lim\limits_{h\rightarrow{0}}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}\]
-chiamo derivata parziale rispetto a $y$ di $f$ in $(x_0,y_0)$ la quantità (se esiste finita)
-\[\partial_yf(x_0,y_0) = \lim\limits_{h\rightarrow{0}}\frac{f(x_0,y_0+k)-f(x_0,y_0)}{h}\]
-\definition
-sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\circdot{A}$, $i=1,...,n$
-\[\partial_if(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+te_i)-f(x_0)}{t}\]
-dove $(e_1,...,e_n)$ rappresentano la base canonica di $R^n$\\
-\observation nella prima definizione la derivata è un valore reale mentre nella seconda è un vettore di $R^m$\\
-\observation le proprietà e le regole di derivazione sono le stesse di Analisi 1
-\definition
-sia $f:A\subseteq\R^2\rightarrow\R$ e $(x_0,y_0)\in\circdot{A}$, sia $v\in\R^2 con \norm{v}=1 $
-diciamo derivata nella direzione $v$ della funzione $f$ nel punto $(x_0,y_0)$ il limite (se esiste finito)\\
-\[D_vf(x_0,y_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv_1,y_0+tv_2)-f(x_0,y_0)}{t}\]
-dove $v_1,v_2$ sono le componenti di $v(v=\begin{bmatrix}v_1\\v_2\end{bmatrix})$
-\definition
-sia $f:A\subseteq\R^n\rightarrow\R^m$ e $x_0\in\circdot{A}$, sia $v\in\R^n con \norm{v}=1 $
-diciamo derivata nella direzione $v$ della funzione $f$ nel punto $x_0$ il limite (se esiste finito)\\
-\[D_vf(x_0) = \lim\limits_{t\rightarrow{0}}\frac{f(x_0+tv)-f(x_0)}{t}\]
-\proposition
-(ANALISI 1): sia $f:A\subseteq \R\rightarrow\R$ e $x_0\in\circdot{A}$\\
-$f$ è differenziabile $\iff$ $\exists m\in \R $ t.c. $f(x_0+h)=f(x_0)+mh+o(h)$ per $h\rightarrow 0$
-...\\
-...\\
-...\\
+Direttamente dalla nozione di Analisi 1 di derivata, cioè
+\begin{align*}
+	f'(x_0) = \lim\limits_{t \to 0} \frac{f(x_0 + t) - f(x_0)}{t} \tag{\textbf{NB}. Analisi 1!}
+\end{align*}
+si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensionali} mediante la seguente
+\begin{definition}[Derivata Parziale e Direzionale]
+	\label{def:deriv_direz}
+	Sia $A \subseteq \R^n$, $f: A \mapsto \R^m$, $x_0 \in \circdot{A}$ e $v \in \R^n$ un vettore non nullo. Quando il limite
+	\[\lim\limits_{t \to 0} \frac{(x_0 + tv) - f(x_0)}{t}\]
+	esiste finito, il suo valore è la \textbf{Derivata Direzionale} di $f$ in $x_0$ nella direzione $v$ e si indica con $\boldsymbol{D_v f(x_0)}$
+	\begin{note}
+		L'introduzione del vettore $v$ permette di eseguire un'operazione "sensata" in quanto sottrare uno scalare, come in Analisi 1, non avrebbe avuto significato per una funzione $f: A \mapsto \R^{\boldsymbol{m}}$.
+	\end{note}
+
+	Nel caso in cui $v = e_i$, allora $\boldsymbol{D_{e_i} f(x_0)}$ è la \textbf{Derivata Parziale $\boldsymbol{i}$\textit{-esima}}, che può anche essere indicata con $\boldsymbol{\frac{\partial f}{\partial x_i}(x_0)}$. Quindi le derivate parziali sono \textit{un caso particolare} delle derivate direzionali
+
+	Una funzione derivabile parzialmente in ogni direzione è detta \textbf{Derivabile}.
+	\begin{note}
+		Altre notazioni comunemente utilizzate per le derivate direzionali sono: $D_i f$, $D_{x_i} f$, $\partial_i f$, $\partial_{x_i} f$, $f_{x_i}$
+	\end{note}
+	\begin{note}
+		Nel calcolo delle derivate parziali è bene distinguere tra la variabile rispetto a cui si deriva ed il valore in cui la derivata viene calcolata.
+	\end{note}
+	\begin{note}
+		Per una funzione $f: A \mapsto \R^m$ con $A \subseteq \R^n$, la derivata direzionale di $f$ in $x_0$ lungo una qualunque direzione, se esiste, è un vettore con $m$ componenti.
+	\end{note}
+	\begin{note}\hfill\\
+		Nel caso $n = 2$ le derivate parziali di $f$ si indicano $\frac{\partial f}{\partial x}$ e $\frac{\partial f}{\partial y}$ o, equivalentemente, $\partial_x f$ e $\partial_y f$.\\
+		Nel caso $n = 3$ le derivate parziali di $f$ si indicano $\frac{\partial f}{\partial x}$, $\frac{\partial f}{\partial y}$ e $\frac{\partial f}{\partial z}$ o, equivalentemente, $\partial_x f$, $\partial_y f$ e $\partial_z f$.\\
+		Nel caso $n > 3$, notazioni usate sono $\frac{\partial f}{\partial x_i}$ o $\partial_{x_i} f$ per $i = 1,\;\dotsc\;,n$.
+	\end{note}
+\end{definition}
+\begin{exercise}
+	Sia $f:\R^2 \mapsto \R^m$ derivabile in $x_0$, con $x_0 \in \R^2$. Sia $g:\R^2 \mapsto \R^m$ definita da $g(x,y) = f(y,x)$\\
+	Come sono legate le derivate parziali di $f$ e $g$ in $x_0$?
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Sia $f:A \mapsto \R$ con $A \subseteq \R^n$, derivabile in $x_0 \in \circdot{A}$ . Determinare le derivate parziali in $x_0$ delle funzioni
+	\begin{itemize}
+		\item $F:A \mapsto \R^2$ definita da $\bigl( f(x), f(x) \bigr)$
+		\item $G:A \times A \mapsto \R$ definita da $G(x,y) = f(x) + f(y)$
+	\end{itemize}
+	% TODO solution
+\end{exercise}
+\begin{proposition}
+	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. $f$ è \textbf{derivabile parzialmente} rispetto alla $i$-esima coordinata se e solo \textbf{se esiste} finito il limite
+	\begin{equation}
+		\label{eq:deriv_i_esima}
+		\lim\limits_{t \to 0} \frac{f(x_1,\;\dotsc\;,x_i+t,\;\dotsc\;,x_n) - f(x_1,\;\dotsc\;,x_i,\;\dotsc\;,x_n)}{t}
+	\end{equation}
+	\begin{proof}
+		Da \fullref{def:deriv_direz}, sceglendo $v = e_i$ della base canonica si ottiene la \cref{eq:deriv_i_esima}
+	\end{proof}
+\end{proposition}
 \begin{exercise}
 	\label{ex:funz_derivabili}
 	Formulare in modo rigoroso e dimostrare:
@@ -52,8 +82,85 @@ $f$ è differenziabile $\iff$ $\exists m\in \R $ t.c. $f(x_0+h)=f(x_0)+mh+o(h)$ 
 		\item La composizione di funzioni parzialmente derivabili è parzialmente derivabile.
 		\item Prodotto e rapporto, quando definiti, di funzioni parzialmente derivabili sono funzioni parzialmente derivabili.
 	\end{enumerate}
-	% TODO soluzione
+	% TODO solution
 \end{exercise}
+\begin{example}
+	Sia $f: \R^2 \mapsto \R^3$ data da
+	\begin{equation*}
+		f(x,y) =
+		\begin{bmatrix}
+			2x + 3y\\
+			\sin (xy^2)\\
+			e^{xy}
+		\end{bmatrix}
+	\end{equation*}
+	La funzione $f$ è derivabile parzialmente su tutto $\R^2$. Inoltre
+	\[
+		\frac{\partial f}{\partial x}(x,y) =
+		\begin{bmatrix}
+			2\\
+			y^2 \cos (xy^2)\\
+			y e^{xy}
+		\end{bmatrix}
+		\qquad\qquad
+		\frac{\partial f}{\partial y}(x,y) =
+		\begin{bmatrix}
+			3\\
+			2xy \cos (xy^2)\\
+			x e^{xy}
+		\end{bmatrix}
+	\]
+\end{example}
+
+\begin{proposition}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $v \in \R^n$ con $v \neq 0$. Sia $f: A \mapsto \R^m$, allora
+	\begin{equation*}
+		\begin{gathered}
+			f \text{ è \textbf{Derivabile} in $x_0$ nella direzione $v$}\\
+			\iff\\
+			\forall i = 1,\;\dotsc\;,m \quad \text{la \textbf{componente} $f_i$ \textbf{è derivabile} in $x_0$ nella direzione $v$}
+		\end{gathered}
+	\end{equation*}
+	\begin{proof}
+		Applicando \fullref{prop:succ_conv_se_comp_conv} e \fullref{prop:cont_e_cont_per_succ}
+		% TODO proper proof
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	La derivabilità in ogni direzione non implica la continuità. Verificare che la funzione
+	\[\funcdef{f}{\R^2}{\R}{(x,y)}
+	{
+		\begin{cases}
+			1 \qquad \text{se } y = x^2 \text{ e } x \neq 0\\
+			0 \qquad \text{altrimenti}
+		\end{cases}
+	}\]
+	ammette nell'origine derivate direzionali in ogni direzione ma che \textit{non} è continua nell'origine.
+	\begin{solution}
+		Le derivate direzionali sono
+		\begin{align*}
+			\partial_x f(0,0) &= \lim\limits_{t \to 0} \frac{f(0+t,0)-f(0,0)}{t} = 0\\
+			\partial_y f(0,0) &= \lim\limits_{t \to 0} \frac{f(0,0+t)-f(0,0)}{t} = 0\\
+			D_v f(0,0) &= \lim\limits_{t \to 0} \frac{f(0+t_1,0+t_2)-f(0,0)}{t} = 0
+		\end{align*}
+		Dunque, per ogni derivata parziale o direzionale in $(0,0)$ il valore della derivata sarà $0$.\\
+		D'altro canto $f$ in $0$ \textit{non} è continua in $(0,0)$, quindi si è verificato che la derivabilità non implichi la continuità con $\dim A > 1$
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Esibire una funzione $f: \R^2 \mapsto \R$ che ammetta in (almeno) un punto una derivata parziale rispetto ad $x$ ma non rispetto a $y$
+	\begin{solution}
+		La
+		\[\funcdef{f}{\R^2}{\R}{(x,y)}{x+\sqrt{y}}\]
+		È derivabile parzialmente rispetto a $x$ ma non rispetto a $y$ in $(0,0)$, infatti
+		\begin{align*}
+			\partial_x f(0,0) &= \lim\limits_{t \to 0} \frac{f(0+t,0)-f(0,0)}{t} = \frac{t-0}{t} = 1\\
+			\partial_y f(0,0) &= \lim\limits_{t \to 0} \frac{f(0,0+t)-f(0,0)}{t} = \frac{\sqrt{t}-0}{t} = +\infty \implies \nexists \text{ limite finto}
+		\end{align*}
+	\end{solution}
+\end{exercise}
+
+\observation le proprietà e le regole di derivazione sono le stesse di Analisi 1
 
 \section{Derivata Totale}
 \begin{proposition} % WARNING Questa proposizione va spostata sotto una volta che la sezione sarà sistemata. È qui perché non venga cancellata per sbaglio

@@ -608,12 +608,14 @@ Unendo le due definizioni si giunge naturalmente a
 		Per ogni $n \in \N$, per la proprietà 4 da \fullref{def:sp_metrico}
 		\[d(x_\infty, x^\infty) \leq d(x_\infty, x_n) + d(n, x^\infty)\]
 		Passando al $\lim$ per $n \to +\infty$
-		\[\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x^\infty)}_{\begin{tabular}{c}\geq 0\\{\small Per def. distanza}\end{tabular}}
-		\leq
-		\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x_n)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
-		+
-		\underbrace{\lim\limits_{n \to +\infty}d(n, x^\infty)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
-		\leq 2 \varepsilon\]
+		\[
+			\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x^\infty)}_{\begin{tabular}{c}\geq 0\\{\small Per def. distanza}\end{tabular}}
+			\leq
+			\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x_n)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
+			+
+			\underbrace{\lim\limits_{n \to +\infty}d(n, x^\infty)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
+			\leq 2 \varepsilon
+		\]
 		Dovendo essere questa forma valida $\forall \varepsilon > 0$, si concludere che non può esser altro che
 		\[\lim\limits_{n \to +\infty}d(x_\infty, x^\infty) = 0\]
 		Che, per la proprietà 2 da \fullref{def:sp_metrico}, significa
@@ -2253,8 +2255,10 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \section{Funzioni a Valori in \texorpdfstring{$\protect \R^n$}{Rn}}
 In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo spazio metrico $\R$ dotato dell'usuale metrica Euclidea: $d(x,y) = \sqrt{\sum\limits_{i = 1}^{k} (y_i - x_i)^2}$ da \fullref{ex:metriche}. Questo spazio si dice anche \fullref{def:sp_vett_normato}
+\begin{note}
+	Diverse dimostrazioni di questo capitolo sono omesse in quanto estremamente simili a quelle di Analisi 1.
+\end{note}
 
-Diverse dimostrazioni di questo capitolo sono omesse in quanto estremamente simili a quelle di Analisi 1.
 \subsection{Il Caso Generale}
 \begin{proposition}
 	\label{prop:lim_in_R_somma_prod}
@@ -2280,30 +2284,69 @@ Diverse dimostrazioni di questo capitolo sono omesse in quanto estremamente simi
 	\begin{proof}
 		Omessa.
 	\end{proof}
-	\begin{exercise}
-		Dimostrare la \fullref{prop:lim_in_R_somma_prod}
-		\begin{solution}
-			Dalla \fullref{def:lim_funz}
-			\begin{equation*}
-				\begin{gathered}
-					\forall \varepsilon > 0,\; \exists \delta_f > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta_f \text{ e } x \neq x_0 \text{ vale } \norm{f(x) - l_f} < \varepsilon\\
-					\forall \varepsilon > 0,\; \exists \delta_g > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta_g \text{ e } x \neq x_0 \text{ vale } \norm{g(x) - l_g} < \varepsilon
-				\end{gathered}
-			\end{equation*}
-			Fissato $\varepsilon$, si può scegliere $\delta = \min \brackets{\delta_f, \delta_g}$ e quindi è possibile dire che
-			\begin{equation}
-				\label{eq:lim_somma_fun}
-				\forall \varepsilon > 0,\; \exists \delta: \forall x \in A \text{ con } d_X(x,x_0) < \delta \text{ e } x \neq x_0 \text{ vale } \norm{(f + g)(x) - (l_f + l_g)} < \varepsilon
-			\end{equation}
-			Essendo
-			\begin{align*}
-				&\norm{(f + g)(x) - (l_f + l_g)}\\
-				=&\norm{\bigl( f(x) - l_f \bigr) + \bigl( g(x) - l_g \bigr)}
-				\shortintertext{Per proprietà 3 da \fullref{def:norma}}
-				\leq &\norm{f(x) - l_f} + \norm{g(x) - l_g}
-			\end{align*}
-			Quest'ultima forma è sicuramente $< \varepsilon$ per \cref{eq:lim_somma_fun}, quindi la somma dei limiti corrisponde al limite della somma.\\
-			Analogamente si svolge per il prodotto.
-		\end{solution}
-	\end{exercise}
 \end{proposition}
+\begin{exercise}
+	Dimostrare la \fullref{prop:lim_in_R_somma_prod}
+	\begin{solution}
+		Dalla \fullref{def:lim_funz}
+		\begin{equation*}
+			\begin{gathered}
+				\forall \varepsilon > 0,\; \exists \delta_f > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta_f \text{ e } x \neq x_0 \text{ vale } \norm{f(x) - l_f} < \varepsilon\\
+				\forall \varepsilon > 0,\; \exists \delta_g > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta_g \text{ e } x \neq x_0 \text{ vale } \norm{g(x) - l_g} < \varepsilon
+			\end{gathered}
+		\end{equation*}
+		Fissato $\varepsilon$, si può scegliere $\delta = \min \brackets{\delta_f, \delta_g}$ e quindi è possibile dire che
+		\begin{equation}
+			\label{eq:lim_somma_fun}
+			\forall \varepsilon > 0,\; \exists \delta: \forall x \in A \text{ con } d_X(x,x_0) < \delta \text{ e } x \neq x_0 \text{ vale } \norm{(f + g)(x) - (l_f + l_g)} < \varepsilon
+		\end{equation}
+		Essendo
+		\begin{align*}
+			&\norm{(f + g)(x) - (l_f + l_g)}\\
+			=&\norm{\bigl( f(x) - l_f \bigr) + \bigl( g(x) - l_g \bigr)}
+			\shortintertext{Per proprietà 3 da \fullref{def:norma}}
+			\leq &\norm{f(x) - l_f} + \norm{g(x) - l_g}
+		\end{align*}
+		Quest'ultima forma è sicuramente $< \varepsilon$ per \cref{eq:lim_somma_fun}, quindi la somma dei limiti corrisponde al limite della somma.\\
+		Analogamente si svolge per il prodotto.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Enunciare e dimostrare un analogo della \fullref{prop:lim_in_R_somma_prod} per il prodotto vettoriale
+	% TODO solution
+\end{exercise}
+
+\begin{proposition}
+	\label{prop:lim_in_R_coord_F}
+	Siano:
+	\begin{itemize}
+		\item $(X,d)$ spazio metrico
+		\item $A \subseteq X$
+		\item $x_0$ di accumulazione per $A$
+		\item $f: A \mapsto \R^n$ e $g: A \mapsto \R^m$ funzioni
+		\item $F: A \mapsto \R^{n+m}$ definita da $F(x) = \bigl( f(x),\; g(x) \bigr)$
+	\end{itemize}
+	Allora
+	\begin{equation*}
+		\left.
+		\begin{array}{r}
+			\lim\limits_{x \to x_0} f(x) \text{ esiste finito}\\
+			\lim\limits_{x \to x_0} g(x) \text{ esiste finito}
+		\end{array}
+		\right\}
+		\implies
+		\left\{
+		\begin{array}{l}
+			\lim\limits_{x \to x_0} F(x) \quad \text{esiste finito e}\\
+			\lim\limits_{x \to x_0} F(x) = \left( \lim\limits_{x \to x_0} f(x), \lim\limits_{x \to x_0} g(x) \right)
+		\end{array}
+		\right.
+	\end{equation*}
+	\begin{proof}
+		Omessa
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Dimostrare la \fullref{prop:lim_in_R_coord_F}
+\end{exercise}
+% TODO the rest of this chapter
