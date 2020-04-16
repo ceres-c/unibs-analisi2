@@ -30,6 +30,9 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 	\[\lim\limits_{t \to 0} \frac{(x_0 + tv) - f(x_0)}{t}\]
 	esiste finito, il suo valore è la \textbf{Derivata Direzionale} di $f$ in $x_0$ nella direzione $v$ e si indica con $\boldsymbol{D_v f(x_0)}$
 	\begin{note}
+		\textbf{Non} è richiesto che la funzione sia \textbf{continua nello spazio} per calcolarne la derivata direzionale, è sufficiente sia continua nella direzione considerata. Vedasi \fullref{ex:deriv_solo_alcune_direz}
+	\end{note}
+	\begin{note}
 		L'introduzione del vettore $v$ permette di eseguire un'operazione "sensata" in quanto sottrare uno scalare, come in Analisi 1, non avrebbe avuto significato per una funzione $f: A \mapsto \R^{\boldsymbol{m}}$.
 	\end{note}
 
@@ -51,6 +54,40 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		Nel caso $n > 3$, notazioni usate sono $\frac{\partial f}{\partial x_i}$ o $\partial_{x_i} f$ per $i = 1,\;\dotsc\;,n$.
 	\end{note}
 \end{definition}
+\begin{example}
+	\label{ex:deriv_solo_alcune_direz}
+	La funzione del seguente grafico non è derivabile in $(0,0)$ lungo $x$ o qualsiasi altra direzione diversa da $y$.
+	\begin{figure}[H]
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis}[
+						view={30}{30},
+						xlabel=$x$, ylabel=$y$
+					]
+					\addplot3[surf, domain =3:0, domain y=-4:7] {-1/4*exp(-x^2-y^2)};
+					\addplot3[surf, domain =-3:0, domain y=-4:7] {1/4*exp(-x^2-y^2)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+		\end{subfigure}
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis}[
+						view={0}{0},
+						xlabel=$x$, ylabel=$y$
+					]
+					\addplot3[surf, domain =3:0, domain y=-4:7] {-1/4*exp(-x^2-y^2)};
+					\addplot3[surf, domain =-3:0, domain y=-4:7] {1/4*exp(-x^2-y^2)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+		\end{subfigure}
+	\end{figure}
+\end{example}
 \begin{exercise}
 	Sia $f:\R^2 \mapsto \R^m$ derivabile in $x_0$, con $x_0 \in \R^2$. Sia $g:\R^2 \mapsto \R^m$ definita da $g(x,y) = f(y,x)$\\
 	Come sono legate le derivate parziali di $f$ e $g$ in $x_0$?
@@ -122,11 +159,11 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		\end{gathered}
 	\end{equation*}
 	\begin{proof}
-		Applicando \fullref{prop:succ_conv_se_comp_conv} e \fullref{prop:cont_e_cont_per_succ}
-		% TODO proper proof
+		Applicando \fullref{prop:succ_conv_se_comp_conv} e \fullref{prop:cont_e_cont_per_succ} % TODO proper proof. This does not make sense as of now, I know.
 	\end{proof}
 \end{proposition}
 \begin{exercise}
+	\label{ex:deriv_non_impl_cont}
 	La derivabilità in ogni direzione non implica la continuità. Verificare che la funzione
 	\[\funcdef{f}{\R^2}{\R}{(x,y)}
 	{
@@ -160,9 +197,211 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 	\end{solution}
 \end{exercise}
 
-\observation le proprietà e le regole di derivazione sono le stesse di Analisi 1
-
 \section{Derivata Totale}
+\begin{definition}[o piccolo]
+	\label{def:o_piccolo}
+	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. Siano $f,g: A \mapsto \R^m$ due funzioni.
+	\[f=o(g) \text{ per } x \to x_0 \qquad \bydef \lim\limits_{x \to x_0} \frac{\norm{f(x)}}{\norm{g(x)}}\]
+	che si legge $f$ è \textbf{o piccolo} di $g$.
+	\begin{note}
+		Scrivere $f(x) = o(x^k)$ per $x \to 0$ significa che $f = o(g)$ con $g = x^k$
+	\end{note}
+	\begin{note}
+		Con $o(1)$ per $x \to x_0$ si intende una qualunque funzione tendente a $0$ per $x \to x_0$.
+	\end{note}
+\end{definition}
+\begin{exercise}
+	Perché son state utilizzate le norme nella \fullref{def:o_piccolo}?
+	\begin{solution}
+		Perché l'operazione di divisione è sensata solo tra due scalari, non tra vettori.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Quali tra le seguenti uguaglianze sono vere? (In tutte, $x \to 0$)
+	\begin{itemize}
+		\begin{minipage}{0.33\linewidth}
+			\item $o(x) = o(x) + o(x)$
+			\item $o(x^2) = o(x) \cdot o(x)$
+			\item $o(x^2) = o(x) - o(x)$
+		\end{minipage}
+		\begin{minipage}{0.33\linewidth}
+			\item $\sqrt{x} = o(x)$
+			\item $o(x) = \abs{o(x)}$
+			\item $x = o(\sqrt{x})$
+		\end{minipage}
+		\begin{minipage}{0.33\linewidth}
+			\item $o(x) = 10^6 o(x)$
+			\item $x + x^2 = o(x)$
+			\item $x = o(x + x^2)$
+		\end{minipage}
+	\end{itemize}
+\end{exercise}
+La seguente definizione è da ritenersi già nota da Analisi 1
+\begin{definition}[Derivata in $\R$]
+	Siano $A \subseteq \R$ e $x_0 \in \circdot{A}$. Sia $f: A \mapsto \R$
+	\[f \text{ \textbf{derivabile} in } x_0 \quad \bydef \quad \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \text{  esiste finito}\]
+\end{definition}
+
+Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente relazione tra derivata e coefficiente angolare della retta tangente in un punto
+\begin{proposition}
+	Siano $A \subseteq \R$ e $x_0 \in \circdot{A}$. Sia $f: A \mapsto \R$
+	\begin{equation*}
+		\begin{gathered}
+			f \text{ è derivabile in } x_0\\
+			\iff\\
+			\exists m \in \R:\; f(x_0+h) = f(x_0) + mh +o(h) \text{ per } h \to 0
+		\end{gathered}
+	\end{equation*}
+	\begin{proof}
+		\begin{align*}
+			& f \text{ è derivabile in } x_0\\
+			\iff & \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \text{  esiste finito}\\
+			\iff & \exists m \in \R:\; \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} = m\\
+			\iff & \exists m \in \R:\; \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} - m = 0\\
+			\iff & \exists m \in \R:\; \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0) -mh}{h} = 0
+			\shortintertext{Per la nota alla \fullref{def:o_piccolo}}
+			\iff & \exists m \in \R:\; f(x_0 + h) - f(x_0) -mh = o(h) \text{ per } h \to 0\\
+			\iff & \exists m \in \R:\; f(x_0 + h) = f(x_0) -mh + o(h) \text{ per } h \to 0
+		\end{align*}
+	\end{proof}
+\end{proposition}
+
+\begin{definition}[Differenziale]
+	\label{def:differenz}
+	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. Sia $f: A \mapsto \R^m$
+	\begin{equation*}
+		\begin{gathered}
+			f \text{ è \textbf{Differenziabile} in } x_0\\
+			\bydef\\
+			\exists M \in \mat (m \times n):\; f(x_0 + h) = f(x_0) + Mh + o(h) \text{ per } h \to 0
+		\end{gathered}
+	\end{equation*}
+	La matrice $M$ è la \textbf{Derivata Totale} di $f$ calcolata in $x_0$ e si indica con $Df(x_0)$. $Df(x_0)$ è l'\textit{applicazione lineare} che meglio approssima la variazione di $f$ nelle vicinanze di $x_0$.\\
+	Data la matrice $Df(x_0)$ con $m$ righe e $n$ colonne:
+	\begin{itemize}
+		\item Se $n = 1$ e $m = 1$ $Df(x_0)$ è \textbf{Derivata} di Analisi 1, uno scalare
+		\item Se $n > 1$ e $m = 1$ $Df(x_0)$ è \textbf{Gradiente} di $f$ e si indica con $\nabla f(x_0)$ (\textit{nabla} $f$) o $\grad f(x_0)$
+		\item Se $n = 1$ e $m > 1$ $Df(x_0)$ è \textbf{Vettore Tangente} alla $f$
+		\item Se $n > 1$ e $m > 1$ $Df(x_0)$ è \textbf{Matrice Jacobiana} di $f$ e si può anche indicare con $J_f(x_0)$
+	\end{itemize}
+\end{definition}
+\begin{exercise}
+	Perché non è stata data una definizione di derivata attraverso il limite del rapporto incrementale?
+	% TODO solution
+\end{exercise}
+\begin{example}
+	Siano $M \in \mat(m \times n)$ una matrice fissata, $f: \R^n \mapsto \R^m$ data da $f(x) = Mx$.\\
+	Allora $f$ è differenziabile ovunqe e per ogni $x_0 \in \R$ si ha $Df(x_0) = M$
+\end{example}
+\begin{proposition}[Unicità della Derivata Totale]
+	\label{prop:unic_deriv_tot}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$, $f: A \mapsto \R^m$ e $M_1, M_2 \in \mat(m \times n)$
+	\begin{equation*}
+		\left.
+		\begin{array}{l}
+			M_1 \text{ derivata totale di } f \text{ in } x_0\\
+			M_2 \text{ derivata totale di } f \text{ in } x_0
+		\end{array}
+		\right\}
+		\implies
+		M_1 = M_2
+	\end{equation*}
+	\begin{proof}
+		Sia $h \in \R$. Fissato un vettore $e_i$ della base canonica di $\R^n$
+		\begin{align*}
+			M_2 e_i - M_1 e_1 &=\\
+			\shortintertext{Moltiplicando e dividendo per $h$}
+			&= \frac{1}{h} M_2 e_i h - \frac{1}{h} M_1 e_i h\\
+			&= \frac{1}{h} [M_2 e_i h - M_1 e_i h]
+			\shortintertext{Grazie alla \fullref{def:differenz}}
+			&= \frac{1}{h} [f(x_0 + h e_i) - f(x_0) + o(h)] - \frac{1}{h} [f(x_0 + h e_i) - f(x_0) + o(h)]\\
+			&= o(h) \text{ per } t \to 0
+		\end{align*}
+		Passando al limite per $t \to 0$, si deduce che le applicazioni lineari $M_1$ e $M_2$ hanno le stesse immagini sui vettori della base canonica, quindi coincidono.
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$
+	\[f \text{ \textbf{Differenziabile} in } x_0 \implies f \text{ \textbf{Continua} in } x_0\]
+	\begin{proof}
+		Per ipotesi $x_0 \in \circdot{A}$, dunque $x_0$ è di accumulazione. A questo punto, grazie alla \fullref{prop:f_cont_se_isol_o_accum} basta verificare che $\lim\limits_{x \to x_0} f(x) = f(x_0)$.
+		Dalla \fullref{def:differenz}
+		\[f(x_0 + h) = f(x_0) + Mh + o(h) \text{ per } h \to 0\]
+		Quindi, posto $h = x - x_0$ ed essendo $M = Df(x_0)$ per \fullref{def:differenz}
+		\[\lim\limits_{x \to x_0} f(x) = \lim\limits_{x \to x_0} \bigl[f(x_0) + Df(x_0)(x-x_0) + o(x - x_0)\bigr] = f(x_0)\]
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	\label{prop:se_diff_deriv_dir}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$
+	\[
+		f \text{ differenziabile in } x_0
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				f \text{ ammette ogni derivata direzionale in } x_0\\
+				e\\
+				\forall v \in \R^n \setminus \brackets{0} D_v f(x_0) = Df(x_0)v
+			\end{array}
+		\end{cases}
+	\]
+	\begin{proof}
+		Sia $v \in \R^n$ non nullo. Partendo dalla \fullref{def:deriv_direz}
+		\begin{align*}
+			&\lim\limits_{t \to 0} \frac{f(x_0 + tv) - f(x_0)}{t}
+			\shortintertext{Sostituendo ora $f(x_0 + tv)$ con il secondo membro della \fullref{def:differenz}, dopo aver posto $h = tv$}
+			= &\lim\limits_{t \to 0} \frac{\cancel{f(x_0)} + Df(x_0)(tv) + o(tv) - \cancel{f(x_0)}}{t}\\
+			= &\lim\limits_{t \to 0} \frac{Df(x_0)(tv)}{t} + \lim\limits_{t \to 0} \frac{o(tv)}{t}\\
+			= &Df(x_0)v
+		\end{align*}
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	\label{coro:se_diff_deriv_parz}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$
+	\[
+		f \text{ differenziabile in } x_0
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				f \text{ ammette ogni derivata parziale in } x_0\\
+				e\\
+				\frac{\partial f}{\partial x_i}(x_0) = Df(x_0) \cdot e_i
+			\end{array}
+		\end{cases}
+	\]
+	\begin{note}
+		\[
+			Df(x_0) \cdot e_i =
+			\begin{bmatrix}
+				x_{11} & x_{12} & \dots & x_{1n}\\
+				x_{21} & x_{22} & \dots & x_{2n}\\
+				\vdots & \ddots & & \vdots\\
+				x_{n1} & x_{n2} & \dots & x_{nn}\\
+			\end{bmatrix}
+			\cdot
+			\begin{bmatrix}
+				(0 & \dots & 1 & \dots & 0)
+			\end{bmatrix}
+			=
+			\begin{bmatrix}
+				0 & \dots & x_{1i} & 0\\
+				0 & \dots & x_{2i} & 0\\
+				\vdots & \ddots & & \vdots\\
+				0 & \dots & x_{ni} & 0\\
+			\end{bmatrix}
+		\]
+	\end{note}
+	\begin{note}
+		Il presente corollario offre anche una dimostrazione alternativa della \fullref{prop:unic_deriv_tot}
+	\end{note}
+	\begin{proof}
+		Direttamente dalla \fullref{prop:se_diff_deriv_dir} e dalla \fullref{def:deriv_direz} (sezione sulle derivate parziali)
+	\end{proof}
+\end{corollary}
+\begin{observation}
+	Sia \fullref{prop:se_diff_deriv_dir} che \fullref{coro:se_diff_deriv_parz} non possono essere invertiti, come verificato in \fullref{ex:deriv_non_impl_cont}.
+\end{observation}
 \begin{proposition} % WARNING Questa proposizione va spostata sotto una volta che la sezione sarà sistemata. È qui perché non venga cancellata per sbaglio
 	\label{prop:if_df_lim_then_unif_cont}
 	Siano $I \in \R$ un intervallo reale e $f(x)$ una funzione derivabile in $I$. Se la $f'(x)$ è una \textbf{funzione limitata} in $I$, allora f è uniformemente continua in $I$

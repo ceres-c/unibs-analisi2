@@ -571,7 +571,7 @@ Unendo le due definizioni si giunge naturalmente a
 	Una successione $x: \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ si dice \textbf{Limitata} se il suo codominio $x(\N)$ è limitato.\\
 	Una successione è \textbf{Illimitata} se il suo codominio $x(\N)$ è illimitato.
 \end{definition}
-\begin{definition}[Limite per Successioni]
+\begin{definition}[Limite per Successioni] % TODO la definizione di limite per successioni va modificata per offrire la classica distanza delta-epsilon
 	\label{def:lim_succ}
 	Data una successione $x: \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
 	\[\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0\]
@@ -1218,14 +1218,15 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{proposition}
+	\label{prop:f_cont_se_isol_o_accum}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
 		f \text{ è \textbf{Continua} in } x_0 \iff
 		\begin{cases}
 			\begin{array}{c}
-				x_0 \text{ è \textbf{isolato} per } A\\
+				x_0 \text{ è \textbf{Isolato} per } A\\
 				oppure\\
-				x_0 \text{ è \textbf{di accumulazione} per } A \text{ e } \lim\limits_{x \to x_0} f(x) = f(x_0)
+				x_0 \text{ è \textbf{di Accumulazione} per } A \text{ e } \lim\limits_{x \to x_0} f(x) = f(x_0)
 			\end{array}
 		\end{cases}
 	\end{equation*}
