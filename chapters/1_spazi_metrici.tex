@@ -1706,8 +1706,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					]
 						\addplot[domain=-2:0, samples=10] {1};
 						\addplot[domain=0:2, samples=10] {-1};
-						\draw[black,fill=black] (axis cs:0,-1) circle (2pt);
-						\draw[black,fill=white] (axis cs:0,1) circle (2pt);
+						\addplot [only marks, mark=*] coordinates{(0,-1)};
+						\addplot [fill=white, only marks,mark=*] coordinates{(0,1)};
 					\end{axis}
 				\end{tikzpicture}
 			}

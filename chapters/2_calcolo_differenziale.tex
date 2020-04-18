@@ -36,9 +36,10 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		L'introduzione del vettore $v$ permette di eseguire un'operazione "sensata" in quanto sottrare uno scalare, come in Analisi 1, non avrebbe avuto significato per una funzione $f: A \mapsto \R^{\boldsymbol{m}}$.
 	\end{note}
 
-	Nel caso in cui $v = e_i$, allora $\boldsymbol{D_{e_i} f(x_0)}$ è la \textbf{Derivata Parziale $\boldsymbol{i}$\textit{-esima}}, che può anche essere indicata con $\boldsymbol{\frac{\partial f}{\partial x_i}(x_0)}$. Quindi le derivate parziali sono \textit{un caso particolare} delle derivate direzionali
+	Nel caso in cui $v = e_i$, allora $\boldsymbol{D_{e_i} f(x_0)}$ è la \textbf{Derivata Parziale $\boldsymbol{i}$\textit{-esima}}, che può anche essere indicata con $\boldsymbol{\frac{\partial f}{\partial x_i}(x_0)}$. Quindi le derivate parziali sono \textit{un caso particolare} delle derivate direzionali.\\
 
-	Una funzione derivabile parzialmente in ogni direzione è detta \textbf{Derivabile}.
+	\noindent Una funzione derivabile parzialmente in ogni direzione è detta \textbf{Derivabile}.
+
 	\begin{note}
 		Altre notazioni comunemente utilizzate per le derivate direzionali sono: $D_i f$, $D_{x_i} f$, $\partial_i f$, $\partial_{x_i} f$, $f_{x_i}$
 	\end{note}
@@ -173,6 +174,58 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		\end{cases}
 	}\]
 	ammette nell'origine derivate direzionali in ogni direzione ma che \textit{non} è continua nell'origine.
+	\begin{figure}[H]
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis}[
+						title={Funzione nello spazio},
+						xlabel=$x$, ylabel=$y$, zlabel=$z$, zlabel style={rotate=-90},
+						xticklabels={,,}, yticklabels={,,},
+						samples y=0,
+						zmin = 0, zmax = 1.5
+					]
+					\addplot3 [smooth, color=blue] (x,x^2,1);
+					\addplot3 [color=blue, fill=white, only marks,mark=*] coordinates{(0,0,1)};
+					\addplot3 [color=blue, only marks, mark=*] coordinates{(0,0,0)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+		\end{subfigure}
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\node at (3.4, .2) {$0$};
+
+					\node at (2.1, 1.1) {$1$};
+					\node at (4.8, 1.1) {$1$};
+					\node at (1.2, 2.5) {$1$};
+					\node at (5.65, 2.5) {$1$};
+					\node at (.4, 4.5) {$1$};
+					\node at (6.5, 4.5) {$1$};
+
+					\node at (1.7, .2) {$0$};
+					\node at (6, .6) {$0$};
+					\node at (2.6, 2.2) {$0$};
+					\node at (5, 3) {$0$};
+					\node at (3.2, 4.3) {$0$};
+					\node at (1.8, 5) {$0$};
+					\begin{axis} [
+						title={Valori della $z$},
+						axis lines = center,
+						xlabel=$x$, ylabel=$y$,
+						xticklabels={,,}, yticklabels={,,},
+						ymin = -1
+					]
+						\addplot[color=blue!70, smooth] {x^2};
+					\end{axis}
+				\end{tikzpicture}
+			}
+		\end{subfigure}
+	\end{figure}
+
 	\begin{solution}
 		Le derivate direzionali sono
 		\begin{align*}
@@ -239,11 +292,12 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 La seguente definizione è da ritenersi già nota da Analisi 1
 \begin{definition}[Derivata in $\R$]
 	Siano $A \subseteq \R$ e $x_0 \in \circdot{A}$. Sia $f: A \mapsto \R$
-	\[f \text{ \textbf{derivabile} in } x_0 \quad \bydef \quad \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \text{  esiste finito}\]
+	\[f \text{ \textbf{Derivabile} in } x_0 \quad \bydef \quad \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \text{  esiste finito}\]
 \end{definition}
 
 Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente relazione tra derivata e coefficiente angolare della retta tangente in un punto
-\begin{proposition}
+\begin{proposition}[Derivata Analisi 1]
+	\label{prop:deriv_analisi_1}
 	Siano $A \subseteq \R$ e $x_0 \in \circdot{A}$. Sia $f: A \mapsto \R$
 	\begin{equation*}
 		\begin{gathered}
@@ -266,6 +320,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\end{proof}
 \end{proposition}
 
+\noindent Analogamente a quanto fatto nella \fullref{prop:deriv_analisi_1}, si definisce
 \begin{definition}[Differenziale]
 	\label{def:differenz}
 	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. Sia $f: A \mapsto \R^m$
@@ -276,7 +331,10 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			\exists M \in \mat (m \times n):\; f(x_0 + h) = f(x_0) + Mh + o(h) \text{ per } h \to 0
 		\end{gathered}
 	\end{equation*}
-	La matrice $M$ è la \textbf{Derivata Totale} di $f$ calcolata in $x_0$ e si indica con $Df(x_0)$. $Df(x_0)$ è l'\textit{applicazione lineare} che meglio approssima la variazione di $f$ nelle vicinanze di $x_0$.\\
+	La matrice $M$ è la \textbf{Derivata Totale} di $f$ calcolata in $x_0$ e si indica con $Df(x_0)$. $Df(x_0)$ è l'applicazione \textit{lineare} che meglio approssima la variazione di $f$ nelle vicinanze di $x_0$.
+\end{definition}
+\begin{observation}[Matrici Derivata Totale Particolari]
+	\label{obs:matr_deriv_tot}
 	Data la matrice $Df(x_0)$ con $m$ righe e $n$ colonne:
 	\begin{itemize}
 		\item Se $n = 1$ e $m = 1$ $Df(x_0)$ è \textbf{Derivata} di Analisi 1, uno scalare
@@ -284,7 +342,39 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\item Se $n = 1$ e $m > 1$ $Df(x_0)$ è \textbf{Vettore Tangente} alla $f$
 		\item Se $n > 1$ e $m > 1$ $Df(x_0)$ è \textbf{Matrice Jacobiana} di $f$ e si può anche indicare con $J_f(x_0)$
 	\end{itemize}
-\end{definition}
+	Come si vedrà in \fullref{coro:se_diff_deriv_parz}, il Gradiente della \textit{i-esima} variabile è la \textit{i-esima} colonna di $Df(x_0)$.\\
+	Il Vettore Tangente della \textit{j-esima} variabile è invece la \textit{j-esima} riga di $Df(x_0)$.
+\end{observation}
+\begin{example}
+	Esempi relazioni tra Derivata Totale e derivate parziali
+	\begin{align*}
+		n = 2 \quad m = 1 \qquad & Df =
+		\begin{bmatrix}
+			\frac{\partial f}{\partial x} & \frac{\partial f}{\partial y}
+		\end{bmatrix}\\
+		n = 3 \quad m = 1 \qquad & Df =
+		\begin{bmatrix}
+			\frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} &  \frac{\partial f}{\partial z}
+		\end{bmatrix}\\
+		n = 1 \quad m = 2 \qquad & Df =
+		\begin{bmatrix}
+			\frac{\partial f_1}{\partial x}\\[1ex]
+			\frac{\partial f_2}{\partial x}
+		\end{bmatrix}\\
+		n = 2 \quad m = 2 \qquad & Df =
+		\begin{bmatrix}
+			\frac{\partial f_1}{\partial x} & \frac{\partial f_1}{\partial y}\\[1ex]
+			\frac{\partial f_2}{\partial x} & \frac{\partial f_2}{\partial y}
+		\end{bmatrix}\\
+		n > 2 \quad m > 2 \qquad & Df =
+		\begin{bmatrix}
+			\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \dots & \frac{\partial f_1}{\partial x_n}\\[1ex]
+			\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots & \frac{\partial f_2}{\partial x_n}\\[1ex]
+			\vdots & \vdots & \ddots & \vdots\\[1ex]
+			\frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \dots & \frac{\partial f_m}{\partial x_n}
+		\end{bmatrix}\\
+	\end{align*}
+\end{example}
 \begin{exercise}
 	Perché non è stata data una definizione di derivata attraverso il limite del rapporto incrementale?
 	% TODO solution
@@ -335,11 +425,11 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\label{prop:se_diff_deriv_dir}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$
 	\[
-		f \text{ differenziabile in } x_0
+		f \text{ \textbf{Differenziabile} in } x_0
 		\implies
 		\begin{cases}
 			\begin{array}{c}
-				f \text{ ammette ogni derivata direzionale in } x_0\\
+				f \text{ ammette ogni \textbf{Derivata Direzionale} in } x_0\\
 				e\\
 				\forall v \in \R^n \setminus \brackets{0} D_v f(x_0) = Df(x_0)v
 			\end{array}
@@ -360,40 +450,41 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\label{coro:se_diff_deriv_parz}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$
 	\[
-		f \text{ differenziabile in } x_0
+		f \text{ \textbf{Differenziabile} in } x_0
 		\implies
 		\begin{cases}
 			\begin{array}{c}
-				f \text{ ammette ogni derivata parziale in } x_0\\
+				f \text{ ammette ogni \textbf{Derivata Parziale} in } x_0\\
 				e\\
 				\frac{\partial f}{\partial x_i}(x_0) = Df(x_0) \cdot e_i
 			\end{array}
 		\end{cases}
 	\]
+	Dove $Df(x_0) \cdot e_i$ non è altro che
+	\[
+		Df(x_0) \cdot e_i =
+		\begin{bmatrix}
+			x_{11} & x_{12} & \dots & x_{1n}\\
+			x_{21} & x_{22} & \dots & x_{2n}\\
+			\vdots & \ddots & & \vdots\\
+			x_{n1} & x_{n2} & \dots & x_{nn}\\
+		\end{bmatrix}
+		\cdot
+		\begin{bmatrix}
+			(0 & \dots & 1 & \dots & 0)
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			0 & \dots & x_{1i} & 0\\
+			0 & \dots & x_{2i} & 0\\
+			\vdots & \ddots & & \vdots\\
+			0 & \dots & x_{ni} & 0\\
+		\end{bmatrix}
+	\]
+	Cioè l'\textit{i-esima} colonna della $Df(x_0)$, come da \fullref{obs:matr_deriv_tot}
 	\begin{note}
-		\[
-			Df(x_0) \cdot e_i =
-			\begin{bmatrix}
-				x_{11} & x_{12} & \dots & x_{1n}\\
-				x_{21} & x_{22} & \dots & x_{2n}\\
-				\vdots & \ddots & & \vdots\\
-				x_{n1} & x_{n2} & \dots & x_{nn}\\
-			\end{bmatrix}
-			\cdot
-			\begin{bmatrix}
-				(0 & \dots & 1 & \dots & 0)
-			\end{bmatrix}
-			=
-			\begin{bmatrix}
-				0 & \dots & x_{1i} & 0\\
-				0 & \dots & x_{2i} & 0\\
-				\vdots & \ddots & & \vdots\\
-				0 & \dots & x_{ni} & 0\\
-			\end{bmatrix}
-		\]
-	\end{note}
-	\begin{note}
-		Il presente corollario offre anche una dimostrazione alternativa della \fullref{prop:unic_deriv_tot}
+		Per quanto detto, il presente corollario offre il principale metodo di calcolo della \textbf{Derivata Totale}\\
+		Inoltre è anche una dimostrazione alternativa della \fullref{prop:unic_deriv_tot}
 	\end{note}
 	\begin{proof}
 		Direttamente dalla \fullref{prop:se_diff_deriv_dir} e dalla \fullref{def:deriv_direz} (sezione sulle derivate parziali)
@@ -402,6 +493,129 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \begin{observation}
 	Sia \fullref{prop:se_diff_deriv_dir} che \fullref{coro:se_diff_deriv_parz} non possono essere invertiti, come verificato in \fullref{ex:deriv_non_impl_cont}.
 \end{observation}
+\begin{corollary}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$
+	\[f \text{ \textbf{Differenziabile} in } x_0 \implies f \text{ \textbf{Derivabile} in } x_0\]
+	\begin{proof}
+		Mediante il \fullref{coro:se_diff_deriv_parz} si vede immediatamente che rispetta la \fullref{def:deriv_direz}
+	\end{proof}
+\end{corollary}
+\begin{corollary}
+	\label{coro:f_diff_con_matr_comp}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$. Sia $f$ derivabile parzialmente in $x_0$ e sia $M$ la $Df(x_0)$, matrice dei coefficienti $M_{ij} = \frac{\partial f_i}{\partial x_j}$
+	\begin{equation*}
+		\begin{gathered}
+			f \text{ \textbf{Differenziabile} in } x_0\\
+			\iff\\
+			f(x_0 + h) - f(x_0) - Mh = o(h) \text{ per } h \to 0
+		\end{gathered}
+	\end{equation*}
+	\begin{proof}
+		Direttamente dalla \fullref{def:differenz}, per mezzo del \fullref{coro:se_diff_deriv_parz}.
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	Verificare che, nel caso $n = 2$ ed $m = 1$ il \fullref{coro:f_diff_con_matr_comp} si scrive
+	\begin{equation*}
+		\begin{gathered}
+			f \text{ \textbf{Differenziabile} in } x_0\\
+			\iff\\
+			f(x_0 + h, y_o + k) - f(x_0, y_0) -
+			\begin{bmatrix}
+				\frac{\partial f}{\partial x}(x_0, y_0) & \frac{\partial f}{\partial y}(x_0, y_0)
+			\end{bmatrix}
+			\cdot
+			\begin{bmatrix}
+				h\\
+				k
+			\end{bmatrix}
+			= o(\sqrt{h^2 + k^2}) \text{ per } h, k \to 0
+		\end{gathered}
+	\end{equation*}
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Scrivere il \fullref{coro:f_diff_con_matr_comp} nel caso $n = 3$ ed $m = 1$
+	% TODO solution
+\end{exercise}
+
+\begin{theorem}[del Differenziale Totale]
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$.
+	\[
+		\left.
+		\text{
+			\begin{tabular}{c}
+				Per $i = 1,\;\dotsc\;,m$ e $j = 1,\;\dotsc\;,n$\\
+				$\frac{\partial f_i}{\partial x_j}$ è \textbf{definita} in un \textbf{intorno} di $x_0$ e \textbf{Continua} in $x_0$
+			\end{tabular}
+		}
+		\right\}
+		\implies\\
+		f \text{ è \textbf{Differenziabile} in } x_0
+	\]
+	\begin{note}
+		È specificata la necessità di continuità in un intorno di $x_0$ in quanto, come detto in \fullref{def:deriv_direz}, l'esistenza di derivate parziali non garantisce la continuità.
+	\end{note}
+	\begin{proof}
+		Si può supporre $n = 2$ e $m = 1$ in quanto il caso più generale è del tutto analogo.\\
+		È necessario verificare la \fullref{def:differenz}, dunque in $\R^n = \R^2$ si ha
+		\begin{equation}
+			\label{eq:deriv_tot_def_diff}
+			f(x_0 + h, y_0 + k) = f(x_0, y_0) + Df(x_0, y_0) \begin{bmatrix}h\\k\end{bmatrix} + o(h,k) \text{ per } h,k \to 0
+		\end{equation}
+		Considerando solo i primi due addendi, aggiungendo e sottraendo la stessa quantità, si ottiene
+		\begin{equation}
+			\label{eq:teo_diff_tot_sommo_sottraggo}
+			f(x_0 + h, y_0 + k) - f(x_0, y_0) = \underbrace{f(x_0 + h, y_0 + k) - f(x_0+h,y_0)}_{\text{(1)}} + \underbrace{f(x_0+h,y_0) - f(x_0, y_0)}_{\text{(2)}}
+		\end{equation}
+		Considerando la (1) e la (2) di \cref{eq:teo_diff_tot_sommo_sottraggo} come funzioni in una sola variabile, si può applicare il Teorema di Lagrange di Analisi 1 (vedere Nota al termine della dimostrazione).
+		\begin{itemize}
+			\item La (1) rispetto a $y$, con $x_0 + h$ fissato
+			\item La (2) rispetto a $x$, con $y_0$ fissato
+		\end{itemize}
+		Quindi:
+		\[
+			\exists \alpha, \beta \in \realintervalopen{0}{1} \textbf{ per cui} \quad
+			\begin{array}{rrcl}
+				\text{(1)} & f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) &=& \frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) k\\[1ex]
+				\text{(2)} & f(x_0 + h, y_0) - f(x_0, y_0) &=& \frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) h
+			\end{array}
+		\]
+		Tornando alla \cref{eq:deriv_tot_def_diff}, si ottiene
+		\begin{align*}
+			&f(x_0 + h, y_0 + k) - f(x_0, y_0) - Df(x_0, y_0) \begin{bmatrix}h\\k\end{bmatrix}\\
+			= &\underbrace{f(x_0 + h, y_0 + k) - f(x_0+h,y_0)}_{\text{(1)}} + \underbrace{f(x_0+h,y_0) - f(x_0, y_0)}_{\text{(2)}} - Df(x_0, y_0) \begin{bmatrix}h\\k\end{bmatrix}\\
+			= &\underbrace{\frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) k}_{\text{(1)}} + \underbrace{\frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) h}_{\text{(2)}} - Df(x_0, y_0) \begin{bmatrix}h\\k\end{bmatrix}
+			\shortintertext{Si esegue il prodotto tra matrice Derivata Totale e vettore, infine si separano i termini}
+			= &	\left( \frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0) \right) k +
+				\left( \frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)\right) h
+		\end{align*}
+		Si passa dunque alla norma
+		\begin{align*}
+			&\norm{f(x_0 + h, y_0 + k) - f(x_0, y_0) - Df(x_0, y_0) \begin{bmatrix}h\\k\end{bmatrix}}\\
+			\shortintertext{Separando come fatto prima ed applicando la disguguaglianza triangolare}
+			\leq &	\norm{\left( \frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0) \right) k} +
+					\norm{\left( \frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)\right) h}
+			\shortintertext{Per proprietà 4 da \fullref{def:norma}}
+			= & \norm{\frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0)} \abs{k} +
+				\norm{\frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)} \abs{h}
+			\shortintertext{Presa ora la norma del vettore $(h,k)$, cioè $\norm{(h,k)} = \sqrt{h^2 + k^2}$, sicuramente $\abs{h} \leq \norm{(h,k)}$ e $\abs{k} \leq \norm{(h,k)}$, dunque}
+			\leq &	\norm{\frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0)} \sqrt{h^2 + k^2} +
+					\norm{\frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)} \sqrt{h^2 + k^2}
+			\shortintertext{Essendo $h,k \to 0$ da \cref{eq:deriv_tot_def_diff} e graze alla continuità delle derivate, le due norme tendono a $0$. Inoltre, per \fullref{def:o_piccolo}}
+			=\; &o(1) \sqrt{h^2 + k^2} \text{ per } \begin{bmatrix}h\\k\end{bmatrix} \to 0\\
+			=\; &o(\sqrt{h^2 + k^2}) \text{ per } \begin{bmatrix}h\\k\end{bmatrix} \to 0
+		\end{align*}
+		Da cui la tesi, avendo verificato la \fullref{def:differenz}.
+		\begin{note}
+			Il \textbf{Teorema di Lagrange} (o del \textbf{Valor Medio Differenziale})
+			\[c \in \realintervalopen{a}{b} : f'(c) = \frac{f(b)-f(a)}{b - a}\]
+			Alternativamente, nella forma
+			\[\xi \in \realintervalopen{0}{1} : f'(x_0 + \xi h) = \frac{f(x_0 + h)-f(x_0)}{h}\]
+		\end{note}
+	\end{proof}
+\end{theorem}
+
 \begin{proposition} % WARNING Questa proposizione va spostata sotto una volta che la sezione sarà sistemata. È qui perché non venga cancellata per sbaglio
 	\label{prop:if_df_lim_then_unif_cont}
 	Siano $I \in \R$ un intervallo reale e $f(x)$ una funzione derivabile in $I$. Se la $f'(x)$ è una \textbf{funzione limitata} in $I$, allora f è uniformemente continua in $I$
