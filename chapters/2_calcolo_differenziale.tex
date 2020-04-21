@@ -57,7 +57,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 \end{definition}
 \begin{example}
 	\label{ex:deriv_solo_alcune_direz}
-	La funzione del seguente grafico non è derivabile in $(0,0)$ lungo $x$ o qualsiasi altra direzione diversa da $y$.
+	La funzione del seguente grafico è derivabile in $(0,0)$ solo lungo $y$ perché non presenta discontinuità. Scegliendo una qualsiasi altra direzione non risulta continua e, dunque, derivabile.
 	\begin{figure}[H]
 		\begin{subfigure}{.49\textwidth}
 			\centering
@@ -540,6 +540,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \end{exercise}
 
 \begin{theorem}[del Differenziale Totale]
+	\label{teo:diff_tot}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \mapsto \R^m$.
 	\[
 		\left.
@@ -568,14 +569,52 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			\label{eq:teo_diff_tot_sommo_sottraggo}
 			f(x_0 + h, y_0 + k) - f(x_0, y_0) = \underbrace{f(x_0 + h, y_0 + k) - f(x_0+h,y_0)}_{\text{(1)}} + \underbrace{f(x_0+h,y_0) - f(x_0, y_0)}_{\text{(2)}}
 		\end{equation}
-		Considerando la (1) e la (2) di \cref{eq:teo_diff_tot_sommo_sottraggo} come funzioni in una sola variabile, si può applicare il Teorema di Lagrange di Analisi 1 (vedere Nota al termine della dimostrazione).
+		Considerando la (1) e la (2) di \cref{eq:teo_diff_tot_sommo_sottraggo} come funzioni in una sola variabile, si può applicare il Teorema di Lagrange di Analisi 1
 		\begin{itemize}
 			\item La (1) rispetto a $y$, con $x_0 + h$ fissato
 			\item La (2) rispetto a $x$, con $y_0$ fissato
 		\end{itemize}
-		Quindi:
+		Ci si muove lungo le direzioni parallele agli assi per andare da $(x_0 + h, y_0 + k)$ a $(x_0, y_0)$
+		\begin{center}
+			\begin{tikzpicture}
+				\pgfmathsetmacro\MAX{8}
+				\pgfmathsetmacro\XZ{\MAX / 3 }
+				\pgfmathsetmacro\YZ{\MAX / 3 }
+				\pgfmathsetmacro\XZh{\MAX / 3 *2}
+				\pgfmathsetmacro\YZk{\MAX / 3 *2}
+				\coordinate (X0Y0) at (\XZ,\YZ);
+				\coordinate (X0hY0) at (\XZh,\YZ);
+				\coordinate (X0Y0k) at (\XZ,\YZk);
+				\coordinate (X0hY0k) at (\XZh,\YZk);
+
+				\draw[->] (0,0) -- (\MAX,0) node[anchor=north west] {$x$};
+				\draw[->] (0,0) -- (0,\MAX) node[anchor=south east] {$y$};
+				\draw[dotted] (\XZ,0) -- (\XZ,\MAX);
+				\draw[dotted] (0,\YZ) -- (\MAX,\YZ);
+				\draw[dotted] (\XZh,0) -- (\XZh,\MAX);
+				\draw[dotted] (0,\YZk) -- (\MAX,\YZk);
+				\draw node[anchor=north] at (\XZ,0) {$x_0$};
+				\draw node[anchor=north] at (\XZh,0) {$x_0+h$};
+				\draw node[anchor=east] at (0,\YZ) {$y_0$};
+				\draw node[anchor=east] at (0,\YZk) {$y_0+k$};
+				\draw node at (X0Y0) {$\bullet$};
+				\draw node at (X0Y0k) {$\bullet$};
+				\draw node at (X0hY0) {$\bullet$};
+				\draw node at (X0hY0k) {$\bullet$};
+				\draw node[anchor=north east] at (X0Y0) {$(x_0,y_0)$};
+				\draw node[anchor=south east] at (X0Y0k) {$(x_0,y_0+k)$};
+				\draw node[anchor=north west] at (X0hY0) {$(x_0+h,y_0)$};
+				\draw node[anchor=south west] at (X0hY0k) {$(x_0+h,y_0+k)$};
+
+				\draw[<-] (\XZ,\MAX*4/10) -- (\XZ,\MAX*6/10);
+				\draw[<-] (\XZh,\MAX*4/10) -- (\XZh,\MAX*6/10);
+				\draw[<-] (\MAX*4/10,\YZ) -- (\MAX*6/10,\YZ);
+				\draw[<-] (\MAX*4/10,\YZk) -- (\MAX*6/10,\YZk);
+			\end{tikzpicture}
+		\end{center}
+		Quindi, applicando il teorema di Lagrange (vedere Nota al termine della dimostrazione):
 		\[
-			\exists \alpha, \beta \in \realintervalopen{0}{1} \textbf{ per cui} \quad
+			\exists \alpha, \beta \in \realintervalopen{0}{1} \textbf{ per cui} \qquad
 			\begin{array}{rrcl}
 				\text{(1)} & f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) &=& \frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) k\\[1ex]
 				\text{(2)} & f(x_0 + h, y_0) - f(x_0, y_0) &=& \frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) h
@@ -615,129 +654,62 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\end{note}
 	\end{proof}
 \end{theorem}
+\begin{exercise}
+	Data la funzione
+	\[
+		\funcdef{f}{\R}{\R}{x}{
+			\begin{cases}
+				\begin{array}{ll}
+					x^2 \sin \frac{1}{x} & x \neq 0\\
+					0 & x = 0
+				\end{array}
+			\end{cases}
+		}
+	\]
+	Verificare che $f$ è differenziabile su $\R$ ma non ha derivata continua su $\R$.
+	% TODO solution
+\end{exercise}
 
-\begin{proposition} % WARNING Questa proposizione va spostata sotto una volta che la sezione sarà sistemata. È qui perché non venga cancellata per sbaglio
-	\label{prop:if_df_lim_then_unif_cont}
-	Siano $I \in \R$ un intervallo reale e $f(x)$ una funzione derivabile in $I$. Se la $f'(x)$ è una \textbf{funzione limitata} in $I$, allora f è uniformemente continua in $I$
+\begin{definition}[Funzioni di Classe $\cntclass{1}$]
+	Sia $A \subseteq \R^n$ un \textbf{Aperto}.
+	\begin{center}
+		$\cntclass{1}(A; \R^m)$ è l'insieme delle funzioni $f:A \mapsto \R^m$\\
+		con \textbf{tutte} le \textbf{Derivate Parziali prime} in ogni punto di $A$
+	\end{center}
+	Si può anche leggere \textit{$f$ è di classe $\cntclass{1}$ su $A$ con valori in $\R^m$}.
+\end{definition}
+\begin{corollary}
+	Sia $A \subseteq \R^n$ un \textbf{Aperto}. Se $f \in \cntclass{1}(A;\R^m)$ allora $f$ è \textbf{Differenziabile} su $A$.
+	\begin{proof}
+		Applicare la \fullref{teo:diff_tot}
+	\end{proof}
+\end{corollary}
+\begin{proposition}
+	\label{prop:cnt_class_components}
+	Siano $m \in \N, m \geq 1$ e $A \subseteq \R^n$ un \textbf{Aperto}
+	\[f \in \cntclass{1}(A; \R^m) \iff \forall i = 1,\;\dotsc\;, m \quad f_i \in \cntclass{1}(A;\R)\]
+	\begin{proof}
+		Immediata.
+	\end{proof}
 \end{proposition}
-\definition
-sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\circdot{A}$ \\
-$f$ è differenziabile in $x_0\bydef$ $\exists M\in Mat(mxn) : f(x_0+h) = f(x_0)+Mh+o(h)$ per $h\rightarrow 0$ 
-\definition
-siano $f,g : A\subseteq \R^n\rightarrow \R^m$ e $x_0$ di accumulazione per A \\
-$f=o(g)$ per $x\rightarrow x_0 \bydef \lim\limits_{x->x_0}\frac{\norm{f(x)} }{\norm{g(x)} }$
-\definition
-sia $f:A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)\in\circdot{A}$ \\
-$f$ è differenziabile in $(x_0,y_0)\bydef$ $f(x_0+h,y_0+k) = f(x_0)+m_1h+m_2k+o(\sqrt{h^2+k^2})$ per $(h,k)\rightarrow (0,0)$
-\definition
-siano $f,g : :A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)$ di accumulazione per $A$ \\
-$f=o(g)$ per $(x,y)\rightarrow (x_0,y_0) \bydef \lim\limits_{(x,y)->(x_0,y_0)}\frac{\norm{f(x,y)} }{\norm{g(x,y)} }$
-\proposition{(Unicità della derivata totale)}
-sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0\in\circdot{A}$, $M_1$,$M_2\in Mat(mxn)$\\
-$M1$ derivata totale di $f$ in $x_0$,\\
-$M2$ derivata totale di $f$ in $x_0$,\\
-allora $M1=M2$\\
-\begin{proof}
-	poiché $M_1$ e $M_2$ sono derivate totali di $f$ nel punto $x_0$,\\
-	$f(x_0+h) = f(x_0)+M_1h+o(h)$ per $h\rightarrow 0$\\
-	$f(x_0+h) = f(x_0)+M_2h+o(h)$ per $h\rightarrow 0$\\
-	facendo la differenza membro a membro delle precedenti ottengo che $(M_1-M_2)h=o(h)$ per $h\rightarrow 0$\\
-	Scelto $h=te_i$, dove $e_i$ è un vettore della base canonica, si ottiene $(M_1-M_2)te_i=o(h)$ quindi\\
-	$\lim\limits_{t\rightarrow 0}\frac{(M_1-M_2)te_i}{t\norm{e_i} } = \lim\limits_{t\rightarrow 0}(M_1-M_2)e_i = 0$, poiché $e_i$ è un vettore non nullo deve essere $(M_1-M_2)=0$ quindi $M_1 = M_2$\\
-\end{proof}
-\observation
-L'ultima riga della dimostrazione dice che le applicazioni lineari $M_1$ e $M_2$ hanno le stesse immagini sui vettori della base canonica, quindi coincidono.
-
-\proposition
-sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0\in\circdot{A}$\\
-$f$ è differenziabile in $x_0$ $\Rightarrow$ $f$ è continua in $x_0$\\
-DIMOSTRAZIONE\\
-
-..\\
-..\\
-..\\
-..\\
-..\\
-..\\
-
-
-\theorem{Differenziale Totale}
-sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\circdot{A}$.\\
-$\exists \partial_{i}f(x)\;\forall i=1,...,n definite \forall x$ in un intorno di $x_0$\\
-$\partial{i}f$ è continua in $x_0$\\
-$\Rightarrow f$ è differenziabile in $x_0$\\
-
-\theorem{Differenziale Totale}
-sia $f:A\subseteq \R^2\rightarrow \R$ e $(x_0,y_0)\in\circdot{A}$.\\
-$\exists \partial_{x}f(x,y)$ e $\exists \partial_{y}f(x,y)$ definite $\forall x$ in un intorno di $(x_0,y_0)$\\
-$\partial_{x}f(x,y)$ e $\exists \partial_{y}f(x,y)$ continue in $x_0$\\
-$\Rightarrow f$ è differenziabile in $(x_0,y_0)$\\
-\begin{proof}
-	devo dimostrare che
-	\[\lim\limits_{(h,k)\rightarrow (0,0)}\frac{f(x_0+h,y_0+k)-f(x_0,y_0)-\nabla f(x_0,y_0\begin{bmatrix}h\\k\end{bmatrix})}{\sqrt{h^2+k^2}} = 0\]
-	dove $\nabla f(x_0,y_0)= \begin{bmatrix}\partial_xf(x_0,y,0) && \partial_yf(x_0,y_0)\end{bmatrix}$\\
-
-	\begin{tikzpicture}
-	\pgfmathsetmacro\MAX{8}
-	\pgfmathsetmacro\XZ{\MAX / 3 }
-	\pgfmathsetmacro\YZ{\MAX / 3 }
-	\pgfmathsetmacro\XZh{\MAX / 3 *2}
-	\pgfmathsetmacro\YZk{\MAX / 3 *2}
-	\coordinate (X0Y0) at (\XZ,\YZ);
-	\coordinate (X0hY0) at (\XZh,\YZ);
-	\coordinate (X0Y0k) at (\XZ,\YZk);
-	\coordinate (X0hY0k) at (\XZh,\YZk);
-	
-	\draw[->] (0,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,0) -- (0,\MAX) node[anchor=south east] {y};
-	\draw[dotted] (\XZ,0) -- (\XZ,\MAX);
-	\draw[dotted] (0,\YZ) -- (\MAX,\YZ);
-	\draw[dotted] (\XZh,0) -- (\XZh,\MAX);
-	\draw[dotted] (0,\YZk) -- (\MAX,\YZk);
-	\draw node[anchor=north] at (\XZ,0) {$x_0$};
-	\draw node[anchor=north] at (\XZh,0) {$x_0+h$};
-	\draw node[anchor=east] at (0,\YZ) {$y_0$};
-	\draw node[anchor=east] at (0,\YZk) {$y_0+k$};
-	\draw node at (X0Y0) {$\bullet$};
-	\draw node at (X0Y0k) {$\bullet$};
-	\draw node at (X0hY0) {$\bullet$};
-	\draw node at (X0hY0k) {$\bullet$};
-	\draw node[anchor=north east] at (X0Y0) {$(x_0,y_0)$};
-	\draw node[anchor=south east] at (X0Y0k) {$(x_0,y_0+k)$};
-	\draw node[anchor=north west] at (X0hY0) {$(x_0+h,y_0)$};
-	\draw node[anchor=south west] at (X0hY0k) {$(x_0+h,y_0+k)$};
-	
-	\draw[<-] (\XZ,\MAX*4/10) -- (\XZ,\MAX*6/10);
-	\draw[<-] (\XZh,\MAX*4/10) -- (\XZh,\MAX*6/10);
-	\draw[<-] (\MAX*4/10,\YZ) -- (\MAX*6/10,\YZ);
-	\draw[<-] (\MAX*4/10,\YZk) -- (\MAX*6/10,\YZk);
-	
-	\draw node at (\XZ,\MAX/2) {A};
-	\draw node at (\XZh,\MAX/2) {B};
-	\draw node at (\MAX/2,\YZ) {C};
-	\draw node at (\MAX/2,\YZk) {D};
-	\end{tikzpicture}
-	devo calcolare lo scarto della funzione tra i punti $(x_0+h,y_0+k)$ e $(x_0,y_0)$. Ho a disposizione le derivate parziali che mi danno informazioni lungo le parallele agli assi quindi non muovo lungo la diagonale ma lungo i percorsi D,A e B,C\\
-	Il limite  (<-) fa zero se il numeratore è zero, allora guardo solo quello.\\
-	\[f(x_0+h,y_0+k) -f(x_0,y_0)- \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k\]
-	riscrivo tale quantità seguendo il percorso D,A
-	\[ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k\]
-	chiamo $\varphi (x) = f(x,y_0)$ quindi $f(x_0+h,y_0)-f(x_0,y_0) = \varphi (x_0+h)-\varphi (x_0)$\\
-	la funzione $\varphi $ è una funzione reale di una variabile reale ed in virtù del teorema di Lagrange $\varphi (x_0+h)-\varphi (x_0) = \varphi'(x_0 + \beta h)h$ per $\beta\in ]0,1[ $, per come definita $\varphi$ si ha che $\varphi'(x_0 + \beta h)h = \partial_{x}f(x_0+\beta h,y_0)h$\\
-	con un ragionamento del tutto analogo si può definire $\varPsi (x) = f(x_0+h,y)$ e si ha che $\varPsi (y_0+h)-\varPsi (y_0) = \varPsi'(y_0 + \alpha k)k = \partial_{y}f(x_0+h,y_0+\alpha k)k$ per $\alpha\in ]0,1[ $\\
-	Quindi
-	\[ [f(x_0+h,y_0+k) - f(x_0+h,y_0)] + [f(x_0+h,y_0) - f(x_0,y_0)] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = \]
-	\[= [\partial_{x}f(x_0+\beta h,y_0)h] + [\partial_{y}f(x_0+h,y_0+\alpha k)k] - \partial{x}f(x_0,y_0)h - \partial{y}f(x_0,y_0)k = \]
-	\[= [\partial_{x}f(x_0+\beta h,y_0)h - \partial{x}f(x_0,y_0)h] + [\partial_{y}f(x_0+h,y_0+\alpha k)k  - \partial{y}f(x_0,y_0)k] \]
-	Adesso la riscrivo recuperando il denominatore 	'e devo verificare che il limite per $(h,k)\rightarrow (0,0)$ tenda a zero.\\
-	
-	\[[\partial_{x}f(x_0+\beta h,y_0)-\partial{x}f(x_0,y_0)] \frac{h}{\sqrt{h^2+k^2}} + [\partial_{y}f(x_0+h,y_0+\alpha k) - \partial{y}f(x_0,y_0)]\frac{k}{\sqrt{h^2+k^2}} \]
-	Le derivate parziali sono continue quindi per $(h,k)\rightarrow (0,0)$ i numeratori tendono a zero\\
-	Inoltre le due frazioni per $(h,k)\rightarrow (0,0)$ sono quantità limitate tra $-1$ e $1$ quindi si può dire che il limite cercato fa 0.
-\end{proof}
-
+\begin{exercise}
+	Dimostrare la \fullref{prop:cnt_class_components}.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Dimostrare che $\cntclass{1}(A;\R)$ non coincide con l'insieme delle funzioni differenziabili su $A$ con valori in $\R$.
+	% TODO solution
+\end{exercise}
+\begin{proposition}
+	\label{prop:if_df_lim_then_unif_cont}
+	Siano $I \in \R$ un intervallo reale e $f(x)$ una funzione \textbf{Derivabile} in $I$. Se la $f'(x)$ è una \textbf{Funzione Limitata} in $I$, allora f è \textbf{Uniformemente Continua} in $I$ % Taken from http://www.batmath.it/matematica/an_uno/cont_unif/cont_unif.htm
+	\begin{proof}
+		Omessa. % TODO proof
+	\end{proof}
+\end{proposition}
 
 \subsection{Regole di Derivazione}
+%TODO This section is a placeholder, the following proposition have to be rewritten
 \proposition
 Siano $f,g: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$\\
 $f$ differenziabile in $x_0$, $g$ differenziabile in $x_0$ allora $f+g$ differenziabile in $x_0$ e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
@@ -780,44 +752,224 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 \proposition DERIVATA DEL PRODOTTO
 
 \subsection{La Formula degli Accrescimenti Finiti}
-\definition
-Siano $x_0,x_1\in \R^n$, si dice segmento di estremi $x_0$ e $x_1$ l'insieme $S={tx_1+(1-t)x_0 : t\in[0,1]}$
-\begin{theorem}[Formula degli Accrescimenti Finiti]
+\begin{definition}[Segmento]
+	\label{def:segmento}
+	Siano $x_0,x_1 \in \R^n$, si dice \textbf{Segmento} di estremi $x_0$ e $x_1$ l'insieme che li unisce, cioè
+	\[S = \brackets{tx_1+(1-t)x_0 \in \R^n:\; t \in \realintervalclose{0}{1}}\]
+\end{definition}
+\begin{observation}
+	La \fullref{def:segmento} può essere formulata in ogni spazio affine o vettoriale
+\end{observation}
+\begin{exercise}
+	Dimostrare che ogni \textbf{Segmento} in $\R^n$ è \textbf{Compatto} e \textbf{Connesso}.
+	\begin{solution}
+		Posta
+		\[\funcdef{\varphi}{\realintervalclose{0}{1}}{\R^n}{t}{t x_1 + (1-t) x_0}\]
+		\begin{itemize}
+			\item $\realintervalclose{0}{1} \subset \R^n$, essendo sottoinsieme di $\R^n$ chiuso e limitato, grazie alla \fullref{prop:compat_chius_lim_Rn}, è compatto. Inoltre, grazie al \fullref{teo:weier_generale}, $\varphi(\realintervalclose{0}{1})$ è sicuramente compatto a sua volta, dunque il segmento $S$ è compatto.
+			\item Dalla \fullref{prop:f_di_conn_cont_e_conn}, essendo $\varphi$ continua, il segmento $S$ è sicuramente Connesso.
+		\end{itemize}
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Ispirandosi alla \fullref{def:segmento} è possibile dare una possibile definizione di Semiretta uscente da $x_0$ e passante per $x_1$?
+	\begin{solution}
+		\[s = \brackets{x_0+(x_1-x_0)t \in \R^n: t \in \realintervalclop{0}{+\infty} \;}\]
+	\end{solution}
+\end{exercise}
+\begin{theorem}[degli Accrescimenti Finiti]
 	\label{teo:accresc_fin}
-	Sia $f:A\subseteq \R^n\rightarrow \R^m$, $x_0,x_1\in\circdot{A}$, $S$ il segmento di estremi $x_0,x_1$, sia $f\in \cntclass{1}(A,\R^m)$ allora $\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}$
-	\begin{observation}
-		$\norm{A}$ con $A\in Mat(n\times m)$,  $\norm{A}=\sup\limits_{\norm{x}=1: x\in \R^n}\norm{Ax} = \sup\limits_{x\in \R^n \setminus \{0\}}\frac{\norm{Ax} }{\norm{x} } $ questa è chiamata norma operativa
-	\end{observation}
+	Sia $f \in \cntclass{1}(A;\R^m)$, con $A \subseteq \R^n$. Siano $x_0, x_1 \in \circdot{A}$ tali che il \textbf{Segmento} $S$ di estremi $x_0$ e $x_1$ sia \textbf{interamente contenuto} in $\circdot{A}$. Allora
+	\begin{equation}
+		\label{eq:accresc_fin}
+		\norm{f(x_1) - f(x_0)} \leq \sup\limits_{\xi \in S} \norm{Df(\xi)} \cdot \norm{x_1-x_0}
+	\end{equation}
 	\begin{note}
-		\[\norm{Ax} \le \norm{A} \norm{x}  \]
-		\[\norm{AB} \le \norm{A} \norm{B}  \]
+		Con $\R^m = \R^1$ e $A \subseteq \R^1$ è come dire
+		\[
+			\abs{f(x_1) - f(x_0)} \leq M \cdot \abs{x_1 - x_0} \quad \text{con} \quad M = \sup \brackets{\text{\itshape\begin{tabular}{c}coefficiente angolare di tutte le\\rette tangenti alla curva\end{tabular}}}
+		\]
+		\begin{center}
+			\begin{tikzpicture}[declare function = {curve(\x)=0.3*(\x-3.5)^3-\x+7; x_0=1; x_1=6;}]
+				% Axes
+				\draw[-stealth] (-0.5,0) -- (6.5,0);
+				\draw[-stealth] (0,-0.5) -- (0,6.5);
+				% Curve
+				\draw[domain=.7:1.5] plot (\x,{curve(\x)}) {[turn] (-1.5,0) coordinate(t0) (1.5,0) coordinate(t1)}; % This is the most steep tangent
+				\draw[domain=1.5:2] plot (\x,{curve(\x)}) {[turn] (-1.5,0) coordinate(t2) (1.5,0) coordinate(t3)};
+				\draw[domain=2:3] plot (\x,{curve(\x)}) {[turn] (-1.5,0) coordinate(t4) (1.5,0) coordinate(t5)};
+				\draw[domain=3:5] plot (\x,{curve(\x)}) {[turn] (-1.5,0) coordinate(t6) (1.5,0) coordinate(t7)};
+				\draw[domain=5:6.1] plot (\x,{curve(\x)});
+				% Dashed lines
+				\foreach \x in {x_0,x_1}
+				{\draw[dashed] (\x,0) node[below]{$\x$} |- (0,{curve(\x)}) node[left] {$f(\x)$};}
+				\draw[dashed] (x_0,{curve(x_0)}) -- (x_1,{curve(x_0)});
+				% Delta-y
+				\draw[brown] ({x_0},{curve(x_0)}) -- ({x_1},{curve(x_1)});
+				% Tangents
+				\draw[red] (t0)--(t1);
+				\draw[black!50] (t2)--(t3);
+				\draw[black!50] (t4)--(t5);
+				\draw[black!50] (t6)--(t7);
+			\end{tikzpicture}
+		\end{center}
 	\end{note}
 	\begin{proof}
-		sia $F:[0,1]\rightarrow \R$ che $t\rightarrow f(tx_1+(1-t)x_0)$\\
-		%moltiplicando per $v\in \R^m$ ottengo una funzione in $\R^m$\\
-		La funzione $F$ è una funzione reale di variabile reale , posso quindi applicare il teorema di Lagrange $F(1)-F(0)=F'(\theta)1$ quindi $f(x_1)-f(x_0) = Df(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
-		scelto $v\in \R^m$ con $v = \frac{f(x_1)-f(x_0)}{\norm{f(x_1)-f(x_0)} }$ moltiplico entrambi i membri per $v$ si ottiene $v(f(x_1)-f(x_0)) = vDf(\theta x_1 + (1-\theta)x_0)(x_1-x_0)$\\
-		... da finire per bene
+		Si può dare per scontato che $x_1 \neq x_0$, in quanto, se $x_1 = x_0$ , allora $f(x_1) = f(x_0)$ e la \cref{eq:accresc_fin} diventerebbe $0 \leq 0$. La tesi sarebbe quindi verificata direttamente.\\
+		Fissato un qualsiasi $v \in \R^m$, si definisce così la funzione $F$ legata ad $f$ tramite la \fullref{def:segmento}:
+		\begin{equation}
+			\label{eq:accresc_fin_F}
+			\funcdef{F}{\realintervalclose{0}{1}}{\R}{t}{v \cdot f \bigl( t x_1 + (1-t)x_0 \bigr)}
+		\end{equation}
+		\begin{note}
+			Nella \cref{eq:accresc_fin_F},  $\cdot$  è Prodotto Scalare tra due vettori di dimensione $\R^m$, dunque il risultato è correttamente uno scalare.
+		\end{note}
+		$F$ è continua e derivabile sull'intervallo di definizione $\realintervalclose{0}{1}$. È dunque possibile utilizzare il Teorema di Lagrange da Analisi 1, che garantisce:
+		\[\exists c \in \realintervalopen{0}{1}: \quad F(1) - F(0) = F'(c) \; (1-0)\]
+		Tornando dunque a $f$ dalla definizione di $F$
+		\[v \cdot f(x_1) - v \cdot f(x_0) = v \cdot Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)\]
+		Ricordando che la $F$ è a valori in $\R$, si può calcolare il valore assoluto mantenendo l'uguaglianza
+		\[\abs{v \cdot f(x_1) - v \cdot f(x_0)} = \abs{v \cdot Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)}\]
+		Essendo il secondo membro il valore assoluto di un prodotto scalare, si può applicare ad esso la \textbf{Disuguaglianza di Cauchy-Schwarz} ed ottenere
+		\[\abs{v \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \norm{v} \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)}\]
+		Dunque, seaparando ulteriorimente le norme si arriva alla:
+		\begin{equation}
+			\label{eq:accr_fin_norm}
+			\abs{v \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \norm{v} \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}
+		\end{equation}
+
+		Essendo, come detto all'inzio, $f(x_1) \neq f(x_0)$ è ora possibile scegliere un $v$ "comodo", come:
+		\[v = \frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \bigl( f(x_1) - f(x_0) \bigr)\]
+		\begin{note}
+			La norma di $v$, grazie poi alla proprietà 4 da \fullref{def:norma}, è
+			\begin{align*}
+				\norm{v} &= \norm{
+					\underbrace{\frac{1}{\norm{f(x_1) - f(x_0)}}}_{\text{Scalare}}
+					\cdot
+					\underbrace{\bigl( f(x_1) - f(x_0) \bigr)}_{\text{Vettore}}
+					}\\
+				&= \abs{\frac{1}{\norm{f(x_1) - f(x_0)}}} \cdot \norm{\bigl( f(x_1) - f(x_0) \bigr)}\\
+				&= \frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \norm{\bigl( f(x_1) - f(x_0) \bigr)}\\
+				&= 1
+			\end{align*}
+		\end{note}
+		Sostituendo dunque in \cref{eq:accr_fin_norm} si ottiene
+		\[\norm{\frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \bigl( f(x_1) - f(x_0) \bigr) \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
+		Dal punto 3 di \fullref{ex:sp_norm}, si ottiene
+		\[\norm{\frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \norm{f(x_1) - f(x_0)}^2} \leq \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
+		Da cui
+		\[\norm{f(x_1) - f(x_0)} \leq \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
+		e passando al $\sup$ su $t \in \realintervalopen{0}{1}$ si ottiene la tesi.
 	\end{proof}
 \end{theorem}
-\definition
-Sia $C\in \R^n$, $C$ è convesso $\bydef$ $\forall x_0,x_1\in C$ anche $S_(x_0,x_1) = \{tx_1+(1-t)x_0 : t\in[0,1]\}\subseteq C$ù
+Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa essere esteso al caso di funzioni a valori in $\R^n$ con $n > 1$.
+\begin{exercise}
+	Sia $f: \R \mapsto \R^2$ data da $f(t) = (\cos t, \sin t)$. Mostrare che non esiste nessun numero reale $c$ tale che
+	\[f(2 \pi) - f(0) = Df(c) \cdot 2 \pi\]
+\end{exercise}
 
-\proposition
-sia $f:A\subseteq \R^n \rightarrow \R^m$, $A$ è aperto connesso e $f\in \cntclass{1}(A;\R^m)$ e $Df=0$ allora $f$ è costante su $A$\\
-..... disegnino e bozza di dimostrazione
+\begin{definition}[Insieme Convesso]
+	\label{def:convesso}
+	Sia $C \subseteq \R^n$
+	\begin{equation*}
+		\begin{gathered}
+			C \text{ è \textbf{Convesso}}\\
+			\bydef\\
+			\forall x_0,y_1 \in C \quad \brackets{tx_1+(1-t)x_0:\; t \in \realintervalclose{0}{1}} \subseteq C
+		\end{gathered}
+	\end{equation*}
+	Cioè un insieme è Convesso se, dati qualsiasi due suoi punti, contiene anche il segmento che li congiunge.
+\end{definition}
+\begin{exercise}
+	Dimostrare la \fullref{prop:convesso_deriv_par_lim_allora_lips}
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	In $\R^n$ dimostrare che ogni segmento è convesso, così come anche ogni sfera.\\
+	Esibire un esempio di insieme non convesso.
+	% TODO solution
+\end{exercise}
+\begin{corollary}
+	\label{coro:convess_nabla_0_f_const}
+	Siano $A \subseteq \R^n$ e $f: A \mapsto \R$
+	\[
+		\left.
+			\begin{array}{l}
+				A \text{ \textbf{Aperto Convesso}}\\
+				f \text{ \textbf{Differenziabile} in } A\\
+				\forall x \in A \quad \nabla f(x) = 0
+			\end{array}
+		\right\}
+		\implies\\
+		f \text{ è \textbf{Costante} su } A
+	\]
+	\begin{note}
+		Come da \fullref{obs:matr_deriv_tot}, $\nabla f(x) = Df(x) \in \mat (1 \times n)$, cioè un vettore riga.
+	\end{note}
+	\begin{proof}
+		Se $\nabla f(x) = Df(x) = 0$, la \cref{eq:accresc_fin} da \fullref{teo:accresc_fin} diventa
+		\begin{equation*}
+			\begin{gathered}
+				\norm{f(x_1) - f(x_0)} \leq \sup\limits_{\xi \in S} 0 \cdot \norm{x_1-x_0}\\
+				\norm{f(x_1) - f(x_0)} \leq 0\\
+				f(x_1) = f(x_0)
+			\end{gathered}
+		\end{equation*}
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	Dimostrare che un insieme \textbf{Convesso} è anche \textbf{Connesso}.\\
+	Esibire un controesempio al viceversa.
+	\begin{solution}
+		Supponendo, per assurdo, $C \in \R^n$ sconnesso. In questo caso, per \fullref{def:connesso}, esistono due insiemi separati $S_1$ e $S_2$ che costituiscono $C$, inoltre $S_1 \cup S_2 = C$ e $S_1 \cap S_2 = \emptyset$. Questo implica che
+		\[\exists t \in \realintervalclose{0}{1}:\; \forall x_1 \in S_1 \text{ e } \forall x_2 \in S_2 \quad tx_1 + (1-t)x_2 \notin S_1 \text{ e contemporaneamente } \notin S_2\]
+		Questo implica la non convessità di $C$ - \textit{Assurdo}.\\
 
-\proposition
-sia $f:A\subseteq \R^n \rightarrow \R^m$, $A$ è aperto convesso e $f\in \cntclass{1}(A;\R^m)$ e $Df=0$ allora $f$ è costante su $A$\\
-..... disegnino e bozza di dimostrazione
+		Preso il cerchio di raggio unitario $S = {(x,y): x^2 + y^2 = 1}$, questo verifica la \fullref{def:connesso} ma sicuramente non la \fullref{def:convesso}.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Esibire esempi di insiemi convessi/non convessi e aperti/chiusi, limitati/illimitati.
+	% TODO solution
+\end{exercise}
 
-\proposition
-sia $f:A\subseteq \R^n \rightarrow \R^m$, $A$ è aperto connesso e $f\in \cntclass{1}(A;\R^m)$ e $Df=0$ allora $f$ è costante su $A$\\
-..... disegnino e bozza di dimostrazione
-
-\observation vale anche sugli insiemi connessi poiché in questi posso congiungere due qualunque punti con una poligonale interamente contenuta nell'insieme e con i lati paralleli agli assi. Attraverso la formula degli accrescimenti finiti posso calcolare la $f$ nei due estremi passando per tutti gli spigoli della poligonale.(Uno spigolo è un segmento quindi si puòapplicare il teorema precedente)\\
-
-si po dire qualcosa sulle funzioni lineari tipo c1, lips ....\\
+\begin{definition}[Funzione Convessa]
+	Sia $I$ un intervallo reale e $f:\; I \mapsto \R$.
+	\begin{equation*}
+		f \text{ è \textbf{Convessa}}
+		\quad \bydef \quad
+		\begin{cases}
+			\forall x_0, x_1 \in I,\; \forall t \in \realintervalclose{0}{1}\\
+			f \bigl( (1-t)x_0 + t x_1 \bigr) \leq (1-t) f(x_0) + t f(x_1)
+		\end{cases}
+	\end{equation*}
+	Cioè se il segmento che congiunge due qualsiasi punti del suo grafico si trova al di sopra del grafico stesso.
+\end{definition}
+\begin{exercise}
+	Verificare che $f$ è \textbf{Convessa} se e solo se il suo \textbf{Epigrafo} (cioè l'insieme di punti che stanno al di sopra o sul grafico della funzione)
+	è un sottoinsieme \textbf{Convesso} di $\R^2$ nel senso della \fullref{def:convesso}.
+	% TODO solution
+\end{exercise}
+\begin{proposition}
+	Siano $A \subseteq \R^n$ e $f:\; A \mapsto \R$
+	\[
+		\left.
+			\begin{array}{l}
+				A \text{ \textbf{Aperto Connesso}}\\
+				f \text{ \textbf{Differenziabile} in } A\\
+				\forall x \in A \quad \nabla f(x) = 0
+			\end{array}
+		\right\}
+		\implies\\
+		f \text{ è \textbf{Costante} su } A
+	\]
+	\begin{note}
+		Si sta parlando di insiemi Co\textbf{nn}essi
+	\end{note}
+	\begin{proof}
+		Sia $x_0 \in A$. Per la \fullref{prop:polig_in_aperto_connesso}, ogni punto $x \in A$ può essere unito a $x_0$ con una poligonale interamente contenuta in $A$ dai lati paralleli agli assi. A questo punto è possibile applicare il \fullref{teo:accresc_fin} ad ogni segmento della poligonale ed, essendo $\nabla f(x) = 0$, come in \fullref{coro:convess_nabla_0_f_const}, la $f$ è costante.
+	\end{proof}
+\end{proposition}
 
 \section{Derivate Seconde}
 Sia $f:A\subseteq \R^n \rightarrow \R^m$ sappiamo che $Df(x_0)\in Mat(m\times n)$, allora $Df:A\subseteq \R^{n} \rightarrow \R^{m\times n}$ cioè la derivata è una funzione a valori in $Mat(m\times n)$, ne segue che $D(D(F)):A\subseteq \R^n \rightarrow \R^{m\times n\times n}$

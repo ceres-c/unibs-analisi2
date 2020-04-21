@@ -228,10 +228,11 @@ Unendo le due definizioni si giunge naturalmente a
 \end{definition}
 
 \begin{example}[Esempi di Spazi Normati]\leavevmode\vspace*{-\baselineskip}
+	\label{ex:sp_norm}
 	\begin{enumerate}
 		\item $\R$ con $\norm{x} = \abs{x}$
 		\item $\C$ con $\norm{x} = \abs{x}$
-		\item $\R^n$ con $\norm{x} = \sqrt{\sum\limits_{i=1}^{n}x_i^2}$
+		\item $\R^n$ con $\norm{x} = \sqrt{\sum\limits_{i=1}^{n}x_i^2} \implies \norm{x}^2 = \sum\limits_{i=1}^{n}x_i^2 = x \cdot x$
 		\item $\cntclass{0}(\realintervalclose{0}{1};\R)$ con $\norm{f} = \sup\limits_{x \in \realintervalclose{0}{1}} \abs{f(x)}$
 	\end{enumerate}
 \end{example}
@@ -857,7 +858,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $B \subseteq X$
 	\[A \text{ e } B \text{ sono \textbf{Separati}} \bydef \overline{A} \cap B = \emptyset \text{ e } A \cap \overline{B} = \emptyset\]
 \end{definition}
-\begin{definition}[Insieme Connesso o Sconnesso]
+\begin{definition}[Insiemi Connessi e Sconnessi]
+	\label{def:connesso}
 	Un insieme è \textbf{Sconnesso} se e solo se è \textbf{unione} di due insiemi \textbf{separati}.\\
 	Un insieme è \textbf{Connesso} se e solo se \textbf{non è Sconnesso}.
 	\begin{note}
@@ -1441,6 +1443,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{solution}
 \end{exercise}
 \begin{proposition}
+	\label{prop:f_di_conn_cont_e_conn}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
 	\begin{equation*}
 		\left.
@@ -1747,11 +1750,11 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{proposition}
+	\label{prop:convesso_deriv_par_lim_allora_lips}
 	Siano $A \subseteq \R^n$ un insieme \textbf{Convesso} (\fullref{def:convesso}) e $f \in \cntclass{1}(A;\R)$. Se tutte le derivate parziali sono limtate in $A$ , allora $f$ è Lipschitziana.
 	\begin{proof}
 		Segue direttamente da \fullref{def:convesso} e \fullref{teo:accresc_fin}
 	\end{proof}
-	% TODO reference a questa proposizione dove si parlerà di convessi
 \end{proposition}
 
 \begin{proposition}
