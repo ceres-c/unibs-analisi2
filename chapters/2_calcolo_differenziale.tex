@@ -57,7 +57,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 \end{definition}
 \begin{example}
 	\label{ex:deriv_solo_alcune_direz}
-	La funzione del seguente grafico è derivabile in $(0,0)$ solo lungo $y$ perché non presenta discontinuità. Scegliendo una qualsiasi altra direzione non risulta continua e, dunque, derivabile.
+	La funzione del seguente grafico è derivabile in $(0,0)$ solo lungo $y$ perché non presenta discontinuità. Scegliendo una qualsiasi altra direzione non risulta continua e, dunque, nemmeno derivabile.
 	\begin{figure}[H]
 		\begin{subfigure}{.49\textwidth}
 			\centering
@@ -182,7 +182,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 					\begin{axis}[
 						title={Funzione nello spazio},
 						xlabel=$x$, ylabel=$y$, zlabel=$z$, zlabel style={rotate=-90},
-						xticklabels={,,}, yticklabels={,,},
+						yticklabels={,,},
 						samples y=0,
 						zmin = 0, zmax = 1.5
 					]
@@ -574,7 +574,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			\item La (1) rispetto a $y$, con $x_0 + h$ fissato
 			\item La (2) rispetto a $x$, con $y_0$ fissato
 		\end{itemize}
-		Ci si muove lungo le direzioni parallele agli assi per andare da $(x_0 + h, y_0 + k)$ a $(x_0, y_0)$
+		Spostandosi lungo le direzioni parallele agli assi è possibile andare da $(x_0 + h, y_0 + k)$ a $(x_0, y_0)$
 		\begin{center}
 			\begin{tikzpicture}
 				\pgfmathsetmacro\MAX{8}
