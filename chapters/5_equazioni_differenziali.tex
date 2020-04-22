@@ -140,7 +140,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{example}
 	il problema di Cauchy \[\begin{cases}x'=x\\x(0)=1\end{cases}\]
 	ammette, tra le altre, anche le seguenti soluzioni, tecnicamente distinte tra loro
-	\[\funcdef{f_1}{ \realintervalclose{-1}{1} }{\R}{t}{e^t} \qquad \funcdef{f_2}{ \realintervalclose{-2}{10} }{\R}{t}{e^t}\]
+	\[\funcdef{f_1}{ \intervalclose{-1}{1} }{\R}{t}{e^t} \qquad \funcdef{f_2}{ \intervalclose{-2}{10} }{\R}{t}{e^t}\]
 	La soluzione massimale è
 	\[\funcdef{f_M}{\R}{\R}{t}{e^t}\]
 	con intervallo di partenza $\R$, avente evidentemente diametro maggiore possibile.
@@ -237,9 +237,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		x_{a,b}(t) =
 		\begin{cases}
 			\begin{array}{ll}
-				-\frac{1}{4}(t-a^2) & \text{se } t \in \realintervalopcl{-\infty}{a}\\
-				0 & \text{se } t \in \realintervalclose{a}{b}\\
-				\frac{1}{4}(t-b^2) & \text{se } t \in \realintervalclop{b}{+\infty}
+				-\frac{1}{4}(t-a^2) & \text{se } t \in \intervalopcl{-\infty}{a}\\
+				0 & \text{se } t \in \intervalclose{a}{b}\\
+				\frac{1}{4}(t-b^2) & \text{se } t \in \intervalclop{b}{+\infty}
 			\end{array}
 		\end{cases}
 	\end{equation*}
@@ -441,7 +441,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\item $f\in \cntclass{0}(I\times A;R^n)$
 	\end{enumerate}
 	inoltre $I\subseteq \R$ intervallo e $A\subseteq \R^n$, per \fullref{def:prob_cauchy_ord_1}.\\
-	\textbf{Allora} esiste un $\delta>0$ tale che esiste soluzione $x:J\mapsto A$ del problema di Cauchy con $J=\realintervalclose{t_0-\delta}{t_0+\delta}$.
+	\textbf{Allora} esiste un $\delta>0$ tale che esiste soluzione $x:J\mapsto A$ del problema di Cauchy con $J=\intervalclose{t_0-\delta}{t_0+\delta}$.
 	\begin{note}
 		$\delta$ è un valore arbitrario che serve solo ad identificare l'intervallo $J$ a cui appartiene $t_0$, non è dato modo per identificare quel $\delta$
 	\end{note}
@@ -541,9 +541,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			x_{a,b}(t) =
 			\begin{cases}
 				\begin{array}{ll}
-					x_0 - \frac{1}{4}(t-t_0-a)^2 & \text{se } t \in \realintervalopcl{-\infty}{a}\\
-					x_0 & \text{se } t \in \realintervalclose{a}{b}\\
-					x_0 + \frac{1}{4}(t-t_0-b)^2 & \text{se } t \in \realintervalclop{b}{+\infty}
+					x_0 - \frac{1}{4}(t-t_0-a)^2 & \text{se } t \in \intervalopcl{-\infty}{a}\\
+					x_0 & \text{se } t \in \intervalclose{a}{b}\\
+					x_0 + \frac{1}{4}(t-t_0-b)^2 & \text{se } t \in \intervalclop{b}{+\infty}
 				\end{array}
 			\end{cases}
 		\end{equation*}
@@ -640,7 +640,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	Allora ho i seguenti risultati:
 	\begin{enumerate}
 		\item \textbf{Esistenza}:\\
-		da \fullref{teo:peano} $\exists \delta>0$, con cui si identifica un $J=\realintervalclose{t_0-\delta}{t_0+\delta}$. Inoltre $\exists\,\varphi : J \to \R^n$ è soluzione con le proprietà date da Peano:
+		da \fullref{teo:peano} $\exists \delta>0$, con cui si identifica un $J=\intervalclose{t_0-\delta}{t_0+\delta}$. Inoltre $\exists\,\varphi : J \to \R^n$ è soluzione con le proprietà date da Peano:
 		\begin{itemize}
 			\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
 			\item $\varphi(t_0)=x_0$
@@ -679,12 +679,12 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		Abbiamo così ottenuto un problema di punto fisso ($x=T(x)$). Ora bisogna determinare l'insieme di partenza e l'insieme di arrivo in maniera utile per la dimostrazione. Per poter applicare il \fullref{teo:contrazioni} serve che lo spazio di partenza e di arrivo corrispondano.\\
 		Prendiamo:
 		\begin{itemize}
-			\item $\delta_1>0$ tale che $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\subseteq I$
+			\item $\delta_1>0$ tale che $\intervalclose{t_0-\delta_1}{t_0+\delta_1}\subseteq I$
 			\item $\rho>0$ tale che $\overline{B(x_0,\rho)}\subseteq A$
-			\item $L$ costante di Lipshitz di $f$ in $\realintervalclose{t_0-\delta_1}{t_0+\delta_1}\times\overline{B(x_0,\rho)}$. È possibile individuare $L$ in quanto $f$ loc. lips. per ipotesi in $I\times A$, e dunque \textbf{loc. lips. in sottointervalli/insiemi}
+			\item $L$ costante di Lipshitz di $f$ in $\intervalclose{t_0-\delta_1}{t_0+\delta_1}\times\overline{B(x_0,\rho)}$. È possibile individuare $L$ in quanto $f$ loc. lips. per ipotesi in $I\times A$, e dunque \textbf{loc. lips. in sottointervalli/insiemi}
 		\end{itemize}
 		Sia ora
-		\[V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\realintervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}\]
+		\[V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\intervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}\]
 		\begin{note}
 			V è il maggiore tra i valori assunti dalla derivata prima $\bigl(x'=f(t,x)\bigr)$ di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \fullref{prop:compat_chius_lim}).
 		\end{note}
@@ -704,7 +704,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\end{itemize}
 		Questo $\delta$, dunque, rappresenta, dal punto di vista concettuale, quale sia la più restrittiva ($\min$) tra tutte le possibili variazioni della $f(x)$ rispetto alla $x$.\\
 		A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
-		\[X = \brackets{g\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}\]
+		\[X = \brackets{g\in \cntclass{0}(\intervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}\]
 		\begin{note}
 			Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra} sarebbe possibile sceglierla non continua, ma non si considera il caso.
 		\end{note}
@@ -716,7 +716,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			L'abbiamo definita all'inizio dall'equazione di Volterra\qed
 			\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
 			L'insieme di partenza è valido in quanto sottoinsieme dell'insieme su cui $f(t,xt)$ era definita.\\
-			Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\realintervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \realintervalclose{t_0-\delta}{t_0+\delta}$
+			Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\intervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \intervalclose{t_0-\delta}{t_0+\delta}$
 			\begin{proof}
 				$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fodamentale del Calcolo Integrale.\\
 				La seconda condizione si verifica prendendo la \cref{eq:cauch_proof_T} e calcolando la norma di entrambi i termini
@@ -759,19 +759,19 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\end{align*}
 			Quindi, concludendo, possiamo passare dal primo membro della \cref{eq:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza, cioè
 			\[\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)\]
-			Minoriamo questa distanza con la forma appena trovata \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
+			Minoriamo questa distanza con la forma appena trovata \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\intervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
 			\[d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)\]
 			Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per \fullref{def:contrazione}.
 			\end{proof}
 		\end{itemize}
-		È ora possibile applicare il \fullref{teo:contrazioni} che garantisce l'\textbf{unicità} del punto fisso $x_* \in X$ per la $x = T(x)$, questo implica ovviamente che $T(x)$ abbia un'unica soluzione. Si ha dunque l'unicità della soluzione $x$ del problema di Cauchy in ipotesi sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$, al quale $T$ è equivalente per definizione in quanto $T$ è \fullref{def:equaz_volterra}.
+		È ora possibile applicare il \fullref{teo:contrazioni} che garantisce l'\textbf{unicità} del punto fisso $x_* \in X$ per la $x = T(x)$, questo implica ovviamente che $T(x)$ abbia un'unica soluzione. Si ha dunque l'unicità della soluzione $x$ del problema di Cauchy in ipotesi sull'intervallo $\intervalclose{t_0-\delta}{t_0+\delta}$, al quale $T$ è equivalente per definizione in quanto $T$ è \fullref{def:equaz_volterra}.
 
 		Tornando ai $J_1, J_2$ della Tesi 2:
 		\begin{itemize}
-			\item Se $(J_1 \cap J_2) \subseteq \realintervalclose{t_0-\delta}{t_0+\delta}$, allora $x_1 = x_2$ in quanto esiste unico punto fisso, come dimostrato sopra.
-			\item Se $(J_1 \cap J_2) \supset \realintervalclose{t_0-\delta}{t_0+\delta}$, allora poniamo
+			\item Se $(J_1 \cap J_2) \subseteq \intervalclose{t_0-\delta}{t_0+\delta}$, allora $x_1 = x_2$ in quanto esiste unico punto fisso, come dimostrato sopra.
+			\item Se $(J_1 \cap J_2) \supset \intervalclose{t_0-\delta}{t_0+\delta}$, allora poniamo
 				\begin{equation}
-					t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \realintervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{eq:cau_loc_tM_J1J2_supset}
+					t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \intervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{eq:cau_loc_tM_J1J2_supset}
 				\end{equation}
 				\[x_M = x_1(t_M) = x_2(t_M)\]
 				Quindi $t_M$ è l'\textit{ultimo istante} in cui $x_1$ e $x_2$ coincidono.
@@ -783,11 +783,11 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 				\end{itemize}
 				ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
 				\[\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}\]
-				ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\realintervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
+				ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\intervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
 				\[t_M = \min \brackets{\sup J_1, \sup J_2}\]
 				Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
 				\[t_m = \max \brackets{\inf J_1, \inf J_2}\]
-				Quindi, prendendo $\realintervalclose{t_m}{t_M}$, abbiamo identificato $J_1 \cap J_2$ stessa.
+				Quindi, prendendo $\intervalclose{t_m}{t_M}$, abbiamo identificato $J_1 \cap J_2$ stessa.
 		\end{itemize}
 		Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
 	\end{proof}
@@ -879,16 +879,16 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\label{lemma:gronwall}
 	Dati $a,b\in \R$ con $a < b$, siano:
 	\begin{itemize}
-		\item $\delta_0\in \realintervalclop{0}{+\infty}$
+		\item $\delta_0\in \intervalclop{0}{+\infty}$
 		\item $\hspace{-0.5em}\left.\begin{array}{ll}
-				k,\,\delta:\realintervalclose{a}{b}\mapsto \R \\
-				k(t)\geq 0,\,\delta(t) \geq 0 \text{ funzioni continue } \forall t \in \realintervalclose{a}{b}
-		\end{array} \quad\right\}$\quad cioè \quad$k,\,\delta\in\cntclass{0}(\realintervalclose{a}{b},\R^{+})$
+				k,\,\delta:\intervalclose{a}{b}\mapsto \R \\
+				k(t)\geq 0,\,\delta(t) \geq 0 \text{ funzioni continue } \forall t \in \intervalclose{a}{b}
+		\end{array} \quad\right\}$\quad cioè \quad$k,\,\delta\in\cntclass{0}(\intervalclose{a}{b},\R^{+})$
 	\end{itemize}
 	con:
 	\[\qquad \delta(t)\le \delta_0+\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}\]
 	Allora
-	\[\delta(t)\le\delta_0e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \quad \forall t \in \realintervalclose{a}{b}\]
+	\[\delta(t)\le\delta_0e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \quad \forall t \in \intervalclose{a}{b}\]
 	Questo lemma permette di limitare una funzione che soddisfa una disuguaglianza integrale con la soluzione della corrispondente equazione. Ci si porta da una stima implicita di $\delta$ (sotto il segno di integrale) ad una stima esplicita.
 	\begin{proof}
 		Dividiamo in due casi
@@ -947,7 +947,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\item $f,g\in \cntclass{0}(I\times A; \R^n)$
 		\item $f,g$ sono localmente Lipschitziane in $x\in A$ uniformemente rispetto a $t\in I$
 	\end{enumerate}
-	Allora esiste un $\delta >0$ tale che sull'intervallo $\realintervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \realintervalclose{t_0-\delta}{t_0+\delta}$ vale:
+	Allora esiste un $\delta >0$ tale che sull'intervallo $\intervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \intervalclose{t_0-\delta}{t_0+\delta}$ vale:
 	\[\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}\]
 	dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
 	\begin{note}
@@ -957,10 +957,10 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\begin{proof}
 		Sia $f$ che $g$ soddisfano le ipotesi del \fullref{teo:cau_locale_part_1}, quindi esistono due soluzioni:
 		\begin{itemize}
-			\item $\varphi:\realintervalclose{t_0-\delta_f}{t_0+\delta_f}\mapsto\R$ del problema (1)
-			\item $\psi:\realintervalclose{t_0-\delta_g}{t_0+\delta_g}\mapsto\R$ del problema (2)
+			\item $\varphi:\intervalclose{t_0-\delta_f}{t_0+\delta_f}\mapsto\R$ del problema (1)
+			\item $\psi:\intervalclose{t_0-\delta_g}{t_0+\delta_g}\mapsto\R$ del problema (2)
 		\end{itemize}
-		Sia dunque $\delta = \min\brackets{\delta_f,\delta_g}$, da cui $J=\realintervalclose{t_0-\delta}{t_0+\delta}$ e, d'ora in poi, $t \in J$.\\
+		Sia dunque $\delta = \min\brackets{\delta_f,\delta_g}$, da cui $J=\intervalclose{t_0-\delta}{t_0+\delta}$ e, d'ora in poi, $t \in J$.\\
 		Gli insiemi $\varphi(J)$ e $\psi(J)$ sono compatti perché per \fullref{teo:weier_generale}, essendo $J$ compatto. La loro unione è dunque un compatto, come da \fullref{ex:unione_compatti}.\\
 		Utilizzando \fullref{def:equaz_volterra}, passiamo alle equazioni integrali delle \cref{eq:ipot_cau_part_2}
 		\begin{equation}
@@ -996,7 +996,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			\intertext{Riordinando}
 			&= \norm{x_0 - y_0} + \delta\norm{f-g}_{\cntclass{0}} + \abs{\int_{t_0}^{t} L \norm{\varphi(\tau) - \psi(\tau)}\integrald{\tau}}
 		\end{align*}
-		Applichiamo alla forma ottenuta il \fullref{lemma:gronwall}. Per ipotesi del Lemma è necessario avere $t \in \realintervalclose{a}{b}$ con $a < b$. Nell'ultimo integrale rimasto abbiamo $a = t_0$, dunque imponiamo $t \geq t_0$ e procediamo.
+		Applichiamo alla forma ottenuta il \fullref{lemma:gronwall}. Per ipotesi del Lemma è necessario avere $t \in \intervalclose{a}{b}$ con $a < b$. Nell'ultimo integrale rimasto abbiamo $a = t_0$, dunque imponiamo $t \geq t_0$ e procediamo.
 		\begin{note}
 			Il procedimento è analogo nel caso opposto e verrà integrato sotto.
 		\end{note}
@@ -1149,7 +1149,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
-	Per via dell'asintoto, nonostante la $x(t)$ abbia come dominio $\R \setminus \brackets{1}$, la soluzione del Problema di Cauchy così definito si ferma a $t=1$. Ciò perché la condizione iniziale del Problema è $t = 0 \in \realintervalopcl{-\infty}{1}$ e non avrebbe dunque senso considerare la situazione altrove. In questo intervallo di validità potrò applicare localmente il Teorema di Cauchy, ma non è possibile applicarlo globalmente.
+	Per via dell'asintoto, nonostante la $x(t)$ abbia come dominio $\R \setminus \brackets{1}$, la soluzione del Problema di Cauchy così definito si ferma a $t=1$. Ciò perché la condizione iniziale del Problema è $t = 0 \in \intervalopcl{-\infty}{1}$ e non avrebbe dunque senso considerare la situazione altrove. In questo intervallo di validità potrò applicare localmente il Teorema di Cauchy, ma non è possibile applicarlo globalmente.
 	\begin{note}
 		L'argomento di questo capitolo sarà quindi capire quando un modello sia valido globalmente.
 	\end{note}
@@ -1172,7 +1172,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			x(0) = x_0
 		\end{cases}
 	\end{equation}
-	ammette soluzione globale per $x \in \realintervalclose{-1}{1}$, ma non per $x \in R \setminus \realintervalclose{-1}{1}$
+	ammette soluzione globale per $x \in \intervalclose{-1}{1}$, ma non per $x \in R \setminus \intervalclose{-1}{1}$
 \end{example}
 
 \color{not_explained_section_color}
@@ -1356,10 +1356,10 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		Sia $\varphi: J \mapsto \R^n$ la soluzione di \cref{eq:cau_glob_thesis_prob} e sia
 		\begin{equation}
 			\label{eq:cau_glob_T_M}
-			T_M = \sup \brackets{\overline{t_M} \in I: \varphi\;\text{\itshape risolve \cref{eq:cau_glob_thesis_prob} su}\; \realintervalclop{t_0}{\overline{t_M}}\; }
+			T_M = \sup \brackets{\overline{t_M} \in I: \varphi\;\text{\itshape risolve \cref{eq:cau_glob_thesis_prob} su}\; \intervalclop{t_0}{\overline{t_M}}\; }
 		\end{equation}
 		\begin{note}
-			$T_M$ è, dunque, l'ultimo tempo fino a cui posso definire una soluzione e la $t$ utilizzata in seguito è $t \in \realintervalclop{t_0}{\overline{t_M}}$
+			$T_M$ è, dunque, l'ultimo tempo fino a cui posso definire una soluzione e la $t$ utilizzata in seguito è $t \in \intervalclop{t_0}{\overline{t_M}}$
 		\end{note}
 		\begin{align*}
 			\varphi(t) &= x_0 + \int_{t_0}^{t} f\bigl(\tau,\varphi(\tau)\bigr)\integrald{\tau}
@@ -1386,12 +1386,12 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			\intertext{Da cui, minorando ulteriormente con $T_M$}
 			\norm{\varphi(t)} &\leq \bigl(\norm{x_0} + A(T_M-t_0)\bigr)e^{B(T_M-t_0)} \tageq\label{eq:cau_glob_gronwall}
 		\end{align*}
-		La $\varphi(t)$ è quindi limitata sull'intervallo $\realintervalclop{t_0}{T_M}$, dunque non è possibile abbia comportamento asintotico come quello di \fullref{ex:cau_glob_asint}. Ricordando che $\varphi(t)$ è soluzione della \cref{eq:cau_glob_thesis_prob}, otteniamo
+		La $\varphi(t)$ è quindi limitata sull'intervallo $\intervalclop{t_0}{T_M}$, dunque non è possibile abbia comportamento asintotico come quello di \fullref{ex:cau_glob_asint}. Ricordando che $\varphi(t)$ è soluzione della \cref{eq:cau_glob_thesis_prob}, otteniamo
 		\begin{align*}
 			\norm{\varphi'(t)} &= \norm{f\bigl(t,\varphi(t)\bigr)}\\
-			&\leq \sup \limits_{t \in \realintervalclop{t_0}{T_M}} \norm{f(t,x)} \tageq\label{eq:cau_glob_dfi_sup}
+			&\leq \sup \limits_{t \in \intervalclop{t_0}{T_M}} \norm{f(t,x)} \tageq\label{eq:cau_glob_dfi_sup}
 		\end{align*}
-		Quindi sia $\varphi(t)$ che $\varphi'(t)$ sono limitate, dunque la $\varphi$ è \textbf{uniformemente continua} su $\realintervalclop{t_0}{T_M}$, come da \fullref{prop:if_df_lim_then_unif_cont}.
+		Quindi sia $\varphi(t)$ che $\varphi'(t)$ sono limitate, dunque la $\varphi$ è \textbf{uniformemente continua} su $\intervalclop{t_0}{T_M}$, come da \fullref{prop:if_df_lim_then_unif_cont}.
 		Da \fullref{prop:if_unif_cont_then_conf}, se la $\varphi(t)$ è uniformemente continua, allora è \textbf{continua}, cioò implica che $\lim \limits_{t \rightarrow T_M^-}\varphi(t) = \varphi(T_M)$.
 
 		Essendo $\varphi(T_M) \in \R^n$, posso usare questo punto come condizione iniziale del seguente Problema di Cauchy
@@ -1402,18 +1402,18 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 				x(T_M) = \varphi(T_M)
 			\end{cases}
 		\end{equation}
-		Se $T_M < \sup I$, \cref{eq:cau_glob_new_problem} soddisfa le ipotesi del \fullref{teo:cau_locale_part_1}, dunque $\varphi$ può essere estesa oltre $T_M$ ad una funzione definita almeno su $\realintervalclop{t_0}{T_M+\delta}$ con $\delta > 0$ scelto opportunamente. Questa possibilità di estendere la $\varphi$ è però in contraddizione con la definizione di $T_M$ in \cref{eq:cau_glob_T_M}, dunque si deve concludere che
+		Se $T_M < \sup I$, \cref{eq:cau_glob_new_problem} soddisfa le ipotesi del \fullref{teo:cau_locale_part_1}, dunque $\varphi$ può essere estesa oltre $T_M$ ad una funzione definita almeno su $\intervalclop{t_0}{T_M+\delta}$ con $\delta > 0$ scelto opportunamente. Questa possibilità di estendere la $\varphi$ è però in contraddizione con la definizione di $T_M$ in \cref{eq:cau_glob_T_M}, dunque si deve concludere che
 		\[T_M = \sup I\]
 		Procedimento analogo si può svolgere per
 		\begin{equation*}
-			T_m = \inf \brackets{\overline{t_m} \in I: \varphi\;\text{\itshape risolve \cref{eq:cau_glob_thesis_prob} su}\; \realintervalopcl{\overline{t_m}}{t_0} }
+			T_m = \inf \brackets{\overline{t_m} \in I: \varphi\;\text{\itshape risolve \cref{eq:cau_glob_thesis_prob} su}\; \intervalopcl{\overline{t_m}}{t_0} }
 		\end{equation*}
 		I passaggi rimangono uguali fino a \cref{eq:cau_glob_gronwall} che diventa
 		\[\norm{\varphi(t)} \leq \bigl(\norm{x_0} + A(T_M-t_0)\bigr)e^{B(\boldsymbol{t_0-T_m})}\]
 		E, a sua volta, \cref{eq:cau_glob_dfi_sup} diventa
 		\begin{align*}
 			\norm{\varphi'(t)} &= \norm{f\bigl(t,\varphi(t)\bigr)}\\
-			&\geq \min \limits_{t \in \realintervalopcl{T_m}{t_0}} \norm{f(t,x)}
+			&\geq \min \limits_{t \in \intervalopcl{T_m}{t_0}} \norm{f(t,x)}
 		\end{align*}
 		Dunque
 		\[T_m = \inf I\]
@@ -1464,12 +1464,12 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{note}
 \end{definition}
 \begin{proposition}[Invarianza per Traslazione Temporale]
-	Se la funzione $\varphi: \realintervalclose{a}{b} \mapsto \R^n$ risolve il Problema di Cauchy
+	Se la funzione $\varphi: \intervalclose{a}{b} \mapsto \R^n$ risolve il Problema di Cauchy
 	\begin{equation*}\begin{cases}
 		x'=f(x)\\
 		x(t_0) = x_0
 	\end{cases}\end{equation*}
-	Allora, qualunque sia $T \in \R$, la funzione $\psi: \realintervalclose{a - T}{b - T} \mapsto \R^n$ data da $\psi(t) = \varphi(t + T)$ è soluzione del Problema di Cauchy
+	Allora, qualunque sia $T \in \R$, la funzione $\psi: \intervalclose{a - T}{b - T} \mapsto \R^n$ data da $\psi(t) = \varphi(t + T)$ è soluzione del Problema di Cauchy
 	\begin{equation*}\begin{cases}
 		x'=f(x)\\
 		x(t_0 - T) = x_0
@@ -1527,8 +1527,8 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	È possibile scrivere un'equazione differenziale ordinaria autonoma del primo ordine avente come soluzione la funzione $x(t) = \sin t$ per $t \in \realintervalclose{0}{\pi}$?\\
-	E la funzione $x(t) = t^3$ per $t \in \realintervalclose{-1}{1}$?
+	È possibile scrivere un'equazione differenziale ordinaria autonoma del primo ordine avente come soluzione la funzione $x(t) = \sin t$ per $t \in \intervalclose{0}{\pi}$?\\
+	E la funzione $x(t) = t^3$ per $t \in \intervalclose{-1}{1}$?
 	% TODO solution
 \end{exercise}
 

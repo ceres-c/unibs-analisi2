@@ -614,7 +614,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\end{center}
 		Quindi, applicando il teorema di Lagrange (vedere Nota al termine della dimostrazione):
 		\[
-			\exists \alpha, \beta \in \realintervalopen{0}{1} \textbf{ per cui} \qquad
+			\exists \alpha, \beta \in \intervalopen{0}{1} \textbf{ per cui} \qquad
 			\begin{array}{rrcl}
 				\text{(1)} & f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) &=& \frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) k\\[1ex]
 				\text{(2)} & f(x_0 + h, y_0) - f(x_0, y_0) &=& \frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) h
@@ -648,9 +648,9 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		Da cui la tesi, avendo verificato la \fullref{def:differenz}.
 		\begin{note}
 			Il \textbf{Teorema di Lagrange} (o del \textbf{Valor Medio Differenziale})
-			\[c \in \realintervalopen{a}{b} : f'(c) = \frac{f(b)-f(a)}{b - a}\]
+			\[c \in \intervalopen{a}{b} : f'(c) = \frac{f(b)-f(a)}{b - a}\]
 			Alternativamente, nella forma
-			\[\xi \in \realintervalopen{0}{1} : f'(x_0 + \xi h) = \frac{f(x_0 + h)-f(x_0)}{h}\]
+			\[\xi \in \intervalopen{0}{1} : f'(x_0 + \xi h) = \frac{f(x_0 + h)-f(x_0)}{h}\]
 		\end{note}
 	\end{proof}
 \end{theorem}
@@ -755,7 +755,7 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 \begin{definition}[Segmento]
 	\label{def:segmento}
 	Siano $x_0,x_1 \in \R^n$, si dice \textbf{Segmento} di estremi $x_0$ e $x_1$ l'insieme che li unisce, cioè
-	\[S = \brackets{tx_1+(1-t)x_0 \in \R^n:\; t \in \realintervalclose{0}{1}}\]
+	\[S = \brackets{tx_1+(1-t)x_0 \in \R^n:\; t \in \intervalclose{0}{1}}\]
 \end{definition}
 \begin{observation}
 	La \fullref{def:segmento} può essere formulata in ogni spazio affine o vettoriale
@@ -764,9 +764,9 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 	Dimostrare che ogni \textbf{Segmento} in $\R^n$ è \textbf{Compatto} e \textbf{Connesso}.
 	\begin{solution}
 		Posta
-		\[\funcdef{\varphi}{\realintervalclose{0}{1}}{\R^n}{t}{t x_1 + (1-t) x_0}\]
+		\[\funcdef{\varphi}{\intervalclose{0}{1}}{\R^n}{t}{t x_1 + (1-t) x_0}\]
 		\begin{itemize}
-			\item $\realintervalclose{0}{1} \subset \R^n$, essendo sottoinsieme di $\R^n$ chiuso e limitato, grazie alla \fullref{prop:compat_chius_lim_Rn}, è compatto. Inoltre, grazie al \fullref{teo:weier_generale}, $\varphi(\realintervalclose{0}{1})$ è sicuramente compatto a sua volta, dunque il segmento $S$ è compatto.
+			\item $\intervalclose{0}{1} \subset \R^n$, essendo sottoinsieme di $\R^n$ chiuso e limitato, grazie alla \fullref{prop:compat_chius_lim_Rn}, è compatto. Inoltre, grazie al \fullref{teo:weier_generale}, $\varphi(\intervalclose{0}{1})$ è sicuramente compatto a sua volta, dunque il segmento $S$ è compatto.
 			\item Dalla \fullref{prop:f_di_conn_cont_e_conn}, essendo $\varphi$ continua, il segmento $S$ è sicuramente Connesso.
 		\end{itemize}
 	\end{solution}
@@ -774,7 +774,7 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 \begin{exercise}
 	Ispirandosi alla \fullref{def:segmento} è possibile dare una possibile definizione di Semiretta uscente da $x_0$ e passante per $x_1$?
 	\begin{solution}
-		\[s = \brackets{x_0+(x_1-x_0)t \in \R^n: t \in \realintervalclop{0}{+\infty} \;}\]
+		\[s = \brackets{x_0+(x_1-x_0)t \in \R^n: t \in \intervalclop{0}{+\infty} \;}\]
 	\end{solution}
 \end{exercise}
 \begin{theorem}[degli Accrescimenti Finiti]
@@ -819,13 +819,13 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 		Fissato un qualsiasi $v \in \R^m$, si definisce così la funzione $F$ legata ad $f$ tramite la \fullref{def:segmento}:
 		\begin{equation}
 			\label{eq:accresc_fin_F}
-			\funcdef{F}{\realintervalclose{0}{1}}{\R}{t}{v \cdot f \bigl( t x_1 + (1-t)x_0 \bigr)}
+			\funcdef{F}{\intervalclose{0}{1}}{\R}{t}{v \cdot f \bigl( t x_1 + (1-t)x_0 \bigr)}
 		\end{equation}
 		\begin{note}
 			Nella \cref{eq:accresc_fin_F},  $\cdot$  è Prodotto Scalare tra due vettori di dimensione $\R^m$, dunque il risultato è correttamente uno scalare.
 		\end{note}
-		$F$ è continua e derivabile sull'intervallo di definizione $\realintervalclose{0}{1}$. È dunque possibile utilizzare il Teorema di Lagrange da Analisi 1, che garantisce:
-		\[\exists c \in \realintervalopen{0}{1}: \quad F(1) - F(0) = F'(c) \; (1-0)\]
+		$F$ è continua e derivabile sull'intervallo di definizione $\intervalclose{0}{1}$. È dunque possibile utilizzare il Teorema di Lagrange da Analisi 1, che garantisce:
+		\[\exists c \in \intervalopen{0}{1}: \quad F(1) - F(0) = F'(c) \; (1-0)\]
 		Tornando dunque a $f$ dalla definizione di $F$
 		\[v \cdot f(x_1) - v \cdot f(x_0) = v \cdot Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)\]
 		Ricordando che la $F$ è a valori in $\R$, si può calcolare il valore assoluto mantenendo l'uguaglianza
@@ -859,7 +859,7 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 		\[\norm{\frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \norm{f(x_1) - f(x_0)}^2} \leq \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
 		Da cui
 		\[\norm{f(x_1) - f(x_0)} \leq \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
-		e passando al $\sup$ su $t \in \realintervalopen{0}{1}$ si ottiene la tesi.
+		e passando al $\sup$ su $t \in \intervalopen{0}{1}$ si ottiene la tesi.
 	\end{proof}
 \end{theorem}
 Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa essere esteso al caso di funzioni a valori in $\R^n$ con $n > 1$.
@@ -875,7 +875,7 @@ Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa 
 		\begin{gathered}
 			C \text{ è \textbf{Convesso}}\\
 			\bydef\\
-			\forall x_0,y_1 \in C \quad \brackets{tx_1+(1-t)x_0:\; t \in \realintervalclose{0}{1}} \subseteq C
+			\forall x_0,y_1 \in C \quad \brackets{tx_1+(1-t)x_0:\; t \in \intervalclose{0}{1}} \subseteq C
 		\end{gathered}
 	\end{equation*}
 	Cioè un insieme è Convesso se, dati qualsiasi due suoi punti, contiene anche il segmento che li congiunge.
@@ -922,7 +922,7 @@ Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa 
 	Esibire un controesempio al viceversa.
 	\begin{solution}
 		Supponendo, per assurdo, $C \in \R^n$ sconnesso. In questo caso, per \fullref{def:connesso}, esistono due insiemi separati $S_1$ e $S_2$ che costituiscono $C$, inoltre $S_1 \cup S_2 = C$ e $S_1 \cap S_2 = \emptyset$. Questo implica che
-		\[\exists t \in \realintervalclose{0}{1}:\; \forall x_1 \in S_1 \text{ e } \forall x_2 \in S_2 \quad tx_1 + (1-t)x_2 \notin S_1 \text{ e contemporaneamente } \notin S_2\]
+		\[\exists t \in \intervalclose{0}{1}:\; \forall x_1 \in S_1 \text{ e } \forall x_2 \in S_2 \quad tx_1 + (1-t)x_2 \notin S_1 \text{ e contemporaneamente } \notin S_2\]
 		Questo implica la non convessità di $C$ - \textit{Assurdo}.\\
 
 		Preso il cerchio di raggio unitario $S = {(x,y): x^2 + y^2 = 1}$, questo verifica la \fullref{def:connesso} ma sicuramente non la \fullref{def:convesso}.
@@ -939,7 +939,7 @@ Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa 
 		f \text{ è \textbf{Convessa}}
 		\quad \bydef \quad
 		\begin{cases}
-			\forall x_0, x_1 \in I,\; \forall t \in \realintervalclose{0}{1}\\
+			\forall x_0, x_1 \in I,\; \forall t \in \intervalclose{0}{1}\\
 			f \bigl( (1-t)x_0 + t x_1 \bigr) \leq (1-t) f(x_0) + t f(x_1)
 		\end{cases}
 	\end{equation*}

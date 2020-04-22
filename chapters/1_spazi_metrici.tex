@@ -132,7 +132,7 @@ Unendo le due definizioni si giunge naturalmente a
 						\item $2$ se $x \neq y \neq z$, quindi sicuramente $d(x,y) \leq d(x,z) + d(z,y)$
 					\end{itemize}
 			\end{enumerate}
-		\item $X=\cntclass{0}(\realintervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_\infty(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)}$ \hfill
+		\item $X=\cntclass{0}(\intervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_\infty(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)}$ \hfill
 			{\footnotesize
 				\begin{tabular}{c}
 					\textbf{Distanza della Convergenza Infinita}\\[-1ex]
@@ -162,15 +162,15 @@ Unendo le due definizioni si giunge naturalmente a
 				\end{tikzpicture}
 			\end{center}
 			\begin{enumerate}[label=\arabic*.]
-				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\realintervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\realintervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{teo:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
-				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
-				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\realintervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
+				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\intervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\intervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{teo:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
+				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
+				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
 					\[\abs{g(x)-f(x)}\le\abs{g(x)-h(x)}+\abs{h(x)-f(x)}\]
 					Applicando il sup la disuguaglianza resta vera.
 			\end{enumerate}
 			\begin{note}
-				Si sottolinea che queste conclusioni sono valide finché $\realintervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{teo:weier_analisi_1} necessario per il punto 1. % TODO Serve un controesempio
+				Si sottolinea che queste conclusioni sono valide finché $\intervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{teo:weier_analisi_1} necessario per il punto 1. % TODO Serve un controesempio
 			\end{note}
 		\item $X=\R^2$, $d$ distanza Euclidea e $P$ punto arbitrario\newline
 			$\quad d_P(x,y)=
@@ -193,7 +193,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y)=d(y,x)$ essendo bassata sulla metrica Euclidea
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo bassata sulla metrica Euclidea
 			\end{enumerate}
-		\item $X=\cntclass{0}(\realintervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}}$ \hfill {\footnotesize\textbf{Distanza Quadratica}}
+		\item $X=\cntclass{0}(\intervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}}$ \hfill {\footnotesize\textbf{Distanza Quadratica}}
 		\label{ex:dim_dist_quadratica}
 			\begin{note}
 				La metrica viene trattata in \fullref{def:dist_quadratica}
@@ -233,7 +233,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\item $\R$ con $\norm{x} = \abs{x}$
 		\item $\C$ con $\norm{x} = \abs{x}$
 		\item $\R^n$ con $\norm{x} = \sqrt{\sum\limits_{i=1}^{n}x_i^2} \implies \norm{x}^2 = \sum\limits_{i=1}^{n}x_i^2 = x \cdot x$
-		\item $\cntclass{0}(\realintervalclose{0}{1};\R)$ con $\norm{f} = \sup\limits_{x \in \realintervalclose{0}{1}} \abs{f(x)}$
+		\item $\cntclass{0}(\intervalclose{0}{1};\R)$ con $\norm{f} = \sup\limits_{x \in \intervalclose{0}{1}} \abs{f(x)}$
 	\end{enumerate}
 \end{example}
 
@@ -270,7 +270,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\begin{gathered}
 			d_1 \text{ e } d_2 \text{ sono \textbf{equivalenti}}\\
 			\bydef\\
-			\exists c,C \in \realintervalopen{0}{+\infty}:\; \forall x,y \in X \quad c \cdot d_1(x,y) \leq d_2 (x,y) \leq C \cdot d_1 (x,y)
+			\exists c,C \in \intervalopen{0}{+\infty}:\; \forall x,y \in X \quad c \cdot d_1(x,y) \leq d_2 (x,y) \leq C \cdot d_1 (x,y)
 		\end{gathered}
 	\end{equation*}
 	Cioè se è sempre possibile "limitare" una metrica con l'altra (moltiplicata per un opportuno coefficiente). Questo implica che distanze infinite per una metrica devono esserlo anche per l'altra.
@@ -288,7 +288,7 @@ Unendo le due definizioni si giunge naturalmente a
 			\item $x = n$
 			\item $y = n+1$
 		\end{itemize}
-		Ora, per ogni $n$ la $d = 1$, mentre la $d_P = 2n+1$, dunque è impossibile trovare un $C \in \realintervalopen{0}{+\infty}$ (quindi finito) tale per cui
+		Ora, per ogni $n$ la $d = 1$, mentre la $d_P = 2n+1$, dunque è impossibile trovare un $C \in \intervalopen{0}{+\infty}$ (quindi finito) tale per cui
 		\[d_P(x,y) \leq C \cdot d(x,y)\]
 	\end{solution}
 \end{example}
@@ -355,9 +355,9 @@ Unendo le due definizioni si giunge naturalmente a
 	% TODO figura
 \end{definition}
 \begin{example}
-	Siano $X = \R$ con $d(x,y)  = \abs{y-x}$, $A = \brackets{1} \cup \realintervalclop{2}{3}$.\\
+	Siano $X = \R$ con $d(x,y)  = \abs{y-x}$, $A = \brackets{1} \cup \intervalclop{2}{3}$.\\
 	$1$ è un punto isolato per $A$, $5$ è esterno ad $A$.\\
-	$\overline{A} = \brackets{1} \cup \realintervalclose{2}{3}$, \quad $\circdot{A} = \realintervalopen{2}{3}$, \quad $\partial A = \brackets{1, 2, 3}$
+	$\overline{A} = \brackets{1} \cup \intervalclose{2}{3}$, \quad $\circdot{A} = \intervalopen{2}{3}$, \quad $\partial A = \brackets{1, 2, 3}$
 \end{example}
 \begin{example}
 	Sia $X = \R$ con $d(x,y)  = \abs{y-x}$\\
@@ -481,7 +481,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\item $\R$ con $d(x,y) = \abs{y-x}$ è uno spazio metrico illimitato. Inoltre se $A \subseteq \R$ con $A \neq \emptyset$, allora $\diam(A) = \sup A - \inf A$
 		\item $\R$ con $d(x,y) = \frac{\abs{y-x}}{1-\abs{y-x}}$ è uno spazio metrico limitato di diametro $1$ (la distanza massima tra due punti con questa metrica è $1$)
 		\item Sia $X$ un insieme con almeno $2$ elementi munito della Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}) è uno spazio metrico limitato di diametro $1$ % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
-		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ con $d(f,g) = \sup\limits_{\realintervalclose{0}{1}} \abs{g(x)-f(x)}$ è uno spazio metrico illimitato utilizzato in \fullref{sect:conv_unif}
+		\item $\cntclass{0}(\intervalclose{0}{1}; \R)$ con $d(f,g) = \sup\limits_{\intervalclose{0}{1}} \abs{g(x)-f(x)}$ è uno spazio metrico illimitato utilizzato in \fullref{sect:conv_unif}
 	\end{enumerate}
 \end{example}
 \begin{exercise}
@@ -526,7 +526,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{exercise}
 \begin{exercise}
 	\label{ex:diam_sp_metr}
-	Sia $X = \realintervalclose{0}{2}$ con la distanza $d(x,y) = \abs{y-x}$.\\
+	Sia $X = \intervalclose{0}{2}$ con la distanza $d(x,y) = \abs{y-x}$.\\
 	Dimostrare che $\diam \bigl( B(0,1) \bigr) = 1$
 	% TODO soluzione
 \end{exercise}
@@ -549,7 +549,7 @@ Unendo le due definizioni si giunge naturalmente a
 	% TODO soluzione
 \end{exercise}
 \begin{exercise}
-	Esibire in $\R$, $\R^2$ ed in $\cntclass{0}(\realintervalclose{0}{1}; \R)$ (con le metriche usuali) esempi di insiemi aperti/chiusi e limitati/illimtati.
+	Esibire in $\R$, $\R^2$ ed in $\cntclass{0}(\intervalclose{0}{1}; \R)$ (con le metriche usuali) esempi di insiemi aperti/chiusi e limitati/illimtati.
 \end{exercise}
 
 \begin{definition}[Insieme Finito ed Infinito]
@@ -740,11 +740,11 @@ Unendo le due definizioni si giunge naturalmente a
 			Altre distanze che rendono $\R^n$ uno spazio metrico completo sono, ad esempio
 			\begin{itemize}
 				\item $d(x,y) = \max\limits_{i=1,\:\dotsc\:,n} \abs{y_i - x_i}$
-				\item $d(x,y) = \left( \sum\limits_{i=1}^{n} \abs{y_i - x_i}^\alpha \right)^{\frac{1}{\alpha}}$ con $\alpha \in \realintervalclop{1}{+\infty}$
+				\item $d(x,y) = \left( \sum\limits_{i=1}^{n} \abs{y_i - x_i}^\alpha \right)^{\frac{1}{\alpha}}$ con $\alpha \in \intervalclop{1}{+\infty}$
 			\end{itemize}
-		\item $\realintervalopen{0}{1}$ con $d(x,y) = \abs{y - x}$ è uno spazio metrico \textit{non} completo.
+		\item $\intervalopen{0}{1}$ con $d(x,y) = \abs{y - x}$ è uno spazio metrico \textit{non} completo.
 			\begin{proof}
-				La successione $\brackets{\frac{1}{n}:\; n \in \N, n \neq 0}$ è di Cauchy ma non ammette limite in $\realintervalopen{0}{1}$
+				La successione $\brackets{\frac{1}{n}:\; n \in \N, n \neq 0}$ è di Cauchy ma non ammette limite in $\intervalopen{0}{1}$
 			\end{proof}
 		\item Sia $X$ un insieme con almeno 2 elementi, munito della metrica discreta
 			\[d(x,y)=
@@ -755,10 +755,10 @@ Unendo le due definizioni si giunge naturalmente a
 				\end{matrix}
 			\end{cases}\]
 			$X$ è uno spazio metrico completo in cui le uniche successioni convergenti son le successioni \textbf{definitivamente costanti} (cioè costanti da un certo indice in poi).
-		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ è uno spazio metrico completo con la distanza
-			\[d(f,g) = \sup\limits_{\realintervalclose{0}{1}}\abs{g(x) - f(x)}\]
+		\item $\cntclass{0}(\intervalclose{0}{1}; \R)$ è uno spazio metrico completo con la distanza
+			\[d(f,g) = \sup\limits_{\intervalclose{0}{1}}\abs{g(x) - f(x)}\]
 			Vedasi \fullref{prop:dist_unif_sp_metr_compl} per la dimostrazione.
-		\item $\cntclass{0}(\realintervalclose{0}{1}; \R)$ è uno spazio metrico \textit{non} completo con la distanza
+		\item $\cntclass{0}(\intervalclose{0}{1}; \R)$ è uno spazio metrico \textit{non} completo con la distanza
 			\[d(f,g) = \sqrt{\int_0^1 \left[ g(x) - f(x) \right]^2 \integrald{x}}\]
 			Vedasi \fullref{prop:dist_quad_sp_metr_non_compl} per la dimostrazione.
 		\item L'insieme $\C$ dei numeri complessi è uno spazio metrico completo con la distanza $d(z,w) = \abs{w-z}$
@@ -869,9 +869,9 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{example}
 	In $\R$ con l'usuale distanza Euclidea:
 	\begin{enumerate}
-		\item $\realintervalclose{0}{1}$ e $\realintervalopcl{1}{2}$ non sono separati
-		\item $\realintervalclop{0}{1}$ e $\realintervalopcl{1}{2}$ sono separati
-		\item $\brackets{0} \cup \realintervalclose{1}{2}$ è sconnesso
+		\item $\intervalclose{0}{1}$ e $\intervalopcl{1}{2}$ non sono separati
+		\item $\intervalclop{0}{1}$ e $\intervalopcl{1}{2}$ sono separati
+		\item $\brackets{0} \cup \intervalclose{1}{2}$ è sconnesso
 		\item $\R$ è connesso
 	\end{enumerate}
 \end{example}
@@ -1588,8 +1588,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Esibire esempi di funzioni $f:\; \R \mapsto \R$ che siano limitate/illimitate ed uniformemente continue.
 \end{exercise}
 \begin{example}
-	Sia $f:\; \realintervalopcl{0}{1} \mapsto \R$ data da $f(x) = \sin(\frac{1}{x})$.\\
-	In $\realintervalopcl{0}{1}$, $f$ è continua e limitata, ma non è uniformemente continua.
+	Sia $f:\; \intervalopcl{0}{1} \mapsto \R$ data da $f(x) = \sin(\frac{1}{x})$.\\
+	In $\intervalopcl{0}{1}$, $f$ è continua e limitata, ma non è uniformemente continua.
 \end{example}
 
 \begin{proposition}[Teorema di Cantor]
@@ -1777,7 +1777,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 \begin{example}
 	La funzione
-	\[\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{\sqrt{x}}\]
+	\[\funcdef{f}{\intervalclop{0}{+\infty}}{\R}{x}{\sqrt{x}}\]
 	è uniformemente continua ma non è Lipschitziana. Vedere grafico in \fullref{ex:lips_graphs}
 \end{example}
 \begin{example}
@@ -1792,12 +1792,12 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{example}
 \begin{example}
 	La funzione
-	\[\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{x^2}\]
+	\[\funcdef{f}{\intervalclop{0}{+\infty}}{\R}{x}{x^2}\]
 	è di classe $\cntclass{\infty}$ ma non è Lipschitziana. Vedere grafico in \fullref{ex:lips_graphs}
 \end{example}
 \begin{example}
 	La funzione
-	\[\funcdef{f}{\realintervalclop{0}{+\infty}}{\R}{x}{\abs{x}}\]
+	\[\funcdef{f}{\intervalclop{0}{+\infty}}{\R}{x}{\abs{x}}\]
 	è Lipschitziana ma non è derivabile in $0$.
 \end{example}
 \begin{exercise}
@@ -1892,7 +1892,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{example}[Esempi di Contrazioni]\leavevmode\vspace*{-\baselineskip}
 	\begin{enumerate}
 		\item $f: \R \mapsto \R$ data da $f(x) = \frac{x}{2}$. $f$ è una contrazione.
-		\item $f: \realintervalclose{0}{2} \mapsto \realintervalclose{0}{2}$ data da $f(x) = 1 + \frac{x}{2}$. $f$ è una contrazione
+		\item $f: \intervalclose{0}{2} \mapsto \intervalclose{0}{2}$ data da $f(x) = 1 + \frac{x}{2}$. $f$ è una contrazione
 		\item $f: \R^2 \mapsto \R^2$ data da $f(x,y)=
 			\begin{bmatrix}
 				\frac{1}{3} & 0\\[1ex]
@@ -1926,7 +1926,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{proposition}
-	Sia $f \in \cntclass{1}(\R^n;\R^n)$. Se esiste $k \in \realintervalclop{0}{1}$ tale che per ogni $x \in \R^n$ vale $\norm{Df(x)} < k$, allora $f$ è \textbf{contrazione}.
+	Sia $f \in \cntclass{1}(\R^n;\R^n)$. Se esiste $k \in \intervalclop{0}{1}$ tale che per ogni $x \in \R^n$ vale $\norm{Df(x)} < k$, allora $f$ è \textbf{contrazione}.
 	\begin{proof}
 		Segue dal \fullref{teo:accresc_fin}
 	\end{proof}
@@ -1963,7 +1963,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 				Presi ora due qualunque $n$ e $m$ e sfruttando il modo in cui è definita $T$
 				\begin{align*}
 					d(x_n, x_m) &= d \bigl( T(x_{n-1}), T(x_{m-1}) \bigr)
-					\shortintertext{Grazie al fatto che $T$ è contrazione per definizione, esiste un $K \in \realintervalclop{0}{1}$}
+					\shortintertext{Grazie al fatto che $T$ è contrazione per definizione, esiste un $K \in \intervalclop{0}{1}$}
 					&\leq K \cdot d(x_{n-1}, x_{m-1})\\
 					&= d \bigl( T(x_{n-2}), T(x_{m-2}) \bigr)\\
 					&\leq K^2 \cdot d(x_{n-2}, x_{m-2})
@@ -2007,7 +2007,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					\label{eq:teo_contraz_disug_s}
 					d(x_n, x_m) \leq K^n \cdot \frac{1 - K^{m-n}}{1 - K} \cdot d(x_0, x_1)
 				\end{equation}
-				Essendo $k \in \realintervalclop{0}{1}$, eseguendone l'elevamento a potenza otterrò un numero ancor più piccolo. È dunque certo che
+				Essendo $k \in \intervalclop{0}{1}$, eseguendone l'elevamento a potenza otterrò un numero ancor più piccolo. È dunque certo che
 				\[1 - K^{m-n} \geq 1 - K \implies \frac{1 - K^{m-n}}{1 - K} \leq 1\]
 				per cui è sicuramente possibile minorare la \cref{eq:teo_contraz_disug_s} che diventa
 				\begin{equation}
@@ -2087,7 +2087,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 				\end{equation}
 				Però
 				\begin{itemize}
-					\item $1-k > 0$ strettamente positivo perché, per \fullref{def:contrazione} $k \in \realintervalclop{0}{1}$
+					\item $1-k > 0$ strettamente positivo perché, per \fullref{def:contrazione} $k \in \intervalclop{0}{1}$
 					\item $d(x_0, y_0) \geq 0$ per \fullref{def:sp_metrico}
 				\end{itemize}
 				Allora deve essere per forza $d(x_0, y_0) = 0$ per non contraddire la \cref{eq:teo_contraz_unicita}, dunque per proprietà delle distanze $x_0 = y_0$.
@@ -2103,7 +2103,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 \begin{example}
 	Se $X$ \textit{non} è completo:\\
-	Siano $X = \realintervalopen{0}{1}$ e $T: X \mapsto X$ data $T(x) = \frac{x}{2}$. $T$ è una contrazione senza punti fissi in $X$
+	Siano $X = \intervalopen{0}{1}$ e $T: X \mapsto X$ data $T(x) = \frac{x}{2}$. $T$ è una contrazione senza punti fissi in $X$
 \end{example}
 \begin{example}
 	Se $T$ è \textit{quasi} una contrazione possono non esserci punti fissi:\\
@@ -2118,7 +2118,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	e $T$ ammette infiniti punti fissi.
 \end{example}
 \begin{exercise}
-	Sia $f \realintervalclose{0}{1} \mapsto \realintervalclose{1}{2}$ data da $f(x) = 1 + \frac{x}{2}$\\
+	Sia $f \intervalclose{0}{1} \mapsto \intervalclose{1}{2}$ data da $f(x) = 1 + \frac{x}{2}$\\
 	$f$ è una funzione Lipschitziana con costante di Lipschitz $\frac{1}{2}$ definita tra spazi metrici completi ma senza punti fissi. È in contraddizione con il \fullref{teo:contrazioni}?
 	% TODO solution
 \end{exercise}
@@ -2142,7 +2142,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\begin{gathered}
 			T \text{ è una \textbf{Contrazione} in } x \in X \text{ \textbf{Uniformemente} in } p \in P\\
 			\bydef\\
-			\exists K \in \realintervalclop{0}{1}: \; \forall p \in P,\; \forall x', x'' \in X \quad \text{vale} \quad d \Bigl( T\bigl( x', p \bigr), T\bigl( x'', p \bigr) \Bigr) \leq K \cdot d(x', x'')
+			\exists K \in \intervalclop{0}{1}: \; \forall p \in P,\; \forall x', x'' \in X \quad \text{vale} \quad d \Bigl( T\bigl( x', p \bigr), T\bigl( x'', p \bigr) \Bigr) \leq K \cdot d(x', x'')
 		\end{gathered}
 	\end{equation*}
 	Cioè, indipendentemente da qualsiasi $p \in P$, la $T$ rimane contrazione.
@@ -2187,7 +2187,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\begin{gathered}
 			T \text{ è una \textbf{Contrazione} in } x \in X \text{ \textbf{Lipschitziana} in } p \in P\\
 			\bydef\\
-			\exists K \in \realintervalclop{0}{1}, \exists L > 0: \; \forall p', p'' \in P, \forall x', x'' \in X \text{ vale}\\
+			\exists K \in \intervalclop{0}{1}, \exists L > 0: \; \forall p', p'' \in P, \forall x', x'' \in X \text{ vale}\\
 			d_X \bigl( T( x', p'), T(x'', p'') \bigr) \leq K \cdot d_X(x', x'') + L \cdot d_P (p', p'')
 		\end{gathered}
 	\end{equation*}

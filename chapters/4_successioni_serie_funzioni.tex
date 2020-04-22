@@ -672,7 +672,7 @@ Se $h,k\in\N$ valgono le seguenti uguaglianze:
 	\end{matrix}\right.$
 \end{description}
 ESERCIZIO:: IL POLINOMIO DI FOURIER FORNISCE LA MIGLIORE APPROSSIMAZIONE NEL SENSO DELLA DISTANZA QUADRATICA.\\
-Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, quale è la funzione a lei più vicina nel senso della distanza quadratica?\\
+Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$, quale è la funzione a lei più vicina nel senso della distanza quadratica?\\
 Fisso $N\in\N$ e prendo il polinomio trigonometrico di grado $N$
 \[p_N(x)=\trigonpol{n}{1}{N}\]
 con $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n\in \R$, il problema è quello di minimizzare $d_2(f,p_n)$ quindi un problema di minimo. Stiamo cercando i coefficienti del polinomio trigonometrico quindi studiamo una funzione $\varphi(a_0,a_1,\dotsc,a_N,b_1,\dotsc,b_N) = \sqrt{\int_{-\pi}^{\pi}\left[f(x)-p_n(x)\right]^2}\integrald{x}$.\\
@@ -760,14 +760,14 @@ La matrice Hessiana di $\varphi$ risulta \[H_{\varphi}=\left[\begin{matrix}
 \end{matrix}\right]\]
 è una matrice diagonale quindi si leggono direttamente tutti gli autovalori che sono strettamente positivi quindi la forma quadratica è definita positiva ed il punto in questione è un punto di minimo assoluto.
 \definition
-Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
+Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
 \[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}\]
 \[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
 \[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
 La serie di Fourier di $f$ è
 \[\trigonpol{k}{1}{+\infty}\]
 \proposition
-Sia $F: \realintervalclose{-\pi}{\pi} \mapsto \R$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\N\right\}$ e $\left\{a_n:n\in\N\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
+Sia $F: \intervalclose{-\pi}{\pi} \mapsto \R$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\N\right\}$ e $\left\{a_n:n\in\N\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
 \[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)cos(kx)\integrald{x}\quad k\in\N\]
 \[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
 ESEMPIO+DIMOSTRAZIONE:::\\
@@ -844,7 +844,7 @@ In $R^n$ Ci sono $n$ vettori $e_1,e_2,\dotsc,e_n$ della base, se $\underline{v}\
 Calcolo delle componenti:
 \[v_k=\underline{v}\cdot e_k\]
 \\
-Con le Serie di Fourier su esegue la stessa operazione sullo spazi $\cntclass{0}(\realintervalclose{-\pi}{\pi}; \R)$. Come elementi di base si ha un insieme di funzioni:
+Con le Serie di Fourier su esegue la stessa operazione sullo spazi $\cntclass{0}(\intervalclose{-\pi}{\pi}; \R)$. Come elementi di base si ha un insieme di funzioni:
 \begin{enumerate}
 	\item $c_0:x\to 1$
 	\item $c_1:x\to cos(x)$
@@ -941,9 +941,9 @@ Sia $f(x)=\frac{a_0}{2}+\sum\liminf_{n=1}^{+\infty}\left(a_ncos(nx)+b_ncos(nx)\r
 ESEMPIO
 Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}4f(x)sin(3x)\integrald{x}=4b_3$\\
 \begin{definition}[Funzione Continua a Tratti]
-	Siano $a,b\in \R$ con $a<b$, una funzione $f:\realintervalclose{a}{b} \mapsto \R$. Allora $f$ è \textbf{continua a tratti} se esiste un numero finito di punti $x_1,x_2,\dotsc,x_n$ tali che:
+	Siano $a,b\in \R$ con $a<b$, una funzione $f:\intervalclose{a}{b} \mapsto \R$. Allora $f$ è \textbf{continua a tratti} se esiste un numero finito di punti $x_1,x_2,\dotsc,x_n$ tali che:
 	\begin{enumerate}
-		\item In ogni punto di $\realintervalclose{a}{b}\setminus\left\{x_1,x_2,\dotsc,x_n\right\}$ f è continua
+		\item In ogni punto di $\intervalclose{a}{b}\setminus\left\{x_1,x_2,\dotsc,x_n\right\}$ f è continua
 		\item $i=1,2,\dotsc,n$ esistono finiti entrambi i limiti:
 		\[\lim\limits_{x\to x_i^{-}}f(x)\quad \lim\limits_{x\to x_i^{+}}f(x)\]
 	\end{enumerate}
@@ -961,11 +961,11 @@ GRAFICO::::\\
 .......\\
 .......\\
 \proposition
-Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, $f$ è continua a tratti $\Rightarrow$ esistono finiti tutti i coefficienti di Fourier di $f$
+Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$, $f$ è continua a tratti $\Rightarrow$ esistono finiti tutti i coefficienti di Fourier di $f$
 \proposition
-Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$,\\
+Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$,\\
 -$f$ è continua a tratti\\
--$\forall \overline{x} \in\realintervalclose{-\pi}{\pi}$, esistono finiti:\\
+-$\forall \overline{x} \in\intervalclose{-\pi}{\pi}$, esistono finiti:\\
 \[ \lim\limits_{x\to\overline{x}^{-}}=\frac{f(x)-f(\overline{x}-)}{x-\overline{x}} \]
 \[ \lim\limits_{x\to\overline{x}^{+}}=\frac{f(x)-f(\overline{x}+)}{x-\overline{x}} \]
 Allora:\\
@@ -973,24 +973,24 @@ La serie di Fourier di $f$ converge puntualmente in $\overline{x}$ e $F_f(\overl
 \observation NIENTE CUSPIDI E NIENTE TANGENZE VERTICALI.
 
 \corollary
-Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$,\\
+Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$,\\
 $f$ è continua a tratti.\\
-Sia $\overline{x}\in\realintervalclose{-\pi}{\pi}$ un punto in cui $f$ è derivabile. Allora la serie di Fourier $F_f$ di $f$ converge in $\overline{x}$ e $F_f(\overline{x})=f(\overline{x})$
+Sia $\overline{x}\in\intervalclose{-\pi}{\pi}$ un punto in cui $f$ è derivabile. Allora la serie di Fourier $F_f$ di $f$ converge in $\overline{x}$ e $F_f(\overline{x})=f(\overline{x})$
 \proposition
-Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$.Se:\\
+Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$.Se:\\
 \begin{description}
-	\item[$\ast$] $f\in \cntclass{0}(\realintervalclose{-\pi}{\pi}; \R)$
-	\item[$\ast$] $\exists x_1,x_2,\dotsc,x_n\in\realintervalclose{-\pi}{\pi}$ t.c.:
+	\item[$\ast$] $f\in \cntclass{0}(\intervalclose{-\pi}{\pi}; \R)$
+	\item[$\ast$] $\exists x_1,x_2,\dotsc,x_n\in\intervalclose{-\pi}{\pi}$ t.c.:
 	\begin{description}
 		\item[-] $f$ è derivabile in $x$
 		\item[-] $f'$ continua in $x$
 	\end{description}
-	\item[$\ast$] $\forall i=1,2,\dotsc,n$ e $\forall x\in\realintervalclose{-\pi}{\pi}$ esistono finiti
+	\item[$\ast$] $\forall i=1,2,\dotsc,n$ e $\forall x\in\intervalclose{-\pi}{\pi}$ esistono finiti
 	\[\lim\limits_{x\to x_i^{-}}\frac{f(x)-f(x_i-)}{x-x_i}\qquad \lim\limits_{x\to x_i^{+}}\frac{f(x)-f(x_i+)}{x-x_i}\]
 
 \end{description}
 Allora\\
-La serie di Fourier $F_f$ di $f$ converge a $f$ uniformemente su $\realintervalclose{-\pi}{\pi}$
+La serie di Fourier $F_f$ di $f$ converge a $f$ uniformemente su $\intervalclose{-\pi}{\pi}$
 \corollary
-Sia $f: \realintervalclose{-\pi}{\pi} \mapsto \R$, e $f\in \cntclass{1}(\realintervalclose{-\pi}{\pi}; \R)$.\\
-Allora la serie di Fourier di $F_f$ di $f$ converge uniformemente a $f$ su $\realintervalclose{-\pi}{\pi}$.
+Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$, e $f\in \cntclass{1}(\intervalclose{-\pi}{\pi}; \R)$.\\
+Allora la serie di Fourier di $F_f$ di $f$ converge uniformemente a $f$ su $\intervalclose{-\pi}{\pi}$.
