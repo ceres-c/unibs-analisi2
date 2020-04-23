@@ -780,8 +780,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\[C = \overline{C} \implies \forall x_* \in C\; x_* \in \overline{C}\]
 		Si può dunque applicare il \fullref{coro:succ_conv_sse_x_in_chius_A} e concludere che
 		\[\forall x_* \in C \text{ esiste un successione di elementi di $C$ convergenti a $x_*$}\]
-		Questo permette di individuare tante successioni $x_i$ quanti sono gli elementi di $C$ e, grazie alla \fullref{prop:se_succ_conv_allora_cau}, si sa che ognuna di queste successioni è di Cauchy.
-
+		Questo permette di individuare tante successioni $x_i$ quanti sono gli elementi di $C$ e, grazie alla \fullref{prop:se_succ_conv_allora_cau}, si sa che ognuna di queste successioni è di Cauchy.\\
 		Si giunge dunque alla \fullref{def:completo}
 	\end{proof}
 	\begin{note}
@@ -1038,7 +1037,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\item $(X,d_X)$ e $(Y,d_Y)$ spazi metrici
 		\item $A \subseteq X$
 		\item $x_0$ di accumulazione per $A$
-		\item $f:\; A \mapsto Y$ una funzione
+		\item $f: A \mapsto Y$ una funzione
 		\item $l \in Y$
 	\end{itemize}
 	Allora si definisce
@@ -1067,7 +1066,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{theorem}[Teorema di Unicità del Limite per Funzioni]
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f:\; A \mapsto Y$ una funzione e $l', l'' \in Y$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \mapsto Y$ una funzione e $l', l'' \in Y$
 	\begin{equation*}
 		\left.
 		\begin{array}{c}
@@ -1106,7 +1105,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}[Continuità per Successioni]
 	\label{prop:funz_cont_per_succ}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f:\; A \mapsto Y$ e $l \in Y$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \mapsto Y$ e $l \in Y$
 	\begin{equation*}
 		\begin{gathered}
 			\lim\limits_{x \to x_0} f(x) = l\\
@@ -1368,6 +1367,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\right\} \implies
 		(g \circ f) \text{ è \textbf{Continua} in } x_0
 	\end{equation*}
+	\newpage
 	\begin{proof}
 		Dalla \fullref{def:funz_cont}
 		\begin{align*}
@@ -1375,6 +1375,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 			\shortintertext{Da $d_Y \bigl(f(x),f(x_0)\bigr) < \eta$ sappiamo che la distanza in $Y$ è limitata, dunque possiamo utilizzarla nella seguente definizione}
 			g \text{ continua in } f(x_0) &\implies \forall \varepsilon > 0\;\;\exists \eta > 0:\quad \forall y \in B \text{ con } d_Y\bigl(y,f(x_0)\bigr) < \eta \quad \text{vale} \quad d_Z \Bigl( g(y), g \bigl( f(x_0) \bigr) \Bigr) < \varepsilon
 		\end{align*}
+		\vspace*{-\baselineskip}
 		\begin{note}
 			$\eta$ è la lettera greca Eta
 		\end{note}

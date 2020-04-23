@@ -251,10 +251,23 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 \end{exercise}
 
 \section{Derivata Totale}
+\begin{theorem}[di Lagrange]\leavevmode\vspace*{-\baselineskip}
+	\label{teo:lagrange}
+	\begin{note}
+		Questo teorema viene trattato approfonditamente nel corso di Analisi 1 e si applica solo a funzioni $\R^1 \mapsto \R^1$, qui verrà solo riportato rapidamente l'enunciato
+	\end{note}
+	\begin{note}
+		Il \textbf{Teorema di Lagrange} è conosciuto anche come \textbf{Teorema del Valor Medio Differenziale}
+	\end{note}
+	Sia $f: \intervalclose{a}{b} \mapsto \R$ una funzione \textbf{Continua} nell'intervallo chiuso $\intervalclose{a}{b}$ e \textbf{Derivabile} nell'intervallo aperto $\intervalopen{a}{b}$. Allora esiste almeno un punto
+	\[c \in \intervalopen{a}{b} : f'(c) = \frac{f(b)-f(a)}{b - a}\]
+	O, alternativamente, nella forma
+	\[\xi \in \intervalopen{0}{1} : f'(x_0 + \xi h) = \frac{f(x_0 + h)-f(x_0)}{h}\]
+\end{theorem}
 \begin{definition}[o piccolo]
 	\label{def:o_piccolo}
 	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. Siano $f,g: A \mapsto \R^m$ due funzioni.
-	\[f=o(g) \text{ per } x \to x_0 \qquad \bydef \lim\limits_{x \to x_0} \frac{\norm{f(x)}}{\norm{g(x)}}\]
+	\[f=o(g) \text{ per } x \to x_0 \qquad \bydef \qquad \lim\limits_{x \to x_0} \frac{\norm{f(x)}}{\norm{g(x)}}\]
 	che si legge $f$ è \textbf{o piccolo} di $g$.
 	\begin{note}
 		Scrivere $f(x) = o(x^k)$ per $x \to 0$ significa che $f = o(g)$ con $g = x^k$
@@ -554,6 +567,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\implies\\
 		f \text{ è \textbf{Differenziabile} in } x_0
 	\]
+	\vspace*{-\baselineskip}
 	\begin{note}
 		È specificata la necessità di continuità in un intorno di $x_0$ in quanto, come detto in \fullref{def:deriv_direz}, l'esistenza di derivate parziali non garantisce la continuità.
 	\end{note}
@@ -569,7 +583,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			\label{eq:teo_diff_tot_sommo_sottraggo}
 			f(x_0 + h, y_0 + k) - f(x_0, y_0) = \underbrace{f(x_0 + h, y_0 + k) - f(x_0+h,y_0)}_{\text{(1)}} + \underbrace{f(x_0+h,y_0) - f(x_0, y_0)}_{\text{(2)}}
 		\end{equation}
-		Considerando la (1) e la (2) di \cref{eq:teo_diff_tot_sommo_sottraggo} come funzioni in una sola variabile, si può applicare il Teorema di Lagrange di Analisi 1
+		Considerando la (1) e la (2) di \cref{eq:teo_diff_tot_sommo_sottraggo} come funzioni in una sola variabile, si può applicare il \fullref{teo:lagrange}
 		\begin{itemize}
 			\item La (1) rispetto a $y$, con $x_0 + h$ fissato
 			\item La (2) rispetto a $x$, con $y_0$ fissato
@@ -612,7 +626,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 				\draw[<-] (\MAX*4/10,\YZk) -- (\MAX*6/10,\YZk);
 			\end{tikzpicture}
 		\end{center}
-		Quindi, applicando il teorema di Lagrange (vedere Nota al termine della dimostrazione):
+		Quindi, applicando il \fullref{teo:lagrange}:
 		\[
 			\exists \alpha, \beta \in \intervalopen{0}{1} \textbf{ per cui} \qquad
 			\begin{array}{rrcl}
@@ -646,12 +660,6 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			=\; &o(\sqrt{h^2 + k^2}) \text{ per } \begin{bmatrix}h\\k\end{bmatrix} \to 0
 		\end{align*}
 		Da cui la tesi, avendo verificato la \fullref{def:differenz}.
-		\begin{note}
-			Il \textbf{Teorema di Lagrange} (o del \textbf{Valor Medio Differenziale})
-			\[c \in \intervalopen{a}{b} : f'(c) = \frac{f(b)-f(a)}{b - a}\]
-			Alternativamente, nella forma
-			\[\xi \in \intervalopen{0}{1} : f'(x_0 + \xi h) = \frac{f(x_0 + h)-f(x_0)}{h}\]
-		\end{note}
 	\end{proof}
 \end{theorem}
 \begin{exercise}
@@ -674,7 +682,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	Sia $A \subseteq \R^n$ un \textbf{Aperto}.
 	\begin{center}
 		$\cntclass{1}(A; \R^m)$ è l'insieme delle funzioni $f:A \mapsto \R^m$\\
-		con \textbf{tutte} le \textbf{Derivate Parziali prime} in ogni punto di $A$
+		con \textbf{tutte} le \textbf{Derivate Parziali prime continue} in ogni punto di $A$
 	\end{center}
 	Si può anche leggere \textit{$f$ è di classe $\cntclass{1}$ su $A$ con valori in $\R^m$}.
 \end{definition}
@@ -708,9 +716,10 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\end{proof}
 \end{proposition}
 
-\subsection{Regole di Derivazione}
+\subsection{Regole di Derivazione}\label{sect:regole_deriv}
 %TODO This section is a placeholder, the following proposition have to be rewritten
 \proposition
+\label{prop:diff_somma_diff}
 Siano $f,g: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$\\
 $f$ differenziabile in $x_0$, $g$ differenziabile in $x_0$ allora $f+g$ differenziabile in $x_0$ e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
 \begin{proof}
@@ -824,7 +833,7 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 		\begin{note}
 			Nella \cref{eq:accresc_fin_F},  $\cdot$  è Prodotto Scalare tra due vettori di dimensione $\R^m$, dunque il risultato è correttamente uno scalare.
 		\end{note}
-		$F$ è continua e derivabile sull'intervallo di definizione $\intervalclose{0}{1}$. È dunque possibile utilizzare il Teorema di Lagrange da Analisi 1, che garantisce:
+		$F$ è continua e derivabile sull'intervallo di definizione $\intervalclose{0}{1}$. È dunque possibile utilizzare il \fullref{teo:lagrange}, che garantisce:
 		\[\exists c \in \intervalopen{0}{1}: \quad F(1) - F(0) = F'(c) \; (1-0)\]
 		Tornando dunque a $f$ dalla definizione di $F$
 		\[v \cdot f(x_1) - v \cdot f(x_0) = v \cdot Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)\]
@@ -862,7 +871,7 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 		e passando al $\sup$ su $t \in \intervalopen{0}{1}$ si ottiene la tesi.
 	\end{proof}
 \end{theorem}
-Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa essere esteso al caso di funzioni a valori in $\R^n$ con $n > 1$.
+Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere esteso al caso di funzioni a valori in $\R^n$ con $n > 1$.
 \begin{exercise}
 	Sia $f: \R \mapsto \R^2$ data da $f(t) = (\cos t, \sin t)$. Mostrare che non esiste nessun numero reale $c$ tale che
 	\[f(2 \pi) - f(0) = Df(c) \cdot 2 \pi\]
@@ -903,6 +912,7 @@ Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa 
 		\implies\\
 		f \text{ è \textbf{Costante} su } A
 	\]
+	\vspace*{-\baselineskip}
 	\begin{note}
 		Come da \fullref{obs:matr_deriv_tot}, $\nabla f(x) = Df(x) \in \mat (1 \times n)$, cioè un vettore riga.
 	\end{note}
@@ -951,7 +961,7 @@ Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa 
 	% TODO solution
 \end{exercise}
 \begin{proposition}
-	Siano $A \subseteq \R^n$ e $f:\; A \mapsto \R$
+	Siano $A \subseteq \R^n$ e $f: A \mapsto \R$
 	\[
 		\left.
 			\begin{array}{l}
@@ -963,6 +973,7 @@ Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa 
 		\implies\\
 		f \text{ è \textbf{Costante} su } A
 	\]
+	\vspace*{-\baselineskip}
 	\begin{note}
 		Si sta parlando di insiemi Co\textbf{nn}essi
 	\end{note}
@@ -972,107 +983,207 @@ Il seguente esercizio mostra come il Teorema di Lagrange di Analisi 1 non possa 
 \end{proposition}
 
 \section{Derivate Seconde}
-Sia $f:A\subseteq \R^n \rightarrow \R^m$ sappiamo che $Df(x_0)\in Mat(m\times n)$, allora $Df:A\subseteq \R^{n} \rightarrow \R^{m\times n}$ cioè la derivata è una funzione a valori in $Mat(m\times n)$, ne segue che $D(D(F)):A\subseteq \R^n \rightarrow \R^{m\times n\times n}$
-\definition
-sia $f:A\subseteq \R^n \rightarrow \R^m$ derivabile parzialmente in $x_0$ lungo $e_i$. Se la funzione $\frac{\partial{f}}{\partial{x_i}}$ è derivabile parzialmente lungo $e_j$ in $x_0$, la quantità $\frac{\partial}{\partial{x_j}}\frac{\partial{f}}{\partial{x_i}}(x_0)$ è la derivata seconda di $f$ in $x_0$ rispetto $x_i,x_j$ e si indica $\frac{\partial^2f}{\partial{x_j}\partial{x_i}}(x_0)$
-\definition
-sia $f:A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$\\
-$f$ differenziabile due volte in $xo \bydef f$ è differenziabile in un intorno di $x_0$ e $f$ è differenziabile in $x_0$
-\observation
-con la notazione della definizione precedente, $f$ è una funzione definita in un intorno di $x_0$ con valori in $Mat(m\times n)$, spazio identificabile con $R^{m\times n}$
-\observation
-per una funzione scalare $f:A\subseteq \R^n \rightarrow \R$, la derivata prima è un vettore (il gradiente $\nabla$ in $R^{1\times n}$), la derivata seconda è una matrice in $R^{1\times n \times n}$, la derivata terza è una super matrice ...
-\definition
-sia $f:A\subseteq \R^n \rightarrow \R$ e $x_0\in\circdot{A}$, $f$ ammette tutte le derivate parziali seconde in $x_0$. La matrice di queste derivate seconde si chiama Matrice Hessiana di $f$ in $x_0$
-\[H_f(x_0)=D^2f(x_0) = \begin{bmatrix}
-\frac{\partial^2f}{\partial{x_1}\partial{x_1}} && \frac{\partial^2f}{\partial{x_2}\partial{x_1}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_1}} \\
-\frac{\partial^2f}{\partial{x_1}\partial{x_2}} && \frac{\partial^2f}{\partial{x_2}\partial{x_2}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_2}} \\
-\vdots && \vdots && \ddots && \vdots \\
-\frac{\partial^2f}{\partial{x_1}\partial{x_n}} && \frac{\partial^2f}{\partial{x_2}\partial{x_n}} && \dotsb && \frac{\partial^2f}{\partial{x_n}\partial{x_n}} \\
-\end{bmatrix}\] 
-ESEMPI:\\
-...\\
-...\\
-...\\
+Quanto detto circa le derivate prime può essere ripetuto introducendo derivate di ordine superiore.
+\begin{definition}[Derivate Parziali Seconde]
+	Sia $f: A \mapsto \R^m$ con $A \subseteq \R^n$ derivabile parzialmente in $x_0$ lungo $e_i$.\\
+	Se la funzione $\frac{\partial f}{\partial x_i}$ è a sua volta derivabile parzialmente in $x_0$, questa volta lungo $e_j$, allora la quantità
+	\[
+		\frac{\partial}{\partial x_j} \frac{\partial f}{\partial x_i} (x_0)
+		\quad \bydef \quad
+		\begin{array}{c}
+			\text{ è la \textbf{Derivata Parziale Seconda}}\\
+			\text{di } f \text{ in } x_0 \text{ rispetto a } x_j, x_i \text{ (in quest'ordine)}
+		\end{array}
+	\]
+	e si indica con
+	\[\boldsymbol{\frac{\partial^2 f}{\partial x_j \partial x_i} (x_0)}\]
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Altre notazioni comunemente utilizzate per le derivate parziali secone sono: $D^2_{x_j x_i} f$, $\partial^2_{ji} f$, $\partial_{x_j x_i} f$, $f_{x_j x_i}$, $f_{ji}$
+	\end{note}
+	\begin{note}
+		L'ordine qui utilizzato, cioè
+		\[\frac{\partial^2 f}{\partial x_j \partial x_i} = \frac{\partial}{\partial x_j} \frac{\partial f}{\partial x_i} \qquad i,j = 1,\;\dotsc\;,n\]
+		non è sempre condiviso da tutti i testi di Analisi Matematica.
+	\end{note}
+\end{definition}
+\begin{observation}
+	Le regole di derivazione fornite in \fullref{sect:regole_deriv} sono adeguate anche per il calcolo delle Derivate Seconde.
+\end{observation}
+\begin{exercise}
+	\label{ex:num_deriv_sec}
+	Siano $A \subseteq \R^n$ e $f:A \mapsto \R^m$. Ammesso che esistano tutte, quante sono le derivate parziali seconde di $f$ in un qualche punto $x_0$?\\
+	Confrontare quanto ottenuto con il caso $n = m = 1$ di Analisi 1.
+	\begin{solution}
+		Ognuna delle $n$ derivate di $f$ ha, a sua volta, $n$ derivate, di conseguenza il numero di derivate seconde di $f$ è $n^2$. Nel caso di Analisi 1, le derivate seconde erano $1^2 = 1$
+	\end{solution}
+\end{exercise}
+
+\begin{definition}[Differenziale Seconda]
+	Siano $A \subseteq \R^n$, $f:A \mapsto \R^m$ e $x_0 \in \circdot{A}$
+	\[
+		f \text{ è \textbf{Differenziabile} } 2 \text{ volte in } x_0
+		\quad \bydef \quad
+		\begin{cases}
+			\text{
+				\begin{tabular}{c}
+					$f$ è \textbf{Differenziabile} in un intorno di $x_0$\\
+					\textit{e}\\
+					$f'$ è \textbf{Differenziabile} in $x_0$
+				\end{tabular}
+			}
+		\end{cases}
+	\]
+	Dove $f'$ è una funzione definita in un intorno di $x_0$ a valori in $\mat(m \times n) \in \R^{mn}$.
+	\begin{note}
+		Questa definizione è utilizzata comunemenete nel linguaggio parlato, ma viene raramente formalizzata come definizione.
+	\end{note}
+	\begin{note}
+		Avendo una funzione	\textit{scalare} $f: A \mapsto \R$ con $A \subseteq \boldsymbol{\R^n}$, la sua derivata prima è un \textit{vettore}. La derivata seconda sarà una \textit{matrice} e così via.
+	\end{note}
+\end{definition}
+
+\begin{definition}[Matrice Hessiana]
+	Siano $A \subseteq \R^n$, $f:A \mapsto \R^m$ e $x_0 \in \circdot{A}$, inoltre $f$ ammette tutte le Derivate Parziali Seconde in $x_0$.\\
+	La matrice di queste derivate seconde si chiama \textbf{Matrice Hessiana} di $f$ in $x_0$ e si indica con $\boldsymbol{H_f(x_0)}$
+	\[
+		D^2f(x_0) =
+		\begin{bmatrix}
+			\dfrac{\partial^2 f}{\partial x_1 \partial x_1} & \dfrac{\partial^2 f}{\partial x_2 \partial x_1} & \dots & \dfrac{\partial^2 f}{\partial x_n \partial x_1}\\[3ex]
+			\dfrac{\partial^2 f}{\partial x_1 \partial x_2} & \dfrac{\partial^2 f}{\partial x_2 \partial x_2} & \dots & \dfrac{\partial^2 f}{\partial x_n \partial x_2}\\[3ex]
+			\vdots & \vdots & \ddots & \vdots\\[3ex]
+			\dfrac{\partial^2 f}{\partial x_1 \partial x_n} & \dfrac{\partial^2 f}{\partial x_2 \partial x_n} & \dots & \dfrac{\partial^2 f}{\partial x_n \partial x_n}
+		\end{bmatrix}
+	\]
+\end{definition}
 
 \subsection{Il Lemma di Schwarz}
-\proposition
-sia $f:A\subseteq \R^n\rightarrow \R^m$ e $x_0\in\circdot{A}$. Fino ...\\
-$\exists \partial^2_{ij}f(x)$ e $\exists \partial^2_{ji}f(x)$ in un intorno di $x_0$ e continue in $x_0 \Rightarrow$ ....\\
+\begin{lemma}[di Schwarz]
+	\label{lemma:schwarz}
+	Siano $A \subseteq \R^2$, $f:A \mapsto \R^m$ e $(x_0, y_0) \in \circdot{A}$. Se $\frac{\partial^2 f}{\partial x \partial y}$ e $\frac{\partial^2 f}{\partial y \partial x}$ \textbf{esistono} in un intorno di $(x_0, y_0)$ e sono \textbf{Continue} in $(x_0, y_0)$, allora
+	\[\frac{\partial^2 f}{\partial x \partial y} \quad = \quad \frac{\partial^2 f}{\partial y \partial x}\]
+	\begin{proof}
+		Scelti $h, k \in \R$ sufficientemente piccoli, in modo tale che le derivate parziali di $f$ siano definite in tutto il rettangolo di estremi
+		\[(x_0, y_0) \qquad\qquad (x_0 + h, y_0) \qquad\qquad (x_0, y_0 + k) \qquad\qquad (x_0 + h, y_0 + k)\]
+		\begin{center}
+			\begin{tikzpicture}
+				\pgfmathsetmacro\MAX{8}
+				\pgfmathsetmacro\XZ{\MAX / 3 }
+				\pgfmathsetmacro\YZ{\MAX / 3 }
+				\pgfmathsetmacro\XZh{\MAX / 3 *2}
+				\pgfmathsetmacro\YZk{\MAX / 3 *2}
+				\coordinate (X0Y0) at (\XZ,\YZ);
+				\coordinate (X0hY0) at (\XZh,\YZ);
+				\coordinate (X0Y0k) at (\XZ,\YZk);
+				\coordinate (X0hY0k) at (\XZh,\YZk);
 
-CASO n=2 m=1
-\proposition
-sia $f:A\subseteq \R^2\rightarrow \R^1$ e $(x_0,y_0)\in\circdot{A}$. .....\\
-$\exists \partial^2_{xy}f(x,y)$ e $\exists \partial^2_{yx}f(x,y)$ in un intorno di $(x_0,Y_0)$ e continue in $(x_0,y_0) \Rightarrow$ ....\\
-\begin{proof}
-	prendo una quantità $q=f(x_0+h,y_0+k)-f(x_0+h,y_0)-f(x_0,y_0+k)+f(x_0,y_0)$\\
-	\begin{tikzpicture}
-	\pgfmathsetmacro\MAX{8}
-	\pgfmathsetmacro\XZ{\MAX / 3 }
-	\pgfmathsetmacro\YZ{\MAX / 3 }
-	\pgfmathsetmacro\XZh{\MAX / 3 *2}
-	\pgfmathsetmacro\YZk{\MAX / 3 *2}
-	\coordinate (X0Y0) at (\XZ,\YZ);
-	\coordinate (X0hY0) at (\XZh,\YZ);
-	\coordinate (X0Y0k) at (\XZ,\YZk);
-	\coordinate (X0hY0k) at (\XZh,\YZk);
-	
-	\draw[->] (0,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,0) -- (0,\MAX) node[anchor=south east] {y};
-	\draw[dotted] (\XZ,0) -- (\XZ,\MAX);
-	\draw[dotted] (0,\YZ) -- (\MAX,\YZ);
-	\draw[dotted] (\XZh,0) -- (\XZh,\MAX);
-	\draw[dotted] (0,\YZk) -- (\MAX,\YZk);
-	\draw node[anchor=north] at (\XZ,0) {$x_0$};
-	\draw node[anchor=north] at (\XZh,0) {$x_0+h$};
-	\draw node[anchor=east] at (0,\YZ) {$y_0$};
-	\draw node[anchor=east] at (0,\YZk) {$y_0+k$};
-	\draw node at (X0Y0) {$\bullet$};
-	\draw node at (X0Y0k) {$\bullet$};
-	\draw node at (X0hY0) {$\bullet$};
-	\draw node at (X0hY0k) {$\bullet$};
-	
-	%\draw node[anchor=north east] at (X0Y0) {$(x_0,y_0)$};
-	%\draw node[anchor=south east] at (X0Y0k) {$(x_0,y_0+k)$};
-	%\draw node[anchor=north west] at (X0hY0) {$(x_0+h,y_0)$};
-	%\draw node[anchor=south west] at (X0hY0k) {$(x_0+h,y_0+k)$};
-	\end{tikzpicture}\\
-	L'idea è quella di calcolare $q$ in due modi diversi e osservare che le due scritture rappresentano la stessa quntità quindi sono uguali.\\
-	\[q=[f(x_0+h,y_0+k)-f(x_0+h,y_0)]-[f(x_0,y_0+k)-f(x_0,y_0)]\]
-	scelgo una funzione $\varphi(h)=f(x_0+h,y_0+k)-f(x_0+h,y_0)$
-	\[q=\varphi(h)-\varphi(0) = \varphi'(\alpha' h)h\]
-	valida per $\alpha'\in ]0,1[$ e $\varphi'(h)=\partial_{x}f(x_0+h,y_0+k)-\partial_{x}f(x_0+h,y_0)$
-	\[q = [\partial_{x}f(x_0+\alpha'h,y_0+k)-\partial_{x}f(x_0\alpha'h+,y_0)]h\]
-	scelgo una funzione $\varPhi(k)=\partial{x}f(x_0+h,y_0+k)$
-	\[q=[\varPhi(k)-\varPhi(0)]h=\varPhi'(\beta'k)hk\]
-	valida per $\beta'\in ]0,1[$ e $\varPhi'(k)=\partial_{y}\partial_{x}f(x_0+\alpha'h,y_0+k)$
-	\[q = \partial^2_{xy}f(x_0+\alpha'h,y_0+\beta'k)hk\]
-	Ma $q$ può anche essere calcolata in un secondo modo
-	\[q=[f(x_0+h,y_0+k)-f(x_0,y_0+k)]-[f(x_0+h,y_0)-f(x_0,y_0)]\]
-	scelgo una funzione $\psi(k)=f(x_0+h,y_0+k)-f(x_0,y_0+k)$
-	\[q=\psi(k)-\varphi(0) = \psi'(\alpha''k)k\]
-	valida per $\alpha''\in ]0,1[$ e $\psi'(k)=\partial_{y}f(x_0+h,y_0+k)-\partial_{y}f(x_0,y_0+k)$
-	\[q = [\partial_{y}f(x_0+h,y_0+\alpha''k)-\partial_{y}f(x_0,y_0+\alpha''k)]k\]
-	scelgo una funzione $\Psi(h)=\partial{y}f(x_0+h,y_0+\alpha''k)$
-	\[q=[\Psi(h)-\varPhi(0)]k=\Psi'(\beta''k)hk\]
-	valida per $\beta''\in ]0,1[$ e $\Psi'(h)=\partial_{x}\partial_{y}f(x_0+h,y_0+\beta''k)$
-	\[q = \partial^2_{xy}f(x_0+\alpha''h,y_0+\beta''k)hk\]
-	Abbiamo quindi trovato che 
-	\[ \partial^2_{xy}f(x_0+\alpha'h,y_0+\beta'k)hk = \partial^2_{xy}f(x_0+\alpha''h,y_0+\beta''k)hk\]
-	Ci sarebbe un disegno ...\\
-	...\\
-	Abbiamo trovato che le derivate parziali seconde miste coincidono in due punti ad esempio quelli segnati con il cerchio, poiché $\alpha',\alpha'',\beta{'},\beta''$ li abbiamo scelti in $]0,1[$\\
-	poiché $h,k$ li abbiamo scelti del tutto arbitrari allora facciamo il limite e poiché le due quantità sono uguali allora sono uguali anche i limiti.\\
-	allora per $(h,k)\rightarrow (0,0)$ anche $\alpha',\alpha'',\beta{'},\beta''$ cambiano ma essendo limitati tra $]0,1[$ moltiplicandoli oer una quantità che tende a zero fa tutto zero.\\
-	Usando la continuità, per $(h,k)\rightarrow (0,0)$ ottengo $\partial^2_{xy}f(x_0,y_0)=\partial^2_{yx}f(x_0,y_0)$
-\end{proof}
-\observation
-$f:A\subseteq \R^n\rightarrow \R$\\
-$Df(x_0)=\nabla f(x_0) \in Mat(1\times n)$\\
-$H_f(x_0)\in Mat(n\times n)$\\
-Il lemma di Schwarz dice che sotto opportune ipotesi la $H_f(x_0)$ è una matrice simmetrica, in questo caso non dobbiamo calcolare $n\times n$ termini, ma solo $\frac{n(n+1)}{2}$
+				\draw[->] (0,0) -- (\MAX,0) node[anchor=north west] {$x$};
+				\draw[->] (0,0) -- (0,\MAX) node[anchor=south east] {$y$};
+				\draw[dotted] (\XZ,0) -- (\XZ,\MAX);
+				\draw[dotted] (0,\YZ) -- (\MAX,\YZ);
+				\draw[dotted] (\XZh,0) -- (\XZh,\MAX);
+				\draw[dotted] (0,\YZk) -- (\MAX,\YZk);
+				\draw node[anchor=north] at (\XZ,0) {$x_0$};
+				\draw node[anchor=north] at (\XZh,0) {$x_0+h$};
+				\draw node[anchor=east] at (0,\YZ) {$y_0$};
+				\draw node[anchor=east] at (0,\YZk) {$y_0+k$};
+				\draw node at (X0Y0) {$\bullet$};
+				\draw node at (X0Y0k) {$\bullet$};
+				\draw node at (X0hY0) {$\bullet$};
+				\draw node at (X0hY0k) {$\bullet$};
+			\end{tikzpicture}
+		\end{center}
+		Per come son state scelte $h$ e $k$, è possibile definire sicuramente la quantità
+		\[q = f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) - f(x_0, y_0 + k) + f(x_0, y_0)\]
+		Per dimostrare la tesi si può ora verificare che la $q$, calcolata lungo percorsi differenti fornisce lo stesso risultato. È possibile fare ciò riconducendo la $q$ a due diverse funzioni in una sola variabile ed applicando il \fullref{teo:lagrange} due volte ad ognuna di esse.
+		\begin{enumerate}
+			\item Posta $\varphi(\xi) = f(x_0 + \xi, y_0 + k) - f(x_0 + \xi, y_0)$, si ottiene, riordinando i termini della $q$
+				\begin{align*}
+					q &= \Bigl( f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) \Bigr) - \Bigl( f(x_0, y_0 + k) + f(x_0, y_0) \Bigr)\\
+					&= \varphi(h) - \varphi(0)
+					\shortintertext{Applicando Lagrange}
+					&= h\: \varphi'(\alpha' h)
+					\shortintertext{Grazie alla \fullref{prop:diff_somma_diff} si passa alle derivate parziali rispetto a $x$ (la $y$ è fissa)}
+					&= h \left( \frac{\partial f}{\partial x}(x_0 + \alpha' h, y_0 + k) - \frac{\partial f}{\partial x}(x_0 + \alpha' h, y_0) \right)
+					\intertext{Si definisce ora $\Phi(\xi) = \frac{\partial f}{\partial x}(x_0 + \alpha'h, y_0 + \xi)$}
+					&= h \bigl( \Phi(k) - \Phi(0) \bigr)
+					\shortintertext{Per la $\Phi$ valgono nuovamente le ipotesi di Lagrange, dunque si ottiene}
+					&= hk\: \Phi'(\beta' k)\\
+					&= hk\: \frac{\partial^2 f}{\partial y \partial x}(x_0 + \alpha' h, y_0 + \beta' k)
+				\end{align*}
+			\item Posta $\psi(\xi) = f(x_0 + h, y_0 + \xi) - f(x_0, y_0 + \xi)$, si ottiene, riordinando i termini della $q$
+				\begin{align*}
+					q &= \Bigl( f(x_0 + h, y_0 + k) - f(x_0, y_0 + k) \Bigr) - \Bigl( f(x_0 + h, y_0) + f(x_0, y_0) \Bigr)\\
+					&= \psi(k) - \psi(0)
+					\shortintertext{Applicando Lagrange}
+					&= k\: \psi'(\beta'' k)
+					\shortintertext{Grazie alla \fullref{prop:diff_somma_diff} si passa alle derivate parziali rispetto a $y$ (la $x$ è fissa)}
+					&= k \left( \frac{\partial f}{\partial y}(x_0 + h, y_0 + \beta'' k) - \frac{\partial f}{\partial y}(x_0, y_0 + \beta'' k) \right)
+					\intertext{Si definisce ora $\Psi(\xi) = \frac{\partial f}{\partial y}(x_0 + \xi, y_0 + \beta'' k)$}
+					&= k \bigl( \Psi(k) - \Psi(0) \bigr)
+					\shortintertext{Per la $\Psi$ valgono nuovamente le ipotesi di Lagrange, dunque derivando rispetto a $x$ si ottiene}
+					&= kh\: \Psi'(\alpha'' h)\\
+					&= kh\: \frac{\partial^2 f}{\partial x \partial y}(x_0 + \alpha'' h, y_0 + \beta'' k)
+				\end{align*}
+		\end{enumerate}
+		Si è quindi giunti a due diverse formulazioni di $q$ per degli $\alpha', \alpha'', \beta', \beta'' \in \intervalopen{0}{1}$
+		\[\cancel{hk}\: \frac{\partial^2 f}{\partial y \partial x}(x_0 + \alpha' h, y_0 + \beta' k) = \cancel{kh}\: \frac{\partial^2 f}{\partial x \partial y}(x_0 + \alpha'' h, y_0 + \beta'' k)\]
+		A questo punto si calcola il limite per $(h, k) \to (0, 0)$. Spostandosi, anche $\alpha', \alpha'', \beta', \beta''$ cambieranno, ma essendo limitati $\in \intervalopen{0}{1}$, non si presentano complicazioni di sorta in quanto vengono moltiplicati per una quantità tendente a zero.
+		\[\frac{\partial^2 f}{\partial y \partial x}(x_0, y_0) = \frac{\partial^2 f}{\partial x \partial y}(x_0, y_0)\]
+	\end{proof}
+\end{lemma}
+\begin{observation}
+	Il \fullref{lemma:schwarz} ha importanti applicazioni in fisica e nella teoria dei campo. Grazie al lemma è infatti possibile distinguere tra campi \textbf{conservativi} e non: uno dei criteri è appunto il controllo dell'uguaglianza dell derivate parziali miste.
+\end{observation}
+\begin{exercise}
+	Verificare se il \fullref{lemma:schwarz} si applica alla funzione
+	\[\funcdef{f}{\R^2}{\R}{(x,y)}{
+		\begin{cases}
+			\begin{array}{ll}
+				\dfrac{x^3 y - xy^3}{x^2 + y^2} & \text{se } (x,y) \neq (0,0)\\
+				0 & \text{se } (x,y) = (0,0)
+			\end{array}
+		\end{cases}
+	}\]
+\end{exercise}
+\begin{corollary}
+	Siano $A \subseteq \R^n$, $f:A \mapsto \R^m$ e $x_0 \in \circdot{A}$. Se $\frac{\partial^2 f}{\partial x_i \partial x_j}$ e $\frac{\partial^2 f}{\partial x_j \partial x_i}$ \textbf{esistono} in un intorno di $x_0$ e sono \textbf{Continue} in $x_0$, allora
+	\[\frac{\partial^2 f}{\partial x_i \partial x_j} \quad = \quad \frac{\partial^2 f}{\partial x_j \partial x_i}\]
+	\begin{proof}
+		Segue dal \fullref{lemma:schwarz} applicandolo a tutte le variabili prese 2 a 2.
+	\end{proof}
+\end{corollary}
+
+\begin{definition}[Funzioni di Classe $\cntclass{2}$]
+	Sia $A \subseteq \R^n$ un \textbf{Aperto}.
+	\begin{center}
+		$\cntclass{1}(A; \R^m)$ è l'insieme delle funzioni $f:A \mapsto \R^m$\\
+		con \textbf{tutte} le \textbf{Derivate Parziali seconde continue} in ogni punto di $A$
+	\end{center}
+	Si può anche leggere \textit{$f$ è di classe $\cntclass{2}$ su $A$ con valori in $\R^m$}.
+\end{definition}
+
+\begin{corollary}
+	Sia $A \subseteq \R^n$ un aperto.
+	\[f \in \cntclass{2}(A;\R) \quad \implies \quad D^2 f \text{ è una matrice \textbf{simmetrica}}\]
+	\begin{proof}
+		Segue dal \fullref{lemma:schwarz}, in quanto $\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}$ per ogni $i, j$ della matrice, andando a verificare la definizione di Matrice Simmetrica.
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	Siano $A \subseteq \R^n$ e $f \in \cntclass{2}(A;\R^m)$.\\
+	Quante sono le derivate parziali seconde di $f$ che bisogna necessariamente calcolare? Calcolare questa risposta con quella dell'\fullref{ex:num_deriv_sec}.
+	\begin{solution}
+		Bisogna calcolare $\frac{n(n+1)}{2}$ derivate diverse, invece che $n^2$.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Esibire un esempio di funzione $f:\R^2 \mapsto \R$ che ammetta tutte le derivate parziali seconde in un punto, ma che non sia continua in quel punto
+	% TODO solution
+\end{exercise}
 
 \subsection{Sviluppo in Serie di Taylor al II Ordine}
+I risultati seguenti riportano lo \textit{Sviluppo di Taylor} con i resti secondo Lagrange e secondo Peano.
 %TODO This section is a placeholder
 
 \subsection{Derivate di Ordine Superiore}
@@ -1169,7 +1280,7 @@ $\exists !\varphi : \R^n\rightarrow \R^m$ t.c.: $f(x,y)=0 \iff y=\varphi(x)$
 			\item $\forall x \in \overline{B(x_0,r_x)} Tx: \overline{B(x_0,r_x)}\rightarrow\overline{B(y_0,r_y)}$ che $y\rightarrow T(x,y)$,\\
 		\end{enumerate}
 		cioè $T$ è una contrazione tale che $\forall x$ esiste un punto fisso, $\forall x$ associo a $y$ una x, e quindi na funzione.\\
-		$r_x,r_y$ devono essere sufficientemene piccoli per avere tali proprietà e per poterci lavorare sopra.\\
+		$r_x,r_y$ devono essere sufficientemente piccoli per avere tali proprietà e per poterci lavorare sopra.\\
 		Abbiamo che $f(x,y)=0 \iff T(x,y)=y$\\
 		$T(x,y)=y\iff y=y-[D_yF(x_0,y_0)]^{-1}f(x,y)$\\
 		$[D_yF(x_0,y_0)]^{-1}f(x,y)\iff f(x,y)=0$\\
