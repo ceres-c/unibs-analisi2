@@ -1,4 +1,5 @@
 \chapter{Equazioni Differenziali}
+\newpage
 \section{Preliminari}
 Equazione è un uguaglianza in cui c'è almeno una incognita.\newline
 Equazione \textbf{Funzionale} è un’equazione le cui incognite sono funzioni.
@@ -313,6 +314,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{enumerate}
 \end{observation}
 
+\newpage
 \section{Teoria Locale}
 \begin{definition}[Funzione Localmente Lipschitziana]
 	\label{def:loc_lips}
@@ -468,7 +470,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\begin{solution}
 		~
 		\begin{figure}[H]
-			\begin{subfigure}{.5\textwidth}
+			\begin{subfigure}{.49\textwidth}
 				\centering
 				\resizebox{\linewidth}{!}{
 					\begin{tikzpicture}
@@ -486,7 +488,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\end{tikzpicture}
 				}
 			\end{subfigure}
-			\begin{subfigure}{.5\textwidth}
+			\begin{subfigure}{.49\textwidth}
 				\centering
 				\resizebox{\linewidth}{!}{
 					\begin{tikzpicture}
@@ -552,7 +554,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\vspace*{\baselineskip}
 		\centerline{I seguenti grafici son tracciati con $x_0 = 0$ e $t_0 = 0$}
 		\begin{figure}[H]
-			\begin{subfigure}{.5\textwidth}
+			\begin{subfigure}{.49\textwidth}
 				\centering
 				\resizebox{\linewidth}{!}{
 					\begin{tikzpicture}
@@ -581,7 +583,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 				}
 				\caption{Differenti valori di $a$ e $b$}
 			\end{subfigure}
-			\begin{subfigure}{.5\textwidth}
+			\begin{subfigure}{.49\textwidth}
 				\centering
 				\resizebox{\linewidth}{!}{
 					\begin{tikzpicture}
@@ -803,7 +805,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\begin{solution}
 		Consideriamo, ad esempio, le seguenti due funzioni
 		\begin{figure}[H]
-			\begin{subfigure}{.5\textwidth}
+			\begin{subfigure}{.49\textwidth}
 				\centering
 				\resizebox{\linewidth}{!}{
 					\begin{tikzpicture}
@@ -825,7 +827,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\end{tikzpicture}
 				}
 			\end{subfigure}
-			\begin{subfigure}{.5\textwidth}
+			\begin{subfigure}{.49\textwidth}
 				\centering
 				\resizebox{\linewidth}{!}{
 					\begin{tikzpicture}
@@ -1078,6 +1080,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{note}
 \end{example}
 
+\newpage
 \section{Teoria Globale}
 \begin{example}[Un Problema di Cauchy senza soluzione globale]
 	\label{ex:cau_glob_asint}
@@ -1094,7 +1097,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\frac{dx}{x^2(t)} &= dt\\
 		\int_0^t \frac{dx}{x^2(\tau)} \integrald{\tau} &= \int_0^t \integrald{\tau}
 		\intertext{Applicando al primo membro le normali regole d'integrazione delle funzioni composte otteniamo}
-		-\frac{1}{x(t)} + 1 &= t\\
+		-\frac{1}{x(t)} + 1 &= t
 	\end{align*}
 	Da cui si ricava $x(t) = \frac{1}{1-t}$, che è unica soluzione del Problema di Cauchy ed ha asintoto verticale in $t=1$.\\
 
@@ -1203,10 +1206,8 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{itemize}
 		I punti fissi di $T$ sono tutte e sole le soluzioni di \cref{eq:cau_glob_thesis}. Grazie al \fullref{teo:iterata_contraz}, per dimostare l'esistenza di un unico punto fisso, basta dimostrare che un'iterata di $T$ (\fullref{def:iterata}) è contrazione.\\
 		Nel dettaglio andremo a dimostrare per induzione la seguente forma:
-		\begin{equation}
-			\norm{\bigl(T^m(x_2)\bigr)(t) - \bigl(T^m(x_1)\bigr)(t)} \leq \frac{\bigl(L \cdot \abs{t-t_0}\bigr)^m}{m!} \cdot d_X(x_2,x_1)
-		\end{equation}
-		Dove $L$ è costante di Lipschitzianità di $f$\\
+		\[\norm{\bigl(T^m(x_2)\bigr)(t) - \bigl(T^m(x_1)\bigr)(t)} \leq \frac{\bigl(L \cdot \abs{t-t_0}\bigr)^m}{m!} \cdot d_X(x_2,x_1)\]
+		Dove $L$ è costante di Lipschitzianità di $f$
 		\begin{itemize}
 			\item $m=1$: Come in dalla \cref{eq:cau_loc_verif_contraz_fine}, sappiamo che
 			\begin{equation*}
@@ -1228,7 +1229,8 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 				\leq &\abs{\int_{t_0}^t
 				L \cdot \norm{\bigl(T^m(x_2)\bigr)(\tau) - \bigl(T^m(x_1)\bigr)(\tau)}
 				\integrald{\tau}}
-				\intertext{Grazie alla Lips. di $f$, dalla \fullref{def:loc_lips}, $\norm{\bigl(T(x_2)\bigr)(\tau) - \bigl(T(x_1)\bigr)(\tau)} \leq L \cdot d_X(x_2,x_1)$, dunque essendo $T^m$ iterata di T, si moltiplica $L$ per sé stesso $m$ volte, da cui $L^m$.\newline
+				\intertext{Grazie alla Lips. di $f$, dalla \fullref{def:loc_lips},\newline
+				$\norm{\bigl(T(x_2)\bigr)(\tau) - \bigl(T(x_1)\bigr)(\tau)} \leq L \cdot d_X(x_2,x_1)$, dunque essendo $T^m$ iterata di T, si moltiplica $L$ per sé stesso $m$ volte, da cui $L^m$.\newline
 				In modo analogo (penso) si ottiene $\frac{\abs{\tau-t_0}^m}{m!}$. Non lo so...} % TODO Spiegare questo passaggio
 				= &\abs{\int_{t_0}^t
 				L \cdot \frac{(L \cdot \abs{\tau-t_0})^m}{m!}\cdot d_X(x_2,x_1)
@@ -1247,7 +1249,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 				= &\frac{L^{m+1}}{m!} \cdot d_X(x_2,x_1)
 				\cdot \frac{1}{m+1} \cdot \abs{t-t_0}^{m+1}\\
 				= &\frac{\bigl(L \cdot \abs{t-t_0}\bigr)^{m+1}}{m!} \cdot \frac{1}{m+1} \cdot d_X(x_2,x_1)\\
-				= &\frac{\bigl(L \cdot \abs{t-t_0}\bigr)^{m+1}}{(m+1)!} \cdot d_X(x_2,x_1)\\
+				= &\frac{\bigl(L \cdot \abs{t-t_0}\bigr)^{m+1}}{(m+1)!} \cdot d_X(x_2,x_1)
 			\end{align*}
 		\end{itemize}
 		Avendo dimostrato che la minorazione vale per $m$ e per $m+1$, la dimostrazione per induzione è conclusa.
@@ -1453,6 +1455,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{exercise}
 
 
+\newpage
 \section{Equazioni Autonome}
 \begin{definition}[Equazione Autonoma]
 	\label{def:equaz_diff_auton}
@@ -1534,6 +1537,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{exercise}
 
 \color{not_explained_section_color}
+\newpage
 \section{Equazioni Differenziali Lineari}
 Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{sec:fun_in_C}, in particolare \fullref{ex:ext_def_in_C}
 \begin{definition}[Equazione Differenziale Ordinaria Lineare]
@@ -1712,6 +1716,7 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \color{black}
 
 \color{not_explained_section_color}
+\newpage
 \section{Equazioni Lineari a Coefficienti Costanti}
 \begin{definition}[Equazione Differenziale Ordinaria Lineare a Coefficienti Costanti]
 	Dati i coefficienti $a_0,\:a_1,\:\dotsc\:,a_{n-1},b \in \C$ si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine $\boldsymbol{n}$ a Coefficienti Costanti} l'equazione differenziale
@@ -1787,6 +1792,7 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \end{example}
 \color{black}
 
+\newpage
 \section{Esempi}
 \subsection{La Legge di Malthus}
 Una popolazione, dotata di tutto il necessario per vivere e riprodursi, cresce secondo la legge di Malthus: la velocità di crescita della popolazione è proporzionale alla popolazione stessa.

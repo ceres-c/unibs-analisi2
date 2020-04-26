@@ -3,6 +3,7 @@
 In questo capitolo sono trattate funzioni $f: A \mapsto \R^m$ con $A \subseteq \R^n$, dove $r,m \in \N$ e $n,m \geq 1$.\\
 Generalmente, effetuata una dimostrazione per $m = 1$ è abbastanza semplice passare ad un $m > 1$ \textit{affiancando} le componenti, mentre non è altrettanto triviale il passaggio a $n > 1$.
 
+\newpage
 \section{Preliminari}
 In $\R^n$ verranno usate le (note) strutture vettoriale con la metrica Euclidea di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})} % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 
@@ -18,6 +19,7 @@ Alcune classi di funzioni $f:A\subseteq\R^n\rightarrow\R^m$ hanno nomi particola
 	\item $n>1$,$m>1$: $f$ è un \textit{campo vettoriale} (soprattutto nei casi $n=m=2$ e $n=m=3$)
 \end{itemize}
 
+\newpage
 \section{Derivate Parziali e Direzionali}
 Direttamente dalla nozione di Analisi 1 di derivata, cioè
 \begin{align*}
@@ -250,6 +252,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 	\end{solution}
 \end{exercise}
 
+\newpage
 \section{Derivata Totale}
 \begin{theorem}[di Lagrange]\leavevmode\vspace*{-\baselineskip}
 	\label{teo:lagrange}
@@ -936,8 +939,9 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 	\begin{solution}
 		Supponendo, per assurdo, $C \in \R^n$ sconnesso. In questo caso, per \fullref{def:connesso}, esistono due insiemi separati $S_1$ e $S_2$ che costituiscono $C$, inoltre $S_1 \cup S_2 = C$ e $S_1 \cap S_2 = \emptyset$. Questo implica che
 		\[\exists t \in \intervalclose{0}{1}:\; \forall x_1 \in S_1 \text{ e } \forall x_2 \in S_2 \quad tx_1 + (1-t)x_2 \notin S_1 \text{ e contemporaneamente } \notin S_2\]
-		Questo implica la non convessità di $C$ - \textit{Assurdo}.\\
-
+		Questo implica la non convessità di $C$ - \textit{Assurdo}.
+	\end{solution}
+	\begin{solution}
 		Preso il cerchio di raggio unitario $S = {(x,y): x^2 + y^2 = 1}$, questo verifica la \fullref{def:connesso} ma sicuramente non la \fullref{def:convesso}.
 	\end{solution}
 \end{exercise}
@@ -985,6 +989,7 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 	\end{proof}
 \end{proposition}
 
+\newpage
 \section{Derivate Seconde}
 Quanto detto circa le derivate prime può essere ripetuto introducendo derivate di ordine superiore.
 \begin{definition}[Derivate Parziali Seconde]
@@ -1199,7 +1204,6 @@ Fino ad ora son stati visti 2 "livelli" di approssimazione di una funzione $f$ i
 	\item Livello $1$: \quad $f$ derivabile \qquad $f(x) = f(x_0) + f'(x_0)(x - x_0) + o(x - x_0)$
 \end{itemize}
 A livello $0$, la funzione è stata approssimata dal \textit{miglior} polinomio di grado $0$, cioè la costante $f(x_0)$; a livello $1$ dal \textit{miglior} polinomio di grado $1$, $f(x) = f(x_0) + f'(x_0)(x - x_0)$. Per \textit{migliore} si intende che usando un qualsiasi altro polinomio di grado $1$ passante per $\bigl( x_0, f(x_0) \bigr)$ il resto sarebbe andato a $0$ come $x - x_0$ e non più velocemente. Queste approssimazioni ci permettono di capire se una funzione sia crescente o meno, ma non è possibile, ad esempio, studiarne la concavità. Per ottenere più informazioni è possibile estendere questi risultati a polinomi di grado superiore al primo.\\
-
 Come nel caso Analisi 1, gli \textbf{Sviluppi di Taylor} permettono di approssimare localmente una funzione con un polinomio nelle variabili indipendenti a patto di conoscere opportune derivate parziali della funzione.
 
 \begin{note}
@@ -1348,7 +1352,33 @@ Come nel caso Analisi 1, gli \textbf{Sviluppi di Taylor} permettono di approssim
 	% TODO solution
 \end{exercise}
 
-\section{Il Teorema della funzione Implicita}
+\newpage
+\section{Il Teorema della Funzione Implicita}
+I risultati esposti in questo paragrafo permettono di studiare funzioni senza averne l'espressione analitica esplicita a disposizione, fatto estremamente importante per l'utilizzo reale dell'analisi. Non è infatti sempre possibile ottenere la forma analitica di una funzione, ma ci può comunque essere necessità di studiarla.
+\begin{example}[Equazione di Eulero]
+	Nella meccanica orbitale, l'\textbf{Equazione di Eulero} è un importante risultato che mette in relazione varie proprietà dell'orbita di un oggetto soggetto ad una forza centrale fornendo la legge oraria del suo moto. Dati
+	\begin{itemize}[noitemsep]
+		\item \makebox[2ex]{$M$\hfill} \textit{Anomalia Media}: frazione di periodo orbitale trascorsa dall'ultimo passaggio al pericentro $z$, espressa come angolo. 
+		\item \makebox[2ex]{$E$\hfill} \textit{Anomalia Eccentrica}: valore angolare utilizzato per correggere lo scostamento tra l'anomalia vera, cioè quella osservata, e quella media (da sopra)
+		\item \makebox[2ex]{$e$\hfill} \textit{Eccentricità} dell'orbita del corpo
+		\item \makebox[2ex]{$n$\hfill} \textit{Velocità angolare media} del corpo
+		\item \makebox[2ex]{$t$\hfill} \textit{Istante} di tempo in cui si vuol calcolare la posizione del corpo
+		\item \makebox[2ex]{$\tau$\hfill} \textit{Istante} di tempo di passaggio per il pericentro
+	\end{itemize}
+	Si ha la
+	\[\underbrace{E - e \sin(E)}_{= M} = n (t - \tau)\]
+	Dalla quale è però impossibile esplicitare il tempo $t$, ed è dimostrabile che non si possa nemmeno trovare la forma esatta di una soluzione di $t$.\\
+	È possibile al massimo avvicinarsi alla soluzione con metodi di approssimazione.
+\end{example}
+\begin{definition}[Funzione Implicita]
+	Dati
+	\begin{itemize}
+		\item $X \subseteq \R^n, Y \subseteq \R^m$
+		\item $f: X \times Y \mapsto \R^l$
+		\item $(x_0, y_0) \in X \times Y$ punto
+	\end{itemize}
+	Si dice che l'equazione $f(x,y) = 0$ \textbf{Definisce Implicitamente una Funzione} $\varphi$ in un intorno di $(x_0,y_0)$ se
+\end{definition}
 \definition
 sia $X\in \R^n$ e $Y\in \R^m$, $f:X\times Y\to \mathbb\R^l$, $x_0\in \circdot{X}$, $y_0\in \circdot{Y}$.\\
 L'equazone $f(x,y)=0$ definisce implicitamente una funzione $y=\varphi(x)$ in un intorno di $(x_0,y_0) \bydef$
@@ -1540,6 +1570,7 @@ Allora $\exists\mathcal{X}\in A,\exists\mathcal{Y}\in \R^n$, $\exists\varphi\mat
 	$D\varphi=[Df(x)]^{-1}$ quando $\varphi(y)=x$\\
 	si puo anche scrivere come $(Df^{-1})(f(x))=[Df(x)]^{-1}$
 \end{proof}
+\newpage
 \section{Massimi e Minimi Liberi}
 \definition
 Siano $(X,d)$s.m., $A\subseteq X$ e $f:A\rightarrow \R$, siano $x_0\in A, B\in A$ e $m,M\in \R$ ( L'insieme immagini deve essere $R$ per poter parlare di massimi e minimi, $R$ è un campo ordinato a differenza di $R^n$).\\
@@ -1705,6 +1736,7 @@ un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al v
 	Applicando lo stesso ragionamento id sopra, solo esplicitando la $x$ in funzione della $y$. Quindi $x=\psi(x)$ e $\psi{'}(y_0)=-\frac{\partial_y f(x_0,y_0)}{\partial_x f(x_0,y_0)}$
 \end{proof}
 
+\newpage
 \section{Massimi e Minimi Vincolati}
 Spesso la ricerca di punti di massimo o minimo di una funzione $f:A\rightarrow \R, A\subseteq \R^n$ deve essere ristrettaad un sottoinsieme $B\subseteq A$ a causa di eventuali vincoli a cui le variabili indipendenti devono soddisfare. L0insieme $B$ può essere generalmente descritto da una funzione $\varphi :A\rightarrow \R^p$, nel senso che $B=\{x\in A:\varphi (x)\le 0\}$\\
 NOTA::: direi n>1 poiché se ho una sola variabile e la vincolo ...??????? booooo .\\
@@ -1747,8 +1779,10 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 \proposition{Teorema dei Moltiplicatori di Lagrange caso generale}
 Sia $A\in \R^n$, $f\in \cntclass{1}(A;R)$, $g\in \cntclass{1}(A;R^p)$ con $p<n$(n.vincoli<n.variabili), sia poi $x_0\in\circdot{A}, g(x_0)=0, Dg (x_0,y_0)$ di rango $p$.\\
 Se $x_0$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda_1,\ldots,\lambda_p in \R$ t.c: $\nabla f(x_0,y_0) = \sum\limits_{i=1}^{p}\lambda_i\nabla g(x_0,y_0)$\\
+\newpage
 \section{Il caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
 %TODO This section is a placeholder
+\newpage
 \section{Derivate e Integrali}
 \begin{proposition}[Teorema Fondamentale del Calcolo Integrale]
 	\label{teo:fondament_calcolo_integ}
@@ -1774,6 +1808,7 @@ $\begin{array}{rcl} F: A & \to & \R \\ (x) & \to & \int_{\alpha(x)}^{\beta(x)}f(
 è di classe $\cntclass{1}(R\times \R\times A;R)$ ed inoltre, $\forall x_0 \in A$:
 \[\nabla F(x_0,y_0)=f(x_0,\beta)\nabla\beta(x_0)-f(x_0,\alpha)\nabla\alpha(x_0)+\int_{\alpha(x_0)}^{\beta(x_0)}\nabla f(x,t)\integrald{t}\]
 
+\newpage
 \section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}
 \label{sec:fun_in_C}
 Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \mapsto \C$ può essere identificata in modo naturale con una funzione $A \mapsto \R^2$ e viceversa.ù

@@ -1,5 +1,6 @@
 \chapter{Spazi Metrici}
 
+\newpage
 \section{Preliminari}
 % TODO definzione campo
 
@@ -560,6 +561,7 @@ Unendo le due definizioni si giunge naturalmente a
 	Con la metrica Euclidea, ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgono i viceversa.
 \end{observation}
 
+\newpage
 \section{Successioni e Completezza}
 \begin{definition}[Successione]
 	Sia $X$ un insieme non vuoto. \textbf{Successione} in $X$ è una funzione $x: \N \mapsto X$
@@ -1029,6 +1031,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	L'ipotesi "\textit{$C$ chiuso}" è indispensabile? 
 \end{exercise}
 
+\newpage
 \section{Limiti e Continuità}
 \begin{definition}[Limite per Funzione]
 	\label{def:lim_funz}
@@ -1604,7 +1607,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\right\} \implies
 		f \text{ \textbf{Uniformemente Continua} su } K
 	\end{equation*}
-	\begin{proof} Per assurdo negando la conclusione.\\
+	\begin{proof} Per assurdo, negando la conclusione
 		\begin{align*}
 			&f \text{ non è uniformemente continua in } K\\
 			\implies & \exists \varepsilon > 0 \text{ tale che } \forall \delta > 0 \quad \exists x', x'' \in K \text{ con } d(x', x'') < \delta \text{ e } d \bigl( f(x'), f(x'') \bigr) > \varepsilon
@@ -1809,7 +1812,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{proposition}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto \R^n$ con $A \subseteq X$.\\
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto \R^n$ con $A \subseteq X$.
 	\begin{equation*}
 		f \text{ è \textbf{Lipschitziana}} \iff \text{\textbf{ogni componente di} } f \text{ \textbf{è Lipschitziana}}
 	\end{equation*}
@@ -1876,6 +1879,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	% TODO solution
 \end{exercise}
 
+\newpage
 \section{Il Teorema delle Contrazioni}
 \begin{definition}[Contrazione]
 	\label{def:contrazione}
@@ -2258,6 +2262,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 \color{black}
 
+\newpage
 \section{Funzioni a Valori in \texorpdfstring{$\protect \R^n$}{Rn}}
 In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo spazio metrico $\R$ dotato dell'usuale metrica Euclidea: $d(x,y) = \sqrt{\sum\limits_{i = 1}^{k} (y_i - x_i)^2}$ da \fullref{ex:metriche}. Questo spazio si dice anche \fullref{def:sp_vett_normato}
 \begin{note}
