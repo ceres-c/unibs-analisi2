@@ -1,6 +1,5 @@
 \chapter{Spazi Metrici}
 
-\newpage
 \section{Preliminari}
 % TODO definzione campo
 
@@ -284,7 +283,7 @@ Unendo le due definizioni si giunge naturalmente a
 	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 	\begin{solution}
 		Operando in $\R$ e avendo un $n \in \N$:
-		\begin{itemize}
+		\begin{itemize}[noitemsep]
 			\item $P = 0$
 			\item $x = n$
 			\item $y = n+1$
@@ -1036,7 +1035,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{definition}[Limite per Funzione]
 	\label{def:lim_funz}
 	Siano:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item $(X,d_X)$ e $(Y,d_Y)$ spazi metrici
 		\item $A \subseteq X$
 		\item $x_0$ di accumulazione per $A$
@@ -1354,13 +1353,14 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{proposition}[Continuità Funzioni Composte]
-	Siano $(X,d_X)$, $(Y,d_Y)$ e $(Z,d_Z)$ spazi metrici e siano
-	\begin{itemize}
+	Siano $(X,d_X)$, $(Y,d_Y)$ e $(Z,d_Z)$ spazi metrici e siano:
+	\begin{itemize}[noitemsep]
 		\item $f: A \mapsto Y$ con $A \subseteq X$
 		\item $g: B \mapsto Z$ con $B \subseteq Y$
 		\item $x_0 \in A$
 		\item $f(x_0) \in B$
 	\end{itemize}
+	Allora
 	\begin{equation*}
 		\left.
 		\begin{array}{l}
@@ -1370,7 +1370,6 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\right\} \implies
 		(g \circ f) \text{ è \textbf{Continua} in } x_0
 	\end{equation*}
-	\newpage
 	\begin{proof}
 		Dalla \fullref{def:funz_cont}
 		\begin{align*}
@@ -1638,7 +1637,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{definition}[Funzione Lipschitziana]
 	\label{def:lips}
 	Siano:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item $(X,d_X)$, $(Y,d_Y)$ spazi metrici
 		\item $A \subseteq X$
 		\item $f:A \mapsto Y$
@@ -2156,8 +2155,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \color{not_explained_section_color}
 \begin{theorem}
 	\label{teo:contr_con_para_definisce_funz_cont}
-	Siano
-	\begin{itemize}
+	Siano:
+	\begin{itemize}[noitemsep]
 		\item $(X,d_X)$ uno spazio metrico completo
 		\item $(P,d_P)$ uno spazio metrico
 		\item $T:X \times P \mapsto X$ una contrazione in $x \in X$ uniformemente in $p \in P$
@@ -2200,8 +2199,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{definition}
 \begin{theorem}
 	\label{teo:contr_con_para_lips_definisce_funz_lips}
-	Siano
-	\begin{itemize}
+	Siano:
+	\begin{itemize}[noitemsep]
 		\item $(X,d_X)$ uno spazio metrico completo
 		\item $(P,d_P)$ uno spazio metrico
 		\item $T:X \times P \mapsto X$ una contrazione in $x \in X$ Lipschitziana in $p \in P$
@@ -2329,7 +2328,7 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 \begin{proposition}
 	\label{prop:lim_in_R_coord_F}
 	Siano:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item $(X,d)$ spazio metrico
 		\item $A \subseteq X$
 		\item $x_0$ di accumulazione per $A$

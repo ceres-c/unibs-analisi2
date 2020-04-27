@@ -1,5 +1,4 @@
 \chapter{Equazioni Differenziali}
-\newpage
 \section{Preliminari}
 Equazione è un uguaglianza in cui c'è almeno una incognita.\newline
 Equazione \textbf{Funzionale} è un’equazione le cui incognite sono funzioni.
@@ -19,16 +18,16 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		La dipendenza delle $x$ dalla $t$ non è indicata esplicitamente, ma si potrebbe scrivere $x(t)$, rigorosamente nella stessa variabile $t$ per tutte le $x^{(i)}$.
 	\end{note}
 	Nella \cref{eq:equaz_diff}:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item $A\subseteq \R^{1+(1+n)k}$
 		\item $t\in I$ con $I$ intervallo $I \subseteq \R$
 		\item $f: A \mapsto \R^m$
 	\end{itemize}
 	Dimensionalmente, si può osservare che $m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item $1 = \dim(t)$
 		\item $(1+n)k$
-		\begin{itemize}
+		\begin{itemize}[noitemsep]
 			\item $(1+n)$ il numero totale delle funzioni: $n$ derivate ed $x$ stessa
 			\item $k$ la dimensione dell'insieme \textbf{di arrivo} di ogni funzione incognita $x^{(i)}$
 		\end{itemize}
@@ -880,7 +879,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \begin{lemma}[Lemma di Gronwall]
 	\label{lemma:gronwall}
 	Dati $a,b\in \R$ con $a < b$, siano:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item $\delta_0\in \intervalclop{0}{+\infty}$
 		\item $\hspace{-0.5em}\left.\begin{array}{ll}
 				k,\,\delta:\intervalclose{a}{b}\mapsto \R \\
@@ -1183,7 +1182,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \begin{theorem}[Teorema di Cauchy Globale per Lipschitziane]
 	\label{teo:cau_glob_lips}
 	Data la funzione $f:I \times \R^n \mapsto \R^n$, se:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item $I \subset \R$ è \textbf{intervallo compatto}
 		\item $f$ è \textbf{continua} su $I \times \R^n$
 		\item f è (globalmente) \hyperref[def:lips]{\textbf{Lipschitziana}} in $x \in \R^n$ \textbf{uniformemente} rispetto a $t \in I$
@@ -1199,7 +1198,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	ammette un'unica soluzione definita in tutto l'intervallo $I$
 	\begin{proof}
 		Analogamente a quanto fatto nel \fullref{teo:cau_locale_part_1}, siano:
-		\begin{itemize}
+		\begin{itemize}[noitemsep]
 			\item $X = \cntclass{0}(I,\R^n)$
 			\item $T$ definita come la \cref{eq:cauch_proof_T}, cioè
 			\[\funcdef{T}{X}{X}{ \bigl(T(x)\bigr)(t) }{ x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau} }\]
