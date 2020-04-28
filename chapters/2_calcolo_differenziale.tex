@@ -1366,52 +1366,112 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 	Si ha la
 	\[\underbrace{E - e \sin(E)}_{= M} = n (t - \tau)\]
 	Dalla quale è però impossibile esplicitare il tempo $t$, ed è dimostrabile che non si possa nemmeno trovare la forma esatta di una soluzione di $t$.\\
-	È possibile al massimo avvicinarsi alla soluzione con metodi di approssimazione.
+	È possibile, al massimo, avvicinarsi alla soluzione con metodi di approssimazione.
 \end{example}
 \begin{definition}[Funzione Implicita]
+	\label{def:funz_impl}
 	Dati
 	\begin{itemize}[noitemsep]
 		\item $X \subseteq \R^n, Y \subseteq \R^m$
 		\item $f: X \times Y \mapsto \R^l$
-		\item $(x_0, y_0) \in X \times Y$ punto
+		\item $(x_0, y_0) \in X \times Y$ (un punto)
 	\end{itemize}
-	Si dice che l'equazione $f(x,y) = 0$ \textbf{Definisce Implicitamente una Funzione} $\varphi$ in un intorno di $(x_0,y_0)$ se
+	Si dice che l'equazione $f(x,y) = 0$ \textbf{Definisce Implicitamente una Funzione} $\varphi$ in un intorno di $(x_0,y_0)$ se:
+	\begin{enumerate}
+		\item $f(x_0,y_0) = 0$
+		\item Esistono due aperti $\mathcal{X}$ e $\mathcal{Y}$ tali che:
+			\begin{itemize}[noitemsep, topsep=0pt]
+				\item $x_0 \in \mathcal{X} \subseteq X$
+				\item $y_0 \in \mathcal{Y} \subseteq Y$
+			\end{itemize}
+			\begin{note}
+				Oppure, alternativamente, $x_0 \in \circdot{\mathcal{X}}$ e $y_0 \in \circdot{\mathcal{Y}}$ con $\mathcal{X}$ e $\mathcal{Y}$ non aperti.
+			\end{note}\vspace*{-2ex}
+		\item Esiste $\varphi: \mathcal{X} \to \mathcal{Y}$
+	\end{enumerate}
+	Tali che:
+	\[
+		\left.
+		\begin{array}{l}
+			x \in \mathcal{X}\\
+			y \in \mathcal{Y}\\
+			f(x,y) = 0
+		\end{array}
+		\right\}
+		\implies
+		y = \varphi(x)
+	\]
+	Con $\varphi$ \textbf{Funzione Implicita} definita da $f(x,y)=0$.\\
+
+	Cioè la Funzione Implicita associa una variabile dell'equazione alle altre variabili. Da questo deriva il nome \textit{implicita}, in quanto la $f$ definisce "implicitamente" la $\varphi$, perchè l'immagine di $f$ è influenzata da tutte le variabili della funzione, che dunque son legate tra loro.
+	\begin{note}
+		La \textbf{Funzione Inversa} di una qualche funzione è anche \textbf{Funzione Implicita} di questa funzione.
+	\end{note}
 \end{definition}
-\definition
-sia $X\in \R^n$ e $Y\in \R^m$, $f:X\times Y\to \mathbb\R^l$, $x_0\in \circdot{X}$, $y_0\in \circdot{Y}$.\\
-L'equazone $f(x,y)=0$ definisce implicitamente una funzione $y=\varphi(x)$ in un intorno di $(x_0,y_0) \bydef$
-\begin{enumerate}
-	\item $f(x_0,y_0)=0$, rappresenta un punto di partenza 
-	\item $\exists \mathcal{X}$ intorno di $x_0$ e $\exists \mathcal{Y}$ intorno di $y_0$, in questo modo due intorno uno per punto, uno è l'insieme di partenza, l'altro l'insieme di arrivo
-	\item $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.: $f(x,y)=0$ con $x\in\mathcal{X}$ e $y\in\mathcal{Y} \iff y=\varphi(x)$
-\end{enumerate}
-ESEMPIO:\\
-$m=n=l=1$, $f(x,y)=x^2+y^2+1$, questa equazione non definisce mai una funzione implicita poiché non è mai nulla\\
-\\
-ESEMPIO:\\
-$m=n=l=1$, $f(x,y)=x^2+y^2-1$\\
-	\begin{tikzpicture}
-	\pgfmathsetmacro\MAX{2}
-	\draw[->] (-\MAX,0) -- (\MAX,0) node[anchor=north west] {x};
-	\draw[->] (0,-\MAX) -- (0,\MAX) node[anchor=south east] {y};
-	\draw node at (0,0) {$(0,0)$};
-	\draw node at (0,0) {$\bullet$};
-	\draw node at (0,1) {$\bullet$};
-	\draw node at (0,1) [anchor=south]{$(0,1)$};
-	\draw node at (1,0) {$\bullet$};
-	\draw node at (1,0) [anchor=west] {$(1,0)$};
-	\draw node at (-1,0) {$\bullet$};
-	\draw node at (-1,0) [anchor=east] {$(-1,0)$};
-	\draw node at (0,-1) {$\bullet$};
-	\draw node at (0,-1) [anchor=north]{$(0,-1)$};
-	\draw (0,0) circle (1);
-	\end{tikzpicture}\\
-	Per prima cosa osservo che s possono trovare dei punti che rendono vera $f(x,y)=x^2+y^2-1=0$ e sono tutti i punti della circonferenza di centro l'origine degli assi e raggio unitario.\\
-	il punto $(x_0,y_0)=(0,1)$ definisce implicitamente una funzione $y=\varphi(x)=\sqrt{1-x^2}$ con $\mathcal{X}=[-1,1]$ e $\mathcal{Y}=[0,1]$\\
-	un primo problema è dovuto alla scelta degli intervalli $\mathcal{X},\mathcal{Y}$, per esempio posso scegliere $\mathcal{X}=[-\frac{1}{2},\frac{1}{2}]$ e $\mathcal{Y}=R^+$\\
-	un secondo problema è la scelta del punto $(x_0,y_0)$, potrei scegliere il punto $(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})$\\
-\observation
-La stessa definizione può essere riscritta con la $x$ funzione della $y$ poiché a priori non c'è distinzione tra le variabili.
+\begin{example}
+	Posti $m = n = l = 1$
+	\[\funcdef{f}{\R \times \R}{\R}{(x,y)}{x^2 + y^2 + 1}\]
+	Non definisce alcuna funzione implicita poiché $f(x,y) = 0$ non è mai verificata.
+\end{example}
+\begin{example}
+	Posti $m = n = l = 1$
+	\[\funcdef{f}{\R \times \R}{\R}{(x,y)}{x^2 + y^2 - 1}\]
+	\begin{note}
+		Il Teorema della Funzione Implicita è particolarmente utile quando non è possibile esprimere in forma analitica un parametro rispetto agli altri, ma è ovviamente utilizzabile anche quando è fattibile.
+	\end{note}
+	Per prima cosa si osserva che è possibile trovare dei punti che verifichino l'uguaglianza $f(x,y) = 0$, cioè tutti i punti della circonferenza di raggio unitario centrata nell'origine. Il punto $(0,1)$ definisce implicitamente, tra le altre, una funzione
+	\begin{equation}
+		\label{eq:ese_funz_impl_cerchio}
+		\funcdef{\varphi_1}{\intervalopen{-1}{1}}{\intervalopen{0}{1}}{x}{\sqrt{1-x^2}}
+	\end{equation}
+	Un primo problema nasce dalla scelta degli intervalli $\mathcal{X}$ e $\mathcal{Y}$, per esempio posso scegliere $\mathcal{X} = \intervalopen{-\frac{1}{2}}{\frac{1}{2}}$ e $\mathcal{Y} = R^+ $
+	Un secondo problema è la scelta del punto nel cui intorno si cerca la funzione implicita. Sarebbe stato possibile scegliere il punto $(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})$ oppure ancora $(-\frac{1}{2},-\frac{\sqrt{3}}{2})$. Sicuramente $(1,0)$ non è un punto valido, dato che non si verifica il punto 3 della \fullref{def:funz_impl}, perché una eventuale relazione come $\varphi_3$ da \autoref{fig:ese_funz_impl_cerchio} non sarebbe una funzione.
+	\begin{note}
+		La $\varphi_1$ di \cref{eq:ese_funz_impl_cerchio} potrebbe essere scritta in funzione di $y$ poiché, a priori, non c'è distinzione tra le variabili.
+	\end{note}
+	~
+	\begin{figure}[H]
+		\caption{Funzioni implicite della $f$}
+		\label{fig:ese_funz_impl_cerchio}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis lines = center,
+				xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5,
+				axis equal,
+				xlabel = $x$,
+				ylabel = {$f(x)$},
+				yticklabels={,,}
+			]
+			\draw (axis cs: 0, 0) circle [radius=1];
+			\draw[line width=.5mm, red, opacity=.5] (axis cs: .94, .34) arc [radius=100, start angle=20, end angle=160];
+			\addlegendimage{line width=.5mm, opacity=.5, color=red}
+			\addlegendentry{$\varphi_1$}
+			\draw[line width=1mm, green, opacity=.5] (axis cs: .26, .97) arc [radius=100, start angle=75, end angle=105];
+			\addlegendimage{line width=1mm, opacity=.5, color=green}
+			\addlegendentry{$\varphi_2$}
+			\draw[line width=.5mm, blue, opacity=.5] (axis cs: .97, -.26) arc [radius=100, start angle=-15, end angle=15];
+			\addlegendimage{line width=.5mm, opacity=.5, color=blue}
+			\addlegendentry{"$\varphi_3$"}
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+\end{example}
+\begin{example}
+	Posti $m = n = l = 1$
+	\[\funcdef{f}{\R \times \R}{\R}{(x,y)}{x^2 + y^2}\]
+	L'uguaglianza $f(x,y) = 0$ non definisce implicitamente alcuna funzione in quanto $\dom f = \brackets{(0,0)}$ che è composto da un solo punto isolato, dunque non esistono $\mathcal{X} \subseteq X$ e $\mathcal{Y} \subseteq Y$ aperti.
+\end{example}
+\begin{example}
+	\label{ex:inf_funz_impl}
+	Posti $m = n = l = 1$
+	\[\funcdef{f}{\R \times \R}{\R}{(x,y)}{x^2 - y^2}\]
+	L'uguaglianza $f(x,y) = 0$ definisce implicitamente infinite funzioni distinte in un intorno di $(0,0)$.
+\end{example}
+\begin{exercise}
+	Determinare (almeno) 5 funzioni diverse definite implicitamente dalla funzione nell'\fullref{ex:inf_funz_impl} sullo stesso insieme
+\end{exercise}
+
 \proposition (caso lineare)\\
 sia $f:R^n\times \R^m\rightarrow \R^p$ che $(x,y)\rightarrow Ax+By-C$ con $A\in Mat(p \times n), B\in (p \times m), B\in (p \times 1)$. Se $p=m$ cioè $B$ è un matrice quadrata, e $det(B)\ne 0$ cioè invertibile, allora\\
 $\exists !\varphi : \R^n\rightarrow \R^m$ t.c.: $f(x,y)=0 \iff y=\varphi(x)$
