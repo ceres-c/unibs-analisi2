@@ -1888,7 +1888,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\exists K \in [0, 1[ \text{ tale che } \forall x',x'' \in X \quad \text{vale} \quad d_X \bigl( T(x''), T(x') \bigr) \leq K \cdot d_X(x'', x')
 	\end{equation}
 	Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e Lipschitziana con costante di Lipschitz strettamente minore di $1$.\\
-	È generalmente inutile considerare contrazioni definite tra spazi diversi. Infatti, data una funzione $T: X\rightarrow Y$ Lipschitziana, sarebbe sempre possibile riscalare la distanza in uno dei due spazi X o Y per ottenere una costante di Lipschitz minore di 1.
+	È generalmente inutile considerare contrazioni definite tra spazi diversi. Infatti, data una funzione $T: X\rightarrow Y$ Lipschitziana, sarebbe sempre possibile riscalare la distanza in uno dei due spazi $X$ o $Y$ per ottenere una costante di Lipschitz minore di $1$.
 	\begin{note}
 		D'ora in poi si utilizzerà spesso la notazione $Tx$ per intendere $T(x)$
 	\end{note}
@@ -1936,6 +1936,12 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{proposition}
 
+\begin{definition}[Punto Fisso]
+	\label{def:punto_fisso}
+	Sia $X$ un insieme e $f: X \to X$. Un \textbf{Punto Fisso} di $f$ è un elemento $x \in X$ tale che:
+	\[x=f(x)\]
+\end{definition}
+
 \begin{theorem}[Teorema delle Contrazioni]\leavevmode\vspace*{-\baselineskip}
 	\label{teo:contrazioni}
 	\begin{note}
@@ -1952,7 +1958,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\implies
 		\exists! \; x_* \in X: \quad T(x_*) = x_*
 	\end{equation*}
-	Cioè esiste un \textbf{unico punto fisso} di $T$ in $X$.
+	Cioè esiste un \textbf{unico Punto Fisso} di $T$ in $X$.
 	\begin{proof}
 		La dimostrazione si divide in 3 passaggi
 		\begin{enumerate}
@@ -2136,25 +2142,26 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\label{obs:contr_con_para}
 	È utile considerare \textbf{contrazioni} che dipendono da uno o più \textbf{parametri}. Siano $(X,d)$ uno spazio metrico completo, $P$ un \textbf{insieme} di parametri e $T:X \times P \mapsto X$.\\
 	Grazie al \fullref{teo:contrazioni} è data l'esistenza di un punto fisso di $T$ indipendentemente dal parametro. È dunque possibile definire una funzione $\varphi: P \mapsto X$ che ad ogni parametro $p \in P$ associa $\varphi(p)$, unico punto fisso della contrazione.\\
-	In generale, la regolarità della funzione $\varphi$ è la stessa con cui $T$ dipende dal parametro $p$. Vedasi \fullref{teo:contr_con_para_definisce_funz_cont} e \fullref{teo:contr_con_para_lips_definisce_funz_lips}
+	In generale, la regolarità della funzione $\varphi$ è la stessa con cui $T$ dipende dal parametro $p$. Vedasi \fullref{teo:contrazioni_con_para} e \fullref{teo:contr_con_para_lips_definisce_funz_lips}
 \end{observation}
 
 \begin{definition}[Contrazione con Parametro]
 	\label{def:contrazione_parametro}
 	Siano $(X,d)$ uno spazio metrico e $P$ un \textbf{Insieme}
-	\begin{equation*}
+	\begin{equation}
+		\label{eq:contrazione_parametro}
 		\begin{gathered}
 			T \text{ è una \textbf{Contrazione} in } x \in X \text{ \textbf{Uniformemente} in } p \in P\\
 			\bydef\\
 			\exists K \in \intervalclop{0}{1}: \; \forall p \in P,\; \forall x', x'' \in X \quad \text{vale} \quad d \Bigl( T\bigl( x', p \bigr), T\bigl( x'', p \bigr) \Bigr) \leq K \cdot d(x', x'')
 		\end{gathered}
-	\end{equation*}
+	\end{equation}
 	Cioè, indipendentemente da qualsiasi $p \in P$, la $T$ rimane contrazione.
 \end{definition}
 
 \color{not_explained_section_color}
-\begin{theorem}
-	\label{teo:contr_con_para_definisce_funz_cont}
+\begin{theorem}[Teorema delle Contrazioni con Parametro]
+	\label{teo:contrazioni_con_para}
 	Siano:
 	\begin{itemize}[noitemsep]
 		\item $(X,d_X)$ uno spazio metrico completo

@@ -259,7 +259,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		Questo teorema viene trattato approfonditamente nel corso di Analisi 1 e si applica solo a funzioni $\R^1 \mapsto \R^1$, qui verrà solo riportato rapidamente l'enunciato
 	\end{note}
 	\begin{note}
-		Il \textbf{Teorema di Lagrange} è conosciuto anche come \textbf{Teorema del Valor Medio Differenziale}
+		Questo teorema è anche noto come \textit{Teorema del Valor Medio Differenziale}
 	\end{note}
 	Sia $f: \intervalclose{a}{b} \mapsto \R$ una funzione \textbf{Continua} nell'intervallo chiuso $\intervalclose{a}{b}$ e \textbf{Derivabile} nell'intervallo aperto $\intervalopen{a}{b}$. Allora esiste almeno un punto
 	\[c \in \intervalopen{a}{b} : f'(c) = \frac{f(b)-f(a)}{b - a}\]
@@ -482,10 +482,10 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\[
 		Df(x_0) \cdot e_i =
 		\begin{bmatrix}
-			x_{11} & x_{12} & \dots & x_{1n}\\
-			x_{21} & x_{22} & \dots & x_{2n}\\
-			\vdots & \ddots & & \vdots\\
-			x_{n1} & x_{n2} & \dots & x_{nn}\\
+			x_{11} & \cdots & x_{1i} & \cdots & x_{1n}\\
+			x_{21} & \cdots & x_{2i} & \cdots & x_{2n}\\
+			\vdots & \vdots & \vdots & \ddots & \vdots\\
+			x_{n1} & \cdots & x_{ni} & \cdots & x_{nn}\\
 		\end{bmatrix}
 		\cdot
 		\begin{bmatrix}
@@ -493,10 +493,10 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\end{bmatrix}
 		=
 		\begin{bmatrix}
-			0 & \dots & x_{1i} & 0\\
-			0 & \dots & x_{2i} & 0\\
-			\vdots & \ddots & & \vdots\\
-			0 & \dots & x_{ni} & 0\\
+			0 & \cdots & x_{1i} & \cdots & 0\\
+			0 & \cdots & x_{2i} & \cdots & 0\\
+			\vdots & \vdots & \vdots & \ddots & \vdots\\
+			0 & \cdots & x_{ni} & \cdots & 0\\
 		\end{bmatrix}
 	\]
 	Cioè l'\textit{i-esima} colonna della $Df(x_0)$, come da \fullref{obs:matr_deriv_tot}
@@ -1205,9 +1205,8 @@ Fino ad ora son stati visti 2 "livelli" di approssimazione di una funzione $f$ i
 A livello $0$, la funzione è stata approssimata dal \textit{miglior} polinomio di grado $0$, cioè la costante $f(x_0)$; a livello $1$ dal \textit{miglior} polinomio di grado $1$, $f(x) = f(x_0) + f'(x_0)(x - x_0)$. Per \textit{migliore} si intende che usando un qualsiasi altro polinomio di grado $1$ passante per $\bigl( x_0, f(x_0) \bigr)$ il resto sarebbe andato a $0$ come $x - x_0$ e non più velocemente. Queste approssimazioni ci permettono di capire se una funzione sia crescente o meno, ma non è possibile, ad esempio, studiarne la concavità. Per ottenere più informazioni è possibile estendere questi risultati a polinomi di grado superiore al primo.\\
 Come nel caso Analisi 1, gli \textbf{Sviluppi di Taylor} permettono di approssimare localmente una funzione con un polinomio nelle variabili indipendenti a patto di conoscere opportune derivate parziali della funzione.
 
-\begin{note}
-	La seguente sezione in \textcolor{not_explained_section_color}{verde} non è richiesta in quanto non presentata sul libro, ma necessaria per chiarire i concetti con cui si sta lavorando. Deve essere considerata come un approfondimento da leggere.
-\end{note}
+\vspace*{\baselineskip}
+La seguente sezione in \textcolor{not_explained_section_color}{verde} non è richiesta in quanto non presentata sul libro, ma necessaria per chiarire i concetti con cui si sta lavorando. Deve essere considerata come un approfondimento da leggere.
 \color{not_explained_section_color}
 \begin{definition}[Polinomio di Taylor]
 	\label{def:pol_taylor}
@@ -1353,21 +1352,6 @@ Come nel caso Analisi 1, gli \textbf{Sviluppi di Taylor} permettono di approssim
 \newpage
 \section{Il Teorema della Funzione Implicita}
 I risultati esposti in questo paragrafo permettono di studiare funzioni senza averne l'espressione analitica esplicita a disposizione, fatto estremamente importante per l'utilizzo reale dell'analisi. Non è infatti sempre possibile ottenere la forma analitica di una funzione, ma ci può comunque essere necessità di studiarla.
-\begin{example}[Equazione di Eulero]
-	Nella meccanica orbitale, l'\textbf{Equazione di Eulero} è un importante risultato che mette in relazione varie proprietà dell'orbita di un oggetto soggetto ad una forza centrale fornendo la legge oraria del suo moto. Dati
-	\begin{itemize}[noitemsep]
-		\item \makebox[2ex]{$M$\hfill} \textit{Anomalia Media}: frazione di periodo orbitale trascorsa dall'ultimo passaggio al pericentro $z$, espressa come angolo. 
-		\item \makebox[2ex]{$E$\hfill} \textit{Anomalia Eccentrica}: valore angolare utilizzato per correggere lo scostamento tra l'anomalia vera, cioè quella osservata, e quella media (da sopra)
-		\item \makebox[2ex]{$e$\hfill} \textit{Eccentricità} dell'orbita del corpo
-		\item \makebox[2ex]{$n$\hfill} \textit{Velocità angolare media} del corpo
-		\item \makebox[2ex]{$t$\hfill} \textit{Istante} di tempo in cui si vuol calcolare la posizione del corpo
-		\item \makebox[2ex]{$\tau$\hfill} \textit{Istante} di tempo di passaggio per il pericentro
-	\end{itemize}
-	Si ha la
-	\[\underbrace{E - e \sin(E)}_{= M} = n (t - \tau)\]
-	Dalla quale è però impossibile esplicitare il tempo $t$, ed è dimostrabile che non si possa nemmeno trovare la forma esatta di una soluzione di $t$.\\
-	È possibile, al massimo, avvicinarsi alla soluzione con metodi di approssimazione.
-\end{example}
 \begin{definition}[Funzione Implicita]
 	\label{def:funz_impl}
 	Dati
@@ -1403,7 +1387,7 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 	\]
 	Con $\varphi$ \textbf{Funzione Implicita} definita da $f(x,y)=0$.\\
 
-	Cioè la Funzione Implicita associa una variabile dell'equazione alle altre variabili. Da questo deriva il nome \textit{implicita}, in quanto la $f$ definisce "implicitamente" la $\varphi$, perchè l'immagine di $f$ è influenzata da tutte le variabili della funzione, che dunque son legate tra loro.
+	Cioè la Funzione Implicita associa un sottoinsieme delle variabili dell'equazione alle variabili rimanenti. Da questo deriva il nome \textit{implicita}, in quanto la $f$ definisce "implicitamente" la $\varphi$, perchè l'immagine di $f$ è influenzata da tutte le variabili della funzione, che dunque son legate tra loro.
 	\begin{note}
 		La \textbf{Funzione Inversa} di una qualche funzione è anche \textbf{Funzione Implicita} di questa funzione.
 	\end{note}
@@ -1422,16 +1406,18 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 	Per prima cosa si osserva che è possibile trovare dei punti che verifichino l'uguaglianza $f(x,y) = 0$, cioè tutti i punti della circonferenza di raggio unitario centrata nell'origine. Il punto $(0,1)$ definisce implicitamente, tra le altre, una funzione
 	\begin{equation}
 		\label{eq:ese_funz_impl_cerchio}
-		\funcdef{\varphi_1}{\intervalopen{-1}{1}}{\intervalopen{0}{1}}{x}{\sqrt{1-x^2}}
+		\funcdef{\varphi_1}{\intervalopen{-1}{1}}{\R^+}{x}{\sqrt{1-x^2}}
 	\end{equation}
-	Un primo problema nasce dalla scelta degli intervalli $\mathcal{X}$ e $\mathcal{Y}$, per esempio posso scegliere $\mathcal{X} = \intervalopen{-\frac{1}{2}}{\frac{1}{2}}$ e $\mathcal{Y} = R^+ $
-	Un secondo problema è la scelta del punto nel cui intorno si cerca la funzione implicita. Sarebbe stato possibile scegliere il punto $(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})$ oppure ancora $(-\frac{1}{2},-\frac{\sqrt{3}}{2})$. Sicuramente $(1,0)$ non è un punto valido, dato che non si verifica il punto 3 della \fullref{def:funz_impl}, perché una eventuale relazione come $\varphi_3$ da \autoref{fig:ese_funz_impl_cerchio} non sarebbe una funzione.
+	\begin{note}
+		$\varphi_1$ non avrebbe potuto essere definita $\intervalopen{-1}{1} \to \intervalopcl{0}{1}$ perché sarebbe contrario al punto 2 della \fullref{def:funz_impl}, non essendo $\mathcal{Y}$ un aperto, in questo caso. Estendendo $\mathcal{Y}$ a $\R^+$ si ha un aperto contenente tutti i valori assunti da $\varphi_1$.
+	\end{note}
+	Un primo problema nasce dalla scelta degli insiemi $\mathcal{X}$ e $\mathcal{Y}$, per esempio sarebbero stati altrettanto accettabili $\mathcal{X} = \intervalopen{-\frac{1}{2}}{\frac{1}{2}}$ e $\mathcal{Y} = R^+ $. Un secondo problema è la scelta del punto nel cui intorno si cercherà la funzione implicita: sarebbe stato possibile scegliere il punto $(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})$ oppure ancora $(-\frac{1}{2},-\frac{\sqrt{3}}{2})$. Sicuramente $(1,0)$ non è un punto valido, dato che non si verifica il punto 3 della \fullref{def:funz_impl}, perché una eventuale relazione come $\varphi_3$ da \autoref{fig:ese_funz_impl_cerchio} non sarebbe una funzione.
 	\begin{note}
 		La $\varphi_1$ di \cref{eq:ese_funz_impl_cerchio} potrebbe essere scritta in funzione di $y$ poiché, a priori, non c'è distinzione tra le variabili.
 	\end{note}
 	~
 	\begin{figure}[H]
-		\caption{Funzioni implicite della $f$}
+		\caption{Esempi di funzioni implicite della $f$}
 		\label{fig:ese_funz_impl_cerchio}
 		\centering
 		\begin{tikzpicture}
@@ -1444,14 +1430,14 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 				yticklabels={,,}
 			]
 			\draw (axis cs: 0, 0) circle [radius=1];
-			\draw[line width=.5mm, red, opacity=.5] (axis cs: .94, .34) arc [radius=100, start angle=20, end angle=160];
+			\draw[line width=.5mm, red, opacity=.5] (axis cs: 1, 0) arc [radius=100, start angle=0, end angle=180];
 			\addlegendimage{line width=.5mm, opacity=.5, color=red}
 			\addlegendentry{$\varphi_1$}
 			\draw[line width=1mm, green, opacity=.5] (axis cs: .26, .97) arc [radius=100, start angle=75, end angle=105];
 			\addlegendimage{line width=1mm, opacity=.5, color=green}
 			\addlegendentry{$\varphi_2$}
-			\draw[line width=.5mm, blue, opacity=.5] (axis cs: .97, -.26) arc [radius=100, start angle=-15, end angle=15];
-			\addlegendimage{line width=.5mm, opacity=.5, color=blue}
+			\draw[line width=1mm, blue, opacity=.5] (axis cs: .97, -.26) arc [radius=100, start angle=-15, end angle=15];
+			\addlegendimage{line width=1mm, opacity=.5, color=blue}
 			\addlegendentry{"$\varphi_3$"}
 			\end{axis}
 		\end{tikzpicture}
@@ -1470,96 +1456,210 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 \end{example}
 \begin{exercise}
 	Determinare (almeno) 5 funzioni diverse definite implicitamente dalla funzione nell'\fullref{ex:inf_funz_impl} sullo stesso insieme
+	% TODO solution
 \end{exercise}
+\begin{example}[Equazione di Keplero]
+	Nella meccanica orbitale, l'\textbf{Equazione di Keplero} è un importante risultato che mette in relazione varie proprietà dell'orbita di un oggetto soggetto ad una forza centrale fornendo la legge oraria del suo moto. Dati
+	\begin{itemize}[noitemsep]
+		\item \makebox[2ex]{$M$\hfill} \textit{Anomalia Media}: frazione di periodo orbitale trascorsa dall'ultimo passaggio al pericentro $z$, espressa come angolo.
+		\item \makebox[2ex]{$E$\hfill} \textit{Anomalia Eccentrica}: valore angolare utilizzato per correggere lo scostamento tra l'anomalia vera, cioè quella osservata, e quella media (da sopra)
+		\item \makebox[2ex]{$e$\hfill} \textit{Eccentricità} dell'orbita del corpo
+		\item \makebox[2ex]{$n$\hfill} \textit{Velocità angolare media} del corpo
+		\item \makebox[2ex]{$t$\hfill} \textit{Istante} di tempo in cui si vuol calcolare la posizione del corpo
+		\item \makebox[2ex]{$\tau$\hfill} \textit{Istante} di tempo di passaggio per il pericentro (perielio nel caso del Sole)
+	\end{itemize}
+	Si ha la
+	\[\underbrace{E - e \sin(E)}_{= M} = n (t - \tau)\]
+	Dalla quale è però impossibile esplicitare la $E$, necessaria per il calcolo della posizione, in funzione del tempo $t$. È possibile, al massimo, avvicinarsi alla soluzione con metodi di approssimazione.
+\end{example}
 
-\proposition (caso lineare)\\
-sia $f:R^n\times \R^m\rightarrow \R^p$ che $(x,y)\rightarrow Ax+By-C$ con $A\in Mat(p \times n), B\in (p \times m), B\in (p \times 1)$. Se $p=m$ cioè $B$ è un matrice quadrata, e $det(B)\ne 0$ cioè invertibile, allora\\
-$\exists !\varphi : \R^n\rightarrow \R^m$ t.c.: $f(x,y)=0 \iff y=\varphi(x)$
-\begin{proof}
-	$f(x,y)=0\iff Ax+By=-C\iff By=-Ax+C\iff y=-B^{-1}Ax+B^{-1}C = \varphi(x)$
-\end{proof}
-\begin{theorem}[Teorema della Funzione Implicita]
-	\label{teo:funz_impl}
-	Sia $f:X\times Y\rightarrow \R^m$ con $X\subseteq \R^n, Y\subseteq \R^m$\\
-	Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
-	se:
-	\begin{enumerate}
-		\item $f$ continua in $X\times Y$
-		\item $f(x_0,y_0)=0$
-		\item $f$ differenziabile rispetto a $y \forall (x,y)\in X\times Y$ e $D_yf(x,y)$ continua.
-		\item $D_yf(x_0,y_0)$ invertibile .
-	\end{enumerate}
-	$\Rightarrow $ si ha:\\
-	esistenza della funzione implicita\\
-	$\exists \mathcal{X}\subseteq X$ intorno di $x_0$(xstrano aperto)\\
-	$\exists \mathcal{Y}\subseteq Y$ intorno di $y_0$(ystrano aperto)\\
-	$\exists\varphi$ continua con $\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c. $[\varphi (x_0)=y_0 e] f(x,y)=0, x\in\mathcal{X},y\in\mathcal{Y} \iff y=\varphi(x)$
-	unicità di sostanza cioè a meno del dominio:\\
-	se $\varphi_i:\mathcal{X}_i\rightarrow\mathcal{Y}_i$ e $x_0\in\mathcal{X}_i,y_0\in\mathcal{Y}_i$\\
-	$f(x_0,y_0)=0 \forall x\in\mathcal{X}_i, y\in \mathcal{Y}\iff y=\varphi_i(x)$ con $i=1,2$\\
-	Allora $\forall\in\mathcal{X}\cap\mathcal{X}_1\cap\mathcal{X}_2$ vale $\varphi_1(x)=\varphi_2(x)$
-
-	\observation
-	Le ipotesi 3 e 4 garantiscono che esiste una approssimazione lineare, l'ipotesi 4 è sensata poiché $y$ e $f$ hanno lo stesso numero di componenti quindi $Dyf$ è un matrice qudrata.\\
-	la funzione $f:X\times Y\rightarrow \R^m$ che $(x,y)\rightarrow f(x,y)$ ??????\\
-	cioè $\forall x\in X$ (sto fissando una x) $f^x:Y\rightarrow \R^m$ che $y\rightarrow f(x,y)$(sto variando la y), $Df^x\in Mat(m\times m)$
-
-	\observation Metodo degli zeri di Newton per troare gli zeri di una funzione o metofo delle tangenti.\\
-	\resizebox {\columnwidth} {!} {
-	\begin{tikzpicture}
-	\draw[->] (-1,0) -- (5,0) node[anchor=north west] {y};
-	\draw[->] (0,-1) -- (0,4) node[anchor=south east] {z};
-	\draw[domain=-1:4,smooth,variable=\x,blue] plot ({\x},{(1/8)*(\x*\x)-(\x)+1.9});
-	\end{tikzpicture}
-	}\\
-	Scelgo un punto $y_0$ ne prendo il valore sulla curva, disegno la tangente e chiamo $y_1$ l'intersezione con l'asse $y$. Itero il processo $y_n+1=y_n\frac{f(y_n)}{f'(y_n)}$\\
-	discorso al momento difficile per me....\\
+\vspace*{\baselineskip}
+Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice inversione di una matrice.
+\begin{theorem}[Teorema della Funzione Implicita - Caso Lineare]
+	\label{teo:funz_impl_lin}
+	Siano:
+	\begin{itemize}[noitemsep]
+		\item $A \in \mat(p \times n)$ matrice
+		\item $B \in \mat(p \times m)$ matrice
+		\item $C \in \mat(p \times 1)$ vettore colonna
+		\item $p = m$
+		\item $\det(B) \neq 0$
+	\end{itemize}
+	e la funzione
+	\[\funcdef{f}{\R^n \times \R^m}{\R^p}{(x, y)}{Ax + By - C}\]
+	Allora esiste un'unica funzione $\varphi: \R^n \to \R^m$ tale che:
+	\[Ax + By = C \quad \iff \quad f(x,y) = 0 \quad \iff \quad y = \varphi(x)\]
+	\vspace*{-5ex}
+	\begin{note}
+		Dimensionalmente, avendo $p = m$ ed eseguendo i prodotti righe per colonne, ci si porta ad avere da entrambi i lati dell'uguaglianza matriciale dei vettori colonna $\in \mat(p \times 1)$
+	\end{note}
 	\begin{proof}
-		Dobbiamo partire da $f(x,y)=0$ arrivare a $y=\varphi(x)$,vogliamo applicare un raginamento simile a quello della Metodo di Newton, passando però per il concetto di punto fisso, il teorema delle Contrazioni ci assicura che esiste unico.\\
-		cerchiamo quindi una contrazione $T$ il cui punto fisso sia soluzione di $f(x,y)=0$. $T$ è del tipo:\\
-		$T:?\times ?\rightarrow ?$\\
-		$(x,y)\rightarrow y-[D_yf(X_0,y_0)]^{-1}f(x,y)$, nota che non avere nella derivata lo stesso punto in cui si calcola la funzione (come è nel metodo di Newton) ha effetti "tragici" sulla velocità di convergenza, ma a noi interessa l'esistenza.\\
-		bisgna capire quali insiemi usare come insiemi di partenza e arrivo, devo essere scelti in modo da poter applicare il teoremma delle contrazioni. Bisogna scegliere sottoinsiemi di $R^n$ e $R^m$, scegliamo quindi delle sfere\\
-		$T:\overline{B(x_0,r_x)}\times\overline{B(y_0,r_y)}\rightarrow\overline{B(y_0,r_y)}$, scegliendo la chiusura delle sfere si è sicuri di lavorare in uno spazio metrico completo, poiché in $R^l$ completo $\iff$ chiuso e limitato.\\
-		come vengono invece scelti i raggi? sono scelti in modo che:\\
-		\begin{enumerate}
-			\item $T$ è ben definita
-			\item $\forall x \in \overline{B(x_0,r_x)} Tx: \overline{B(x_0,r_x)}\rightarrow\overline{B(y_0,r_y)}$ che $y\rightarrow T(x,y)$,\\
-		\end{enumerate}
-		cioè $T$ è una contrazione tale che $\forall x$ esiste un punto fisso, $\forall x$ associo a $y$ una x, e quindi na funzione.\\
-		$r_x,r_y$ devono essere sufficientemente piccoli per avere tali proprietà e per poterci lavorare sopra.\\
-		Abbiamo che $f(x,y)=0 \iff T(x,y)=y$\\
-		$T(x,y)=y\iff y=y-[D_yF(x_0,y_0)]^{-1}f(x,y)$\\
-		$[D_yF(x_0,y_0)]^{-1}f(x,y)\iff f(x,y)=0$\\
-		Per verificare che $T$ è una contrazione ne stimo la norma\\
-		$\norm{T(x,y_2)-T(x,y_1)} \le \sup\limits_{\widetilde{y}\in segmento}\norm{D_yT(x,\widetilde{y})}\norm{y_2-y_1} $  accrescimenti finiti.\\
-		Poichè le sfere sono insiemi convessi è stato possibile applicare il Teorema degli accresscimenti finiti.\\
-		Presa $T(x,y) = y-[D_yf(x_0,y_0)]^{-1}f(x,y)$, la derivo rispetto a $y$:
-		\[D_yT(x,y)= I_\R^m-[D_yf(x_0,y_0)]^{-1}D_yf(x,y) = \]
-		\[=[D_yf(x_0,y_0)]^{-1}][D_yf(x_0,y_0)-D_yf(x,y)]\]
-		Osserviamo che abbiamo ottenuto una matrice come costante moltiplicativa, al secondo membro abbiamo la differenza di due valori di una funzione, che per ipotesi è una funzione continua ($D_yf(x,y)$ continua), allora per $r_x$ e $r_y$ sufficientemente piccoli ho che:\\
-		$\norm{D_yT(x,y)} \le \frac{1}{2}$, è scelto questo valore poiché è comodo al fine di dimostrare la contrazione...\\
-		\[\norm{D_yT(x,y)} \le \norm{D_yf(x_0,y_0)]^{-1}} \norm{D_yf(x_0,y_0)-D_yf(x,y)}\le\frac{1}{2} \]  
-		\[\norm{T(x,y_2)-T(x,y_1)}\le\frac{1}{2}\norm{y_2-y_1} \]
-		Se dimostriamo che $T$ è ben definita abbiamo dimostrato che $T$ è una contrazione.\\
-		Per verificare che $T$ è en definita bisogna mostrare che $T(x,y)\subseteq\overline{B(y_0,r_y)}$ quindi si mostra che la distanza tra $T(x,y)$ e il centro è minore di $r_y$
-		\[\norm{T(x,y) - y_0}\le\norm{T(x,y)-T(x,y_0)}+\norm{T(x,y_0)-y_0} \le\]
-		\[\le\frac{1}{2}\norm{y-y_0}+\norm{y_0-[D_yf(x_0,y_0)]^{-1}f(x,y_0)-y_0}\le\]
-		\[\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-0}\le\]
-		\[\le\frac{1}{2}\norm{y-y_0}+\norm{[D_yf(x_0,y_0)]^{-1}} \norm{f(x,y_0)-f(x_0,y_0)}\le\]
-		\[\le\frac{1}{2}r_y+\frac{1}{2}r_y\le r_y\]
-		Allora $T$ è ben definita perché $T(x,y)\in\overline{B(y_0,r_y)}$.\\
-		In conclusione con $\mathcal{X}=\overline{B(x_0,r_x)}$ e $\mathcal{Y}=\overline{B(y_0,r_y)}$ ho che $T:\mathcal{X}\times\mathcal{Y}\rightarrow\mathcal{Y}$ è tale che $\forall x\in\mathcal{X}$ la funzione $y\rightarrow T(x,y)$ è una contrazione e $\overline{B(y_0,r_y)}$ è completo.\\
-		quaolcosa sui completi.........\\
-		................................\\
-		..........................\\
-		A questo punto può essere applicato il teorema delle contrazioni:\\
-		$\forall x \in \mathcal{X}, \exists y \in\mathcal{Y}: f(x,y)=0$ allora chiamo $\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ che $x\rightarrow y$ è unica quindi $\varphi$ è una funzione.\\
-		Allora la funzione implicita esiste. La continuità direva direttamente dal teorema delle contrazioni: l'applicazione che al parametro associa il punto fisso è continua.\\
-		Per l'unicità si osservano le ipotesi 1 e 2, dove è scritto $\forall x$ ovvero scelta una qualunque $x$ la $y$ è unica quindi $\varphi$ è univocamente definita.
-		
+		\begin{align*}
+			Ax + By &= C\\
+			By &= C - Ax\\
+			\shortintertext{Essendo $p = m$ e $\det(B) \neq 0$, la matrice $B$ è invertibile, dunque}
+			B^{-1} By &= B^{-1} (C - Ax)\\
+			y &= B^{-1} (C - Ax)
+		\end{align*}
+		Quindi è possibile esprimere la $y$ in funzione della sola $x$, verificando la tesi.
 	\end{proof}
 \end{theorem}
+
+\begin{observation}[Metodo di Newton, o delle Tangenti]~
+	\label{obs:metodo_newton}
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Questo metodo, leggermente modificato, sarà utile nella dimostrazione del \fullref{teo:funz_impl}.
+	\end{note}
+	Sia $f: \intervalclose{a}{b} \to \R$ con $f \in \cntclass{2}(\intervalclose{a}{b}, \R)$. Se l'intervallo $\intervalclose{a}{b}$ contiene una sola radice della $f$, allora si può individuare la radice per mezzo di successive approssimazioni della curva con le sue tangenti.\\
+	Procedendo in modo iterativo si dimostra che la relazione di ricorrenza del metodo è:
+	\begin{equation}
+		\label{eq:metodo_newton}
+		x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+	\end{equation}
+	Che è una successione convergente alla radice.\\
+	Graficamente si vede come utilizzando le tangenti ci si possa spostare rapidamente verso la radice:
+	\begin{center}
+		\begin{tikzpicture}[declare function = {curve(\x)=(1/40)*\x^4+(1/30)*\x^2-(1/3)*\x; derivative(\x)=(1/10)*\x^3+(1/15)*\x-(1/3);}]
+			\begin{axis}[
+				axis lines = center,
+				axis equal,
+				ymax = 3, ymin = -1,
+				xlabel = $x$,
+				ylabel = {$f(x)$},
+				legend style = {at={(.65,0.6)},anchor=south west}
+			]
+				\addplot[domain=-3:2, smooth, thick, forget plot] {curve(x)};
+				\addplot[domain=-3:.5, color=blue!50]{(x+2.5)*derivative(-2.5) + curve(-2.5)};
+				\addlegendentry{tangente 1}
+				\addplot[domain=-3:.5, color=green!50]{(x+2)*derivative(-2) + curve(-2)};
+				\addlegendentry{tangente 2}
+				\addplot[domain=-3:.5, color=red!50]{(x+1.5)*derivative(-1.5) + curve(-1.5)};
+				\addlegendentry{tangente 3}
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+\end{observation}
+
+\begin{theorem}[Teorema della Funzione Implicita]~
+	\label{teo:funz_impl}
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Questo teorema è anche noto come \textit{Teorema di Dini}
+	\end{note} % TODO check vertical spacing here
+	Siano:
+	\begin{enumerate}[noitemsep]
+		\item $X \subseteq \R^n$ e $Y \subseteq \R^m$ \textbf{Aperti}
+		\item $f: X \times Y \to \R^m$ e $f$ \textbf{Continua} in $X \times Y$
+		\item $(x_0, y_0) \in X \times Y$ e $f(x_0, y_0) = 0$
+		\item \label{itm:ipot_funz_impl_1} $D_yf$ \textbf{esiste Continua} in $(x_0, y_0)$
+		\item \label{itm:ipot_funz_impl_2} $D_yf(x_0, y_0)$ ammette \textbf{inversa}
+	\end{enumerate}
+	\begin{note}
+		\hypertarget{note:teo_funz_impl_note_ipot}{}
+		Nel \fullref{teo:funz_impl_lin} si utilizzava direttamente la matrice dell'applicazione lineare, mentre qui si ha la la matrice Derivata Totale. Questo perché il differenziale è la funzione che meglio approssima una funzione in un suo punto, permettendo una pseudo linearità malgrado la $f$ non sia (necessariamente) lineare.
+	\end{note}
+	\begin{note}
+		Nei punti \ref{itm:ipot_funz_impl_1} e \ref{itm:ipot_funz_impl_2} delle ipotesi si ha $D_yf$ perché si sta cercando una funzione implicita che esprima la $y$, se la si stesse cercando per la $x$ si dovrebbe utilizzare la $D_xf$
+	\end{note}
+	\begin{note}
+		Il punto \ref{itm:ipot_funz_impl_2} delle ipotesi richiede che la matrice $D_yf$ sia invertibile, cioè quadrata e con $\det(D_yf) \neq 0$. Il fatto che sia quadrata è garantito per ipotesi, in quanto $Y \subseteq \R^m$ e $f$ è a valori in $\R^m$\\
+		Nel caso molto comune di $f: \R^1 \times \R^1 \to \R^1$, bisogna verificare che $\frac{\partial f}{\partial y} \neq 0$, cioè che la derivata parziale rispetto ad $y$ non sia nulla.
+	\end{note}
+	Allora
+	\begin{enumerate}
+		\item Esistono degli intorni $\mathcal{X}$ di $x_0$ e $\mathcal{Y}$ di $y_0$ ed esiste la \textbf{funzione Continua} $\varphi: \mathcal{X} \to \mathcal{Y}$ tale che, con $x \in \mathcal{X}$ e $y \in \mathcal{Y}$
+			\begin{equation}
+				\label{eq:teo_funz_impl_f_phi}
+				f(x,y) = 0 \quad \iff \quad y = \varphi(x)
+			\end{equation}
+		\item \label{itm:tesi_funz_impl_1} Se $\varphi_1: \mathcal{X}_1 \to \mathcal{Y}_1$ e $\varphi_2: \mathcal{X}_2 \to \mathcal{Y}_2$ soddisfano alla \cref{eq:teo_funz_impl_f_phi} con $\mathcal{X}_1, \mathcal{X}_2 \subseteq \mathcal{X}$ intorni di $x_0$ e $\mathcal{Y}_1, \mathcal{Y}_2 \subseteq \mathcal{Y}$ intorni di $y_0$, allora
+			\[\varphi_1 = \varphi_2 \quad \text{su} \quad \mathcal{X} \cap \mathcal{X}_1 \cap \mathcal{X}_2\]
+	\end{enumerate}
+	\begin{note}
+		Il punto \ref{itm:tesi_funz_impl_1} significa che prendendo due $\varphi$ definite su intervalli diversi, esse assumeranno gli stessi valori nei punti comuni ad entrambi gli intervalli (se esistono). Questa proprietà viene spesso indicata dalla forma "$\varphi$ è unica \textit{localmente}".
+	\end{note}
+	\begin{proof}
+		Analogamente alla \cref{eq:metodo_newton}, passando al caso multidimensionale, si definisce la funzione
+		\begin{equation}
+			\label{teo:funz_impl_T}
+			\funcdef{T}{\mathcal{X} \times \mathcal{Y}}{\mathcal{Y}}{(x,y)}{y - [D_yf(x_0, y_0)]^{-1} \cdot f(x, y)}
+		\end{equation}
+		\begin{note}
+			$[D_yf(x_0, y_0)]^{-1}$ è la matrice inversa della $D_yf$
+		\end{note}
+		Considerando la $x$ della $T$ come un parametro, si può dire che $T$ sia una \fullref{def:contrazione_parametro}. Bisogna però verificare che sia effettivamente una contrazione, cioè che rispetti due condizioni:
+		\begin{enumerate}
+			\item \textit{La $T$ esegue una contrazione delle distanze}\\
+				Questo si può dimostrare grazie al \fullref{teo:accresc_fin}. Infatti se il $\sup\limits_{\xi \in S} \norm{Df(\xi)}$ dell'\cref{eq:accresc_fin} è un numero $\in \intervalclop{0}{1}$, allora (sostituendo la distanza con la norma per \fullref{def:norma}) la \cref{eq:accresc_fin} diventa comparabile alla \cref{eq:contrazione_parametro}, cioè:
+				\[
+					\begin{gathered}
+						d \bigl( T(x, y_1), T(x, y_2) \bigr) \leq K \cdot d(y_1, y_2)\\
+						\iff\\
+						\norm{ T(x, y_1) - T(x, y_2) } \leq \sup\limits_{\xi \in S} \norm{D_y T(\xi)} \cdot \norm{y_1 - y_2}
+					\end{gathered}
+				\]
+				Per poter applicare il \fullref{teo:accresc_fin} è necessario che il segmento di estremi $y_1$, $y_2$ sia interamente contenuto nella parte interna dell'insieme di definizione di $T$.\\
+				Dato che nell'enunciato del teorema è solo indicata l'esistenza di $\mathcal{X}$ e $\mathcal{Y}$, è possibile scegliere questi insiemi a piacimento. Ponendo dei $r_x$ ed $r_y$ sufficientemente piccoli, saranno accettabili:
+				\[\mathcal{X} = \overline{B(x_0, r_x)} \qquad\qquad\qquad \mathcal{Y} = \overline{B(y_0, r_y)}\]
+				A questo punto il \fullref{teo:accresc_fin} è applicabile, dunque si procede a quantificare il $\sup\limits_{\xi \in S} \norm{Df(\xi)}$ differenziando rispetto ad $y$ la \cref{teo:funz_impl_T}
+				\begin{align*}
+					D_yT(x,y) &= \id_Y - \bigl[ D_yf (x_0, y_0) \bigr]^{-1} D_yf (x, y)
+					\shortintertext{Essendo $\id_Y = \bigl[ D_yf(x, y)\bigr]^{-1} \cdot D_yf(x, y)$ per qualsiasi $(x, y)$, si ha}
+					&= \bigl[ D_yf (x_0, y_0) \bigr]^{-1} \cdot D_yf (x_0, y_0) - \bigl[ D_yf (x_0, y_0) \bigr]^{-1} D_yf (x, y)\\
+					&= \bigl[ D_yf (x_0, y_0) \bigr]^{-1} \cdot \bigl[ D_yf (x_0, y_0) - D_yf (x, y) \bigr]
+				\end{align*}
+				Passando alle norme
+				\[\norm{D_yT(x,y)} = \norm{\bigl[ D_yf (x_0, y_0) \bigr]^{-1} \cdot \underbrace{\bigl[ D_yf (x_0, y_0) - D_yf (x, y) \bigr]}_{\text{(1)}} }\]
+				Essendo, come detto prima, $r_x$ ed $r_y$ piccoli a piacere, si può presupporre che il fattore indicato come (1) tenda a $0$, essendo una differenza tra funzioni continue ($f \in \cntclass{2}$ per ipotesi). A questo punto, sicuramente, si può minorare con un valore arbitrario: si sceglie $\frac{1}{2}$ in quanto sarà successivamente "comodo" nel corso della dimostrazione.
+				\[\norm{D_yT(x,y)} \leq \frac{1}{2}\]
+				Dunque, finalmente, applicando il \fullref{teo:accresc_fin}
+				\[\norm{ T(x, y_1) - T(x, y_2) } \leq \frac{1}{2} \cdot \norm{y_1 - y_2}\]
+				\qed
+			\item \textit{La $T$ è a valori nell'insieme di partenza ($T$ "ben definita")}\\
+				Preso un generico $y$, si deve verificare che $\forall y \in \mathcal{Y}:\; T(x,y) \in \mathcal{Y}$ cioè, per come è definito $\mathcal{Y}$, che la distanza tra $T(x,y)$ ed $y_0$, centro della $\overline{B(y_0, r_y)}$, sia minore di $r_y$.\\
+				Applicando la disuguaglianza triangolare
+				\begin{align*}
+					\norm{T(x, y) - y_0} &\leq \norm{\underbrace{T(x, y) - T(x, y_0)}_{\text{(1)}} + \underbrace{\norm{T(x, y_0) - y_0}}_{\text{(2)}}}
+					\intertext{Applicando nuovamente il \fullref{teo:accresc_fin} ad (1) ed utilizzando la definizione di $T$ per (2)}
+					&\leq \underbrace{\sup\limits_{\xi \in S} \norm{D_y T(\xi)}}_{\text{(3)}} \cdot \underbrace{\norm{y - y_0}}_{\text{(4)}} + \norm{y_0 - [D_yf(x_0, y_0)]^{-1} \cdot f(x, y_0) - y_0}
+					\shortintertext{Come dimostrato prima (3) è minorato da $\frac{1}{2}$, mentre (4) corrisponde a $r_y$}
+					&\leq \frac{1}{2} r_y + \norm{[D_yf(x_0, y_0)]^{-1} \cdot f(x, y_0)}\\
+					&= \frac{1}{2} r_y + \norm{[D_yf(x_0, y_0)]^{-1}} \cdot \norm{f(x, y_0)}\\
+					&= \frac{1}{2} r_y + \norm{[D_yf(x_0, y_0)]^{-1}} \cdot \norm{f(x, y_0) - 0}
+					\shortintertext{Essendo $f(x_0, y_0) = 0$ per ipotesi}
+					&= \frac{1}{2} r_y + \underbrace{\norm{[D_yf(x_0, y_0)]^{-1}} \cdot \norm{f(x, y_0) - f(x_0, y_0)}}_{\text{(5)}}
+					\shortintertext{Il termine (5) non dipende da $r_y$, ma solo da $r_x$, dunque scegliendo un $r_x$ sufficientemente piccolo, è possibile minorare nuovamente con}
+					&\leq \frac{1}{2} r_y + \frac{1}{2} r_y\\
+					&\leq r_y
+				\end{align*}
+				\qed
+		\end{enumerate}
+		Si è quindi verificato che la $T$ sia effettivamente una \textbf{Contrazione} per ogni $x \in \mathcal{X}$
+		\begin{note}
+			L'indipendenza dal parametro deriva dall'aver verificato la \fullref{def:contrazione_parametro}
+		\end{note}
+		Sfruttando il \fullref{teo:contrazioni_con_para} si può essere certi dell'unicità del punto fisso di $T$. Inoltre, il punto fisso di $T$ è anche radice di $f(x,y) = 0$. Questo si dimostra applicando la \fullref{def:punto_fisso} alla $T$:
+		\begin{align*}
+			T(x,y) = y \quad &\iff \quad y - [D_yf(x_0, y_0)]^{-1} \cdot f(x, y) = y\\
+			&\iff \quad [D_yf(x_0, y_0)]^{-1} \cdot f(x, y) = 0
+			\shortintertext{Moltiplicando ambo i membri per $D_yf$}
+			&\iff \quad D_yf(x_0, y_0) \cdot [D_yf(x_0, y_0)]^{-1} \cdot f(x, y) = D_yf(x_0, y_0) \cdot 0
+			\shortintertext{Una matrice moltiplicata per la sua inversa dà la matrice identità, dunque}
+			&\iff \quad f(x, y) = 0
+		\end{align*}
+		Quindi, effettivamente, il punto fisso della $T$ è zero della $f$.\\
+		È ora possibile definire una funzione che associa ad un dato parametro $x$ una $T$ in funzione di $y$ (quindi $\varphi$ è funzione di funzioni).
+		\[\funcdef{\varphi}{\mathcal{X}}{\mathcal{Y}}{x}{T(x,y)}\]
+		La continuità di $\varphi$ è sempre garantita da \fullref{teo:contrazioni_con_para}.
+	\end{proof}
+\end{theorem}
+\begin{exercise}
+	Confrontare le ipotesi del \fullref{teo:funz_impl_lin} e del \fullref{teo:funz_impl}.
+	\begin{solution}
+		Vedere \hyperlink{note:teo_funz_impl_note_ipot}{seconda nota alle ipotesi del \nameref*{teo:funz_impl}}
+	\end{solution}
+\end{exercise}
 \proposition
 Sia $f:X\times Y\rightarrow \R^m$ con $X\in \R^n, Y\in \R^m$\\
 Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\

@@ -30,7 +30,6 @@
 % Content formatting and theorem numbering rules  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \counterwithout{section}{chapter}
-\numberwithin{equation}{section}
 
 \newtheoremstyle{break}% Custom theorem style to put thesis on a new line after the title.
 	{}%         Space above, empty = `usual value'
@@ -50,6 +49,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{example}[theorem]{Esempio}
 \newtheorem{exercise}[theorem]{Esercizio}
+\numberwithin{equation}{theorem}
 \newtheoremstyle{note}
 	{ } % space above note
 	{ } % space below note
@@ -111,6 +111,7 @@
 \DeclareMathOperator\grad{grad}
 \DeclareMathOperator\mat{Mat}
 \DeclareMathOperator\dom{Dom}
+\DeclareMathOperator\id{Id}
 
 % Append the following to an equation in align* blocks to allow tagging single eq.
 \newcommand*{\tageq}{\refstepcounter{equation}\tag{\theequation}}
