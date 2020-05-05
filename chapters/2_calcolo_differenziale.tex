@@ -764,6 +764,10 @@ $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ 
 	Questa è la definizione di differenziabilità, allora $f\circ g$ è differenziabile e $D(f\circ g)(x_0) = Df(g(x_0))Dg(x_0)$
 \end{proof}
 \proposition DERIVATA DEL PRODOTTO
+\begin{exercise}
+	\label{ex:diff_funz_comp}
+	% TODO ex 8.37 dal libro
+\end{exercise}
 
 \subsection{La Formula degli Accrescimenti Finiti}
 \begin{definition}[Segmento]
@@ -1475,7 +1479,7 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 
 \vspace*{\baselineskip}
 Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice inversione di una matrice.
-\begin{theorem}[Teorema della Funzione Implicita - Caso Lineare]
+\begin{theorem}[della Funzione Implicita - Caso Lineare]
 	\label{teo:funz_impl_lin}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -1541,7 +1545,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\end{center}
 \end{observation}
 
-\begin{theorem}[Teorema della Funzione Implicita]~
+\begin{theorem}[della Funzione Implicita]~
 	\label{teo:funz_impl}
 	\vspace*{-\baselineskip}
 	\begin{note}
@@ -1549,21 +1553,21 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\end{note} % TODO check vertical spacing here
 	Siano:
 	\begin{enumerate}[noitemsep]
-		\item $X \subseteq \R^n$ e $Y \subseteq \R^m$ \textbf{Aperti}
-		\item $f: X \times Y \to \R^m$ e $f$ \textbf{Continua} in $X \times Y$
-		\item $(x_0, y_0) \in X \times Y$ e $f(x_0, y_0) = 0$
-		\item \label{itm:ipot_funz_impl_1} $D_yf$ \textbf{esiste Continua} in $(x_0, y_0)$
-		\item \label{itm:ipot_funz_impl_2} $D_yf(x_0, y_0)$ ammette \textbf{inversa}
+		\item \label{itm:ipot_funz_impl_1} $X \subseteq \R^n$ e $Y \subseteq \R^m$ \textbf{Aperti}
+		\item \label{itm:ipot_funz_impl_2} $f: X \times Y \to \R^m$ e $f$ \textbf{Continua} in $X \times Y$
+		\item \label{itm:ipot_funz_impl_3} $(x_0, y_0) \in X \times Y$ e $f(x_0, y_0) = 0$
+		\item \label{itm:ipot_funz_impl_4} $D_yf$ \textbf{esiste Continua} in $(x_0, y_0)$
+		\item \label{itm:ipot_funz_impl_5} $D_yf(x_0, y_0)$ ammette \textbf{inversa}
 	\end{enumerate}
 	\begin{note}
-		\hypertarget{note:teo_funz_impl_note_ipot}{}
+		\hypertarget{note:teo_funz_impl_note_ipot1}{}
 		Nel \fullref{teo:funz_impl_lin} si utilizzava direttamente la matrice dell'applicazione lineare, mentre qui si ha la la matrice Derivata Totale. Questo perché il differenziale è la funzione che meglio approssima una funzione in un suo punto, permettendo una pseudo linearità malgrado la $f$ non sia (necessariamente) lineare.
 	\end{note}
 	\begin{note}
-		Nei punti \ref{itm:ipot_funz_impl_1} e \ref{itm:ipot_funz_impl_2} delle ipotesi si ha $D_yf$ perché si sta cercando una funzione implicita che esprima la $y$, se la si stesse cercando per la $x$ si dovrebbe utilizzare la $D_xf$
+		Nei punti \ref{itm:ipot_funz_impl_4} e \ref{itm:ipot_funz_impl_5} delle ipotesi si ha $D_yf$ perché si sta cercando una funzione implicita che esprima la $y$, se la si stesse cercando per la $x$ si dovrebbe utilizzare la $D_xf$
 	\end{note}
 	\begin{note}
-		Il punto \ref{itm:ipot_funz_impl_2} delle ipotesi richiede che la matrice $D_yf$ sia invertibile, cioè quadrata e con $\det(D_yf) \neq 0$. Il fatto che sia quadrata è garantito per ipotesi, in quanto $Y \subseteq \R^m$ e $f$ è a valori in $\R^m$\\
+		Il punto \ref{itm:ipot_funz_impl_5} delle ipotesi richiede che la matrice $D_yf$ sia invertibile, cioè quadrata e con $\det(D_yf) \neq 0$. Il fatto che sia quadrata è garantito per ipotesi, in quanto $Y \subseteq \R^m$ e $f$ è a valori in $\R^m$\\
 		Nel caso molto comune di $f: \R^1 \times \R^1 \to \R^1$, bisogna verificare che $\frac{\partial f}{\partial y} \neq 0$, cioè che la derivata parziale rispetto ad $y$ non sia nulla.
 	\end{note}
 	Allora
@@ -1582,7 +1586,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\begin{proof}
 		Analogamente alla \cref{eq:metodo_newton}, passando al caso multidimensionale, si definisce la funzione
 		\begin{equation}
-			\label{teo:funz_impl_T}
+			\label{eq:funz_impl_T}
 			\funcdef{T}{\mathcal{X} \times \mathcal{Y}}{\mathcal{Y}}{(x,y)}{y - [D_yf(x_0, y_0)]^{-1} \cdot f(x, y)}
 		\end{equation}
 		\begin{note}
@@ -1602,7 +1606,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 				Per poter applicare il \fullref{teo:accresc_fin} è necessario che il segmento di estremi $y_1$, $y_2$ sia interamente contenuto nella parte interna dell'insieme di definizione di $T$.\\
 				Dato che nell'enunciato del teorema è solo indicata l'esistenza di $\mathcal{X}$ e $\mathcal{Y}$, è possibile scegliere questi insiemi a piacimento. Ponendo dei $r_x$ ed $r_y$ sufficientemente piccoli, saranno accettabili:
 				\[\mathcal{X} = \overline{B(x_0, r_x)} \qquad\qquad\qquad \mathcal{Y} = \overline{B(y_0, r_y)}\]
-				A questo punto il \fullref{teo:accresc_fin} è applicabile, dunque si procede a quantificare il $\sup\limits_{\xi \in S} \norm{Df(\xi)}$ differenziando rispetto ad $y$ la \cref{teo:funz_impl_T}
+				A questo punto il \fullref{teo:accresc_fin} è applicabile, dunque si procede a quantificare il $\sup\limits_{\xi \in S} \norm{Df(\xi)}$ differenziando rispetto ad $y$ la \cref{eq:funz_impl_T}
 				\begin{align*}
 					D_yT(x,y) &= \id_Y - \bigl[ D_yf (x_0, y_0) \bigr]^{-1} D_yf (x, y)
 					\shortintertext{Essendo $\id_Y = \bigl[ D_yf(x, y)\bigr]^{-1} \cdot D_yf(x, y)$ per qualsiasi $(x, y)$, si ha}
@@ -1611,7 +1615,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 				\end{align*}
 				Passando alle norme
 				\[\norm{D_yT(x,y)} = \norm{\bigl[ D_yf (x_0, y_0) \bigr]^{-1} \cdot \underbrace{\bigl[ D_yf (x_0, y_0) - D_yf (x, y) \bigr]}_{\text{(1)}} }\]
-				Essendo, come detto prima, $r_x$ ed $r_y$ piccoli a piacere, si può presupporre che il fattore indicato come (1) tenda a $0$, essendo una differenza tra funzioni continue ($f \in \cntclass{2}$ per ipotesi). A questo punto, sicuramente, si può minorare con un valore arbitrario: si sceglie $\frac{1}{2}$ in quanto sarà successivamente "comodo" nel corso della dimostrazione.
+				Essendo, come detto prima, $r_x$ ed $r_y$ piccoli a piacere, si può presupporre che il fattore indicato come (1) tenda a $0$, essendo una differenza tra funzioni continue (per ipotesi). A questo punto, sicuramente, si può minorare con un valore arbitrario: si sceglie $\frac{1}{2}$ in quanto sarà successivamente "comodo" nel corso della dimostrazione.
 				\[\norm{D_yT(x,y)} \leq \frac{1}{2}\]
 				Dunque, finalmente, applicando il \fullref{teo:accresc_fin}
 				\[\norm{ T(x, y_1) - T(x, y_2) } \leq \frac{1}{2} \cdot \norm{y_1 - y_2}\]
@@ -1657,77 +1661,267 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 \begin{exercise}
 	Confrontare le ipotesi del \fullref{teo:funz_impl_lin} e del \fullref{teo:funz_impl}.
 	\begin{solution}
-		Vedere \hyperlink{note:teo_funz_impl_note_ipot}{seconda nota alle ipotesi del \nameref*{teo:funz_impl}}
+		Vedere \hyperlink{note:teo_funz_impl_note_ipot1}{seconda nota alle ipotesi del \nameref*{teo:funz_impl}}
 	\end{solution}
 \end{exercise}
-\proposition
-Sia $f:X\times Y\rightarrow \R^m$ con $X\in \R^n, Y\in \R^m$\\
-Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
-se:
-\begin{enumerate}
-	\item $f(x_0,y_0)=0$
-	\item $f\in \cntclass{1}(X\times Y,R^m)$.
-	\item $D_yf(x_0,y_0)$ invertibile .
-\end{enumerate}
-$\Rightarrow $ si ha:\\
-\begin{enumerate}
-	\item $\exists \varphi: \mathcal{X}\rightarrow\mathcal{Y}$ definita implicitamente da $f(x_0,y_0)=0$
-	\item $\varphi$ continua su $\mathcal{X}$
-	\item $\varphi$ è differenziabile e $D\varphi(x)=-[D_yf(x,\varphi(x))]^{-1}D_xf(x,\varphi(x))$
-\end{enumerate}
-\begin{proof}
-	I punti 1 e 2 sono gli stessi del teorema della funzione implicita e si dimostrano allo stesso modo.\\
-	Per il punto 3 abbiamo che $f(x,y)=0\iff y=\varphi(x)$ e quindi $\forall x\in \mathcal{X}$ $f(x,\varphi(x))=0$\\
-	.........\\
-	.........\\
-	
-\end{proof}
+\begin{exercise}
+	Come mai il \fullref{teo:funz_impl} è stato ambientato in $\R^n$ e non in un generico spazio metrico?
+	% TODO solution
+\end{exercise}
+\begin{theorem}
+	\label{teo:funz_impl_diff}
+	Nelle stesse ipotesi del \fullref{teo:funz_impl} ed aggiungendo $f \in \cntclass{1}$, allora $\varphi \in \cntclass{1}$ e vale
+	\begin{equation}
+		\label{eq:teo_funz_se_deriv_allora_deriv_tesi}
+		D\varphi(x) = - \Bigl[ D_yf \bigl( x, \varphi(x) \bigr) \Bigr]^{-1} \cdot D_xf \bigl( x, \varphi(x) \bigr)
+	\end{equation}
+	\begin{proof}
+		Omessa a lezione.\\
+		\color{not_explained_section_color}
+		$f$ è di classe $\cntclass{1} \implies f$ è Lipschtziana $\implies$ la funzione $T$ definita in \cref{eq:funz_impl_T} è Lipschtziana anche in $x$ (si veda \fullref{ex:comp_funz_lips}) $\implies$ la funzione implicita $y = \varphi(x)$ è Lipschtziana (per \fullref{teo:contr_con_para_lips_definisce_funz_lips}).
 
-\proposition CASO N=1, M=1\\
-Sia $f:X\times Y\rightarrow \R$ con $X\in \R, Y\in \R$\\
-Preso un punto $(x_0,y_0)$ con $x_0\in \circdot{X}$,$y_0\in \circdot{Y}$\\
-se:
-\begin{enumerate}
-	\item $f(x_0,y_0)=0$
-	\item $f\in \cntclass{1}(X\times Y,R)$.
-	\item $\partial_yf(x_0,y_0)\ne 0$.
-\end{enumerate}
-$\Rightarrow $ si ha:\\
-\begin{enumerate}
-	\item $\exists \varphi: \mathcal{X}\rightarrow\mathcal{Y}$ definita implicitamente da $f(x_0,y_0)=0$
-	\item $\varphi\in \cntclass{0}(\mathcal{X},\mathcal{Y})$
-	\item $\varphi$ è derivabile e $\varphi'(x)=-[\partial_yf(x,\varphi(x))]^{-1}\partial_xf(x,\varphi(x))$
-\end{enumerate}
-\begin{proof}
-	$f(x,y)=0\iff y=\varphi(x)$, derivando $D(f(x,\varphi(x)))=0$\\
-	$\partial_xf(x,\varphi(x))+\partial_yf(x,\varphi(x))\varphi'(x)=0$\\
-	allora $\varphi'(x) = -\frac{\partial_xf(x,\varphi(x))}{\partial_yf(x,\varphi(x))}$
-\end{proof}
-\observation Non essendoci motivo per preferire la $x$ alla $y$ o viceversa, esiste anche una versione di questo teorema  in  cui le ipotesi sono le stesse eccetto l'ultima che diventa $\partial_xf(x_0,y_0)\ne 0$
-\begin{enumerate}
-	\item $\exists \psi: \mathcal{Y}\rightarrow\mathcal{X}$ definita implicitamente da $f(x,y)=0$
-	\item $\psi\in \cntclass{0}(\mathcal{Y},\mathcal{X})$
-	\item $\psi$ è derivabile e $\psi'(y)=-[\partial_xf(\psi(y),y)]^{-1}\partial_yf(\psi(y),y)$
-\end{enumerate}
-Qualche esempio qui\\
-\subsection{Il Teorema della funzione Inversa}
-Data una funzione f, poterla invertire  ...... unico modo l'equazione (o sistema ....)... l'incognita $x$ in funzione del parametro .....\\
-\proposition(Teorema della funzione inversa caso lineare)\\
-Sia $f:R^n\in \R^m$ data da $f(x)=Mx$ e $M\in Mat(m\times n)$, $f$ è invertibile $\iff n=m$ e $detM\ne 0$
-\proposition(caso generale)\\
-sia $f:A\rightarrow \R^n$ con $A\in \R^n$, $f\in \cntclass{1}(A,R^n)$, $x_0\in \circdot{A}$ e $Df(x_0)$ invertibile.\\
-Allora $\exists\mathcal{X}\in A,\exists\mathcal{Y}\in \R^n$, $\exists\varphi\mathcal{Y}\rightarrow\mathcal{X}$ con la proprietà $f(x)=y\iff x=\varphi(y)$ con $x\in\circdot{\mathcal{X}}$ e $y\in\circdot{\mathcal{Y}}$ e $\varphi\in \cntclass{1}(\mathcal{Y},\mathcal{X})$ e $D\varphi(y)=[Df(x)]^{-1}$\\
-\begin{proof}
-	$f(x)=y\iff f(x)-y=0$. Allora introduco $F:A\times \R^n\rightarrow \R^n$ data da $F(x,y)=f(x)-y$.\\
-	Studio $F(x,y)=0$ per ottenere $x=\varphi(y)$.\\
-	Per poter applicare il teorema della funzione implicita serve $D_xF(x_0,y_0)$ invertibile, ma $D_xF(x_0,y_0)=Df(x_0)$ che è invertibile per ipotesi.\\
-	Applico allora il teorema della funzione implicita , quindi gli intorni esistono e $x=\varphi(y)$.\\
-	resta da trovare la derivata totale di $\varphi$. Sappiamo che $f\in \cntclass{1}$ quindi $\varphi \in \cntclass{1}$.\\
-	Sappiamo che $\varphi(f(x))=x$, applicando la derivata della funzione composta abbiamo che:\\
-	$D\varphi(f(x))Df(x)=I$\\
-	$D\varphi=[Df(x)]^{-1}$ quando $\varphi(y)=x$\\
-	si puo anche scrivere come $(Df^{-1})(f(x))=[Df(x)]^{-1}$
-\end{proof}
+		Se $\varphi$ è derivabile, allora le regole di derivazione garantiscono che (da \fullref{ex:diff_funz_comp}):
+		\[0 = D \Bigl( f \bigl( x, \varphi(x) \bigr) \Bigr) = D_xf \bigl( x, \varphi(x) \bigr) + D_yf \bigl( x, \varphi(x) \bigr)\]
+		Dunque
+		\[\varphi'(x) = -\Bigl( D_yf \bigl( x, \varphi(x) \bigr) \Bigr)^{-1} \cdot D_xf \bigl( x, \varphi(x) \bigr)\]
+		Si pone ora per brevità
+		\[A(x) = - \Bigl( D_yf \bigl( x, \varphi(x) \bigr) \Bigr)^{-1} \cdot D_xf \bigl( x, \varphi(x) \bigr)\]
+		Resta dunque da verificare che
+		\begin{equation}
+			\label{eq:teo_funz_se_deriv_allora_deriv_omega_x}
+			\omega_x(h) = \varphi(x + h) - \varphi(x) - A(x) \cdot h \qquad \text{allora} \qquad \omega_x(h) = o(h) \text{ per } h \to 0
+		\end{equation}
+		Infatti
+		\begin{align*}
+			0 &= f \bigl( x + h, \varphi(x + h) \bigr)\\
+			&= f \bigl( x + h, \varphi(x) + A(x) \cdot h + \omega_x(h) \bigr)\\
+			&= D_xf \bigl( x, \varphi(x) \bigr) \cdot h + D_yf \bigl( x, \varphi(x) \bigr) \cdot \bigl( A(x) \cdot h + \omega_x(h) \bigr) + o \left( \sqrt{ \norm{h}^2 + \norm{A(x) \cdot h + \omega_x(h)}^2 } \;\; \right)\\
+			&= D_yf \bigl( x, \varphi(x) \bigr) \cdot \omega_x(h) + o \left( \sqrt{ \norm{h}^2 + \norm{A(x) \cdot h + \omega_x(h)}^2 } \;\; \right)
+		\end{align*}
+		Quindi
+		\[\omega_x(h) = \left[ D_yf \bigl( x, \varphi(x) \bigr) \right]^{-1} o \left( \sqrt{ \norm{h}^2 + \norm{A(x) \cdot h + \omega_x(h)}^2 } \;\; \right)\]
+		Dalla definzione di $\omega_x$ in \cref{eq:teo_funz_se_deriv_allora_deriv_omega_x}, segue che la funzione $h \mapsto \omega_x(h)$ è Lipschtziana (da \fullref{ex:comp_funz_lips}). Ciò implica che non possa andare a $0$ più lentamente di $h \to h$, dunque ne segue che
+		\[\omega_x(h) = \left[ D_yf \bigl( x, \varphi(x) \bigr) \right]^{-1} o(\norm{h}) = o(\norm{h})\]
+		\color{black}
+	\end{proof}
+\end{theorem}
+\begin{corollary}[Caso $n=1$, $m=1$]
+	Il \fullref{teo:funz_impl_diff} nel caso caso $\boldsymbol{n=1}$, $\boldsymbol{m=1}$, la \cref{eq:teo_funz_se_deriv_allora_deriv_tesi} diventa
+	\[D\varphi(x) = -\frac{\frac{\partial f}{\partial x}\bigl( x, \varphi(x) \bigr)}{\frac{\partial f}{\partial y}\bigl( x, \varphi(x) \bigr)}\]
+	\begin{proof}
+		Dalla tesi del \fullref{teo:funz_impl}, si ha
+		\[f(x,y) = 0 \iff y = \varphi(x)\]
+		Derivando si passa alla
+		\[
+			\begin{gathered}
+				D\Bigl( f\bigl(x,\varphi(x) \bigr) \Bigr) = 0\\
+				\frac{\partial f}{\partial x}\bigl( x, \varphi(x) \bigr) + \frac{\partial f}{\partial y}\bigl( x, \varphi(x) \bigr) D\varphi(x) = 0
+			\end{gathered}
+		\]
+		Da cui, spostando, la tesi.
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	\label{ex:funz_impl_diff_k}
+	Tramite la \cref{eq:teo_funz_se_deriv_allora_deriv_tesi} dimostrare che se $f$ soddisfa le ipotesi del \fullref{teo:funz_impl} ed è di classe $\cntclass{k}$, allora anche la \textbf{Funzione Implicita} è di classe $\cntclass{k}$.
+	% TODO solution
+\end{exercise}
+\begin{example}
+	L'uguaglianza $y^3 = x^6$ definisce un'unica funzione implicita $y = y(x)$ in un intorno di $(0,0)$, pur non soddisfacendo alle ipotesi del \fullref{teo:funz_impl}.
+\end{example}
+\begin{example}
+	Data una funzione $f \in \cntclass{1}(\R^2;\R)$, il luogo geometrico descritto da $f(x,y) = 0$ coincide con quello descritto da $\bigl( f(x,y) \bigr)^2 = 0$, ma anche se la prima equazione soddisfa alle ipotesi del \fullref{teo:funz_impl}, la seconda sicuramente non lo fa.
+\end{example}
+\begin{example}
+	Entrambe le funzioni\\
+
+	\begin{minipage}{0.49\linewidth}
+		\[\funcdef{f}{\R^3}{\R^2}{(x,y,z)}{(x,y)}\]
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\[\funcdef{f}{\R^3}{\R}{(x,y,z)}{x^2+y^2}\]
+	\end{minipage}\\
+
+	descrivono l'asse $z$ attraverso le equazioni\\
+
+	\begin{minipage}{0.49\linewidth}
+		\[f(x,y,z) = 0\]
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\[g(x,y,z) = 0\]
+	\end{minipage}\\
+
+	Tuttavia, mentre $f$ soddisfa alle ipotesi del \fullref{teo:funz_impl}, la $g$ le soddisfa.\\
+	Grazie al citato teorema, la $f$ (nell'intorno di un qualsiasi punto $(0,0,z)$) definisce sicuramente una funzione implicita $(x,y) = \varphi(z)$ data da $\varphi(z) = 0$.
+	\begin{note}
+		L'esempio precedente mostra come, ai fini della determinazione del numero di gradi di libertà di un sistema, possa essere fuorviante fare affidamento sul numero di equazioni che identificano il vincolo
+	\end{note}
+\end{example}
+\begin{corollary}
+	Siano
+	\begin{itemize}[noitemsep]
+		\item $A \subseteq \R^n$
+		\item $x_0 \in \circdot{A}$
+		\item $f \in \cntclass{1}(A;\R^m)$
+		\item $f(x_0) = 0$
+		\item $n > m$
+	\end{itemize}
+	Se $Df(x_0)$ ha rango $m$, il vincolo implicito $f(x) = 0$ equivale ad una relazione esplicita in cui $n - m$ variabili dipendono dalle rimanenti $m$.
+	\begin{proof}
+		Applicare il \fullref{teo:funz_impl} % TODO proper proof
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	Studiare il luogo dei punti in cui le coordinate soddisfano a $y + xe^y = x$ in intorni di $(-1,0)$, $(0,0)$ e $(1,0)$.\\
+	Tracciarne il grafico globale.
+	% TODO solution
+\end{exercise}
+
+\subsection{Il Teorema della Funzione Inversa}
+Data una funzione $f$, poterla invertire significa poter risolvere in un unico modo l'equazione (o sistema) $f(x) = y$ determinando l'incognita $x$ in funzione del parametro $y$, cioè ottenere $x = f^{-1}(y)$.
+\begin{theorem}[della Funzione Inversa - Caso Lineare]
+	Sia $f: \R^n \to \R^m$ data da $f(x) = Mx$ e $ M \in \mat(m\times n)$
+	\[f \text{ è invertibile} \quad \iff \quad n = m \text{ e } \det M \ne 0\]
+	\begin{proof}
+		Dalle nozioni di Algebra Lineare
+		\begin{align*}
+			X \cdot A &= Y\\
+			A^{-1} \cdot X \cdot A &= A^{-1} \cdot Y\\
+			X &= A^{-1} \cdot Y
+		\end{align*}
+	\end{proof}
+\end{theorem}
+\begin{theorem}[della Funzione Inversa]
+	\label{teo:funz_inv}
+	Siano
+	\begin{itemize}[noitemsep]
+		\item $X \subseteq \R^n$ è \textbf{Aperto}
+		\item $x_0 \in X$
+		\item $f \in \cntclass{k}(A;\R^n)$ con $k \geq 1$
+		\item $Df(x_0)$ \textbf{Invertibile}
+	\end{itemize}
+	\begin{note}
+		$Df(x_0)$ è Invertibile quando $\det Df(x_0) \neq 0$, visto che $f: \R^{\boldsymbol{n}} \to \R^{\boldsymbol{n}}$
+	\end{note}
+	Allora esiste un \textbf{Aperto} $\mathcal{X} \subseteq X$ tale che:
+	\begin{itemize}[noitemsep]
+		\item $x_0 \in \mathcal{X}$
+		\item $f(\mathcal{X})$ è un \textbf{aperto}
+		\item $f_{|\mathcal{X}}: \mathcal{X} \to f(\mathcal{X})$ è \textbf{Invertibile} e l'inversa è $\cntclass{k}$
+		\item $(Df^{-1})(y) = \Bigl[Df\bigl( f^-1(y) \bigr)\Bigr]^{-1}$
+	\end{itemize}
+	\begin{note}
+		$f_{|\mathcal{X}}$ è la \textbf{Restrizione} di $f$ ai soli elementi di $\mathcal{X}$
+	\end{note}
+	\begin{proof}
+		Sia $\Omega = \brackets{x \in X: \det Df(x) \neq 0}$ l'insieme di tutti i punti in cui la $Df(x)$ è invertibile. Per ipotesi sicuramente $\Omega$ è aperto, essendo $X$ aperto, e $x_0 \in \Omega$.
+		Posta ora $F$
+		\[\funcdef{F}{\Omega \times \R^n}{\R^n}{x, y}{f(x) - y}\]
+		Si va a verificare che la $F$ rispetti le ipotesi del \fullref{teo:funz_impl}, modificando però le ipotesi per far riferimento alla $D_xf$:
+		\begin{enumerate}[noitemsep]
+			\item[\ref{itm:ipot_funz_impl_1}] è verificato perché $\Omega$ aperto, come detto, ed $\R^n$ è aperto a sua volta
+			\item[\ref{itm:ipot_funz_impl_2}] è verificato perché $F$ somma di funzioni continue nell'intervallo scelto
+			\item[\ref{itm:ipot_funz_impl_3}] Dalla definizione di $F$, $F(x_0, y_0) = 0 \iff y_0 = f(x_0)$
+			\item[\ref{itm:ipot_funz_impl_4}] è verificato per ipotesi
+			\item[\ref{itm:ipot_funz_impl_5}] è verificato per definizione dell'insieme $\Omega$. $D_xF(x,y) = Df(x)$ perchè, derivando parzialmente rispetto ad $x$, la derivata di $y$ è $0$, essendo $y$ assimilabile ad una costante.
+		\end{enumerate}
+		Esiste dunque una funzione $\varphi: I \to J$, con $I$ intorno di $y_0$ e $J$ intorno di $x_0$, tale che:
+		\begin{equation}
+			\label{eq:teo_funz_inv_applicaz_funz_impl}
+			\underbrace{
+				x = \varphi(y)
+				\quad \iff \quad
+				F(x,y) = 0
+			}_{
+				\mathclap{
+					\text{
+							\begin{tabular}{c}
+								Per\\[-1ex]
+								\fullref{teo:funz_impl}
+							\end{tabular}
+						}
+				}
+			}
+			\quad
+			\overset{
+				\mathclap{
+					\rule[-\baselineskip]{0pt}{\baselineskip}
+					\text{
+						\begin{tabular}{c}
+							Riportandosi\\[-1ex]
+							alla $f$
+						\end{tabular}
+					}
+				}
+			}{\iff}
+			\quad
+			y =f(x)
+		\end{equation}
+
+		\begin{note}
+			Nella \cref{eq:teo_funz_inv_applicaz_funz_impl} è stato applicato il \fullref{teo:funz_impl} rispetto alla variabile $x$, diversamente da quanto fatto nell'enunciato del teorema stesso, dove la derivata in questione era la $y$.
+		\end{note}
+		Dunque, con il primo e l'ultimo elemento
+		\begin{equation}
+			\label{eq:teo_funz_inv_f_phi}
+			x = \varphi(y) \iff y =f(x)
+		\end{equation}
+		È ora necessario individuare l'insieme su cui $f$ è invertibile. Si pone $\mathcal{X} = f^{-1}(I) \cap J$ dove:
+		\begin{itemize}[noitemsep]
+			\item $f^{-1}(I)$ è l'insieme controimmagine di $f$, cioè "tutti i valori di cui si può calcolare la $f$"
+			\item $J$ è l'insieme immagine della $\varphi$, quindi "i valori delle $x$ in funzione delle $y$"
+		\end{itemize}
+		\begin{note}
+			Vedere \fullref{ex:funz_inv_ma_non_iniett} per capire come $f^{-1}(I)$ possa essere diverso da $J$
+		\end{note}
+		Avendo eseguito l'intersezione, si ha la certezza che nei punti di $\mathcal{X}$, la $f$ sia invertibile e che la $\varphi$ assuma valori validi. Data la relazione tra $f$ e $\varphi$ trovata in \cref{eq:teo_funz_inv_f_phi}, si può concludere che, per i valori in $\mathcal{X}$, la $f$ è sicuramente invertibile e la sua inversa è $\varphi$.
+
+		Inoltre $F$ è funzione di classe $\cntclass{k}$, essendo somma di $f \in \cntclass{k}$ $y \in \cntclass{\infty}$. Son dunque verificate anche le ipotesi del \fullref{teo:funz_impl_diff} (ed \fullref{ex:funz_impl_diff_k}), ciò implica che $\varphi$ sia di classe $\cntclass{k}$.
+
+		Infine si ottiene la regola di derivazione:
+		\begin{align*}
+			(Df^{-1})(y) &= D\varphi(y)
+			\shortintertext{Dal \fullref{teo:funz_impl_diff}}
+			&= -\Bigl[ D_xF \bigl( \varphi(y), y \bigr) \Bigr]^{-1} \cdot D_yF \bigl( \varphi(y), y \bigr)
+			\shortintertext{Per definizione di $F$, la derivata parziale rispetto a $y$ è una costante, cioè la matrice identità}
+			&= -\Bigl[ D_xF \bigl( \varphi(y), y \bigr) \Bigr]^{-1} \cdot (-\id)\\
+			&= -\Bigl[ D_xF \bigl( \varphi(y), y \bigr) \Bigr]^{-1}
+		\end{align*}
+	\end{proof}
+\end{theorem}
+\begin{example}~
+	\label{ex:funz_inv_ma_non_iniett}
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Questo esempio mostra come il \fullref{teo:funz_inv} non possa essere applicato globalmente, ma solo in intorni. Il fatto che il Teorema valga localmente in tutto il dominio della $f$ \textbf{non implica} valga globalmente.
+	\end{note}
+	Sia
+	\[\funcdef{f}{\R^2}{\R^2}{(x,y)}{(e^x \cos y, e^x \sin y)}\]
+	La $f$ è di classe $\cntclass{\infty}$ ed inoltre $Df(x,y)$ è invertibile per ogni coppia $(x,y) \in \R^2$, quindi il \fullref{teo:funz_inv} può essere applicato in ogni $(x_0, y_0) \in \R^2$\\
+	$f$ però non è globalmente invertibile, infatti non è iniettiva, ma è $2\pi$-periodica nella variabile $y$.
+	\begin{note}
+		La $f$ può anche essere scritta come $f(z)) = e^z$, come da \fullref{def:exp_complesso}.
+	\end{note}
+\end{example}
+\begin{exercise}~
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Questo esempio mostra come il \fullref{teo:funz_inv} offra una condizione sufficiente a garantire l'invertibilità, ma non necessaria.
+	\end{note}
+	Sia
+	\[\funcdef{f}{\R}{\R}{x}{x^3}\]
+	$f$ è invertibile con inversa continua, malgrado sia $f'(0) = 0$.
+\end{exercise}
+\begin{exercise}
+	Date due qualunque funzioni $f \in \cntclass{1}(\R^2;\R)$ e $g \in \cntclass{1}(\R;\R^2)$, verificare che alla funzione $g \circ f$ non può essere applicato il \fullref{teo:funz_inv}.\\
+	Esibire un esempio di funzioni $f \in \cntclass{1}(\R^2;\R)$ e $g \in \cntclass{1}(\R;\R^2)$ tali che la funzione $f \circ g$ invece soddisfi le ipotesi del \fullref{teo:funz_inv}.
+	% TODO soluton
+\end{exercise}
+\begin{exercise}
+	La funzione $f \in \cntclass{1}(\R^n;\R)$ soddisfa alle ipotesi del \fullref{teo:funz_inv} in $x_0$ e la funzione $g \in \cntclass{1}(\R^n; \R^n)$ soddisfa alle ipotesi del \fullref{teo:funz_inv} in $f(x_0)$. Verificare che la funzione $g \circ f$ soddisfa alle ipotesi del \fullref{teo:funz_inv} in $x_0$.
+	% TODO soluton
+\end{exercise}
+
 \newpage
 \section{Massimi e Minimi Liberi}
 \definition
@@ -1938,7 +2132,7 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 Sia $A\in \R^n$, $f\in \cntclass{1}(A;R)$, $g\in \cntclass{1}(A;R^p)$ con $p<n$(n.vincoli<n.variabili), sia poi $x_0\in\circdot{A}, g(x_0)=0, Dg (x_0,y_0)$ di rango $p$.\\
 Se $x_0$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda_1,\ldots,\lambda_p in \R$ t.c: $\nabla f(x_0,y_0) = \sum\limits_{i=1}^{p}\lambda_i\nabla g(x_0,y_0)$\\
 \newpage
-\section{Il caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
+\section{Il Caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
 %TODO This section is a placeholder
 \newpage
 \section{Derivate e Integrali}
@@ -1998,6 +2192,7 @@ Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \mapsto \C$ può essere ident
 	% TODO solution
 \end{exercise}
 \begin{definition}[Funzione Esponenziale con Esponente Complesso]
+	\label{def:exp_complesso}
 	La Funzione Esponenziale con Esponente Complesso è così definita:
 	\[e^{x+iy} = e^x \cdot (\cos y + i \sin y)\]
 \end{definition}

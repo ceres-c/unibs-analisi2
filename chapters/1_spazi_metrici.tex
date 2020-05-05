@@ -350,7 +350,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\begin{itemize}
 		\item $\circdot{A} = \brackets{x \in X:\; x \text{ è interno ad } A}$ \hfill \textbf{Parte Interna di} $\boldsymbol{A}$
 		\item $\partial A = \brackets{x \in X:\; x \text{ è di frontiera per } A}$ \hfill \textbf{Frontiera di} $\boldsymbol{A}$
-		\item $\overline{A} = \brackets{x \in X:\; x \brackets{\text{\small\begin{tabular}{c}appartiene ad $A$\\[-1ex] o\\[-1ex] è di accumulazione per $A$\end{tabular}}}}$ \hfill \textbf{Chiusura di} $\boldsymbol{A}$
+		\item $\overline{A} = \brackets{x \in X:\; x \brackets{\text{\small\begin{tabular}{c}appartiene ad $A$\\[-1ex] \textit{o}\\[-1ex] è di accumulazione per $A$\end{tabular}}}}$ \hfill \textbf{Chiusura di} $\boldsymbol{A}$
 	\end{itemize}
 	% TODO figura
 \end{definition}
@@ -595,7 +595,7 @@ Unendo le due definizioni si giunge naturalmente a
 		% TODO dimostrazione
 	\end{proof}
 \end{proposition}
-\begin{theorem}[Teorema di Unicità del Limite per Successioni]
+\begin{theorem}[di Unicità del Limite per Successioni]
 	Sia $(X,d)$ uno spazio metrico e siano $x_\infty, x^\infty$ elementi di $X$ e $x: \N \mapsto X$ una successione in $X$.
 	\begin{equation*}
 		\left.
@@ -1067,7 +1067,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{solution}
 \end{exercise}
 
-\begin{theorem}[Teorema di Unicità del Limite per Funzioni]
+\begin{theorem}[di Unicità del Limite per Funzioni]
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \mapsto Y$ una funzione e $l', l'' \in Y$
 	\begin{equation*}
 		\left.
@@ -1393,7 +1393,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{proposition}
 
-\begin{theorem}[Teorema generale di Weierstrass]
+\begin{theorem}[Generale di Weierstrass]
 	\label{teo:weier_generale}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
 	\begin{equation*}
@@ -1804,6 +1804,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	è Lipschitziana ma non è derivabile in $0$.
 \end{example}
 \begin{exercise}
+	\label{ex:comp_funz_lips}
 	La composizione di funzioni Lipschitziane è Lipschitziana?\\
 	Per funzioni reali di variabile reale, la somma/il prodotto di funzioni Lipschitziane è una funzione Lipschitziana?\\
 	Enunciare formalmente e dimostrare.
@@ -1942,7 +1943,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\[x=f(x)\]
 \end{definition}
 
-\begin{theorem}[Teorema delle Contrazioni]\leavevmode\vspace*{-\baselineskip}
+\begin{theorem}[delle Contrazioni]\leavevmode\vspace*{-\baselineskip}
 	\label{teo:contrazioni}
 	\begin{note}
 		Questo teorema è anche noto come \textit{Teorema di Banach-Cacioppoli}
@@ -2160,7 +2161,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{definition}
 
 \color{not_explained_section_color}
-\begin{theorem}[Teorema delle Contrazioni con Parametro]
+\begin{theorem}[delle Contrazioni con Parametro]
 	\label{teo:contrazioni_con_para}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -2245,7 +2246,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Se $n = 0$, per definizione, $f^0 = \mathrm{Id}_X$ con $\mathrm{Id}_X$ funzione identità su $X$
 \end{definition}
 
-\begin{theorem}[Teorema dell'Iterata Contrazione]
+\begin{theorem}[dell'Iterata Contrazione]
 	\label{teo:iterata_contraz}
 	Sia $(X,d_X)$ uno spazio metrico completo e sia $T:X\mapsto X : \exists n \in \N, T^n$ \textbf{Iterata} è contrazione.\\
 	Allora $T$ ammette un unico punto fisso in $X$
