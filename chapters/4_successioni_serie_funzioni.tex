@@ -118,10 +118,10 @@ $\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \foral
 	\label{def:conv_unif}
 	Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni definite su $A$ a valori in $\R$.
 	\begin{itemize}
-		\item La \textbf{successione} $\left\{f_n:n\in \N\right\}$ è uniformemente convergente su $B$ se esiste una funzione $f:B\mapsto \R$ tale che:
+		\item La \textbf{successione} $\left\{f_n:n\in \N\right\}$ è uniformemente convergente su $B$ se esiste una funzione $f:B\to \R$ tale che:
 		\[\lim\limits_{n \to +\infty} \sup\limits_{x\in B}\abs{f_n(x)-f(x)}=0\]\\
 		La funzione $f$ è il \textbf{limite uniforme della successione} $f_n$
-		\item La \textbf{serie} $\sum\limits_{n=0}^{+\infty}f_n$ è uniformemente convergente su $B$ se esiste una funzione $F:B\mapsto \R$ tale che:
+		\item La \textbf{serie} $\sum\limits_{n=0}^{+\infty}f_n$ è uniformemente convergente su $B$ se esiste una funzione $F:B\to \R$ tale che:
 		\[\lim\limits_{n\to +\infty} \sup\limits_{x\in B}\abs{F(x)-\sum\limits_{k=0}^n f_k(x)}=0\]
 		la funzione $F$ è il \textbf{limite uniforme della serie} $\sum\limits_{n=0}^{\infty}f_n$
 	\end{itemize}
@@ -674,7 +674,7 @@ Se $h,k\in\N$ valgono le seguenti uguaglianze:
 	\end{matrix}\right.$
 \end{description}
 ESERCIZIO:: IL POLINOMIO DI FOURIER FORNISCE LA MIGLIORE APPROSSIMAZIONE NEL SENSO DELLA DISTANZA QUADRATICA.\\
-Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$, quale è la funzione a lei più vicina nel senso della distanza quadratica?\\
+Sia $f: \intervalclose{-\pi}{\pi} \to \R$, quale è la funzione a lei più vicina nel senso della distanza quadratica?\\
 Fisso $N\in\N$ e prendo il polinomio trigonometrico di grado $N$
 \[p_N(x)=\trigonpol{n}{1}{N}\]
 con $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n\in \R$, il problema è quello di minimizzare $d_2(f,p_n)$ quindi un problema di minimo. Stiamo cercando i coefficienti del polinomio trigonometrico quindi studiamo una funzione $\varphi(a_0,a_1,\dotsc,a_N,b_1,\dotsc,b_N) = \sqrt{\int_{-\pi}^{\pi}\left[f(x)-p_n(x)\right]^2}\integrald{x}$.\\
@@ -762,14 +762,14 @@ La matrice Hessiana di $\varphi$ risulta \[H_{\varphi}=\left[\begin{matrix}
 \end{matrix}\right]\]
 è una matrice diagonale quindi si leggono direttamente tutti gli autovalori che sono strettamente positivi quindi la forma quadratica è definita positiva ed il punto in questione è un punto di minimo assoluto.
 \definition
-Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
+Sia $f: \intervalclose{-\pi}{\pi} \to \R$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
 \[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}\]
 \[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
 \[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
 La serie di Fourier di $f$ è
 \[\trigonpol{k}{1}{+\infty}\]
 \proposition
-Sia $F: \intervalclose{-\pi}{\pi} \mapsto \R$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\N\right\}$ e $\left\{a_n:n\in\N\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
+Sia $F: \intervalclose{-\pi}{\pi} \to \R$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\N\right\}$ e $\left\{a_n:n\in\N\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
 \[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)cos(kx)\integrald{x}\quad k\in\N\]
 \[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
 ESEMPIO+DIMOSTRAZIONE:::\\
@@ -943,7 +943,7 @@ Sia $f(x)=\frac{a_0}{2}+\sum\liminf_{n=1}^{+\infty}\left(a_ncos(nx)+b_ncos(nx)\r
 ESEMPIO
 Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}4f(x)sin(3x)\integrald{x}=4b_3$\\
 \begin{definition}[Funzione Continua a Tratti]
-	Siano $a,b\in \R$ con $a<b$, una funzione $f:\intervalclose{a}{b} \mapsto \R$. Allora $f$ è \textbf{continua a tratti} se esiste un numero finito di punti $x_1,x_2,\dotsc,x_n$ tali che:
+	Siano $a,b\in \R$ con $a<b$, una funzione $f:\intervalclose{a}{b} \to \R$. Allora $f$ è \textbf{continua a tratti} se esiste un numero finito di punti $x_1,x_2,\dotsc,x_n$ tali che:
 	\begin{enumerate}
 		\item In ogni punto di $\intervalclose{a}{b}\setminus\left\{x_1,x_2,\dotsc,x_n\right\}$ f è continua
 		\item $i=1,2,\dotsc,n$ esistono finiti entrambi i limiti:
@@ -952,7 +952,7 @@ Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\
 \end{definition}
 
 \observation
-Dato $A\subseteq \R$ e data una funzione $f:A \mapsto \R$, se $x_0$ è punto interno ad $A$, è comoda la notazione
+Dato $A\subseteq \R$ e data una funzione $f:A \to \R$, se $x_0$ è punto interno ad $A$, è comoda la notazione
 \[f(x-)=\lim\limits_{\xi\to x^{-}}f(\xi)\quad f(x+)=\lim\limits_{\xi\to x^{+}}f(\xi)\]
 Ovviamente se $f$ è continua in $x$ allora $f(x-)=f(x)=f(x+)$
 ESEMPIII:::\\
@@ -963,9 +963,9 @@ GRAFICO::::\\
 .......\\
 .......\\
 \proposition
-Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$, $f$ è continua a tratti $\Rightarrow$ esistono finiti tutti i coefficienti di Fourier di $f$
+Sia $f: \intervalclose{-\pi}{\pi} \to \R$, $f$ è continua a tratti $\Rightarrow$ esistono finiti tutti i coefficienti di Fourier di $f$
 \proposition
-Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$,\\
+Sia $f: \intervalclose{-\pi}{\pi} \to \R$,\\
 -$f$ è continua a tratti\\
 -$\forall \overline{x} \in\intervalclose{-\pi}{\pi}$, esistono finiti:\\
 \[ \lim\limits_{x\to\overline{x}^{-}}=\frac{f(x)-f(\overline{x}-)}{x-\overline{x}} \]
@@ -975,11 +975,11 @@ La serie di Fourier di $f$ converge puntualmente in $\overline{x}$ e $F_f(\overl
 \observation NIENTE CUSPIDI E NIENTE TANGENZE VERTICALI.
 
 \corollary
-Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$,\\
+Sia $f: \intervalclose{-\pi}{\pi} \to \R$,\\
 $f$ è continua a tratti.\\
 Sia $\overline{x}\in\intervalclose{-\pi}{\pi}$ un punto in cui $f$ è derivabile. Allora la serie di Fourier $F_f$ di $f$ converge in $\overline{x}$ e $F_f(\overline{x})=f(\overline{x})$
 \proposition
-Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$.Se:\\
+Sia $f: \intervalclose{-\pi}{\pi} \to \R$.Se:\\
 \begin{description}
 	\item[$\ast$] $f\in \cntclass{0}(\intervalclose{-\pi}{\pi}; \R)$
 	\item[$\ast$] $\exists x_1,x_2,\dotsc,x_n\in\intervalclose{-\pi}{\pi}$ t.c.:
@@ -994,5 +994,5 @@ Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$.Se:\\
 Allora\\
 La serie di Fourier $F_f$ di $f$ converge a $f$ uniformemente su $\intervalclose{-\pi}{\pi}$
 \corollary
-Sia $f: \intervalclose{-\pi}{\pi} \mapsto \R$, e $f\in \cntclass{1}(\intervalclose{-\pi}{\pi}; \R)$.\\
+Sia $f: \intervalclose{-\pi}{\pi} \to \R$, e $f\in \cntclass{1}(\intervalclose{-\pi}{\pi}; \R)$.\\
 Allora la serie di Fourier di $F_f$ di $f$ converge uniformemente a $f$ su $\intervalclose{-\pi}{\pi}$.

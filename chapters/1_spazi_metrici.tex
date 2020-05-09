@@ -16,7 +16,7 @@
 
 \begin{definition}[Spazio Metrico]
 	\label{def:sp_metrico}
-	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{distanza} (o \textbf{metrica}), vale a dire una funzione $d: X \times X \mapsto \R$ con le seguenti proprietà:
+	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{distanza} (o \textbf{metrica}), vale a dire una funzione $d: X \times X \to \R$ con le seguenti proprietà:
 	\begin{enumerate}
 		\item $d(x,y) \geq 0 \quad \forall x,y \in X$
 		\item $d(x,y) = 0 \quad \forall x,y \in X \iff x=y$
@@ -209,7 +209,7 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{definition}[Norma]
 	\label{def:norma}
-	Dato uno spazio vettoriale $V$ sul campo $\mathbb{K}$, si definisce \textbf{norma} una funzione $\norm{\cdot}:V\mapsto\R$ con le proprietà:
+	Dato uno spazio vettoriale $V$ sul campo $\mathbb{K}$, si definisce \textbf{norma} una funzione $\norm{\cdot}:V \to \R$ con le proprietà:
 	\begin{enumerate}
 		\item $\norm{x} \geq 0 \quad \forall x\in V$
 		\item $\norm{x}=0 \iff x = 0 \quad \forall x\in V$
@@ -563,23 +563,23 @@ Unendo le due definizioni si giunge naturalmente a
 \newpage
 \section{Successioni e Completezza}
 \begin{definition}[Successione]
-	Sia $X$ un insieme non vuoto. \textbf{Successione} in $X$ è una funzione $x: \N \mapsto X$
+	Sia $X$ un insieme non vuoto. \textbf{Successione} in $X$ è una funzione $x: \N \to X$
 	\begin{note}
 		Altre possibili notazioni per le successioni sono: $x_n$, $(x_n)_{n \in \N}$ e $\brackets{x_n:\; n \in \N}$.\\
 		Con $x_n$ si indica spesso anche \textbf{il valore assunto} dalla successione $x$ al suo $n-esimo$ elemento.
 	\end{note}
 \end{definition}
 \begin{definition}[Successione Limitata e Illimtata]
-	Una successione $x: \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ si dice \textbf{Limitata} se il suo codominio $x(\N)$ è limitato.\\
+	Una successione $x: \N \to X$ di elementi di uno spazio metrico $(X,d)$ si dice \textbf{Limitata} se il suo codominio $x(\N)$ è limitato.\\
 	Una successione è \textbf{Illimitata} se il suo codominio $x(\N)$ è illimitato.
 \end{definition}
 \begin{definition}[Limite per Successioni] % TODO la definizione di limite per successioni va modificata per offrire la classica distanza delta-epsilon
 	\label{def:lim_succ}
-	Data una successione $x: \N \mapsto X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
+	Data una successione $x: \N \to X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
 	\[\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0\]
 	Se $\lim\limits_{n \to +\infty} = x_\infty$, allora la successione $x_n$ è \textbf{Convergente} a $x_\infty$. Si può scrivere: $x_n \to x_\infty$ per $n \to \infty$.
 
-	Cioè la convergenza della successione $x: \N \mapsto X$ a $x_\infty$ equivale alla convergenza a $0$ della successione di numeri reali $\brackets{d(x_n,x_\infty):\; n \in \N}$
+	Cioè la convergenza della successione $x: \N \to X$ a $x_\infty$ equivale alla convergenza a $0$ della successione di numeri reali $\brackets{d(x_n,x_\infty):\; n \in \N}$
 	\begin{note}
 		Essendo posto $x_\infty \in X$, $x_\infty$ deve appartenere allo spazio metrico. In caso alternativo il limite non esiste.
 	\end{note}
@@ -589,14 +589,14 @@ Unendo le due definizioni si giunge naturalmente a
 \end{definition}
 \begin{proposition}
 	\label{prop:succ_conv_lim}
-	Data la successione $x: \N \mapsto X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
+	Data la successione $x: \N \to X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
 	\[\lim\limits_{n\rightarrow+\infty}x_n = x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon\]
 	\begin{proof}
 		% TODO dimostrazione
 	\end{proof}
 \end{proposition}
 \begin{theorem}[di Unicità del Limite per Successioni]
-	Sia $(X,d)$ uno spazio metrico e siano $x_\infty, x^\infty$ elementi di $X$ e $x: \N \mapsto X$ una successione in $X$.
+	Sia $(X,d)$ uno spazio metrico e siano $x_\infty, x^\infty$ elementi di $X$ e $x: \N \to X$ una successione in $X$.
 	\begin{equation*}
 		\left.
 		\begin{array}{l}
@@ -701,10 +701,10 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{definition}[Condizione di Cauchy]
 	\label{def:cond_cau}
-	Sia $(X,d)$ uno spazio metrico e $x: \N \mapsto X$ una successione d in $X$.
+	Sia $(X,d)$ uno spazio metrico e $x: \N \to X$ una successione d in $X$.
 	\begin{equation*}
 		\begin{gathered}
-			x:\N \mapsto X \text{ è \textbf{di Cauchy}}\\
+			x:\N \to X \text{ è \textbf{di Cauchy}}\\
 			\bydef\\
 			\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon
 		\end{gathered}
@@ -717,9 +717,9 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:se_succ_conv_allora_cau}
 	Sia $(X,d)$ uno spazio metrico.
-	\[x: \N \mapsto X \text{ è \textbf{convergente} } \implies x:\N \mapsto X \text{ è \textbf{di Cauchy}}\]
+	\[x: \N \to X \text{ è \textbf{convergente} } \implies x:\N \to X \text{ è \textbf{di Cauchy}}\]
 	\begin{proof}
-		Sia $x: \N \mapsto X$ convergente a $x_\infty$. Allora
+		Sia $x: \N \to X$ convergente a $x_\infty$. Allora
 		\[\lim\limits_{n \to +\infty} x_n \bydef \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d(x_n,x_\infty)<\varepsilon\]
 		Prendendo dunque due elementi qualsiasi $n$ e $m$ con $n,m > \nu$, la distanza di ognuno di essi da $x_\infty$ dovrà essere $<\varepsilon$. Applicando la proprietà 4 da \fullref{def:sp_metrico}, otteniamo
 		\[d(x_n,x_m) \leq \left[ d(x_n,x_\infty)+d(x_m,x_\infty) \right] < 2\varepsilon\]
@@ -790,12 +790,12 @@ Unendo le due definizioni si giunge naturalmente a
 \end{proposition}
 \begin{proposition}
 	\label{prop:se_cau_allora_lim}
-	Sia $(X,d)$ uno spazio metrico. Data la successione $x: N \mapsto X$ \textbf{di Cauchy}:
-	\[x: N \mapsto X \text{\textbf{ di Cauchy}} \implies x: N \mapsto X \text{\textbf{ limitata}}\]
+	Sia $(X,d)$ uno spazio metrico. Data la successione $x: \N \to X$ \textbf{di Cauchy}:
+	\[x: \N \to X \text{\textbf{ di Cauchy}} \implies x: \N \to X \text{\textbf{ limitata}}\]
 	\begin{proof}
 		\begin{equation*}
 			\begin{gathered}
-				x: N \mapsto X \text{ di Cauchy}\\
+				x: \N \to X \text{ di Cauchy}\\
 				\bydef\\
 				\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon
 			\end{gathered}
@@ -822,8 +822,8 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{solution}
 \end{exercise}
 \begin{corollary}
-	Sia $(X,d)$ uno spazio metrico. Data la successione $x: N \mapsto X$ \textbf{convergente}:
-	\[x: N \mapsto X \text{\textbf{ convergente}} \implies x: N \mapsto X \text{\textbf{ limitata}}\]
+	Sia $(X,d)$ uno spazio metrico. Data la successione $x: \N \to X$ \textbf{convergente}:
+	\[x: \N \to X \text{\textbf{ convergente}} \implies x: \N \to X \text{\textbf{ limitata}}\]
 	\begin{proof}
 		Grazie alla \fullref{prop:se_succ_conv_allora_cau} ed alla \fullref{prop:se_cau_allora_lim}
 		\[\text{convergente } \implies \text{ di Cauchy } \implies \text{ limitata}\]
@@ -942,7 +942,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					\shortintertext{Dunque, per \fullref{def:topologia_spa_metri}, si deve concludere che}
 					\implies &\exists x_0 \text{ di accumulazione per } A,\; x_0 \notin A\\
 					\shortintertext{Quindi dalla \fullref{prop:caratteriz_pti_accumul}}
-					\implies &x:\; \N \mapsto X \text{ con }
+					\implies &x:\; \N \to X \text{ con }
 						\begin{cases}
 							x_n \in A\; \forall n\\
 							\lim\limits_{n \to +\infty} x_n = x_0, x_0 \notin A
@@ -957,8 +957,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					\shortintertext{Fissato dunque un $x_0 \in A$, continuerò ad aver distanza infinita, in quanto $A$ non limitato per ipotesi.}
 					\implies &\sup\limits_{x \in A} d(x,x_0) = + \infty\\
 					\implies &\forall n \in \N,\; \exists x_n \in A:\; d(x_n, x_0) > n
-					\shortintertext{Dunque qualsiasi sottosuccessione di $x:\; \N \mapsto X$ è illimitata}
-					\implies &x:\; \N \mapsto X \text{ è una successione in $A$ senza sottosuccessioni convergenti}\\
+					\shortintertext{Dunque qualsiasi sottosuccessione di $x:\; \N \to X$ è illimitata}
+					\implies &x:\; \N \to X \text{ è una successione in $A$ senza sottosuccessioni convergenti}\\
 					\implies &A \text{ non è compatto - \textit{Assurdo}}
 				\end{align*}
 		\end{itemize}
@@ -1009,7 +1009,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Sia $(X,d)$ uno spazio metrico. Allora
 	\[X \text{ è \textbf{Compatto}} \implies X \text{ è \textbf{Completo}}\]
 	\begin{proof}
-		Sia $x: \N \mapsto X$ una successione di Cauchy di elementi di $X$.\\
+		Sia $x: \N \to X$ una successione di Cauchy di elementi di $X$.\\
 		$X$ è compatto quindi, per definizione, esiste una sottosuccessione convergente ad un $x_\infty \in X$. Ciò implica, grazie all'\fullref{ex:sottsucc_conv_succ_conv}, che l'intera successione converga a $x_\infty$, dunque $X$ è completo.
 	\end{proof}
 \end{proposition}
@@ -1043,7 +1043,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\item $(X,d_X)$ e $(Y,d_Y)$ spazi metrici
 		\item $A \subseteq X$
 		\item $x_0$ di accumulazione per $A$
-		\item $f: A \mapsto Y$ una funzione
+		\item $f: A \to Y$ una funzione
 		\item $l \in Y$
 	\end{itemize}
 	Allora si definisce
@@ -1072,7 +1072,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{theorem}[di Unicità del Limite per Funzioni]
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \mapsto Y$ una funzione e $l', l'' \in Y$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \to Y$ una funzione e $l', l'' \in Y$
 	\begin{equation*}
 		\left.
 		\begin{array}{c}
@@ -1111,12 +1111,12 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}[Continuità per Successioni]
 	\label{prop:funz_cont_per_succ}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \mapsto Y$ e $l \in Y$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \to Y$ e $l \in Y$
 	\begin{equation*}
 		\begin{gathered}
 			\lim\limits_{x \to x_0} f(x) = l\\
 			\iff\\
-			\forall \text{ successione } x: \N \mapsto X \text{ tale che } \lim\limits_{x \to +\infty} x_n = x_0 \text{ e } x_n \neq x_0\\
+			\forall \text{ successione } x: \N \to X \text{ tale che } \lim\limits_{x \to +\infty} x_n = x_0 \text{ e } x_n \neq x_0\\
 			\text{vale} \lim\limits_{n \to +\infty} f(x_n) = l
 		\end{gathered}
 	\end{equation*}
@@ -1172,7 +1172,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{definition}[Funzione Continua]
 	\label{def:funz_cont}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
 		\begin{gathered}
 			f \text{ è \textbf{continua} in } x_0 \iff\\
@@ -1193,7 +1193,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\textit{la funzione} $x \mapsto \frac{1}{x}$ \textit{non può essere estesa ad una funzione definita e continua anche in} $0$.
 	\end{note}
 	\begin{note}
-		La continuità di una funzione dipende in modo esssenziale anche dalla distanza adottata, tuttavia è prassi sottointendere questa precisazione, soprattutto per funzioni $\R^n \mapsto \R^n$, se la distanza adottata è quella Euclidea.
+		La continuità di una funzione dipende in modo esssenziale anche dalla distanza adottata, tuttavia è prassi sottointendere questa precisazione, soprattutto per funzioni $\R^n \to \R^n$, se la distanza adottata è quella Euclidea.
 	\end{note}
 \end{definition}
 \begin{observation}
@@ -1211,7 +1211,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Formulare con precisione e dimostrare: ogni funzione è continua in ogni suo punto isolato del suo insieme di definizione.
 	\begin{solution}\hfill\\
 		\renewcommand\qedsymbol{$\square$} % To restore the default empty square for the proof environment below
-		Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$ \textbf{Punto Isolato}. Allora $f$ è \textbf{Continua in} $\boldsymbol{x_0}$
+		Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$ \textbf{Punto Isolato}. Allora $f$ è \textbf{Continua in} $\boldsymbol{x_0}$
 		\begin{proof}
 			\let\qed\relax % In order to avoid having two squares, hide the innermost one
 			Per \fullref{def:pti_e_spa_metr}
@@ -1226,7 +1226,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}
 	\label{prop:f_cont_se_isol_o_accum}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
 		f \text{ è \textbf{Continua} in } x_0 \iff
 		\begin{cases}
@@ -1247,19 +1247,19 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{proposition}
 \begin{exercise}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $k \in Y$. Sia $f:X \mapsto Y$ definita da $f(x) = k \; \forall x \in X$.\\
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $k \in Y$. Sia $f:X \to Y$ definita da $f(x) = k \; \forall x \in X$.\\
 	Dimostrare che $f$ è continua su $X$
 	% TODO solution
 \end{exercise}
 
 \begin{proposition}[Continuità e Continuità per Successioni]
 	\label{prop:cont_e_cont_per_succ}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x_0 \in A$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
 		\begin{gathered}
 			f \text{ è \textbf{Continua} in } x_0\\
 			\iff\\
-			\underbrace{\forall \text{ successione } x:\N \mapsto A:\; \lim\limits_{n \to +\infty} x_n = x_0}_{\text{cioè per ogni successione convergente a } x_0} \text{ vale } \lim\limits_{n \to +\infty} f(x_n) = f(x_0)
+			\underbrace{\forall \text{ successione } x:\N \to A:\; \lim\limits_{n \to +\infty} x_n = x_0}_{\text{cioè per ogni successione convergente a } x_0} \text{ vale } \lim\limits_{n \to +\infty} f(x_n) = f(x_0)
 		\end{gathered}
 	\end{equation*}
 	\begin{note}
@@ -1282,7 +1282,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 				Dividendo nei due casi:
 				\begin{itemize}
 					\item $x_0$ di accumulazione:\\
-						Sia $x:\; \N \mapsto X$ una successione convergente a $x_0$ con $x_0 \in A$, da cui, per \fullref{def:lim_succ}
+						Sia $x:\; \N \to X$ una successione convergente a $x_0$ con $x_0 \in A$, da cui, per \fullref{def:lim_succ}
 						\begin{align*}
 							& \lim\limits_{n \to +\infty} x_n = x_0 \implies\\
 							\implies & \forall \delta > 0\; \exists \nu \in \N:\; \forall n \in \N,\; n \geq \nu \quad d_X(x_n, x_0) < \delta
@@ -1310,7 +1310,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 							\implies & \exists \varepsilon > 0:\; \forall n \in \N\; \exists x_n \in A, \quad d_X(x_n, x_0) < \frac{1}{n+1}, \quad d_Y \bigl( f(x_n), f(x_0) \bigr) > \varepsilon
 							% WARNING La distanza d_Y, sul libro, è misurata tra f(x) e f(x_0), non tra f(x_n) e f(x_0). Non mi sembrava sensato, dunque l'ho cambiato in questo modo.
 						\end{align*}
-						Quindi si è costruita una successione $x:\; \N \mapsto X$ ($X$ generico) convergente a $x_0$, ma la successione $f \circ x$ (cioè la $\brackets{f(x_n):\; n \in \N}$) non convergerebbe a $f(x_0)$. Questo è contrario all'ipotesi da cui si è partiti, per cui $\lim\limits_{n \to +\infty} f(x_n) = f(x_0)$
+						Quindi si è costruita una successione $x:\; \N \to X$ ($X$ generico) convergente a $x_0$, ma la successione $f \circ x$ (cioè la $\brackets{f(x_n):\; n \in \N}$) non convergerebbe a $f(x_0)$. Questo è contrario all'ipotesi da cui si è partiti, per cui $\lim\limits_{n \to +\infty} f(x_n) = f(x_0)$
 					\item $x_0$ isolato:\\
 						Immediatamente da \fullref{ex:f_cont_in_pto_isol}
 				\end{itemize}
@@ -1318,7 +1318,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{proposition}
 \begin{corollary}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$ e $x: \N \in X$ una successione in $A$
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x: \N \in X$ una successione in $A$
 	\begin{equation*}
 		\left.
 		\begin{array}{c}
@@ -1331,7 +1331,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{equation*}
 	\begin{proof}
 		Essendo $f$ continua per ipotesi, dalla \fullref{prop:cont_e_cont_per_succ} è noto che
-		\[\forall \text{ successione } x:\N \mapsto A:\; \lim\limits_{n \to +\infty} x_n = x_0 \quad \lim\limits_{n \to +\infty} f(x_n) = f(x_0)\]
+		\[\forall \text{ successione } x:\N \to A:\; \lim\limits_{n \to +\infty} x_n = x_0 \quad \lim\limits_{n \to +\infty} f(x_n) = f(x_0)\]
 		Inoltre $\lim\limits_{n \to +\infty} x_n = x_0 \in A$ per ipotesi e, grazie alla continuità di $f$, $\exists f(x_0) \quad \forall x_0 \in A$.\\
 		Unendo le due conclusioni si ottiene la tesi
 		\[\lim\limits_{n \to +\infty} f(x_n) = f(x_0) = f\left( \lim\limits_{n \to +\infty} x_n \right)\]
@@ -1340,7 +1340,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}[Continuità di $f$ in un Insieme]
 	\label{prop:funz_cont_per_succ_in_ins}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \mapsto Y$ con $A \subseteq X$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$.
 	\begin{equation*}
 		\begin{gathered}
 			f \text{ \textbf{Continua} in } A\\
@@ -1359,8 +1359,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}[Continuità Funzioni Composte]
 	Siano $(X,d_X)$, $(Y,d_Y)$ e $(Z,d_Z)$ spazi metrici e siano:
 	\begin{itemize}[noitemsep]
-		\item $f: A \mapsto Y$ con $A \subseteq X$
-		\item $g: B \mapsto Z$ con $B \subseteq Y$
+		\item $f: A \to Y$ con $A \subseteq X$
+		\item $g: B \to Z$ con $B \subseteq Y$
 		\item $x_0 \in A$
 		\item $f(x_0) \in B$
 	\end{itemize}
@@ -1399,7 +1399,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{theorem}[Generale di Weierstrass]
 	\label{teo:weier_generale}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \to Y$ con $K \subseteq X$.
 	\begin{equation*}
 		\left.
 		\begin{array}{l}
@@ -1412,11 +1412,11 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\begin{proof}
 		Siano le successioni
 		\begin{itemize}
-			\item $y: \N \mapsto Y$ tale che $y_n \in f(K) \;\forall n \in \N$, cioè $\forall n \in \N\;\exists x_n \in K: f(x_n) = y_n$
-			\item $x: \N \mapsto X$ tale che $x_n \in K\;\forall n \in \N$
+			\item $y: \N \to Y$ tale che $y_n \in f(K) \;\forall n \in \N$, cioè $\forall n \in \N\;\exists x_n \in K: f(x_n) = y_n$
+			\item $x: \N \to X$ tale che $x_n \in K\;\forall n \in \N$
 		\end{itemize}
 		\begin{note}
-			Abbiamo una successione che, attraverso la $f$ (non direttamente: le successioni non sono $X \mapsto Y$!), associa indirettamente valori in $K \subseteq X$ a valori in $f(K) \subseteq Y$
+			Abbiamo una successione che, attraverso la $f$ (non direttamente: le successioni non sono $X \to Y$!), associa indirettamente valori in $K \subseteq X$ a valori in $f(K) \subseteq Y$
 		\end{note}
 		La successione $x$ ammettrà sicuramente una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$. Questo per \fullref{def:compatto}, avendo $K$ compatto per ipotesi, ed essendo $x$ a valori in $K$.\\
 		Data la continuità di $f$ in $K$, abbiamo $y_{n_k} = f(x_{n_k}) \in f(K)$, ma essendo $x_{n_k}$ convergente ad $\overline{x}$, anche $y_{n_k}$ converge, verificando così la \fullref{def:compatto}.
@@ -1442,7 +1442,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\end{note}
 		Considerando il caso $X \subseteq \R^n$, $Y \subseteq \R$ si ottiene:
 		\begin{center}
-			$f:K \mapsto f(K)$ con $f(K)$ compatto.
+			$f:K \to f(K)$ con $f(K)$ compatto.
 		\end{center}
 		Il fatto che $f(K) \subseteq \R$ sia compatto, implica che sia \textbf{Chiuso} e \textbf{Limitato} per \fullref{prop:compat_chius_lim}
 		\begin{itemize}
@@ -1454,7 +1454,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 \begin{proposition}
 	\label{prop:f_di_conn_cont_e_conn}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \to Y$ con $K \subseteq X$.
 	\begin{equation*}
 		\left.
 		\begin{array}{l}
@@ -1478,7 +1478,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \subsection{Uniforme Continuità}
 \begin{definition}[Funzione Uniformemente Continua]
 	\label{def:funz_unif_cont}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:A \mapsto Y$ con $A \subseteq X$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:A \to Y$ con $A \subseteq X$.
 	\begin{equation*}
 		\begin{gathered}
 			f \text{ è \textbf{Uniformemente Continua} in } A\\
@@ -1576,14 +1576,14 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 \begin{proposition}
 	\label{prop:if_unif_cont_then_conf}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto Y$ con $A \subseteq X$.\\
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \to Y$ con $A \subseteq X$.\\
 	Se $f$ è \textbf{uniformemente continua} in $A$, allora $f$ è \textbf{continua} in $A$.
 	\begin{proof}
 		Deriva da \fullref{ex:cont_unif_cont_comparision} in quanto, se è possibile scegliere un qualsiasi $x_0$ quando $\varepsilon$ è già stato fissato, sicuramente sarà possibile fare questa scelta anche in ordine inverso (la continuità è condizione condizione meno stringente).
 	\end{proof}
 \end{proposition}
 \begin{exercise}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e $k \in Y$. Data $f:\; X \mapsto Y$ definita da $f(x) = k\;\; \forall x \in X$.\\
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e $k \in Y$. Data $f:\; X \to Y$ definita da $f(x) = k\;\; \forall x \in X$.\\
 	Dimostrare che $f$ è uniformemente continua.
 	% TODO solution
 \end{exercise}
@@ -1592,18 +1592,18 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	% TODO solution
 \end{exercise}
 \begin{example}
-	Sia $f:\; \R \mapsto \R$ data da $f(x) = x^2$. $f$ è continua in $\R$, ma \textit{non} è uniformemente continua in $\R$
+	Sia $f:\; \R \to \R$ data da $f(x) = x^2$. $f$ è continua in $\R$, ma \textit{non} è uniformemente continua in $\R$
 \end{example}
 \begin{exercise}
-	Esibire esempi di funzioni $f:\; \R \mapsto \R$ che siano limitate/illimitate ed uniformemente continue.
+	Esibire esempi di funzioni $f:\; \R \to \R$ che siano limitate/illimitate ed uniformemente continue.
 \end{exercise}
 \begin{example}
-	Sia $f:\; \intervalopcl{0}{1} \mapsto \R$ data da $f(x) = \sin(\frac{1}{x})$.\\
+	Sia $f:\; \intervalopcl{0}{1} \to \R$ data da $f(x) = \sin(\frac{1}{x})$.\\
 	In $\intervalopcl{0}{1}$, $f$ è continua e limitata, ma non è uniformemente continua.
 \end{example}
 
 \begin{proposition}[Teorema di Cantor]
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \mapsto Y$ con $K \subseteq X$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \to Y$ con $K \subseteq X$.
 	\begin{equation*}
 		\left.
 		\begin{array}{l}
@@ -1626,14 +1626,14 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{proposition}
 \begin{proposition}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$ e $f:A \mapsto Y$ \textbf{Uniformemente Continua} su $A$. Allora, per ogni successione $x:\N \mapsto X$ \textbf{di Cauchy} in $X$, la successione $\boldsymbol{f \circ x}$ delle immagini $f(x_n)$ \textbf{è di Cauchy} in $Y$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$ e $f:A \to Y$ \textbf{Uniformemente Continua} su $A$. Allora, per ogni successione $x:\N \to X$ \textbf{di Cauchy} in $X$, la successione $\boldsymbol{f \circ x}$ delle immagini $f(x_n)$ \textbf{è di Cauchy} in $Y$.
 	\begin{proof}
 		Omessa.
 	\end{proof}
 \end{proposition}
 \begin{proposition}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$ e $f:A \mapsto Y$ \textbf{Uniformemente Continua} su $A$. Allora esiste un'unica funzione
-	\[\overline{f}: \overline{A} \mapsto Y\]
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$ e $f:A \to Y$ \textbf{Uniformemente Continua} su $A$. Allora esiste un'unica funzione
+	\[\overline{f}: \overline{A} \to Y\]
 	continua su $\overline{A}$ e tale che $f_{|A} = f$ (cioè la $f$ ristretta ad $A$, dove definita, corrisponde a $f$)
 	\begin{proof}
 		Omessa.
@@ -1647,7 +1647,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\begin{itemize}[noitemsep]
 		\item $(X,d_X)$, $(Y,d_Y)$ spazi metrici
 		\item $A \subseteq X$
-		\item $f:A \mapsto Y$
+		\item $f:A \to Y$
 	\end{itemize}
 	Allora
 	\begin{equation*}
@@ -1746,17 +1746,17 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{figure}
 \end{example}
 \begin{example}
-	Sono dati gli spazi metrici $(X,d_X)$ e $(Y,d_Y)$ ed una funzione Lipschitziana $f: X \mapsto Y$.\\
+	Sono dati gli spazi metrici $(X,d_X)$ e $(Y,d_Y)$ ed una funzione Lipschitziana $f: X \to Y$.\\
 	Determinare una nuova distanza $\delta_X$ su $X$ che sia equivalente a $d_X$ ed in modo che la costante di Lipschitz di $f$ rispetto a $\delta_X$ sia minore o uguale ad $1$.
 	% TODO solution
 \end{example}
 \begin{example}
-	Sono dati gli spazi metrici $(X,d_X)$ e $(Y,d_Y)$ ed una funzione Lipschitziana $f: X \mapsto Y$.\\
+	Sono dati gli spazi metrici $(X,d_X)$ e $(Y,d_Y)$ ed una funzione Lipschitziana $f: X \to Y$.\\
 	Determinare una nuova distanza $\delta_Y$ su $Y$ che sia equivalente a $d_Y$ ed in modo che la costante di Lipschitz di $f$ rispetto a $\delta_Y$ sia minore o uguale ad $1$.
 	% TODO solution
 \end{example}
 \begin{exercise}
-	Sia $f: \R \mapsto \R$. Come si fa a capire se $f$ è Lipschitziana o no dal suo grafico?
+	Sia $f: \R \to \R$. Come si fa a capire se $f$ è Lipschitziana o no dal suo grafico?
 \end{exercise}
 
 \begin{proposition}
@@ -1769,7 +1769,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}
 	\label{prop:se_lips_allora_unif_cont}
-	Sia $f: X \mapsto Y$ una funzione \textbf{Lipschitziana}. Allora $f$ è \textbf{Uniformemente Continua} su $X$.
+	Sia $f: X \to Y$ una funzione \textbf{Lipschitziana}. Allora $f$ è \textbf{Uniformemente Continua} su $X$.
 	\begin{proof}
 		Dall'ipotesi di Lipschitzianità, applicando la \fullref{def:lips}, si sa per certo che
 		\[d_Y\bigl(f(x''),f(x')\bigr) \leq L \cdot d_X(x'',x')\]
@@ -1819,7 +1819,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{proposition}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \mapsto \R^n$ con $A \subseteq X$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \to \R^n$ con $A \subseteq X$.
 	\begin{equation*}
 		f \text{ è \textbf{Lipschitziana}} \iff \text{\textbf{ogni componente di} } f \text{ \textbf{è Lipschitziana}}
 	\end{equation*}
@@ -1874,7 +1874,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	Sia $f:\R^n \mapsto \R^n$ una funzione lineare. Allora è Lipschitziana (rispetto alla metrica Euclidea). Suggerimento: utilizzare la \fullref{prop:proprieta_norm_matr}
+	Sia $f:\R^n \to \R^n$ una funzione lineare. Allora è Lipschitziana (rispetto alla metrica Euclidea). Suggerimento: utilizzare la \fullref{prop:proprieta_norm_matr}
 	\begin{note}
 		In spazi più generali di $\R^n$ (spazi di dimensione \textit{infinita}) l'affermazione contenuta in questo esercizio può essere falsa. Vedasi \fullref{prop:dist_lin_non_cont}
 	\end{note}
@@ -1890,7 +1890,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \section{Il Teorema delle Contrazioni}
 \begin{definition}[Contrazione]
 	\label{def:contrazione}
-	Sia $(X, d)$ uno spazio metrico. Si dice \textbf{Contrazione} una funzione T: $X \mapsto X$ soddisfacente a:
+	Sia $(X, d)$ uno spazio metrico. Si dice \textbf{Contrazione} una funzione T: $X \to X$ soddisfacente a:
 	\begin{equation}
 		\label{eq:def_contrazione}
 		\exists K \in [0, 1[ \text{ tale che } \forall x',x'' \in X \quad \text{vale} \quad d_X \bigl( T(x''), T(x') \bigr) \leq K \cdot d_X(x'', x')
@@ -1903,9 +1903,9 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{definition}
 \begin{example}[Esempi di Contrazioni]\leavevmode\vspace*{-\baselineskip}
 	\begin{enumerate}
-		\item $f: \R \mapsto \R$ data da $f(x) = \frac{x}{2}$. $f$ è una contrazione.
-		\item $f: \intervalclose{0}{2} \mapsto \intervalclose{0}{2}$ data da $f(x) = 1 + \frac{x}{2}$. $f$ è una contrazione
-		\item $f: \R^2 \mapsto \R^2$ data da $f(x,y)=
+		\item $f: \R \to \R$ data da $f(x) = \frac{x}{2}$. $f$ è una contrazione.
+		\item $f: \intervalclose{0}{2} \to \intervalclose{0}{2}$ data da $f(x) = 1 + \frac{x}{2}$. $f$ è una contrazione
+		\item $f: \R^2 \to \R^2$ data da $f(x,y)=
 			\begin{bmatrix}
 				\frac{1}{3} & 0\\[1ex]
 				0 & \frac{1}{5}
@@ -1920,7 +1920,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	La composizione di contrazioni è una contrazione. Enunciare formalmente e dimostrare.\\
 	Esibire esempi che mostrino come la somma ed il prodotto di contrazioni possano non essere contrazioni.
 	\begin{solution}\hfill\\
-		Sia $(X, d)$ uno spazio metrico, siano $f,g:X\mapsto X$ \textbf{due contrazioni} in $X$. Allora $f\circ g$ è una \textbf{contrazione}
+		Sia $(X, d)$ uno spazio metrico, siano $f,g:X \to X$ \textbf{due contrazioni} in $X$. Allora $f\circ g$ è una \textbf{contrazione}
 		\begin{proof}
 			\renewcommand\qedsymbol{$\square$}
 			Sappiamo che:
@@ -1955,7 +1955,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\begin{note}
 		Questo teorema è anche noto come \textit{Teorema di Banach-Cacioppoli}
 	\end{note}
-	Sia $(X, d)$ uno spazio metrico e $T: X \mapsto X$. Allora
+	Sia $(X, d)$ uno spazio metrico e $T: X \to X$. Allora
 	\begin{equation*}
 		\left.
 			\begin{array}{l}
@@ -1976,7 +1976,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					\label{eq:teo_contraz_succ}
 					\begin{matrix}x_0 \in X & \quad & x_1 = T(x_0) & \quad & x_2 = T(x_1) & \quad & \dotsc & \quad & x_{n+1} = T(x_n)\end{matrix}
 				\end{equation}
-				La  successione $x:\N \mapsto X$ è sicuramente ad elementi in $X$ in quanto $T$, contrazione, è per definizione $T: X \mapsto X$. È necessario dimostrare che la $x$ sia di Cauchy (\fullref{def:cond_cau}) cioè che:
+				La  successione $x:\N \to X$ è sicuramente ad elementi in $X$ in quanto $T$, contrazione, è per definizione $T: X \to X$. È necessario dimostrare che la $x$ sia di Cauchy (\fullref{def:cond_cau}) cioè che:
 				\[\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon\]
 				Presi ora due qualunque $n$ e $m$ e sfruttando il modo in cui è definita $T$
 				\begin{align*}
@@ -2121,35 +2121,35 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 \begin{example}
 	Se $X$ \textit{non} è completo:\\
-	Siano $X = \intervalopen{0}{1}$ e $T: X \mapsto X$ data $T(x) = \frac{x}{2}$. $T$ è una contrazione senza punti fissi in $X$
+	Siano $X = \intervalopen{0}{1}$ e $T: X \to X$ data $T(x) = \frac{x}{2}$. $T$ è una contrazione senza punti fissi in $X$
 \end{example}
 \begin{example}
 	Se $T$ è \textit{quasi} una contrazione possono non esserci punti fissi:\\
-	Sia $X = \R$ e sia $T:X \mapsto X$ data da $T(x) = x + \frac{\pi}{2} - \arctan x$. Grazie al Teorema di Lagrange (da Analisi 1, essendo in $\R$) si può facilmente dimostrare che $\forall x', x'' \in X$
+	Sia $X = \R$ e sia $T:X \to X$ data da $T(x) = x + \frac{\pi}{2} - \arctan x$. Grazie al Teorema di Lagrange (da Analisi 1, essendo in $\R$) si può facilmente dimostrare che $\forall x', x'' \in X$
 	\[\abs{T(x'') - T(x')} < \abs{x'' - x'}\]
 	però $T$ non è una contrazione ed infatti non ammette punti fissi.
 \end{example}
 \begin{example}
 	Se $T$ è \textit{quasi} una contrazione possono esserci infiniti punti fissi:\\
-	Sia $X = \R$ e sia $T:X \mapsto X$ data da $T(x) = x$. Evidentemente
+	Sia $X = \R$ e sia $T:X \to X$ data da $T(x) = x$. Evidentemente
 	\[\abs{T(x'') - T(x')} = \abs{x'' - x'}\]
 	e $T$ ammette infiniti punti fissi.
 \end{example}
 \begin{exercise}
-	Sia $f \intervalclose{0}{1} \mapsto \intervalclose{1}{2}$ data da $f(x) = 1 + \frac{x}{2}$\\
+	Sia $f \intervalclose{0}{1} \to \intervalclose{1}{2}$ data da $f(x) = 1 + \frac{x}{2}$\\
 	$f$ è una funzione Lipschitziana con costante di Lipschitz $\frac{1}{2}$ definita tra spazi metrici completi ma senza punti fissi. È in contraddizione con il \fullref{teo:contrazioni}?
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	Sia $f:\R \mapsto \R$ derivabile su $\R$ e tale che $f'(x) \leq \frac{1}{2} \; \forall x \in \R$.\\
+	Sia $f:\R \to \R$ derivabile su $\R$ e tale che $f'(x) \leq \frac{1}{2} \; \forall x \in \R$.\\
 	Dimostrare che allora esiste un unico $x_* \in \R$ tale che $f(x_*) = x_*$
 	% TODO solution
 \end{exercise}
 
 \begin{observation}
 	\label{obs:contr_con_para}
-	È utile considerare \textbf{contrazioni} che dipendono da uno o più \textbf{parametri}. Siano $(X,d)$ uno spazio metrico completo, $P$ un \textbf{insieme} di parametri e $T:X \times P \mapsto X$.\\
-	Grazie al \fullref{teo:contrazioni} è data l'esistenza di un punto fisso di $T$ indipendentemente dal parametro. È dunque possibile definire una funzione $\varphi: P \mapsto X$ che ad ogni parametro $p \in P$ associa $\varphi(p)$, unico punto fisso della contrazione.\\
+	È utile considerare \textbf{contrazioni} che dipendono da uno o più \textbf{parametri}. Siano $(X,d)$ uno spazio metrico completo, $P$ un \textbf{insieme} di parametri e $T:X \times P \to X$.\\
+	Grazie al \fullref{teo:contrazioni} è data l'esistenza di un punto fisso di $T$ indipendentemente dal parametro. È dunque possibile definire una funzione $\varphi: P \to X$ che ad ogni parametro $p \in P$ associa $\varphi(p)$, unico punto fisso della contrazione.\\
 	In generale, la regolarità della funzione $\varphi$ è la stessa con cui $T$ dipende dal parametro $p$. Vedasi \fullref{teo:contrazioni_con_para} e \fullref{teo:contr_con_para_lips_definisce_funz_lips}
 \end{observation}
 
@@ -2174,12 +2174,12 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\begin{itemize}[noitemsep]
 		\item $(X,d_X)$ uno spazio metrico completo
 		\item $(P,d_P)$ uno spazio metrico
-		\item $T:X \times P \mapsto X$ una contrazione in $x \in X$ uniformemente in $p \in P$
+		\item $T:X \times P \to X$ una contrazione in $x \in X$ uniformemente in $p \in P$
 		\item $T$ continua
 	\end{itemize}
-	Allora $\forall p \in P$ esiste un unico punto fisso $x_p$ per la funzione $x \mapsto T(x,p)$ e la funzione $p \mapsto x_p$ è continua.
+	Allora $\forall p \in P$ esiste un unico punto fisso $x_p$ per la funzione $x \mapsto T(x,p)$ e la funzione $P \to X_p$ è continua.
 	\begin{proof}
-		Come già detto in \fullref{obs:contr_con_para}, il \fullref{teo:contrazioni} assicura l'esistenza di una funzione $\varphi: P \mapsto X$ che ad ogni $p \in P$ associa un unico punto fisso di $x \mapsto T(x,p)$. $\varphi$ è continua. Infatti se $p_n \to p_0$
+		Come già detto in \fullref{obs:contr_con_para}, il \fullref{teo:contrazioni} assicura l'esistenza di una funzione $\varphi: P \to X$ che ad ogni $p \in P$ associa un unico punto fisso di $x \mapsto T(x,p)$. $\varphi$ è continua. Infatti se $p_n \to p_0$
 		\begin{align*}
 					&d_X \bigl( \varphi(p_n), \varphi(p_0) \bigr) =
 			\shortintertext{Essendo $\varphi(p_n)$ per definizione punto fisso di $T$ con parametro $p_n$}
@@ -2218,14 +2218,14 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\begin{itemize}[noitemsep]
 		\item $(X,d_X)$ uno spazio metrico completo
 		\item $(P,d_P)$ uno spazio metrico
-		\item $T:X \times P \mapsto X$ una contrazione in $x \in X$ Lipschitziana in $p \in P$
+		\item $T:X \times P \to X$ una contrazione in $x \in X$ Lipschitziana in $p \in P$
 	\end{itemize}
-	Allora esiste un'unica funzione Lipschitziana $\varphi: P \mapsto X$ tale che $\varphi(p)$ è l'unico punto fisso della funzione $x \mapsto T(x,p)$
+	Allora esiste un'unica funzione Lipschitziana $\varphi: P \to X$ tale che $\varphi(p)$ è l'unico punto fisso della funzione $x \mapsto T(x,p)$
 	\begin{note}
 		L'unicità del punto fisso implica automaticamente l'unicità della funzione $\varphi$
 	\end{note}
 	\begin{proof}
-		Come già detto in \fullref{obs:contr_con_para}, il \fullref{teo:contrazioni} assicura l'esistenza di una funzione $\varphi: P \mapsto X$ che ad ogni $p \in P$ associa un unico punto fisso di $x \mapsto T(x,p)$. $\varphi$ è Lipschitziana. Infatti
+		Come già detto in \fullref{obs:contr_con_para}, il \fullref{teo:contrazioni} assicura l'esistenza di una funzione $\varphi: P \to X$ che ad ogni $p \in P$ associa un unico punto fisso di $x \mapsto T(x,p)$. $\varphi$ è Lipschitziana. Infatti
 		\begin{align*}
 			&d_X \bigl( \varphi(p'), \varphi(p'') \bigr) =
 			\shortintertext{Essendo $\varphi(p)$ per definizione punto fisso di $T$ con parametro $p$}
@@ -2248,14 +2248,14 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{definition}[Funzione Iterata]
 	\label{def:iterata}
-	Data $F:X\mapsto X$, si dice \textbf{Funzione Iterata} $n$ volte di $F$ la $F^n$ che corrisponde all'\textbf{applicazione} $n$ volte di $F$ \textbf{su sè stessa}. Formalmente:
+	Data $F:X \to X$, si dice \textbf{Funzione Iterata} $n$ volte di $F$ la $F^n$ che corrisponde all'\textbf{applicazione} $n$ volte di $F$ \textbf{su sè stessa}. Formalmente:
 	\[f^{n+1} = f \circ f^n \quad \forall n \in \N\setminus\brackets{0}\]
 	Se $n = 0$, per definizione, $f^0 = \mathrm{Id}_X$ con $\mathrm{Id}_X$ funzione identità su $X$
 \end{definition}
 
 \begin{theorem}[dell'Iterata Contrazione]
 	\label{teo:iterata_contraz}
-	Sia $(X,d_X)$ uno spazio metrico completo e sia $T:X\mapsto X : \exists n \in \N, T^n$ \textbf{Iterata} è contrazione.\\
+	Sia $(X,d_X)$ uno spazio metrico completo e sia $T:X \to X : \exists n \in \N, T^n$ \textbf{Iterata} è contrazione.\\
 	Allora $T$ ammette un unico punto fisso in $X$
 	\begin{note}
 		La $n$ non è univocamente definita e non potrebbe esserlo.\\
@@ -2286,7 +2286,7 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 \subsection{Il Caso Generale}
 \begin{proposition}
 	\label{prop:lim_in_R_somma_prod}
-	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $f:A \mapsto \R^n$ e $g:A \mapsto \R^n$. Sia $x_0$ di accumulazione per $A$
+	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $f:A \to \R^n$ e $g:A \to \R^n$. Sia $x_0$ di accumulazione per $A$
 	\begin{equation*}
 		\left.
 		\begin{array}{r}
@@ -2347,8 +2347,8 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 		\item $(X,d)$ spazio metrico
 		\item $A \subseteq X$
 		\item $x_0$ di accumulazione per $A$
-		\item $f: A \mapsto \R^n$ e $g: A \mapsto \R^m$ funzioni
-		\item $F: A \mapsto \R^{n+m}$ definita da $F(x) = \bigl( f(x),\; g(x) \bigr)$
+		\item $f: A \to \R^n$ e $g: A \to \R^m$ funzioni
+		\item $F: A \to \R^{n+m}$ definita da $F(x) = \bigl( f(x),\; g(x) \bigr)$
 	\end{itemize}
 	Allora
 	\begin{equation*}

@@ -21,7 +21,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\begin{itemize}[noitemsep]
 		\item $A\subseteq \R^{1+(1+n)k}$
 		\item $t\in I$ con $I$ intervallo $I \subseteq \R$
-		\item $f: A \mapsto \R^m$
+		\item $f: A \to \R^m$
 	\end{itemize}
 	Dimensionalmente, si può osservare che $m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
 	\begin{itemize}[noitemsep]
@@ -33,7 +33,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\end{itemize}
 	\end{itemize}
 	\begin{note}
-		Alternativamente si può indicare $f$ come $f: \boldsymbol{I \times} A \mapsto \R^m$ a patto di considerare $A\subseteq \R^{(1+n)k}$
+		Alternativamente si può indicare $f$ come $f: \boldsymbol{I \times} A \to \R^m$ a patto di considerare $A\subseteq \R^{(1+n)k}$
 	\end{note}
 	\textbf{Soluzione} di questa equazione differenziale è una qualunque funzione $x:I\to \R^k$ (in quanto la $x$ è funzione di $t \in I$) definita sull'intervallo $I$, derivabile $n$ volte in $I$ (e dunque continua in $I$) e tale che $\forall t\in I$
 	\[(t,x, x',\:\dotsc\:,x^{(n)}) \in A\]
@@ -254,7 +254,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	Viceversa, nella \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra}, si era notato come la dipendenza di $f$ da $t$ sia molto meno critica.
 \end{observation}
 \begin{exercise}
-	Sia $s:\R \mapsto \R$ data da
+	Sia $s:\R \to \R$ data da
 	\[s(t) =
 	\begin{cases}
 		1 \qquad \text{se } t \geq 0
@@ -415,7 +415,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{figure}
 \end{example}
 \begin{example}
-	La funzione $f:\R\mapsto\R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \fullref{def:lips} e grafico della $f$ in \fullref{ex:loc_lips_graphs}
+	La funzione $f:\R\to \R$ data da $f(x)=x^2$ è \textbf{loc. lips.} su $\R$ ma non è \textbf{globalmente lips.} su $\R$. Vedasi \fullref{def:lips} e grafico della $f$ in \fullref{ex:loc_lips_graphs}
 \end{example}
 
 \begin{proposition}
@@ -442,7 +442,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\item $f\in \cntclass{0}(I\times A;R^n)$
 	\end{enumerate}
 	inoltre $I\subseteq \R$ intervallo e $A\subseteq \R^n$, per \fullref{def:prob_cauchy_ord_1}.\\
-	\textbf{Allora} esiste un $\delta>0$ tale che esiste soluzione $x:J\mapsto A$ del problema di Cauchy con $J=\intervalclose{t_0-\delta}{t_0+\delta}$.
+	\textbf{Allora} esiste un $\delta>0$ tale che esiste soluzione $x: J\to A$ del problema di Cauchy con $J=\intervalclose{t_0-\delta}{t_0+\delta}$.
 	\begin{note}
 		$\delta$ è un valore arbitrario che serve solo ad identificare l'intervallo $J$ a cui appartiene $t_0$, non è dato modo per identificare quel $\delta$
 	\end{note}
@@ -715,7 +715,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per il \fullref{prop:compl_dist_spm_compl}.\qed
 			\item $T$ è \textbf{definita} (è possibile calcolarla)\\
 			L'abbiamo definita all'inizio dall'equazione di Volterra\qed
-			\item $T$ è \boldmath$X\mapsto X$\unboldmath\\
+			\item $T$ è \boldmath$X \to X$\unboldmath\\
 			L'insieme di partenza è valido in quanto sottoinsieme dell'insieme su cui $f(t,xt)$ era definita.\\
 			Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\intervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \intervalclose{t_0-\delta}{t_0+\delta}$
 			\begin{proof}
@@ -882,7 +882,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\begin{itemize}[noitemsep]
 		\item $\delta_0\in \intervalclop{0}{+\infty}$
 		\item $\hspace{-0.5em}\left.\begin{array}{ll}
-				k,\,\delta:\intervalclose{a}{b}\mapsto \R \\
+				k,\,\delta:\intervalclose{a}{b}\to \R \\
 				k(t)\geq 0,\,\delta(t) \geq 0 \text{ funzioni continue } \forall t \in \intervalclose{a}{b}
 		\end{array} \quad\right\}$\quad cioè \quad$k,\,\delta\in\cntclass{0}(\intervalclose{a}{b},\R^{+})$
 	\end{itemize}
@@ -958,8 +958,8 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\begin{proof}
 		Sia $f$ che $g$ soddisfano le ipotesi del \fullref{teo:cau_locale_part_1}, quindi esistono due soluzioni:
 		\begin{itemize}
-			\item $\varphi:\intervalclose{t_0-\delta_f}{t_0+\delta_f}\mapsto\R$ del problema (1)
-			\item $\psi:\intervalclose{t_0-\delta_g}{t_0+\delta_g}\mapsto\R$ del problema (2)
+			\item $\varphi:\intervalclose{t_0-\delta_f}{t_0+\delta_f}\to \R$ del problema (1)
+			\item $\psi:\intervalclose{t_0-\delta_g}{t_0+\delta_g}\to \R$ del problema (2)
 		\end{itemize}
 		Sia dunque $\delta = \min\brackets{\delta_f,\delta_g}$, da cui $J=\intervalclose{t_0-\delta}{t_0+\delta}$ e, d'ora in poi, $t \in J$.\\
 		Gli insiemi $\varphi(J)$ e $\psi(J)$ sono compatti perché per \fullref{teo:weier_generale}, essendo $J$ compatto. La loro unione è dunque un compatto, come da \fullref{ex:unione_compatti}.\\
@@ -1181,7 +1181,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \subsection{Il Caso Lipschitziano}
 \begin{theorem}[di Cauchy Globale per Lipschitziane]
 	\label{teo:cau_glob_lips}
-	Data la funzione $f:I \times \R^n \mapsto \R^n$, se:
+	Data la funzione $f:I \times \R^n \to \R^n$, se:
 	\begin{itemize}[noitemsep]
 		\item $I \subset \R$ è \textbf{intervallo compatto}
 		\item $f$ è \textbf{continua} su $I \times \R^n$
@@ -1259,7 +1259,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \subsection{Il Caso Sublineare}
 \begin{definition}[Funzione Sublineare]
 	\label{def:sublineare}
-	Una funzione $f:I\times\R^n\mapsto\R^n$ con $I$ intervallo in $\R$, si dice \textbf{sublineare} se esistono due costanti $A, B:\; \forall t \in I,\;\forall x \in \R^n$ vale:
+	Una funzione $f:I\times\R^n\to \R^n$ con $I$ intervallo in $\R$, si dice \textbf{sublineare} se esistono due costanti $A, B:\; \forall t \in I,\;\forall x \in \R^n$ vale:
 	\[\norm{f(t,x)}\leq A + B \norm{x}\]
 	\vspace*{-\baselineskip}
 	\begin{note}
@@ -1306,7 +1306,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{example}
 
 \begin{exercise}
-	Dimostrare che se una funzione $f:\R^n\mapsto\R^n$ è \textbf{(globalmente) Lipschitziana}, allora è \textbf{sublineare}
+	Dimostrare che se una funzione $f:\R^n\to \R^n$ è \textbf{(globalmente) Lipschitziana}, allora è \textbf{sublineare}
 	\begin{solution}
 		\begin{align*}
 			&\norm{f(x)} =\\
@@ -1327,7 +1327,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{exercise}
 \begin{theorem}[di Cauchy Globale per Sublineari]
 	\label{teo:cau_globale}
-	Data la funzione $f: I \times \R^n \mapsto \R^n$, se
+	Data la funzione $f: I \times \R^n \to \R^n$, se
 	\begin{enumerate}
 		\item $I \subseteq \R$ è un \textbf{intervallo}
 		\item $f$ è \textbf{continua} su $I\times \R^n$
@@ -1355,7 +1355,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{enumerate}
 		Quindi i casi in cui la soluzione non si può estendere su tutto l'intervallo sono quelli in cui non esiste il limite della soluzione. Si devono dunque evitare tali comportamenti.
 
-		Sia $\varphi: J \mapsto \R^n$ la soluzione di \cref{eq:cau_glob_thesis_prob} e sia
+		Sia $\varphi: J \to \R^n$ la soluzione di \cref{eq:cau_glob_thesis_prob} e sia
 		\begin{equation}
 			\label{eq:cau_glob_T_M}
 			T_M = \sup \brackets{\overline{t_M} \in I: \varphi\;\text{\itshape risolve \cref{eq:cau_glob_thesis_prob} su}\; \intervalclop{t_0}{\overline{t_M}}\; }
@@ -1442,7 +1442,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	soddisfa le ipotesi 1., 2. e 3. del \fullref{teo:cau_globale}, ma $f(x) = x^2 \cdot \sin x$ non è né \textbf{globalmente lipschitziana}, né \textbf{sublineare} su $\R$. tuttavia, per ogni $x_0 \in \R$, questo problema ammette soluzioni globali definite su tutto $\R$
 \end{example}
 \begin{exercise}
-	Sono date le funzioni $f_n:\R \mapsto \R$, ciascuna soddisfacente alle ipotesi del \fullref{teo:cau_globale}. Per un fissato $\overline{x}$ in $\R^n$, sia $\varphi_n$ per ogni $n \in \N$ la soluzione del Problema di Cauchy
+	Sono date le funzioni $f_n:\R \to \R$, ciascuna soddisfacente alle ipotesi del \fullref{teo:cau_globale}. Per un fissato $\overline{x}$ in $\R^n$, sia $\varphi_n$ per ogni $n \in \N$ la soluzione del Problema di Cauchy
 	\begin{equation*}
 		\begin{cases}
 			x' = f_n(x)\\
@@ -1467,12 +1467,12 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{note}
 \end{definition}
 \begin{proposition}[Invarianza per Traslazione Temporale]
-	Se la funzione $\varphi: \intervalclose{a}{b} \mapsto \R^n$ risolve il Problema di Cauchy
+	Se la funzione $\varphi: \intervalclose{a}{b} \to \R^n$ risolve il Problema di Cauchy
 	\begin{equation*}\begin{cases}
 		x'=f(x)\\
 		x(t_0) = x_0
 	\end{cases}\end{equation*}
-	Allora, qualunque sia $T \in \R$, la funzione $\psi: \intervalclose{a - T}{b - T} \mapsto \R^n$ data da $\psi(t) = \varphi(t + T)$ è soluzione del Problema di Cauchy
+	Allora, qualunque sia $T \in \R$, la funzione $\psi: \intervalclose{a - T}{b - T} \to \R^n$ data da $\psi(t) = \varphi(t + T)$ è soluzione del Problema di Cauchy
 	\begin{equation*}\begin{cases}
 		x'=f(x)\\
 		x(t_0 - T) = x_0
@@ -1540,7 +1540,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \section{Equazioni Differenziali Lineari}
 Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{sect:fun_in_C}, in particolare \fullref{ex:ext_def_in_C}
 \begin{definition}[Equazione Differenziale Ordinaria Lineare]
-	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f \quad : I \mapsto \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
+	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f \quad : I \to \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
 	\[x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)\]
 	Se $f = 0$ l'equazione si dice \textbf{Omogenea}.
 \end{definition}
