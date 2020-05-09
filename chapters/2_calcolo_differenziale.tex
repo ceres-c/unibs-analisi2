@@ -1,7 +1,7 @@
 \chapter{Calcolo Differenziale}
 
 In questo capitolo sono trattate funzioni $f: A \mapsto \R^m$ con $A \subseteq \R^n$, dove $r,m \in \N$ e $n,m \geq 1$.\\
-Generalmente, effetuata una dimostrazione per $m = 1$ è abbastanza semplice passare ad un $m > 1$ \textit{affiancando} le componenti, mentre non è altrettanto triviale il passaggio a $n > 1$.
+Generalmente, effettuata una dimostrazione per $m = 1$ è abbastanza semplice passare ad un $m > 1$ \textit{affiancando} le componenti, mentre non è altrettanto triviale il passaggio a $n > 1$.
 
 \section{Preliminari}
 In $\R^n$ verranno usate le (note) strutture vettoriale con la metrica Euclidea di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})} % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
@@ -25,7 +25,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, cioè
 	f'(x_0) = \lim\limits_{t \to 0} \frac{f(x_0 + t) - f(x_0)}{t} \tag{\textbf{NB}. Analisi 1!}
 \end{align*}
 si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensionali} mediante la seguente
-\begin{definition}[Derivata Parziale e Direzionale]
+\begin{definition}[Derivata Direzionale e Parziale]
 	\label{def:deriv_direz}
 	Sia $A \subseteq \R^n$, $f: A \mapsto \R^m$, $x_0 \in \circdot{A}$ e $v \in \R^n$ un vettore non nullo. Quando il limite
 	\[\lim\limits_{t \to 0} \frac{(x_0 + tv) - f(x_0)}{t}\]
@@ -34,7 +34,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		\textbf{Non} è richiesto che la funzione sia \textbf{continua nello spazio} per calcolarne la derivata direzionale, è sufficiente sia continua nella direzione considerata. Vedasi \fullref{ex:deriv_solo_alcune_direz}
 	\end{note}
 	\begin{note}
-		L'introduzione del vettore $v$ permette di eseguire un'operazione "sensata" in quanto sottrare uno scalare, come in Analisi 1, non avrebbe avuto significato per una funzione $f: A \mapsto \R^{\boldsymbol{m}}$.
+		L'introduzione del vettore $v$ permette di eseguire un'operazione "sensata" in quanto sottrarre uno scalare, come in Analisi 1, non avrebbe avuto significato per una funzione $f: A \mapsto \R^{\boldsymbol{m}}$.
 	\end{note}
 
 	Nel caso in cui $v = e_i$, allora $\boldsymbol{D_{e_i} f(x_0)}$ è la \textbf{Derivata Parziale $\boldsymbol{i}$\textit{-esima}}, che può anche essere indicata con $\boldsymbol{\frac{\partial f}{\partial x_i}(x_0)}$. Quindi le derivate parziali sono \textit{un caso particolare} delle derivate direzionali.\\
@@ -269,7 +269,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 \begin{definition}[o piccolo]
 	\label{def:o_piccolo}
 	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. Siano $f,g: A \mapsto \R^m$ due funzioni.
-	\[f=o(g) \text{ per } x \to x_0 \qquad \bydef \qquad \lim\limits_{x \to x_0} \frac{\norm{f(x)}}{\norm{g(x)}}\]
+	\[f=o(g) \text{ per } x \to x_0 \qquad \bydef \qquad \lim\limits_{x \to x_0} \frac{\norm{f(x)}}{\norm{g(x)}} = 0\]
 	che si legge $f$ è \textbf{o piccolo} di $g$.
 	\begin{note}
 		Scrivere $f(x) = o(x^k)$ per $x \to 0$ significa che $f = o(g)$ con $g = x^k$
@@ -304,6 +304,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		\end{minipage}
 	\end{itemize}
 \end{exercise}
+\vspace*{\baselineskip}
 La seguente definizione è da ritenersi già nota da Analisi 1
 \begin{definition}[Derivata in $\R$]
 	Siano $A \subseteq \R$ e $x_0 \in \circdot{A}$. Sia $f: A \mapsto \R$
@@ -447,8 +448,8 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\implies
 		\begin{cases}
 			\begin{array}{c}
-				f \text{ ammette ogni \textbf{Derivata Direzionale} in } x_0\\
-				e\\
+				f \text{ ammette ogni \textbf{Derivata Direzionale} in } x_0\\[-1ex]
+				e\\[-1ex]
 				\forall v \in \R^n \setminus \brackets{0} D_v f(x_0) = Df(x_0)v
 			\end{array}
 		\end{cases}
@@ -1031,6 +1032,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 \end{exercise}
 
 \begin{definition}[Differenziale Seconda]
+	\label{def:differenz_second}
 	Siano $A \subseteq \R^n$, $f:A \mapsto \R^m$ e $x_0 \in \circdot{A}$
 	\[
 		f \text{ è \textbf{Differenziabile} } 2 \text{ volte in } x_0
@@ -1281,15 +1283,19 @@ La seguente sezione in \textcolor{not_explained_section_color}{verde} non è ric
 
 \noindent Passando ora al caso specifico degli sviluppi del secondo ordine
 \begin{proposition}[Sviluppo di Taylor al Secondo Ordine con resto di Peano]
+	\label{prop:svil_tay_2_peano}
 	Siano:
 	\begin{itemize}[noitemsep]
 		\item $f \in \cntclass{2}(A;\R^m)$ con $A \subseteq \R^n$
 		\item $x_0 \in \circdot{A}$
 		\item $h \in \R^n$
-		\item Il segmento di estremi $x_0$ e $x_0 + h$ è interamente contenuto in $A$
+		\item Il segmento di estremi $x_0$ e $x = x_0 + h$ è interamente contenuto in $A$
 	\end{itemize}
 	Allora
 	\[f(x) = f(x_0) + Df(x_0)h + \frac{1}{2} h^T D^2f(x_0) h + o\left( \norm{h}^2 \right)\]
+	\begin{note}
+		$h^T$ è il vettore riga trasposto del vettore colonna $h$.
+	\end{note}
 	\begin{proof}
 		Omessa in aula.
 	\end{proof}
@@ -1550,7 +1556,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\vspace*{-\baselineskip}
 	\begin{note}
 		Questo teorema è anche noto come \textit{Teorema di Dini}
-	\end{note} % TODO check vertical spacing here
+	\end{note}
 	Siano:
 	\begin{enumerate}[noitemsep]
 		\item \label{itm:ipot_funz_impl_1} $X \subseteq \R^n$ e $Y \subseteq \R^m$ \textbf{Aperti}
@@ -1924,169 +1930,427 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 
 \newpage
 \section{Massimi e Minimi Liberi}
-\definition
-Siano $(X,d)$s.m., $A\subseteq X$ e $f:A\rightarrow \R$, siano $x_0\in A, B\in A$ e $m,M\in \R$ ( L'insieme immagini deve essere $R$ per poter parlare di massimi e minimi, $R$ è un campo ordinato a differenza di $R^n$).\\
-$M$ è massimo di $f$ su $B \bydef M=\max f(B)\iff\forall x \in B f(x_0)\ge f(x)$\\
-$M$ è minimo di $f$ su $B \bydef m=\min f(B)\iff\forall x \in B f(x_0)\le f(x)$\\
-$x_0$ è punto di massimo assoluto per $f \bydef f(x_0)=\max\limits_{A}f(x)$\\
-$x_0$ è punto di minimo assoluto per $f \bydef f(x_0)=\min\limits_{A}f(x)$\\
-$x_0$ è punto di massimo locale relativo per $f \bydef \exists r>0: f(x_0)=\max\limits_{x\in B(x_0,r)}f(x)$ con $B(x_0,r)\subseteq A$\\
-$x_0$ è punto di minimo locale relativo per $f \bydef \exists r>0: f(x_0)=\min\limits_{x\in B(x_0,r)}f(x)$ con $B(x_0,r)\subseteq A$\\
-\subsection{Condizioni Necessarie}
-\proposition{Teorema di Fermat}\\
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$. Se $x_0$ è punto di massimo(0 minimo) locale per $f$ su $A$ e $f$ è differenziabile in $x_0$ allora $\nabla f(x_0)=0$.
-\begin{proof}
-	Sia $v\in \R^n$ con $\norm{v} =1$, la funzione $F(t)= f(x_0+tv)$ che a $t\rightarrow x_0+tv$ è il moto rettilineo uniforme che passa da $x_0$ all'istante $0$ e si muove con velocità vettore costante $v$. cioè per tempi negativi mi avvicino a $x_0$ al tempo zero si è in $x_0$ e per tempi positivi si allontana da $x_0$. quindi $t=0$ è punto di massimo per $F$, allora $F'(0) = 0$ per il teorema di Fermat di A1.\\
-	Ora abbiamo che $F'(t)=\nabla f(x_0+tv)v$ quindi $F'(0)=\nabla f(x_0)v$ cioè $\nabla f(x_0)v=0$.\\
-	Quindi $\forall v :\norm{v} =1$ vale $\nabla f(x_0)=0$\\
-	OSS:: Vale anche che $D_vf(x_0)=0$
-\end{proof}
-\definition
-sia $f:A\subseteq r^n\rightarrow \R$, $x_0\in\circdot{A}$\\
-$x_0$ è punto stazionario .... $\bydef$ $f$ è differenziabile in $x_0$ e $\nabla f($ ......
-\observation
-nel caso $n=2, m=1, \nabla f(x_0,y_0)=[\partial_xf(x_0,y_0), \partial_yf(x_0,y_0)]$ ..... i punti stazionari sono quelli che ......parziali.
-\observation
-Prima di continuare un paio di osservazioni sulle forme quadratiche.\\
-\definition
-forma quadratica su $R^n \bydef q:R^n\rightarrow \R$ che $x\rightarrow x^TQx$ con $Q\in Mat(n\times n)$ simmetrica\\
-ESEMPI:n=2\\
-\[
-Q=\begin{bmatrix}1&&0\\0&&1\end{bmatrix}\quad
-Q=\begin{bmatrix}-1&&0\\0&&-1\end{bmatrix}\quad
-Q=\begin{bmatrix}-1&&0\\0&&1\end{bmatrix}\quad 
-\]
-SEMPRE POSITIVA SEMPRE NEGATIVA CAMBIA SEGNO\\
-SEMPRE POSITIVA SEMPRE NEGATIVA CAMBIA SEGNO\\
-SEMPRE POSITIVA SEMPRE NEGATIVA CAMBIA SEGNO\\
-\proposition
-se $Q$ è una forma quadratica, allora\\
-\begin{itemize}
-	\item $\forall\lambda\in \R, \forall x\in \R^n$ $q(\lambda x)=\lambda^2q(x)$
-	\item $q(0)=0$
-	\item se $q$ è limitata $\Rightarrow q\equiv 0$ 
-\end{itemize}
-\begin{proof}
+\begin{definition}[Massimi e Minimi]
+	Siano $(X,d)$ uno \textbf{Spazio Metrico}, $A \subseteq X$, $x_0 \in A$ e $f: A \to \R$. Con $B \subseteq A$ e $m, M \in \R$, si dicono:
 	\begin{itemize}
-		\item $q(\lambda x)=(\lambda x)^TQ(\lambda x)=\lambda^2x^TQx=\lambda^2q(x)$
-		\item $q(0)=q(0x)=0q(x)=0$
-		\item (contronominale $q\ne 0 \Rightarrow q$ non è limitata).\\
-		se $q$ è non nulla $\Rightarrow \exists x \in \R^n$ $q(x)\ne 0$\\
-		allora $q(\lambda x)=\lambda^2q(x)$ illimitata.
-		\item ???????????????????????????????????????????????
+		\item \makebox[20em][l]{$M$ è il \textbf{Massimo} di $f$ su $B$}
+			$\bydef \quad M = \max f(B)$
+		\item \makebox[20em][l]{$m$ è il \textbf{Minimo} di $f$ su $B$}
+			$\bydef \quad m = \min f(B)$
+		\item \makebox[20em][l]{$x_0$ punto di \textbf{Massimo Assoluto} per $f$}
+			$\bydef \quad f(x_0) = \max\limits_{A} f$
+		\item \makebox[20em][l]{$x_0$ punto di \textbf{Minimo Assoluto} per $f$}
+			$\bydef \quad f(x_0) = \min\limits_{A} f$
+		\item \makebox[20em][l]{$x_0$ punto di \textbf{Massimo Locale} per $f$}
+			$\bydef \quad \begin{cases}
+				\exists r > 0:\; \forall x \in B(x_0,r) \cap A\\
+				f(x_0) \geq f(x)
+			\end{cases}$
+		\item \makebox[20em][l]{$x_0$ punto di \textbf{Minimo Locale} per $f$}
+			$\bydef \quad \begin{cases}
+				\exists r > 0:\; \forall x \in B(x_0,r) \cap A\\
+				f(x_0) \leq f(x)
+			\end{cases}$
+		\item \makebox[20em][l]{$x_0$ punto di \textbf{Massimo Locale Forte} per $f$}
+			$\bydef \quad \begin{cases}
+				\exists r > 0:\; \forall x \in B(x_0,r) \cap A \text{ con } x \neq x_0\\
+				f(x_0) > f(x)
+			\end{cases}$
+		\item \makebox[20em][l]{$x_0$ punto di \textbf{Minimo Locale Forte} per $f$}
+			$\bydef \quad \begin{cases}
+				\exists r > 0:\; \forall x \in B(x_0,r) \cap A \text{ con } x \neq x_0\\
+				f(x_0) < f(x)
+			\end{cases}$
+		\item \makebox[20em][l]{$x_0$ di \textbf{Estremo} per $f$}
+			$\bydef \quad x_0$ punto di \textbf{Massimo} o di \textbf{Minimo}
 	\end{itemize}
-\end{proof}
-\proposition
-se $q$ è una forma quadratica $\Rightarrow\exists M\ge 0: \abs{q(x)}\le M\norm{x}^2$ $\forall x\in \R^n$
-\begin{proof}
-	per $x\ne 0$ $\abs{q(x)} =\abs{q\left(\norm{x} \frac{1}{\norm{x} }x\right)} = \norm{x}^2\abs{q\left(\frac{1}{\norm{x}}x\right)}\le$\\
-	$\le\left(\sup\limits_{\norm{x}=1}\abs{q(x)}\right)\norm{x}^2=\le\left(\max\limits_{\norm{x}=1}\abs{q(x)}\right)\norm{x}^2=M\norm{x}^2$
-\end{proof}
-\proposition
-Sia $q$ una forma quadratica, se $q(x)=o(\norm{x}^2)$ per $x\rightarrow 0 \Rightarrow q\equiv 0$
-\begin{proof}
-	sia $x\in \R^n$ con $\norm{x}=1$ e $t>0$.\\
-	$q(x)=\frac{1}{t^2}$, $q(tx)=\frac{q(tx)}{\norm{tx}^2}\rightarrow 0$ per $t\rightarrow 0$ per ipotesi.\\
-	Allora $\forall x$ con $\norm{x}$ vale $q(x)=0$ e allora $\forall x\ne 0, q(x)=q\left(\frac{1}{\norm{x}}x\right)\norm{x}^2$
-\end{proof}
-\definition
-Sia $q:R^n\rightarrow \R$ una forma quadratica\\
-\begin{itemize}
-	\item $q$ è definita positiva $\bydef \forall x\in \R^n, x\ne 0$ $q(x)>0 [Q>0]$
-	\item $q$ è semidefinita positiva $\bydef \forall x\in \R^n$ $q(x)\ge0 [Q\ge0]$
-	\item $q$ è definita negativa $\bydef \forall x\in \R^n, x\ne 0$ $q(x)<0 [Q><0]$
-	\item $q$ è semidefinita negativa $\bydef \forall x\in \R^n$ $q(x)\le0 [Q\le0]$
-\end{itemize}
-\proposition
-Sia $q:R^n\rightarrow \R$ una forma quadratica, se $q$ è definita positiva $\Rightarrow \exists m>0: \forall x \in \R^n, q(x)\ge m\norm{x}^2$
-\begin{proof}
-	Noto che $q(\lambda x)=\lambda^2q(x)$\\
-	$q(x)=q\left(\frac{1}{\norm{x}}x\norm{x}^2\right)\ge\min\limits_{\norm{x}=1}q(\lambda)\norm{x}^2$
-\end{proof}
-Ora dobbiamo cercare di capire se $q$ è definita positiva\\
-Ad esempio: $Q=\begin{bmatrix}1&&0&&0\\0&&-1&&0\\0&&0&&0\end{bmatrix}$ è facile capire che è semodefinita positiva poiché è in diagonale, quindi la prima cosa da fare è trovare una forma diagonale per $Q$\\
-un procedimento pratico e veloce è il seguente:\\
-\[Q=\begin{bmatrix}q_{11}&&q_{12}&&q_{13}&&\ldots\\q_{21}&&q_{22}&&q_{23}&&\ldots\\q_{31}&&q_{32}&&q_{33}&&\ldots\\\vdots&&\vdots&&\vdots&&\ddots\end{bmatrix}\rightarrow\begin{bmatrix}\lambda_{1}&&0&&0&&\ldots\\0&&\lambda_{2}&&0&&\ldots\\0&&0&&\lambda_{3}&&\ldots\\\vdots&&\vdots&&\vdots&&\ddots\end{bmatrix}\]
-\[\lambda=q_{11},\quad\lambda_{2}=\frac{detQ_2}{q_11}\quad\lambda_{3}=\frac{detQ_3}{detQ_2}\quad ...\quad \lambda_{i}=\frac{detQ_i}{detQ_{i-1}}\]
-Questo perché se dobbiamo valutare il segno dell'incremento della f ci servono le variazioni sulle quadriche. Se $f$ è $\cntclass{2}$ scrivo lo sviluppo di Taylor al secondo ordine:\\
-\[f(x)-f(x_0)=\nabla f(x_0)(x-x_0)+\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\norm{x-x_0}^2)\]
-max e min dove $\nabla f(x_0)=0$ per Fermat, l'o piccolo è trascurabile, allora il segno della derivata dipende dalla forma quadratica al secondo membro.
-\proposition
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
-$f\in \cntclass{2}(A;R)$ e $x_0$ punto di massimo locale per $f$ su $A\Rightarrow\nabla f(x_0)=0$ e $H_f(x_0)$ è semidefinita negativa.
-\begin{proof}
-	$f(x)-f(x_0)=\frac{1}{2}(x-x_0)^TH_f(x_0)(x-x_0)+o(\norm{x-x_0}^2)$ poiché $f\in \cntclass{2}$\\
-	il primo termine è negativo poiché per ipotesi $x_0$ è punto di massimo locale, ne segue che il termine $(x-x_0)^TH_f(x_0)(x-x_0)$ non può essere positivo. 
-\end{proof} 
-\proposition
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
-$f\in \cntclass{2}(A;R)$ e $x_0$ punto di minimo locale per $f$ su $A\Rightarrow\nabla f(x_0)=0$ e $H_f(x_0)$ è semidefinita positiva.
-\begin{proof}
-	$f(x)-f(x_0)=\frac{1}{2}(x-x_0)^TH_f(x-x_0)+o(\norm{x-x_0}^2)$ poiché $f\in \cntclass{2}$\\
-	il primo termine è positivo poiché per ipotesi $x_0$ è punto di minimo locale, ne segue che il termine $(x-x_0)^TH_f(x-x_0)$ non può essere negativo. 
-\end{proof} 
+	\begin{note}
+		I punti di massimo/minimo son anche indicati con $\arg \max f$ e $\arg \min f$
+	\end{note}
+	\begin{note}
+		A volte si parla di estremi (Massimi/Minimi) \textbf{Relativi} come sinonimi di estremi \textbf{Locali}.
+	\end{note}
+\end{definition}
+\begin{observation}
+	\label{obs:inf_pti_max_min_abs}
+	Una funzione ha \textbf{unico massimo/minimo}, ma può avere \textbf{infiniti punti di massimo/minimo assoluto}.
+	\begin{itemize}
+		\item Il massimo di $f$ ($\max f$) è un valore nell'insieme di arrivo della funzione ed è unico per definizione di $\max$.
+		\item Il punto di estremo assoluto $x_0$ è, per definizione, il punto appartenente all'insieme di partenza della $f$ per cui $f$ assume il suo valore massimo. Questa definizione appena data non è influenzata dall'unicità di $\max f$, in quanto possono esistere più valori di $x$ per cui $f(x) = \max f$, il quale $\max f$ sarà però unico.
+	\end{itemize}
+	Vedere \fullref{ex:f_con_inf_pti_max_min_abs} e \fullref{ex:uniq_max_min_abs}.
+\end{observation}
+\begin{exercise}
+	Formulare le definizioni di Massimo/Minimo Assoluto Forte e di Estremo Locale/Assoluto Forte e non.
+	\begin{solution}\leavevmode
+		\begin{itemize}
+			\item \makebox[21em][l]{$x_0$ punto di \textbf{Massimo Assoluto Forte} per $f$}
+				$\bydef \quad \forall x \in A \;\; f(x_0) > f(x)$
+			\item \makebox[21em][l]{$x_0$ punto di \textbf{Minimo Assoluto Forte} per $f$}
+				$\bydef \quad \forall x \in A \;\; f(x_0) < f(x)$
+			\item \makebox[21em][l]{$x_0$ punto di \textbf{Estremo Locale} per $f$}
+				$\bydef \quad
+				\begin{cases}
+					\begin{array}{c}
+						\text{Unione delle definizioni di}\\[-1ex]
+						\text{\textbf{Massimo Locale}}\\[-1ex]
+						e\\[-1ex]
+						\text{\textbf{Minimo Locale}}
+					\end{array}
+				\end{cases}$
+			\item \makebox[21em][l]{$x_0$ punto di \textbf{Estremo Locale Forte} per $f$}
+				$\bydef \quad
+				\begin{cases}
+					\begin{array}{c}
+						\text{Unione delle definizioni di}\\[-1ex]
+						\text{\textbf{Massimo Locale Forte}}\\[-1ex]
+						e\\[-1ex]
+						\text{\textbf{Minimo Locale Forte}}
+					\end{array}
+				\end{cases}$
+			\item \makebox[21em][l]{$x_0$ punto di \textbf{Estremo Assoluto} per $f$}
+				$\bydef \quad
+				\begin{cases}
+					\begin{array}{c}
+						\text{Unione delle definizioni di}\\[-1ex]
+						\text{\textbf{Massimo Assoluto}}\\[-1ex]
+						e\\[-1ex]
+						\text{\textbf{Minimo Assoluto}}
+					\end{array}
+				\end{cases}$
+			\item \makebox[21em][l]{$x_0$ punto di \textbf{Estremo Assoluto Forte} per $f$}
+				$\bydef \quad
+				\begin{cases}
+					\begin{array}{c}
+						\text{Unione delle definizioni di}\\[-1ex]
+						\text{\textbf{Massimo Assoluto Forte}}\\[-1ex]
+						e\\[-1ex]
+						\text{\textbf{Minimo Assoluto Forte}}
+					\end{array}
+				\end{cases}$
+		\end{itemize}
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Esibire esempi di funzioni con infiniti punti di massimo/minimo assoluti.
+	\begin{solution}\hfill\\
+		\begin{minipage}{0.49\linewidth}
+			$$f(x) = 1$$
+		\end{minipage}
+		\begin{minipage}{0.49\linewidth}
+			$$f(x) = \sin(x)$$
+		\end{minipage}
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	\label{ex:f_con_inf_pti_max_min_abs}
+	Esibire esempi di funzioni con infiniti punti di massimo/minimo assoluti e prive di minimo/massimo assoluti.
+	\begin{note}
+		Notare che son richiesti infiniti \textbf{punti} di massimo/minimo, come da \fullref{obs:inf_pti_max_min_abs}.
+	\end{note}
+	\begin{solution}\hfill\\
+		\vspace*{\baselineskip}
+		\begin{minipage}{0.49\linewidth}
+			\begin{center}
+				$f(x) = \abs{\tan(x)}$ ha infiniti punti di minimo assoluto,\\
+				ma ovviamente unico minimo assoluto $\min f = 0$
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.49\linewidth}
+			\begin{center}
+				$f(x,y) = -\sqrt{x^2+y^2-1}$ ha dominio $U = \brackets{(x, y) \in \R^2:\; x^2 + y^2 > 1}$.\\
+				La $f$ ha infiniti punti di massimo assoluto in $\partial U = \brackets{(x, y) \in \R^2:\; x^2 + y^2 = 1}$,\\
+				ma ovviamente unico massimo assoluto $\max f = 0$
+			\end{center}
+		\end{minipage}\\
+		\vspace*{\baselineskip}
+		\begin{minipage}{0.49\linewidth}
+			\begin{center}
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							ymax = 11, ymin = -.5
+						]
+							\addplot [domain=-5:5,samples=500] {abs(tan(deg(x)))};
+							\draw [dashed, color=black!50] (axis cs:pi/2,-.5) -- (axis cs:pi/2,11);
+							\draw [dashed, color=black!50] (axis cs:3*pi/2,-.5) -- (axis cs:3*pi/2,11);
+							\draw [dashed, color=black!50] (axis cs:-pi/2,-.5) -- (axis cs:-pi/2,11);
+							\draw [dashed, color=black!50] (axis cs:-3*pi/2,-.5) -- (axis cs:-3*pi/2,11);
+						\end{axis}
+					\end{tikzpicture}
+				}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.49\linewidth}
+			\begin{center}
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						% Thanks to Schrödinger's cat from https://tex.stackexchange.com/questions/542616/a
+						\begin{axis} [
+							xlabel=$x$, ylabel=$y$,
+							xmin=-2, xmax=2,
+							ymin=-2, ymax=2
+						]
+							\clip plot[domain=0:-2] % Clip away lower part of the cone to get a "cartesian look"
+								(-2,{\x},{-sqrt(3+\x*\x)}) -- plot[domain=-2:2]
+								({\x},-2,{-sqrt(3+\x*\x)}) -- plot[domain=-2:2]
+								(2,{\x},{-sqrt(3+\x*\x)}) -- (2,2,0) -- (-2,2,0)
+								--cycle;
+							\addplot3[surf, domain=1.001:{2*sqrt(2)}, domain y=0:360, samples y=50, z buffer=sort]
+								({x*cos(y)},{x*sin(y)},{-sqrt(x^2-1)});
+						\end{axis}
+					\end{tikzpicture}
+			}
+			\end{center}
+		\end{minipage}
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	\label{ex:uniq_max_min_abs}
+	Formulare e dimostrare l'unicità del massimo/minimo assoluto.
+	\begin{note}
+		Notare che è richiesta l'unicità del \textbf{massimo/minimo assoluto}, non dei punti di massimo/minimo. Si ricorda l'\fullref{obs:inf_pti_max_min_abs}.
+	\end{note}
+	\begin{solution}
+		Per definizione, $x = \max X$ se $x = \sup X$ e $x \in X$. Se poi $x = \sup X$, allora $x$ è per definizione il più piccolo dei maggioranti di $X$.\\
+		Il $\sup$ di un insieme è unico, si dimostra per assurdo:
+		\begin{proof}
+			\renewcommand\qedsymbol{$\square$} % To restore the default empty square for this proof environment
+			Dati $A \subseteq \R$ e $B \subseteq A$, si supponga esistano $M_1, M_2 \in A$ con $M_1 \neq M_2$, due $\sup$ diversi di $B$. Applicando la definizione di maggiorante:
+			\[\forall x \in B,\; x \leq M_1 \qquad \text{e} \qquad \forall x \in B,\; x \leq M_2\]
+			Si può ora supporre che sia $M_1 > M_2$ senza perdere generalità, però questo significa che $M_1$ non sia $\sup$, (non è il più piccolo dei maggioranti), negando l'ipotesi - \textit{Assurdo}
+		\end{proof}
+		Per come è definito dunque, anche il $\max$ sarà unico, da cui la tesi.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	\label{ex:max_min_lib_funz_in_R}
+	In questa sezione compaiono esclusivamente funzioni a valori in $\R$. Perché?
+	\begin{solution}
+		Perché si stanno considerando i valori assunti dalla $f$ come punti nello spazio (nella retta reale, essendo in $\R$) e non esistono necessariamente relazioni d'ordine in altri insiemi. Non è possibile ad esempio stabilire se un punto punto sia "maggiore o minore" di un altro in $\R^2$ o in $\C$.
+	\end{solution}
+\end{exercise}
 
+\subsection{Condizioni Necessarie}
+\begin{proposition}
+	\label{prop:f_deriv_pto_estr_deriv_direz_nulla}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$, $f: A \to \R$ e $v \in \R^n \setminus {0}$, allora
+	\[
+		\left.
+			\begin{array}{c}
+				f \text{ \textbf{derivabile} in } x_0 \text{ lungo } v\\
+				x_0 \text{ punto \textbf{di estremo} per } f
+			\end{array}
+		\right\}
+		\implies
+		D_vf(x_0) = 0
+	\]
+	\begin{proof}
+		Se $x_0$ è di estremo per $f$, allora, scelto un opportuno $\delta > 0 \in \R$, $x_0$ è di estremo anche per la funzione
+		\[\funcdef{\varphi}{\intervalopen{-\delta}{\delta}}{\R}{t}{f(x_0 + tv)}\]
+		La $\varphi$ è una funzione reale di variabile reale e derivabile in $0$ perché $f$ è derivabile per ipotesi. Ciò significa che è possibile applicare alla $\varphi$ il \textit{Teorema di Fermat} di Analisi 1, avendo la garanzia che in un punto estremante di questa funzione sia $\varphi'(x_0) = 0$.\\
+		Applicando ora la definizione di derivata di Analisi 1 si ottiene:
+		\[
+			\varphi'(t) = \lim\limits_{h \to 0} \frac{\varphi(t + h) - \varphi(t)}{h}
+		\]
+		Se si calcola la derivata di $\varphi$ nel punto $0$ ($\varphi(0) = f(x_0)$, con $x_0$ estremante per ipotesi) si ottiene:
+		\begin{align*}
+			0 &= \varphi'(0)\\
+			&= \lim\limits_{h \to 0} \frac{\varphi(h) - \varphi(0)}{h}
+			\shortintertext{Ma, essendo $\varphi(h) = f(x_0 + hv)$ e $\varphi(0) = f(x_0)$}
+			&= \lim\limits_{h \to 0} \frac{f(x_0 + hv) - f(x_0)}{h} \tageq\label{eq:estr_f_allora_Dvf_0}
+		\end{align*}
+		La \cref{eq:estr_f_allora_Dvf_0} non è altro che la \fullref{def:deriv_direz} di $f$ in $x_0$ lungo il vettore $v$, dunque si è giunti alla tesi.
+	\end{proof}
+\end{proposition}
+\begin{theorem}[di Fermat]
+	\label{teo:fermat}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$, allora
+	\[
+		\left.
+			\begin{array}{c}
+				f \text{ \textbf{Differenziabile} in } x_0\\
+				x_0 \text{ punto \textbf{di estremo} per } f
+			\end{array}
+		\right\}
+		\implies
+		\nabla f(x_0) = 0
+	\]
+	\begin{proof}
+		Dalla \fullref{prop:se_diff_deriv_dir}, si sa che, se $f$ è differenziabile, allora
+		\[\forall v \in \R^n \setminus {0} \quad D_vf(x_0) = Df(x_0) v\]
+		Quindi $\forall v \in \R^n \setminus {0}$ si può applicare la \fullref{prop:f_deriv_pto_estr_deriv_direz_nulla}. Visto poi che la $f$ è a valori in $\R^1$, da \fullref{obs:matr_deriv_tot} si sa che $Df(x_0) = \nabla f(x_0)$, dunque la tesi:
+		\[0 = D_vf(x_0) = Df(x_0) = \nabla f(x_0)\]
+	\end{proof}
+\end{theorem}
+\begin{definition}[Punto Stazionario]
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$
+	\[
+		x_0 \text{ \textbf{Punto Stazionario} per } f
+		\quad \bydef \quad
+		\begin{cases}
+			\begin{array}{c}
+				f \text{ \textbf{Differenziabile} in } x_0\\[-1ex]
+				e\\[-1ex]
+				\nabla f(x_0) = 0
+			\end{array}
+		\end{cases}
+	\]
+	\begin{note}
+		Nella definizione si usa $\nabla f$ in luogo di $Df$ perché la $f$ è a valori in $\R$, dunque come visto in \fullref{obs:matr_deriv_tot} $Df$ è $\in \mat(1 \times n)$, cioè $Df = \nabla f$ per definizione di gradiente.
+	\end{note}
+\end{definition}
+\begin{observation}
+	Grazie al \fullref{coro:se_diff_deriv_parz}, se $f$ \textbf{Differenziabile} in $x_0$, per verificare che $\nabla f(x_0) = 0$, basta verificare che le \textbf{Derivate Parziali} siano tutte pari a $0$.
+\end{observation}
+\begin{exercise}
+	Esibire un esempio di funzione che ammetta un punto stazionario non di estremo, cioè la tesi del \fullref{teo:fermat}, ma che non verifichi le ipotesi.
+	\begin{solution}
+		$f(x) = x^3$ ha un punto stazionario in $x=0$, ma sicuramente non è minimo o massimo.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Esibire una funzione che ammetta un punto di estremo non stazionario
+	\begin{solution}
+		In $x = 3$ la funzione
+		\[\funcdef{f}{\intervalopcl{0}{3}}{\R}{x}{\sqrt{x}}\]
+		è differenziabile, ma $\nabla f(3) = \frac{1}{2\sqrt{3}} \neq 0$, dunque non è stazionario.
+	\end{solution}
+\end{exercise}
+
+\vspace*{\baselineskip}
+Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e la notazione introdotta in Appendice nella \fullref{sect:for_quadr}. Si ricorda che $D^2f(x_0) = H_f(x_0)$ da \fullref{def:hessiana}.
+\begin{proposition}
+	\label{prop:pto_max_D2f_semdef_neg}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$
+	\[
+		\left.
+			\begin{array}{c}
+				f \text{ \textbf{Differenziabile 2 volte} in } x_0\\
+				x_0 \text{ punto \textbf{di massimo} per } f
+			\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\nabla f(x_0) = 0\\
+			D^2f(x_0) = H_f(x_0) \text{ \textbf{Semidefinita Negativa}}
+		\end{cases}
+	\]
+	\begin{proof}
+		Essendo $x_0$ punto di massimo per ipotesi, è certo che, per un $h \in \R^n$ in intorno di $0$:
+		\begin{equation}
+			\label{eq:pto_max_hess_semdef_neg_diff}
+			f(x_0 + h) - f(x_0) \leq 0
+		\end{equation}
+		Posto $x = x_0 + h$, si ha che $h = x - x_0$, dunque dalla \fullref{prop:svil_tay_2_peano} si ha:
+		\begin{align*}
+			f(x) &= f(x_0) + Df(x_0)h + \frac{1}{2} h^T D^2f(x_0) h + o\left( \norm{h}^2 \right)\\
+			f(x) - f(x_0) &= \nabla f(x_0)(x - x_0) + \frac{1}{2} (x - x_0)^T D^2f(x_0)(x - x_0) + o\left( \norm{(x - x_0)}^2 \right)
+			\shortintertext{Essendo però $\nabla f(x_0) = 0$ per ipotesi}
+			f(x) - f(x_0) &= \frac{1}{2} (x - x_0)^T D^2f(x_0)(x - x_0) + o\left( \norm{(x - x_0)}^2 \right)
+		\end{align*}
+		Il termine di sinistra non è altro che il primo termine della \cref{eq:pto_max_hess_semdef_neg_diff}, dunque
+		\begin{align*}
+			\frac{1}{2} (x - x_0)^T D^2f(x_0)(x - x_0) + o\left( \norm{(x - x_0)}^2 \right) &\leq 0
+			\shortintertext{L'\textit{o piccolo} può essere ignorato in quanto, per definizione, tende a zero più velocemente del resto della funzione}
+			\frac{1}{2} (x - x_0)^T D^2f(x_0)(x - x_0) &\leq 0\\
+			(x - x_0)^T D^2f(x_0)(x - x_0) &\leq 0
+		\end{align*}
+		Da cui, per la \fullref{def:def_semdef_pos_neg}, deriva che la $D^2f(z_0)$ è Semidefinita Negativa.
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$
+	\[
+		\left.
+			\begin{array}{c}
+				f \text{ \textbf{Differenziabile 2 volte} in } x_0\\
+				x_0 \text{ punto \textbf{di minimo} per } f
+			\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\nabla f(x_0) = 0\\
+			D^2f(x_0) = H_f(x_0) \text{ \textbf{Semidefinita Positiva}}
+		\end{cases}
+	\]
+	\begin{proof}
+		Applicare la \fullref{prop:pto_max_D2f_semdef_neg} a $-f$
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Esibire una funzione soddisfacente alla tesi della \fullref{prop:pto_max_D2f_semdef_neg}, ma non alle ipotesi.
+\end{exercise}
 
 \subsection{Condizioni Sufficienti}
-\proposition
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
-$f\in \cntclass{2}(A;R)$, $\nabla f(x_0)=0$,$H_f(X_0)$ è definita negativa $\Rightarrow x_0$ è un punto di massimo locale per $f$
-\begin{proof}
-	$f\in \cntclass{2}$ quindi possiamo scrivere:\\
-	$f(x_+h)-f(x_0)=\nabla f(x_0)h+\frac{1}{2}(h)^TH_f(x_0)+o(\norm{h}^2)$ per $h\rightarrow 0$\\
-	$f(x_+h)-f(x_0)=\frac{1}{2}(h)^TH_f(x_0)+o(\norm{h}^2)$ per $h\rightarrow 0$\\
-	Sappiamo che $H_f$ è definita negativa per ipotesi, allora $h^TH_f(x_0)h\le -m\norm{x_0}$ allora $f(x_0+h)-f(x_0)<0$ e quindi $x_0$ è punto di massimo locale per $f$.
-\end{proof} 
-\proposition
-sia $f:A\subseteq \R^n\rightarrow \R$ e $x_0\in\circdot{A}$.\\
-$f\in \cntclass{2}(A;R)$, $\nabla f(x_0)=0$,$H_f(X_0)$ è definita positiva $\Rightarrow x_0$ è un punto di minimo locale per $f$
-\begin{proof}
-	$f\in \cntclass{2}$ quindi possiamo scrivere:\\
-	$f(x_+h)-f(x_0)=\nabla f(x_0)h+\frac{1}{2}(h)^TH_f(x_0)+o(\norm{h}^2)$ per $h\rightarrow 0$\\
-	...........\\
-	...........\\
-\end{proof} 
-QUALCHE DISEGNO E SPIEGAZIONE.....
-\subsection{Il Significato Geometrico del Gradiente n=2 m=1}
-\definition
-Sia $A\subseteq \R^2$ e $f:A\rightarrow \R$\\
-La suferficie $z=f(x,y)$ è il grafico di $f$, è unsottoinsieme di $R^3$\\
-Se $c\in \R$, la curva di livello $c$ di $f$ è l'insieme $f^{-1}(c)\{(x,y)\in A: f(x,y)=c\}$\\
-Se $f$ 	'e differenziabile in $(x_0,y_0)\in\circdot{A}$ il piano tangente alla superficie $z=f(x,y)$ in $(x_0,y_0)$ ha equazione:\\
-\[z=f(x_0,y_0)+\nabla f(x_0,y_0)\begin{bmatrix}(x-x0)\\(y-y_0)\end{bmatrix}\] 
-\[z=f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+\partial_yf(x_0,y_0)(y-y_0)\]
-\observation
-geometricamente, il gradiente di una funzione indica la direzione di $R^n$ in cui si ha la massima variazione del valore di f, nel verso di incremento positivo di $f$,
-\observation 
-osservazione col grafico che al momento non faccio.
-\proposition
-Siano $A\subseteq \R^n, f:A\rightarrow \R$ differenziabile in $(x_0,y_0)\in \circdot{A}$, l'incremento di $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo quando $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda >0$ ed è minimo con $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda <0$
-\begin{proof}
-	so che posso approssimare la funzione quindi posso scrivere:\\
-	$f(x_0+h,y_0+k)-f(x_0,y_0)=\nabla f(x_0,y_0)\begin{bmatrix}h\\k\end{bmatrix}+o(\sqrt{h^2+k^2})$=
-	$=\norm{\nabla f(x_0,y_0)}\norm{\begin{bmatrix}h k\end{bmatrix}}cos(\theta)+o(\sqrt{h^2+k^2})$\\
-	dove $\theta$ è l'angolo tra $\nabla f(x_0,y_0)$ e $[h k]$ per $||[h k]||$ sufficientemente piccola, l'incremento $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo se $cos( \theta )=1$ ed è minimo se $cos(\theta )=-1$, da cui la tesi.\\ 
-\end{proof}
-\proposition
-siano $f\in \cntclass{1}(A;R)$ con $A\subseteq \R^2$ e $(x_0,y_0)\in\circdot{A}$ e $\nabla f(x_0,y_0)\ne 0$[cioè stazionario]. Allora $nabla f(x_0,y_0)$ è perpendicolare alla curva di livello passante per .....
-\observation
-un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al vettore tangente alla curva in quel punto.
-\begin{proof}
-	La curva di livello è $f(x,y)=f(x_0,y_0)$ cioè $f(x,y)-f(x_0,y_0)=0$, per trovare la tangente a questa curva è piu facile se si ha $y=\varphi(x)$\\
-	Usiamo quindi il teorema della funzione implicita, mi serve che $\partial_yf(x_0,y_0)\ne 0$, questa condizione non è assicurata dalle ipotesi, per ipotesi il gradiente è non nulla quindi almeno una delle due componenti è non nulla.\\
-	Inizio con il caso $\partial_yf(x_0,y_0)\ne 0$.\\
-	Il T.F.IMPL. assicura che :\\
-	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
-	$f(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \iff y=\varphi(x)$\\
-	La retta tangente in $x_0$ a $y=\varphi(x)$ è $y=y_0+\varphi'(x_0)(x-x_0)$\\
-	questo vuole dire che un vettore tangente a $y=\varphi(x)$ in $(x_0,y_0)$ è $\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix}$.\\
-	... calcolo il prodotto scalare\\
-	\[\nabla f(x_0,y_0)\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} = \begin{bmatrix}\partial_x f(x_0,y_0)&&\partial_y f(x_0,y_0)\end{bmatrix}\begin{bmatrix}1\\-\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}\end{bmatrix} =\] 
-	\[=\partial_x f(x_0,y_0) -\partial_y f(x_0,y_0)\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}=0\]
-	Allora il graadiente è perpendicolare alla curva di livello.\\
-	Guardiamo ora al caso in cui $\partial_yf(x_0,y_0)= 0$ e $\partial_xf(x_0,y_0)\ne 0$ quindi il gradiente è non nullo.\\
-	Applicando lo stesso ragionamento id sopra, solo esplicitando la $x$ in funzione della $y$. Quindi $x=\psi(x)$ e $\psi{'}(y_0)=-\frac{\partial_y f(x_0,y_0)}{\partial_x f(x_0,y_0)}$
-\end{proof}
+\begin{proposition}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$
+	\[
+		\left.
+			\begin{array}{c}
+				f \text{ \textbf{Differenziabile 2 volte} in } x_0\\
+				\nabla f(x_0) = 0\\
+				D^2f(x_0) = H_f(x_0) \text{ \textbf{Definita Negativa}}
+			\end{array}
+		\right\}
+		\implies
+		x_0 \text{ \textbf{punto di Massimo Locale} per } f
+	\]
+	\begin{proof}
+		Per un $h \in \R^n$ in intorno di $0$ e posto $x = x_0 + h$, sfruttando la \fullref{prop:svil_tay_2_peano} si ha:
+		\begin{align*}
+			f(x_0 + h) &= f(x_0) + Df(x_0)h + \frac{1}{2} h^T D^2f(x_0) h + o\left( \norm{h}^2 \right)\\
+			f(x_0 + h) - f(x_0) &= \nabla f(x_0)h + \frac{1}{2} h^T D^2f(x_0) h + o\left( \norm{h}^2 \right)
+			\shortintertext{Essendo però $\nabla f(x_0) = 0$ per ipotesi}
+			&= \frac{1}{2} \underbrace{h^T D^2f(x_0) h}_{\text{(1)}} + o\left( \norm{h}^2 \right)
+			\shortintertext{La (1) è una forma quadratica del tipo $q(h)$ con $D^2f(x_0)$ definita negativa per ipotesi. Dunque, applicando il \fullref{coro:form_quadr_def_neg_q_leq_-m} è possibile minorare con}
+			&\leq -\frac{1}{2} m \norm{h}^2 + o(\norm{h}^2)\\
+			&= \underbrace{\left( -\frac{1}{2} m + o(1) \right)}_{\leq 0} \underbrace{\norm{h}^2}_{\geq 0}\\
+			&\leq 0
+		\end{align*}
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$
+	\[
+		\left.
+			\begin{array}{c}
+				f \text{ \textbf{Differenziabile 2 volte} in } x_0\\
+				\nabla f(x_0) = 0\\
+				D^2f(x_0) = H_f(x_0) \text{ \textbf{Definita Positiva}}
+			\end{array}
+		\right\}
+		\implies
+		x_0 \text{ \textbf{punto di Minimo Locale} per } f
+	\]
+	\begin{proof}
+		Analoga alla precedente applicando \fullref{prop:form_quadr_def_pos_q_geq_m}.
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	Applicare, quando possibile, le proposizioni di questa sezione e della precdente alle seguenti funzioni, tutte definite su $\R^2$\\
+	\begin{minipage}{0.49\linewidth}
+		\begin{align*}
+			f(x,y) &= x^2 + y^2\\
+			f(x,y) &= -x^2 + y^2\\
+			f(x,y) &= x^4 + y^4\\
+			f(x,y) &= -x^4 - y^4\\
+			f(x,y) &= \abs{x} + y^2
+		\end{align*}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\begin{align*}
+			f(x,y) &= x^2 - y^2\\
+			f(x,y) &= -x^2 - y^2\\
+			f(x,y) &= x^4 + y^3\\
+			f(x,y) &= x^2 - y^2\\
+			f(x,y) &= -x \abs{x} - y^3
+		\end{align*}
+	\end{minipage}
+	% TODO solution
+\end{exercise}
 
 \newpage
 \section{Massimi e Minimi Vincolati}
@@ -2131,9 +2395,76 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 \proposition{Teorema dei Moltiplicatori di Lagrange caso generale}
 Sia $A\in \R^n$, $f\in \cntclass{1}(A;R)$, $g\in \cntclass{1}(A;R^p)$ con $p<n$(n.vincoli<n.variabili), sia poi $x_0\in\circdot{A}, g(x_0)=0, Dg (x_0,y_0)$ di rango $p$.\\
 Se $x_0$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda_1,\ldots,\lambda_p in \R$ t.c: $\nabla f(x_0,y_0) = \sum\limits_{i=1}^{p}\lambda_i\nabla g(x_0,y_0)$\\
+
 \newpage
 \section{Il Caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
-%TODO This section is a placeholder
+
+
+\subsection{Il Significato Geometrico del Gradiente} % TODO sistemare la frase sotto e integrare la subsection più in basso.
+Come detto in \fullref{ex:max_min_lib_funz_in_R}, tutte le funzioni tratte in questo capitolo sono a valori in $\R$, dunque si avrà $Df = \nabla f \in \mat(1 \times n)$ da \fullref{obs:matr_deriv_tot}. In questo paragrafo si vedrà graficamente come il gradiente si comporta rispetto alla funzione.
+\begin{proposition}[Significato del Gradiente] % TODO rivedere l'enunciato dal libro
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$, $f: A \to \R$ con $f$ \textbf{Differenziabile} in $x_0$, allora:\\
+	$\nabla f(x_0)$ è un vettore \textbf{diretto} verso la direzione di \textbf{massima pendenza}, "verso l'alto."
+	\begin{proof}
+		Posto $x = x_0 + h$, applicando alla $f$ il \fullref{teo:taylor} con il \fullref{def:resto_peano} e fermandosi al primo ordine, si ottiene:
+		\begin{equation}
+			\label{eq:sign_grad}
+			f(x_0 + h) = f(x_0) + \nabla f(x_0) h + o(h) \qquad \text{ per } h \to 0
+		\end{equation}
+		Se $x = x_0 + h$, allora $h = x - x_0 = \begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}$, quindi
+		\[f(x, y) - f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \begin{bmatrix}x - x_0\\y - y_0\end{bmatrix} + o \left(\begin{bmatrix}x - x_0\\y - y_0\end{bmatrix} \right) \qquad \text{ per } (x, y) \to (x_0, y_0)\]
+		Il $\;\cdot\;$ della precedente formula è un prodotto righe per colonne, però, essendo alla ricerca di un massimo, conviene considerarlo come un prodotto scalare tra due vettori. Il risultato del prodotto scalare è infatti un valore in $\R$, campo ordinabile. Dunque, posto $\theta$ angolo tra i due vettori:
+		\[\norm{\nabla f(x_0, y_0)} \norm{\begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}} \cos(\theta)\]
+		Il $\theta$ che massimizza questo prodotto è sicuramente $0$, in quanto $\cos(0) = 1$.\\
+		$\nabla f$ dipende direttamente dalla $f$, dunque la sua direzione è data ed inalterabile. D'altro canto $\begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}$ è un vettore a scelta, dunque la sua direzione è variabile. È possibile allora modificare $\theta$ modificando la direzione di quest'ultimo vettore finché non sarà parallelo al gradiente, portando $\theta$ a $0$.
+
+		Si è così dimostrato che l'incremento $f(x_0 + h) - f(x_0)$ da \cref{eq:sign_grad} è massimo quando $h$ ha la direzione del gradiente; dunque il gradiente deve avere direzione e verso del massimo incremento.
+		% TODO disegno
+	\end{proof}
+\end{proposition}
+
+% TODO Questa sezione è stata copia-incollata qui da sopra e va integrata con quanto già scritto e quanto presente sul libro
+\subsection{Il Significato Geometrico del Gradiente n=2 m=1}
+\definition
+Sia $A\subseteq \R^2$ e $f:A\rightarrow \R$\\
+La suferficie $z=f(x,y)$ è il grafico di $f$, è unsottoinsieme di $R^3$\\
+Se $c\in \R$, la curva di livello $c$ di $f$ è l'insieme $f^{-1}(c)\{(x,y)\in A: f(x,y)=c\}$\\
+Se $f$ 	'e differenziabile in $(x_0,y_0)\in\circdot{A}$ il piano tangente alla superficie $z=f(x,y)$ in $(x_0,y_0)$ ha equazione:\\
+\[z=f(x_0,y_0)+\nabla f(x_0,y_0)\begin{bmatrix}(x-x0)\\(y-y_0)\end{bmatrix}\]
+\[z=f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+\partial_yf(x_0,y_0)(y-y_0)\]
+\observation
+geometricamente, il gradiente di una funzione indica la direzione di $R^n$ in cui si ha la massima variazione del valore di f, nel verso di incremento positivo di $f$,
+\observation
+osservazione col grafico che al momento non faccio.
+\proposition
+Siano $A\subseteq \R^n, f:A\rightarrow \R$ differenziabile in $(x_0,y_0)\in \circdot{A}$, l'incremento di $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo quando $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda >0$ ed è minimo con $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda <0$
+\begin{proof}
+	so che posso approssimare la funzione quindi posso scrivere:\\
+	$f(x_0+h,y_0+k)-f(x_0,y_0)=\nabla f(x_0,y_0)\begin{bmatrix}h\\k\end{bmatrix}+o(\sqrt{h^2+k^2})$=
+	$=\norm{\nabla f(x_0,y_0)}\norm{\begin{bmatrix}h k\end{bmatrix}}cos(\theta)+o(\sqrt{h^2+k^2})$\\
+	dove $\theta$ è l'angolo tra $\nabla f(x_0,y_0)$ e $[h k]$ per $||[h k]||$ sufficientemente piccola, l'incremento $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo se $cos( \theta )=1$ ed è minimo se $cos(\theta )=-1$, da cui la tesi.\\
+\end{proof}
+\proposition
+siano $f\in \cntclass{1}(A;R)$ con $A\subseteq \R^2$ e $(x_0,y_0)\in\circdot{A}$ e $\nabla f(x_0,y_0)\ne 0$[cioè stazionario]. Allora $nabla f(x_0,y_0)$ è perpendicolare alla curva di livello passante per .....
+\observation
+un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al vettore tangente alla curva in quel punto.
+\begin{proof}
+	La curva di livello è $f(x,y)=f(x_0,y_0)$ cioè $f(x,y)-f(x_0,y_0)=0$, per trovare la tangente a questa curva è piu facile se si ha $y=\varphi(x)$\\
+	Usiamo quindi il teorema della funzione implicita, mi serve che $\partial_yf(x_0,y_0)\ne 0$, questa condizione non è assicurata dalle ipotesi, per ipotesi il gradiente è non nulla quindi almeno una delle due componenti è non nulla.\\
+	Inizio con il caso $\partial_yf(x_0,y_0)\ne 0$.\\
+	Il T.F.IMPL. assicura che :\\
+	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
+	$f(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \iff y=\varphi(x)$\\
+	La retta tangente in $x_0$ a $y=\varphi(x)$ è $y=y_0+\varphi'(x_0)(x-x_0)$\\
+	questo vuole dire che un vettore tangente a $y=\varphi(x)$ in $(x_0,y_0)$ è $\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix}$.\\
+	... calcolo il prodotto scalare\\
+	\[\nabla f(x_0,y_0)\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} = \begin{bmatrix}\partial_x f(x_0,y_0)&&\partial_y f(x_0,y_0)\end{bmatrix}\begin{bmatrix}1\\-\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}\end{bmatrix} =\]
+	\[=\partial_x f(x_0,y_0) -\partial_y f(x_0,y_0)\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}=0\]
+	Allora il graadiente è perpendicolare alla curva di livello.\\
+	Guardiamo ora al caso in cui $\partial_yf(x_0,y_0)= 0$ e $\partial_xf(x_0,y_0)\ne 0$ quindi il gradiente è non nullo.\\
+	Applicando lo stesso ragionamento id sopra, solo esplicitando la $x$ in funzione della $y$. Quindi $x=\psi(x)$ e $\psi{'}(y_0)=-\frac{\partial_y f(x_0,y_0)}{\partial_x f(x_0,y_0)}$
+\end{proof}
+
 \newpage
 \section{Derivate e Integrali}
 \begin{proposition}[Teorema Fondamentale del Calcolo Integrale]
@@ -2161,8 +2492,7 @@ $\begin{array}{rcl} F: A & \to & \R \\ (x) & \to & \int_{\alpha(x)}^{\beta(x)}f(
 \[\nabla F(x_0,y_0)=f(x_0,\beta)\nabla\beta(x_0)-f(x_0,\alpha)\nabla\alpha(x_0)+\int_{\alpha(x_0)}^{\beta(x_0)}\nabla f(x,t)\integrald{t}\]
 
 \newpage
-\section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}
-\label{sec:fun_in_C}
+\section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}\label{sect:fun_in_C}
 Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \mapsto \C$ può essere identificata in modo naturale con una funzione $A \mapsto \R^2$ e viceversa.ù
 \begin{note}
 	Quindi è possibile rappresentare una funzione $A \mapsto \C$ in un piano, detto \textbf{piano complesso} o \textbf{piano di Gauss}

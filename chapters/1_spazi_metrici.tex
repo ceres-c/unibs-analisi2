@@ -162,7 +162,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\end{tikzpicture}
 			\end{center}
 			\begin{enumerate}[label=\arabic*.]
-				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\intervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\intervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{teo:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
+				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\intervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\intervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{ex:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
 				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
 				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
@@ -170,7 +170,7 @@ Unendo le due definizioni si giunge naturalmente a
 					Applicando il sup la disuguaglianza resta vera.
 			\end{enumerate}
 			\begin{note}
-				Si sottolinea che queste conclusioni sono valide finché $\intervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{teo:weier_analisi_1} necessario per il punto 1. % TODO Serve un controesempio
+				Si sottolinea che queste conclusioni sono valide finché $\intervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{ex:weier_analisi_1} necessario per il punto 1. % TODO Serve un controesempio
 			\end{note}
 		\item $X=\R^2$, $d$ distanza Euclidea e $P$ punto arbitrario\newline
 			$\quad d_P(x,y)=
@@ -214,7 +214,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\item $\norm{x} \geq 0 \quad \forall x\in V$
 		\item $\norm{x}=0 \iff x = 0 \quad \forall x\in V$
 		\item $\norm{x+y} \leq \norm{x}+\norm{y} \quad \forall x,y\in V$
-		\item $\norm{\lambda x} = \abs{\lambda} \cdot \norm{x} \quad \forall x\in V,\lambda\in\mathbb{K}$
+		\item \label{itm:norm_lambda} $\norm{\lambda x} = \abs{\lambda} \cdot \norm{x} \quad \forall x\in V,\lambda\in\mathbb{K}$
 	\end{enumerate}
 	\begin{note}
 		La funzione Norma associa dunque ad un vettore di qualsiasi dimensione uno scalare, fornendo (anche) una metrica per ordinare vettori tra loro.
@@ -332,15 +332,15 @@ Unendo le due definizioni si giunge naturalmente a
 	\label{def:pti_e_spa_metr}
 	Siano $(X,d)$ uno Spazio Metrico, $A \subseteq X$ e $x_0 \in X$:
 	\begin{itemize}
-		\item $x_0$ \textbf{Interno} ad $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \subseteq A$\newline
+		\item \makebox[14em][l]{$x_0$ \textbf{Interno} ad $A$} $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \subseteq A$\newline
 			{\footnotesize Cioè è possibile individuare una sfera interamente contenuta in $A$}
-		\item $x_0$ \textbf{Esterno} ad $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \subseteq X \setminus A$\newline
+		\item \makebox[14em][l]{$x_0$ \textbf{Esterno} ad $A$} $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \subseteq X \setminus A$\newline
 			{\footnotesize Cioè è possibile individuare una sfera interamente contenuta in $X$ e NON in $A$}
-		\item $x_0$ \textbf{di Frontiera} per $A$ \quad $\bydef$ \quad $\forall r > 0,\; B(x_0, r) \nsubseteq A \text{ e } B(x_0, r) \nsubseteq X \setminus A$\newline
+		\item \makebox[14em][l]{$x_0$ \textbf{di Frontiera} per $A$} $\bydef$ \quad $\forall r > 0,\; B(x_0, r) \nsubseteq A \text{ e } B(x_0, r) \nsubseteq X \setminus A$\newline
 			{\footnotesize Cioè, per qualsiasi $r$, la sfera non appartiene completamente né ad $A$, né a $X \setminus A$}
-		\item $x_0$ \textbf{Isolato} per $A$ \quad $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$\newline
+		\item \makebox[14em][l]{$x_0$ \textbf{Isolato} per $A$} $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$\newline
 			{\footnotesize Cioè è possible trovare un $r$ per cui l'intersezione tra la sfera ed $A$ contiene solo $x_0$ (Esempio: i numeri naturali con $r = 0,5$)}
-		\item $x_0$ \textbf{di Accumulazione} per $A$ \quad $\bydef$ \quad $\forall r > 0,\; \bigl( B(x_0, r) \cap A \bigr) \setminus \brackets{x_0} \neq \emptyset$\newline
+		\item \makebox[14em][l]{$x_0$ \textbf{di Accumulazione} per $A$} $\bydef$ \quad $\forall r > 0,\; \bigl( B(x_0, r) \cap A \bigr) \setminus \brackets{x_0} \neq \emptyset$\newline
 			{\footnotesize Cioè, per qualsiasi $r$, l'intersezione tra la sfera ed $A$ è sempre non vuota (non considerando $x_0$ stesso)}
 	\end{itemize}
 \end{definition}
@@ -922,8 +922,12 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		Questa è la definizione di \textbf{Compattezza per Successioni}, in spazi più generali può essere necessario utilizzare una definizione più debole che, nel caso degli spazi metrici, coincide con la precedente.
 	\end{note}
 \end{definition}
-\begin{proposition}
+\begin{proposition}~
 	\label{prop:compat_chius_lim}
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Questo teorema è anche noto come \textit{Teorema di Heine-Borel}
+	\end{note}
 	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$
 	\[A \text{ \textbf{compatto}} \implies A \text{ \textbf{chiuso e limitato}}\]
 	\begin{proof}
@@ -1050,7 +1054,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 			\forall \varepsilon > 0,\; \exists \delta > 0:\; \forall x \in A \text{ con } d_X(x,x_0) < \delta \text{ e } x \neq x_0 \text{ vale } d_Y(f(x),l)<\varepsilon
 		\end{gathered}
 	\end{equation*}
-	Che si legge \textit{il limite per $x$ tendente a $x_0$ di $f(x)$ converge a $l$ per $x$ tendente a $x_0$}.
+	Che si legge \textit{il limite per $x$ tendente a $x_0$ di $f(x)$ converge a $l$}.
 \end{definition}
 \begin{exercise}
 	Sarebbe comodo definire
@@ -1430,14 +1434,17 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{theorem}
 \begin{exercise}[Teorema di Weierstrass - Analisi 1]
-	\label{teo:weier_analisi_1}
+	\label{ex:weier_analisi_1}
 	Cosa c'entra il \fullref{teo:weier_generale} con il "vecchio" Teorema di Weierstrass di Analisi 1?
 	\begin{solution}
-		Considerando il caso $X = \R$, $Y = \R$ (ma le stesse considerazioni valgono anche per $\R^n$) si ottiene
+		\begin{note}
+			$Y$ deve necessariamente essere in $\R^1$, perché, per individuare $\sup$ ed $\inf$, è necessario che l'insieme sia ordinabile.
+		\end{note}
+		Considerando il caso $X \subseteq \R^n$, $Y \subseteq \R$ si ottiene:
 		\begin{center}
 			$f:K \mapsto f(K)$ con $f(K)$ compatto.
 		\end{center}
-		Il fatto che $f(K)$ sia compatto sia compatto implica, in $\R^n$, che sia \textbf{Chiuso} e \textbf{Limitato} per \fullref{prop:compat_chius_lim}.
+		Il fatto che $f(K) \subseteq \R$ sia compatto, implica che sia \textbf{Chiuso} e \textbf{Limitato} per \fullref{prop:compat_chius_lim}
 		\begin{itemize}
 			\item Essendo limitato, per certo $\exists \sup \in \R \neq \infty$ e $\exists \inf \in \R \neq \infty$
 			\item Essendo chiuso, sicuramente $\sup = \max$ e $\inf = \min$

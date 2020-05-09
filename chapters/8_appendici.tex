@@ -1,0 +1,301 @@
+\renewcommand{\thesection}{\Alph{section}} % Using letters for appendix sections
+\begin{appendices}
+\section{Forme Quadratiche}\label{sect:for_quadr}
+In questa sezione saranno riportati solo i risultati più importanti sulle forme quadratiche, quelli necessari alla ricerca di punti estremanti di funzioni a più variabili. Nel dettaglio, si vedrà come stabilire il segno di una forma quadratica.
+
+Per un'esposizione dettagliata e completa si rimanda ad un libro di Algebra Lineare.
+
+\begin{definition}[Forma Quadratica]
+	\label{def:form_quadr}
+	\textbf{Forma Quadratica} su $\R^n$ è una funzione del tipo
+	\[\funcdef{q}{\R^n}{\R}{x}{x^T Q \: x}\]
+	Dove:
+	\begin{itemize}[noitemsep]
+		\item $x^T \in \mat(1 \times n)$ è vettore riga trasposto del vettore colonna $x \in \mat(n \times 1)$
+		\item $Q \in \mat(n \times n)$
+	\end{itemize}
+
+	\noindent Inoltre, per come è definito il prodotto righe per colonne, la $q$ può essere riscritta come
+	\[q(x) = \sum\limits_{i, j = 1}^{n} q_{ij}\:x_i\:x_j\]
+	con $q_{ij}$ elemento nella riga $i$ e nella colonna $j$ della matrice $Q$.
+\end{definition}
+\begin{exercise}
+	Dimostrare che $q$ è una forma quadratica su $\R^n$ se e solo se $q(x)$ è un polinomio omogeneo di grado $2$ in funzione di $x$
+	\begin{solution}
+		Direttamente dalla \fullref{def:form_quadr} in forma di sommatoria, si ha un polinomio di grado $2$ nelle variabili $x_1, \;\dotsc\;, x_n$
+		\[\sum\limits_{i, j = 1}^{n} q_{ij}\:x_i\:x_j \quad = \quad q_{11}x_1^2 + q_{12}x_1x_2 + \cdots q_{nn}x_n^2\]
+	\end{solution}
+\end{exercise}
+\begin{proposition}
+	\label{prop:proprieta_form_quadr}
+	Sia $q$ forma quadratica su $\R^n$, allora:
+	\begin{enumerate}
+		\item \label{itm:form_quadr_lambda} $\forall \lambda \in \R,\; \forall x \in \R^n$ vale $q(\lambda x) = \lambda^2 q(x)$
+		\item $q(0) = 0$
+		\item $q$ è \textbf{limitata} $\implies$ $q$ è \textbf{identicamente nulla} (cioè $q(x) = 0 \; \forall x \in \R^n$)
+	\end{enumerate}
+	\begin{proof}\hfill
+		\begin{enumerate}
+			\item $q(\lambda x) = (\lambda x)^T Q \: (\lambda x) = \lambda^2 x^T Q \: x = \lambda^2 q(x)$
+			\item $q(0) = q(0 \cdot 0)$, prendendo poi dal punto precedente, $q(0 \cdot 0) = 0^2 \; q(0) = 0$
+			\item Si dimostra la contronominale (cioè la negazione dell'implicazione inversa)\\
+				$q$ non identicamente nulla $\implies \exists x \in \R^n:\; q(x) \neq 0 \implies \forall \lambda \in \R \quad q(\lambda x) = \lambda^2 q(x) \implies q$ non limitata
+		\end{enumerate}
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	\label{prop:form_quadr_M}
+	Data $q$ forma quadratica su $\R^n$, allora esiste una costante $M$ tale che
+	\[\forall x \in \R^n \qquad \abs{q(x)} \leq M \norm{x}^2\]
+	\begin{proof}
+		Grazie al punto \ref{itm:form_quadr_lambda} della \fullref{prop:proprieta_form_quadr}, si sa che
+		\begin{equation}
+			\label{eq:form_quadr_M}
+			\abs{q(x)} = \abs{q \left( \norm{x} \frac{x}{\norm{x}} \right)} = \norm{x}^2 \; \abs{q \left( \frac{x}{\norm{x}} \right)}
+		\end{equation}
+		$\frac{x}{\norm{x}}$ è il \textbf{Versore} di $x$ (il vettore direzione con norma $= 1$) quindi, $\forall x \in \R^n$, si sta lavorando soltanto sui punti appartenenti a $\partial B(0,1)$: la frontiera della sfera di raggio $1$.\\
+		Sia dunque $M = \max\limits_{\partial B(0,1)} q(x)$. $\partial B(0,1)$ è un compatto, essendo insieme chiuso e limitato in $\R^n$ (vedasi \fullref{prop:compat_chius_lim}). Grazie alla regolarità di $q$ ed alla compattezza di $\partial B(0,1)$, si può applicare l'\fullref{ex:weier_analisi_1} ed avere la certezza dell'esistenza di un $M$ finito.\\
+		Verificata l'esistenza di $M$, massimo sulla $\partial B(0,1)$, è sicuramente possibile minorare l'ultimo termine di \cref{eq:form_quadr_M} ed ottenere la tesi
+		\[\abs{q(x)} = \norm{x}^2 \; \abs{q \left( \frac{x}{\norm{x}} \right)} \leq M \norm{x}^2\]
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	Data $q$ forma quadratica su $\R^n$, allora:
+	\[\forall \alpha \in \intervalclop{0}{2} \qquad q(x) = o(\norm{x}^\alpha) \text{ per } x \to 0\]
+	\begin{proof}
+		Immediata dalla \fullref{prop:form_quadr_M} perché si ha già dimostrato che esista un certo $M$ per cui $q(x) \leq M \norm{x}^2$. Basta applicare la \fullref{def:o_piccolo} a $x \to 0$ per arrivare alla tesi.
+	\end{proof}
+\end{corollary}
+\begin{proposition}
+	Data $q$ forma quadratica su $\R^n$, allora:
+	\[\abs{q(x)} = o(\norm{x}^2) \text{ per } x \to 0 \quad \iff \quad q(x) = 0 \qquad \forall x \in \R^n\]
+	\begin{proof}~
+		\begin{itemize}
+			\item[$\implies$] Sia $x \in \R^n$ con $\norm{x} = 1$ (quindi $x$ \textbf{Versore}). Si applica la \fullref{def:o_piccolo}
+				\begin{align*}
+					0 &= \lim\limits_{t \to 0} \frac{\norm{q(tx)}}{\norm{tx}^2}\\
+					\shortintertext{Essendo $q(tx) \in \R$, la norma corrisponde al valore assoluto}
+					&= \lim\limits_{t \to 0} \frac{\abs{q(tx)}}{\norm{tx}^2}
+					\shortintertext{Utilizzando il punto \ref{itm:form_quadr_lambda} della \fullref{prop:proprieta_form_quadr} e la proprietà \ref{itm:norm_lambda} da \fullref{def:norma}}
+					&= \lim\limits_{t \to 0} \frac{\abs{t^2 q(x)}}{\abs{t}^2 \norm{x}^2}
+					 = \lim\limits_{t \to 0} \frac{\abs{t^2} \abs{q(x)}}{\abs{t}^2 \norm{x}^2}
+					 = \frac{\abs{q(x)}}{\norm{x}^2} \; \lim\limits_{t \to 0} \frac{t^2}{t^2}
+					 = \frac{\abs{q(x)}}{\norm{x}^2}
+					\shortintertext{Essendo per ipotesi $\norm{x} = 1$}
+					&= \abs{q(x)}
+				\end{align*}
+				Ma, avendo un valore assoluto $= 0$, è sicuramente vero che
+				\[0 = \abs{q(x)} = q(x)\]
+				Da cui la tesi
+			\item[$\impliedby$] Immediatamente applicando la \fullref{def:o_piccolo}, in quanto si avrebbe
+				\[\lim\limits_{x \to x_0} \frac{\norm{q(x)}}{\norm{x}^2} = \lim\limits_{x \to x_0} \frac{0}{\norm{x}^2} = 0\]
+		\end{itemize}
+	\end{proof}
+\end{proposition}
+\begin{definition}
+	\label{def:def_semdef_pos_neg}
+	Data $q$ forma quadratica su $\R^n$ individuata dalla matrice $Q$, allora $q$ è:
+	\begin{itemize}
+		\item \makebox[11em][l]{\textbf{Definita Positiva}} \makebox[15em][l]{$\quad \bydef \quad \forall x \in \R, x \neq 0 \quad q(x) > 0$} $\bydef \quad Q > 0$
+		\item \makebox[11em][l]{\textbf{Semidefinita Positiva}} \makebox[15em][l]{$\quad \bydef \quad \forall x \in \R \quad q(x) \geq 0$} $\bydef \quad Q \geq 0$
+		\item \makebox[11em][l]{\textbf{Definita Negativa}} \makebox[15em][l]{$\quad \bydef \quad \forall x \in \R, x \neq 0 \quad q(x) < 0$} $\bydef \quad Q < 0$
+		\item \makebox[11em][l]{\textbf{Semidefinita Negativa}} \makebox[15em][l]{$\quad \bydef \quad \forall x \in \R \quad q(x) \leq 0$} $\bydef \quad Q \leq 0$
+	\end{itemize}
+	\begin{note}
+		La definizione più a destra, quella che utilizza i segni $\gtrless$, è sconsigliabile in quanto fuorviante: non esiste relazione d'ordine tra matrici.
+	\end{note}
+\end{definition}
+\begin{exercise}
+	Esibire un esempio di forma quadratica su $\R^2$ per ognuno dei tipi sopra definiti.\\
+	Esibire un esempio di forma quadratica su $\R^2$ non definita.
+	\begin{solution}~
+		\begin{enumerate}
+			\item Semidefinita positiva
+				\[ Q =
+					\begin{bmatrix}
+						2 & 0\\
+						0 & 3
+					\end{bmatrix}
+					\qquad
+					q(x,y) = 2x^2 + 3y^2
+				\]
+			\item Definita positiva
+				\[ Q =
+					\begin{bmatrix}
+						1 & -1\\
+						-1 & 3
+					\end{bmatrix}
+					\qquad
+					q(x,y) = x^2 - 2xy + 3y^2
+				\]
+				\[\left( \frac{x}{y} \right)^2 - 2\left( \frac{x}{y} \right) + 3 > 0\]
+			\item Semidefinita negativa
+				\[ Q =
+					\begin{bmatrix}
+						-3 & 0\\
+						0 & 0
+					\end{bmatrix}
+					\qquad
+					q(x,y) = -3x^2
+				\]
+			\item Definita negativa
+				\[ Q =
+					\begin{bmatrix}
+						-1 & \sqrt{2}\\
+						\sqrt{2} & -2
+					\end{bmatrix}
+					\qquad
+					q(x,y) = -x^2 + 2\sqrt{2}xy - 2y^2
+				\]
+			\item Nè definita nè semidefinita
+				\[ Q =
+					\begin{bmatrix}
+						1 & 0\\
+						0 & -1
+					\end{bmatrix}
+					\qquad
+					q(x,y) = x^2 - y^2
+				\]
+				\[q(1,0) = 1 \qquad\qquad q(0,1) = -1\]
+		\end{enumerate}
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	In $\mat (n \times n)$, sia definita la relazione d'ordine $>$ da
+	\[M_1 > M_2 \quad \bydef \quad M_1 - M_2 > 0\]
+	La relazione $>$ è una relazione di ordine totale?
+	% TODO solution
+\end{exercise}
+\begin{proposition}
+	\label{prop:form_quadr_def_pos_q_geq_m}
+	Data $q$ forma quadratica su $\R^n$, allora:
+	\[
+		q \text{ \textbf{Definita Positiva}} \quad \iff \quad \exists m > 0:\; \forall x \in \R^n \quad q(x) \geq m \norm{x}^2
+	\]
+
+	\begin{proof}~
+		\begin{itemize}
+			\item[$\implies$] Si procede con un procedimento analogo a quello della \fullref{prop:form_quadr_M}.\\
+				Grazie al punto \ref{itm:form_quadr_lambda} della \fullref{prop:proprieta_form_quadr}, si sa che
+				\begin{equation}
+					\label{eq:form_quadr_def_pos}
+					q(x) = q \left( \norm{x} \frac{x}{\norm{x}} \right) = \norm{x}^2 \; q \left( \frac{x}{\norm{x}} \right)
+				\end{equation}
+				Per gli stessi motivi dell'altra dimostrazione, si può porre $m = \min\limits_{\partial B(0,1)} q(x)$ ed avere la certezza che esista finito. Inoltre, sicuramente $m \geq 0$ perché $q$ è definita positiva per ipotesi.\\
+				È dunque sicuramente possibile maggiorare l'ultimo termine di \cref{eq:form_quadr_def_pos} ed ottenere la tesi
+				\[q(x) = \norm{x}^2 \; q \left( \frac{x}{\norm{x}} \right) \geq m \norm{x}^2\]
+			\item[$\impliedby$] Immediata.
+		\end{itemize}
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	\label{coro:form_quadr_def_neg_q_leq_-m}
+	Data $q$ forma quadratica su $\R^n$, allora:
+	\[
+		q \text{ \textbf{Definita Negativa}} \quad \iff \quad \exists m > 0:\; \forall x \in \R^n \quad q(x) \leq -m \norm{x}^2
+	\]
+	\begin{proof}
+		Analoga alla precedente
+	\end{proof}
+\end{corollary}
+
+\vspace*{\baselineskip}
+Grazie alle seguenti proposizioni viene fornito metodo più rapido per verificare la definizione/semidefinizione delle forme quadratiche.
+\begin{proposition}[Ortogonalizzazione di Gram-Schmidt]
+	\label{prop:gram_schm}
+	Data $q$ forma quadratica \textbf{definita positiva} o \textbf{negativa} su $\R^n$ con matrice \textbf{simmetrica} $Q$.\\
+	Esiste un sistema di coordinate in cui la matrice $\tilde{Q}$ di $q$ è diagonale ed ha come coefficienti
+	\[Q_1 \qquad \frac{\det Q_2}{\det Q_1} \qquad \frac{\det Q_3}{\det Q_2} \qquad \dotsc \qquad \frac{\det Q_n}{\det Q_{n-1}}\]
+	dove $Q_i$ è la matrice costituita dalle prime $i$ righe ed $i$ colonne di $Q$ ("come negli orlati").
+	\begin{note}
+		Non è necessario conoscere il sistema di coordinate in cui è valida l'uguaglianza, ai fini dello studio di una Forma Quadratica è sufficiente sapere che esso esiste e che l'uguaglianza è valida.
+	\end{note}
+	\begin{center}
+		\begin{tikzpicture} [
+			nodes = {anchor=center}
+		]
+			\matrix (Q) [
+				matrix of math nodes,
+				left delimiter = {[}, right delimiter = {]},
+				nodes in empty cells,
+				minimum width = 2.5em, minimum height = 2.5em
+			]{
+			Q_1 &	&	&	\\
+				& Q_2 &	&	\\
+				&	& \ddots &\\
+				&	&	& Q_n\\
+			};
+
+			\draw[dashed] (Q-1-1.south west) -- (Q-1-1.south east);
+			\draw[dashed] (Q-1-1.south east) -- (Q-1-1.north east);
+			\draw[dashed] (Q-2-1.south west) -- (Q-2-2.south east);
+			\draw[dashed] (Q-2-2.south east) -- (Q-1-2.north east);
+			\draw[dashed] (Q-3-1.south west) -- (Q-3-3.south east);
+			\draw[dashed] (Q-3-3.south east) -- (Q-1-3.north east);
+
+			\node at ([xshift=2.5em] Q.east) {$=$};
+
+			\matrix at ([xshift=12em] Q.east) [
+				matrix of math nodes,
+				left delimiter = {[}, right delimiter = {]},
+				nodes in empty cells,
+				minimum width = 2.5em, minimum height = 2.5em
+			]{
+			\det Q_1 &	&	&	\\
+				& \frac{\det Q_2}{\det Q_1} &	&	\\
+				&	& \ddots &\\
+				&	&	& \frac{\det Q_n}{\det Q_{n-1}}\\
+			};
+		\end{tikzpicture}
+	\end{center}
+	\begin{proof}
+		Omessa.
+	\end{proof}
+	\begin{note}
+		Questa enunciazione dell'ortogonalizzazione di Gram-Schmidt sembra privilegiare le sottomatrici costituite dalle prime righe e dalle prime colonne. È però possibile enunciare una versione di questa proposizione in cui tutte le sottomatrici quadrate costruite attorno alla diagonale hanno gli stessi \textit{privilegi}.
+	\end{note}
+\end{proposition}
+\begin{observation}
+	Nella \fullref{prop:gram_schm}, l'ipotesi che $q$ sia definita assicura che le diverse $Q_i$ per $i = 1,\:\dotsc\:,n$ siano non nulle.\\
+	Nel caso in cui $q$ non fosse definita sarebbe ancora possibile diagonalizzare $q$ ottenendo una matrice diagonale con gli "ultimi" elementi della diagonale nulli.
+\end{observation}
+\begin{corollary}
+	\label{coro:def_pos_neg_segni_Q}
+	Data $q$ forma quadratica su $\R^n$ con matrice \textbf{simmetrica} $Q$.
+	\begin{align*}
+		Q \text{ Definita Positiva }
+		\quad &\iff \quad
+		\begin{cases}
+			q_1 > 0\\
+			\det Q_2 > 0\\
+			\det Q_3 > 0\\
+			\vdots\\
+			\det Q_n > 0
+		\end{cases}\\
+		Q \text{ Definita Negativa }
+		\quad &\iff \quad
+		\begin{cases}
+			-q_1 > 0\\
+			\det Q_2 > 0\\
+			-\det Q_3 > 0\\
+			\vdots\\
+			(-1)^n \; \det Q_n > 0
+		\end{cases}
+	\end{align*}
+	dove $Q_i$ è la matrice costituita dalle prime $i$ righe ed $i$ colonne di $Q$ ("come negli orlati").
+
+	Cioè se tutte le sottomatrici hanno determinante positivo, allora la $Q$ è Definita Positiva. Se invece i determinanti hanno segni alternati (partendo da una negativa), allora è Definita Negativa.
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	Dimostrare il \fullref{coro:def_pos_neg_segni_Q}. Suggerimento: applicare la \fullref{prop:gram_schm}.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Enunciare il \fullref{coro:def_pos_neg_segni_Q} nel caso $n = 2$ e verificarlo con i metodi dell'algebra elementare.\\
+	Suggerimento: utilizzare la regola per determinare il segno di un polinomio di secondo grado.
+	% TODO solution
+\end{exercise}
+\end{appendices}

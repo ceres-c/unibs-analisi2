@@ -5,26 +5,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[left = 2cm, right = 2cm, bottom = 3cm]{geometry}
 \usepackage{babel}
+\usepackage[toc,page]{appendix}
 \usepackage{enumitem}
 \usepackage{amsthm,amssymb}
 \usepackage[makeroom]{cancel} % Used for cancelled math formulas
 \usepackage{xcolor}
-\usepackage[pdfencoding=auto]{hyperref}
 \usepackage{mathtools,thmtools}
 \usepackage{shellesc} % Used to embed TikZ external with LuaLaTeX
 \usepackage{tikz}
-\usetikzlibrary{external}
+\usetikzlibrary{external,matrix,fit}
 \tikzexternalize[prefix=build/]
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.7}
+\pgfplotsset{compat=1.16}
 \usepgfplotslibrary{fillbetween}
 \usepackage{float} % Used for precise placement of floating figures
 \usepackage{accents}
-\usepackage[capitalise]{cleveref}
 \usepackage{graphicx}
 \usepackage{subcaption} % Used to put multiple subfigures inside the same figure env
 \usepackage[type={CC},modifier={by-nc-sa},version={4.0}]{doclicense}
 \usepackage[stretch=10]{microtype} % Better impagination due to micro font shrinking and stretching
+\usepackage[pdfencoding=auto]{hyperref} % Hyperref has to be the latest loaded package
+\usepackage[capitalise]{cleveref} % Except for cleverref, which requires hyperref
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Content formatting and theorem numbering rules  %
@@ -135,3 +136,12 @@
 				&		&	{#4}	& \mapsto	& {#5} \\
 	\end{array}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              Translation settings               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addto{\captionsitalian}{\renewcommand{\appendixpagename}{Appendici}}
+\addto{\captionsitalian}{\renewcommand{\appendixtocname}{Appendici}}
+% Due to the above renews, autoref looks for
+% \Appendiceautorefname instead of \Appendixautorefname
+\newcommand*{\Appendiceautorefname}{Appendice}
