@@ -166,7 +166,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
 				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
-					\[\abs{g(x)-f(x)}\le\abs{g(x)-h(x)}+\abs{h(x)-f(x)}\]
+					\[\abs{g(x)-f(x)} \leq \abs{g(x)-h(x)}+\abs{h(x)-f(x)}\]
 					Applicando il sup la disuguaglianza resta vera.
 			\end{enumerate}
 			\begin{note}
@@ -309,8 +309,8 @@ Unendo le due definizioni si giunge naturalmente a
 	\[B(x_0,r)=\brackets{x\in X : d(x,y)<r}\]
 \end{definition}
 \begin{observation}
-	Se $r=0\Rightarrow B(x_0,r)=\emptyset$\\
-	Se $r>0\Rightarrow x_0\in B(x_0,r)$
+	Se $r=0 \implies B(x_0,r)=\emptyset$\\
+	Se $r>0 \implies x_0\in B(x_0,r)$
 \end{observation}
 \begin{example}[Sfere ed Altri Enti]\leavevmode\vspace*{-\baselineskip}
 	\begin{itemize}
@@ -590,7 +590,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:succ_conv_lim}
 	Data la successione $x: \N \to X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
-	\[\lim\limits_{n\rightarrow+\infty}x_n = x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon\]
+	\[\lim\limits_{n \to+\infty}x_n = x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon\]
 	\begin{proof}
 		% TODO dimostrazione
 	\end{proof}
@@ -1423,13 +1423,13 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 	\begin{proof} (Alternativa)\\
 		La successione $x$ ammette una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$, dunque da \fullref{prop:succ_conv_lim}:
-		\[\lim\limits_{n\rightarrow+\infty}x_n=x_*\iff\forall\eta > 0\;\;\exists\nu\in\N:\quad\forall n>\nu\;\;d(x_n,x_*)<\eta\]
+		\[\lim\limits_{n \to+\infty}x_n=x_*\iff\forall\eta > 0\;\;\exists\nu\in\N:\quad\forall n>\nu\;\;d(x_n,x_*)<\eta\]
 		Dalla \fullref{def:funz_cont} e sapendo che $f(x)$ è continua per ipotesi, si ottiene:
 		\[\forall\varepsilon > 0\;\;\exists\delta > 0:\quad\forall x \in K\;\;d_X (x,x_*)<\delta\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon\]
 		Unendo ora le due definizioni:
 		\[\forall \varepsilon > 0\;\;\exists \nu \in \N:\quad \forall n > \nu\;\;d_Y \bigl(f(x_n),f(x_*)\bigr)<\varepsilon\]
 		Che equivale, per come è definita $y_n$, a
-		\[\lim\limits_{n\rightarrow +\infty}y_n = y_*\]
+		\[\lim\limits_{n \to +\infty}y_n = y_*\]
 		Cioè la definizione di successione convergente. Ho dunque individuato una sottosuccessione convergente per ogni successione in $f(K)$, verificando così la \fullref{def:compatto}.
 	\end{proof}
 \end{theorem}
@@ -1896,7 +1896,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\exists K \in [0, 1[ \text{ tale che } \forall x',x'' \in X \quad \text{vale} \quad d_X \bigl( T(x''), T(x') \bigr) \leq K \cdot d_X(x'', x')
 	\end{equation}
 	Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e Lipschitziana con costante di Lipschitz strettamente minore di $1$.\\
-	È generalmente inutile considerare contrazioni definite tra spazi diversi. Infatti, data una funzione $T: X\rightarrow Y$ Lipschitziana, sarebbe sempre possibile riscalare la distanza in uno dei due spazi $X$ o $Y$ per ottenere una costante di Lipschitz minore di $1$.
+	È generalmente inutile considerare contrazioni definite tra spazi diversi. Infatti, data una funzione $T: X \to Y$ Lipschitziana, sarebbe sempre possibile riscalare la distanza in uno dei due spazi $X$ o $Y$ per ottenere una costante di Lipschitz minore di $1$.
 	\begin{note}
 		D'ora in poi si utilizzerà spesso la notazione $Tx$ per intendere $T(x)$
 	\end{note}

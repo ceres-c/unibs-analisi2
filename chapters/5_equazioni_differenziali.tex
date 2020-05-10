@@ -426,7 +426,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		% TODO Magari scrivere proposizione prodotto cartesiano di aperti = aperto.
 		Chiamiamo ora $S=I\times A$ l'insieme di partenza della $f$. Grazie alla \fullref{prop:polig_in_aperto_connesso} sappiamo che esiste una poligonale interamente contenuta in $S$ congiungente due qualunque punti dell'aperto $S$.\\
 		È ora possibile applicare il \fullref{teo:accresc_fin} ad uno qualunque dei segmenti formanti la poligonale appena individuata. Vale quindi la
-		\[\norm{f(x_1)-f(x_0)}\le \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}\]
+		\[\norm{f(x_1)-f(x_0)} \leq \sup\limits_{x\in S}\norm{Df(x)}\norm{x_1-x_0}\]
 		che è direttamente comparabile alla \fullref{def:loc_lips} della funzione in ciascuno dei segmenti della poligonale, da cui la tesi.
 	\end{proof}
 \end{proposition}
@@ -887,9 +887,9 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{array} \quad\right\}$\quad cioè \quad$k,\,\delta\in\cntclass{0}(\intervalclose{a}{b},\R^{+})$
 	\end{itemize}
 	con:
-	\[\qquad \delta(t)\le \delta_0+\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}\]
+	\[\qquad \delta(t) \leq \delta_0+\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}\]
 	Allora
-	\[\delta(t)\le\delta_0e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \quad \forall t \in \intervalclose{a}{b}\]
+	\[\delta(t) \leq \delta_0e^{\int_{a}^{t}k(\tau)\integrald{\tau}} \quad \forall t \in \intervalclose{a}{b}\]
 	Questo lemma permette di limitare una funzione che soddisfa una disuguaglianza integrale con la soluzione della corrispondente equazione. Ci si porta da una stima implicita di $\delta$ (sotto il segno di integrale) ad una stima esplicita.
 	\begin{proof}
 		Dividiamo in due casi
@@ -949,7 +949,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\item $f,g$ sono localmente Lipschitziane in $x\in A$ uniformemente rispetto a $t\in I$
 	\end{enumerate}
 	Allora esiste un $\delta >0$ tale che sull'intervallo $\intervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \intervalclose{t_0-\delta}{t_0+\delta}$ vale:
-	\[\norm{\varphi(t)-\psi(t)} \le (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}\]
+	\[\norm{\varphi(t)-\psi(t)}  \leq (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}\]
 	dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
 	\begin{note}
 		Questo significa che, con problemi diversi tra loro, se ($x_0$ e $y_0$), ($f$ e $g$) sono vicine tra loro ("a coppie"), allora sono vicine anche le soluzioni, ma per $t$ vicine.
@@ -1394,7 +1394,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			&\leq \sup \limits_{t \in \intervalclop{t_0}{T_M}} \norm{f(t,x)} \tageq\label{eq:cau_glob_dfi_sup}
 		\end{align*}
 		Quindi sia $\varphi(t)$ che $\varphi'(t)$ sono limitate, dunque la $\varphi$ è \textbf{uniformemente continua} su $\intervalclop{t_0}{T_M}$, come da \fullref{prop:if_df_lim_then_unif_cont}.
-		Da \fullref{prop:if_unif_cont_then_conf}, se la $\varphi(t)$ è uniformemente continua, allora è \textbf{continua}, cioò implica che $\lim \limits_{t \rightarrow T_M^-}\varphi(t) = \varphi(T_M)$.
+		Da \fullref{prop:if_unif_cont_then_conf}, se la $\varphi(t)$ è uniformemente continua, allora è \textbf{continua}, cioò implica che $\lim \limits_{t \to T_M^-}\varphi(t) = \varphi(T_M)$.
 
 		Essendo $\varphi(T_M) \in \R^n$, posso usare questo punto come condizione iniziale del seguente Problema di Cauchy
 		\begin{equation}
@@ -1594,7 +1594,7 @@ Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{s
 						{\left[\begin{matrix} X_2\\X_3\\\vdots\\X_{n}\\-\sum\limits_{k=1}^{n-1}\left(a_k(t)x^k\right)+f(t) \end{matrix}\right]}
 		\end{equation*}
 		è lineare in $X$ (compaiono solo elementi di grado 1) e globalmente lipschitziana in $X$ uniformemente in $t$, infatti per ogni $X,Y\in\C^n$
-		\[\norm{F(t,X)-F(t,Y)}\le \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}\] % TODO this meeds to be explained
+		\[\norm{F(t,X)-F(t,Y)} \leq \sqrt{1+\left( \max\limits_k \sup\limits_I \norm{a_k} \right)^2}\cdot\norm{X-Y}\] % TODO this meeds to be explained
 		Sono quindi soddisfatte le ipotesi di \fullref{teo:cau_glob_lips} e si ha la tesi.
 	\end{proof}
 \end{proposition}

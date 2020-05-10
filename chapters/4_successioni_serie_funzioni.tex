@@ -20,9 +20,9 @@ Successioni e serie di funzioni possono essere viste:
 \section{Tipi Di Convergenza}
 \subsection{Convergenza Puntuale}
 \definition
-Sia $A\subseteq \R$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni definite su $A$ a valori in $ \R$. Sia $B\subseteq A$
+Sia $A\subseteq \R$ e $\brackets{f_n:n\in\N}$ una successione di funzioni definite su $A$ a valori in $ \R$. Sia $B\subseteq A$
 \begin{description}
-	\item[-] la successione $\left\{f_n:n\N\right\}$ è puntualmente convergente su $B$ se $\forall x \in B$, esiste finito il limite $\lim\limits_{n\to\infty}f_n(x)$. In tal caso la funzione $f:B\to  \R$ definito da $f(x)=\lim\limits_{n\to\infty}f_n(x)$
+	\item[-] la successione $\brackets{f_n:n\N}$ è puntualmente convergente su $B$ se $\forall x \in B$, esiste finito il limite $\lim\limits_{n\to\infty}f_n(x)$. In tal caso la funzione $f:B\to  \R$ definito da $f(x)=\lim\limits_{n\to\infty}f_n(x)$
 	\item[-] la serie $\sum\limits_{n=0}^{\infty}f_n$ è puntualmente convergente su $B$ se $\forall x \in B$, la serie $\sum\limits_{n=0}^{\infty}f_n(x)$ ammette somma finita. In tal caso la funzione $F:B\to  \R$ definito da $F(x)=\sum\limits_{n=0}^{\infty}f_n(x)$ è la somma della serie la serie $\sum\limits_{n=0}^{\infty}f_n$
 \end{description}
 \observation
@@ -33,7 +33,7 @@ Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
 Se $f_n \pconvarrow f$ su $B$ e se $f_n$ ha la proprietà $P$ allora il limite $f$ ha la proprietà $P$.\\
 
 \example $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
-$\lim\limits_{n\to\infty}f_n(x)=\lim\limits_{n\to\infty}\frac{1}{n}sin(x)=0\quad\forall x \in A \Rightarrow f_n \pconvarrow 0$ su $A$.
+$\lim\limits_{n\to\infty}f_n(x)=\lim\limits_{n\to\infty}\frac{1}{n}sin(x)=0\quad\forall x \in A \implies f_n \pconvarrow 0$ su $A$.
 
 \example$f_n(x)=e^{nx}$ con $A\equiv \R$
 \begin{center}
@@ -74,14 +74,14 @@ La continuità non passa al limite come proprietà $P$
 			\end{axis}
 	\end{tikzpicture}
 \end{center}
-\[\lim\limits_{n\to\infty}x^{n} = \left\{\begin{matrix}+\infty&&x\in\left]1,+\infty\right[\\ 1 && x\in\left\{1\right\}\\0&&x\in\left]-1,1\right[\\\nexists &&x\in\left]-\infty,-1\right] \end{matrix}\right.\]
+\[\lim\limits_{n\to\infty}x^{n} = \brackets{\begin{matrix}+\infty&&x\in\left]1,+\infty\right[\\ 1 && x\in\left\{1}\\0&&x\in\left]-1,1\right[\\\nexists &&x\in\left]-\infty,-1\right] \end{matrix}\right.\]
 \[f_n \pconvarrow f\quad su B=\left]-1,1\right]\]
 \proposition PROPRIETÀ P:MONOTONIA\\
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
 Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è debolmente crescente su $B$ allora il limite $f$ è debolmente crescente su $B$.
 \begin{proof}
-	Dire che $f_n$ è debolmente crescente su $B$ significa che \[\forall x_1,x_2\in B \quad x_1\le x_2 \Rightarrow fn(x_1)\le f_n(x_2)\]
-	se si fa tendere $n\to\infty$ si ha che $f(x_1)\le f(x_2)$, e questo nell'insieme $B$ dove i limiti puntuali delle funzioni esistono per ipotesi
+	Dire che $f_n$ è debolmente crescente su $B$ significa che \[\forall x_1,x_2\in B \quad x_1 \leq x_2 \implies fn(x_1) \leq f_n(x_2)\]
+	se si fa tendere $n\to\infty$ si ha che $f(x_1) \leq f(x_2)$, e questo nell'insieme $B$ dove i limiti puntuali delle funzioni esistono per ipotesi
 \end{proof}
 \observation
 Questo vale anche nel caso di funzioni debolmente decrescenti
@@ -90,7 +90,7 @@ se $f_n$ è strettamente crescente/decrescente con le stesse ipotesi non possiam
 \example $x^n$ con $x\in\left[0,1\right[$ è strettamente crescente ma il limite putuale è costante uguale a zero.
 \proposition PROPRIETÀ P:NON NEGATIVA\\
 Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
-Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è non negativa, $f_n\ge 0$, su $B$ allora il limite $f$ è non negativo, $f\ge 0$, su $B$.
+Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è non negativa, $f_n \geq 0$, su $B$ allora il limite $f$ è non negativo, $f \geq 0$, su $B$.
 \begin{proof}
 	Sappiamo che $f(x)=\lim\limits_{n\to\infty}f_n(x)$ $\forall x\in B$.
 	Ma $f_n$ è una successione di valori non negativi quindi il limite esiste ed è non negativo.
@@ -101,14 +101,14 @@ Questo vale anche nel caso di funzioni non positive
 Questa proposizione non può essere estesa al caso di funzioni strettamente positive/negative.\\
 \example $	-\frac{e^x}{n}$ con $x\in\left[0,1\right[$ è strettamente negativa ma il limite è costante uguale a zero.
 \proposition
-Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\N\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. sia $f:B\to \R$ una funzione\\
-$f_n \pconvarrow f$ su $B$ per $n\to\infty \iff \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{f_n(x)-f(x)}\le \epsilon$
+Siano $A\subseteq \R, B\subseteq A$, $\brackets{f_n:n\in\N}$ una successione di funzioni definite su $A$ con valori in $ \R$. sia $f:B\to \R$ una funzione\\
+$f_n \pconvarrow f$ su $B$ per $n\to\infty \iff \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{f_n(x)-f(x)} \leq \epsilon$
 \begin{proof}
 	direttamene dalla definizione...
 \end{proof}
 \proposition
-Siano $A\subseteq \R, B\subseteq A$, $\left\{f_n:n\in\N\right\}$ una successione di funzioni definite su $A$ con valori in $ \R$. Sia $F:B\to \R$ una funzione\\
-$\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{\sum\limits_{k=0}^{\infty}f_k(x)-F(x)}\le \epsilon$
+Siano $A\subseteq \R, B\subseteq A$, $\brackets{f_n:n\in\N}$ una successione di funzioni definite su $A$ con valori in $ \R$. Sia $F:B\to \R$ una funzione\\
+$\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{\sum\limits_{k=0}^{\infty}f_k(x)-F(x)} \leq \epsilon$
 \begin{proof}
 	direttamene dalla definizione...
 \end{proof}
@@ -116,9 +116,9 @@ $\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \foral
 \subsection{Convergenza Uniforme}\label{sect:conv_unif}
 \begin{definition}[Convergenza Uniforme]
 	\label{def:conv_unif}
-	Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni definite su $A$ a valori in $\R$.
+	Siano $A\subseteq \R$, $B\subseteq A$ e $\brackets{f_n:n\in\N}$ una successione di funzioni definite su $A$ a valori in $\R$.
 	\begin{itemize}
-		\item La \textbf{successione} $\left\{f_n:n\in \N\right\}$ è uniformemente convergente su $B$ se esiste una funzione $f:B\to \R$ tale che:
+		\item La \textbf{successione} $\brackets{f_n:n\in \N}$ è uniformemente convergente su $B$ se esiste una funzione $f:B\to \R$ tale che:
 		\[\lim\limits_{n \to +\infty} \sup\limits_{x\in B}\abs{f_n(x)-f(x)}=0\]\\
 		La funzione $f$ è il \textbf{limite uniforme della successione} $f_n$
 		\item La \textbf{serie} $\sum\limits_{n=0}^{+\infty}f_n$ è uniformemente convergente su $B$ se esiste una funzione $F:B\to \R$ tale che:
@@ -144,10 +144,10 @@ $\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \foral
 
 \proposition
 sia $f_n:n\in\N$ con $f:A\subseteq \R\to \R$ e $f:B\subseteq A \to  \R$\\
-$f_n \uconvarrow f$ su $B$ per$n\to\infty \iff \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{f_n(x)-f(x)}\le\epsilon$
+$f_n \uconvarrow f$ su $B$ per$n\to\infty \iff \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{f_n(x)-f(x)} \leq \epsilon$
 \proposition
 sia $f_n:n\in\N$ con $f:A\subseteq \R\to \R$ e $F:B\subseteq A \to  \R$\\
-$\sum\limits_{n=0}^{\infty}f_n \uconvarrow F$ su $B\iff \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{F(x)-\sum\limits_{k=0}^{n}f_k(x)}\le\epsilon$
+$\sum\limits_{n=0}^{\infty}f_n \uconvarrow F$ su $B\iff \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{F(x)-\sum\limits_{k=0}^{n}f_k(x)} \leq \epsilon$
 \observation
 La differenza tra queste due proposizioni e le due proposizioni analoghe nel caso di convergenza puntuale giustifica il fatto che la continuità non passa al limite puntuale. Infatti qui $\nu$ dipende solo dalla scelta di $\epsilon$ e le $x$ si guardano tutte insieme, prima invece $\nu$ dipendeva oltre che alla $\epsilon$ anche dalla $x$ questo porta a osservare le $x$ una alla volta.
 \proposition Relazione tra convergenza uniforme e puntuale.\\
@@ -155,7 +155,7 @@ Sia $f_n:A\subseteq \R\to \R$ e $f:B\subseteq A\to \R$\\
 Se $fn \uconvarrow f$ su $B$ allora $fn \pconvarrow f$ su $B$.
 \begin{proof}
 	se $f_n \uconvarrow f$ su $b$ allora vale che:
-	$\forall\epsilon, \exists\nu : \forall n>\nu, \forall x\in B $ vale $\abs{f_n(x)-f(x)}\le\epsilon$ in questo modo si trova un $\nu$ che soddisfa la condizione $\forall x \in B$ quindi $\forall x\in B, \forall\epsilon, \exists\nu : \forall n>\nu $ vale $\abs{f_n(x)-f(x)}\le\epsilon$ quindi $f_n \pconvarrow f$ su B
+	$\forall\epsilon, \exists\nu : \forall n>\nu, \forall x\in B $ vale $\abs{f_n(x)-f(x)} \leq \epsilon$ in questo modo si trova un $\nu$ che soddisfa la condizione $\forall x \in B$ quindi $\forall x\in B, \forall\epsilon, \exists\nu : \forall n>\nu $ vale $\abs{f_n(x)-f(x)} \leq \epsilon$ quindi $f_n \pconvarrow f$ su B
 \end{proof}
 \proposition
 Sia $f_n:A\subseteq \R\to \R$ e $\overline{f},f:B\subseteq A\to \R$\\
@@ -167,15 +167,15 @@ se $f_n \uconvarrow f$ su $B$ e $f_n \uconvarrow \overline{f}$ su $B$ allora $f=
 Abbiamo gia calcolato che $f_n \pconvarrow 0$ su $A$.\\
 Sia ha anche convergenza uniforme :\\
 \[\lim\limits_{n\to\infty}\sup{ \R}\abs{f_n(x)-0} = \lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}\]
-Osservo che $\abs{asin(x)}\le\abs{a}$ quindi
-\[\lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}\le\lim\limits_{n\to\infty}\frac{1}{n}=0\]
+Osservo che $\abs{asin(x)} \leq \abs{a}$ quindi
+\[\lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)} \leq \lim\limits_{n\to\infty}\frac{1}{n}=0\]
 Allora $f_n \uconvarrow f$ su $A$
 
 \example $f_n(x)=sin\left(\frac{1}{n}x\right)$ con $A\equiv \R$
 ..........\\
 ..........\\
 \proposition
-Siano $A\subseteq \R$, $\left\{f_n:A\to \R:n\in\N\right\}$ una successione di funzioni e $f:A\to \R$\\
+Siano $A\subseteq \R$, $\brackets{f_n:A\to \R:n\in\N}$ una successione di funzioni e $f:A\to \R$\\
 $f_n \uconvarrow f$ su $A$ e $f_n\in \cntclass{0}(A; \R)\,\,\forall n\in\N$ allora $f\in \cntclass{0}(A; \R)$
 \begin{proof}
 	DISEGNO\\
@@ -194,23 +194,23 @@ $f_n \uconvarrow f$ su $A$ e $f_n\in \cntclass{0}(A; \R)\,\,\forall n\in\N$ allo
 ..........\\
 ..........\\
 \definition
-Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{f_n:A\to \R:n\in\N\right\}$ una successione di funzioni.\\
-La successione $\left\{f_n:n\in\N\right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B \bydef \forall\epsilon>0, \exists\nu\in\N: \forall n,m>\nu, \forall x \in B$ vale $\abs{f_n(n)-f_m(x)}<\epsilon$
+Siano $A\subseteq \R$, $B\subseteq A$ e $\brackets{f_n:A\to \R:n\in\N}$ una successione di funzioni.\\
+La successione $\brackets{f_n:n\in\N}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B \bydef \forall\epsilon>0, \exists\nu\in\N: \forall n,m>\nu, \forall x \in B$ vale $\abs{f_n(n)-f_m(x)}<\epsilon$
 \proposition
 (Una successione di Cauchy per la convergenza uniforme è uniformemente convergente).\\
-Siano $A\subseteq \R$, $B\subseteq A$ e $\left\{ f_n:A\to \R:n\in\N \right\}$ una successione di funzioni.\\
-La successione $\left\{ f_n:n\in\N \right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\exists$ una funzione $f:B\to \R$ t.c.: $f_n \uconvarrow f$ su $B$
+Siano $A\subseteq \R$, $B\subseteq A$ e $\brackets{ f_n:A\to \R:n\in\N }$ una successione di funzioni.\\
+La successione $\brackets{ f_n:n\in\N }$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\exists$ una funzione $f:B\to \R$ t.c.: $f_n \uconvarrow f$ su $B$
 \begin{proof}
-	La successione $\left\{ f_n:n\in\N\right\}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\forall x\in B$ la successione $\left\{ f_n(x) :n\in\N \right\}$ è di Cauchyin $ \R$ allora $\forall x \in B$ la successione $\left\{ f_n(x):n\in\N \right\}$ ha limite in $ \R$.(cioè c'è il limite puntuale).\\
-	Sia $f(x)$ questo limite, $f$ è anche il limite uniforme della successione $\left\{ f_n:n\in\N \right\}$, infatti:
+	La successione $\brackets{ f_n:n\in\N}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\forall x\in B$ la successione $\brackets{ f_n(x) :n\in\N }$ è di Cauchyin $ \R$ allora $\forall x \in B$ la successione $\brackets{ f_n(x):n\in\N }$ ha limite in $ \R$.(cioè c'è il limite puntuale).\\
+	Sia $f(x)$ questo limite, $f$ è anche il limite uniforme della successione $\brackets{ f_n:n\in\N }$, infatti:
 	\[\forall\epsilon>0, \exists\nu\in\N: \forall h,k>\nu \forall x\in B \quad \abs{f_h-f_k}<\epsilon\]
 	\[\sup\limits_B\abs{f_h(x)-f_k(x)}, \forall h,k>\nu\]
-	\[\Rightarrow \abs{f_h(x)-f_k}<\epsilon,\forall h.k>\nu, \forall x \in B\]
+	\[\implies \abs{f_h(x)-f_k}<\epsilon,\forall h.k>\nu, \forall x \in B\]
 	a questo punto si passa al limite e la disuguaglianza diventa debole.
-	\[\Rightarrow \lim\limits_{n\to\infty}\abs{f_h(x)-f_k(x)}\le\epsilon, \forall h>\nu, \forall x\in B\]
-	\[\Rightarrow\abs{f_h(x)-f(x)}\le\epsilon, \forall h>\nu, \forall x\in B\]
-	\[\Rightarrow\sup\limits_B\abs{f_h-f}\le\epsilon, \forall h>\nu\]
-	\[\Rightarrow f_n \uconvarrow f\quad su B\]
+	\[\implies \lim\limits_{n\to\infty}\abs{f_h(x)-f_k(x)} \leq \epsilon, \forall h>\nu, \forall x\in B\]
+	\[\implies \abs{f_h(x)-f(x)} \leq \epsilon, \forall h>\nu, \forall x\in B\]
+	\[\implies \sup\limits_B\abs{f_h-f} \leq \epsilon, \forall h>\nu\]
+	\[\implies f_n \uconvarrow f\quad su B\]
 \end{proof}
 \begin{proposition}
 	\label{prop:dist_unif_sp_metr_compl}
@@ -218,9 +218,9 @@ La successione $\left\{ f_n:n\in\N \right\}$ soddisfa alla condizione di Cauchy 
 	\begin{proof}
 		prendo $f_n\in \cntclass{0}(A; \R)$ successione di Cauchy in $\cntclass{0}(A; \R)$
 		$f_n$ sono di Cauchy rispetto alla convergenza uniforme su $A$
-		$\Rightarrow f_n:A\to \R$ e $f_n \uconvarrow f$ su $A$ e $f$ è continua\\ $\Rightarrow\left(f\in \cntclass{0}(A; \R)\right)$\\
-		$\Rightarrow\lim\limits_{n\to\infty}f_n=f$ in $\cntclass{0}(A; \R)$\\
-		$\Rightarrow\lim\limits_{n\to\infty}d_{\infty}(fn,f)=0\quad\Rightarrow f_n\to f\in \cntclass{0}(A; \R)$
+		$\implies f_n:A\to \R$ e $f_n \uconvarrow f$ su $A$ e $f$ è continua\\ $\implies\left(f\in \cntclass{0}(A; \R)\right)$\\
+		$\implies\lim\limits_{n\to\infty}f_n=f$ in $\cntclass{0}(A; \R)$\\
+		$\implies\lim\limits_{n\to\infty}d_{\infty}(fn,f)=0\quad \implies f_n\to f\in \cntclass{0}(A; \R)$
 	\end{proof}
 \end{proposition}
 \begin{corollary} % TODO dimostrare il corollario 19.26 con C di arrivo delle f chiuso
@@ -229,21 +229,21 @@ La successione $\left\{ f_n:n\in\N \right\}$ soddisfa alla condizione di Cauchy 
 
 ESEMPIO:: In dimensione finita non vi è differenza tra "chiuso e limitato" e "compatto", in dimensione infinita cambiamo molte cose.
 Prensiamo un insieme chiuso e limitato ma non compatto.\\
-In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_\infty(f,g)=\sup_{\left[0,1\right]}\abs{g(x)-f(x)}$, prendiamo l'insieme $C=\overline{B(0,1)}=\left\{f\in \cntclass{0}(\left[0,1\right]; \R):\abs{f(x)}\le 1, \forall x \in\left[0,1\right]\right\}$
+In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_\infty(f,g)=\sup_{\left[0,1\right]}\abs{g(x)-f(x)}$, prendiamo l'insieme $C=\overline{B(0,1)}=\brackets{f\in \cntclass{0}(\left[0,1\right]; \R):\abs{f(x)} \leq 1, \forall x \in\left[0,1\right]}$
 \begin{description}
 	\item[1] $C$ è limitato: ha diametro finito.
 	\item[2] $C$ è chiuso: contiene tutti i sui punti di accumualazione
 \end{description}
 Se c'è una successione $f_n \uconvarrow f$ su $\left[0,1\right]$ allora voglio mostrare che $f\in C$\\
 Se $f_n \uconvarrow f$ su $\left[0,1\right]$ allora $f_n \pconvarrow f$ su $\left[0,1\right]$.
-Sappiamo che $\forall n\in\N$ e $\forall x\in \left[0,1\right]$ vale che $-1\le f_n(x)\le 1$.\\
-Mandando $n$ al limite si ha che $-1\le f_(x)\le 1$.\\
+Sappiamo che $\forall n\in\N$ e $\forall x\in \left[0,1\right]$ vale che $-1 \leq f_n(x) \leq 1$.\\
+Mandando $n$ al limite si ha che $-1 \leq f_(x) \leq 1$.\\
 Inolte $f$ è continua perché limite uniforme di una successione di funzioni continue allora $f\in C$ poiché è una funzione continua compresa tra $-1$ e $1$
 \begin{description}
 	\item[3] $C$ non è compatto, cioè esiste almeno una successione dalla quale non è possibie estrarre una sottosuccessione convergente nello stesso spazio.
 \end{description}
 Se ad esempio $f_n(x) = x^n$\\
-so che $f_n \pconvarrow f$ su $\left[0,1\right]$ e $f(x)=\left\{\begin{matrix}0&&x\in\left[0,1\right]\\1&&x\in\left\{1\right\}\end{matrix}\right.$\\
+so che $f_n \pconvarrow f$ su $\left[0,1\right]$ e $f(x)=\brackets{\begin{matrix}0&&x\in\left[0,1\right]\\1&&x\in\left\{1}\end{matrix}\right.$\\
 Tutta la successione di funzioni $f_n$ converge puntualmente a $f$ quindi se estraggo una sottosuccessione comunque venga scelta questa sottosuccessione converge ancora a $f$ puntualmente. Ma la $f$ non è continua mentre il limite uniforme di funzioni continue è una funzione continua allora nessuna sottosuccessione ammette limite uniforme.\\
 
 ESEMPIO:: OPERATORE DERIVATA 0\\
@@ -256,13 +256,13 @@ ESEMPIO:: OPERATORE INTEGRALE\\
 \[I\]
 
 \proposition
-fissati $a,b\in \R$ con $a<b$ se la successione $\left\{f_n:n\in\N\right\}$ in $\cntclass{0}(\left[a,b\right], \R) \uconvarrow f$ su $\left[a,b\right]$\\
-$f_n$ e $f$ sono integrabili secondo Rimmmmmmmn allora lasuccessione $\left\{\int_a^bf_n(x)\integrald{x}:n\in\N\right\}$ converge a $\int_a^bf(x)\integrald{x}$
+fissati $a,b\in \R$ con $a<b$ se la successione $\brackets{f_n:n\in\N}$ in $\cntclass{0}(\left[a,b\right], \R) \uconvarrow f$ su $\left[a,b\right]$\\
+$f_n$ e $f$ sono integrabili secondo Rimmmmmmmn allora lasuccessione $\brackets{\int_a^bf_n(x)\integrald{x}:n\in\N}$ converge a $\int_a^bf(x)\integrald{x}$
 \observation
 La convergenza uniforme passa sotto il segno di integrale
 \[\int_a^b\left(\lim\limits_{n\to\infty}fn\right)(x)\integrald{x}=\lim\limits_{n\to\infty}\left(\int_a^bfn(x)\integrald{x}\right)\]
 \proposition convergono le derivare allora convergono le funzioni\\
-Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\left\{f_n:n\in\N\right\}$ con $f_n:\left[a,b\right]\to \R$
+Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\brackets{f_n:n\in\N}$ con $f_n:\left[a,b\right]\to \R$
 \begin{enumerate}
 	\item $\forall n\in\N, f_n\in \cntclass{1}(\left[a,b\right]; \R)$
 	\item $\exists x_0\in\left[a,b\right]: \lim\limits_{n\to\infty}f_n(x_0)=l\in \R$
@@ -280,7 +280,7 @@ Allora
 	per $n\to\infty$
 	\[f(x)=l+\int_{x_0}^{x}g(t)\integrald{t}\]
 	Quindi le $f_n$ convergono puntualmente alla funzione $f(x)$, per la convergenza uniforme calcolo:
-	\[ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\abs{f_n(x)-f(x)}\le\lim\limits_{n\to+\infty}(\abs{f_n(x_0)-f(x_0)}+\abs{\int_{x_0}^x \abs{f_n'(t)-g(t)}\integrald{t}})\le\]
+	\[ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\abs{f_n(x)-f(x)} \leq \lim\limits_{n\to+\infty}(\abs{f_n(x_0)-f(x_0)}+\abs{\int_{x_0}^x \abs{f_n'(t)-g(t)}\integrald{t}}) \leq \]
 	\[\lim\limits_{n\to+\infty}\left[ \abs{f_n(x_0)-f(x_0)}+\abs{b-a}\sup\limits_{\left[a,b\right]}\abs{f_n'(x)-g(x)} \right] = \]
 	Questo perché per ipotesi $f'_n=g$ e il limite fa $0$.
 	Allora $f_n \uconvarrow f$ su $\left[a,b\right]$\\
@@ -295,7 +295,7 @@ Serve $\left[a,b\right]$ limitato .......\\
 ................................\\
 \begin{corollary}
 	\label{coro:deriv_series_series_of_deriv}
-	Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\left\{f_n:n\in\N\right\}$ con $f_n:\left[a,b\right]\to \R$
+	Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\brackets{f_n:n\in\N}$ con $f_n:\left[a,b\right]\to \R$
 	\begin{enumerate}
 		\item $\forall n\in\N, f_n\in \cntclass{1}(\left[a,b\right]; \R)$
 		\item $\exists x_0\in\left[a,b\right]: \sum\limits_{n=0}^{+\infty}f_n(x_0)=L\in \R$
@@ -312,24 +312,24 @@ Serve $\left[a,b\right]$ limitato .......\\
 In altre parole questa proposizione afferma che sotto opportune ipotesi
 \[\left(\sum\limits_{n=0}^{+\infty} f_n \right)' =  \sum\limits_{n=0}^{+\infty}f_n'\]
 \definition
-Siano $A\subseteq  \R$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni con $f_n:A\to \R$\\
+Siano $A\subseteq  \R$ e $\brackets{f_n:n\in\N}$ una successione di funzioni con $f_n:A\to \R$\\
 $\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \bydef \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}<+\infty$(è convergente)
 \observation
 la $\sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}$ è una serie numerica
 \proposition
-Siano $A\subseteq \R$ e $\left\{f_n:n\in\N\right\}$ una successione di funzioni con $f_n:A\to \R$\\
-$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$ $\Rightarrow$  $\sum\limits_{n=0}^{+\infty}f_n$ converge uniformemente su $A$
+Siano $A\subseteq \R$ e $\brackets{f_n:n\in\N}$ una successione di funzioni con $f_n:A\to \R$\\
+$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$ $\implies$  $\sum\limits_{n=0}^{+\infty}f_n$ converge uniformemente su $A$
 \begin{proof}
 	$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$\\
-	$\Rightarrow \sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\abs{f_n(x)}<+\infty$\\
-	$\Rightarrow \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\abs{f_n}<\epsilon$\\
-	$\Rightarrow \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\sum\limits_{n=0}^{+\infty}\abs{f_n}<\epsilon$\\
-	$\Rightarrow \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\abs{\sum\limits_{n=0}^{+\infty}f_n}<\epsilon$\\
-	$\Rightarrow \sum\limits_{n=0}^{+\infty}f_n$ soddisfa la condizione di Cauchy per la convergenza uniforme su $A$.
+	$\implies \sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\abs{f_n(x)}<+\infty$\\
+	$\implies \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\abs{f_n}<\epsilon$\\
+	$\implies \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\sum\limits_{n=0}^{+\infty}\abs{f_n}<\epsilon$\\
+	$\implies \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\abs{\sum\limits_{n=0}^{+\infty}f_n}<\epsilon$\\
+	$\implies \sum\limits_{n=0}^{+\infty}f_n$ soddisfa la condizione di Cauchy per la convergenza uniforme su $A$.
 \end{proof}
 \observation
 Per le serie:\\
-Convergenza Totale $\Rightarrow$ Convergenza Uniforme $\Rightarrow$ Convergenza Puntuale.
+Convergenza Totale $\implies$ Convergenza Uniforme $\implies$ Convergenza Puntuale.
 \subsection{Convergenza Quadratica}
 % TODO This subsection is a stub
 \begin{proposition}
@@ -352,7 +352,7 @@ In generale, un'approssimazione si riconduce ad una formula del tipo\\
 La qualità dell'approssimazione è descritta dal senso in cui l'errore è piccolo.\\
 \subsection{Serie di Potenze}
 \definition
-Siano $\left\{a_n:n\in\N\right\}$ una successione con $a_n:\N\to\C$ e $z_0\in\C$.\\
+Siano $\brackets{a_n:n\in\N}$ una successione con $a_n:\N\to\C$ e $z_0\in\C$.\\
 Si dice serie di potenze centrata in $z_0 \bydef \sum\limits_{n=0}^{+\infty}a_n\left(z-z_0\right)^n$
 \observation
 è ovvio che in $z=z_0$ si ha convergenza....???? (dire a zero)
@@ -361,7 +361,7 @@ Per semplicità verrà considerato il caso $z_0=0$
 ESEMPIO::$\sum\limits_{n=0}^{+\infty}\frac{x^n}{n!}=1+x+\frac{1}{2} x^2+\ldots+\frac{1}{n!}x^n=e^x$
 ESEMPIO::$\sum\limits_{n=0}^{+\infty}x^n=1+x+x^2+\ldots+x^n=\frac{1}{1-x}$
 \proposition
-Siano $\left\{a_n:n\in\N\right\}$ una successione in $\C$ e $w\in\C$.\\
+Siano $\brackets{a_n:n\in\N}$ una successione in $\C$ e $w\in\C$.\\
 La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cioè $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quandi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\abs{w}$\\
 Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge totalmente in $B(0,r)$\\
 \begin{proof}
@@ -369,9 +369,9 @@ Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\
 	devo dimostrare che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\abs{a_nz^n}<+\infty$.\\
 	E\' facile vedere che $a_nz^n=a_nw^n\left(\frac{z}{w}\right)^n$.\\
 	Quindi passando al modulo e poi al sup si ottiene.\\
-	\[\sup\limits_{B(0,r)}\abs{a_nz^n}=\sup\limits_{B(0,r)}\abs{a_nw^n}\abs{\frac{z}{w}}^n\le\]
+	\[\sup\limits_{B(0,r)}\abs{a_nz^n}=\sup\limits_{B(0,r)}\abs{a_nw^n}\abs{\frac{z}{w}}^n \leq \]
 	Siccome $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge  quindi il suo termine generale tende a $0$.\\
-	\[\le\sup\limits_{B(0,r)}\abs{\frac{z}{w}}^n\le\left(\frac{r}{\abs{w}}\right)^n \]
+	\[ \leq \sup\limits_{B(0,r)}\abs{\frac{z}{w}}^n \leq \left(\frac{r}{\abs{w}}\right)^n \]
 	per ipotesi $r<\abs{w}$ e questo è il termine generale di una serie geometrica convergente.\\
 	Ne segue che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\abs{a_nz^n}$ è maggiorato da $\left( \frac{r}{\abs{w}}\right)^n$ e quindi la serie converge totalmente.
 \end{proof}
@@ -391,17 +391,17 @@ Allora $\forall z\in\C$ con $\abs{z}>\abs{w}$ la serie di potenze $\sum\limits_{
 		\draw (0,0) circle (0.8cm);
 		\end{tikzpicture}
 	\end{center}
-	Se per assurdo la serie converge in $z\Rightarrow$ per il teorema precedente  avremmo convergenza in ogni sfera con raggio minore di $\abs{\frac{1}{z}}$. e quindi anche in $w$ questo nega l'ipotesi.ASSURDO.
+	Se per assurdo la serie converge in $z \implies$ per il teorema precedente  avremmo convergenza in ogni sfera con raggio minore di $\abs{\frac{1}{z}}$. e quindi anche in $w$ questo nega l'ipotesi.ASSURDO.
 \end{proof}
 \observation
 Come è fatto l'insieme su cui si ha convergenza??\\
-segue da queste due ultime proposizioni che se $\left\{a_n:n\in\N\right\}$ è una successione in $\C$ allora l'insieme $\left\{z\in\C:\sum\limits_{n=0}^{+\infty}a_nz^n converge\right\}$ è un cerchio.\\Sulla circonferenza non ci soffermaiamo a capire cosa accade poiché tutto può accadere.
+segue da queste due ultime proposizioni che se $\brackets{a_n:n\in\N}$ è una successione in $\C$ allora l'insieme $\brackets{z\in\C:\sum\limits_{n=0}^{+\infty}a_nz^n converge}$ è un cerchio.\\Sulla circonferenza non ci soffermaiamo a capire cosa accade poiché tutto può accadere.
 \definition
-Raggio di convergenza della serie $\sum\limits_{n=0}^{+\infty}a_nz^n\bydef \rho=\sup\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n converge su B(0,r)\right\}$
+Raggio di convergenza della serie $\sum\limits_{n=0}^{+\infty}a_nz^n\bydef \rho=\sup\brackets{r \geq 0 :\sum\limits_{n=0}^{+\infty}a_nz^n converge su B(0,r)}$
 \observation
 Il raggio di convergenza di una serie di potenze può essere $0$, un numero reale positivo o $+\infty$.
 \observation
-una definizione come $\rho=\inf\left\{r\ge 0 :\sum\limits_{n=0}^{+\infty}a_nz^n non converge su B(0,r)\right\}$ non sta in piedi poiché questo insieme potrebbe essere vuoto, mentre quello sopra non è mai vuoto, poerché $r=0$ c'è sempre poiché in $0$ si ha sempre convergenza. Ilsecondo potrebbe essere vuoto perché ci sono serie che convergono su tuttoil piano complesso e quindi non si avrebbe nessun $r$ fuori da quale non sia ha convergenza.\\
+una definizione come $\rho=\inf\brackets{r \geq 0 :\sum\limits_{n=0}^{+\infty}a_nz^n non converge su B(0,r)}$ non sta in piedi poiché questo insieme potrebbe essere vuoto, mentre quello sopra non è mai vuoto, poerché $r=0$ c'è sempre poiché in $0$ si ha sempre convergenza. Ilsecondo potrebbe essere vuoto perché ci sono serie che convergono su tuttoil piano complesso e quindi non si avrebbe nessun $r$ fuori da quale non sia ha convergenza.\\
 \proposition CRITERIO DELLA RADICE.\\
 Data la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$, sia $l=\lim\limits_{n\to+\infty}\sqrt[n]{\abs{a_n}}$.\\
 Se questo limite esiste, allora il raggio di convergenza è
@@ -423,7 +423,7 @@ $\rho =
 \end{cases}
 $
 ESEMPIO::$e^z=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}z^n$\\
-$a_n=\frac{1}{n!} ...  \abs{\frac{a_{n+1}}{a_n}}=\frac{\frac{1}{(n+1)!}}{\frac{1}{n!}}=\frac{n!}{(n+1)!}=\frac{1}{n+1}\overset{n\to+\infty}{\to}0 \Rightarrow \rho=+\infty$\\
+$a_n=\frac{1}{n!} ...  \abs{\frac{a_{n+1}}{a_n}}=\frac{\frac{1}{(n+1)!}}{\frac{1}{n!}}=\frac{n!}{(n+1)!}=\frac{1}{n+1}\overset{n\to+\infty}{\to}0 \implies \rho=+\infty$\\
 ESEMPIO::$sin(z)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^nz^{2n+1}}{(2n+1)!}$ quindi
 $a_n =
 \begin{cases}
@@ -482,30 +482,30 @@ In altre parole chiamiamo analitica una funzione che può essere scritta come so
 ESEMPIO:: $x\to e^x$ è analitica su $ \R$\\
 ESEMPIO:: $x\to\frac{1}{1+x^2}$ è analitica su $\left]-1,1\right[$\\
 \proposition
-Se $f$ è analitica su $\left]-r;r\right[$ per $r\in \R$ e $r>0\Rightarrow f\in \cntclass{0}(\left]-r,r\right[; \R)$
+Se $f$ è analitica su $\left]-r;r\right[$ per $r\in \R$ e $r>0 \implies f\in \cntclass{0}(\left]-r,r\right[; \R)$
 \begin{proof}
 	$f$ è analitica  allora posso scriverla come $f=\sum\limits_{n=0}^{+\infty}a_nx^n$ cioè la funzione è limite di una serie, se la serie converge totalmente allora converge uniformemente. Il limite uniforme di funzioni continue(in questo caso polinomi) è una funzione continua. cioè la $f$ è continua.
 \end{proof}
 \proposition PROP+PROOF\\
-Sia $f:\left]-r,r\right[\to \R$ e $f$ analitica su $\left]-r,r\right[ \bydef f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \Rightarrow$ ho convergenza totale $\Rightarrow$ ho convergenza uniforme di funzioni continue
-\[\Rightarrow f\in \cntclass{0}(\left]-r,r\right[; \R),\quad a_0=f(0)\]
+Sia $f:\left]-r,r\right[\to \R$ e $f$ analitica su $\left]-r,r\right[ \bydef f(x)=\sum\limits_{n=0}^{+\infty}a_nx^n \implies$ ho convergenza totale $\implies$ ho convergenza uniforme di funzioni continue
+\[\implies f\in \cntclass{0}(\left]-r,r\right[; \R),\quad a_0=f(0)\]
 La serie delle derivate $\sum\limits_{n=0}^{+\infty}na_nx^{n-1}$ converge totalmente su $\left]-r,r\right[$ cioè
 \[\sum\limits_{n=0}^{+\infty}f'(x)=\sum\limits_{n=0}^{+\infty}na_nx^{n-1} \uconvarrow g\]
 \[\sum\limits_{n=0}^{+\infty}fn(0)\to f(0), f_n\in ????????????\]
 Allora la serie delle derivate converge alla derivata della serie
-\[\Rightarrow \in \cntclass{1}(\left]-r,r\right[; \R),\quad a_1=f'(0)\]
+\[\implies \in \cntclass{1}(\left]-r,r\right[; \R),\quad a_1=f'(0)\]
 Questo ragionmento può essere ripetuto:
-\[\Rightarrow \forall k\in\N,\quad f\in \cntclass{k}(\left]-r,+r\right[),\quad a_k=k!f^{(k)}(0)\]
+\[\implies \forall k\in\N,\quad f\in \cntclass{k}(\left]-r,+r\right[),\quad a_k=k!f^{(k)}(0)\]
 e analogamente
 \[f\in \cntclass{\infty}(\left]-r,r\right[; \R),\quad f(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
-\observation Qui abbiamo detto se $f$ è analitica $\Rightarrow \ldots$, vorrei fare un qualche tipo di viceversa per poter capire se $f$ è analitica o no.
+\observation Qui abbiamo detto se $f$ è analitica $\implies \ldots$, vorrei fare un qualche tipo di viceversa per poter capire se $f$ è analitica o no.
 \proposition
 Sia $f:\left]-r,r\right[\to \R$
 \begin{center}
 	$\left.\begin{matrix}
 	f\in \cntclass{\infty}(\left]-r,r\right[; \R)\\
 	\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\text{ converge totalmente su } \left]-r,r\right[\\
-	\end{matrix}\right\}\Rightarrow f$ è analitica  .....
+	\end{matrix}\right\}\implies f$ è analitica  .....
 \end{center}
 Per avere $f$ analitica  necessariamente come ipotesi deve esserci $f\in \cntclass{\infty}$ e $f$ che si può scrivere come sviluppo in serie di Taylor,dalla proposizione precedente. Questo basta? NO\\
 ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{matrix}\right.$\\
@@ -523,9 +523,9 @@ ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{mat
 	\item $f(x)\ne\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$
 \end{enumerate}
 \begin{enumerate}
-	\item Vediamo se è $\cntclass{0}$, quindi calcolo $\lim\limits_{x\to 0^{+}}f(x)=\lim\limits_{x\to 0^{-}}f(x)=0=f(0)\Rightarrow f\in \cntclass{0}( \R; \R)$.\\
+	\item Vediamo se è $\cntclass{0}$, quindi calcolo $\lim\limits_{x\to 0^{+}}f(x)=\lim\limits_{x\to 0^{-}}f(x)=0=f(0)\implies f\in \cntclass{0}( \R; \R)$.\\
 	Ora calcoliamo la derivata fuori dallo zero, ne facciamo il limite per $x\to 0$ da destra e da sinitra e vediamo cosa succede.\\
-	Se $x\ne 0$, $f'(x)=\frac{2}{x^3}e^{-\frac{1}{x^3}}$ e $\lim\limits_{x\to 0^{+}}f'(x)=\lim\limits_{x\to 0^{-}} = 0\Rightarrow f\in \cntclass{1}( \R; \R)$\\
+	Se $x\ne 0$, $f'(x)=\frac{2}{x^3}e^{-\frac{1}{x^3}}$ e $\lim\limits_{x\to 0^{+}}f'(x)=\lim\limits_{x\to 0^{-}} = 0 \implies f\in \cntclass{1}( \R; \R)$\\
 	..........\\
 	ancora una derivata.......\\
 	..........\\
@@ -533,7 +533,7 @@ ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{mat
 	itero il ragionamento......\\
 	.......\\
 	\item In (1) abbiamo visto  che tutte le derivate nello zero si annullavano, cioè
-	\[\forall n\in\N, f^{(n)}(0)=0\Rightarrow \sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
+	\[\forall n\in\N, f^{(n)}(0)=0 \implies \sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
 	è la serie identicamente nulla  che banalmente converge totalmente su tutto $ \R$
 	\item Anche osservandoil grafico è chiaro che la $f$ non è la funzione identicamente nulla cioè è diversa dal suo sviluppo in serie
 	\[f(x)\ne\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
@@ -551,9 +551,9 @@ Sia $f:\left]-r,r\right[\to \R$
 \begin{center}
 	$\left.\begin{matrix}
 	f\in \cntclass{\infty}(\left]-r,r\right[; \R)\\
-	\exists H,K >0 :\forall n\in\N \sup\limits_{\left]-r,r\right[}\abs{f^{(n)}(x)}\le HK^n\\
+	\exists H,K >0 :\forall n\in\N \sup\limits_{\left]-r,r\right[}\abs{f^{(n)}(x)} \leq HK^n\\
 	\end{matrix}\right\}
-	\Rightarrow f(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$
+	\implies f(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n$
 \end{center}
 \observation
 L'ipotesi centrale ............. qui non c'è
@@ -572,7 +572,7 @@ Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Ques
 		\item $ln(1+x)=\sum\limits_{n=1}^{+\infty}\frac{(-1)^{n+1}}{n}x^n$
 		\item $arctan(1+x)=\sum\limits_{n=0}^{+\infty}\frac{(-1)^{n}}{2n+1}x^{(2n+1)}$
 		\item $\frac{1}{1+x^2}=\sum\limits_{n=0}^{+\infty}(-1)^nx^2n$
-		\item $\sum\limits_{n=0}^{+\infty}\frac{1}{n^\lambda}=\left\{\begin{matrix}\text{converge sse } \lambda >1\\ \text{diverge sse } \lambda \le 1 \end{matrix}\right.$
+		\item $\sum\limits_{n=0}^{+\infty}\frac{1}{n^\lambda}=\left\{\begin{matrix}\text{converge sse } \lambda >1\\ \text{diverge sse } \lambda  \leq 1 \end{matrix}\right.$
 		\item $\sum\limits_{n=0}^{+\infty}q^n=\left\{\begin{matrix}\text{converge sse } \abs{q}<1, S=\frac{1}{1-x}\\ \text{diverge sse } \abs{q}>1\text{ o }q=1\\\nexists \text{ sse } x=-1 \end{matrix}\right.$
 	\end{description}
 \end{example}
@@ -599,7 +599,7 @@ x+T\in A\\f(x+T)=f(x)
 \end{matrix}\right. $\\
 
 
-ESEMPIO:: $\lfloor x \rfloor = \text{ parte intera } = \max\left\{k\in\mathbb{Z}:k\le x\right\}$
+ESEMPIO:: $\lfloor x \rfloor = \text{ parte intera } = \max\brackets{k\in\mathbb{Z}:k \leq x}$
 \[\lfloor \pi \rfloor=3, \quad \lfloor \sqrt{2} \rfloor = 1 \quad \lfloor -e \rfloor = -3 \]
 \begin{center}
 	\begin{tikzpicture}
@@ -635,9 +635,9 @@ Sia $f:A\to \R$ $T$-periodica. Allora possiamo definire $\overline{f}:\overline{
 \[x\to f\left(\frac{T}{2\pi}x\right),\quad \overline{A}=\frac{2\pi}{T}A\]
 \proposition
 Siano $A\subseteq \R$, $f:A\to \R$ e $T>0$\\
-$f$ è $T$-periodica $\Rightarrow \forall n\in\N$, $f$ è $nT$-periodica.
+$f$ è $T$-periodica $\implies \forall n\in\N$, $f$ è $nT$-periodica.
 \proposition
-Sia $f:\left[0,2\pi\right[\to \R \Rightarrow \exists ! \hat{f}: \R\to \R$ t.c.: $\left\{\begin{matrix} \hat{f} 2\pi-periodica\\\hat{f}_{\left|\left[0,2\pi\right]\right.}=f\end{matrix}\right.$
+Sia $f:\left[0,2\pi\right[\to \R \implies \exists ! \hat{f}: \R\to \R$ t.c.: $\left\{\begin{matrix} \hat{f} 2\pi-periodica\\\hat{f}_{\left|\left[0,2\pi\right]\right.}=f\end{matrix}\right.$
 \begin{proof}
 	$\forall x\in \R. \exists ! \hat{x}\in\left[0,2\pi\right[$ t.c.: $x=2\pi\cdot k+\hat{x}$ con $k\in\mathbb{Z}$ e $k=\left[??????\right]$\\
 	\[\hat{f}(x)=f(\hat{x})\]
@@ -656,7 +656,7 @@ Dati $2n+1$ numeri reali $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n$ si dice polinomio t
 \observation
 Essendo un'approssimazione, si deve aggiungere l'errore. Come è fatto?. Per far uscire conti giusti e comodi andrebbe usata la distanza quadratica , ma questo prevede una lunga parte introduttiva, noi allora lo stimiamo con la distanza infinita.
 \definition
-Date due successioni di numeri reali $\left\{a_n:n\in\N\right\}$,$\left\{b_n:n\in\N\setminus\left\{0\right\}\right\}$, si defininisce serie trigonometrica di coefficienti  $\left\{a_n:n\in\N\right\}$,$\left\{b_n:n\in\N\setminus\left\{0\right\}\right\}$ la serie
+Date due successioni di numeri reali $\brackets{a_n:n\in\N}$,$\brackets{b_n:n\in\N\setminus\left\{0}\right\}$, si defininisce serie trigonometrica di coefficienti  $\brackets{a_n:n\in\N}$,$\brackets{b_n:n\in\N\setminus\left\{0}\right\}$ la serie
 \[\begin{array}{rcl} \mathfrak{F}: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}\]
 LEMMA::\\
 Se $h,k\in\N$ valgono le seguenti uguaglianze:
@@ -764,14 +764,14 @@ La matrice Hessiana di $\varphi$ risulta \[H_{\varphi}=\left[\begin{matrix}
 \definition
 Sia $f: \intervalclose{-\pi}{\pi} \to \R$, i coefficienti di Fourier di $f$ sono (ovviamente $f$ deve essere tale da ammetterli finiti):
 \[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}\]
-\[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
-\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
+\[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\quad k\in\N\setminus{\brackets{0}}\]
+\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\brackets{0}}\]
 La serie di Fourier di $f$ è
 \[\trigonpol{k}{1}{+\infty}\]
 \proposition
-Sia $F: \intervalclose{-\pi}{\pi} \to \R$ la somma della serie trigono metrica definita dai coefficienti $\left\{a_n:n\in\N\right\}$ e $\left\{a_n:n\in\N\setminus{\left\{0\right\}}\right\}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
+Sia $F: \intervalclose{-\pi}{\pi} \to \R$ la somma della serie trigono metrica definita dai coefficienti $\brackets{a_n:n\in\N}$ e $\brackets{a_n:n\in\N\setminus\brackets{0}}$ e la serie trigonometrica converge uniformemente allora $F$ è una funzione continua e
 \[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)cos(kx)\integrald{x}\quad k\in\N\]
-\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\left\{0\right\}}\]
+\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(kx)\integrald{x}\quad k\in\N\setminus{\brackets{0}}\]
 ESEMPIO+DIMOSTRAZIONE:::\\
 sia $f(x)=\trigonpol{n}{1}{+\infty}$. Allora:\\
 \[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}\trigonpol{n}{1}{+\infty}\integrald{x}=\]
@@ -815,9 +815,9 @@ Poiché si ha convergenza uniforme si può portare l'integrale dentro la sommato
 \right]=\]
 \[=\frac{1}{\pi}\pi b_k=b_k\]
 \observation
-Se $d_2(f,\text{polinomio di Fourier})$ \`{e} minima $\Rightarrow$ il polinomio di Fourier \`{e} costruito con i coefficienti di Fourier di $f$.
+Se $d_2(f,\text{polinomio di Fourier})$ \`{e} minima $\implies$ il polinomio di Fourier \`{e} costruito con i coefficienti di Fourier di $f$.
 \observation
-Se $f$ \`{e} somma di una serie di funzioni $\Rightarrow$ i coefficienti della serie sono i coefficienti di Fourier.
+Se $f$ \`{e} somma di una serie di funzioni $\implies$ i coefficienti della serie sono i coefficienti di Fourier.
 \observation
 Funzioni diverse possono avere gli stessi coefficienti di Fourier, cio\`{e} $\exists f,g$ con $f\ne g$ ma $f$ e $g$  hanno gli stessi coefficienti di Fourier.
 ESEMPIO::
@@ -834,15 +834,15 @@ ESEMPIO::
 \observation
 I coefficienti di Fourier non possono identificare univocamente puntualmente una funzione.
 \subsubsection{Punto Di Vista Geometrico}
-In $R^2$ Ci sono $2$ vettori $\hat{i},\hat{j}$ della base, se $\underline{v}\in \R^2 \Rightarrow \underline{v}=v_1\cdot \hat{i}+v_2\cdot \hat{j}$ con $v_1,v_2$ componenti di $\underline{v}$\\
+In $R^2$ Ci sono $2$ vettori $\hat{i},\hat{j}$ della base, se $\underline{v}\in \R^2 \implies \underline{v}=v_1\cdot \hat{i}+v_2\cdot \hat{j}$ con $v_1,v_2$ componenti di $\underline{v}$\\
 Calcolo delle componenti:\\
 \[\underline{v}\cdot \hat{i} = v_1\cdot \hat{i\cdot }\hat{i}+v_2\cdot \hat{j}\cdot \hat{i}=v_1\]
 \[\underline{v}\cdot \hat{j} = v_1\cdot \hat{i}\cdot \hat{j}+v_2\cdot \hat{j}\cdot \hat{j}=v_2\]
 Questo vale perché $\hat{i},\hat{j}$ è una base ortonormale.
-In $R^3$ Ci sono $3$ vettori $\hat{i},\hat{j},\hat{k}$ della base, se $\underline{v}\in \R^3 \Rightarrow \underline{v}=v_1\hat{i}+v_2\hat{j}+v_3\hat{k}$ con $v_1,v_2,v_3$ componenti di $\underline{v}$\\
+In $R^3$ Ci sono $3$ vettori $\hat{i},\hat{j},\hat{k}$ della base, se $\underline{v}\in \R^3 \implies \underline{v}=v_1\hat{i}+v_2\hat{j}+v_3\hat{k}$ con $v_1,v_2,v_3$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
 \[ v_1=\underline{v}\cdot \hat{i}\quad v_2=\underline{v}\cdot \hat{j}\quad v_3=\underline{v}\cdot \hat{k}  \]
-In $R^n$ Ci sono $n$ vettori $e_1,e_2,\dotsc,e_n$ della base, se $\underline{v}\in \R^n \Rightarrow \underline{v}=v_1\cdot e_1+v_2\cdot e_2+\ldots+v_n\cdot e_n=\sum\limits_{k=1}^{n}v_k\cdot e_k$ con $v_1,v_2,\dotsc,v_n$ componenti di $\underline{v}$\\
+In $R^n$ Ci sono $n$ vettori $e_1,e_2,\dotsc,e_n$ della base, se $\underline{v}\in \R^n \implies \underline{v}=v_1\cdot e_1+v_2\cdot e_2+\ldots+v_n\cdot e_n=\sum\limits_{k=1}^{n}v_k\cdot e_k$ con $v_1,v_2,\dotsc,v_n$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
 \[v_k=\underline{v}\cdot e_k\]
 \\
@@ -872,7 +872,7 @@ Altre simbologie usate sono: $ f\bullet g $, $(f|g)$
 \[\alpha\left<f,h\right>+\beta\left<g,h\right>\]
 
 Ripetiamolo stesso ragionamento applicato in $ \R^2, \R^3,$ e $ \R^n$ per ricavare le componenti, possiamo fare questo perché abbiamo una base e abbiamo definito un prodotto scalare.\\
-Se $f(x)=\trigonpol{n}{1}{+\infty} \Rightarrow $
+Se $f(x)=\trigonpol{n}{1}{+\infty} \implies $
 \[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)dxs=\frac{1}{\pi}\left<f,c_0\right> \]
 \[a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}=\frac{1}{\pi}\left<f,c_k\right> \]
 \[b_k\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sin(kx)\integrald{x}=\frac{1}{\pi}\left<f,s_k\right>\]
@@ -926,9 +926,9 @@ x & \to & \left\{\begin{matrix} -1 && x<0\\0&&x= 0\\1&&x>0 \end{matrix}\right.\e
 \[\begin{array}{rcl} g: \left[-\pi,\pi\right] & \to &  \R \\
 x & \to & \left\{\begin{matrix} -1 && x<0\\\pi&&x= 0\\1&&x>0 \end{matrix}\right.\end{array}\]
 \observation
-Sia $f$ una funzione pari $\Rightarrow bn=0 \forall n=1,2,\dotsc,+\infty$
+Sia $f$ una funzione pari $\implies bn=0 \forall n=1,2,\dotsc,+\infty$
 \observation
-Sia $f$ una funzione dispari $\Rightarrow an=0 \forall n=0,1,,\dotsc,+\infty$
+Sia $f$ una funzione dispari $\implies an=0 \forall n=0,1,,\dotsc,+\infty$
 \observation
 Siano
 \[f(x)=\frac{a_0}{2}+\sum\limits_{n=}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right)\]
@@ -945,7 +945,7 @@ Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\
 \begin{definition}[Funzione Continua a Tratti]
 	Siano $a,b\in \R$ con $a<b$, una funzione $f:\intervalclose{a}{b} \to \R$. Allora $f$ è \textbf{continua a tratti} se esiste un numero finito di punti $x_1,x_2,\dotsc,x_n$ tali che:
 	\begin{enumerate}
-		\item In ogni punto di $\intervalclose{a}{b}\setminus\left\{x_1,x_2,\dotsc,x_n\right\}$ f è continua
+		\item In ogni punto di $\intervalclose{a}{b}\setminus\brackets{x_1,x_2,\dotsc,x_n}$ f è continua
 		\item $i=1,2,\dotsc,n$ esistono finiti entrambi i limiti:
 		\[\lim\limits_{x\to x_i^{-}}f(x)\quad \lim\limits_{x\to x_i^{+}}f(x)\]
 	\end{enumerate}
@@ -963,7 +963,7 @@ GRAFICO::::\\
 .......\\
 .......\\
 \proposition
-Sia $f: \intervalclose{-\pi}{\pi} \to \R$, $f$ è continua a tratti $\Rightarrow$ esistono finiti tutti i coefficienti di Fourier di $f$
+Sia $f: \intervalclose{-\pi}{\pi} \to \R$, $f$ è continua a tratti $\implies$ esistono finiti tutti i coefficienti di Fourier di $f$
 \proposition
 Sia $f: \intervalclose{-\pi}{\pi} \to \R$,\\
 -$f$ è continua a tratti\\

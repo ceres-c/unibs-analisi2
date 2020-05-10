@@ -8,7 +8,7 @@ x & \to & \int_{a}^b f(t,x(t), x'(t))\integrald{t}\end{array}\]
 eventualmente soggetti a vincoli sui valori $x(a)$ e $x(b)$ o sul valore di un integrale del tipo $\int_a^b \varphi(x(t))\integrald{t}$.\\
 Dove:
 \[f: \intervalclose{a}{b}\times \R ^n\times \R ^n \to \R\]
-\[X=\left\{x\in \cntclass{1}(\intervalclose{a}{b}); \R ^n\text{ t.c.: }x(a)=x_a, x(b)=x_b \right\},\text{ con }x_a,x_b\in \R ^n\]
+\[X=\brackets{x\in \cntclass{1}(\intervalclose{a}{b}); \R ^n\text{ t.c.: }x(a)=x_a, x(b)=x_b },\text{ con }x_a,x_b\in \R ^n\]
 \proposition
 Sia $f\in \cntclass{1}(A\times \R ; \R )$ con $a\subseteq \R ^n$\\
 Se $\begin{array}{ccc} F: \R \times \R \times A & \to & \R \\
@@ -23,7 +23,7 @@ Sia $I\in \R $ un intervallo. Curva su $I$ $ \R \bydef$ una funzione $\gamma:I\s
 \observation
 $\gamma(I)$ si chiama supporto della curva,ed 1'e certamente connesso.(una funzione continua manda intervalli connessi in connessi)
 \definition
-Sia $\gamma : \intervalclose{a}{b} \to \R^n$ una curva, lunghezza della curva $\bydef l(\gamma)=\sup\left\{\sum\limits_{i=1}^{N}\norm{\gamma(t_i)-\gamma(t_{i-1})}: N\in\mathbb{N}\,N>1,t_0=a,t_N=b,t_{i-1}<t_i, i=1,2,\ldots,N \right\}$ 
+Sia $\gamma : \intervalclose{a}{b} \to \R^n$ una curva, lunghezza della curva $\bydef l(\gamma)=\sup\brackets{\sum\limits_{i=1}^{N}\norm{\gamma(t_i)-\gamma(t_{i-1})}: N\in\mathbb{N}\,N>1,t_0=a,t_N=b,t_{i-1}<t_i, i=1,2,\ldots,N }$ 
 cioè prendo una curva e la approssimo con una spezzata, la più lunga di tutte le poligonali è la lunghezza della curva.\\
 DISEGNO\\
 DISEGNO\\
@@ -35,12 +35,12 @@ per il teorema del valore medio differenziale(accrescimenti finiti)
 \[\sum\limits_{i=1}^{N}\norm{ \gamma'(t_i)(t_i-t_{i-1})} =??\]
 \[\int_{a}^{b}\norm{ \gamma'(t)} \integrald{t}\]
 \proposition
-Se $\gamma\in \cntclass{1}(\intervalclose{a}{b}; \R ^n)\Rightarrow l(\gamma)=\int_a^b\norm{\gamma'(t)}\integrald{t}$
+Se $\gamma\in \cntclass{1}(\intervalclose{a}{b}; \R ^n)\implies l(\gamma)=\int_a^b\norm{\gamma'(t)}\integrald{t}$
 \observation
 Se $\gamma$ è la traiettoria di un punto materiale,allora $\norm{\gamma}$ è la norma della velocità istantanea, e quindi $l(\gamma)$ è lo spazio che si percorre, cioè l'integrale della velocità valutato tra $t??????t_i$ due istanti di tempo entro i quali si mantiene tale velocità.
 \observation
 Nel caso specifico sarà:
-\[ X=\left\{ x\in \cntclass{1}(\left[a,b\right]; \R 2): x(a)=A, x(b)=B \right\} \]
+\[ X=\brackets{ x\in \cntclass{1}(\left[a,b\right]; \R 2): x(a)=A, x(b)=B } \]
 \[\begin{array}{ccc} 
 F: X & \to & \R \\
 x & \to & \int_{a}^b \norm{x'(t)}\integrald{t}
@@ -73,16 +73,16 @@ Allora $f(x)\equiv 0\forall x\in\left[0,1\right]$
 	Osservo che se $x_0=1$ allora $\exists\overline{x}_0\in\left]0,1\right[$ t.c. $f(\overline{x}_0)\ne 0$\\
 	Entrambe le osservazioni per la continuità di $f$, significa che se $x_0$ è un punto in cui la $f>0$ allora per la continuità della funzione anche li vicino si hanno valori maggiori di zero.\\
 	Quindi si può pensare $x_0\in\left]0,1\right[$.\\
-	Allora $\exists a,b\in\left]0,1\right[$ t.c. $x_0\in\left]a,b\right[ e \forall x\in\left]a,b\right[$ vale che $\abs{f(x)}\ge\abs{f(x_0)}$ sempre per la continuità di $f$.\\
+	Allora $\exists a,b\in\left]0,1\right[$ t.c. $x_0\in\left]a,b\right[ e \forall x\in\left]a,b\right[$ vale che $\abs{f(x)} \geq\abs{f(x_0)}$ sempre per la continuità di $f$.\\
 	Pensiamo $f(x_0)>0$ in questo modo $\abs{f(x_0)}=f(x_0)$ e scegliamo la funzione $v(x)$ come disegnata: $v(x)=\left\{\begin{matrix}
-	0&&x\le x_0-\delta\\
+	0&&x \leq x_0-\delta\\
 	\frac{x}{\delta}-\frac{x_0-\delta}{\delta}&& x_0-\delta<x<x_0\\
 	1&& x=x_0\\
 	-\frac{x}{\delta}+\frac{x_0+\delta}{\delta}&&x_0<x<x_0+\delta\\
-	0&&x\ge x_0+\delta
+	0&&x \geq x_0+\delta
 	\end{matrix}\right.$POSSIBILIPLAUSIBILIERRORI\\
 	Se calcoliamo
-	\[\int_0^1f(x)v(x)\integrald{x}=\int_a^bf(x)v(x)\integrald{x}\ge\frac{1}{2}f(x_0)\int_a^bv(x)\integrald{x}=\frac{1}{2}f(x_0)\frac{b-a}{2}>0\]
+	\[\int_0^1f(x)v(x)\integrald{x}=\int_a^bf(x)v(x)\integrald{x} \geq\frac{1}{2}f(x_0)\int_a^bv(x)\integrald{x}=\frac{1}{2}f(x_0)\frac{b-a}{2}>0\]
 	Se avessi preso $f(x_0)<0$ prendo $v=-v$ e il resto segue...
 \end{proof}
 \observation
@@ -118,10 +118,10 @@ Sia $f\in \cntclass{0}(\left[a,b\right]; \R )$ e $k\in\mathbb{N}$ tale che $\for
 
 \theorem EQUAZIONE DI EULERO.\\
 Sia $f\in \cntclass{2}\left(\left[a,b\right]\times \R ^n\times \R ^n; \R \right)$ con $a,b\in \R $ e $a<b$.\\
-Sia $X=\left\{x\in \cntclass{2}\left(\left[a,b\right]; \R ^n\right): x(a)=A, x(b)=B\right\}$ con $A,B\in \R ^n$.\\
+Sia $X=\brackets{x\in \cntclass{2}\left(\left[a,b\right]; \R ^n\right): x(a)=A, x(b)=B}$ con $A,B\in \R ^n$.\\
 Sia $\begin{array}{ccc} F: X & \to & \R \\
 x & \to & \int_{a}^b f(t,x(t), x'(t))\integrald{t}\end{array}$.\\
-Se la funzione $x_\ast\in X$ è t.c. $F(x_\ast)=\max\left\{F(x):x\in X \right\}$ [o min]\\
+Se la funzione $x_\ast\in X$ è t.c. $F(x_\ast)=\max\brackets{F(x):x\in X }$ [o min]\\
 Allora $\partial_xf(t,x_\ast(t), x_\ast'(t))-\frac{d}{\integrald{t}}\partial_{ x'}f(t,x_\ast(t), x_\ast'(t))=0$.\\
 Questa ultima equzione è l'equazione di Eulero-Lagrange del Funzionale $F$ o a volte detta variazione prima del funzionale $F$. è un sistema di $n$ equazioni differenziali ordinarie del secondo ordine nella funzione incognita $x_\ast$.
 \begin{proof}

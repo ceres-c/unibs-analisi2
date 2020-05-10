@@ -10,7 +10,7 @@ La base canonica di $R^n$ è indicata con $(e_1,\:\dotsc\:,e_n)$, $e_i$ è il ve
 
 Nel caso $n=2$ è usata la notazione $(x,y)=xi+yj$. Nel caso $n=3$ è usata la notazione $(x,y,z)=xi+yj+zk$
 
-Alcune classi di funzioni $f:A\subseteq\R^n\rightarrow\R^m$ hanno nomi particolari:
+Alcune classi di funzioni $f:A\subseteq\R^n \to\R^m$ hanno nomi particolari:
 \begin{itemize}
 	\item $n=1$,$m=1$: $f$ è una \textit{funzione reale di una variabile reale};
 	\item $n=1$,$m>1$: $f$ è una \textit{curva} in $R^m$ (purché $f$ sia almeno continua e $A$ su un intervallo)
@@ -726,31 +726,31 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 %TODO This section is a placeholder, the following proposition have to be rewritten
 \proposition
 \label{prop:diff_somma_diff}
-Siano $f,g: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$\\
+Siano $f,g: A\subseteq \R^n \to \R^m$ e $x_0\in\circdot{A}$\\
 $f$ differenziabile in $x_0$, $g$ differenziabile in $x_0$ allora $f+g$ differenziabile in $x_0$ e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
 \begin{proof}
-	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h\rightarrow 0$\\
-	anche $g$ lo è, quindi $g(x_0+h)=g(x_0)+Dg(x_0)h+o(h)$ per $h\rightarrow 0$\\
-	sommando membro a membro si ottiene  $(f+g)(x_0+h)=(f+g)(x_0)+[Df(x_0)+Dg(x_0)]h+o(h)$ per $h\rightarrow 0$\\
+	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h \to 0$\\
+	anche $g$ lo è, quindi $g(x_0+h)=g(x_0)+Dg(x_0)h+o(h)$ per $h \to 0$\\
+	sommando membro a membro si ottiene  $(f+g)(x_0+h)=(f+g)(x_0)+[Df(x_0)+Dg(x_0)]h+o(h)$ per $h \to 0$\\
 	Questa è la definizione di differenziabilità, allora $f+g$ è differenziabile e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
 \end{proof}
 
 \proposition
-Sia $f: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$ e $\lambda\in \R$\\
+Sia $f: A\subseteq \R^n \to \R^m$ e $x_0\in\circdot{A}$ e $\lambda\in \R$\\
 $f$ differenziabile in $x_0$ allora $\lambda f$ differenziabile in $x_0$ e $D(\lambda f)(x_0) = \lambda Df(x_0)$
 \begin{proof}
-	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h\rightarrow 0$\\
-	valuto ora $(\lambda f)(x_0+h)=(\lambda f)(x_0)+\lambda Df(x_0)h+o(h)$ per $h\rightarrow 0$\\
+	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h \to 0$\\
+	valuto ora $(\lambda f)(x_0+h)=(\lambda f)(x_0)+\lambda Df(x_0)h+o(h)$ per $h \to 0$\\
 	Questa è la definizione di differenziabilità, allora $\lambda f$ è differenziabile e $D(\lambda f)(x_0) = \lambda Df(x_0)$
 \end{proof}
 
 \proposition
-Sia $g: A\subseteq \R^n \rightarrow \R^m$ e $x_0\in\circdot{A}$\\
-Sia $f: B\subseteq \R^m \rightarrow \R^p$ e $g(x_0)\in\circdot{B}$\\
+Sia $g: A\subseteq \R^n \to \R^m$ e $x_0\in\circdot{A}$\\
+Sia $f: B\subseteq \R^m \to \R^p$ e $g(x_0)\in\circdot{B}$\\
 $f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ differenziabile in $x_0$ e $D(f\circ g)(x_0) = Df(g(x_0))*Dg(x_0)$
 \begin{proof}
-	$g$ è differenziabile in $x_0$, allora $g(x_0+h)=f(x_0)+Dg(x_0)h+o(h)$ per $h\rightarrow 0$\\
-	$f$ è differenziabile in $g(x_0)$ allora $g(g(x_0)+k)=f(g(x_0))+Df(g(x_0))k+o(k)$ per $k\rightarrow 0$\\
+	$g$ è differenziabile in $x_0$, allora $g(x_0+h)=f(x_0)+Dg(x_0)h+o(h)$ per $h \to 0$\\
+	$f$ è differenziabile in $g(x_0)$ allora $g(g(x_0)+k)=f(g(x_0))+Df(g(x_0))k+o(k)$ per $k \to 0$\\
 	valuto ora 
 	\[(f\circ g)(x_0+h) = f(g(x_0+h)+Dg(x_0)h+o(h)) = \] 
 	\[=f(g(x_0))+Df(g(x_0))(Dg(x_0)h+o(h))+o(Dg(x_0)h+o(h)) = \]
@@ -2354,19 +2354,18 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 
 \newpage
 \section{Massimi e Minimi Vincolati}
-Spesso la ricerca di punti di massimo o minimo di una funzione $f:A\rightarrow \R, A\subseteq \R^n$ deve essere ristrettaad un sottoinsieme $B\subseteq A$ a causa di eventuali vincoli a cui le variabili indipendenti devono soddisfare. L0insieme $B$ può essere generalmente descritto da una funzione $\varphi :A\rightarrow \R^p$, nel senso che $B=\{x\in A:\varphi (x)\le 0\}$\\
-NOTA::: direi n>1 poiché se ho una sola variabile e la vincolo ...??????? booooo .\\
+Spesso la ricerca di punti di massimo o minimo di una funzione $f:A \to \R$ con $A \subseteq \R^n$ deve essere ristretta ad un sottoinsieme $B \subset A$ a causa di eventuali vincoli che le variabili indipendenti devono soddisfare. L'insieme $B$ può essere generalmente descritto da una funzione $\varphi: A \to \R^p$, nel senso che $B = \brackets{x \in A: \varphi(x) \leq 0}$\\
 Questo problema è usualmente abbreviato in:
-\[\max\limits_{\varphi \le 0}\quad o \quad\min\limits_{\varphi \le 0}\]
-può essere affrontato in due passi:\\
+\[\max\limits_{\varphi \leq 0} f \qquad \text{oppure} \qquad \min\limits_{\varphi \leq 0} f\]
+e può essere diviso in due passi:
 \begin{enumerate}
-	\item ricerca dei punti di estremo di $f$ interni a $B$, problema gia affrontato.
-	\item ricerca dei punti di estremo di $f$ sul bordo di $B$, affrontiamo ora.
+	\item ricerca dei punti di estremo di $f$ interni a $B$ (problema gia affrontato)
+	\item ricerca dei punti di estremo di $f$ sul bordo di $B$ (si andrà a studiare ora)
 \end{enumerate}
-Sotto opportune condizioni su $\varphi$, infatti, $\circdot{B} = \{x\in A:\varphi(x)<0\}$ e $\partial B\{x\in A:\varphi(x)=0\}$
+Sotto opportune condizioni su $\varphi$, infatti, $\circdot{B} = \brackets{x\in A:\varphi(x)<0}$ e $\partial B\brackets{x\in A:\varphi(x)=0}$
 \proposition{Teorema dei Moltiplicatori di Lagrange}
-Siano $f,g:A\subseteq \R^2\rightarrow \R, (x_0,y_0)\in\circdot{A}, g(x_0,y_0)=0, f,g\in \cntclass{1}(A;R)$, $\nabla g (x_0,y_0)\ne 0$\\
-Se $(x_0,y_0)$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda in \R$ t.c: $\nabla f(x_0,y_0) = \lambda g(x_0,y_0)$ (all fin fine posso dire che sono paralleli).\\
+Siano $f,g:A\subseteq \R^2 \to \R, (x_0,y_0)\in\circdot{A}, g(x_0,y_0)=0, f,g\in \cntclass{1}(A;R)$, $\nabla g (x_0,y_0)\ne 0$\\
+Se $(x_0,y_0)$ è di max(o min) locale per $f$ su $g=0 \implies\exists \lambda in \R$ t.c: $\nabla f(x_0,y_0) = \lambda g(x_0,y_0)$ (all fin fine posso dire che sono paralleli).\\
 \observation
 $\lambda$ si chiama "moltiplicatore di lagrange"
 \observation
@@ -2378,9 +2377,9 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 	Sappiamo che $\nabla g(x_0,y_0)\ne$ quindi $\begin{bmatrix}\partial_xg(x_0,y_0) &&\partial_yg(x_0,y_0)\end{bmatrix}\ne\begin{bmatrix}0&&0\end{bmatrix}$ quindi o $\partial_xg(x_0,y_0)\ne 0$ o $\partial_yg(x_0,y_0)\ne 0$.
 	Mettiamoci nel caso in cui $\partial_yg(x_0,y_0)\ne 0$,\\
     Per il teorema della funzione implicita ho che :\\
-	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
+	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\to\mathcal{Y}$ t.c.:\\
 	$g(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \iff y=\varphi(x)$\\
-	Osserviamo che dire $(x_0,y_0)$ di massimo o minimo per $f$ ristretta a $g(x,y)=0\iff x_0$ è di massimo o di minimo per la funzione $x\rightarrow f(x,\varphi(x))$.\\
+	Osserviamo che dire $(x_0,y_0)$ di massimo o minimo per $f$ ristretta a $g(x,y)=0\iff x_0$ è di massimo o di minimo per la funzione $x \to f(x,\varphi(x))$.\\
 	Per il teorema di Fermat $\left.\frac{\mathrm{d}}{\mathrm{d}x}(f(x,\varphi(x)))\right\|_{x=x_0}=0$, punto stazionario ha derivata nulla, e la derivata di quella funzione in $x_0$ è:
 	\[\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)\] 
 	allora
@@ -2390,11 +2389,11 @@ In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lamb
 	questo equivale a dire che i vettori riga della matrice sono paralleli quindi $\exists\alpha\in \R : \nabla f(x_0,y_0)=\lambda\nabla g(x_0,y_0)$.\\
 	Non è uguale scrivere $\exists\alpha\in \R : \nabla g(x_0,y_0)=\lambda\nabla f(x_0,y_0)$ poiché non c'è certezza sul valore di $\nabla f(x_0,y_0)$ che se nullo negherebbe l'ipotesi di $\nabla g(x_0,y_0)\ne 0$\\
 	Se guardiamo ora il caso in cui $\partial_yg(x_0,y_0)=0$ e $\partial_xg(x_0,y_0)\ne 0$.\\
-	Seguendo un ragionamento analogo si esplicita $x=\psi(y)$ così che cercare max(o min) di $f$ ristretta a $g(x,y)=0$ porti a $y\rightarrow f(\psi(y),y)$ 
+	Seguendo un ragionamento analogo si esplicita $x=\psi(y)$ così che cercare max(o min) di $f$ ristretta a $g(x,y)=0$ porti a $y \to f(\psi(y),y)$ 
 \end{proof}
 \proposition{Teorema dei Moltiplicatori di Lagrange caso generale}
 Sia $A\in \R^n$, $f\in \cntclass{1}(A;R)$, $g\in \cntclass{1}(A;R^p)$ con $p<n$(n.vincoli<n.variabili), sia poi $x_0\in\circdot{A}, g(x_0)=0, Dg (x_0,y_0)$ di rango $p$.\\
-Se $x_0$ è di max(o min) locale per $f$ su $g=0\Rightarrow\exists \lambda_1,\ldots,\lambda_p in \R$ t.c: $\nabla f(x_0,y_0) = \sum\limits_{i=1}^{p}\lambda_i\nabla g(x_0,y_0)$\\
+Se $x_0$ è di max(o min) locale per $f$ su $g=0 \implies\exists \lambda_1,\ldots,\lambda_p in \R$ t.c: $\nabla f(x_0,y_0) = \sum\limits_{i=1}^{p}\lambda_i\nabla g(x_0,y_0)$\\
 
 \newpage
 \section{Il Caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
@@ -2426,9 +2425,9 @@ Come detto in \fullref{ex:max_min_lib_funz_in_R}, tutte le funzioni tratte in qu
 % TODO Questa sezione è stata copia-incollata qui da sopra e va integrata con quanto già scritto e quanto presente sul libro
 \subsection{Il Significato Geometrico del Gradiente n=2 m=1}
 \definition
-Sia $A\subseteq \R^2$ e $f:A\rightarrow \R$\\
+Sia $A\subseteq \R^2$ e $f:A \to \R$\\
 La suferficie $z=f(x,y)$ è il grafico di $f$, è unsottoinsieme di $R^3$\\
-Se $c\in \R$, la curva di livello $c$ di $f$ è l'insieme $f^{-1}(c)\{(x,y)\in A: f(x,y)=c\}$\\
+Se $c\in \R$, la curva di livello $c$ di $f$ è l'insieme $f^{-1}(c)\brackets{(x,y)\in A: f(x,y)=c}$\\
 Se $f$ 	'e differenziabile in $(x_0,y_0)\in\circdot{A}$ il piano tangente alla superficie $z=f(x,y)$ in $(x_0,y_0)$ ha equazione:\\
 \[z=f(x_0,y_0)+\nabla f(x_0,y_0)\begin{bmatrix}(x-x0)\\(y-y_0)\end{bmatrix}\]
 \[z=f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+\partial_yf(x_0,y_0)(y-y_0)\]
@@ -2437,7 +2436,7 @@ geometricamente, il gradiente di una funzione indica la direzione di $R^n$ in cu
 \observation
 osservazione col grafico che al momento non faccio.
 \proposition
-Siano $A\subseteq \R^n, f:A\rightarrow \R$ differenziabile in $(x_0,y_0)\in \circdot{A}$, l'incremento di $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo quando $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda >0$ ed è minimo con $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda <0$
+Siano $A\subseteq \R^n, f:A \to \R$ differenziabile in $(x_0,y_0)\in \circdot{A}$, l'incremento di $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo quando $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda >0$ ed è minimo con $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda <0$
 \begin{proof}
 	so che posso approssimare la funzione quindi posso scrivere:\\
 	$f(x_0+h,y_0+k)-f(x_0,y_0)=\nabla f(x_0,y_0)\begin{bmatrix}h\\k\end{bmatrix}+o(\sqrt{h^2+k^2})$=
@@ -2453,7 +2452,7 @@ un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al v
 	Usiamo quindi il teorema della funzione implicita, mi serve che $\partial_yf(x_0,y_0)\ne 0$, questa condizione non è assicurata dalle ipotesi, per ipotesi il gradiente è non nulla quindi almeno una delle due componenti è non nulla.\\
 	Inizio con il caso $\partial_yf(x_0,y_0)\ne 0$.\\
 	Il T.F.IMPL. assicura che :\\
-	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\rightarrow\mathcal{Y}$ t.c.:\\
+	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\to\mathcal{Y}$ t.c.:\\
 	$f(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \iff y=\varphi(x)$\\
 	La retta tangente in $x_0$ a $y=\varphi(x)$ è $y=y_0+\varphi'(x_0)(x-x_0)$\\
 	questo vuole dire che un vettore tangente a $y=\varphi(x)$ in $(x_0,y_0)$ è $\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix}$.\\
@@ -2486,7 +2485,7 @@ $\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to 
 \[\frac{\partial F}{\partial x_i}=\int_{\alpha}^{\beta}\frac{\partial F}{\partial x_i}(x,t)\integrald{t}\]
 \[\nabla F=\int_{\alpha}^{\beta}\nabla f(x,t)\integrald{t}\]
 \corollary
-Sia $A\subseteq \R^n$ un aperto, date le funzioni $\alpha:x\rightarrow \R, \beta:x\rightarrow \R, f:x\rightarrow \R, $ di classe $\cntclass{1}$ , la funzione \\
+Sia $A\subseteq \R^n$ un aperto, date le funzioni $\alpha:x \to \R, \beta:x \to \R, f:x \to \R, $ di classe $\cntclass{1}$ , la funzione \\
 $\begin{array}{rcl} F: A & \to & \R \\ (x) & \to & \int_{\alpha(x)}^{\beta(x)}f(x,t)\integrald{t} \end{array}$\\
 è di classe $\cntclass{1}(R\times \R\times A;R)$ ed inoltre, $\forall x_0 \in A$:
 \[\nabla F(x_0,y_0)=f(x_0,\beta)\nabla\beta(x_0)-f(x_0,\alpha)\nabla\alpha(x_0)+\int_{\alpha(x_0)}^{\beta(x_0)}\nabla f(x,t)\integrald{t}\]
