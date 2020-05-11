@@ -108,18 +108,31 @@
 % Thanks to Werner from https://tex.stackexchange.com/a/47091/206062
 \newcommand{\notimplies}{\mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
 
-\DeclareMathOperator\diam{diam}
-\DeclareMathOperator\grad{grad}
-\DeclareMathOperator\mat{Mat}
-\DeclareMathOperator\dom{Dom}
-\DeclareMathOperator\id{Id}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\mat}{Mat}
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\rank}{rank}
 
 % Append the following to an equation in align* blocks to allow tagging single eq.
 \newcommand*{\tageq}{\refstepcounter{equation}\tag{\theequation}}
 
 % Use the following to reference stuff with its name appended.
+\makeatletter
+	\newcommand{\fullref}{\@ifstar\fullrefStar\fullrefNoStar}
+\makeatother
 % Thanks to Oberdiek from https://tex.stackexchange.com/a/66096/206062
-\newcommand*{\fullref}[1]{%
+% Text only version
+\newcommand*{\fullrefStar}[1]{%
+	\autoref*{#1}%
+	\if\vcenter\getrefbykeydefault{#1}{name}{}\vcenter
+	\else
+		~(\nameref*{#1})%
+	\fi
+}
+% Text with link
+\newcommand*{\fullrefNoStar}[1]{%
 	\hyperref[{#1}]{%
 		\autoref*{#1}%
 		\if\vcenter\getrefbykeydefault{#1}{name}{}\vcenter

@@ -251,13 +251,13 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{observation}
 	Negli esempi precedenti è stata sfruttata la mancanza di regolarità nella dipendenza di $f$ da $x$.
 
-	Viceversa, nella \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra}, si era notato come la dipendenza di $f$ da $t$ sia molto meno critica.
+	Viceversa, nella \hyperlink{note:volterra_non_cont}{nota alla \fullref*{def:equaz_volterra}}, si era notato come la dipendenza di $f$ da $t$ sia molto meno critica.
 \end{observation}
 \begin{exercise}
 	Sia $s:\R \to \R$ data da
 	\[s(t) =
 	\begin{cases}
-		1 \qquad \text{se } t \geq 0
+		1 \qquad \text{se } t \geq 0\\
 		0 \qquad \text{se } t < 0
 	\end{cases}\]
 	Risolvere i seguenti Problemi di Cauchy, al variare di $t_0$ (si supponga $t_0 \neq 0,1$):
@@ -448,7 +448,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{note}
 	Inoltre:
 	\begin{itemize}
-		\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
+		\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota \fullref*{def:equaz_diff}}, dunque $\varphi(J)\subseteq A$
 		\item $\varphi(t_0)=x_0$
 		\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
 	\end{itemize}
@@ -643,14 +643,14 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\item \textbf{Esistenza}:\\
 		da \fullref{teo:peano} $\exists \delta>0$, con cui si identifica un $J=\intervalclose{t_0-\delta}{t_0+\delta}$. Inoltre $\exists\,\varphi : J \to \R^n$ è soluzione con le proprietà date da Peano:
 		\begin{itemize}
-			\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi(J)\subseteq A$
+			\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota \fullref*{def:equaz_diff}}, dunque $\varphi(J)\subseteq A$
 			\item $\varphi(t_0)=x_0$
 			\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
 		\end{itemize}
 		\item \textbf{Unicità}\\
 		Se $\exists\,J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists\,\varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni con le seguenti proprietà
 		\begin{itemize}
-			\item $J_1\subseteq I$, $J_2\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}, dunque $\varphi_1(J_1)\subseteq A$ e $\varphi_2(J_2)\subseteq A$
+			\item $J_1\subseteq I$, $J_2\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota \fullref*{def:equaz_diff}}, dunque $\varphi_1(J_1)\subseteq A$ e $\varphi_2(J_2)\subseteq A$
 				\begin{note}
 					Si può osservare che, sicuramente, $J_1\cap J_2\neq\emptyset$, poiché entrambi gli insiemi contengono almeno $t_0$ nella loro parte interna.
 				\end{note}
@@ -707,7 +707,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
 		\[X = \brackets{g\in \cntclass{0}(\intervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}\]
 		\begin{note}
-			Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla definizione di equazione di Volterra} sarebbe possibile sceglierla non continua, ma non si considera il caso.
+			Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla \fullref*{def:equaz_volterra}} sarebbe possibile sceglierla non continua, ma non si considera il caso.
 		\end{note}
 		Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \fullref{teo:contrazioni}:
 		\begin{itemize}
@@ -779,8 +779,8 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 
 				Essendo
 				\begin{itemize}
-					\item $t_M \in \circdot{J_1},\,t_M \in \circdot{J_2} \implies t_M \in \circdot{I}$ da \hyperlink{note:diff_eq_sol_definit_set}{nota definizione 47}
-					\item $x_M \in \circdot{A}$ per \hyperlink{def:equaz_diff_sol}{nota definizione equazione differenziale}
+					\item $t_M \in \circdot{J_1},\,t_M \in \circdot{J_2} \implies t_M \in \circdot{I}$ da \hyperlink{note:diff_eq_sol_definit_set}{nota \fullref*{def:equaz_diff}}
+					\item $x_M \in \circdot{A}$ per \hyperlink{def:equaz_diff_sol}{nota \fullref*{def:equaz_diff}}
 				\end{itemize}
 				ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
 				\[\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}\]
@@ -1423,7 +1423,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		Grazie a come sono definiti $T_M$ e $T_m$, è stata quindi trovata una soluzione sull'intervallo $I$ che si può dire \textbf{globale} per quanto appena dimostrato.
 	\end{proof}
 \end{theorem}
-\begin{example}[Esempio critico al \fullref{teo:cau_globale}]
+\begin{example}[Esempio critico al \protect\fullref{teo:cau_globale}]
 	Dato il Problema di Cauchy
 	\[\begin{cases}
 		x' = (1-\cos x) x^2\\
