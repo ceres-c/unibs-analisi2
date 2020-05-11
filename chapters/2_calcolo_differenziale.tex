@@ -53,7 +53,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 	\begin{note}\hfill\\
 		Nel caso $n = 2$ le derivate parziali di $f$ si indicano $\frac{\partial f}{\partial x}$ e $\frac{\partial f}{\partial y}$ o, equivalentemente, $\partial_x f$ e $\partial_y f$.\\
 		Nel caso $n = 3$ le derivate parziali di $f$ si indicano $\frac{\partial f}{\partial x}$, $\frac{\partial f}{\partial y}$ e $\frac{\partial f}{\partial z}$ o, equivalentemente, $\partial_x f$, $\partial_y f$ e $\partial_z f$.\\
-		Nel caso $n > 3$, notazioni usate sono $\frac{\partial f}{\partial x_i}$ o $\partial_{x_i} f$ per $i = 1,\;\dotsc\;,n$.
+		Nel caso $n > 3$, notazioni usate sono $\frac{\partial f}{\partial x_i}$ o $\partial_{x_i} f$ per $i = 1,\:\dotsc\:,n$.
 	\end{note}
 \end{definition}
 \begin{example}
@@ -107,7 +107,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. $f$ è \textbf{derivabile parzialmente} rispetto alla $i$-esima coordinata se e solo \textbf{se esiste} finito il limite
 	\begin{equation}
 		\label{eq:deriv_i_esima}
-		\lim\limits_{t \to 0} \frac{f(x_1,\;\dotsc\;,x_i+t,\;\dotsc\;,x_n) - f(x_1,\;\dotsc\;,x_i,\;\dotsc\;,x_n)}{t}
+		\lim\limits_{t \to 0} \frac{f(x_1,\:\dotsc\:,x_i+t,\:\dotsc\:,x_n) - f(x_1,\:\dotsc\:,x_i,\:\dotsc\:,x_n)}{t}
 	\end{equation}
 	\begin{proof}
 		Da \fullref{def:deriv_direz}, sceglendo $v = e_i$ della base canonica si ottiene la \cref{eq:deriv_i_esima}
@@ -157,7 +157,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		\begin{gathered}
 			f \text{ è \textbf{Derivabile} in $x_0$ nella direzione $v$}\\
 			\iff\\
-			\forall i = 1,\;\dotsc\;,m \quad \text{la \textbf{componente} $f_i$ \textbf{è derivabile} in $x_0$ nella direzione $v$}
+			\forall i = 1,\:\dotsc\:,m \quad \text{la \textbf{componente} $f_i$ \textbf{è derivabile} in $x_0$ nella direzione $v$}
 		\end{gathered}
 	\end{equation*}
 	\begin{proof}
@@ -565,7 +565,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\left.
 		\text{
 			\begin{tabular}{c}
-				Per $i = 1,\;\dotsc\;,m$ e $j = 1,\;\dotsc\;,n$\\
+				Per $i = 1,\:\dotsc\:,m$ e $j = 1,\:\dotsc\:,n$\\
 				$\frac{\partial f_i}{\partial x_j}$ è \textbf{definita} in un \textbf{intorno} di $x_0$ e \textbf{Continua} in $x_0$
 			\end{tabular}
 		}
@@ -701,7 +701,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \begin{proposition}
 	\label{prop:cnt_class_components}
 	Siano $m \in \N, m \geq 1$ e $A \subseteq \R^n$ un \textbf{Aperto}
-	\[f \in \cntclass{1}(A; \R^m) \iff \forall i = 1,\;\dotsc\;, m \quad f_i \in \cntclass{1}(A;\R)\]
+	\[f \in \cntclass{1}(A; \R^m) \iff \forall i = 1,\:\dotsc\:, m \quad f_i \in \cntclass{1}(A;\R)\]
 	\begin{proof}
 		Immediata.
 	\end{proof}
@@ -744,26 +744,28 @@ $f$ differenziabile in $x_0$ allora $\lambda f$ differenziabile in $x_0$ e $D(\l
 	Questa è la definizione di differenziabilità, allora $\lambda f$ è differenziabile e $D(\lambda f)(x_0) = \lambda Df(x_0)$
 \end{proof}
 
-\proposition
-Sia $g: A\subseteq \R^n \to \R^m$ e $x_0\in\circdot{A}$\\
-Sia $f: B\subseteq \R^m \to \R^p$ e $g(x_0)\in\circdot{B}$\\
-$f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ differenziabile in $x_0$ e $D(f\circ g)(x_0) = Df(g(x_0))*Dg(x_0)$
-\begin{proof}
-	$g$ è differenziabile in $x_0$, allora $g(x_0+h)=f(x_0)+Dg(x_0)h+o(h)$ per $h \to 0$\\
-	$f$ è differenziabile in $g(x_0)$ allora $g(g(x_0)+k)=f(g(x_0))+Df(g(x_0))k+o(k)$ per $k \to 0$\\
-	valuto ora 
-	\[(f\circ g)(x_0+h) = f(g(x_0+h)+Dg(x_0)h+o(h)) = \] 
-	\[=f(g(x_0))+Df(g(x_0))(Dg(x_0)h+o(h))+o(Dg(x_0)h+o(h)) = \]
-	\[=(f\circ g)(x_0) + Df(g(x_0))Dg(x_0)h+Df(g(x_0))o(h)+Dg(x_0)o(h)+o(h)\]
-	
-	con $h$ un vettore $n\times 1$\\
-	con $Dg$ una matrice $m\times n$\\
-	con $Df$ una matrice $p\times m$\\
-	
-	da rivedere un pochino ....
-	
-	Questa è la definizione di differenziabilità, allora $f\circ g$ è differenziabile e $D(f\circ g)(x_0) = Df(g(x_0))Dg(x_0)$
-\end{proof}
+\begin{proposition}[Derivata Funzione Composta]
+	\label{prop:deriv_funz_comp}
+	Sia $g: A\subseteq \R^n \to \R^m$ e $x_0\in\circdot{A}$\\
+	Sia $f: B\subseteq \R^m \to \R^p$ e $g(x_0)\in\circdot{B}$\\
+	$f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ differenziabile in $x_0$ e $D(f\circ g)(x_0) = Df(g(x_0))*Dg(x_0)$
+	\begin{proof}
+		$g$ è differenziabile in $x_0$, allora $g(x_0+h)=f(x_0)+Dg(x_0)h+o(h)$ per $h \to 0$\\
+		$f$ è differenziabile in $g(x_0)$ allora $g(g(x_0)+k)=f(g(x_0))+Df(g(x_0))k+o(k)$ per $k \to 0$\\
+		valuto ora
+		\[(f\circ g)(x_0+h) = f(g(x_0+h)+Dg(x_0)h+o(h)) = \]
+		\[=f(g(x_0))+Df(g(x_0))(Dg(x_0)h+o(h))+o(Dg(x_0)h+o(h)) = \]
+		\[=(f\circ g)(x_0) + Df(g(x_0))Dg(x_0)h+Df(g(x_0))o(h)+Dg(x_0)o(h)+o(h)\]
+
+		con $h$ un vettore $n\times 1$\\
+		con $Dg$ una matrice $m\times n$\\
+		con $Df$ una matrice $p\times m$\\
+
+		da rivedere un pochino ....
+
+		Questa è la definizione di differenziabilità, allora $f\circ g$ è differenziabile e $D(f\circ g)(x_0) = Df(g(x_0))Dg(x_0)$
+	\end{proof}
+\end{proposition}
 \proposition DERIVATA DEL PRODOTTO
 \begin{exercise}
 	\label{ex:diff_funz_comp}
@@ -1015,7 +1017,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 	\end{note}
 	\begin{note}
 		L'ordine qui utilizzato, cioè
-		\[\frac{\partial^2 f}{\partial x_j \partial x_i} = \frac{\partial}{\partial x_j} \frac{\partial f}{\partial x_i} \qquad i,j = 1,\;\dotsc\;,n\]
+		\[\frac{\partial^2 f}{\partial x_j \partial x_i} = \frac{\partial}{\partial x_j} \frac{\partial f}{\partial x_i} \qquad i,j = 1,\:\dotsc\:,n\]
 		non è sempre condiviso da tutti i testi di Analisi Matematica.
 	\end{note}
 \end{definition}
@@ -1931,6 +1933,7 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 \newpage
 \section{Massimi e Minimi Liberi}
 \begin{definition}[Massimi e Minimi]
+	\label{def:max_min}
 	Siano $(X,d)$ uno \textbf{Spazio Metrico}, $A \subseteq X$, $x_0 \in A$ e $f: A \to \R$. Con $B \subseteq A$ e $m, M \in \R$, si dicono:
 	\begin{itemize}
 		\item \makebox[20em][l]{$M$ è il \textbf{Massimo} di $f$ su $B$}
@@ -2186,6 +2189,7 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 	\end{proof}
 \end{theorem}
 \begin{definition}[Punto Stazionario]
+	\label{def:pto_staz}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$
 	\[
 		x_0 \text{ \textbf{Punto Stazionario} per } f
@@ -2354,46 +2358,193 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 
 \newpage
 \section{Massimi e Minimi Vincolati}
-Spesso la ricerca di punti di massimo o minimo di una funzione $f:A \to \R$ con $A \subseteq \R^n$ deve essere ristretta ad un sottoinsieme $B \subset A$ a causa di eventuali vincoli che le variabili indipendenti devono soddisfare. L'insieme $B$ può essere generalmente descritto da una funzione $\varphi: A \to \R^p$, nel senso che $B = \brackets{x \in A: \varphi(x) \leq 0}$\\
+Spesso la ricerca di punti di massimo o minimo di una funzione $f:A \to \R$ con $A \subseteq \R^n$ deve essere ristretta ad un sottoinsieme $B \subset A$ a causa di eventuali vincoli che le variabili indipendenti devono soddisfare. L'insieme $B$ può essere generalmente descritto da una funzione \textbf{Vincolo} $\varphi: A \to \R^p$, nel senso che $B = \brackets{x \in A: \varphi(x) \leq 0}$\\
 Questo problema è usualmente abbreviato in:
 \[\max\limits_{\varphi \leq 0} f \qquad \text{oppure} \qquad \min\limits_{\varphi \leq 0} f\]
 e può essere diviso in due passi:
 \begin{enumerate}
-	\item ricerca dei punti di estremo di $f$ interni a $B$ (problema gia affrontato)
+	\item ricerca dei punti di estremo di $f$ interni a $B$ (problema già affrontato con gli estremi liberi)
 	\item ricerca dei punti di estremo di $f$ sul bordo di $B$ (si andrà a studiare ora)
 \end{enumerate}
-Sotto opportune condizioni su $\varphi$, infatti, $\circdot{B} = \brackets{x\in A:\varphi(x)<0}$ e $\partial B\brackets{x\in A:\varphi(x)=0}$
-\proposition{Teorema dei Moltiplicatori di Lagrange}
-Siano $f,g:A\subseteq \R^2 \to \R, (x_0,y_0)\in\circdot{A}, g(x_0,y_0)=0, f,g\in \cntclass{1}(A;R)$, $\nabla g (x_0,y_0)\ne 0$\\
-Se $(x_0,y_0)$ è di max(o min) locale per $f$ su $g=0 \implies\exists \lambda in \R$ t.c: $\nabla f(x_0,y_0) = \lambda g(x_0,y_0)$ (all fin fine posso dire che sono paralleli).\\
-\observation
-$\lambda$ si chiama "moltiplicatore di lagrange"
-\observation
-Se abbiamo un problema del tipo $\max\limits_{g(x,y)=0}f$ cioè il massimo di $f$ sul vincolo $g(x,y)=0$, ci dobbiamo ricondurre ad un sistema del tipo
-$\begin{cases} \nabla f(x_0,y_0)=\lambda \nabla g(x_0,y_0)\\ g(x_0,y_0)=0 \end{cases}=\begin{cases} \partial_xf(x_0,y_0)=\lambda \partial_xg(x_0,y_0)\\\partial_yf(x_0,y_0)=\lambda \partial_yg(x_0,y_0)\\ g(x_0,y_0)=0 \end{cases}$\\
-3 equazioni in 3 incognite($x,y,\lambda$)\\
-In certi casi si introduce una funzione $\mathcal{L}(x,y,\lambda) = f(x,y)-\lambda g(x,y)$ detta Lagrangiana, i punti stazionari vincolati di $f$ sono punti stazonari liberi della Lagrangiana.\\
-\begin{proof}
-	Sappiamo che $\nabla g(x_0,y_0)\ne$ quindi $\begin{bmatrix}\partial_xg(x_0,y_0) &&\partial_yg(x_0,y_0)\end{bmatrix}\ne\begin{bmatrix}0&&0\end{bmatrix}$ quindi o $\partial_xg(x_0,y_0)\ne 0$ o $\partial_yg(x_0,y_0)\ne 0$.
-	Mettiamoci nel caso in cui $\partial_yg(x_0,y_0)\ne 0$,\\
-    Per il teorema della funzione implicita ho che :\\
-	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\to\mathcal{Y}$ t.c.:\\
-	$g(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \iff y=\varphi(x)$\\
-	Osserviamo che dire $(x_0,y_0)$ di massimo o minimo per $f$ ristretta a $g(x,y)=0\iff x_0$ è di massimo o di minimo per la funzione $x \to f(x,\varphi(x))$.\\
-	Per il teorema di Fermat $\left.\frac{\mathrm{d}}{\mathrm{d}x}(f(x,\varphi(x)))\right\|_{x=x_0}=0$, punto stazionario ha derivata nulla, e la derivata di quella funzione in $x_0$ è:
-	\[\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)\] 
-	allora
-	\[0=\partial_xf(x_0,\varphi(x_0))+\partial_yf(x_0,\varphi(x_0))\cdot\varphi'(x_0)=\]
-	\[=\partial_xf(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\frac{\partial_xg(x_0,\varphi(x_0))}{\partial_yg(x_0,\varphi(x_0))}=\]\\
-	\[=\partial_xf(x_0,\varphi(x_0))\partial_yg(x_0,\varphi(x_0))-\partial_yf(x_0,\varphi(x_0))\partial_xg(x_0,\varphi(x_0))=det\left(\begin{matrix}\partial_xf(x_0,y_0)&&\partial_yf(x_0,y_0)\\\partial_xg(x_0,y_0)&&\partial_yg(x_0,y_0)\end{matrix}\right)=0\]\\
-	questo equivale a dire che i vettori riga della matrice sono paralleli quindi $\exists\alpha\in \R : \nabla f(x_0,y_0)=\lambda\nabla g(x_0,y_0)$.\\
-	Non è uguale scrivere $\exists\alpha\in \R : \nabla g(x_0,y_0)=\lambda\nabla f(x_0,y_0)$ poiché non c'è certezza sul valore di $\nabla f(x_0,y_0)$ che se nullo negherebbe l'ipotesi di $\nabla g(x_0,y_0)\ne 0$\\
-	Se guardiamo ora il caso in cui $\partial_yg(x_0,y_0)=0$ e $\partial_xg(x_0,y_0)\ne 0$.\\
-	Seguendo un ragionamento analogo si esplicita $x=\psi(y)$ così che cercare max(o min) di $f$ ristretta a $g(x,y)=0$ porti a $y \to f(\psi(y),y)$ 
-\end{proof}
-\proposition{Teorema dei Moltiplicatori di Lagrange caso generale}
-Sia $A\in \R^n$, $f\in \cntclass{1}(A;R)$, $g\in \cntclass{1}(A;R^p)$ con $p<n$(n.vincoli<n.variabili), sia poi $x_0\in\circdot{A}, g(x_0)=0, Dg (x_0,y_0)$ di rango $p$.\\
-Se $x_0$ è di max(o min) locale per $f$ su $g=0 \implies\exists \lambda_1,\ldots,\lambda_p in \R$ t.c: $\nabla f(x_0,y_0) = \sum\limits_{i=1}^{p}\lambda_i\nabla g(x_0,y_0)$\\
+Sotto opportune condizioni per $\varphi$, infatti:
+\[\circdot{B} = \brackets{x\in A: \varphi(x) < 0} \qquad \text{e} \qquad \partial B\brackets{x\in A: \varphi(x) = 0}\]
+Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi separati con modalità diverse.
+\begin{note}
+	Quanto detto è in accordo con la \fullref{def:max_min}, che infatti non esclude il caso di punti di estremo vincolati alla frontiera di un insieme.
+\end{note}
+\begin{theorem}[dei Moltiplicatori di Lagrange]
+	\label{teo:molt_lagr_gen}
+	Sia $A \subseteq \R^n$ un \textbf{Aperto} e siano
+	\begin{itemize}[noitemsep]
+		\item $f: A \to \R$
+		\item $\varphi: A \to \R^p$ con $p < n$ e $\varphi^{-1}(0) \subset A$
+	\end{itemize}
+	\begin{note}
+		$\varphi$, vincolo, è funzione di $p$ funzioni $\varphi_i$ per $i = 1,\:\dotsc\:,p$.
+	\end{note}
+	due funzioni $\in \cntclass{1}$.
+	Se:
+	\begin{itemize}[noitemsep]
+		\item $x_0$ è un punto di \textbf{estremo relativo} per $f$ \textbf{vincolata} a $\varphi = 0$
+		\item $D\varphi(x_0)$ ha \textbf{rango} $p$, cioè $\det D\varphi(x_0) \neq 0$ % TODO il determinante si può calcolare solo per matrici quadrate. Questa D\varphi non è quadrata però...
+	\end{itemize}
+	\begin{note}
+		$\det D\varphi(x_0) \neq 0$ è necessario per verificare le ipotesi del \fullref{teo:funz_impl} visto che $\varphi$ deve essere invertibile.
+	\end{note}
+	Allora esistono $p$ numeri reali $\lambda_1,\; \lambda_2,\:\dotsc\:\lambda_p$ tali che
+	\begin{equation}
+		\label{eq:eqiv_nabl_molt_lagr}
+		\nabla f(x_0) = \sum\limits_{i = 1}^{p} \lambda_i \nabla \varphi_i (x_0)
+	\end{equation}
+	Gli scalari $\lambda_i$ sono comunemenete chiamati \textbf{Moltiplicatori di Lagrange} e i $\nabla \varphi_i (x_0)$ sono i gradienti delle $p$ funzioni vincolo che compongono $\varphi$.\\
+	Cioè la combinazione lineare di tutti i $\nabla \varphi_i$ corrisponde a $\nabla f$.
+	\begin{note}
+		La combinazione lineare, per definzione, è somma delle componenti ognuna con un appropriato coefficiente $\lambda_i$
+	\end{note}
+	\begin{proof}
+		Omessa. Verrà svolta in seguito per il caso $n = 2, m = 1$ in \fullref{teo:molt_lagr_n2_m1}.
+	\end{proof}
+\end{theorem}
+\begin{observation}[Spiegazione Concetto] % TODO grafico
+	Data una certa $f: A \mapsto \R$, le sue \fullref{def:curv_liv} sono i luoghi dei punti soddisfacenti l'equazione $f(x) = d$, con $x \in A$ e $d \in \R$ generico. Si sta ora cercando di massimizzare la $f$ \textit{rispettando il vincolo} $\varphi(x)$, o, detto in modo diverso, di massimizzarla \textit{lungo il vincolo} $\varphi(x)$.\\
+	Le Curve di Livello di $\varphi$ saranno a loro volta luoghi dei punti tali per cui $\varphi(\xi) = c$, con $\xi \in A$ e $c \in \R$ generico.
+
+	Le Curve di Livello di $f$ e $\varphi$ sono, in generale, distinte, dunque le C.D.L. di $f$ possono benissimo intersecare una qualsiasi $\varphi(\xi) = c$. Per definizione di C.D.L., muovendosi lungo una C.D.L. di $\varphi$, il valore assunto dalla $\varphi$ rimarrà costante, mentre il valore di $f$ può variare, come appena detto. Nel caso però in cui $\varphi(\xi) = c$ è \textbf{tangente} ad una C.D.L. di $f$, allora spostandosi lungo la C.D.L. di $\varphi$, rimarrà costante anche la $f$.\\
+	Come visto in \fullref{def:pto_staz}, $f$ è costante quando $\nabla f(x_0) = 0$ e, come si vedrà in \fullref{prop:curv_liv_perp_grad} la C.D.L è $\perp \nabla f$. Quanto detto fino ad ora però permette di aggiungere che la $f$ sia costante anche quando $\nabla f \parallel \nabla \varphi$, cioè quando $\nabla f$ è \textbf{Combinazione Lineare} delle $\nabla \varphi_i$.
+\end{observation}
+\begin{observation}
+	Si noti che anche nel caso $n = 2$, $p = 1$ nella \cref{eq:eqiv_nabl_molt_lagr} non sarebbe coretto spostare $\lambda$ all'altro termine:
+	\[\lambda \nabla f(x_0, y_0) = \nabla \varphi (x_0, y_0) \tag{\textbf{Errato!}}\]
+	Per quanto questa possa sembrare una semplice divisione per uno scalare, in realtà sarebbe una possibile svista. Il valore di $\nabla f(x_0,y_0)$ infatti non è noto a prescindere e, se fosse nullo, questa scrittura sarebbe in contrasto con l'ipotesi $\nabla \varphi(x_0,y_0) \neq 0$
+\end{observation}
+\begin{example}
+	\label{ex:max_min_vinc_n2_p1}
+	Nel caso in cui $A \subseteq \R^2$, cioè il caso più comune, si hanno
+	\begin{itemize}[noitemsep]
+		\item $f: A \to \R$
+		\item $\varphi: A \to \R^p = \R^1$
+	\end{itemize}
+	Perché $p < 2$, dunque sicuramente $p = 1$.
+\end{example}
+\color{not_explained_section_color}
+\begin{definition}[Funzione Lagrangiana] % Come definita su https://en.wikipedia.org/wiki/Lagrange_multiplier
+	\label{def:funz_lagr}
+	Sia $A \subseteq \R^n$ un \textbf{Aperto}, $x \in A$, $\lambda \in \R^p$ con $p < n$, allora si definisce la
+	\[\mathcal{L}(x, \lambda) = f(x) - \lambda \varphi(x)\]
+	cioè, "espandendo" le variabili per chiarezza
+	\[\mathcal{L}(x_1,\:\dotsc\:,x_n, \lambda_1,\:\dotsc\:,\lambda_p) = f(x_1,\:\dotsc\:,x_n) - \sum\limits_{i = 1}^{p} \lambda_i \nabla \varphi_i (x_1,\:\dotsc\:,x_n)\]
+	$\mathcal{L}$ è una funzione ausiliaria, nota come \textbf{Funzione Lagrangiana}, che lega la $f$ ed il vincolo $\varphi$.
+
+	\noindent I punti stazionari \textbf{Vincolati} della $f$ sono i punti stazionari \textbf{Liberi} della Lagrangiana.
+\end{definition}
+\color{black}
+\begin{observation}
+	\label{obs:sist_eqiv_lagr}
+	Mediante il \fullref{teo:molt_lagr_gen}, la ricerca di punti di estremo per $f$ vincolati a $\varphi = 0$ viene dunque ricondotta alla risoluzione del sistema:
+	\begin{equation}
+		\label{eq:teo_molt_lagr_gen_sist_varphi}
+		\begin{cases}
+			\nabla f(x_0) = \sum\limits_{i = 1}^{p} \lambda_i \nabla \varphi_i (x_0)\\
+			\varphi(x_0) = 0
+		\end{cases}
+	\end{equation}
+\end{observation}
+\begin{exercise}
+	Verificare che, con la notazione del \fullref{teo:molt_lagr_gen}, il sistema \cref{eq:teo_molt_lagr_gen_sist_varphi} è un sistema di $n + p$ equazioni in $n + p$ incognite.
+	\begin{solution}
+		Da \fullref{def:funz_lagr}, calcolando $\nabla \mathcal{L}(x, \lambda) = 0$ si ottiene
+		\[
+			\nabla_{x_1,\:\dotsc\:,x_n, \lambda_1,\:\dotsc\:,\lambda_p} \mathcal{L}(x_1,\:\dotsc\:, x_n, \lambda_1,\:\dotsc\:,\lambda_p)=0
+			\iff
+			\begin{cases}
+				\nabla f(x) - \sum\limits_{i=1}^{p} {\lambda_i \: \nabla \varphi_i (x)} = 0\\
+				\varphi_1(x) = \cdots = \varphi_p(x) = 0
+			\end{cases}
+		\]
+		Con la seconda condizione dovuta all'ipotesi del \fullref{teo:molt_lagr_gen} per cui il vincolo è $\varphi = 0$.\\
+		Essendo la \cref{eq:teo_molt_lagr_gen_sist_varphi} un'equazione in $n + p$ variabili, anche il sistema in oggetto non può che essere a $n + p$ equazioni in $n + p$ incognite.
+	\end{solution}
+\end{exercise}
+\begin{example}
+	In $A \subseteq \R^2$, dato un problema del tipo $\max\limits_{\varphi(x,y)=0} f$, cioè la ricerca del massimo di $f$ sul vincolo $\varphi(x,y)=0$, come detto in \fullref{obs:sist_eqiv_lagr}, ci si può ricondurre ad un sistema del tipo
+	\[
+		\begin{cases}
+			\nabla f(x_0,y_0) = \lambda \nabla \varphi(x_0,y_0)\\
+			\varphi(x_0,y_0)=0
+		\end{cases}
+		=
+		\begin{cases}
+			\partial_xf(x_0,y_0) = \lambda \partial_x \varphi(x_0,y_0)\\
+			\partial_yf(x_0,y_0) = \lambda \partial_y\varphi(x_0,y_0)\\
+			\varphi(x_0,y_0)=0
+		\end{cases}
+	\]
+	a 3 equazioni in 3 incognite: $(x, y, \lambda)$.
+	\begin{solution}
+		Per ipotesi del \fullref{teo:molt_lagr_gen} $\nabla \varphi(x_0,y_0) \neq 0$ (infatti è richiesto $\det D \varphi \neq 0$), quindi
+		\[
+			\begin{bmatrix}
+				\partial_x\varphi(x_0,y_0)\\
+				\partial_y\varphi(x_0,y_0)
+			\end{bmatrix}
+			\neq
+			\begin{bmatrix}
+				0\\
+				0
+			\end{bmatrix}
+		\]
+		Ciò vuol dire che, sicuramente, $\partial_x \varphi(x_0,y_0) \neq 0$ oppure $\partial_y \varphi(x_0,y_0) \neq 0$.
+
+		\vspace*{\baselineskip}
+		Supponendo $\partial_y \varphi(x_0,y_0) \neq 0$ e sapendo che per ipotesi $\varphi(x,y) = 0$, si applica il \fullref{teo:funz_impl}
+		\begin{note}
+			Verifica ipotesi:
+			\begin{enumerate}
+				\item $A = \R \times \R$ aperto per ipotesi \fullref{teo:molt_lagr_gen}
+				\item $f \in \cntclass{1}$ per ipotesi \fullref{teo:molt_lagr_gen}, quindi continua
+				\item $(x_0, y_0) \in A$ per ipotesi \fullref{teo:molt_lagr_gen}
+				\item $f \in \cntclass{1}$ per ipotesi \fullref{teo:molt_lagr_gen}, quindi $D_y f$ esiste continua in $(x_0, y_0)$
+				\item per ipotesi \fullref{teo:molt_lagr_gen}
+			\end{enumerate}
+		\end{note}
+		Grazie al \fullref{teo:funz_impl} si ha che esistono degli intorni $\mathcal{X}$ di $x_0$ e $\mathcal{Y}$ di $y_0$ e, per $x \in \mathcal{X}$ e $y \in \mathcal{Y}$, esiste la
+		\[g: \mathcal{X} \to \mathcal{Y} \quad \text{tale che} \quad \varphi(x,y) = 0 \iff y = g(x)\]
+		Avendo la certezza dell'esistenza della $g$, è possibile concludere che:
+		\[
+			(x_0,y_0) \text{ di Estremo per } f(x,y) \text{ ristretta a } \mathcal{X} \times \mathcal{Y}
+			\quad \iff \quad
+			x_0 \text{ di Estremo per } f\bigl( x, g(x) \bigr)
+		\]
+		Dunque, per il \fullref{teo:fermat}, è garantito che $\nabla f\bigl( x_0, g(x_0) \bigr) = 0$. Calcolando ora $\nabla f\bigl( x_0, g(x_0) \bigr)$ grazie alla \fullref{prop:deriv_funz_comp}
+		\begin{align*}
+			0
+			&=	\partial_x  f\bigl( x_0, g(x_0) \bigr) +
+				\partial_y f\bigl( x_0, g(x_0) \bigr) \cdot
+				g'(x_0)\\
+			&=	\partial_x f\bigl( x_0, g(x_0) \bigr) +
+				\partial_y f\bigl( x_0, g(x_0) \bigr) \cdot
+				\left(
+					-
+					\frac{
+						\partial_x g(x_0,g(x_0))
+					}{
+						\partial_y g(x_0,g(x_0))
+					}
+				\right)\\
+			&=	\partial_x f\bigl( x_0, g(x_0) \bigr) \cdot \partial_y g(x_0,g(x_0)) -
+				\partial_y f\bigl( x_0, g(x_0) \bigr) \cdot \partial_x g(x_0,g(x_0))
+			\shortintertext{Che può essere rappresentato in forma compatta come il $\det$ di una matrice $\mat (2 \times 2)$}
+			&=	\det \left(
+				\begin{matrix}
+					\partial_xf(x_0,y_0) & \partial_yf(x_0,y_0)\\
+					\partial_xg(x_0,y_0) & \partial_yg(x_0,y_0)
+				\end{matrix}
+				\right)
+		\end{align*}
+		Prendendo il primo e l'ultimo elemento del treno di uguaglianze si ha che $\det = 0$, dunque, dalle nozioni di Algebra, si sa che questo implica il parallelismo tra i vettori della matrice. Essendo la $g$ e la $\varphi$ legate implicitamente, è possibile concludere che:
+		\[\exists \lambda \in \R: \nabla f(x_0,y_0) = \lambda \nabla \varphi(x_0,y_0)\]
+	\end{solution}
+\end{example}
 
 \newpage
 \section{Il Caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
