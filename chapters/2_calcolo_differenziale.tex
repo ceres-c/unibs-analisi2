@@ -2401,7 +2401,8 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 			\end{bmatrix}
 		\]
 		In cui ogni riga è il gradiente della $i$\textit{-esima} funzione, $\nabla \varphi_i$.\\
-		Richiedere $\rank \bigl( D\varphi(x_0) \bigr) = p$ significa imporre che i $p$ vincoli siano tutti linearmente indipendenti, cioè che siano tutti "indicativi" (è inutile avere 2 vincoli uguali). Inoltre la condizione garantisce che, per ogni vincolo, almeno una delle derivate parziali sia non nulla.
+		Richiedere $\rank \bigl( D\varphi(x_0) \bigr) = p$ significa imporre che i $p$ vincoli siano tutti linearmente indipendenti, cioè che siano tutti "indicativi" (è inutile avere 2 vincoli uguali).\\
+		Inoltre la condizione garantisce che, per ogni vincolo, almeno una delle derivate parziali sia non nulla. Se infatti tutte le derivate parziali di una $\varphi_i$ fossero nulle, il rango della matrice non sarebbe più $p$.
 	\end{note}
 	Allora esistono $p$ numeri reali $\lambda_1,\; \lambda_2,\:\dotsc\:\lambda_p$ tali che
 	\begin{equation}
@@ -2417,7 +2418,16 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 		Omessa. Verrà svolta in seguito per il caso $n = 2, m = 1$ in \fullref{teo:molt_lagr_n2_m1}.
 	\end{proof}
 \end{theorem}
-\begin{observation}[Spiegazione Concetto] % TODO grafico
+\begin{observation}
+	Il \fullref{teo:molt_lagr_gen} può essere visto come una generalizzazione del \fullref{teo:fermat} nella ricerca degli estremi di funzioni vincolate.
+\end{observation}
+\begin{observation}[Spiegazione Concetto]~
+	\label{obs:concetto_teo_molt_lagr_gen}
+	\begin{center}
+		% Thanks to https://it.wikipedia.org/wiki/Metodo_dei_moltiplicatori_di_Lagrange
+		\includegraphics[width=.49\linewidth]{3d-lagrange-multipliers}
+		\includegraphics[width=.49\linewidth]{2d-lagrange-multipliers}
+	\end{center}
 	Data una certa $f: A \mapsto \R$, le sue \fullref{def:curv_liv} sono i luoghi dei punti soddisfacenti l'equazione $f(x) = d$, con $x \in A$ e $d \in \R$ generico. Si sta ora cercando di massimizzare la $f$ \textit{rispettando il vincolo} $\varphi(x)$, o, detto in modo diverso, di massimizzarla \textit{lungo il vincolo} $\varphi(x)$.\\
 	Le Curve di Livello di $\varphi$ saranno a loro volta luoghi dei punti tali per cui $\varphi(\xi) = c$, con $\xi \in A$ e $c \in \R$ generico.
 
@@ -2478,6 +2488,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 	\end{solution}
 \end{exercise}
 \begin{example}
+	\label{ex:molt_lagr_sist_equiv}
 	In $A \subseteq \R^2$, dato un problema del tipo $\max\limits_{\varphi(x,y)=0} f$, cioè la ricerca del massimo di $f$ sul vincolo $\varphi(x,y)=0$, come detto in \fullref{obs:sist_eqiv_lagr}, ci si può ricondurre ad un sistema del tipo
 	\[
 		\begin{cases}
@@ -2492,7 +2503,10 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 		\end{cases}
 	\]
 	a 3 equazioni in 3 incognite: $(x, y, \lambda)$.
-	\begin{solution}
+	\begin{solution}~
+		\begin{note}
+			Questa soluzione è molto simile alla dimostrazione del \fullref{teo:molt_lagr_n2_m1}.
+		\end{note}
 		Per ipotesi del \fullref{teo:molt_lagr_gen}, $\rank \bigl( D\varphi(x_0, y_0) \bigr) = p = 1$, dunque come da \hyperlink{note:teo_molt_lagr_gen}{nota alle ipotesi del \fullref*{teo:molt_lagr_gen}}:
 		\[
 			\begin{bmatrix}
@@ -2510,7 +2524,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 		\begin{note}
 			Verifica ipotesi:
 			\begin{enumerate}
-				\item $A = \R \times \R$ aperto per ipotesi \fullref{teo:molt_lagr_gen}
+				\item $A \subseteq \R \times \R$ aperto per ipotesi \fullref{teo:molt_lagr_gen}
 				\item $f \in \cntclass{1}$ per ipotesi \fullref{teo:molt_lagr_gen}, quindi sicuramente continua
 				\item $(x_0, y_0) \in A$ e $\varphi(x_0, y_0) = 0$ per ipotesi \fullref{teo:molt_lagr_gen}
 				\item $f \in \cntclass{1}$ per ipotesi \fullref{teo:molt_lagr_gen}, quindi $D_y f$ esiste continua in $(x_0, y_0)$
@@ -2528,7 +2542,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 		Dunque, per il \fullref{teo:fermat}, è garantito che $\nabla f\bigl( x_0, g(x_0) \bigr) = 0$. Calcolando ora $\nabla f\bigl( x_0, g(x_0) \bigr)$ grazie alla \fullref{prop:deriv_funz_comp}
 		\begin{align*}
 			0
-			&=	\partial_x  f\bigl( x_0, g(x_0) \bigr) +
+			&=	\partial_x f\bigl( x_0, g(x_0) \bigr) +
 				\partial_y f\bigl( x_0, g(x_0) \bigr) \cdot
 				g'(x_0)\\
 			&=	\partial_x f\bigl( x_0, g(x_0) \bigr) +
@@ -2558,72 +2572,293 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 
 \newpage
 \section{Il Caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
+Quanto esposto in questa sezione può essere esteso al caso $n > 2$ a patto di notevoli cambiamenti nella terminologia geometrica.
+\begin{definition}[Grafico]
+	Siano $A \subseteq \R^2$ e $f: A \to \R$. La superficie di equazione
+	\[z = f(x,y)\]
+	è il \textbf{Grafico} di $f$
+\end{definition}
+\begin{definition}[Curva di Livello]
+	\label{def:curv_liv}
+	Siano $A \subseteq \R^2$, $f: A \to \R$ e $c \in \R$. L'insieme
+	\[f^{-1}(c) = \brackets{(x,y) \in A:\; f(x,y) = c}\]
+	è la \textbf{Curva di Livello} $\boldsymbol{c}$ di $f$
+\end{definition}
+\begin{definition}[Piano Tangente]
+	Siano $A \subseteq \R^2$, $f: A \to \R$, $f$ \textbf{Differenziabile} in $(x_0, y_0) \in \circdot{A}$. Allora
+	\begin{align*}
+		z &=
+		f(x_0, y_0) +
+		\nabla f(x_0, y_0) \cdot
+		\begin{bmatrix}
+			x - x_0\\
+			y - y_0
+		\end{bmatrix}\\
+		&=
+		f(x_0, y_0) +
+		\begin{bmatrix}
+			\partial_xf(x_0,y_0) & \partial_yf(x_0,y_0)
+		\end{bmatrix}
+		\cdot
+		\begin{bmatrix}
+			x - x_0\\
+			y - y_0
+		\end{bmatrix}\\
+		&= f(x_0, y_0) + \partial_xf(x_0,y_0) \; (x - x_0) + \partial_yf(x_0,y_0) \; (y - y_0)
+	\end{align*}
+	è il \textbf{Piano Tangente} alla superficie $x = f(x,y)$ in $(x_0, y_0)$
+	\begin{note}
+		Non c'è ovviamente alcuna differenza tra le tre equazioni sopra.
+	\end{note}
+\end{definition}
+\begin{observation}
+	Il \textbf{Grafico} di $f$ è un \textbf{sottoinsieme} di $\R^3$.\\
+	Il \textbf{Gradiente} e le \textbf{Curve di Livello} "vivono" nell'insieme partenza $A \subseteq \R^2$, come si può vedere dal seguente grafico: il gradiente non esce dall'insieme di definizione.
+	\begin{center}
+		\includegraphics[width=.5\linewidth]{3d-gradient-cos-vector} % Thanks to https://en.wikipedia.org/wiki/Gradient
+	\end{center}
+	Spesso è comodo identificare $A$ con l'insieme
+	\[\brackets{(x,y,z) \in \R^3:\; (x,y) \in A \text{ e } z = 0}\]
+	ed in questo caso il gradiente può essere convenzionalmente esteso con una terza coordinata costante $0$.
+\end{observation}
 
-
-\subsection{Il Significato Geometrico del Gradiente} % TODO sistemare la frase sotto e integrare la subsection più in basso.
-Come detto in \fullref{ex:max_min_lib_funz_in_R}, tutte le funzioni tratte in questo capitolo sono a valori in $\R$, dunque si avrà $Df = \nabla f \in \mat(1 \times n)$ da \fullref{obs:matr_deriv_tot}. In questo paragrafo si vedrà graficamente come il gradiente si comporta rispetto alla funzione.
-\begin{proposition}[Significato del Gradiente] % TODO rivedere l'enunciato dal libro
-	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$, $f: A \to \R$ con $f$ \textbf{Differenziabile} in $x_0$, allora:\\
-	$\nabla f(x_0)$ è un vettore \textbf{diretto} verso la direzione di \textbf{massima pendenza}, "verso l'alto."
+\subsection{Il Significato Geometrico del Gradiente}
+In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la funzione stessa. Il \textbf{Gradiente} di una funzione in un punto indica infatti la direzione in cui si ha la \textbf{massima variazione} del valore di $f$ con \textbf{verso} dell'\textbf{incremento positivo} di $f$.
+\begin{proposition}[Significato del Gradiente]
+	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$, $f: A \to \R$ con $f$ \textbf{Differenziabile} in $(x_0, y_0)$.\\
+	L'incremento $f(x_0 + h, y_0 + k) - f(x_0, y_0)$ è
+	\begin{itemize}[noitemsep]
+		\item \textbf{massimo} quando $\begin{bmatrix}h & k\end{bmatrix} = \lambda \nabla f(x_0, y_0)$ con $\lambda > 0$
+		\item \textbf{massimo} quando $\begin{bmatrix}h & k\end{bmatrix} = \lambda \nabla f(x_0, y_0)$ con $\lambda < 0$
+	\end{itemize}
+	Cioè $\nabla f(x_0)$ è un vettore diretto verso la direzione di \textbf{massima pendenza}, "verso l'alto."
 	\begin{proof}
-		Posto $x = x_0 + h$, applicando alla $f$ il \fullref{teo:taylor} con il \fullref{def:resto_peano} e fermandosi al primo ordine, si ottiene:
+		Utilizzando la \fullref{def:differenz}, declinata nel caso $n = 2$ si ottine
 		\begin{equation}
-			\label{eq:sign_grad}
-			f(x_0 + h) = f(x_0) + \nabla f(x_0) h + o(h) \qquad \text{ per } h \to 0
+			\label{eq:dim_dir_grad}
+			f(x_0 + h, y_0 + k) -
+			f(x_0, y_0) =
+			\nabla f(x_0, y_0) \cdot
+			\begin{bmatrix}
+				h\\k
+			\end{bmatrix} +
+			o(\sqrt{h^2 + k^2})
+			\qquad \text{ per } (h,k) \to (0,0)
 		\end{equation}
-		Se $x = x_0 + h$, allora $h = x - x_0 = \begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}$, quindi
-		\[f(x, y) - f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \begin{bmatrix}x - x_0\\y - y_0\end{bmatrix} + o \left(\begin{bmatrix}x - x_0\\y - y_0\end{bmatrix} \right) \qquad \text{ per } (x, y) \to (x_0, y_0)\]
 		Il $\;\cdot\;$ della precedente formula è un prodotto righe per colonne, però, essendo alla ricerca di un massimo, conviene considerarlo come un prodotto scalare tra due vettori. Il risultato del prodotto scalare è infatti un valore in $\R$, campo ordinabile. Dunque, posto $\theta$ angolo tra i due vettori:
-		\[\norm{\nabla f(x_0, y_0)} \norm{\begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}} \cos(\theta)\]
+		\[\norm{\nabla f(x_0, y_0)} \norm{\begin{bmatrix}h\\k\end{bmatrix}} \cos(\theta)\]
 		Il $\theta$ che massimizza questo prodotto è sicuramente $0$, in quanto $\cos(0) = 1$.\\
-		$\nabla f$ dipende direttamente dalla $f$, dunque la sua direzione è data ed inalterabile. D'altro canto $\begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}$ è un vettore a scelta, dunque la sua direzione è variabile. È possibile allora modificare $\theta$ modificando la direzione di quest'ultimo vettore finché non sarà parallelo al gradiente, portando $\theta$ a $0$.
+		$\nabla f$ dipende direttamente dalla $f$, dunque la sua direzione è data ed inalterabile. D'altro canto $\begin{bmatrix}h\\k\end{bmatrix}$ è un vettore a scelta, dunque la sua direzione è variabile. È possibile allora ottenere una variazione di $\theta$ modificando la direzione di quest'ultimo vettore, finché esso non sarà parallelo al gradiente, portando $\theta$ a $0$.
 
-		Si è così dimostrato che l'incremento $f(x_0 + h) - f(x_0)$ da \cref{eq:sign_grad} è massimo quando $h$ ha la direzione del gradiente; dunque il gradiente deve avere direzione e verso del massimo incremento.
-		% TODO disegno
+		Si è così dimostrato che l'incremento $f(x_0 + h, y_0 + k) - f(x_0, y_0)$ da \cref{eq:dim_dir_grad} è massimo quando $h$ ha la direzione del gradiente; dunque il gradiente deve avere direzione e verso del massimo incremento.
+
+		Nel caso in cui si abbia verso opposto $\theta = -180^\circ \implies \cos(\theta) = -1$. Quindi con $\lambda < 0$ si ha minimo incremento.
+		\vspace*{\baselineskip}
+		\begin{center}
+			\begin{tikzpicture}[> = stealth]
+				\coordinate (O) at (1,1);
+				\coordinate (nabl) at (1.5,5);
+				\coordinate (h1) at (4.5,1.5);
+				\coordinate (h2) at (3.5,3);
+
+				\draw[thick, ->] (O) -- node[above left] {$\nabla f(x_0)$} (nabl);
+				\draw[->] (O) -- node[below] {$h'$} (h1);
+				\draw[->] (O) -- node[below] {$h''$} (h2);
+
+				\draw pic["$\theta'$", draw=black!50, -, angle eccentricity=1.2, angle radius=55] {angle=h1--O--nabl};
+				\draw pic["$\theta''$", draw=black!50, -, angle eccentricity=1.3, angle radius=25] {angle=h2--O--nabl};
+
+				\node (text_nabl) [align=center] at (4,4.2) {$\nabla f$ ha direzione\\fissa, è unico};
+				\draw[thin, ->, shorten >=4pt] (text_nabl.west) to[out=180, in=-20] (nabl);
+
+				\node (text_h) [align=center] at (6.5,2.5) {la direzione di $h$\\varia, se ne possono\\scegliere diversi};
+				\draw[thin, ->, shorten >=4pt] (text_h.west) to[out=210, in=80] (h1);
+				\draw[thin, ->, shorten >=4pt] (text_h.west) to[out=180, in=-30] (h2);
+			\end{tikzpicture}
+		\end{center}
 	\end{proof}
 \end{proposition}
+\begin{proposition}[Il Gradiente è Perpendicolare alle Curve di Livello]
+	\label{prop:curv_liv_perp_grad}
+	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$ e $f: A \to \R$, se:
+	\begin{itemize}
+		\item $f$ \textbf{Differenziabile} in $(x_0, y_0)$
+		\item $(x_0, y_0)$ \textbf{non Stazionario}
+	\end{itemize}
+	Allora
+	\[\nabla f(x_0, y_0) \text{ è \textbf{Perpendicolare} alla \textbf{Curva di Livello} } \brackets{(x,y) \in A:\; f(x,y) = c}\]
+	\begin{proof}
+		Essendo, per ipotesi, $(x_0, y_0)$ non Stazionario, da \fullref{def:pto_staz} si sa per certo che $\nabla f(x_0, y_0) \neq 0$, cioè
+		\[
+			\begin{gathered}
+				\nabla f(x_0, y_0) \neq 0\\
+				\iff\\
+				\begin{bmatrix}
+					\partial_x f(x_0, y_0) & \partial_y f(x_0, y_0)
+				\end{bmatrix}
+				\neq 0\\
+				\iff\\
+				\partial_x f(x_0, y_0) \neq 0 \quad \text{oppure} \quad \partial_y f(x_0, y_0) \neq 0
+			\end{gathered}
+		\]
+		Si supponga dunque $\partial_y f(x_0,y_0) \neq 0$ ed applicando il \fullref{teo:funz_impl} si ha che esistono degli intorni $\mathcal{X}$ di $x_0$ e $\mathcal{Y}$ di $y_0$ e, per $x \in \mathcal{X}$ e $y \in \mathcal{Y}$, esiste la
+		\[\varphi: \mathcal{X} \to \mathcal{Y} \quad \text{tale che} \quad f(x,y) = 0 \iff y = \varphi(x)\]
+		\vspace*{-\baselineskip}
+		\begin{note}
+			Verifica ipotesi:
+			\begin{enumerate}
+				\item $A \subseteq \R \times \R$ e, per ipotesi, $(x_0, y_0) \in \circdot{A}$. Essendo un punto della parte interna la condizione è verificata perché nel \fullref{teo:funz_impl} l'apertura di $X$ e $Y$ è richiesta solo per scegliere un punto, appunto, sicuramente nella parte interna degli insiemi
+				\item $f \in \cntclass{1}$ per ipotesi, quindi sicuramente continua
+				\item $(x_0, y_0) \in A$ per ipotesi e la funzione da invertire vale $0$ perché, anche se fosse $f(x_0, y_0) = c \neq 0$, è sempre possibile utilizzare una funzione $g(x_0, y_0) = f(x_0, y_0) - c = 0$ che verifica questa ipotesi e per cui valgono ancora tutte le altre osservazioni fatte qui
+				\item $f$ differenziabile in $(x_0, y_0)$ per ipotesi, dunque sicuramente esiste $\partial_y f$
+				\item $D_yf(x_0, y_0)$ ammette inversa perché è stato ipotizzato $\partial_y f(x_0,y_0) \neq 0$ poco sopra
+			\end{enumerate}
+		\end{note}
+		La $y = \varphi(x)$ quindi esprime implicitamente il vincolo della curva di livello $f(x, y) = c$. È dunque possibile scrivere, separando le coordinate e passando alla matrice associata:
+		\[
+			f(x, y) = c \quad \iff \quad y = \varphi(x) \quad \iff \quad
+			\begin{bmatrix}
+				x\\
+				\varphi(x)
+			\end{bmatrix}
+		\]
+		Visto che il differenziale di una funzione in un puno rappresenta il versore tangente alla funzione in quel punto, si passa alle derivate $\begin{bmatrix}1\\\varphi'(x)\end{bmatrix}$, visto che valgono anche le ipotesi del \fullref{teo:funz_impl_diff}. Eseguendo ora il prodotto tra $\nabla f(x_0, y_0)$ e la derivate nel punto $(x_0, y_0)$, si ottiene
+		\begin{align*}
+			\lefteqn{\nabla f(x_0, y_0) \cdot \begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} =}\\
+			&= \begin{bmatrix}
+				\partial_x f(x_0, y_0) & \partial_y f(x_0, y_0)
+			\end{bmatrix}
+			\cdot
+			\begin{bmatrix}
+				1\\
+				-\frac{\partial_x f(x_0, y_0)}{\partial_y f(x_0, y_0)}
+			\end{bmatrix} =\\
+			&= \partial_x f(x_0, y_0) - \partial_x f(x_0, y_0)\\
+			&= 0
+		\end{align*}
+		Dunque, considerando questo come un prodotto scalare, se il risultato è $0$ allora l'angolo tra i due vettori non può che essere $90^\circ$, da cui la tesi.
+	\end{proof}
+\end{proposition}
+\begin{definition}[Piano Tangente ad una Curva]
+	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$, $f: A \to \R$ e $f \in \cntclass{1}(A; \R)$, allora l'\textbf{Equazione del Piano Tangente} alla curva nel punto $(x_0, y_0)$ è:
+	\begin{align*}
+		z &= f(x_0, y_0) + \nabla f(x_0, y_0) \begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}\\
+		&= f(x_0, y_0) + \partial_x f(x_0, y_0) (x - x_0) + \partial_y f(x_0, y_0) (y - y_0)
+	\end{align*}
+	Passando alla matrice associata si ottiene la forma del vettore \textbf{Perpendicolare} alla curva in $(x_0, y_0)$, cioè:
+	\[
+		\begin{bmatrix}
+			\partial_x f(x_0, y_0)\\
+			\partial_y f(x_0, y_0)\\
+			-1
+		\end{bmatrix}
+	\]
+\end{definition}
 
-% TODO Questa sezione è stata copia-incollata qui da sopra e va integrata con quanto già scritto e quanto presente sul libro
-\subsection{Il Significato Geometrico del Gradiente n=2 m=1}
-\definition
-Sia $A\subseteq \R^2$ e $f:A \to \R$\\
-La suferficie $z=f(x,y)$ è il grafico di $f$, è unsottoinsieme di $R^3$\\
-Se $c\in \R$, la curva di livello $c$ di $f$ è l'insieme $f^{-1}(c)\brackets{(x,y)\in A: f(x,y)=c}$\\
-Se $f$ 	'e differenziabile in $(x_0,y_0)\in\circdot{A}$ il piano tangente alla superficie $z=f(x,y)$ in $(x_0,y_0)$ ha equazione:\\
-\[z=f(x_0,y_0)+\nabla f(x_0,y_0)\begin{bmatrix}(x-x0)\\(y-y_0)\end{bmatrix}\]
-\[z=f(x_0,y_0)+\partial_xf(x_0,y_0)(x-x_0)+\partial_yf(x_0,y_0)(y-y_0)\]
-\observation
-geometricamente, il gradiente di una funzione indica la direzione di $R^n$ in cui si ha la massima variazione del valore di f, nel verso di incremento positivo di $f$,
-\observation
-osservazione col grafico che al momento non faccio.
-\proposition
-Siano $A\subseteq \R^n, f:A \to \R$ differenziabile in $(x_0,y_0)\in \circdot{A}$, l'incremento di $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo quando $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda >0$ ed è minimo con $[h k]=\lambda\nabla f(x_0,y_0)$ con $\lambda <0$
-\begin{proof}
-	so che posso approssimare la funzione quindi posso scrivere:\\
-	$f(x_0+h,y_0+k)-f(x_0,y_0)=\nabla f(x_0,y_0)\begin{bmatrix}h\\k\end{bmatrix}+o(\sqrt{h^2+k^2})$=
-	$=\norm{\nabla f(x_0,y_0)}\norm{\begin{bmatrix}h k\end{bmatrix}}cos(\theta)+o(\sqrt{h^2+k^2})$\\
-	dove $\theta$ è l'angolo tra $\nabla f(x_0,y_0)$ e $[h k]$ per $||[h k]||$ sufficientemente piccola, l'incremento $f(x_0+h,y_0+k)-f(x_0,y_0)$ è massimo se $cos( \theta )=1$ ed è minimo se $cos(\theta )=-1$, da cui la tesi.\\
-\end{proof}
-\proposition
-siano $f\in \cntclass{1}(A;R)$ con $A\subseteq \R^2$ e $(x_0,y_0)\in\circdot{A}$ e $\nabla f(x_0,y_0)\ne 0$[cioè stazionario]. Allora $nabla f(x_0,y_0)$ è perpendicolare alla curva di livello passante per .....
-\observation
-un vettore 1'e perpendicolare a una curva se è perpendicolare alla retta o al vettore tangente alla curva in quel punto.
-\begin{proof}
-	La curva di livello è $f(x,y)=f(x_0,y_0)$ cioè $f(x,y)-f(x_0,y_0)=0$, per trovare la tangente a questa curva è piu facile se si ha $y=\varphi(x)$\\
-	Usiamo quindi il teorema della funzione implicita, mi serve che $\partial_yf(x_0,y_0)\ne 0$, questa condizione non è assicurata dalle ipotesi, per ipotesi il gradiente è non nulla quindi almeno una delle due componenti è non nulla.\\
-	Inizio con il caso $\partial_yf(x_0,y_0)\ne 0$.\\
-	Il T.F.IMPL. assicura che :\\
-	$\exists\mathcal{X},\mathcal{Y}$ con $x_0\in\circdot{\mathcal{X}}, y_0\in\circdot{\mathcal{Y}}$, $\exists\varphi:\mathcal{X}\to\mathcal{Y}$ t.c.:\\
-	$f(x,y)=f(x_0,y_0), x\in\mathcal{X}, y\in\mathcal{Y} \iff y=\varphi(x)$\\
-	La retta tangente in $x_0$ a $y=\varphi(x)$ è $y=y_0+\varphi'(x_0)(x-x_0)$\\
-	questo vuole dire che un vettore tangente a $y=\varphi(x)$ in $(x_0,y_0)$ è $\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix}$.\\
-	... calcolo il prodotto scalare\\
-	\[\nabla f(x_0,y_0)\begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} = \begin{bmatrix}\partial_x f(x_0,y_0)&&\partial_y f(x_0,y_0)\end{bmatrix}\begin{bmatrix}1\\-\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}\end{bmatrix} =\]
-	\[=\partial_x f(x_0,y_0) -\partial_y f(x_0,y_0)\frac{\partial_x f(x_0,y_0)}{\partial_y f(x_0,y_0)}=0\]
-	Allora il graadiente è perpendicolare alla curva di livello.\\
-	Guardiamo ora al caso in cui $\partial_yf(x_0,y_0)= 0$ e $\partial_xf(x_0,y_0)\ne 0$ quindi il gradiente è non nullo.\\
-	Applicando lo stesso ragionamento id sopra, solo esplicitando la $x$ in funzione della $y$. Quindi $x=\psi(x)$ e $\psi{'}(y_0)=-\frac{\partial_y f(x_0,y_0)}{\partial_x f(x_0,y_0)}$
-\end{proof}
+\subsection{I Moltiplicatori di Lagrange}
+Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_gen}, dunque molte note sono omesse in questo enunciato.
+\begin{theorem}[dei Moltiplicatori di Lagrange - $n=2$, $m=1$]
+	\label{teo:molt_lagr_n2_m1}
+	Sia $A \subseteq \R^2$ un \textbf{Aperto} e siano
+	\begin{itemize}[noitemsep]
+		\item $f: A \to \R$
+		\item $\varphi: A \to \R$ con $\varphi^{-1}(0) \subset A$
+	\end{itemize}
+	due funzioni $\in \cntclass{1}$.
+	Se:
+	\begin{itemize}[noitemsep]
+		\item $(x_0, y_0)$ è un punto di \textbf{estremo relativo} per $f$ \textbf{vincolata} a $\varphi = 0$
+		\item $\nabla \varphi(x_0, y_0) \neq 0$
+	\end{itemize}
+	Allora esiste un $\lambda$ tale che
+	\begin{equation}
+		\nabla f(x_0, y_0) = \lambda \nabla \varphi(x_0, y_0)
+	\end{equation}
+	Lo scalare $\lambda$ è chiamato \textbf{Moltiplicatore di Lagrange}.
+	\begin{proof}~
+		\begin{note}
+			Questa dimostrazione è molto simile alla soluzione dell'\fullref{ex:molt_lagr_sist_equiv}.
+		\end{note}
+		Essendo per ipotesi $\nabla \varphi(x_0, y_0) \neq 0$, allora
+		\[
+			\begin{gathered}
+				\nabla \varphi(x_0, y_0) \neq 0\\
+				\iff\\
+				\begin{bmatrix}
+					\partial_x \varphi(x_0, y_0) & \partial_y \varphi(x_0, y_0)
+				\end{bmatrix}
+				\neq 0\\
+				\iff\\
+				\partial_x \varphi(x_0, y_0) \neq 0 \quad \text{oppure} \quad \partial_y \varphi(x_0, y_0) \neq 0
+			\end{gathered}
+		\]
+		Si supponga dunque $\partial_y \varphi(x_0,y_0) \neq 0$ ed applicando il \fullref{teo:funz_impl} si ha che esistono degli intorni $\mathcal{X}$ di $x_0$ e $\mathcal{Y}$ di $y_0$ e, per $x \in \mathcal{X}$ e $y \in \mathcal{Y}$, esiste la
+		\[g: \mathcal{X} \to \mathcal{Y} \quad \text{tale che} \quad \varphi(x,y) = 0 \iff y = g(x)\]
+		\vspace*{-\baselineskip}
+		\begin{note}
+			Verifica ipotesi:
+			\begin{enumerate}
+				\item $A \subseteq \R \times \R$ aperto per ipotesi
+				\item $f \in \cntclass{1}$ per ipotesi, quindi sicuramente continua
+				\item $(x_0, y_0) \in A$ per ipotesi e la funzione da invertire vale $0$ perché, anche se fosse $f(x_0, y_0) = c \neq 0$, è sempre possibile utilizzare una funzione $g(x_0, y_0) = f(x_0, y_0) - c = 0$ che verifica questa ipotesi e per cui valgono ancora tutte le altre osservazioni fatte qui
+				\item $f$ differenziabile in $(x_0, y_0)$ per ipotesi, dunque sicuramente esiste $\partial_y f$
+				\item $D_yf(x_0, y_0)$ ammette inversa perché è stato ipotizzato $\partial_y f(x_0,y_0) \neq 0$ poco sopra
+			\end{enumerate}
+		\end{note}
+		Definendo la $F(x) = f \bigl( x, g(x) \bigr)$, i punti di estremo della $f$ vincolata a $\varphi$ saranno di estremo anche per $F$ a patto di rimanere in un intorno di $(x_0, y_0)$ in cui vale il \fullref{teo:funz_impl}.\\
+		$F$ è differenziabile ovunque definita, visto che $f \in \cntclass{1}$ per ipotesi, quindi per il \fullref{teo:fermat}, se $(x_0, y_0)$ è di estremo, allora $F'(x_0, y_0) = 0$.
+		\begin{note}
+			Essendo $F: \R \to \R$ si può usare la notazione $F'$ della derivata di Analisi 1.
+		\end{note}
+		Calcolando ora $F'(x_0)$ grazie alla \fullref{prop:deriv_funz_comp}
+		\begin{align*}
+			0
+			&= F'(x_0)\\
+			&=	\partial_x f\bigl( x_0, g(x_0) \bigr) +
+				\partial_y f\bigl( x_0, g(x_0) \bigr) \cdot
+				g'(x_0)\\
+			&=	\partial_x f\bigl( x_0, g(x_0) \bigr) +
+				\partial_y f\bigl( x_0, g(x_0) \bigr) \cdot
+				\left(
+					-
+					\frac{
+						\partial_x g(x_0,g(x_0))
+					}{
+						\partial_y g(x_0,g(x_0))
+					}
+				\right)\\
+			&=	\partial_x f\bigl( x_0, g(x_0) \bigr) \cdot \partial_y g(x_0,g(x_0)) -
+				\partial_y f\bigl( x_0, g(x_0) \bigr) \cdot \partial_x g(x_0,g(x_0))
+			\shortintertext{Che può essere rappresentato in forma compatta come il $\det$ di una matrice $\mat (2 \times 2)$}
+			&=	\det \left(
+				\begin{matrix}
+					\partial_xf(x_0,y_0) & \partial_yf(x_0,y_0)\\
+					\partial_xg(x_0,y_0) & \partial_yg(x_0,y_0)
+				\end{matrix}
+				\right)
+		\end{align*}
+		Prendendo il primo e l'ultimo elemento del treno di uguaglianze si ha che $\det = 0$, dunque, dalle nozioni di Algebra, si sa che questo implica il parallelismo tra i vettori della matrice. Essendo la $g$ e la $\varphi$ legate implicitamente, è possibile concludere che:
+		\[\exists \lambda \in \R: \nabla f(x_0,y_0) = \lambda \nabla \varphi(x_0,y_0)\]
+	\end{proof}
+\end{theorem}
+\begin{exercise}
+	Dimostrare la \fullref{teo:molt_lagr_n2_m1} nel caso in cui $\partial_x \varphi(x_0, y_0) \neq 0$ e $\partial_y \varphi(x_0, y_0) = 0$
+	\begin{solution}
+		È sufficiente applicare il \fullref{teo:funz_impl} alla $\partial_x$, gli altri passaggi non variano.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Dare un'interpretazione geometrica della \fullref{teo:molt_lagr_n2_m1} in luce della \fullref{prop:curv_liv_perp_grad}.
+	\begin{solution}
+		Fornita in \fullref{obs:concetto_teo_molt_lagr_gen}.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Nel piano, determinare il punto della retta passante per $(-1, 2)$ $(1, 4)$ più vicino alla circonferenza centrata in $(0, 0)$ di raggio $2$. Utilizzare la \fullref{sect:geom_piano}.
+\end{exercise}
+\begin{exercise}
+	Nel piano, determinare il punto della circonferenza centrata in $(0, 0)$ di raggio $3$ più lontano dalla retta passante per $(1, 2)$ $(1, -1)$. Utilizzare la \fullref{sect:geom_piano}.
+\end{exercise}
 
 \newpage
 \section{Derivate e Integrali}
@@ -2653,7 +2888,7 @@ $\begin{array}{rcl} F: A & \to & \R \\ (x) & \to & \int_{\alpha(x)}^{\beta(x)}f(
 
 \newpage
 \section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}\label{sect:fun_in_C}
-Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \to \C$ può essere identificata in modo naturale con una funzione $A \to \R^2$ e viceversa.ù
+Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \to \C$ può essere identificata in modo naturale con una funzione $A \to \R^2$ e viceversa.
 \begin{note}
 	Quindi è possibile rappresentare una funzione $A \to \C$ in un piano, detto \textbf{piano complesso} o \textbf{piano di Gauss}
 \end{note}

@@ -13,12 +13,14 @@
 \usepackage{mathtools,thmtools}
 \usepackage{shellesc} % Used to embed TikZ external with LuaLaTeX
 \usepackage{tikz}
-\usetikzlibrary{external,matrix,fit}
+\usetikzlibrary{external,matrix,fit,quotes,angles} % external requires --shell-escape LaTeX compiler switch
 \tikzexternalize[prefix=build/]
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 \usepgfplotslibrary{fillbetween}
 \usepackage{float} % Used for precise placement of floating figures
+\usepackage{graphicx}
+\graphicspath{{images/}}
 \usepackage{accents}
 \usepackage{graphicx}
 \usepackage{subcaption} % Used to put multiple subfigures inside the same figure env
