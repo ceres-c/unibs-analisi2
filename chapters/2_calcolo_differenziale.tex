@@ -2090,22 +2090,37 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 			\begin{center}
 				\resizebox{\linewidth}{!}{
 					\begin{tikzpicture}
-						% Thanks to Schrödinger's cat from https://tex.stackexchange.com/questions/542616/a
-						\begin{axis} [
+						% Thanks to Symbol 1 from https://tex.stackexchange.com/a/543874/206062
+						\pgfmathdeclarefunction{volcano_z}{2}{%
+							\pgfmathsetmacro\radsq{#1^2 + #2^2}% \radsq is radius^2 in FPU notation
+							\pgfmathfloattofixed{\radsq}\let\radsqsafe=\pgfmathresult % in safe notation
+							\ifdim\radsqsafe pt > 1pt\relax
+								\pgfmathparse{-sqrt(\radsq-1)}%
+							\else\ifdim\radsqsafe pt > 0.25pt\relax
+								\pgfmathparse{+0}%
+							\else % \radsq pt <= 0.25
+								\pgfmathparse{NaN}%
+							\fi\fi
+						}
+						\pgfmathdeclarefunction{volcano_x}{2}{%
+							\pgfmathsetmacro\radsq{#1^2 + #2^2}% \radsq is radius^2 in FPU notation
+							\pgfmathfloattofixed{\radsq}\let\radsqsafe=\pgfmathresult % in safe notation
+							\ifdim\radsqsafe pt > 1pt\relax
+								\pgfmathparse{#1}%
+							\else\ifdim\radsqsafe pt > 0.25pt\relax
+								\pgfmathparse{#1/sqrt(\radsq)}%
+							\else % \radsq pt <= 0.25
+								\pgfmathparse{NaN}%
+							\fi\fi
+						}
+						\begin{axis}[
 							xlabel=$x$, ylabel=$y$,
-							xmin=-2, xmax=2,
-							ymin=-2, ymax=2
-						]
-							\clip plot[domain=0:-2] % Clip away lower part of the cone to get a "cartesian look"
-								(-2,{\x},{-sqrt(3+\x*\x)}) -- plot[domain=-2:2]
-								({\x},-2,{-sqrt(3+\x*\x)}) -- plot[domain=-2:2]
-								(2,{\x},{-sqrt(3+\x*\x)}) -- (2,2,0) -- (-2,2,0)
-								--cycle;
-							\addplot3[surf, domain=1.001:{2*sqrt(2)}, domain y=0:360, samples y=50, z buffer=sort]
-								({x*cos(y)},{x*sin(y)},{-sqrt(x^2-1)});
+							]
+							\addplot3[surf,domain =-2:2,unbounded coords=jump,samples=32]
+								({volcano_x(x,y)}, {volcano_x(y,x)}, {volcano_z(x,y)});
 						\end{axis}
 					\end{tikzpicture}
-			}
+				}
 			\end{center}
 		\end{minipage}
 	\end{solution}
