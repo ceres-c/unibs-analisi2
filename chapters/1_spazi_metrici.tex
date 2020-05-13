@@ -1602,7 +1602,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	In $\intervalopcl{0}{1}$, $f$ è continua e limitata, ma non è uniformemente continua.
 \end{example}
 
-\begin{proposition}[Teorema di Cantor]
+\begin{theorem}[di Cantor]
+	\label{teo:cantor}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \to Y$ con $K \subseteq X$.
 	\begin{equation*}
 		\left.
@@ -1624,7 +1625,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		Da (1) di \cref{eq:th_cantor} si sa che $\lim\limits_{n \to +\infty} d(x_n', x_n'') = 0$, dunque $x_\infty' = x_\infty''$ per $n \to +\infty$\\
 		Da (2) di \cref{eq:th_cantor}, d'altro canto, è esplicitato che $d \bigl( f(x_n'), f(x_n'') \bigr)$ rimane sempre $> \varepsilon$ strettamente positivo, dunque è negata la \fullref{def:funz_cont} in $x_\infty' = x_\infty''$. Così è negata l'ipotesi sulla continuità della funzione.
 	\end{proof}
-\end{proposition}
+\end{theorem}
 \begin{proposition}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$ e $f:A \to Y$ \textbf{Uniformemente Continua} su $A$. Allora, per ogni successione $x:\N \to X$ \textbf{di Cauchy} in $X$, la successione $\boldsymbol{f \circ x}$ delle immagini $f(x_n)$ \textbf{è di Cauchy} in $Y$.
 	\begin{proof}

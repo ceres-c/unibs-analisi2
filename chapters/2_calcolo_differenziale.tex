@@ -2876,30 +2876,135 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 \end{exercise}
 
 \newpage
+\color{not_explained_section_color}
 \section{Derivate e Integrali}
-\begin{proposition}[Teorema Fondamentale del Calcolo Integrale]
+\begin{theorem}[Fondamentale del Calcolo Integrale]
 	\label{teo:fondament_calcolo_integ}
-	Sia $I\subseteq \R$ un intervallo e sia $x_0\in I$. Data $f\in c^0(I;R)$ la funzione:
-	\[\begin{array}{rcl} F: I & \to & \R \\ x & \to & \int_{x_0}^{x}f(t)\integrald{t} \end{array}\]
-	Si ha $F\in \cntclass{1}(I;R)$ e $F'(x)=f(x)$ $\forall x \in I$
-\end{proposition}[]
-\proposition
-Sia $A\subseteq \R^n$ un aperto, data $f\in \cntclass{0}(A\times \R;R)$ la funzione \\
-$\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to & \int_{\alpha}^{\beta}f(x,t)\integrald{t} \end{array}$\\
-è di classe $\cntclass{0}(R\times \R\times A;R)$
-\proposition
-Sia $A\subseteq \R^n$ un aperto, data $f\in \cntclass{1}(A\times \R;R)$ la funzione \\
-$\begin{array}{rcl} F: \R\times \R\times A & \to & \R \\ (\alpha,\beta,x) & \to & \int_{\alpha}^{\beta}f(x,t)\integrald{t} \end{array}$\\
-è di classe $\cntclass{1}(R\times \R\times A;R)$ ed inoltre, $\forall (\alpha,\beta,x)\in \R\times \R\times A$ e $\forall i=1,\ldots,n$\\
-\[\frac{\partial F}{\partial \alpha}=-f(x,\alpha)\]
-\[\frac{\partial F}{\partial \beta}=f(x,\beta)\]
-\[\frac{\partial F}{\partial x_i}=\int_{\alpha}^{\beta}\frac{\partial F}{\partial x_i}(x,t)\integrald{t}\]
-\[\nabla F=\int_{\alpha}^{\beta}\nabla f(x,t)\integrald{t}\]
-\corollary
-Sia $A\subseteq \R^n$ un aperto, date le funzioni $\alpha:x \to \R, \beta:x \to \R, f:x \to \R, $ di classe $\cntclass{1}$ , la funzione \\
-$\begin{array}{rcl} F: A & \to & \R \\ (x) & \to & \int_{\alpha(x)}^{\beta(x)}f(x,t)\integrald{t} \end{array}$\\
-è di classe $\cntclass{1}(R\times \R\times A;R)$ ed inoltre, $\forall x_0 \in A$:
-\[\nabla F(x_0,y_0)=f(x_0,\beta)\nabla\beta(x_0)-f(x_0,\alpha)\nabla\alpha(x_0)+\int_{\alpha(x_0)}^{\beta(x_0)}\nabla f(x,t)\integrald{t}\]
+	Sia $I\subseteq \R$ un \textbf{Intervallo} e sia $x_0\in I$. Data $f\in \cntclass{0}(I;R)$ la funzione:
+	\[\funcdef{F}{I}{\R}{x}{\displaystyle\int_{x_0}^{x}f(t)\integrald{t}}\]
+	Si ha $F\in \cntclass{1}(I;\R)$ e $F'(x)=f(x) \quad \forall x \in I$
+	\begin{proof}
+		Omessa. Vedasi corso di Analisi 1.
+	\end{proof}
+\end{theorem}
+\begin{proposition}
+	\label{prop:f_C0_allora_F_C0}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto} e $f \in \cntclass{0}(A \times \R;\R)$, allora la funzione
+	\[\funcdef{F}{\R \times \R \times A}{\R}{\alpha, \beta, x}{\displaystyle\int_{\alpha}^{\beta} f(x,t)\integrald{t}}\]
+	è di classe $\cntclass{0}(\R \times \R \times A;\R)$
+	\begin{proof}
+		La continuità di $F$ rispetto ad $\alpha$ e $\beta$ segue dal \fullref{teo:fondament_calcolo_integ}.\\
+		Per verificare la continuità di $F$ in $x_0 \in A$, si scelga un $r > 0$ tale per cui $\overline{B(x_0, r)} \subset A$. La $f$ sarà continua in $\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}$, in quanto, per ipotesi:
+		\[f \in \cntclass{0}(\underbrace{A}_{\overline{B(x_0, r)} \subset A} \times \underbrace{\R}_{\intervalclose{\alpha}{\beta} \subset \R};\R)\]
+		Inoltre, da \fullref{prop:compat_chius_lim_Rn} si ottiene che $\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}$ è compatto. Per questo è possibile applicare il \fullref{teo:cantor} ed avere certezza che la $f$ è \fullref{def:funz_unif_cont} in quell'intervallo. Dalla definizione e passando alla metrica Euclidea in $\R^2$ si può desumere che:
+		\[\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in \brackets{\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}} \text{ con } \abs{x - x_0} < \delta \quad \text{vale } \abs{f(x, t) - f(x_0, t)} < \varepsilon\]
+		Dunque, sicuramente, passando al $\sup$ resta valido che
+		\begin{equation}
+			\label{eq:deriv_integ_F_alfa_beta_C0}
+			\sup\limits_{\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}} \underbrace{\abs{f(x, t) - f(x_0, t)} < \varepsilon}_{\text{(1)}}
+		\end{equation}
+		A questo punto, utilizzando la definizione di $F$ ci si riconduce ad una forma simile alla (1):
+		\begin{align*}
+			\abs{F(\alpha, \beta, x) - F(\alpha, \beta, x_0)} &= \abs{\int_{\alpha}^{\beta} f(x,t)-f(x_0, t) \integrald{t}}
+			\shortintertext{Grazie all'osservazione di \fullref{ex:cau_loc_abs_of_norm} è possibile minorare}
+			&\leq  \abs{\int_{\alpha}^{\beta} \abs{f(x,t)-f(x_0, t)} \integrald{t}}
+			\shortintertext{Applicando la \cref{eq:deriv_integ_F_alfa_beta_C0}}
+			&< \abs{\int_{\alpha}^{\beta} \varepsilon \integrald{t}}
+			\shortintertext{Per integrale di funzione costante, infine}
+			&= (\beta - \alpha) \varepsilon
+		\end{align*}
+		Quindi, riprendendo il primo e l'ultimo termine:
+		\[\abs{F(\alpha, \beta, x) - F(\alpha, \beta, x_0)} < (\beta - \alpha) \varepsilon\] % WARNING Sul libro c'è un <= ma prima si è dimostrata una minorazione stretta e questa è necessaria per la dimostrazione stessa, dunque usare <= è sbagliato
+		che dà la tesi, in quanto si ha la distanza tra le $F$ minorata strettamente da un qualsiasi $\varepsilon > 0$, per cui la distanza deve necessariamente essere nulla.
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	\label{prop:f_C1_allora_F_C1}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto} e $f \in \cntclass{1}(A \times \R;\R)$, allora la funzione
+	\[\funcdef{F}{\R \times \R \times A}{\R}{\alpha, \beta, x}{\displaystyle\int_{\alpha}^{\beta} f(x,t)\integrald{t}}\]
+	è di classe $\cntclass{1}(\R \times \R \times A;\R)$ ed inoltre, per ogni $(\alpha, \beta, x) \in \R \times \R \times A$ e per ogni $i = 1,\:\dotsc\:,n$ si ha
+	\begin{align*}
+		\partial_\alpha F(\alpha, \beta, x) \quad &= \quad -f(x, \alpha)\\
+		\partial_\beta F(\alpha, \beta, x) \quad &= \quad f(x, \beta)\\
+		\partial_{x_i} F(\alpha, \beta, x) \quad &= \quad \int_{\alpha}^{\beta} \partial_{x_i} f(x,t) \integrald{t}\\
+		\nabla F(\alpha, \beta, x) \quad &= \quad \int_{\alpha}^{\beta} \nabla f(x,t) \integrald{t}
+	\end{align*}
+	\begin{proof}
+		Le prime due uguaglianza seguono direttamente dal \fullref{teo:fondament_calcolo_integ}.\\
+		Per dimostrare la terza si segue un procedimento analogo a quello di \fullref{prop:f_C0_allora_F_C0}: si scelga un $r > 0$ tale per cui $\overline{B(x_0, r)} \subset A$. Essendo $f \in \cntclass{1}$, allora sicuramente $\partial_{x_i} f \in \cntclass{0}$, dunque come dall'altra dimostrazione, $\partial_{x_i} f$ sarà Uniformemente Continua in $\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}$. Grazie a questo si sa che:
+		\[\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in \brackets{\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}} \text{ con } \abs{x - x_0} < \delta \quad \text{vale } \abs{\partial_{x_i} f(x, t) - \partial_{x_i} f(x_0, t)} < \varepsilon\]
+		Dunque, sicuramente, passando al $\sup$ resta valido che
+		\begin{equation}
+			\label{eq:deriv_integ_F_alfa_beta_C1}
+			\sup\limits_{\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}} \underbrace{\abs{\partial_{x_i} f(x, t) - \partial_{x_i} f(x_0, t)} < \varepsilon}_{\text{(1)}}
+		\end{equation}
+		A questo punto, utilizzando si riconduce la terza uguaglianza ad una forma simile alla (1) spostando il termine di destra al primo membro e calcolanone il valore assoluto:
+		\begin{align*}
+			&\abs{
+				\partial_{x_i} F(\alpha, \beta, x) -
+				\int_{\alpha}^{\beta} \partial_{x_i} f(x,t) \integrald{t}
+			} =
+			\shortintertext{Applicando la \fullref{def:deriv_direz} ad una qualsiasi $x_i$, dunque con $v = h e_i$ per uno qualsiasi dei vettori della base canonica}
+			= &\abs{
+				\frac{F(\alpha, \beta, x + h e_i) - F(\alpha, \beta, x)}{h} -
+				\int_{\alpha}^{\beta} \partial_{x_i} f(x,t) \integrald{t}
+			}
+			\shortintertext{Applicando ora la definizione di $F$ e portando il denominatore dentro il segno d'integrale}
+			= &\abs{
+				\int_{\alpha}^{\beta} \frac{f(x + h e_i, t) - f(x, t)}{h} \integrald{t} -
+				\int_{\alpha}^{\beta} \partial_{x_i} f(x,t) \integrald{t}
+			}\\
+			= &\abs{
+				\int_{\alpha}^{\beta} \left(
+					\underbrace{\frac{f(x + h e_i, t) - f(x, t)}{h}}_{\text{(1)}} - \partial_{x_i} f(x,t)
+				\right) \integrald{t}
+			}
+			\shortintertext{Considerando ora la (1) come una funzione in $x$, le si può applicare il \fullref{teo:lagrange} e per un certo $\theta \in \intervalopen{0}{1}$ si ha che}
+			= &\abs{
+				\int_{\alpha}^{\beta} \Bigl(
+					\partial_{x_i} f(x + \theta h e_i, t) - \partial_{x_i} f(x,t)
+				\Bigr) \integrald{t}
+			}
+			\shortintertext{Grazie all'osservazione di \fullref{ex:cau_loc_abs_of_norm} è possibile minorare}
+			\leq &\abs{
+				\int_{\alpha}^{\beta} \Bigl| % Not using \abs notation since the | were too short and could have been missed out reading quickly
+					\partial_{x_i} f(x + \theta h e_i, t) - \partial_{x_i} f(x,t)
+				\Bigr| \integrald{t}
+			}
+			\intertext{Applicando la \cref{eq:deriv_integ_F_alfa_beta_C1} e ricordando che $h = x - x_0$, si sa che se $\abs{h} < \delta$, sicuramente anche $\abs{\theta h} < \delta$ in quanto $\theta \in \intervalopen{0}{1}$, dunque}
+			&< \abs{\int_{\alpha}^{\beta} \varepsilon \integrald{t}}
+			\shortintertext{Per integrale di funzione costante, infine}
+			&= (\beta - \alpha) \varepsilon
+		\end{align*}
+		Quindi, riprendendo il primo e l'ultimo termine:
+		\[\abs{\partial_{x_i} F(\alpha, \beta, x) - \int_{\alpha}^{\beta} \partial_{x_i} f(x,t) \integrald{t}} < (\beta - \alpha) \varepsilon\] % WARNING Sul libro c'è un <= ma prima si è dimostrata una minorazione stretta e questa è necessaria per la dimostrazione stessa, dunque usare <= è sbagliato
+		da cui la tesi, in quanto si ha la distanza tra le due funzioni minorata strettamente da un qualsiasi $\varepsilon > 0$, per cui la distanza deve necessariamente essere nulla.\\
+		La quarta uguaglianza è diretta conseguenza della terza appena dimostrata.
+
+		La continuità delle derivate parziali segue dalla \fullref{prop:f_C0_allora_F_C0}, dunque grazie al \fullref{teo:diff_tot} $F \in \cntclass{1}$.
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}. Date le funzioni
+	\begin{itemize}[noitemsep]
+		\item $\alpha:\; A \to \R$
+		\item $\beta:\; A \to \R$
+		\item $f:\; A \times \R \to \R$
+	\end{itemize}
+	\textbf{tutte} di classe $\cntclass{1}$, allora la funzione
+	\[\funcdef{F}{A}{\R}{x}{\displaystyle\int_{\alpha(x)}^{\beta(x)} f(x,t)\integrald{t}}\]
+	è di classe $\cntclass{1}$ ed inoltre, per ogni $x_0 \in A$ si ha
+	\[
+		\nabla F(x_0) =
+		f \bigl( x_0, \beta(x_0) \bigr) \nabla \beta(x_0) -
+		f \bigl( x_0, \alpha(x_0) \bigr) \nabla \alpha(x_0) +
+		\int_{\alpha(x_0)}^{\beta(x_0)} \nabla f(x_0, t) \integrald{t}
+	\]
+	\begin{proof}
+		Immediata applicando la \fullref{prop:f_C1_allora_F_C1} e la \fullref{prop:deriv_funz_comp}.
+	\end{proof}
+\end{corollary}
+\color{black}
 
 \newpage
 \section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}\label{sect:fun_in_C}
