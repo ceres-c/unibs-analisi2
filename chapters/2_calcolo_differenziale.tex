@@ -1214,8 +1214,8 @@ A livello $0$, la funzione è stata approssimata dal \textit{miglior} polinomio 
 Come nel caso Analisi 1, gli \textbf{Sviluppi di Taylor} permettono di approssimare localmente una funzione con un polinomio nelle variabili indipendenti a patto di conoscere opportune derivate parziali della funzione.
 
 \vspace*{\baselineskip}
-La seguente sezione in \textcolor{not_explained_section_color}{verde} non è richiesta in quanto non presentata sul libro, ma necessaria per chiarire i concetti con cui si sta lavorando. Deve essere considerata come un approfondimento da leggere.
-\color{not_explained_section_color}
+\cbstart
+La seguente sezione affiancata da una banda verde non è richiesta, in quanto non presentata sul libro. È però necessaria per chiarire i concetti con cui si sta lavorando, deve quindi essere considerata come un approfondimento da leggere.
 \begin{definition}[Polinomio di Taylor]
 	\label{def:pol_taylor}
 	Siano:
@@ -1281,7 +1281,7 @@ La seguente sezione in \textcolor{not_explained_section_color}{verde} non è ric
 	\label{obs:resto_lagr_Rn}
 	Il Resto di Lagrange, a differenza del \fullref{def:resto_peano}, offre informazioni quantitative sul resto, ma \textbf{NON} è applicabile a funzioni a valori in $\R^m$, solo a funzioni a valori reali.
 \end{observation}
-\color{black}
+\cbend
 
 \noindent Passando ora al caso specifico degli sviluppi del secondo ordine
 \begin{proposition}[Sviluppo di Taylor al Secondo Ordine con resto di Peano]
@@ -1685,7 +1685,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\end{equation}
 	\begin{proof}
 		Omessa a lezione.\\
-		\color{not_explained_section_color}
+		\cbstart
 		$f$ è di classe $\cntclass{1} \implies f$ è Lipschtziana $\implies$ la funzione $T$ definita in \cref{eq:funz_impl_T} è Lipschtziana anche in $x$ (si veda \fullref{ex:comp_funz_lips}) $\implies$ la funzione implicita $y = \varphi(x)$ è Lipschtziana (per \fullref{teo:contr_con_para_lips_definisce_funz_lips}).
 
 		Se $\varphi$ è derivabile, allora le regole di derivazione garantiscono che (da \fullref{ex:diff_funz_comp}):
@@ -1710,7 +1710,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 		\[\omega_x(h) = \left[ D_yf \bigl( x, \varphi(x) \bigr) \right]^{-1} o \left( \sqrt{ \norm{h}^2 + \norm{A(x) \cdot h + \omega_x(h)}^2 } \;\; \right)\]
 		Dalla definzione di $\omega_x$ in \cref{eq:teo_funz_se_deriv_allora_deriv_omega_x}, segue che la funzione $h \mapsto \omega_x(h)$ è Lipschtziana (da \fullref{ex:comp_funz_lips}). Ciò implica che non possa andare a $0$ più lentamente di $h \to h$, dunque ne segue che
 		\[\omega_x(h) = \left[ D_yf \bigl( x, \varphi(x) \bigr) \right]^{-1} o(\norm{h}) = o(\norm{h})\]
-		\color{black}
+		\cbend
 	\end{proof}
 \end{theorem}
 \begin{corollary}[Caso $n=1$, $m=1$]
@@ -2463,7 +2463,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 	\end{itemize}
 	Perché $p < 2$, dunque sicuramente $p = 1$.
 \end{example}
-\color{not_explained_section_color}
+\cbstart
 \begin{definition}[Funzione Lagrangiana] % Come definita su https://en.wikipedia.org/wiki/Lagrange_multiplier
 	\label{def:funz_lagr}
 	Sia $A \subseteq \R^n$ un \textbf{Aperto}, $x \in A$, $\lambda \in \R^p$ con $p < n$, allora si definisce la
@@ -2474,7 +2474,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 
 	\noindent I punti stazionari \textbf{Vincolati} della $f$ sono i punti stazionari \textbf{Liberi} della Lagrangiana.
 \end{definition}
-\color{black}
+\cbend
 \begin{observation}
 	\label{obs:sist_eqiv_lagr}
 	Mediante il \fullref{teo:molt_lagr_gen}, la ricerca di punti di estremo per $f$ vincolati a $\varphi = 0$ viene dunque ricondotta alla risoluzione del sistema:
@@ -2876,7 +2876,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 \end{exercise}
 
 \newpage
-\color{not_explained_section_color}
+\cbstart
 \section{Derivate e Integrali}
 \begin{theorem}[Fondamentale del Calcolo Integrale]
 	\label{teo:fondament_calcolo_integ}
@@ -3004,7 +3004,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 		Immediata applicando la \fullref{prop:f_C1_allora_F_C1} e la \fullref{prop:deriv_funz_comp}.
 	\end{proof}
 \end{corollary}
-\color{black}
+\cbend
 
 \newpage
 \section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}\label{sect:fun_in_C}

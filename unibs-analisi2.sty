@@ -18,12 +18,13 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 \usepgfplotslibrary{fillbetween}
-\usepackage{float} % Used for precise placement of floating figures
 \usepackage{graphicx}
 \graphicspath{{images/}}
-\usepackage{accents}
-\usepackage{graphicx}
+\usepackage{float} % Used for precise placement of floating figures
 \usepackage{subcaption} % Used to put multiple subfigures inside the same figure env
+\usepackage{accents}
+\usepackage{luatex85} % These bindings are needed for the changebar package
+\usepackage[xcolor, outerbars]{changebar}
 \usepackage[type={CC},modifier={by-nc-sa},version={4.0}]{doclicense}
 \usepackage[stretch=10]{microtype} % Better impagination due to micro font shrinking and stretching
 \usepackage[pdfencoding=auto]{hyperref} % Hyperref has to be the latest loaded package
@@ -76,7 +77,10 @@
 		\end{proof}
 	}
 
-\definecolor{not_explained_section_color}{HTML}{005401}
+\definecolor{not_explained_section_color}{HTML}{007002}
+\cbcolor{not_explained_section_color}
+\setlength{\changebarsep}{25pt}
+\setlength{\changebarwidth}{10pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                    Commands                     %
