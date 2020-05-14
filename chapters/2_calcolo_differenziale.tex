@@ -197,22 +197,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		\begin{subfigure}{.49\textwidth}
 			\centering
 			\resizebox{\linewidth}{!}{
-				\begin{tikzpicture}
-					\node at (3.4, .2) {$0$};
-
-					\node at (2.1, 1.1) {$1$};
-					\node at (4.8, 1.1) {$1$};
-					\node at (1.2, 2.5) {$1$};
-					\node at (5.65, 2.5) {$1$};
-					\node at (.4, 4.5) {$1$};
-					\node at (6.5, 4.5) {$1$};
-
-					\node at (1.7, .2) {$0$};
-					\node at (6, .6) {$0$};
-					\node at (2.6, 2.2) {$0$};
-					\node at (5, 3) {$0$};
-					\node at (3.2, 4.3) {$0$};
-					\node at (1.8, 5) {$0$};
+				\begin{tikzpicture}[declare function = {parabola(\x)=\x^2;}]
 					\begin{axis} [
 						title={Valori della $z$},
 						axis lines = center,
@@ -220,7 +205,22 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 						xticklabels={,,}, yticklabels={,,},
 						ymin = -1
 					]
-						\addplot[color=blue!70, smooth] {x^2};
+						\addplot[color=blue!70, smooth] {parabola(x)};
+				
+						\pgfplotsinvokeforeach{-4.4,-3,-2,-1,0,1,2,3,4.4} {
+							\node at (axis cs: #1, {parabola(#1)}) {$1$};
+						}
+				
+						\node at (axis cs: 0, 0) {$0$};
+						\node at (axis cs: -.4, 2) {$0$};
+						\node at (axis cs: -4, 5) {$0$};
+						\node at (axis cs: .6, 8) {$0$};
+						\node at (axis cs: 2, 13) {$0$};
+						\node at (axis cs: -2.5, 15) {$0$};
+						\node at (axis cs: -1.5, 18) {$0$};
+						\node at (axis cs: 3.5, 20) {$0$};
+						\node at (axis cs: 1.3, 22) {$0$};
+						\node at (axis cs: -4, 23) {$0$};
 					\end{axis}
 				\end{tikzpicture}
 			}
@@ -723,53 +723,256 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \end{proposition}
 
 \subsection{Regole di Derivazione}\label{sect:regole_deriv}
-%TODO This section is a placeholder, the following proposition have to be rewritten
-\proposition
-\label{prop:diff_somma_diff}
-Siano $f,g: A\subseteq \R^n \to \R^m$ e $x_0\in\circdot{A}$\\
-$f$ differenziabile in $x_0$, $g$ differenziabile in $x_0$ allora $f+g$ differenziabile in $x_0$ e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
-\begin{proof}
-	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h \to 0$\\
-	anche $g$ lo è, quindi $g(x_0+h)=g(x_0)+Dg(x_0)h+o(h)$ per $h \to 0$\\
-	sommando membro a membro si ottiene  $(f+g)(x_0+h)=(f+g)(x_0)+[Df(x_0)+Dg(x_0)]h+o(h)$ per $h \to 0$\\
-	Questa è la definizione di differenziabilità, allora $f+g$ è differenziabile e $D(f+g)(x_0) = Df(x_0)+Dg(x_0)$
-\end{proof}
-
-\proposition
-Sia $f: A\subseteq \R^n \to \R^m$ e $x_0\in\circdot{A}$ e $\lambda\in \R$\\
-$f$ differenziabile in $x_0$ allora $\lambda f$ differenziabile in $x_0$ e $D(\lambda f)(x_0) = \lambda Df(x_0)$
-\begin{proof}
-	$f$ è differenziabile, allora $f(x_0+h)=f(x_0)+Df(x_0)h+o(h)$ per $h \to 0$\\
-	valuto ora $(\lambda f)(x_0+h)=(\lambda f)(x_0)+\lambda Df(x_0)h+o(h)$ per $h \to 0$\\
-	Questa è la definizione di differenziabilità, allora $\lambda f$ è differenziabile e $D(\lambda f)(x_0) = \lambda Df(x_0)$
-\end{proof}
-
-\begin{proposition}[Derivata Funzione Composta]
-	\label{prop:deriv_funz_comp}
-	Sia $g: A\subseteq \R^n \to \R^m$ e $x_0\in\circdot{A}$\\
-	Sia $f: B\subseteq \R^m \to \R^p$ e $g(x_0)\in\circdot{B}$\\
-	$f$ differenziabile in $g(x_0)$, $g$ differenziabile in $x_0$ allora $f\circ g$ differenziabile in $x_0$ e $D(f\circ g)(x_0) = Df(g(x_0))*Dg(x_0)$
+\begin{note}
+	In questa sezione per forme tipo $(f + g)(x_0)$ oppure $(f \cdot g)(x_0)$ si intendono, ad esempio, la somma o il prodotto delle due funzioni nel punto $x_0$, quindi $f(x_0) + g(x_0)$ e così via.
+\end{note}
+\begin{proposition}[Differenziale del Prodotto per Scalare]
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f:\; A \to \R^m$ e $\lambda \in \R$, allora
+	\[
+		f \text{ \textbf{Differenziabile} in } x_0 \implies
+		\begin{cases}
+			\begin{array}{c}
+				\lambda f \text{ \textbf{Differenziabile} in } x_0\\
+				e\\
+				D(\lambda f)(x_0) = \lambda Df(x_0)
+			\end{array}
+		\end{cases}
+	\]
 	\begin{proof}
-		$g$ è differenziabile in $x_0$, allora $g(x_0+h)=f(x_0)+Dg(x_0)h+o(h)$ per $h \to 0$\\
-		$f$ è differenziabile in $g(x_0)$ allora $g(g(x_0)+k)=f(g(x_0))+Df(g(x_0))k+o(k)$ per $k \to 0$\\
-		valuto ora
-		\[(f\circ g)(x_0+h) = f(g(x_0+h)+Dg(x_0)h+o(h)) = \]
-		\[=f(g(x_0))+Df(g(x_0))(Dg(x_0)h+o(h))+o(Dg(x_0)h+o(h)) = \]
-		\[=(f\circ g)(x_0) + Df(g(x_0))Dg(x_0)h+Df(g(x_0))o(h)+Dg(x_0)o(h)+o(h)\]
-
-		con $h$ un vettore $n\times 1$\\
-		con $Dg$ una matrice $m\times n$\\
-		con $Df$ una matrice $p\times m$\\
-
-		da rivedere un pochino ....
-
-		Questa è la definizione di differenziabilità, allora $f\circ g$ è differenziabile e $D(f\circ g)(x_0) = Df(g(x_0))Dg(x_0)$
+		Essendo $f$ differenziabile per ipotesi, si ha
+		\[f(x_0 + h) = f(x_0) + Df(x_0)h + o(h)\]
+		Dunque, considerando la $\lambda f$
+		\[(\lambda f)(x_0 + h) = (\lambda f)(x_0) + \lambda Df(x_0)h + o(h)\]
+		Che è la \fullref{def:differenz} per $\lambda f(x_0)$, da cui la tesi.
 	\end{proof}
 \end{proposition}
-\proposition DERIVATA DEL PRODOTTO
+\begin{proposition}[Differenziale della Somma di Funzioni]
+	\label{prop:diff_somma_funz}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f, g:\; A \to \R^m$, allora
+	\[
+		\left.
+		\begin{array}{c}
+			f \text{ \textbf{Differenziabile} in } x_0\\
+			g \text{ \textbf{Differenziabile} in } x_0
+		\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				f + g \text{ \textbf{Differenziabile} in } x_0\\
+				e\\
+				D(f + g)(x_0) = Df(x_0) + Dg(x_0)
+			\end{array}
+		\end{cases}
+	\]
+	\begin{proof}
+		Essendo $f$ e $g$ differenziabili per ipotesi si hanno
+		\begin{align*}
+			f(x_0 + h) &= f(x_0) + Df(x_0)h + o(h)\\
+			g(x_0 + h) &= g(x_0) + Dg(x_0)h + o(h)
+		\end{align*}
+		Dunque, sommando membro a membro si arriva alla
+		\begin{align*}
+			f(x_0 + h) + g(x_0 + h) &= f(x_0) + g(x_0) + Df(x_0)h + Df(x_0)h + o(h)\\
+			(f + g)(x_0 + h) &= (f + g)(x_0) + \bigl( Df(x_0) + Df(x_0) \bigr) h + o(h)
+		\end{align*}
+		Che è la \fullref{def:differenz} per $(f + g)(x_0)$, da cui la tesi.
+	\end{proof}
+\end{proposition}
+\begin{proposition}[Differenziale del Prodotto Scalare]
+	\label{prop:diff_prod_scal}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f, g:\; A \to \R^m$, allora
+	\[
+		\left.
+		\begin{array}{c}
+			f \text{ \textbf{Differenziabile} in } x_0\\
+			g \text{ \textbf{Differenziabile} in } x_0
+		\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				f \cdot g \text{ \textbf{Differenziabile} in } x_0\\
+				e\\
+				D(f \cdot g)(x_0) = g(x_0)^T \; Df(x_0) + f(x_0)^T \; Dg(x_0)
+			\end{array}
+		\end{cases}
+	\]
+	\vspace*{-\baselineskip}
+	\begin{note}
+		$\;\cdot\;$ indica il \textbf{Prodotto Scalare} tra vettori che può essere scritto in forma matriciale con $f^T g$ (dunque utilizzando il prodotto righe per colonne) dove $f^T$ è la matrice \textbf{Trasposta} di $f$.
+	\end{note}
+	\begin{proof}
+		Omessa in aula.
+
+		\cbstart
+		\noindent Utilizzando la differenziabilità di $f$ e $g$ assieme alla continuità di $g$
+		\begin{align*}
+			\lefteqn{(f \cdot g)(x_0 + h) - (f \cdot g)(x_0) =}\\
+			&= (f^T\;g)(x_0 + h) - (f^T\;g)(x_0)\\
+			&= \bigl( f(x_0 + h) - f(x_0) \bigr)^T g(x_0 + h) + f(x_0)^T \bigl( g(x_0 + h) - g(x_0) \bigr)\\
+			&= \bigl( Df(x_0)h + o(h) \bigr)^T \bigl( f(x_0) + o(1) \bigr) + f(x_0)^T \bigl( Dg(x_0)h + o(h) \bigr)\\
+			&= \bigl( Df(x_0)h \bigr)^T g(x_0) + f(x_0)^T \bigl( Dg(x_0) h \bigr) + o(h)\\
+			&= h^T Df(x_0)^T g(x_0) + f(x_0)^T Dg(x_0)h + o(h)\\
+			&= \bigl( g(x_0)^T Df(x_0) + f(x_0)^T Dg(x_0) \bigr) h + o(h)
+		\end{align*}
+		da cui la tesi per la \fullref{def:differenz}.
+		\cbend
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Verificare che gli ordini delle matrici sono tali da permettere le operazioni eseguite nella \fullref{prop:diff_prod_scal}.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Scrivere la \fullref{prop:diff_prod_scal} nel caso $m = 1$ utilizzando i vettori $\nabla f$ e $\nabla g$.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f:\; A \to \R$ e $g:\; A \mapsto \R^m$ entrambe \textbf{Differenziabili} in $x_0$.\\
+	Dimostrare che $f \; g$ (prodotto di funzione scalare per funzione vettoriale) è \textbf{Differenziabile} in $x_0$ e determinarne la derivata totale.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f:\; A \to \R^m$ e $g:\; A \mapsto \R^p$ entrambe \textbf{Differenziabili} in $x_0$. Sia ora
+	\[
+		\funcdef{
+			F
+		}{
+			A
+		}{
+			\R^{m + p}
+		}{
+			x
+		}{
+			\bigl( f(x), g(x) \bigr)
+		}
+	\]
+	Dimostrare che $F$ è \textbf{Differenziabile} in $x_0$ e detminarne la derivata totale.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$ e $f,g:\; A \to \R^3$ entrambe \textbf{Differenziabili} in $x_0$.\\
+	Dimostrare che il prodotto vettoriale $f \wedge g$ è \textbf{Differenziabile} in $x_0$ e determinarne la derivata totale.
+	% TODO solution
+\end{exercise}
+
+\begin{proposition}[Differenziale della Funzione Composta]
+	\label{prop:diff_funz_comp}
+	Siano:
+	\begin{itemize}[noitemsep]
+		\item $A \subseteq \R^n$
+		\item $g:\; A \to \R^m$
+		\item $B \subseteq \R^m$
+		\item $f:\; B \to \R^p$
+		\item $x_0 \in \circdot{A}$ tale che $g(x_0) \in \circdot{B}$
+		\item $g$ \textbf{Differenziabile} in $x_0$
+		\item $f$ \textbf{Differenziabile} in $g(x_0)$
+	\end{itemize}
+	Allora
+	\[
+		\begin{gathered}
+			f \circ g \text{ è \textbf{Differenziabile} in } x_0\\
+			e\\
+			D(f \circ g)(x_0) = Df \bigl( g(x_0) \bigr) Dg(x_0)
+		\end{gathered}
+	\]
+	\begin{note}
+		$(f \circ g)(x_0) = f \bigl( g(x_0) \bigr)$
+	\end{note}
+	\begin{note}
+		In questa proposizione, a differenza delle altre del capitolo, non è richiesta l'apertura di $A$, ma piuttosto che $x_0$ appartenga alla \textbf{Parte Interna} di $A$, $\circdot{A}$. Concettualmente è la stessa cosa, ma sarebbe risultato meno evidente il fatto che anche $g(x_0)$ debba essere nella \textbf{Parte Interna} di $B$, $\circdot{B}$.\\
+		Le ipotesi avrebbero comunque potuto essere formulate come $A$ e $B$ \textbf{Aperti}.
+	\end{note}
+	\begin{proof}
+		Essendo $g(x)$ e $f\bigl( g(x) \bigr)$ differenziabili per ipotesi si hanno
+		\begin{equation}
+			\label{eq:diff_somma_funz_Dg}
+			g(x_0 + h) = g(x_0) + Dg(x_0)h + o(h) \quad \text{per } h \to 0
+		\end{equation}
+		\begin{equation}
+			\label{eq:diff_somma_funz_Df}
+			f\bigl( g(x_0) + k \bigr) = f\bigl( g(x_0) \bigr) + Df\bigl( g(x_0) \bigr)k + o(k) \quad \text{per } k \to 0
+		\end{equation}
+		Inoltre, per definizione di funzione composta:
+		\begin{align*}
+			(f \circ g)(x_0 + h) &= f \bigl( g(x_0 + h) \bigr)
+			\shortintertext{Sostituendo la \cref{eq:diff_somma_funz_Dg} si ottiene}
+			&= f \bigl( g(x_0) + \underbrace{Dg(x_0)h + o(h)}_{(1)} \bigr)
+			\intertext{Ora è possibile considerare (1) come il $k$ della \cref{eq:diff_somma_funz_Df}, infatti se $h \to 0 \implies k \to 0$. Essendosi ricondotti al primo termine della \cref{eq:diff_somma_funz_Df}, si può anche sostituire $Dg(x_0)h + o(h)$ ai $k$ nel secondo termine e continuare l'uguaglianza. Passando anche l'\textit{o piccolo} a $h$, non avendo più termini in $k$, si ottiene infine:}
+			&= f\bigl( g(x_0) \bigr) + Df\bigl( g(x_0) \bigr) \bigl(Dg(x_0)h + o(h)\bigr) + o(h) \quad \text{per } h \to 0\\
+			&= f\bigl( g(x_0) \bigr) + Df\bigl( g(x_0) \bigr) Dg(x_0)h + Df\bigl( g(x_0) \bigr) o(h) + o(h) \quad \text{per } h \to 0\\
+			&= f\bigl( g(x_0) \bigr) + Df\bigl( g(x_0) \bigr) Dg(x_0)h + o(h) + o(h) \quad \text{per } h \to 0\\
+			&= f\bigl( g(x_0) \bigr) + Df\bigl( g(x_0) \bigr) Dg(x_0)h + o(h) \quad \text{per } h \to 0
+		\end{align*}
+		Che è la \fullref{def:differenz} per $(f \circ g)(x_0) = f \bigl( g(x_0) \bigr)$ considerando $M = Df\bigl( g(x_0) \bigr) Dg(x_0)$, da cui la tesi.
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Verificare che gli ordini delle matrici siano tali da permettere le operazioni eseguite nella \fullref{prop:diff_funz_comp}.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Giustificare dettagliatamente la conclusione della \fullref{prop:diff_funz_comp}.
+	\begin{solution}
+		Vedasi dimostrazione della \fullref{prop:diff_funz_comp}.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f,g:\; A \to \R$ \textbf{Differenziabili} in $x_0$.\\
+	Le funzioni $\max \brackets{f,g}$ e $\min \brackets{f,g}$ sono \textbf{Derivabili/Differenziabili} in $x_0$?
+	\begin{solution}
+		Suggerimento: vedere \fullref{ex:se_fg_lips_max_fg_lips}.
+		% TODO solution
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Siano:
+	\begin{itemize}[noitemsep]
+		\item $A \subseteq \R^n$
+		\item $g:\; A \to \R^m$
+		\item $B \subseteq \R^m$
+		\item $f:\; B \to \R^p$
+		\item $x_0 \in \circdot{A}$ tale che $g(x_0) \in \circdot{B}$
+		\item $g$ \textbf{Differenziabile} in $x_0$
+		\item $f$ \textbf{Differenziabile} in $g(x_0)$
+	\end{itemize}
+	Utilizzando la \fullref{prop:diff_funz_comp}, verificare la formula
+	\[
+		\frac{\partial f_i}{\partial x_k}(x_0) = \sum\limits_{j = 1}^{m} \frac{\partial f_i}{\partial y_j}\bigl( g(x_0) \bigr) \frac{\partial g_j}{\partial x_k}(x_0)
+	\]
+	% TODO solution
+\end{exercise}
 \begin{exercise}
 	\label{ex:diff_funz_comp}
-	% TODO ex 8.37 dal libro
+	Siano $A \subseteq \R^n$, e $B \subseteq \R^p$ \textbf{Aperti}, $f:\; A \times B \to \R^m$ e $f$ \textbf{Differenziabile} in $A \times B$. Sia dunque $\varphi:\; A \to B$ \textbf{Differenziabile} su $A$.\\
+	Dimostrare che
+	\[Df \bigl( x, \varphi(x) \bigr) = D_x f \bigl( x, \varphi(x) \bigr) + D_y f \bigl( x, \varphi(x) \bigr) D\varphi(x)\]
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Quali ipotesi sulla funzione $\varphi:\; \R \to \R$ assicurano che la funzione $f$ definita da
+	\[f(x,y) = \frac{\varphi(y) - \varphi(x)}{y - x}\]
+	può essere estesa ad una funzione continua/differenziabile su tutto $\R^2$?\\
+	Quando possibile determinare la derivata totale.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Quali ipotesi sulla funzione $\varphi:\; \R \to \R$ assicurano che la funzione $f$ definita da
+	\[f(x,y) = \int_x^y \varphi(t) \integrald{t}\]
+	è una funzione continua/differenziabile su tutto $\R^2$? Vedasi \fullref{prop:f_C1_allora_F_C1}.\\
+	Quando possibile determinare la derivata totale.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Sia $A \subseteq \R^n$ un \textbf{Aperto}. Date due funzioni $f:\; A \to \R^m$ e $g:\; A \to \R^p$ \textbf{Differenziabili} su $A$, la funzione $F:\; A \to \R^{m + p}$ definita da
+	\[F(x) = \bigl( f(x), g(x) \bigr)\]
+	è \textbf{Differenziabile}? Come è fatta la sua derivata totale?
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Sia $A \subseteq \R^n$ un \textbf{Aperto}. Dimostrare che lo spazio $\cntclass{1}(A; \R^m)$ è uno \textbf{Spazio Vettoriale} con le usuali operazioni di somma tra funzioni e prodotto scalare per funzione.
+	% TODO solution
 \end{exercise}
 
 \subsection{La Formula degli Accrescimenti Finiti}
@@ -1122,7 +1325,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 					&= \varphi(h) - \varphi(0)
 					\shortintertext{Applicando Lagrange}
 					&= h\: \varphi'(\alpha' h)
-					\shortintertext{Grazie alla \fullref{prop:diff_somma_diff} si passa alle derivate parziali rispetto a $x$ (la $y$ è fissa)}
+					\shortintertext{Grazie alla \fullref{prop:diff_somma_funz} si passa alle derivate parziali rispetto a $x$ (la $y$ è fissa)}
 					&= h \left( \frac{\partial f}{\partial x}(x_0 + \alpha' h, y_0 + k) - \frac{\partial f}{\partial x}(x_0 + \alpha' h, y_0) \right)
 					\intertext{Si definisce ora $\Phi(\xi) = \frac{\partial f}{\partial x}(x_0 + \alpha'h, y_0 + \xi)$}
 					&= h \bigl( \Phi(k) - \Phi(0) \bigr)
@@ -1136,7 +1339,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 					&= \psi(k) - \psi(0)
 					\shortintertext{Applicando Lagrange}
 					&= k\: \psi'(\beta'' k)
-					\shortintertext{Grazie alla \fullref{prop:diff_somma_diff} si passa alle derivate parziali rispetto a $y$ (la $x$ è fissa)}
+					\shortintertext{Grazie alla \fullref{prop:diff_somma_funz} si passa alle derivate parziali rispetto a $y$ (la $x$ è fissa)}
 					&= k \left( \frac{\partial f}{\partial y}(x_0 + h, y_0 + \beta'' k) - \frac{\partial f}{\partial y}(x_0, y_0 + \beta'' k) \right)
 					\intertext{Si definisce ora $\Psi(\xi) = \frac{\partial f}{\partial y}(x_0 + \xi, y_0 + \beta'' k)$}
 					&= k \bigl( \Psi(k) - \Psi(0) \bigr)
@@ -2554,7 +2757,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 			\quad \iff \quad
 			x_0 \text{ di Estremo per } f\bigl( x, g(x) \bigr)
 		\]
-		Dunque, per il \fullref{teo:fermat}, è garantito che $\nabla f\bigl( x_0, g(x_0) \bigr) = 0$. Calcolando ora $\nabla f\bigl( x_0, g(x_0) \bigr)$ grazie alla \fullref{prop:deriv_funz_comp}
+		Dunque, per il \fullref{teo:fermat}, è garantito che $\nabla f\bigl( x_0, g(x_0) \bigr) = 0$. Calcolando ora $\nabla f\bigl( x_0, g(x_0) \bigr)$ grazie alla \fullref{prop:diff_funz_comp}
 		\begin{align*}
 			0
 			&=	\partial_x f\bigl( x_0, g(x_0) \bigr) +
@@ -2825,7 +3028,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 		\begin{note}
 			Essendo $F: \R \to \R$ si può usare la notazione $F'$ della derivata di Analisi 1.
 		\end{note}
-		Calcolando ora $F'(x_0)$ grazie alla \fullref{prop:deriv_funz_comp}
+		Calcolando ora $F'(x_0)$ grazie alla \fullref{prop:diff_funz_comp}
 		\begin{align*}
 			0
 			&= F'(x_0)\\
@@ -3001,7 +3204,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 		\int_{\alpha(x_0)}^{\beta(x_0)} \nabla f(x_0, t) \integrald{t}
 	\]
 	\begin{proof}
-		Immediata applicando la \fullref{prop:f_C1_allora_F_C1} e la \fullref{prop:deriv_funz_comp}.
+		Immediata applicando la \fullref{prop:f_C1_allora_F_C1} e la \fullref{prop:diff_funz_comp}.
 	\end{proof}
 \end{corollary}
 \cbend

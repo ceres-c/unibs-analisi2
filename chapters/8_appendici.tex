@@ -247,10 +247,11 @@ Grazie alle seguenti proposizioni viene fornito un metodo più rapido per verifi
 				nodes in empty cells,
 				minimum width = 2.5em, minimum height = 2.5em
 			]{
-			\det Q_1 &	&	&	\\
-				& \frac{\det Q_2}{\det Q_1} &	&	\\
-				&	& \ddots &\\
-				&	&	& \frac{\det Q_n}{\det Q_{n-1}}\\
+			\det
+			Q_1 & 0 & \cdots & 0\\
+			 0  & \frac{\det Q_2}{\det Q_1} & \cdots & 0\\
+			 \vdots  & \vdots & \ddots & \vdots\\
+			 0  & 0 & \cdots & \frac{\det Q_n}{\det Q_{n-1}}\\
 			};
 		\end{tikzpicture}
 	\end{center}

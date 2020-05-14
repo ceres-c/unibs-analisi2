@@ -344,20 +344,60 @@ Unendo le due definizioni si giunge naturalmente a
 			{\footnotesize Cioè, per qualsiasi $r$, l'intersezione tra la sfera ed $A$ è sempre non vuota (non considerando $x_0$ stesso)}
 	\end{itemize}
 \end{definition}
+\newpage % TODO always check this does not generates too much whitespace
+\begin{example} % This exercise was split between two pages, thus the above \newpage
+	Dato l'insieme rappresentato in figura
+	\begin{center}
+		\begin{tikzpicture}
+			\draw plot[smooth, tension=.7] coordinates
+				{(-3.5,0.5) (-3,2.5) (-1,3.5) (1.5,3) (4,3.5) (5,2.5) (5,0.5) (2.5,-2) (0,-0.5) (-3,-2) (-3.5,0.5)};
+			\node[circle, fill=black, inner sep=1pt, label=north east:$R$] at (0,-1.5) {};
+			\node[circle, fill=black, inner sep=1pt, label=north east:$P$] at (-2,0) {};
+			\node[circle, fill=black, inner sep=1pt, label=east:$Q$] at (5,.5) {};
+			\node at (2,2) {$A$};
+		\end{tikzpicture}
+	\end{center}
+	Si hanno quindi
+	\begin{itemize}[noitemsep]
+		\item $A \subset \R^2$ munito della Distanza Euclidea
+		\item $P$ Interno
+		\item $Q$ di Frontiera
+		\item $R$ Esterno
+		\item $P$ e $Q$, inoltre, son di Accumulazione per $A$
+	\end{itemize}
+\end{example}
 \begin{definition}
 	\label{def:topologia_spa_metri}
-	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$. Si definisce:
+	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$. Si definiscono:
 	\begin{itemize}
-		\item $\circdot{A} = \brackets{x \in X:\; x \text{ è interno ad } A}$ \hfill \textbf{Parte Interna di} $\boldsymbol{A}$
-		\item $\partial A = \brackets{x \in X:\; x \text{ è di frontiera per } A}$ \hfill \textbf{Frontiera di} $\boldsymbol{A}$
-		\item $\overline{A} = \brackets{x \in X:\; x \brackets{\text{\small\begin{tabular}{c}appartiene ad $A$\\[-1ex] \textit{o}\\[-1ex] è di accumulazione per $A$\end{tabular}}}}$ \hfill \textbf{Chiusura di} $\boldsymbol{A}$
+		\item \makebox[11em][l]{\textbf{Parte Interna di} $\boldsymbol{A}$}
+			$\bydef \quad \circdot{A} = \brackets{x \in X:\; x \text{ è \textbf{Interno} ad } A}$
+		\item \makebox[11em][l]{\textbf{Frontiera di} $\boldsymbol{A}$}
+			$\bydef \quad \partial A = \brackets{x \in X:\; x \text{ è \textbf{di Frontiera} per } A}$
+		\item \makebox[11em][l]{\textbf{Chiusura di} $\boldsymbol{A}$}
+			$\bydef \quad \overline{A} = \brackets{
+			x \in X:\; x \brackets{
+				\text{
+					\small
+					\begin{tabular}{c}
+						\textbf{Appartiene} ad $A$\\[-1ex]
+						\textit{o}\\[-1ex]
+						è \textbf{di Accumulazione} per $A$
+					\end{tabular}
+					}
+				}
+			}$
 	\end{itemize}
-	% TODO figura
 \end{definition}
 \begin{example}
-	Siano $X = \R$ con $d(x,y)  = \abs{y-x}$, $A = \brackets{1} \cup \intervalclop{2}{3}$.\\
-	$1$ è un punto isolato per $A$, $5$ è esterno ad $A$.\\
-	$\overline{A} = \brackets{1} \cup \intervalclose{2}{3}$, \quad $\circdot{A} = \intervalopen{2}{3}$, \quad $\partial A = \brackets{1, 2, 3}$
+	Siano $X = \R$ con $d(x,y)  = \abs{y-x}$, $A = \brackets{1} \cup \intervalclop{2}{3}$, allora:
+	\begin{itemize}[noitemsep]
+		\item $1$ è un punto isolato per $A$
+		\item $5$, ad esempio, è un punto esterno ad $A$
+		\item $\overline{A} = \brackets{1} \cup \intervalclose{2}{3}$
+		\item $\circdot{A} = \intervalopen{2}{3}$
+		\item $\partial A = \brackets{1, 2, 3}$
+	\end{itemize}
 \end{example}
 \begin{example}
 	Sia $X = \R$ con $d(x,y)  = \abs{y-x}$\\
@@ -2376,3 +2416,6 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 	Dimostrare la \fullref{prop:lim_in_R_coord_F}
 \end{exercise}
 % TODO the rest of this chapter
+\begin{exercise}
+	\label{ex:se_fg_lips_max_fg_lips}
+\end{exercise}
