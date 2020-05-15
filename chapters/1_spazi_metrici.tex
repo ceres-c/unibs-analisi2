@@ -933,6 +933,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{proposition}
+	\label{prop:in_Rn_connesso_sse_intervallo}
 	In $\R$ con la metrica Euclidea, sia $A \subseteq \R$.
 	\[A \text{ è \textbf{Connesso}} \iff A \text{ è un \textbf{Intervallo}}\]
 	\begin{proof}
@@ -1098,16 +1099,10 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{definition}
 \begin{exercise}
 	Sarebbe comodo definire
-	\begin{equation*}
-		\begin{gathered}
-			\lim\limits_{x \to x_0} f(x) = l\\
-			\bydef\\
-			\lim\limits_{x \to x_0} d(f(x), l) = 0
-		\end{gathered}
-	\end{equation*}
+	\[\lim\limits_{x \to x_0} f(x) = l \quad \bydef \quad \lim\limits_{x \to x_0} d_Y(f(x), l) = 0\]
 	Perché non è corretto farlo?
 	\begin{solution}
-		Non è corretto perché questa definizione implica $l = f(x)$ con $x \to x_0$ per proprietà 2 di \fullref{def:sp_metrico}. Ciò è diverso aalla \fullref{def:lim_funz} ed è inoltre più restrittivo, in quanto, con questa definizione "semplificata", sarebbe richiesto $x_0 \in A$, mentre $x_0$ deve essere solo di accumulazione nell'altro caso. Un punto di accumulazione non è necessariamente incluso nell'insieme a cui è riferito.
+		Non è corretto perché questa definizione implica $l = f(x)$ con $x \to x_0$ per proprietà 2 di \fullref{def:sp_metrico}. Ciò è diverso dalla \fullref{def:lim_funz} ed è inoltre più restrittivo, in quanto, con questa definizione "semplificata", sarebbe richiesto $x_0 \in A$, mentre $x_0$ deve essere solo di accumulazione nell'altro caso. Un punto di accumulazione non è necessariamente incluso nell'insieme a cui è riferito.
 	\end{solution}
 \end{exercise}
 
@@ -1476,6 +1471,9 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{exercise}[Teorema di Weierstrass - Analisi 1]
 	\label{ex:weier_analisi_1}
 	Cosa c'entra il \fullref{teo:weier_generale} con il "vecchio" Teorema di Weierstrass di Analisi 1?
+	\begin{note}
+		L'enunciato formalmente corretto di questo teorema nel caso di Analisi 1 è riportato in \fullref{coro:weierstrass_analisi_1}.
+	\end{note}
 	\begin{solution}
 		\begin{note}
 			$Y$ deve necessariamente essere in $\R^1$, perché, per individuare $\sup$ ed $\inf$, è necessario che l'insieme sia ordinabile.
@@ -2319,7 +2317,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \newpage
 \section{Funzioni a Valori in \texorpdfstring{$\protect \R^n$}{Rn}}
-In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo spazio metrico $\R$ dotato dell'usuale metrica Euclidea: $d(x,y) = \sqrt{\sum\limits_{i = 1}^{k} (y_i - x_i)^2}$ da \fullref{ex:metriche}. Questo spazio si dice anche \fullref{def:sp_vett_normato}
+In tutto questo paragrafo si hanno $n \in \N$ e $n \geq 1$. Con $\R^n$ viene indicato lo spazio metrico $\R$ dotato dell'usuale \textbf{Metrica Euclidea}: $d(x,y) = \sqrt{\sum\limits_{i = 1}^{k} (y_i - x_i)^2}$ da \fullref{ex:metriche}. Questo spazio si dice anche \fullref{def:sp_vett_normato}.
 \begin{note}
 	Diverse dimostrazioni di questo capitolo sono omesse in quanto estremamente simili a quelle di Analisi 1.
 \end{note}
@@ -2327,7 +2325,7 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 \subsection{Il Caso Generale}
 \begin{proposition}
 	\label{prop:lim_in_R_somma_prod}
-	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $f:A \to \R^n$ e $g:A \to \R^n$. Sia $x_0$ di accumulazione per $A$
+	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $f:A \to \R^n$, $g:A \to \R^n$ e $x_0$ \textbf{di accumulazione} per $A$, allora se:
 	\begin{equation*}
 		\left.
 		\begin{array}{r}
@@ -2336,12 +2334,14 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 		\end{array}
 		\right\}
 		\implies
-		\left\{
-		\begin{array}{l}
-			\lim\limits_{x \to x_0} (f + g)(x) \quad \exists \text{ finito e} \quad \lim\limits_{x \to x_0} (f + g)(x) = \lim\limits_{x \to x_0} f(x) + \lim\limits_{x \to x_0} g(x)\\
-			\lim\limits_{x \to x_0} (f \cdot g)(x) \quad \exists \text{ finito e} \quad \lim\limits_{x \to x_0} (f \cdot g)(x) = \lim\limits_{x \to x_0} f(x) \cdot \lim\limits_{x \to x_0} g(x)
-		\end{array}
-		\right.
+		\begin{cases}
+			\mathmakebox[7em][l]{\lim\limits_{x \to x_0} (f + g)(x)}
+			\quad \exists \text{ finito e} \quad
+			\lim\limits_{x \to x_0} (f + g)(x) = \lim\limits_{x \to x_0} f(x) + \lim\limits_{x \to x_0} g(x)\\
+			\mathmakebox[7em][l]{\lim\limits_{x \to x_0} (f \cdot g)(x)}
+			\quad \exists \text{ finito e} \quad
+			\lim\limits_{x \to x_0} (f \cdot g)(x) = \lim\limits_{x \to x_0} f(x) \cdot \lim\limits_{x \to x_0} g(x)
+		\end{cases}
 	\end{equation*}
 	\begin{note}
 		$f \cdot g$ indica il prodotto scalare $f \cdot g = \sum\limits_{i = 1}^{n} f_i \cdot g_i$
@@ -2367,10 +2367,9 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 		\end{equation}
 		Essendo
 		\begin{align*}
-			&\norm{(f + g)(x) - (l_f + l_g)}\\
-			=&\norm{\bigl( f(x) - l_f \bigr) + \bigl( g(x) - l_g \bigr)}
+			\norm{(f + g)(x) - (l_f + l_g)} &= \norm{\bigl( f(x) - l_f \bigr) + \bigl( g(x) - l_g \bigr)}
 			\shortintertext{Per proprietà 3 da \fullref{def:norma}}
-			\leq &\norm{f(x) - l_f} + \norm{g(x) - l_g}
+			&\leq \norm{f(x) - l_f} + \norm{g(x) - l_g}
 		\end{align*}
 		Quest'ultima forma è sicuramente $< \varepsilon$ per \cref{eq:lim_somma_fun}, quindi la somma dei limiti corrisponde al limite della somma.\\
 		Analogamente si svolge per il prodotto.
@@ -2387,12 +2386,13 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 	\begin{itemize}[noitemsep]
 		\item $(X,d)$ spazio metrico
 		\item $A \subseteq X$
-		\item $x_0$ di accumulazione per $A$
-		\item $f: A \to \R^n$ e $g: A \to \R^m$ funzioni
-		\item $F: A \to \R^{n+m}$ definita da $F(x) = \bigl( f(x),\; g(x) \bigr)$
+		\item $x_0$ \textbf{di Accumulazione} per $A$
+		\item $f: A \to \R^n$ e $g: A \to \R^m$
 	\end{itemize}
+	Posta dunque
+	\[\funcdef{F}{A}{\R^{n + m}}{x}{\bigl( f(x),\; g(x) \bigr)}\]
 	Allora
-	\begin{equation*}
+	\[
 		\left.
 		\begin{array}{r}
 			\lim\limits_{x \to x_0} f(x) \text{ esiste finito}\\
@@ -2400,22 +2400,334 @@ In tutto questo paragrafo $n \in \N$ e $n \geq 1$.  Con $\R^n$ viene indicato lo
 		\end{array}
 		\right\}
 		\implies
-		\left\{
+		\begin{cases}
+			\begin{array}{c}
+				\lim\limits_{x \to x_0} F(x) \quad \text{esiste finito}\\
+				e\\
+				\lim\limits_{x \to x_0} F(x) = \left( \lim\limits_{x \to x_0} f(x), \lim\limits_{x \to x_0} g(x) \right)
+			\end{array}
+		\end{cases}
+	\]
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	Dimostrare la \fullref{prop:lim_in_R_coord_F}
+	% TODO solution
+\end{exercise}
+\begin{observation}
+	Le proposizioni precedenti sono esempi di \textbf{Forme Determinate}, vedasi \fullref{ex:dim_form_det} e \fullref{ex:esmp_form_det}.
+\end{observation}
+
+\subsection{Il Caso Reale}
+\begin{theorem}[del Confronto]
+	\label{teo:confronto}
+	Siano
+	\begin{itemize}[noitemsep]
+		\item $(X,d)$ spazio metrico
+		\item $A \subseteq X$
+		\item $x_0$ \textbf{di Accumulazione} per $A$
+		\item $f,g:\; A \to \R$
+		\item $L_f, L_g \in \R$ tali che
+			$\begin{cases}
+				\lim\limits_{x \to x_0} f(x) = L_f\\
+				\lim\limits_{x \to x_0} g(x) = L_g
+			\end{cases}$
+	\end{itemize}
+	Allora:
+	\begin{enumerate}
+		\item \label{itm:teo_confronto_tesi_1} \hfil % To get the equation centered
+			$L_f < L_g \quad \implies \quad \exists r > 0:\; \forall x \in A \text{ con } d(x, x_0) < r \text{ e } x \neq x_0 \quad f(x) < g(x)$
+		\item  \label{itm:teo_confronto_tesi_2} \hfil
+			$\exists r > 0:\; \forall x \in A \text{ con } d(x, x_0) < r \text{ e } x \neq x_0 \quad f(x) \leq g(x) \quad \implies \quad L_f \leq L_g$
+	\end{enumerate}
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{theorem}
+\begin{exercise}
+	Mostrare con esempi che i viceversa delle tesi \ref{itm:teo_confronto_tesi_1} e \ref{itm:teo_confronto_tesi_2} del \fullref{teo:confronto} non valgono.
+	% TODO solution
+\end{exercise}
+\begin{theorem}[dei Due Carabinieri]
+	\label{teo:carabinieri}
+	Siano
+	\begin{itemize}[noitemsep]
+		\item $(X,d)$ spazio metrico
+		\item $A \subseteq X$
+		\item $x_0$ \textbf{di Accumulazione} per $A$
+		\item $f,g,h:\; A \to \R$
+		\item $L \in \R$
+	\end{itemize}
+	Allora
+	\[
+		\left.
 		\begin{array}{c}
-			\lim\limits_{x \to x_0} F(x) \quad \text{esiste finito}\\
-			e\\
-			\lim\limits_{x \to x_0} F(x) = \left( \lim\limits_{x \to x_0} f(x), \lim\limits_{x \to x_0} g(x) \right)
+			\lim\limits_{x \to x_0} f(x) = L\\
+			\lim\limits_{x \to x_0} h(x) = L\\
+			f \leq g \leq h
 		\end{array}
-		\right.
-	\end{equation*}
+		\right\}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				\text{esiste} \quad \lim\limits_{x \to x_0} g(x)\\
+				e\\
+				\lim\limits_{x \to x_0} g(x) = L
+			\end{array}
+		\end{cases}
+	\]
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{theorem}
+\begin{proposition}
+	\label{prop:f_leq_g_lim_f_piu_inf_allora_g_piu_inf}
+	Siano $(X,d)$ spazio metrico, $A \subseteq X$, $f,g:\; A \to \R$ e $x_0$ \textbf{di Accumulazione} per $A$, allora
+	\[
+		\left.
+			\begin{array}{c}
+				\lim\limits_{x \to x_0} f(x) = +\infty\\
+				f \leq g
+			\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				\text{esiste} \quad \lim\limits_{x \to x_0} g(x)\\
+				e\\
+				\lim\limits_{x \to x_0} g(x) = +\infty
+			\end{array}
+		\end{cases}
+	\]
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	\label{prop:f_leq_g_lim_g_meno_inf_allora_f_meno_inf}
+	Siano $(X,d)$ spazio metrico, $A \subseteq X$, $f,g:\; A \to \R$ e $x_0$ \textbf{di Accumulazione} per $A$, allora
+	\[
+		\left.
+			\begin{array}{c}
+				\lim\limits_{x \to x_0} g(x) = -\infty\\
+				f \leq g
+			\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				\text{esiste} \quad \lim\limits_{x \to x_0} f(x)\\
+				e\\
+				\lim\limits_{x \to x_0} f(x) = -\infty
+			\end{array}
+		\end{cases}
+	\]
+	\begin{proof}
+		Omessa.
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	\label{ex:dim_prop_lim_succ}
+	Enunciare e dimostrare affermazioni analoghe alle:
+	\begin{itemize}[noitemsep]
+		\item \fullref{teo:confronto}
+		\item \fullref{teo:carabinieri}
+		\item \fullref{prop:f_leq_g_lim_f_piu_inf_allora_g_piu_inf}
+		\item \fullref{prop:f_leq_g_lim_g_meno_inf_allora_f_meno_inf}
+	\end{itemize}
+	con successioni al posto delle funzioni.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Dimostrare:
+	\begin{itemize}[noitemsep]
+		\item \fullref{teo:confronto}
+		\item \fullref{teo:carabinieri}
+		\item \fullref{prop:f_leq_g_lim_f_piu_inf_allora_g_piu_inf}
+		\item \fullref{prop:f_leq_g_lim_g_meno_inf_allora_f_meno_inf}
+	\end{itemize}
+	prima direttamente attraverso la \fullref{def:lim_funz}, poi utilizzando la \fullref{prop:funz_cont_per_succ} ed \fullref{ex:dim_prop_lim_succ}.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Nel caso dello spazio metrico $X = \R$ dotato della Metrica Euclidea, enunciare e dimostrare affermazioni analoghe alle:
+	\begin{itemize}[noitemsep]
+		\item \fullref{teo:confronto}
+		\item \fullref{teo:carabinieri}
+		\item \fullref{prop:f_leq_g_lim_f_piu_inf_allora_g_piu_inf}
+		\item \fullref{prop:f_leq_g_lim_g_meno_inf_allora_f_meno_inf}
+	\end{itemize}
+	con $\pm \infty$ al posto di $x_0$
+	% TODO solution
+\end{exercise}
+
+\begin{proposition}
+	\label{prop:lim_recipr_funz}
+	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $f:\; A \to \R$, allora
+	\[
+		\lim\limits_{x \to x_0} f(x) \text{ esiste finito e non nullo}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				\lim\limits_{x \to x_0} \frac{1}{f(x)} \text{ esiste finito}\\
+				e\\
+				\lim\limits_{x \to x_0} \frac{1}{f(x)} = \frac{1}{\lim\limits_{x \to x_0} f(x)}
+			\end{array}
+		\end{cases}
+	\]
 	\begin{proof}
 		Omessa
 	\end{proof}
 \end{proposition}
 \begin{exercise}
-	Dimostrare la \fullref{prop:lim_in_R_coord_F}
+	Dimostrare la \fullref{prop:lim_recipr_funz}
+	% TODO solution
 \end{exercise}
-% TODO the rest of this chapter
+\begin{exercise}
+	Perché la \fullref{prop:lim_recipr_funz} è stata enunciata per funzioni a valori reali e non in $\R^n$
+	\begin{solution}
+		Perché non è possibile eseguire l'operazione di divisione rispetto ad un vettore, dunque non si può trovare il reciproco di un vettore.
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	\label{ex:dim_form_det}
+	Enunciare correttamente e dimostrare le seguenti implicazioni:
+	\begin{align*}
+		f \text{ limitata} &\text{ e } \lim g = +\infty \quad \implies \quad \lim(f + g) = +\infty\\
+		f \text{ limitata} &\text{ e } \lim g = -\infty \quad \implies \quad \lim(f + g) = -\infty\\
+		f \geq c > 0 &\text{ e } \lim g = +\infty \quad \implies \quad \lim(fg) = +\infty\\
+		f \leq c < 0 &\text{ e } \lim g = +\infty \quad \implies \quad \lim(fg) = -\infty\\
+		f \text{ limitata} &\text{ e } \lim g = +\infty \quad \implies \quad \lim\left(\frac{f}{g}\right) = 0\\
+		f \text{ limitata} &\text{ e } \lim g = -\infty \quad \implies \quad \lim\left(\frac{f}{g}\right) = 0
+	\end{align*}
+	Considerare entrambi i casi $x \to x_0$ e $x \to +\infty$.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	\label{ex:esmp_form_det}
+	\begin{note}
+		Spesso le situazioni considerate in questo esercizio sono dette \textit{Forme di Indeterminazione}
+	\end{note}
+	Esibire esempi di coppie di funzioni $f$ e $g$, aventi valori in $\R$, con i seguenti comportamenti:
+	\begin{align*}
+		\lim f = +\infty, \quad \lim g = -\infty \quad &\text{e} \quad \lim (f + g) = +\infty\\
+		\lim f = +\infty, \quad \lim g = -\infty \quad &\text{e} \quad \lim (f + g) = \pi\\
+		\lim f = +\infty, \quad \lim g = -\infty \quad &\text{e} \quad \lim (f + g) = 0\\
+		\lim f = +\infty, \quad \lim g = -\infty \quad &\text{e} \quad \lim (f + g) = -\infty\\
+		\lim f = +\infty, \quad \lim g = -\infty \quad &\text{e} \quad \lim (f + g) = \nexists
+	\end{align*}
+	\begin{align*}
+		\lim f = +\infty, \quad \lim g = 0 \quad &\text{e} \quad \lim (fg) = +\infty\\
+		\lim f = +\infty, \quad \lim g = 0 \quad &\text{e} \quad \lim (fg) = \pi\\
+		\lim f = +\infty, \quad \lim g = 0 \quad &\text{e} \quad \lim (fg) = 0\\
+		\lim f = +\infty, \quad \lim g = 0 \quad &\text{e} \quad \lim (fg) = -\infty\\
+		\lim f = +\infty, \quad \lim g = 0 \quad &\text{e} \quad \lim (fg) = \nexists
+	\end{align*}
+	\begin{align*}
+		\lim f = +\infty, \quad \lim g = +\infty \quad &\text{e} \quad \lim \left( \frac{f}{g} \right) = +\infty\\
+		\lim f = +\infty, \quad \lim g = +\infty \quad &\text{e} \quad \lim \left( \frac{f}{g} \right) = \pi\\
+		\lim f = +\infty, \quad \lim g = +\infty \quad &\text{e} \quad \lim \left( \frac{f}{g} \right) = 0\\
+		\lim f = +\infty, \quad \lim g = +\infty \quad &\text{e} \quad \lim \left( \frac{f}{g} \right) = \nexists
+	\end{align*}
+	Considerare entrambi i casi $x \to x_0$ e $x \to +\infty$.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Esibire esempi di coppie di funzioni $f$ e $g$, aventi valori in $\R$, con i seguenti comportamenti:
+	\begin{align*}
+		\lim f \nexists, \quad \lim g = +\infty \quad &\text{e} \quad \lim (f + g) = +\infty\\
+		\lim f \nexists, \quad \lim g = +\infty \quad &\text{e} \quad \lim (fg) = +\infty\\
+		\lim f \nexists, \quad \lim g = 0 \quad &\text{e} \quad \lim (fg) = +\infty
+	\end{align*}
+	Considerare entrambi i casi $x \to x_0$ e $x \to +\infty$.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	È possibile enunciare le:
+	\begin{itemize}[noitemsep]
+		\item \fullref{teo:confronto}
+		\item \fullref{teo:carabinieri}
+		\item \fullref{prop:f_leq_g_lim_f_piu_inf_allora_g_piu_inf}
+		\item \fullref{prop:f_leq_g_lim_g_meno_inf_allora_f_meno_inf}
+	\end{itemize}
+	per funzioni con valori in un generico spazio metrico?
+\end{exercise}
+\begin{corollary}[Teorema di Weierstrass - Analisi 1]
+	\label{coro:weierstrass_analisi_1}
+	Siano:
+	\begin{itemize}
+		\item $(X,d_X)$ uno spazio metrico
+		\item $A \subseteq X$
+		\item $f:\; A \to \R$ \textbf{Continua}
+		\item $K \subseteq A$ \textbf{Compatto} in $X$
+	\end{itemize}
+	Allora $f$ ammette \textbf{Massimo} e \textbf{Minimo} su $K$, vale a dire che esistono finite le quantità $\max\limits_{K} f$ e $\min\limits_{K} f$.
+	\begin{proof}
+		Vedere \fullref{ex:weier_analisi_1}.
+	\end{proof}
+\end{corollary}
+\begin{corollary}
+	Siano:
+	\begin{itemize}
+		\item $(X,d_X)$ uno spazio metrico
+		\item $A \subseteq X$
+		\item $f:\; A \to \R$ \textbf{Continua}
+		\item $C \subseteq A$ \textbf{Connesso} in $X$
+		\item $x_1, x_2 \in C$
+	\end{itemize}
+	Allora $f$ assume tutti i valori intermedi tra $f(x_1)$ e $f(x_2)$.
+	\begin{proof}
+		Segue dalle \fullref{prop:f_di_conn_cont_e_conn} e \fullref{prop:in_Rn_connesso_sse_intervallo}.
+		% TODO proper proof
+	\end{proof}
+\end{corollary}
+\begin{corollary}
+	\label{coro:f_in_conn_passa_per_0}
+	Siano:
+	\begin{itemize}
+		\item $(X,d_X)$ uno spazio metrico
+		\item $A \subseteq X$
+		\item $f:\; A \to \R$ \textbf{Continua}
+		\item $C \subseteq A$ \textbf{Connesso} in $X$
+		\item $x_1, x_2 \in C$ tali che $f(x_1) \cdot f(x_2) < 0$
+	\end{itemize}
+	Allora esiste un $x_* \in \C$ tale che $f(x_*) = 0$
+	\begin{proof}
+		Immediata.
+		% TODO proper proof
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	Il \fullref{coro:f_in_conn_passa_per_0}, nel corso di Analisi Matematica 1, viene spesso dimostrato attraverso il metodo di bisezione. Questo metodo è applicabile ad un generico spazio metrico?
+\end{exercise}
+\begin{theorem}[della Permanenza del Segno]
+	\label{teo:perman_segno}
+	Siano $(X,d)$ spazio metrico, $A \subseteq X$, $x_0 \in A$ e $f:\; A \to \R$ \textbf{Continua}, allora
+	\[
+		f(x_0) > 0
+		\quad \implies \quad
+		\begin{cases}
+			\exists r > 0 \text{ tale che } \forall x \in A \text{ con } d(x, x_0) < r \text{ vale } f(x) > 0
+		\end{cases}
+	\]
+	\begin{proof}
+		Applicare il \fullref{teo:confronto}, tesi \ref{itm:teo_confronto_tesi_1}, utilizzando la funzione identicamente nulla.
+		% TODO proper proof
+	\end{proof}
+\end{theorem}
+\begin{exercise}
+	Perché il \fullref{teo:perman_segno} è stato enunciato solo per funzioni a variabili reali?
+	\begin{solution}
+		Perché non esiste relazione d'ordine tra vettori di $\R^n$ con $n > 1$.
+	\end{solution}
+\end{exercise}
 \begin{exercise}
 	\label{ex:se_fg_lips_max_fg_lips}
+	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$ e $f,g:\; A \to \R$ \textbf{Continue} in $x_0$.
+	\begin{itemize}[noitemsep]
+		\item Le funzioni $\max \brackets{f, g}$ e $\min \brackets{f, g}$ sono continue in $x_0$?
+		\item Se $f$ e $g$ sono \textbf{Lipschitziane} su $A$, lo sono anche $\max \brackets{f, g}$ e $\min \brackets{f, g}$?
+	\end{itemize}
 \end{exercise}
