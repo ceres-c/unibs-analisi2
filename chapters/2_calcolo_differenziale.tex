@@ -37,8 +37,9 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		L'introduzione del vettore $v$ permette di eseguire un'operazione "sensata" in quanto sottrarre uno scalare, come in Analisi 1, non avrebbe avuto significato per una funzione $f: A \to \R^{\boldsymbol{m}}$.
 	\end{note}
 
-	Nel caso in cui $v = e_i$, allora $\boldsymbol{D_{e_i} f(x_0)}$ è la \textbf{Derivata Parziale $\boldsymbol{i}$\textit{-esima}}, che può anche essere indicata con $\boldsymbol{\frac{\partial f}{\partial x_i}(x_0)}$. Quindi le derivate parziali sono \textit{un caso particolare} delle derivate direzionali.\\
+	Nel caso in cui $v = e_i$, allora $\boldsymbol{D_{e_i} f(x_0)}$ è la \textbf{Derivata Parziale $\boldsymbol{i}$\textit{-esima}}, che può anche essere indicata con $\boldsymbol{\frac{\partial f}{\partial x_i}(x_0)}$. Quindi le derivate parziali sono \textit{un caso particolare} delle derivate direzionali.
 
+	\vspace*{\baselineskip}
 	\noindent Una funzione derivabile parzialmente in ogni direzione è detta \textbf{Derivabile}.
 
 	\begin{note}
@@ -1355,7 +1356,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 	\end{proof}
 \end{lemma}
 \begin{observation}
-	Il \fullref{lemma:schwarz} ha importanti applicazioni in fisica e nella teoria dei campo. Grazie al lemma è infatti possibile distinguere tra campi \textbf{conservativi} e non: uno dei criteri è appunto il controllo dell'uguaglianza dell derivate parziali miste.
+	Il \fullref{lemma:schwarz} ha importanti applicazioni in fisica e nella teoria dei campi. Grazie al lemma è infatti possibile distinguere tra campi \textbf{conservativi} e non: uno dei criteri è appunto il controllo dell'uguaglianza dell derivate parziali miste.
 \end{observation}
 \begin{exercise}
 	Verificare se il \fullref{lemma:schwarz} si applica alla funzione
@@ -1418,7 +1419,7 @@ Come nel caso Analisi 1, gli \textbf{Sviluppi di Taylor} permettono di approssim
 
 \vspace*{\baselineskip}
 \cbstart
-La seguente sezione affiancata da una banda verde non è richiesta, in quanto non presentata sul libro. È però necessaria per chiarire i concetti con cui si sta lavorando, deve quindi essere considerata come un approfondimento da leggere.
+La seguente sezione affiancata da una banda verde non è richiesta, in quanto non presente nel testo di riferimento. È però necessaria per chiarire i concetti con cui si sta lavorando, deve quindi essere considerata come un approfondimento da leggere.
 \begin{definition}[Polinomio di Taylor]
 	\label{def:pol_taylor}
 	Siano:
@@ -1600,8 +1601,9 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 		\implies
 		y = \varphi(x)
 	\]
-	Con $\varphi$ \textbf{Funzione Implicita} definita da $f(x,y)=0$.\\
+	Con $\varphi$ \textbf{Funzione Implicita} definita da $f(x,y)=0$.
 
+	\vspace*{\baselineskip}
 	Cioè la Funzione Implicita associa un sottoinsieme delle variabili dell'equazione alle variabili rimanenti. Da questo deriva il nome \textit{implicita}, in quanto la $f$ definisce "implicitamente" la $\varphi$, perchè l'immagine di $f$ è influenzata da tutte le variabili della funzione, che dunque son legate tra loro.
 	\begin{note}
 		La \textbf{Funzione Inversa} di una qualche funzione è anche \textbf{Funzione Implicita} di questa funzione.
@@ -1645,13 +1647,13 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 				yticklabels={,,}
 			]
 			\draw (axis cs: 0, 0) circle [radius=1];
-			\draw[line width=.5mm, red, opacity=.5] (axis cs: 1, 0) arc [radius=100, start angle=0, end angle=180];
+			\draw[line width=.5mm, red, opacity=.5] (axis cs: 1, 0) arc [radius=1, start angle=0, end angle=180];
 			\addlegendimage{line width=.5mm, opacity=.5, color=red}
 			\addlegendentry{$\varphi_1$}
-			\draw[line width=1mm, green, opacity=.5] (axis cs: .26, .97) arc [radius=100, start angle=75, end angle=105];
+			\draw[line width=1mm, green, opacity=.5] (axis cs: .26, .97) arc [radius=1, start angle=75, end angle=105];
 			\addlegendimage{line width=1mm, opacity=.5, color=green}
 			\addlegendentry{$\varphi_2$}
-			\draw[line width=1mm, blue, opacity=.5] (axis cs: .97, -.26) arc [radius=100, start angle=-15, end angle=15];
+			\draw[line width=1mm, blue, opacity=.5] (axis cs: .97, -.26) arc [radius=1, start angle=-15, end angle=15];
 			\addlegendimage{line width=1mm, opacity=.5, color=blue}
 			\addlegendentry{"$\varphi_3$"}
 			\end{axis}
@@ -1944,25 +1946,29 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	Data una funzione $f \in \cntclass{1}(\R^2;\R)$, il luogo geometrico descritto da $f(x,y) = 0$ coincide con quello descritto da $\bigl( f(x,y) \bigr)^2 = 0$, ma anche se la prima equazione soddisfa alle ipotesi del \fullref{teo:funz_impl}, la seconda sicuramente non lo fa.
 \end{example}
 \begin{example}
-	Entrambe le funzioni\\
+	Entrambe le funzioni
 
-	\begin{minipage}{0.49\linewidth}
+	\vspace*{\baselineskip}
+	\begin{minipage}{0.48\linewidth}
 		\[\funcdef{f}{\R^3}{\R^2}{(x,y,z)}{(x,y)}\]
 	\end{minipage}
-	\begin{minipage}{0.49\linewidth}
+	\begin{minipage}{0.48\linewidth}
 		\[\funcdef{f}{\R^3}{\R}{(x,y,z)}{x^2+y^2}\]
-	\end{minipage}\\
+	\end{minipage}
 
-	descrivono l'asse $z$ attraverso le equazioni\\
+	\vspace*{\baselineskip}
+	\noindent descrivono l'asse $z$ attraverso le equazioni
 
-	\begin{minipage}{0.49\linewidth}
+	\vspace*{\baselineskip}
+	\begin{minipage}{0.48\linewidth}
 		\[f(x,y,z) = 0\]
 	\end{minipage}
-	\begin{minipage}{0.49\linewidth}
+	\begin{minipage}{0.48\linewidth}
 		\[g(x,y,z) = 0\]
-	\end{minipage}\\
+	\end{minipage}
 
-	Tuttavia, mentre $f$ soddisfa alle ipotesi del \fullref{teo:funz_impl}, la $g$ le soddisfa.\\
+	\vspace*{\baselineskip}
+	\noindent Tuttavia, mentre $f$ soddisfa alle ipotesi del \fullref{teo:funz_impl}, la $g$ le soddisfa.\\
 	Grazie al citato teorema, la $f$ (nell'intorno di un qualsiasi punto $(0,0,z)$) definisce sicuramente una funzione implicita $(x,y) = \varphi(z)$ data da $\varphi(z) = 0$.
 	\begin{note}
 		L'esempio precedente mostra come, ai fini della determinazione del numero di gradi di libertà di un sistema, possa essere fuorviante fare affidamento sul numero di equazioni che identificano il vincolo
@@ -3137,7 +3143,13 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 	\begin{proof}
 		Le prime due uguaglianza seguono direttamente dal \fullref{teo:fondament_calcolo_integ}.\\
 		Per dimostrare la terza si segue un procedimento analogo a quello di \fullref{prop:f_C0_allora_F_C0}: si scelga un $r > 0$ tale per cui $\overline{B(x_0, r)} \subset A$. Essendo $f \in \cntclass{1}$, allora sicuramente $\partial_{x_i} f \in \cntclass{0}$, dunque come dall'altra dimostrazione, $\partial_{x_i} f$ sarà Uniformemente Continua in $\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}$. Grazie a questo si sa che:
-		\[\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in \brackets{\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}} \text{ con } \abs{x - x_0} < \delta \quad \text{vale } \abs{\partial_{x_i} f(x, t) - \partial_{x_i} f(x_0, t)} < \varepsilon\]
+		\[
+			\begin{gathered}
+				\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in \brackets{\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}} \text{ con } \abs{x - x_0} < \delta\\
+				\text{vale }\\
+				\abs{\partial_{x_i} f(x, t) - \partial_{x_i} f(x_0, t)} < \varepsilon
+			\end{gathered}
+		\]
 		Dunque, sicuramente, passando al $\sup$ resta valido che
 		\begin{equation}
 			\label{eq:deriv_integ_F_alfa_beta_C1}

@@ -28,9 +28,10 @@ Sia $A\subseteq \R$ e $\brackets{f_n:n\in\N}$ una successione di funzioni defini
 \observation
 La convergenza puntuale su $A$ della successione $f_n$ verso $f$ è indicata con
 \[f_n \pconvarrow f\quad su A\]
-\proposition METAPROPOSIZIONE:\\
-Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
-Se $f_n \pconvarrow f$ su $B$ e se $f_n$ ha la proprietà $P$ allora il limite $f$ ha la proprietà $P$.\\
+\begin{proposition}[METAPROPOSIZIONE]
+	Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
+	Se $f_n \pconvarrow f$ su $B$ e se $f_n$ ha la proprietà $P$ allora il limite $f$ ha la proprietà $P$.
+\end{proposition}
 
 \example $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
 $\lim\limits_{n\to\infty}f_n(x)=\lim\limits_{n\to\infty}\frac{1}{n}sin(x)=0\quad\forall x \in A \implies f_n \pconvarrow 0$ su $A$.
@@ -163,9 +164,10 @@ se $f_n \uconvarrow f$ su $B$ e $f_n \uconvarrow \overline{f}$ su $B$ allora $f=
 \begin{proof}
 	$f_n \uconvarrow f$ e $f_n \uconvarrow \overline{f}$, quindi è anche vero che $f_n \pconvarrow f$ e $f_n \pconvarrow \overline{f}$ ma il limite puntuale è unico poichè è il limite di una successione. Allora $f=\overline{f}$
 \end{proof}
-\example $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
+\example
+$f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
 Abbiamo gia calcolato che $f_n \pconvarrow 0$ su $A$.\\
-Sia ha anche convergenza uniforme :\\
+Sia ha anche convergenza uniforme :
 \[\lim\limits_{n\to\infty}\sup{ \R}\abs{f_n(x)-0} = \lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}\]
 Osservo che $\abs{asin(x)} \leq \abs{a}$ quindi
 \[\lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)} \leq \lim\limits_{n\to\infty}\frac{1}{n}=0\]
@@ -229,7 +231,8 @@ La successione $\brackets{ f_n:n\in\N }$ soddisfa alla condizione di Cauchy per 
 
 ESEMPIO:: In dimensione finita non vi è differenza tra "chiuso e limitato" e "compatto", in dimensione infinita cambiamo molte cose.
 Prensiamo un insieme chiuso e limitato ma non compatto.\\
-In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_\infty(f,g)=\sup_{\left[0,1\right]}\abs{g(x)-f(x)}$, prendiamo l'insieme $C=\overline{B(0,1)}=\brackets{f\in \cntclass{0}(\left[0,1\right]; \R):\abs{f(x)} \leq 1, \forall x \in\left[0,1\right]}$
+In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_\infty(f,g)=\sup_{\left[0,1\right]}\abs{g(x)-f(x)}$, prendiamo l'insieme
+\[C=\overline{B(0,1)}=\brackets{f\in \cntclass{0}(\left[0,1\right]; \R):\abs{f(x)} \leq 1, \forall x \in\left[0,1\right]}\]
 \begin{description}
 	\item[1] $C$ è limitato: ha diametro finito.
 	\item[2] $C$ è chiuso: contiene tutti i sui punti di accumualazione
@@ -244,7 +247,7 @@ Inolte $f$ è continua perché limite uniforme di una successione di funzioni co
 \end{description}
 Se ad esempio $f_n(x) = x^n$\\
 so che $f_n \pconvarrow f$ su $\left[0,1\right]$ e $f(x)=\brackets{\begin{matrix}0&&x\in\left[0,1\right]\\1&&x\in\left\{1}\end{matrix}\right.$\\
-Tutta la successione di funzioni $f_n$ converge puntualmente a $f$ quindi se estraggo una sottosuccessione comunque venga scelta questa sottosuccessione converge ancora a $f$ puntualmente. Ma la $f$ non è continua mentre il limite uniforme di funzioni continue è una funzione continua allora nessuna sottosuccessione ammette limite uniforme.\\
+Tutta la successione di funzioni $f_n$ converge puntualmente a $f$ quindi se estraggo una sottosuccessione comunque venga scelta questa sottosuccessione converge ancora a $f$ puntualmente. Ma la $f$ non è continua mentre il limite uniforme di funzioni continue è una funzione continua allora nessuna sottosuccessione ammette limite uniforme.
 
 ESEMPIO:: OPERATORE DERIVATA 0\\
 \[D\]
@@ -336,7 +339,7 @@ Convergenza Totale $\implies$ Convergenza Uniforme $\implies$ Convergenza Puntua
 	\label{def:dist_quadratica}
 	% TODO Proposizione 19.49 dal libro
 
-	La definizione di $d_2(f,g)$ come \textit{distanza} è dimostrata in \hyperref[ex:dim_dist_quadratica]{\cref*{ex:metriche} (\nameref*{ex:metriche})}\\
+	La definizione di $d_2(f,g)$ come \textit{distanza} è dimostrata in \hyperref[ex:dim_dist_quadratica]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
 	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 \end{proposition}
 \begin{proposition}
@@ -347,9 +350,9 @@ Convergenza Totale $\implies$ Convergenza Uniforme $\implies$ Convergenza Puntua
 \newpage
 \section{Serie di Funzioni Particolari}
 Questa sezione è dedicata ad alcune tecniche di approssimazione  basate su serie di funzioni particolari\\
-In generale, un'approssimazione si riconduce ad una formula del tipo\\
+In generale, un'approssimazione si riconduce ad una formula del tipo
 \[\left[\text{quantità da calcolare}\right]=\left[\text{quantità approssimante}\right]+ errore\]
-La qualità dell'approssimazione è descritta dal senso in cui l'errore è piccolo.\\
+La qualità dell'approssimazione è descritta dal senso in cui l'errore è piccolo.
 \subsection{Serie di Potenze}
 \definition
 Siano $\brackets{a_n:n\in\N}$ una successione con $a_n:\N\to\C$ e $z_0\in\C$.\\
@@ -363,14 +366,14 @@ ESEMPIO::$\sum\limits_{n=0}^{+\infty}x^n=1+x+x^2+\ldots+x^n=\frac{1}{1-x}$
 \proposition
 Siano $\brackets{a_n:n\in\N}$ una successione in $\C$ e $w\in\C$.\\
 La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cioè $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quandi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\abs{w}$\\
-Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge totalmente in $B(0,r)$\\
+Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge totalmente in $B(0,r)$
 \begin{proof}
 	TIKZPICTURE:::::\\
 	devo dimostrare che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\abs{a_nz^n}<+\infty$.\\
-	E\' facile vedere che $a_nz^n=a_nw^n\left(\frac{z}{w}\right)^n$.\\
-	Quindi passando al modulo e poi al sup si ottiene.\\
+	È facile vedere che $a_nz^n=a_nw^n\left(\frac{z}{w}\right)^n$.\\
+	Quindi passando al modulo e poi al sup si ottiene.
 	\[\sup\limits_{B(0,r)}\abs{a_nz^n}=\sup\limits_{B(0,r)}\abs{a_nw^n}\abs{\frac{z}{w}}^n \leq \]
-	Siccome $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge  quindi il suo termine generale tende a $0$.\\
+	Siccome $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge  quindi il suo termine generale tende a $0$.
 	\[ \leq \sup\limits_{B(0,r)}\abs{\frac{z}{w}}^n \leq \left(\frac{r}{\abs{w}}\right)^n \]
 	per ipotesi $r<\abs{w}$ e questo è il termine generale di una serie geometrica convergente.\\
 	Ne segue che $\sum\limits_{n=0}^{+\infty}\sup\limits_{B(0,r)}\abs{a_nz^n}$ è maggiorato da $\left( \frac{r}{\abs{w}}\right)^n$ e quindi la serie converge totalmente.
@@ -462,7 +465,7 @@ ALTRO GRAFICO::::::::::::::::\\
 ................................\\
 
 \subsection{Serie di Taylor}
-ESEMPIO:: $ln(1+z)$. Calcolare la Serie di Taylor.\\
+ESEMPIO:: $ln(1+z)$. Calcolare la Serie di Taylor.
 \[D\left[ln(1+z)\right] = \frac{1}{1+z} = \sum\limits_{n=0}^{+\infty}(-1)^nz^n\]
 \[\int \sum\limits_{n=0}^{+\infty}(-1)^nz^n dz = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{n+1}z^{n+1}=\sum\limits_{n=1}^{+\infty}\frac{(-1)^{n-1}}{n}z^n\]
 \begin{lemma}
@@ -508,7 +511,7 @@ Sia $f:\left]-r,r\right[\to \R$
 	\end{matrix}\right\}\implies f$ è analitica  .....
 \end{center}
 Per avere $f$ analitica  necessariamente come ipotesi deve esserci $f\in \cntclass{\infty}$ e $f$ che si può scrivere come sviluppo in serie di Taylor,dalla proposizione precedente. Questo basta? NO\\
-ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{matrix}\right.$\\
+ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{matrix}\right.$
 \begin{center}
 	\begin{tikzpicture}[scale=1]
 	%\draw[->] (0,-4) -- (0,4) node[anchor=north west] {$x$};
@@ -639,7 +642,7 @@ $f$ è $T$-periodica $\implies \forall n\in\N$, $f$ è $nT$-periodica.
 \proposition
 Sia $f:\left[0,2\pi\right[\to \R \implies \exists ! \hat{f}: \R\to \R$ t.c.: $\left\{\begin{matrix} \hat{f} 2\pi-periodica\\\hat{f}_{\left|\left[0,2\pi\right]\right.}=f\end{matrix}\right.$
 \begin{proof}
-	$\forall x\in \R. \exists ! \hat{x}\in\left[0,2\pi\right[$ t.c.: $x=2\pi\cdot k+\hat{x}$ con $k\in\mathbb{Z}$ e $k=\left[??????\right]$\\
+	$\forall x\in \R. \exists ! \hat{x}\in\left[0,2\pi\right[$ t.c.: $x=2\pi\cdot k+\hat{x}$ con $k\in\mathbb{Z}$ e $k=\left[??????\right]$
 	\[\hat{f}(x)=f(\hat{x})\]
 \end{proof}
 cioè se noi estendiamo una funzione definita su $\left[0,2\pi\right[$ a tutto $ \R$ otteniamo una funzione unica e periodica.
@@ -835,7 +838,7 @@ ESEMPIO::
 I coefficienti di Fourier non possono identificare univocamente puntualmente una funzione.
 \subsubsection{Punto Di Vista Geometrico}
 In $R^2$ Ci sono $2$ vettori $\hat{i},\hat{j}$ della base, se $\underline{v}\in \R^2 \implies \underline{v}=v_1\cdot \hat{i}+v_2\cdot \hat{j}$ con $v_1,v_2$ componenti di $\underline{v}$\\
-Calcolo delle componenti:\\
+Calcolo delle componenti:
 \[\underline{v}\cdot \hat{i} = v_1\cdot \hat{i\cdot }\hat{i}+v_2\cdot \hat{j}\cdot \hat{i}=v_1\]
 \[\underline{v}\cdot \hat{j} = v_1\cdot \hat{i}\cdot \hat{j}+v_2\cdot \hat{j}\cdot \hat{j}=v_2\]
 Questo vale perché $\hat{i},\hat{j}$ è una base ortonormale.
@@ -865,7 +868,7 @@ Si possono osservare due cose:
 \definition
 Il prodotto scalare in $\cntclass{0} \bydef \left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)\integrald{x}$
 Altre simbologie usate sono: $ f\bullet g $, $(f|g)$
-\observation linearità\\
+\observation linearità
 \[\left<(\alpha\cdot f+\beta\cdot g), h \right>= \int_{-\pi}^{pi} (\alpha\cdot f(x)+\beta\cdot g(x))\cdot h(x) \integrald{x}=\]
 \[=\int_{-\pi}^{pi} \left[\alpha\cdot f(x)\cdot h(x)+\beta\cdot g(x)\cdot h(x) \right]\integrald{x}= \]
 \[=\alpha\int_{-\pi}^{pi} \cdot f(x)\cdot h(x) \integrald{x}+\beta\int_{-\pi}^{pi} \cdot g(x)\cdot h(x) \integrald{x} =\]

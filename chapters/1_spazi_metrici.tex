@@ -90,7 +90,12 @@ Unendo le due definizioni si giunge naturalmente a
 						&\iff (x_1,x_2)=(y_1,y_2)
 					\end{align*}
 				\item $d(x,y) = d(y,x)$ invertendo le coordinate di $x$ con quelle di $y$ la somma non cambia, quindi la simmetria è rispettata
-					\[d\bigl((x_1,x_2),(y_1,y_2)\bigr) \bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2} = \sqrt{(y_2-x_2)^2+(y_1-x_1)^2} = d\bigl((y_1,y_2),(x_1,x_2)\bigr)\]
+					\begin{align*}
+						d\bigl((x_1,x_2),(y_1,y_2)\bigr) \bigr)
+						&= \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}\\
+						&= \sqrt{(y_2-x_2)^2+(y_1-x_1)^2}\\
+						&= d\bigl((y_1,y_2),(x_1,x_2)\bigr)
+					\end{align*}
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ da \fullref{prop:dist_sp_norm}, la metrica indotta dalla norma (\fullref{def:norma}), applicata ad $\R^2$ è
 					\[\norm{x - y} = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}\]
 					che corrisponde alla metrica in oggetto. Dunque, grazie alle proprietà dell'operatore $\norm{\;\cdot\;}$ (nello specifico la \textit{disuguaglianza triangolare}), si ottiene
@@ -132,7 +137,11 @@ Unendo le due definizioni si giunge naturalmente a
 						\item $2$ se $x \neq y \neq z$, quindi sicuramente $d(x,y) \leq d(x,z) + d(z,y)$
 					\end{itemize}
 			\end{enumerate}
-		\item $X=\cntclass{0}(\intervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_\infty(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)}$ \hfill
+		\item $\begin{array}{c}
+			X = \cntclass{0}(\intervalclose{a}{b};\R)\; a,b \in \R,\; a < b\\
+			\quad d_\infty(f,g) = \sup\limits_{x \in \intervalclose{a}{b}} \abs{g(x) - f(x)}
+		\end{array}$
+		\hfill
 			{\footnotesize
 				\begin{tabular}{c}
 					\textbf{Distanza della Convergenza Infinita}\\[-1ex]
@@ -200,7 +209,9 @@ Unendo le due definizioni si giunge naturalmente a
 			\end{note}
 			\begin{enumerate}[label=\arabic*.]
 				\item $d(x,y) \geq 0$ per definizione, essendo integrale di un valore positivo (quadrato) tra estremi ordinati ($a<b$ per ipotesi)
-				\item $d(x,y) = 0 \iff x = y$ Per definizione della metrica, $d_2(f,g) = 0 \iff \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
+				\item $d(x,y) = 0 \iff x = y$ Per definizione della metrica:
+				\[d_2(f,g) = 0 \iff \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}} = 0\]
+				cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
 				\item $d(x,y)=d(y,x)$ semplicmente $d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}} = \sqrt{\int_a^b\left[f(x)-g(x)\right]^2 \integrald{x}} = d_2(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ ... % TODO Spiegare questo punto
 			\end{enumerate}
@@ -1301,7 +1312,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		Il primo limite è in $X$, il secondo in $Y$
 	\end{note}
 	\begin{note}
-		Questo enunciato mostra l'equivalenza tra la \fullref{def:funz_cont} e \fullref{prop:funz_cont_per_succ}.
+		Questo enunciato mostra l'equivalenza tra \fullref{def:funz_cont} e \fullref{prop:funz_cont_per_succ}.
 	\end{note}
 	\begin{proof}~
 		\begin{itemize}
@@ -1412,9 +1423,11 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\begin{proof}
 		Dalla \fullref{def:funz_cont}
 		\begin{align*}
-			f \text{ continua in } x_0 &\implies \forall \eta > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \eta\\
+			\lefteqn{f \text{ continua in } x_0}\\
+			&\implies \forall \eta > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \eta\\
 			\shortintertext{Da $d_Y \bigl(f(x),f(x_0)\bigr) < \eta$ sappiamo che la distanza in $Y$ è limitata, dunque possiamo utilizzarla nella seguente definizione}
-			g \text{ continua in } f(x_0) &\implies \forall \varepsilon > 0\;\;\exists \eta > 0:\quad \forall y \in B \text{ con } d_Y\bigl(y,f(x_0)\bigr) < \eta \quad \text{vale} \quad d_Z \Bigl( g(y), g \bigl( f(x_0) \bigr) \Bigr) < \varepsilon
+			\lefteqn{g \text{ continua in } f(x_0)}\\
+			&\implies \forall \varepsilon > 0\;\;\exists \eta > 0:\quad \forall y \in B \text{ con } d_Y\bigl(y,f(x_0)\bigr) < \eta \quad \text{vale} \quad d_Z \Bigl( g(y), g \bigl( f(x_0) \bigr) \Bigr) < \varepsilon
 		\end{align*}
 		\vspace*{-\baselineskip}
 		\begin{note}
@@ -2335,12 +2348,21 @@ In tutto questo paragrafo si hanno $n \in \N$ e $n \geq 1$. Con $\R^n$ viene ind
 		\right\}
 		\implies
 		\begin{cases}
-			\mathmakebox[7em][l]{\lim\limits_{x \to x_0} (f + g)(x)}
-			\quad \exists \text{ finito e} \quad
-			\lim\limits_{x \to x_0} (f + g)(x) = \lim\limits_{x \to x_0} f(x) + \lim\limits_{x \to x_0} g(x)\\
-			\mathmakebox[7em][l]{\lim\limits_{x \to x_0} (f \cdot g)(x)}
-			\quad \exists \text{ finito e} \quad
-			\lim\limits_{x \to x_0} (f \cdot g)(x) = \lim\limits_{x \to x_0} f(x) \cdot \lim\limits_{x \to x_0} g(x)
+			\begin{array}{c}
+				\lim\limits_{x \to x_0} (f + g)(x) \quad \exists \text{ finito}\\[-1ex]
+				e\\[-1ex]
+				\lim\limits_{x \to x_0} (f + g)(x) = \lim\limits_{x \to x_0} f(x) + \lim\limits_{x \to x_0} g(x)\\
+				\\
+				\lim\limits_{x \to x_0} (f \cdot g)(x) \quad \exists \text{ finito}\\[-1ex]
+				e\\
+				\lim\limits_{x \to x_0} (f \cdot g)(x) = \lim\limits_{x \to x_0} f(x) \cdot \lim\limits_{x \to x_0} g(x)
+			\end{array}
+			% \mathmakebox[7em][l]{\lim\limits_{x \to x_0} (f + g)(x)}
+			% \quad \exists \text{ finito e} \quad
+			% \lim\limits_{x \to x_0} (f + g)(x) = \lim\limits_{x \to x_0} f(x) + \lim\limits_{x \to x_0} g(x)\\
+			% \mathmakebox[7em][l]{\lim\limits_{x \to x_0} (f \cdot g)(x)}
+			% \quad \exists \text{ finito e} \quad
+			% \lim\limits_{x \to x_0} (f \cdot g)(x) = \lim\limits_{x \to x_0} f(x) \cdot \lim\limits_{x \to x_0} g(x)
 		\end{cases}
 	\end{equation*}
 	\begin{note}
