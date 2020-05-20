@@ -16,7 +16,7 @@
 
 \begin{definition}[Spazio Metrico]
 	\label{def:sp_metrico}
-	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{distanza} (o \textbf{metrica}), vale a dire una funzione $d: X \times X \to \R$ con le seguenti proprietà:
+	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{Distanza} (o \textbf{Metrica}), vale a dire una funzione $d: X \times X \to \R$ con le seguenti proprietà:
 	\begin{enumerate}
 		\item $d(x,y) \geq 0 \quad \forall x,y \in X$
 		\item $d(x,y) = 0 \quad \forall x,y \in X \iff x=y$
@@ -31,7 +31,7 @@
 Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Spazio Vettoriale Metrico]
 	\label{def:sp_vett_normato}
-	Uno Spazio Vettoriale Metrico è uno spazio vettoriale $V$ su cui è definito un prodotto scalare $<\cdot,\cdot·>$ definito positivo, la sua \textbf{metrica}.
+	Uno \textbf{Spazio Vettoriale Metrico} è uno spazio vettoriale $V$ su cui è definito un prodotto scalare $<\cdot,\cdot·>$ definito positivo, la sua \textbf{Metrica}.
 	\begin{note}
 		Analogamente si definisce il Sottospazio Vettoriale Metrico
 	\end{note}
@@ -40,7 +40,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Metrica Indotta]
 	\label{def:metr_indotta}
 	Siano $(X,d)$ spazio metrico e $S \subseteq X$ con $S \neq \emptyset$\\
-	Allora $d_{|S} = d_{|S \times S}$ è una metrica su $S$, cioè la metrica $d_{|S}$ è la \textbf{metrica indotta}, definita come la \textbf{restrizione} della metrica $d$ ai soli elementi di $S$. Si definisce formalmente come
+	Allora $d_{|S} = d_{|S \times S}$ è una metrica su $S$, cioè la metrica $d_{|S}$ è la \textbf{Metrica Indotta}, definita come la \textbf{restrizione} della metrica $d$ ai soli elementi di $S$. Si definisce formalmente come
 	\[\funcdef{d_{|S}}{S \times S}{\R}{(x,y)}{d(x,y)}\]
 \end{definition}
 
@@ -54,7 +54,7 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{proposition}
 	\label{prop:subspace_condition}
-	Sia $(V)$ uno spazio vettoriale metrico sul campo $K$ e sia $\emptyset \neq U \subseteq V$. Il sottoinsieme $U$ è un sottospazio vettoriale metrico se, e soltanto se, sono verificate le seguenti condizioni:
+	Sia $(V)$ uno \textbf{spazio vettoriale metrico} sul campo $K$ e sia $\emptyset \neq U \subseteq V$. Il sottoinsieme $U$ è un \textbf{sottospazio vettoriale metrico} se, e soltanto se, sono verificate le seguenti condizioni:
 	\begin{enumerate}
 		\item $\forall \mathbf{u}, \mathbf{u'} \in U \quad \mathbf{u} + \mathbf{u'} \in U$
 		\item $\forall \lambda \in K,\; \forall \mathbf{u} \in U \quad \lambda \cdot \mathbf{u} \in U$
@@ -71,9 +71,12 @@ Unendo le due definizioni si giunge naturalmente a
 		Si noti che alcuni degli esempi sottostanti sono relativi a metriche trattate molto più avanti e dunque potrebbe essere conveniente ignorarli temporaneamente per tornare qui quando saranno stati fatti i successivi argomenti.
 	\end{note}
 	\begin{enumerate}
-		\item $X=\R^2,\quad d(x,y) = d\bigl((x_1,x_2),(y_1,y_2)\bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^2$}}
+		\item $X=\R^2,\quad d(x,y) = d\bigl((x_1,x_2),(y_1,y_2)\bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}$
+			\hfill {
+				\footnotesize\textbf{Metrica Euclidea in $\R^2$}
+			}
 			\begin{enumerate}[label=\arabic*]
-				\item $d(x,y) \geq 0$ è verificata poiché l'argomento della radice è sempre positivo o al più nullo essendo una somma di quadrati, e la radice mantiene la positività.
+				\item $d(x,y) \geq 0$ è verificata poiché l'argomento della radice è sempre positivo o al più nullo, essendo una somma di quadrati. Inoltre la radice quadrata mantiene la positività.
 				\item $d(x,y) = 0 \iff x = y$
 					\begin{align*}
 						d = 0 &\iff \sqrt{(y_1-x_1)^2+(y_2-x_2)^2} = 0\\
@@ -109,27 +112,40 @@ Unendo le due definizioni si giunge naturalmente a
 						\end{tikzpicture}
 					\end{center}
 			\end{enumerate}
-		\item $X=\R,\quad d(x,y)=\abs{y-x}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R$}}
+		\item $X=\R,\quad d(x,y)=\abs{y-x}$
+			\hfill {\footnotesize\textbf{Metrica Euclidea in} $\R$}
 			\begin{enumerate}[label=\arabic*.]
-				\item $d(x,y) \geq 0$ per definizione valore assoluto
-				\item $d(x,y) = 0 \iff x = y$ perché $\abs{\;\cdot\;} = 0 \iff \cdot\; = 0$ per definizione valore assoluto
-				\item $d(x,y)=d(y,x)$ perché $\abs{x - y} = \abs{y - x}$ per definizione valore assoluto
+				\item $d(x,y) \geq 0$ per definizione di valore assoluto
+				\item $d(x,y) = 0 \iff x = y$ perché $\abs{\;\cdot\;} = 0 \iff \cdot\; = 0$, per definizione di valore assoluto
+				\item $d(x,y)=d(y,x)$ perché $\abs{x - y} = \abs{y - x}$ per definizione di valore assoluto
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ in quanto
 					\[d(x,y) = \abs{x-y} = \abs{x-z+z-y} \leq \abs{x-z} + \abs{z-y} = d(x,z) + d(z,y)\]
 			\end{enumerate}
-		\item $X=\R^n \;\; \text{con}\; x=(x_1,\ldots,x_n),\; y=(y_1,\ldots,y_n),\quad d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}$ \hfill {\footnotesize\textbf{Metrica Euclidea in $\R^n$}} \label{ex:dist_eucl}\\
-			Analogo al primo esempio
-		\item $X\ne \emptyset,\quad d(x,y)=
-			\begin{cases}
-				\begin{matrix}
-					0&&x=y\\
-					1&&x \ne y
-				\end{matrix}
-			\end{cases}$ \hfill {\footnotesize\textbf{Metrica Discreta}}\label{ex:dist_discr}
+		\item \label{ex:dist_eucl}
+			$\begin{array}{l}
+				X=\R^n \text{ con } x=(x_1,\ldots,x_n),\; y=(y_1,\ldots,y_n)\\
+				d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}
+			\end{array}$
+			\hfill
+			{
+				\footnotesize\textbf{Metrica Euclidea in} $\R^n$
+			}\\
+			Analogo al primo esempio.
+		\item \label{ex:dist_discr}
+			$
+				X\ne \emptyset,\quad d(x,y)=
+				\begin{cases}
+					\begin{array}{ll}
+						0 & x = y\\
+						1 &x \ne y
+					\end{array}
+				\end{cases}
+			$
+			\hfill {\footnotesize\textbf{Metrica Discreta}}
 			\begin{enumerate}[label=\arabic*.]
-				\item $d(x,y) \geq 0$ per definizione
-				\item $d(x,y) = 0 \iff x = y$ per definizione
-				\item $d(x,y)=d(y,x)$ per definizione (sia che $x = y$, sia che $x \neq y$)
+				\item $d(x,y) \geq 0$ per definizione della metrica
+				\item $d(x,y) = 0 \iff x = y$ per definizione della metrica
+				\item $d(x,y)=d(y,x)$ per definizione della metrica (sia nel caso $x = y$ che in $x \neq y$)
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ perché $d(x,z) + d(z,y)$ può essere:
 					\begin{itemize}
 						\item $0$ se $x = y = z$, ma in questo caso anche $d(x,y) = 0$
@@ -137,23 +153,27 @@ Unendo le due definizioni si giunge naturalmente a
 						\item $2$ se $x \neq y \neq z$, quindi sicuramente $d(x,y) \leq d(x,z) + d(z,y)$
 					\end{itemize}
 			\end{enumerate}
-		\item $\begin{array}{c}
-			X = \cntclass{0}(\intervalclose{a}{b};\R)\; a,b \in \R,\; a < b\\
-			\quad d_\infty(f,g) = \sup\limits_{x \in \intervalclose{a}{b}} \abs{g(x) - f(x)}
-		\end{array}$
-		\hfill
-			{\footnotesize
+		\item \label{ex:dim_dist_conv_unif}
+			$
+				\begin{array}{l}
+					X = \cntclass{0}(\intervalclose{a}{b};\R)\; a,b \in \R,\; a < b\\
+					d_\infty(f,g) = \sup\limits_{x \in \intervalclose{a}{b}} \abs{g(x) - f(x)}
+				\end{array}
+			$
+			\hfill
+			{
+				\footnotesize
 				\begin{tabular}{c}
 					\textbf{Distanza della Convergenza Infinita}\\[-1ex]
 					o\\[-1ex]
 					\textbf{Distanza della Convergenza Uniforme}
 				\end{tabular}
-			}\label{ex:dim_dist_conv_unif}
+			}
 			\begin{note}
 				La metrica viene trattata in \fullref{def:conv_unif}
 			\end{note}
 			\begin{note}
-				$X$ contiene infiniti elementi (funzioni)
+				$X$ è l'insieme delle infinite funzioni continue nell'intervallo $\intervalclose{a}{b}$.
 			\end{note}
 			\begin{center}
 				\begin{tikzpicture}[scale=1]
@@ -164,14 +184,14 @@ Unendo le due definizioni si giunge naturalmente a
 						domain=-1:1,
 						ymin=-1,ymax=4,
 						legend pos=outer north east ]
-						\addplot+[no marks] {e^-(abs(x*x))}; \addlegendentry{$f\left( x \right)$}
-						\addplot+[no marks] {-0.5}; \addlegendentry{$g\left( x \right)$}
+						\addplot+[no marks] {e^-(abs(x*x))}; \addlegendentry{$f(x)$}
+						\addplot+[no marks] {-0.5}; \addlegendentry{$g(x)$}
 						\draw[<->,line width=1mm, color=green] (axis cs:0,-0.5) -- (axis cs:0,1);
 					\end{axis}
 				\end{tikzpicture}
 			\end{center}
 			\begin{enumerate}[label=\arabic*.]
-				\item $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\intervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\intervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{ex:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
+				\item \label{itm:dist_conv_unif_geq_0} $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\intervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\intervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{ex:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
 				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
 				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
@@ -179,31 +199,47 @@ Unendo le due definizioni si giunge naturalmente a
 					Applicando il sup la disuguaglianza resta vera.
 			\end{enumerate}
 			\begin{note}
-				Si sottolinea che queste conclusioni sono valide finché $\intervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più il \fullref{ex:weier_analisi_1} necessario per il punto 1. % TODO Serve un controesempio
+				Si sottolinea che queste conclusioni sono valide finché $\intervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più l'\fullref{ex:weier_analisi_1} che è necessario per il punto \ref{itm:dist_conv_unif_geq_0}. % TODO Serve un controesempio
 			\end{note}
-		\item $X=\R^2$, $d$ distanza Euclidea e $P$ punto arbitrario\newline
-			$\quad d_P(x,y)=
-			\begin{cases}
-				\begin{array}{ll}
-					0 & \text{se } x = y\\
-					d(x,P) + d(P,y) & \text{se } x \neq y
+		\item \label{ex:dist_parigi}
+			$
+				\begin{array}{l}
+					X=\R^2,\; d \text{ Metrica Euclidea e } P \in X \text{ punto arbitrario }\\
+					d_P(x,y)=
+					\begin{cases}
+						\begin{array}{ll}
+							0 & \text{se } x = y\\
+							d(x,P) + d(P,y) & \text{se } x \neq y
+						\end{array}
+					\end{cases}
 				\end{array}
-			\end{cases}$ \hfill
-			{\footnotesize
+			$
+			\hfill
+			{
+				\footnotesize
 				\begin{tabular}{c}
 					\textbf{Distanza di Parigi}\\[-1ex]
 					o\\[-1ex]
 					\textbf{Distanza Ferroviaria Francese}
 				\end{tabular}
-			} \label{ex:dist_parigi}
+			}
 			\begin{enumerate}[label=\arabic*.]
-				\item $d(x,y) \geq 0$ per definizione
-				\item $d(x,y) = 0 \iff x = y$ per definizione
-				\item $d(x,y)=d(y,x)$ essendo bassata sulla metrica Euclidea
-				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo bassata sulla metrica Euclidea
+				\item $d(x,y) \geq 0$ per definizione della metrica
+				\item $d(x,y) = 0 \iff x = y$ per definizione della metrica
+				\item $d(x,y)=d(y,x)$ essendo bassata sulla Metrica Euclidea
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo bassata sulla Metrica Euclidea
 			\end{enumerate}
-		\item $X=\cntclass{0}(\intervalclose{a}{b},\R)\;a,b\in\R,\;a<b \quad d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}}$ \hfill {\footnotesize\textbf{Distanza Quadratica}}
-		\label{ex:dim_dist_quadratica}
+		\item \label{ex:dim_dist_quadratica}
+			$
+				\begin{array}{l}
+					X=\cntclass{0}(\intervalclose{a}{b},\R)\;a,b\in\R,\;a<b\\
+					d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}}
+				\end{array}
+			$
+			\hfill
+			{
+				\footnotesize\textbf{Distanza Quadratica}
+			}
 			\begin{note}
 				La metrica viene trattata in \fullref{def:dist_quadratica}
 			\end{note}
@@ -220,19 +256,19 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{definition}[Norma]
 	\label{def:norma}
-	Dato uno spazio vettoriale $V$ sul campo $\mathbb{K}$, si definisce \textbf{norma} una funzione $\norm{\cdot}:V \to \R$ con le proprietà:
+	Dato uno spazio vettoriale $V$ sul campo $\mathbb{K}$, si definisce \textbf{Norma} una funzione $\norm{\cdot}:V \to \R$ con le proprietà:
 	\begin{enumerate}
 		\item $\norm{x} \geq 0 \quad \forall x\in V$
 		\item $\norm{x}=0 \iff x = 0 \quad \forall x\in V$
-		\item $\norm{x+y} \leq \norm{x}+\norm{y} \quad \forall x,y\in V$
-		\item \label{itm:norm_lambda} $\norm{\lambda x} = \abs{\lambda} \cdot \norm{x} \quad \forall x\in V,\lambda\in\mathbb{K}$
+		\item \label{itm:def_norm_propr_somma} $\norm{x+y} \leq \norm{x}+\norm{y} \quad \forall x,y\in V$
+		\item \label{itm:def_norm_propr_lambda} $\norm{\lambda x} = \abs{\lambda} \cdot \norm{x} \quad \forall x\in V,\lambda\in\mathbb{K}$
 	\end{enumerate}
 	\begin{note}
 		La funzione Norma associa dunque ad un vettore di qualsiasi dimensione uno scalare, fornendo (anche) una metrica per ordinare vettori tra loro.
 	\end{note}
 \end{definition}
 \begin{definition}[Spazio Normato]
-	Uno spazio normato è uno spazio vettoriale $V$ sul campo $\mathbb{K}$ \textbf{in cui è definita una norma}.
+	Uno \textbf{Spazio Normato} è uno spazio vettoriale $V$ sul campo $\mathbb{K}$ \textbf{in cui è definita una norma}.
 	\begin{note}
 		Nel seguito verranno considerati esclusivamente spazi vettoriali su $\R$ o su $\C$, cioè $\mathbb{K} = \R$ o $\mathbb{K} = \C$
 	\end{note}
@@ -243,7 +279,11 @@ Unendo le due definizioni si giunge naturalmente a
 	\begin{enumerate}
 		\item $\R$ con $\norm{x} = \abs{x}$
 		\item $\C$ con $\norm{x} = \abs{x}$
-		\item $\R^n$ con $\norm{x} = \sqrt{\sum\limits_{i=1}^{n}x_i^2} \implies \norm{x}^2 = \sum\limits_{i=1}^{n}x_i^2 = x \cdot x$
+		\item \label{itm:ex_sp_norm_Rn} $\R^n$ con $\norm{x} = \sqrt{\sum\limits_{i=1}^{n}x_i^2}$
+			\begin{note}
+				\hypertarget{note:ex_sp_norm_Rn}{}
+				Dalla questa definizione di norma segue che $\norm{x}^2 = \sum\limits_{i=1}^{n}x_i^2 = x \cdot x$
+			\end{note}
 		\item $\cntclass{0}(\intervalclose{0}{1};\R)$ con $\norm{f} = \sup\limits_{x \in \intervalclose{0}{1}} \abs{f(x)}$
 	\end{enumerate}
 \end{example}
@@ -257,14 +297,14 @@ Unendo le due definizioni si giunge naturalmente a
 		\item Invariante per traslazioni:
 			\[\forall x,y,z \in V,\; d(x,y) = d(x+z, y+z)\]
 		\item Positivamente omogenea:
-			\[\forall x,y \in V\: \text{e} \forall \lambda \in \R,\; d(\lambda x, \lambda y) = \abs{\lambda}d(x,y)\]
+			\[\forall x,y \in V \text{ e } \forall \lambda \in \R,\; d(\lambda x, \lambda y) = \abs{\lambda}d(x,y)\]
 	\end{enumerate}
 	\begin{proof}
 		~
 		\begin{enumerate}
 			\item $d(x,y) = d(x+z, y+z) = \norm{y+z-x-z} = \norm{y-x} = d(x,y)$
-			\item Con la proprietà 4 della \fullref{def:norma}
-			\[d(\lambda x, \lambda y) = \norm{\lambda y - \lambda x} = \norm{\lambda (y - x)} = \abs{\lambda} \norm{y - x} = \abs{\lambda}d(x,y)\]
+			\item Con la proprietà \ref{itm:def_norm_propr_lambda} della \fullref{def:norma}
+				\[d(\lambda x, \lambda y) = \norm{\lambda y - \lambda x} = \norm{\lambda (y - x)} = \abs{\lambda} \norm{y - x} = \abs{\lambda}d(x,y)\]
 		\end{enumerate}
 	\end{proof}
 	\begin{note}
@@ -299,8 +339,8 @@ Unendo le due definizioni si giunge naturalmente a
 			\item $x = n$
 			\item $y = n+1$
 		\end{itemize}
-		Ora, per ogni $n$ la $d = 1$, mentre la $d_P = 2n+1$, dunque è impossibile trovare un $C \in \intervalopen{0}{+\infty}$ (quindi finito) tale per cui
-		\[d_P(x,y) \leq C \cdot d(x,y)\]
+		Ora, per ogni $n$, si ha $d = 1$, mentre la $d_P = 2n+1$. È dunque impossibile trovare un $C \in \intervalopen{0}{+\infty}$ (quindi finito) tale per cui
+		\[2n+1 = d_P(x,y) \leq C \cdot d(x,y) = n \quad \text{ con } n \to \infty\]
 	\end{solution}
 \end{example}
 \begin{example}
@@ -314,7 +354,6 @@ Unendo le due definizioni si giunge naturalmente a
 	sono tutte equivalenti tra di loro.
 \end{example}
 
-\definition
 \begin{definition}[Sfera]
 	Sia $(X,d)$ uno spazio metrico e siano $x_0 \in X$, $r > 0$. Si dice \textbf{Sfera} (o \textbf{Bolla}, o ancora \textbf{Palla}) \textbf{Aperta} di centro $x_0$ e raggio $r$ l'insieme:
 	\[B(x_0,r)=\brackets{x\in X : d(x,y)<r}\]
@@ -326,7 +365,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{example}[Sfere ed Altri Enti]\leavevmode\vspace*{-\baselineskip}
 	\begin{itemize}
 		\item In $\R$ con $d$, $B(x_0,r)$ è un intervallo simmetrico centrato in $x_0$
-		\item In $\R^2$ con $d$, $B(x_0,r)$ è una un cerchio con centro in $x_0$
+		\item In $\R^2$ con $d$, $B(x_0,r)$ è un cerchio con centro in $x_0$
 		\item In $\R^3$ con $d$, $B(x_0,r)$ è una sfera con centro in $x_0$
 	\end{itemize}
 \end{example}
@@ -350,14 +389,17 @@ Unendo le due definizioni si giunge naturalmente a
 		\item \makebox[14em][l]{$x_0$ \textbf{di Frontiera} per $A$} $\bydef$ \quad $\forall r > 0,\; B(x_0, r) \nsubseteq A \text{ e } B(x_0, r) \nsubseteq X \setminus A$\newline
 			{\footnotesize Cioè, per qualsiasi $r$, la sfera non appartiene completamente né ad $A$, né a $X \setminus A$}
 		\item \makebox[14em][l]{$x_0$ \textbf{Isolato} per $A$} $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$\newline
-			{\footnotesize Cioè è possible trovare un $r$ per cui l'intersezione tra la sfera ed $A$ contiene solo $x_0$ (Esempio: i numeri naturali con $r = 0,5$)}
+			{\footnotesize Cioè è possible trovare un $r$ per cui l'intersezione tra la sfera ed $A$ contiene solo $x_0$\\Esempio: i numeri naturali con $r = 0,5$}
 		\item \makebox[14em][l]{$x_0$ \textbf{di Accumulazione} per $A$} $\bydef$ \quad $\forall r > 0,\; \bigl( B(x_0, r) \cap A \bigr) \setminus \brackets{x_0} \neq \emptyset$\newline
 			{\footnotesize Cioè, per qualsiasi $r$, l'intersezione tra la sfera ed $A$ è sempre non vuota (non considerando $x_0$ stesso)}
+			\begin{note}
+				$x_0$ non deve necessariamente essere $\in A$, basta che sia indefinitamente vicino a dei punti di $A$.
+			\end{note}
 	\end{itemize}
 \end{definition}
 \newpage % TODO always check this does not generates too much whitespace
 \begin{example} % This exercise was split between two pages, thus the above \newpage
-	Dato l'insieme rappresentato in figura
+	Dato l'insieme $A \subset \R^2$ munito della Distanza Euclidea e rappresentato in figura
 	\begin{center}
 		\begin{tikzpicture}
 			\draw plot[smooth, tension=.7] coordinates
@@ -368,16 +410,15 @@ Unendo le due definizioni si giunge naturalmente a
 			\node at (2,2) {$A$};
 		\end{tikzpicture}
 	\end{center}
-	Si hanno quindi
+	Si hanno:
 	\begin{itemize}[noitemsep]
-		\item $A \subset \R^2$ munito della Distanza Euclidea
 		\item $P$ Interno
 		\item $Q$ di Frontiera
 		\item $R$ Esterno
 		\item $P$ e $Q$, inoltre, son di Accumulazione per $A$
 	\end{itemize}
 \end{example}
-\begin{definition}
+\begin{definition}[Topologia Spazi Metrici]
 	\label{def:topologia_spa_metri}
 	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$. Si definiscono:
 	\begin{itemize}
@@ -472,12 +513,12 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Insieme Aperto]
 	\label{def:aperto}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
-	\[A\text{ è \textbf{aperto}}\bydef A=\emptyset\quad\text{oppure}\quad A=\circdot{A}\]
+	\[A\text{ è \textbf{Aperto}} \quad \bydef \quad A=\emptyset\quad\text{oppure}\quad A=\circdot{A}\]
 \end{definition}
 \begin{definition}[Insieme Chiuso]
 	\label{def:chiuso}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
-	\[A\text{ è \textbf{chiuso}}\bydef A=\emptyset\quad\text{oppure}\quad A=\bar{A}\]
+	\[A\text{ è \textbf{Chiuso}} \quad \bydef \quad A=\emptyset\quad\text{oppure}\quad A=\bar{A}\]
 \end{definition}
 \begin{observation}
 	$A$ \textbf{non chiuso} $\notimplies$ $A$ aperto\\
@@ -487,7 +528,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\label{ex:ins_non_ap_non_chius}
 	L'insieme $C = \brackets{(x,y) \in \R^2:\; x^2+y^2 \leq 1} \setminus \brackets{(1,0)}$ è né aperto né chiuso.
 	\begin{solution}~\newline
-		Non è chiuso in quanto la sua frontiera è $\partial C = \brackets{(x,y) \in \R^2:\; x^2+y^2 = 1}$, dunque $(1,0) \in \partial C$, ma per definizione $(1,0) \notin \partial C$\\
+		Non è chiuso in quanto la sua frontiera è $\partial C = \brackets{(x,y) \in \R^2:\; x^2+y^2 = 1}$, dunque $(1,0) \in \partial C$, ma per definizione $(1,0) \notin C$\\
 		Non è aperto in quanto, prendendo $(0,1) \in C$, è impossibile trovare un intorno di $(0,1)$ contenuto completamente in $C$
 	\end{solution}
 \end{example}
@@ -521,8 +562,10 @@ Unendo le due definizioni si giunge naturalmente a
 \end{definition}
 \begin{definition}[Spazio Metrico Limitato]
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Allora
-	\[A \text{ è \textbf{Limitato}} \quad \bydef \quad \diam(A) \text{ è finito}\]
-	\[A \text{ è \textbf{Illimitato}} \quad \bydef \quad \diam(A) \text{ è infinito}\]
+	\begin{align*}
+		A \text{ è \textbf{Limitato}} \quad &\bydef \quad \diam(A) \text{ è finito}\\
+		A \text{ è \textbf{Illimitato}} \quad &\bydef \quad \diam(A) \text{ è infinito}
+	\end{align*}
 \end{definition}
 \begin{note}
 	L'insieme vuoto $\emptyset$ ha diametro nullo ed è dunque limitato.
@@ -538,18 +581,33 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{exercise}
 	Siano $(X,d)$ uno spazio metrico e $A,B\subseteq X$. Dimostrare le seguenti implicazioni:
 	\begin{enumerate}
-		\item $\left.\begin{array}{ll}
-			A \subseteq B\\
-			A \text{ illimitato}
-			\end{array} \quad\right\} \implies B \text{ illimitato}$
-		\item $\left.\begin{array}{ll}
-			A \subseteq B\\
-			B \text{ limitato}
-			\end{array} \quad\right\} \implies A \text{ limitato}$
-		\item $\left.\begin{array}{ll}
-			A \text{ limitato}\\
-			B \text{ limitato}
-			\end{array} \quad\right\} \implies  A \cup B \text{ limitato}$
+		\item $
+			\left.
+			\mathmakebox[7em][l]{
+				\begin{array}{ll}
+					A \subseteq B\\
+					A \text{ illimitato}
+				\end{array}
+			}
+			\right\} \implies B \text{ illimitato}$
+		\item $
+			\left.
+			\mathmakebox[7em][l]{
+				\begin{array}{ll}
+				A \subseteq B\\
+				B \text{ limitato}
+				\end{array}
+			}
+			\right\} \implies A \text{ limitato}$
+		\item $
+			\left.
+			\mathmakebox[7em][l]{
+				\begin{array}{ll}
+				A \text{ limitato}\\
+				B \text{ limitato}
+			\end{array}
+			}
+			\right\} \implies  A \cup B \text{ limitato}$
 	\end{enumerate}
 	% TODO soluzione
 \end{exercise}
@@ -659,7 +717,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{equation*}
 	\begin{proof}
 		Per ogni $n \in \N$, per la proprietà 4 da \fullref{def:sp_metrico}
-		\[d(x_\infty, x^\infty) \leq d(x_\infty, x_n) + d(n, x^\infty)\]
+		\[d(x_\infty, x^\infty) \leq d(x_\infty, x_n) + d(x_n, x^\infty)\]
 		Passando al $\lim$ per $n \to +\infty$
 		\[
 			\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x^\infty)}_{\begin{tabular}{c}\geq 0\\{\small Per def. distanza}\end{tabular}}
@@ -695,22 +753,27 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}[Caratterizzazione dei Punti di Accumulazione]
 	\label{prop:caratteriz_pti_accumul}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $x_* \in X$. Allora
-	\[x_* \text{ di accumulazione per } A \iff
-	\begin{cases}
-		\begin{tabular}{c} % NOTE This should probably be a box of some kind instead of a tabular
-			esiste una successione di elementi di $A$,\\[-.5ex]
-			diversi da $x_*$, convergente a $x_*$
-		\end{tabular}
-	\end{cases}\]
+	\[
+		x_* \text{ di accumulazione per } A \iff
+		\begin{cases}
+			\begin{tabular}{c}
+				esiste una successione di elementi di $A$,\\[-.5ex]
+				diversi da $x_*$, convergente a $x_*$
+			\end{tabular}
+		\end{cases}
+	\]
+	\begin{note}
+		La puntualizzazione "diversi da $x_*$" specifica che la successione costante $x = x_n$ non è ammissibile.
+	\end{note}
 	\begin{proof}~
 		\begin{itemize}
 			\item[$\implies$] Grazie alla \fullref{prop:condiz_punt_accumulaz}
 				\begin{align*}
 					&x_* \text{ è di accumulazione per } A\\
 					\implies &\inf \brackets{d(x,x_*):\; x \in A, x \neq x_0} = 0
-					\intertext{Che equivale a scrivere}
-					\implies &\forall \varepsilon > 0\: \exists x_\varepsilon \in A:\; x_\varepsilon \neq x_* \text{ e } d(x_\varepsilon, x_*) < \varepsilon
-					\intertext{Quindi si può scegliere arbitrariamente un $\varepsilon = \frac{1}{n}$, ponendo $n \neq 0$ ed arrivare a}
+					\shortintertext{Che equivale a scrivere}
+					\implies &\forall \varepsilon > 0\; \exists x_\varepsilon \in A:\; x_\varepsilon \neq x_* \text{ e } d(x_\varepsilon, x_*) < \varepsilon
+					\shortintertext{Quindi si può scegliere arbitrariamente un $\varepsilon = \frac{1}{n}$, ponendo $n \neq 0$ ed arrivare a}
 					\implies &\forall n \in \N \setminus \brackets{0},\: \exists x_n \in A:\; x_n \neq x_* \text{ e } d(x_n,x_*) < \frac{1}{n}
 				\end{align*}
 				La successione delle distanze è convergente a $0$ per $n \to +\infty$, quindi con la \fullref{def:lim_succ} si può concludere che la successione $x_n$ converge a $x_*$
@@ -730,14 +793,14 @@ Unendo le due definizioni si giunge naturalmente a
 	Siano $(X,d)$ uno Spazio Metrico, $A \subseteq X$ e $x_* \in X$. Allora:
 	\[x_* \in \overline{A} \iff
 	\begin{cases}
-		\begin{tabular}{c} % NOTE This should probably be a box of some kind instead of a tabular
+		\begin{tabular}{c}
 			esiste una successione di elementi di $A$,\\[-.5ex]
 			diversi da $x_*$, convergente a $x_*$
 		\end{tabular}
 	\end{cases}\]
 	\begin{proof}~
 		\begin{itemize}
-			\item[$\implies$]
+			\item[$\implies$] Direttamente dalla \fullref{def:topologia_spa_metri}:
 				\begin{itemize}
 					\item Se $x_* \in A$\newline
 						È sufficiente scegliere $x_n = x_*$, successione costante, dunque
@@ -750,7 +813,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{proof}
 \end{corollary}
 
-\begin{definition}[Condizione di Cauchy]
+\begin{definition}[Successione di Cauchy]
 	\label{def:cond_cau}
 	Sia $(X,d)$ uno spazio metrico e $x: \N \to X$ una successione d in $X$.
 	\begin{equation*}
@@ -761,6 +824,9 @@ Unendo le due definizioni si giunge naturalmente a
 		\end{gathered}
 	\end{equation*}
 	Cioè se la distanza tra due punti qualsiasi della successione, presi dopo un certo valore $\nu$, è minore di un $\varepsilon$ piccolo a piacere.
+	\begin{note}
+		La seconda riga della definizione è nota come \textit{Condizione di Cauchy.}
+	\end{note}
 	\begin{note}
 		Questa definizione, differentemente dalla \fullref{def:lim_succ}, è \textit{esplicita} e \textit{intrinseca}: dipende esclusivamente dalla successione e dalla distanza definita.
 	\end{note}
@@ -788,12 +854,14 @@ Unendo le due definizioni si giunge naturalmente a
 	\begin{enumerate}
 		\item $\R$ con $d(x,y) = \abs{y - x}$ è uno spazio metrico completo
 		\item $\mathbb{Q}$ con $d(x,y) = \abs{y - x}$ è uno spazio metrico \textit{non} completo
-		\item $\R^n$ con $d(x,y) = \norm{y - x}$ è uno spazio metrico completo.\\
-			Altre distanze che rendono $\R^n$ uno spazio metrico completo sono, ad esempio
-			\begin{itemize}
-				\item $d(x,y) = \max\limits_{i=1,\:\dotsc\:,n} \abs{y_i - x_i}$
-				\item $d(x,y) = \left( \sum\limits_{i=1}^{n} \abs{y_i - x_i}^\alpha \right)^{\frac{1}{\alpha}}$ con $\alpha \in \intervalclop{1}{+\infty}$
-			\end{itemize}
+		\item $\R^n$ con $d(x,y) = \norm{y - x}$ è uno spazio metrico completo.
+			\begin{note}
+				Altre distanze che rendono $\R^n$ uno spazio metrico completo sono, ad esempio
+				\begin{itemize}[nolistsep]
+					\item $d(x,y) = \max\limits_{i=1,\:\dotsc\:,n} \abs{y_i - x_i}$
+					\item $d(x,y) = \left( \sum\limits_{i=1}^{n} \abs{y_i - x_i}^\alpha \right)^{\frac{1}{\alpha}}$ con $\alpha \in \intervalclop{1}{+\infty}$
+				\end{itemize}
+			\end{note}
 		\item $\intervalopen{0}{1}$ con $d(x,y) = \abs{y - x}$ è uno spazio metrico \textit{non} completo.
 			\begin{proof}
 				La successione $\brackets{\frac{1}{n}:\; n \in \N, n \neq 0}$ è di Cauchy ma non ammette limite in $\intervalopen{0}{1}$
@@ -829,7 +897,7 @@ Unendo le due definizioni si giunge naturalmente a
 	Siano $(X,d)$ uno spazio metrico \textbf{completo} e $C \subseteq X$ un sottoinsieme \textbf{chiuso} di $X$. Allora $\boldsymbol{(C,d_{|C})}$ \textbf{è sottospazio metrico completo}, con $d_{|C}$ da \fullref{def:metr_indotta}.
 	\begin{proof}
 		Essendo $C$ chiuso, per \fullref{def:chiuso}:
-		\[C = \overline{C} \implies \forall x_* \in C\; x_* \in \overline{C}\]
+		\[C = \overline{C} \implies \forall x_* \in C,\; x_* \in \overline{C}\]
 		Si può dunque applicare il \fullref{coro:succ_conv_sse_x_in_chius_A} e concludere che
 		\[\forall x_* \in C \text{ esiste un successione di elementi di $C$ convergenti a $x_*$}\]
 		Questo permette di individuare tante successioni $x_i$ quanti sono gli elementi di $C$ e, grazie alla \fullref{prop:se_succ_conv_allora_cau}, si sa che ognuna di queste successioni è di Cauchy.\\
@@ -931,7 +999,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	% TODO soluzione
 \end{exercise}
 \begin{exercise}
-	Dimostrare che se due insiemi sono separati, allora sono disgiunti. Esibire un controesempio all'implicazione inversa.
+	Dimostrare che se due insiemi sono separati, allora sono disgiunti (cioè $A \cap B = \emptyset$). Esibire un controesempio all'implicazione inversa.
 	% TODO soluzione
 \end{exercise}
 \begin{exercise}
@@ -962,7 +1030,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{exercise}
 	Mostrare con un esempio che nella \fullref{prop:polig_in_aperto_connesso} l'ipotesi "\textit{$A$ aperto}" è essenziale.
 	\begin{solution}
-		Dato lo spazio metrico $(\R^2,d)$, tutti i punti del sottoinsieme $\brackets{x \in \R^2:\;x^2 + y^2 = 1}$ sono di frontiera, dunque non è un aperto. È impossibile individuare una poligonale che colleghi due qualsiasi punti della circonferenza in quanto, appunto circonferenza.
+		Dato lo spazio metrico $(\R^2,d)$, tutti i punti del sottoinsieme $\brackets{x \in \R^2:\;x^2 + y^2 = 1}$ sono di frontiera, dunque non è un aperto. È impossibile individuare una poligonale che colleghi due qualsiasi punti della circonferenza in quanto, appunto, circonferenza.
 	\end{solution}
 \end{exercise}
 
@@ -1045,7 +1113,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	In $\R$ con la distanza Euclidea, esibire esempi di insiemi che siano itnervalli/non intervalli compatti/non compatti
+	In $\R$ con la distanza Euclidea, esibire esempi di insiemi che siano intervalli/non intervalli compatti/non compatti
 	% TODO solution
 \end{exercise}
 \begin{exercise}
@@ -1113,7 +1181,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\[\lim\limits_{x \to x_0} f(x) = l \quad \bydef \quad \lim\limits_{x \to x_0} d_Y(f(x), l) = 0\]
 	Perché non è corretto farlo?
 	\begin{solution}
-		Non è corretto perché questa definizione implica $l = f(x)$ con $x \to x_0$ per proprietà 2 di \fullref{def:sp_metrico}. Ciò è diverso dalla \fullref{def:lim_funz} ed è inoltre più restrittivo, in quanto, con questa definizione "semplificata", sarebbe richiesto $x_0 \in A$, mentre $x_0$ deve essere solo di accumulazione nell'altro caso. Un punto di accumulazione non è necessariamente incluso nell'insieme a cui è riferito.
+		Non è corretto perché questa definizione implica $l = f(x)$ con $x \to x_0$ per proprietà 2 di \fullref{def:sp_metrico}. Ciò è diverso dalla \fullref{def:lim_funz} ed è inoltre più restrittivo, in quanto, con questa definizione "semplificata", sarebbe richiesto $x_0 \in A$, mentre $x_0$ deve essere solo di accumulazione nell'altro caso. Infatti un punto di accumulazione, per definizione da \fullref{def:pti_e_spa_metr}, non è necessariamente incluso nell'insieme a cui è riferito.
 	\end{solution}
 \end{exercise}
 
@@ -1167,25 +1235,25 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\end{gathered}
 	\end{equation*}
 	\begin{note}
-		Specificare "\textit{$\forall$ successione}" è fondamentale in quanto bisogna considerare tutti i punti $x \in A$, non solo le divisioni discrete degli $n \in \N$
+		Specificare "$\forall$ successione" è fondamentale in quanto possono esistere diverse successioni convergenti a $x_0$, ma per tutte esse deve verificarsi $\lim\limits_{n \to +\infty} f(x_n) = l$.
 	\end{note}
 	\begin{proof}~
 		\begin{itemize}
-			\item[$\implies$] Dalle \fullref{def:lim_funz} e \fullref{def:lim_succ}
-				\begin{align*}
-					\lim\limits_{x \to x_0} f(x) = l &\implies
+			\item[$\implies$] Dalla \fullref{def:lim_funz} si ottiene
+				\begin{align}
+					\label{eq:funz_cont_per_succ_1} \lim\limits_{x \to x_0} f(x) = l &\implies
 					\begin{cases}
 						\forall \varepsilon > 0,\; \exists \delta > 0:\; \forall x \in A\;\\
 						d(x,x_0) < \delta,\; x \neq x_0 \quad d(f(x),l)<\varepsilon
-					\end{cases}\\
-					\lim\limits_{n \to +\infty} x_n = x_0 &\implies
+					\end{cases}
+					\shortintertext{E dalla \fullref{def:lim_succ}, considerando una generica successione $x_n$ convergente a $x_0$, costruita appositamente e sicuramente sempre esistente per \fullref{prop:caratteriz_pti_accumul}, si ha}
+					\label{eq:funz_cont_per_succ_2} \lim\limits_{n \to +\infty} x_n = x_0 &\implies
 					\begin{cases}
 						\forall \delta > 0\; \exists \nu \in \N:\; \forall n \in \N,\; n \geq \nu,\; x_n \in A\\
 						x_n \neq x_0 \quad d(x_n, x_0) < \delta
 					\end{cases}
-				\end{align*}
-				Con il secondo limite per la successione $x_n$ convergente a $x_0$ costruita appositamente e sicuramente sempre esistente, grazie alla \fullref{prop:caratteriz_pti_accumul}.\\
-				Unendo le due definizioni di cui sopra, si ottiene la
+				\end{align}
+				Posto il $\delta$ di \cref{eq:funz_cont_per_succ_1} $= \delta$ di \cref{eq:funz_cont_per_succ_2} ed unendo le due definizioni, si ottiene
 				\begin{equation*}
 					\begin{gathered}
 						\forall \varepsilon > 0\; \exists \delta > 0\; \exists \nu \in \N:\; \forall n \in \N,\; n \geq \nu,\; x_n \in A\; x_n \neq x_0\\
@@ -1193,16 +1261,16 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					\end{gathered}
 				\end{equation*}
 				\begin{note}
-					La prima parte si può leggere come $\forall \varepsilon > 0\; \exists \delta > 0$. Il $\delta$ viene poi usato per scegliere un $\nu = \delta$ e per questo $\nu$ vale il resto dell'espressione.
+					Questa forma va interpretata prendendo inizialmente solo $\forall \varepsilon > 0\; \exists \delta > 0$. Il $\delta$ individuato viene poi utilizzato per scegliere un $\nu$ per il quale valga il resto dell'espressione.
 				\end{note}
 				Che corrisponde alla definizione di limite per funzione di $f(x_n)$
 			\item[$\impliedby$] Per assurdo, negando $\lim\limits_{n \to +\infty} f(x_n) = l$.
 				\begin{align*}
 					&\text{non } \lim\limits_{n \to +\infty} f(x_n) = l\\
 					\implies & \exists \varepsilon > 0:\; \forall \delta > 0\; \exists x_\delta \in A,\; x_\delta \neq x_0, \quad d(x_\delta, x_0) < \delta, \quad d \bigl( f(x_\delta), l \bigr) > \varepsilon\\
-					\intertext{Ponendo $\delta = \frac{1}{n+1}$ si passa alla successione convergente a $0$, dunque compatibile con il $\delta$ precedente}
+					\intertext{Ponendo $\delta = \frac{1}{n+1}$ si può passare ad una successione convergente a $0$, quindi compatibile con il comportamento del $\delta$ precedente}
 					\implies & \exists \varepsilon > 0:\; \forall n \in \N,\; \exists x_n \in A,\; x_n \neq x_0, \quad d(x_n, x_0) < \frac{1}{n+1}, \quad d \bigl( f(x_n), l \bigr) > \varepsilon\\
-					\intertext{Essendo $d \bigl( f(x_n), l \bigr) > \varepsilon$ si sa per certo che non avrò limite ad $l$}
+					\intertext{Essendo $d \bigl( f(x_n), l \bigr) > \varepsilon$, non si ha limite convergente a $l$}
 					\implies & \begin{cases}
 						\begin{array}{c}
 							\text{Esiste una successione } x_n,\; x_n \in A,\; x_n \neq x_0, \quad \lim\limits_{n \to +\infty} x_n = x_0\\
@@ -1221,14 +1289,14 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
 		\begin{gathered}
-			f \text{ è \textbf{continua} in } x_0 \iff\\
+			f \text{ è \textbf{Continua} in } x_0\\
+			\iff\\
 			\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
 		\end{gathered}
 	\end{equation*}
 	Inoltre
-	\begin{center}
-		$f$ è \textbf{continua} in $A\bydef$ $f$ è continua \textbf{in ogni punto} di $A$
-	\end{center}
+	\[f \text{ è \textbf{Continua} in } A \quad \bydef \quad f \text{ è \textbf{continua in ogni punto} di } A\]
+	\vspace*{-\baselineskip}
 	\begin{note}
 		Non andrebbe detto semplicemente "$f$ \textit{è continua}" perché la continuità dipende in modo essenziale dall'insieme di punti su cui la funzione viene considerata. In assenza di ulteriori specificazioni, spesso si sottointende che l'insieme in esame è l'intero dominio della funzione.
 	\end{note}
@@ -1255,7 +1323,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{exercise}[Continuità in Punti Isolati]
 	\label{ex:f_cont_in_pto_isol}
 	Formulare con precisione e dimostrare: ogni funzione è continua in ogni suo punto isolato del suo insieme di definizione.
-	\begin{solution}\hfill\\
+	\begin{solution}
 		\renewcommand\qedsymbol{$\square$} % To restore the default empty square for the proof environment below
 		Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$ \textbf{Punto Isolato}. Allora $f$ è \textbf{Continua in} $\boldsymbol{x_0}$
 		\begin{proof}
@@ -1288,12 +1356,12 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 			\item $x_0$ di accumulazione: per definizione di $f$ continua
 			\item $x_0$ isolato: per \fullref{def:pti_e_spa_metr}
 				\[\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}\]
-				Posto ora $r = \delta$, si ottiene che, per certo, $x = x_0$, che è quanto richiesto per verificare la continuità
+				Posto ora $r = \delta$, si ottiene che, per certo, $x = x_0$, per cui sicuramente $d\bigl( f(x), f(x_0) \bigr) < \varepsilon$ dalla \fullref{def:funz_cont}.
 		\end{itemize}
 	\end{proof}
 \end{proposition}
 \begin{exercise}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $k \in Y$. Sia $f:X \to Y$ definita da $f(x) = k \; \forall x \in X$.\\
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $k \in Y$. Sia $f:X \to Y$ definita da $f(x) = k \quad \forall x \in X$.\\
 	Dimostrare che $f$ è continua su $X$
 	% TODO solution
 \end{exercise}
@@ -1316,7 +1384,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{note}
 	\begin{proof}~
 		\begin{itemize}
-			\item[$\implies$]
+			\item[$\implies$] Da \fullref{prop:f_cont_se_isol_o_accum}:
 			\[f \text{ continua in } x_0 \iff
 				\begin{cases}
 					\begin{array}{c}
@@ -1377,7 +1445,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{equation*}
 	\begin{proof}
 		Essendo $f$ continua per ipotesi, dalla \fullref{prop:cont_e_cont_per_succ} è noto che
-		\[\forall \text{ successione } x:\N \to A:\; \lim\limits_{n \to +\infty} x_n = x_0 \quad \lim\limits_{n \to +\infty} f(x_n) = f(x_0)\]
+		\[\forall \text{ successione } x:\N \to A:\; \lim\limits_{n \to +\infty} x_n = x_0 \text{ vale } \lim\limits_{n \to +\infty} f(x_n) = f(x_0)\]
 		Inoltre $\lim\limits_{n \to +\infty} x_n = x_0 \in A$ per ipotesi e, grazie alla continuità di $f$, $\exists f(x_0) \quad \forall x_0 \in A$.\\
 		Unendo le due conclusioni si ottiene la tesi
 		\[\lim\limits_{n \to +\infty} f(x_n) = f(x_0) = f\left( \lim\limits_{n \to +\infty} x_n \right)\]
@@ -1394,6 +1462,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 			\underbrace{\forall x_0 \in A}_{\mathclap{\text{unica aggiunta}}} \; \forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
 		\end{gathered}
 	\end{equation*}
+	\vspace*{-\baselineskip}
 	\begin{note}
 		Questa proposizione espande la \fullref{def:funz_cont} di continuità su un insieme grazie alla stessa definizione di continuità in un punto
 	\end{note}
@@ -1460,14 +1529,16 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\begin{proof}
 		Siano le successioni
 		\begin{itemize}
-			\item $y: \N \to Y$ tale che $y_n \in f(K) \;\forall n \in \N$, cioè $\forall n \in \N\;\exists x_n \in K: f(x_n) = y_n$
-			\item $x: \N \to X$ tale che $x_n \in K\;\forall n \in \N$
+			\item $x: \N \to X$ tale che $x_n \in K \quad \forall n \in \N$
+			\item $y: \N \to Y$ tale che $y_n \in f(K) \quad \forall n \in \N$, cioè $\forall n \in \N \quad \exists x_n \in K: \; f(x_n) = y_n$
 		\end{itemize}
 		\begin{note}
 			Abbiamo una successione che, attraverso la $f$ (non direttamente: le successioni non sono $X \to Y$!), associa indirettamente valori in $K \subseteq X$ a valori in $f(K) \subseteq Y$
 		\end{note}
-		La successione $x$ ammettrà sicuramente una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$. Questo per \fullref{def:compatto}, avendo $K$ compatto per ipotesi, ed essendo $x$ a valori in $K$.\\
-		Data la continuità di $f$ in $K$, abbiamo $y_{n_k} = f(x_{n_k}) \in f(K)$, ma essendo $x_{n_k}$ convergente ad $\overline{x}$, anche $y_{n_k}$ converge, verificando così la \fullref{def:compatto}.
+		$K$ è compatto per ipotesi. Essendo $x$ a valori in $K$, per \fullref{def:compatto}, si ha la certezza che la $x$ ammetta una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$.\\
+		Per come è definita $y$, esiste anche la successione $y_{n_k} = f(x_{n_k})$ e, grazie alla continuità di $f$ in $K$, sicuramente $f(x_{n_k}) \in f(K)$. Dunque
+		\[y_{n_k} = f(x_{n_k}) \in f(K)\]
+		Essendo la sottosuccessione $x_{n_k}$ convergente ad $\overline{x}$, anche $y_{n_k}$ converge, verificando così la \fullref{def:compatto}.
 	\end{proof}
 	\begin{proof} (Alternativa)\\
 		La successione $x$ ammette una sottosuccessione $x_{n_k}$ convergente ad un elemento $\overline{x} \in K$, dunque da \fullref{prop:succ_conv_lim}:
@@ -1488,13 +1559,13 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		L'enunciato formalmente corretto di questo teorema nel caso di Analisi 1 è riportato in \fullref{coro:weierstrass_analisi_1}.
 	\end{note}
 	\begin{solution}
-		\begin{note}
-			$Y$ deve necessariamente essere in $\R^1$, perché, per individuare $\sup$ ed $\inf$, è necessario che l'insieme sia ordinabile.
-		\end{note}
 		Considerando il caso $X \subseteq \R^n$, $Y \subseteq \R$ si ottiene:
 		\begin{center}
 			$f:K \to f(K)$ con $f(K)$ compatto.
 		\end{center}
+		\begin{note}
+			$Y$ deve necessariamente essere in $\R^1$, perché, per individuare $\sup$ ed $\inf$, è necessario che l'insieme sia ordinabile.
+		\end{note}
 		Il fatto che $f(K) \subseteq \R$ sia compatto, implica che sia \textbf{Chiuso} e \textbf{Limitato} per \fullref{prop:compat_chius_lim}
 		\begin{itemize}
 			\item Essendo limitato, per certo $\exists \sup \in \R \neq \infty$ e $\exists \inf \in \R \neq \infty$
@@ -1630,16 +1701,16 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \to Y$ con $A \subseteq X$.\\
 	Se $f$ è \textbf{uniformemente continua} in $A$, allora $f$ è \textbf{continua} in $A$.
 	\begin{proof}
-		Deriva da \fullref{ex:cont_unif_cont_comparision} in quanto, se è possibile scegliere un qualsiasi $x_0$ quando $\varepsilon$ è già stato fissato, sicuramente sarà possibile fare questa scelta anche in ordine inverso (la continuità è condizione condizione meno stringente).
+		Deriva da \fullref{ex:cont_unif_cont_comparision} in quanto, se è possibile scegliere un qualsiasi $x_0$ quando $\varepsilon$ è già stato fissato, sicuramente sarà possibile fare questa scelta anche in ordine inverso (la continuità è condizione meno stringente).
 	\end{proof}
 \end{proposition}
 \begin{exercise}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e $k \in Y$. Data $f:\; X \to Y$ definita da $f(x) = k\;\; \forall x \in X$.\\
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e $k \in Y$. Data $f:\; X \to Y$ definita da $f(x) = k \quad \forall x \in X$.\\
 	Dimostrare che $f$ è uniformemente continua.
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	Formulare e dimostrare il teorema sulla uniforme continuità della composizione di funzioni uniformemente continue in spazio metrici.
+	Formulare e dimostrare il teorema sulla uniforme continuità della composizione di funzioni uniformemente continue in spazi metrici.
 	% TODO solution
 \end{exercise}
 \begin{example}
@@ -2357,12 +2428,6 @@ In tutto questo paragrafo si hanno $n \in \N$ e $n \geq 1$. Con $\R^n$ viene ind
 				e\\
 				\lim\limits_{x \to x_0} (f \cdot g)(x) = \lim\limits_{x \to x_0} f(x) \cdot \lim\limits_{x \to x_0} g(x)
 			\end{array}
-			% \mathmakebox[7em][l]{\lim\limits_{x \to x_0} (f + g)(x)}
-			% \quad \exists \text{ finito e} \quad
-			% \lim\limits_{x \to x_0} (f + g)(x) = \lim\limits_{x \to x_0} f(x) + \lim\limits_{x \to x_0} g(x)\\
-			% \mathmakebox[7em][l]{\lim\limits_{x \to x_0} (f \cdot g)(x)}
-			% \quad \exists \text{ finito e} \quad
-			% \lim\limits_{x \to x_0} (f \cdot g)(x) = \lim\limits_{x \to x_0} f(x) \cdot \lim\limits_{x \to x_0} g(x)
 		\end{cases}
 	\end{equation*}
 	\begin{note}
@@ -2390,7 +2455,7 @@ In tutto questo paragrafo si hanno $n \in \N$ e $n \geq 1$. Con $\R^n$ viene ind
 		Essendo
 		\begin{align*}
 			\norm{(f + g)(x) - (l_f + l_g)} &= \norm{\bigl( f(x) - l_f \bigr) + \bigl( g(x) - l_g \bigr)}
-			\shortintertext{Per proprietà 3 da \fullref{def:norma}}
+			\shortintertext{Per proprietà \ref{itm:def_norm_propr_somma} da \fullref{def:norma}}
 			&\leq \norm{f(x) - l_f} + \norm{g(x) - l_g}
 		\end{align*}
 		Quest'ultima forma è sicuramente $< \varepsilon$ per \cref{eq:lim_somma_fun}, quindi la somma dei limiti corrisponde al limite della somma.\\

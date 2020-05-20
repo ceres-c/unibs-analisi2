@@ -5,6 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[left = 2cm, right = 2cm, bottom = 3cm]{geometry}
 \usepackage{babel}
+\usepackage[babel,italian=quotes]{csquotes} % Change quotation marks to italian ones
 \usepackage[toc,page]{appendix}
 \usepackage{enumitem}
 \usepackage{amsthm,amssymb}
@@ -82,6 +83,10 @@
 \cbcolor{not_explained_section_color}
 \setlength{\changebarsep}{15pt}
 \setlength{\changebarwidth}{10pt}
+
+% Automatic conversion of double quotes to `` " with csquotes package.
+% No need for inner quotes since there are no uses in this document.
+\MakeOuterQuote{"}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                    Commands                     %

@@ -656,7 +656,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			\shortintertext{Separando come fatto prima ed applicando la disguguaglianza triangolare}
 			\leq &	\norm{\left( \frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0) \right) k} +
 					\norm{\left( \frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)\right) h}
-			\shortintertext{Per proprietà 4 da \fullref{def:norma}}
+			\shortintertext{Per proprietà \ref{itm:def_norm_propr_lambda} da \fullref{def:norma}}
 			= & \norm{\frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0)} \abs{k} +
 				\norm{\frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)} \abs{h}
 			\shortintertext{Presa ora la norma del vettore $(h,k)$, cioè $\norm{(h,k)} = \sqrt{h^2 + k^2}$, sicuramente $\abs{h} \leq \norm{(h,k)}$ e $\abs{k} \leq \norm{(h,k)}$, dunque}
@@ -1066,7 +1066,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		Essendo, come detto all'inzio, $f(x_1) \neq f(x_0)$ è ora possibile scegliere un $v$ "comodo", come:
 		\[v = \frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \bigl( f(x_1) - f(x_0) \bigr)\]
 		\begin{note}
-			La norma di $v$, grazie poi alla proprietà 4 da \fullref{def:norma}, è
+			La norma di $v$, grazie poi alla proprietà \ref{itm:def_norm_propr_lambda} da \fullref{def:norma}, è
 			\begin{align*}
 				\norm{v} &= \norm{
 					\underbrace{\frac{1}{\norm{f(x_1) - f(x_0)}}}_{\text{Scalare}}
@@ -1080,7 +1080,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\end{note}
 		Sostituendo dunque in \cref{eq:accr_fin_norm} si ottiene
 		\[\norm{\frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \bigl( f(x_1) - f(x_0) \bigr) \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
-		Dal punto 3 di \fullref{ex:sp_norm}, si ottiene
+		Dalla \hyperlink{note:ex_sp_norm_Rn}{nota al punto \ref*{itm:ex_sp_norm_Rn} di \fullref*{ex:sp_norm}}, si ottiene
 		\[\norm{\frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \norm{f(x_1) - f(x_0)}^2} \leq \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
 		Da cui
 		\[\norm{f(x_1) - f(x_0)} \leq \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]

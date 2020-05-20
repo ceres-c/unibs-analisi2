@@ -972,7 +972,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\begin{align*}
 			\tageq\label{eq:cau_dip_cont_diff_norm} \norm{\varphi(t)-\psi(t)} &= \norm{x_0 - y_0 + \int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr)\Bigr)\integrald{\tau} - \int_{t_0}^{t}\Bigl(g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}\\
 			&= \norm{x_0 - y_0 + \int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}
-			\intertext{Minoriamo ora con la proprietà 3 da \fullref{def:norma}}
+			\intertext{Minoriamo ora con la proprietà \ref{itm:def_norm_propr_somma} da \fullref{def:norma}}
 			&\leq \norm{x_0 - y_0} + \norm{\int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}
 			\intertext{Minoriamo ulteriormente come da \fullref{ex:cau_loc_abs_of_norm}}
 			&\leq \norm{x_0 - y_0} + \abs{\int_{t_0}^{t}\norm{f\bigl(\tau,\varphi(\tau)\bigr) - g\bigl(\tau,\psi(\tau)\bigr)}\integrald{\tau}}
@@ -1364,7 +1364,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{note}
 		\begin{align*}
 			\varphi(t) &= x_0 + \int_{t_0}^{t} f\bigl(\tau,\varphi(\tau)\bigr)\integrald{\tau}
-			\intertext{Da cui, passando alle norme e minorando per proprietà 3 della \fullref{def:norma}}
+			\intertext{Da cui, passando alle norme e minorando per proprietà \ref{itm:def_norm_propr_somma} della \fullref{def:norma}}
 			\norm{\varphi(t)} &\leq \norm{x_0} + \norm{\int_{t_0}^{t} f\bigl(\tau,\varphi(\tau)\bigr)\integrald{\tau}}
 			\intertext{Grazie all'\fullref{ex:cau_loc_abs_of_norm}}
 			&\leq \norm{x_0} + \abs{\int_{t_0}^{t} \norm{f\bigl(\tau,\varphi(\tau)\bigr)}\integrald{\tau}}
