@@ -3,6 +3,15 @@ Questo repository contiene gli appunti per il corso di Analisi 2 tenuto per le c
 
 La stesura di questi appunti è stata resa necessaria dalla brevità delle dimostrazioni offerte nella dispensa ufficiale del corso, nonché dall'esigenza per gli autori di formalizzare i passaggi seguiti mentalmente durante lo studio.
 
+# Content #
+In questo repository è presente il codice sorgente LaTeX degli appunti, nonché due diversi pdf compilati dai sorgenti:
+- `unibs-analisi2.pdf` Documento normale, per la consultazione da PC o la stampa a colori.
+- `unibs-analisi2-bw.pdf` Con testo in bianco e nero e solo i grafici colorati, per una stampa più economica.
+
+Si consiglia, nel caso in cui non fosse possibile stampare tutto il documento a colori, di scegliere `unibs-analisi2-bw.pdf` e stampare a colori le pagine con grafici.
+
+Oltre ai file già indicati è presente anche un semplice script `builder.sh` che esegue automaticamente la compilazione di entrambi i pdf senza dover apportare manualmente modifiche ai sorgenti tex.
+
 # Contributing #
 Gli appunti non sono stati validati dal professore, dunque non si escludono errori. Son ben accette PR per correggere inesattezze o migliorare spiegazioni.
 
