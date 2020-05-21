@@ -675,7 +675,7 @@ Unendo le due definizioni si giunge naturalmente a
 	Sia $X$ un insieme non vuoto. \textbf{Successione} in $X$ è una funzione $x: \N \to X$
 	\begin{note}
 		Altre possibili notazioni per le successioni sono: $x_n$, $(x_n)_{n \in \N}$ e $\brackets{x_n:\; n \in \N}$.\\
-		Con $x_n$ si indica spesso anche \textbf{il valore assunto} dalla successione $x$ al suo $n-esimo$ elemento.
+		Con $x_n$ si indica spesso anche \textbf{il valore assunto} dalla successione $x$ al suo $n$\textit{-esimo} elemento.
 	\end{note}
 \end{definition}
 \begin{definition}[Successione Limitata e Illimtata]
@@ -1885,9 +1885,9 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}
 	\label{prop:convesso_deriv_par_lim_allora_lips}
-	Siano $A \subseteq \R^n$ un insieme \textbf{Convesso} (\fullref{def:convesso}) e $f \in \cntclass{1}(A;\R)$. Se tutte le derivate parziali sono limitate in $A$ , allora $f$ è Lipschitziana.
+	Siano $A \subseteq \R^n$ un insieme \textbf{Convesso} (da \fullref{def:convesso}) e $f \in \cntclass{1}(A;\R)$ (da \fullref{def:cnt_class_1}). Se tutte le \textbf{Derivate Parziali} sono \textbf{limitate} in $A$ , allora $f$ è \textbf{Lipschitziana}.
 	\begin{proof}
-		Segue direttamente da \fullref{def:convesso} e \fullref{teo:accresc_fin}
+		Segue direttamente da \fullref{def:convesso} e \fullref{teo:accresc_fin}.
 	\end{proof}
 \end{proposition}
 
@@ -2063,7 +2063,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}
 	\label{prop:se_Df_leq_k_allora_f_contr}
-	Sia $f \in \cntclass{1}(\R^n;\R^n)$. Se esiste $k \in \intervalclop{0}{1}$ tale che per ogni $x \in \R^n$ vale $\norm{Df(x)} < k$, allora $f$ è \textbf{Contrazione}.
+	Sia $f \in \cntclass{1}(\R^n;\R^n)$ (da \fullref{def:cnt_class_1}). Se esiste $k \in \intervalclop{0}{1}$ tale che per ogni $x \in \R^n$ vale $\norm{Df(x)} < k$, allora $f$ è \textbf{Contrazione}.
 	\begin{proof}
 		Segue dal \fullref{teo:accresc_fin}
 	\end{proof}

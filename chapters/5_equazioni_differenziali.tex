@@ -85,7 +85,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\[y_1=x\qquad y_2= x'\qquad y_3= x''\qquad \dots\qquad y_n=x^{(n-1)}\]
 		ed al contempo
 		\[y_1'= x'=y_2\qquad y_2'= x''=y_3\qquad y_3'= x'''=y_4\qquad\cdots\qquad y_{n-1}'=x^{(n-1)}=y_n\]
-		Cioè, differenziando l'$i-esimo$ elemento (funzione) del vettore $y$, mi "sposto" all'elemento (funzione) $i+1$ di $y$. A questo punto tutti gli elementi di $y$ sono equazioni differenziali del primo ordine.\\
+		Cioè, differenziando l'$i$\textit{-esimo} elemento (funzione) del vettore $y$, mi "sposto" all'elemento (funzione) $i+1$ di $y$. A questo punto tutti gli elementi di $y$ sono equazioni differenziali del primo ordine.\\
 		Quindi l'equazione può essere scritta come il seguente sistema del primo ordine
 		\[\begin{cases}
 			y_1'\quad=\quad y_2\\
@@ -1392,7 +1392,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			\norm{\varphi'(t)} &= \norm{f\bigl(t,\varphi(t)\bigr)}\\
 			&\leq \sup \limits_{t \in \intervalclop{t_0}{T_M}} \norm{f(t,x)} \tageq\label{eq:cau_glob_dfi_sup}
 		\end{align*}
-		Quindi sia $\varphi(t)$ che $\varphi'(t)$ sono limitate, dunque la $\varphi$ è \textbf{uniformemente continua} su $\intervalclop{t_0}{T_M}$, come da \fullref{prop:if_df_lim_then_unif_cont}.
+		Quindi sia $\varphi(t)$ che $\varphi'(t)$ sono limitate, dunque la $\varphi$ è \textbf{uniformemente continua} su $\intervalclop{t_0}{T_M}$, come da \fullref{prop:convesso_deriv_par_lim_allora_lips}.
 		Da \fullref{prop:if_unif_cont_then_conf}, se la $\varphi(t)$ è uniformemente continua, allora è \textbf{continua}, cioò implica che $\lim \limits_{t \to T_M^-}\varphi(t) = \varphi(T_M)$.
 
 		Essendo $\varphi(T_M) \in \R^n$, posso usare questo punto come condizione iniziale del seguente Problema di Cauchy
