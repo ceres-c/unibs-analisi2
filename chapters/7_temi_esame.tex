@@ -1,4 +1,58 @@
+\begingroup % This group is used to alter exercises numbering scheme
+\renewcommand\theexercise{\arabic{exercise}} % Use same numbering scheme as in publicly available exam sheets
 \chapter{Temi Esame}
+\section{T.E. 3 - AA 2019/2020 - 2020/04/24}
+\begin{exercise}
+	% TODO Ex 1
+\end{exercise}
+\begin{exercise}
+	% TODO Ex 2
+\end{exercise}
+\begin{exercise}
+	Si considerino in $\R^+$ le metriche $d(x, y) = \abs{y - x}$ e $D(x, y) = \abs{e^{-y^2} - e^{-x^2}}$.  Quale/i delle seguenti affermazioni è/sono certamente vera/e?
+	\begin{enumerate}[noitemsep]
+		\item $d$ e $D$ sono equivalenti.
+		\item $(\R^+, D)$ non è completo.
+	\end{enumerate}
+	\begin{solution}~
+		\begin{enumerate}
+			\item
+				Come prima cosa si nota che entrambe le metriche in oggetto sono illimitate, ma in modo "diverso". Infatti, limitando l'analisi a $x$ e scegliendo un $y$ "qualsiasi" (non tendente a nessuno dei due estremi di $\R^+$)
+				\begin{itemize}
+					\item La metrica $d$ tende a $+\infty$ per $x \to +\infty$
+					\item La metrica $D$ tende a $+\infty$ per $x \to 0$
+				\end{itemize}
+				Da \fullref{def:metr_equiv}, si sa che per verificare l'equivalenza delle metriche deve valere
+				\[\exists c,C \in \intervalopen{0}{+\infty}:\; \forall x,y \in X \quad c \cdot d(x,y) \leq D (x,y) \leq C \cdot d (x,y)\]
+				Ma è impossibile trovare un $C \neq +\infty$ tale per cui la D sia minorata da $d$ nel caso in cui $x \to 0$, dunque \textbf{non son equivalenti}.
+			\item
+				A priori, non esiste un modo "standard" per verificare la completezza di un insieme in una data metrica. Se il caso in oggetto è sottoinsieme \textbf{Chiuso} ed utilizza la \textbf{stessa metrica} di un altro \textbf{caso noto} (come \fullref{ex:sp_metr_compl_e_non}), allora è possibile utilizzare la \fullref{prop:subset_compl_e_compl}.\\
+				Se non si rientra nel caso specifico indicato qui sopra, spesso la risposta è "lo spazio metrico \textbf{non} è completo". È però necessario verificarlo individuando una successione di Cauchy che non ammetta limite nell'insieme stesso, negando la \fullref{def:completo}.
+
+				La forma, $e^{-x^2}$ usata nella metrica $D$, tende ad $1$ per $x \to 0$, dunque viene spontaneo cercare una successione $x_n$ che tenda a $0$ per $n \to \infty$. La successione più evidente è, ovviamente, la $x_n = \frac{1}{n}$ che, si vede immediatamente, verifica la \fullref{def:succ_cau}:
+				\[\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } D(x_n, x_m) < \varepsilon\]
+				Verificando ora la convergenza a $0$ mediante \fullref{def:lim_succ}:
+				\[
+					\lim\limits_{n \to \infty} D(x_n, 0) =
+					\lim\limits_{n \to \infty} \abs{
+						e^{-0^2} -
+						e^{-\frac{1}{n}^2}
+					} =
+					\lim\limits_{n \to \infty} \abs{
+						\frac{1}{e^0} -
+						\frac{1}{e^{\frac{1}{n}^2}}
+					} =
+					\abs{
+						\frac{1}{1} -
+						\frac{1}{e^{0}}
+					} =
+					\abs{1 - 1} = 0
+				\]
+				Ma $0 \in \R \notin \R^+$, per definizione di $\R^+ = \intervalopen{0}{+\infty}$. Si è dunque individuato un controesempio alla \fullref{def:completo}, \textbf{negando la completezza}.
+		\end{enumerate}
+	\end{solution}
+\end{exercise}
+
 \section{T.E. 2012/2013 scritto n.1}
 \begin{exercise}
 	Sia $f: \R^2 \to \R$ data da $f(x, y)=e^{-\abs{4\cdot arctan(x\cdot y^2)}}$
@@ -31,3 +85,4 @@
 \end{exercise}
 
 
+\endgroup % Close group and restore default exercise numbering scheme
