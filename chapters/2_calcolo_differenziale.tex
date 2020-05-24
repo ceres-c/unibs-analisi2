@@ -402,16 +402,17 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		M_1 = M_2
 	\end{equation*}
 	\begin{proof}
-		Sia $h \in \R$. Fissato un vettore $e_i$ della base canonica di $\R^n$
+		Sia $t \in \R$ e sia fissato un vettore $e_i$ della base canonica di $\R^n$. Il \textit{prodotto per scalare} $e_i t$ è ancora un vettore in $\R^n$ con l'$i$-esima componente uguale a $t$.
 		\begin{align*}
-			M_2 e_i - M_1 e_1 &=\\
-			\shortintertext{Moltiplicando e dividendo per $h$}
-			&= \frac{1}{h} M_2 (e_i h) - \frac{1}{h} M_1 (e_i h)
+			\shortintertext{Si esegua ora}
+			M_2 e_i - M_1 e_1 &=
+			\shortintertext{Moltiplicando e dividendo per $t$}
+			&= \frac{1}{t} M_2 (e_i t) - \frac{1}{t} M_1 (e_i t)
 			\shortintertext{Grazie alla \fullref{def:differenz}}
-			&= \frac{1}{h} [f(x_0 + h e_i) - f(x_0) + o(h)] - \frac{1}{h} [f(x_0 + h e_i) - f(x_0) + o(h)]\\
-			&= \frac{1}{h} o(h) \text{ per } t \to 0
+			&= \frac{1}{t} [f(x_0 + t e_i) - f(x_0) + o(t)] - \frac{1}{t} [f(x_0 + t e_i) - f(x_0) + o(t)]\\
+			&= \frac{1}{t} o(t) \text{ per } t \to 0
 		\end{align*}
-		Passando al limite per $t \to 0$, si deduce che le applicazioni lineari $M_1$ e $M_2$ hanno le stesse immagini sui vettori della base canonica, quindi coincidono.
+		Essendo stato lasciato $e_i$ generico, significa che è possibile applicare questo ragionamento ad uno qualsiasi degli $n$ vettori della base canonica. Quindi è possibile confrontare tra loro tutte le $n$ colonne delle $M_1$ e $M_2$, verificando l'uguaglianza delle matrici e, quindi, delle due applicazioni lineari.
 	\end{proof}
 \end{proposition}
 \begin{proposition}

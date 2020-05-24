@@ -1,118 +1,502 @@
 \chapter{Successioni e Serie di Funzioni}
+In questo capitolo verranno trattate Successioni e Serie di Funzioni di una sola variabile (in $\R$ o $\C$) a valori in $\R$ o $\C$. Molti dei risultati esposti (in particolare quelli di \fullref{sect:conv_punt}, \fullref{sect:conv_unif} e \fullref{sect:conv_quadr}) valgono anche in ambiti più generali.
+
+La \fullref{sect:ser_funz_particol} invece non può essere facilmente estesa al caso di funzioni di più variabili, si veda \fullref{ex:conv_ser_piu_var}.
+
+\vspace*{\baselineskip}
+Questo capitolo si allontana dal corrispettivo nella dispensa ufficiale del corso al fine di fornire una spiegazione più discorsiva dell'argomento. Non è stato tralasciata alcuna delle definizioni, proposizioni o esercizi presenti nella dispensa, ma è stato aggiunto materiale.
+
+Grazie alla dispensa di Sergio Rolando per la spiegazione chiara e dettagliata a cui si ispira la presente trattazione
+\begin{center}
+	\url{http://calvino.polito.it/~rolando/An2s_04_Successioni.Funzioni.pdf}
+\end{center}
+
 \section{Preliminari}
-\definition
-Sia $f_n:A\subseteq \R\to \R$ una successione ($n\in\N$) , la serie $\sum\limits_{n=09}^{+\infty}f_n$ indica la successione delle somme parziali $S_n = \sum\limits_{i=0}^nf_i$
-\observation
-Qualunque affermazione fatta in riferimento ad una serie va quindi intesa riferita alla successione delle somme parziali
-\begin{description}
-	\item[-] La serie è limitata $\bydef$ la successione delle somme parziali è limitata
-	\item[-] La serie è illimitata $\bydef$ la successione delle somme parziali è illimitata
-	\item[-] La serie è convergente $\bydef$ la successione delle somme parziali è convergente
-\end{description}
-\observation
-Successioni e serie di funzioni possono essere viste:
-\begin{enumerate}
-	\item come successioni e serie dipendenti da un parametro
-	\item come un mezzo per approssimare funzioni
-	\item come un primo passo verso lo studio di funzioni (a volte dette operatori o funzionali) che a funzioni associano o numeri o altre funzioni.
-\end{enumerate}
+Innanzitutto si ricorda la \fullref{def:succ}, cioè, dato un insieme $X \neq \emptyset$, una \textbf{Successione} è una funzione $x: \N \to X$ che associa ad ogni valore di $\N$ un elemento di $X$.
+
+Si consideri ora la successione $x_n = x^n$, i cui termini sono
+\[1 \qquad x^1 \qquad x^2  \qquad \dots \qquad x^n\]
+Si tratta della \textbf{Successione Geometrica} di \textit{termine iniziale} $1$ e \textit{ragione} (la base) $x$. Questa successione può essere studiata con le conoscenze ottenute in \fullref{sect:succ_compl} fissando $x$ e facendo tendere $n$ ad $+\infty$.
+\begin{example}
+	\label{ex:conv_succ_xn}
+	Studiare la convergenza della successione $x^n$, cioè il $\lim\limits_{n \to +\infty} x^n$
+	\begin{solution}
+		Fissando $x \in \R$ a diversi valori, studiando la successione numerica $x^n$ per $n \to \infty$ si ottiene
+		\[
+			\lim\limits_{n \to +\infty} x^n =
+			\begin{cases}
+				\begin{array}{ll}
+					\nexists & \text{se } x \leq -1\\
+					0 & \text{se } x \in \intervalopen{-1}{1}\\
+					1 & \text{se } x = 1\\
+					+\infty & \text{se } x > 1
+				\end{array}
+			\end{cases}
+		\]
+	\end{solution}
+\end{example}
+
+Cambiando però, dal punto di vista concettuale, i ruoli di $x$ ed $n$, cioè fissando $n$ e considerando $x$ come una variabile reale, si vede che ogni termine della successione è una \textbf{funzione} e che quindi la successione è \textbf{Successione di Funzioni}
+\[f_0(x) = 1 \qquad f_1(x) = x^1 \qquad f_2(x) = x^2  \qquad \dots \qquad f_n(x) = x^n\]
+\vspace*{-\baselineskip}
+\begin{note}
+	Le funzioni della successione, a rigore, si chiamano $f_0, f_1, f_2 ,\:\dotsc\:, f_n$ mentre i vari $f_\alpha(x) = x^\alpha$ sono i valori assunti da esse nel punto $x$
+\end{note}
+Si giunge dunque alla seguente definizione, tutt'altro che formale
+\begin{definition}[Successione di Funzioni]
+	\label{def:succ_funz}
+	Si definisce \textbf{Successione di Funzioni} l'insieme
+	\[\brackets{f_n:\; n \in \N} \text{ di funzioni } f_n:\; A \to \R\]
+	dipendenti da un indice naturale $n$ (oltre cheda una variabile reale $x$) e definite su un \textbf{dominio comune} $A$.
+\end{definition}
+
+\begin{definition}[Successione delle Somme Parziali]
+	\label{def:succ_somm_parz}
+	Sia $X$ uno \textbf{Spazio Vettoriale} su $\R$ o su $\C$. Data una \textbf{Successione} $\brackets{x_n:\; n \in \N}$ di elementi di $X$, per ogni indice $k$ della successione si definisce una \textbf{Successione delle Somme Parziali}. Cioè il $k$\textit{-esimo} termine di $s$ è la somma dei termini da $0$ a $k$ della successione $x_n$:
+	\[s_k = \sum\limits_{n = 0}^{k} x_n\]
+	Quindi
+	\begin{align*}
+		s_0 &= x_0\\
+		s_1 &= x_0 + x_1\\
+		&\;\;\vdots\\
+		s_k &= x_0 + x_1 + \dots + x_k
+	\end{align*}
+\end{definition}
+
+\begin{definition}[Serie]
+	\label{def:serie}
+	Sia $X$ uno \textbf{Spazio Vettoriale} su $\R$ o su $\C$. Data una \textbf{Successione} $\brackets{x_n:\; n \in \N}$ di elementi di $X$, si definisce \textbf{Serie associata alla Successione} $x_n$ la somma di tutti i termini della successione:
+	\[s = \sum\limits_{n = 0}^{+\infty} x_n = x_0 + x_1 + \dots\]
+	Quindi si può definire la Serie usando la \fullref{def:succ_somm_parz} con $k \to +\infty$
+	\[s = \lim\limits_{k \to +\infty} \sum\limits_{n = 0}^{k} x_n = \sum\limits_{n = 0}^{+\infty} x_n\]
+\end{definition}
+\begin{observation}
+	Le \fullref{def:succ_somm_parz} e \fullref{def:serie} non fanno esplicitamente riferimento a successioni del tipo di \fullref{def:succ_funz}, ma ovviamente valgono anche quando $x_n$ è Successione di Funzioni.
+\end{observation}
+\begin{observation}
+	La \fullref{def:serie} è intimamente legata alla \fullref{def:succ_somm_parz}, infatti per studiare il comportamento della Serie basta studiare la Successione delle Somme Parziali per $k \to +\infty$. Di conseguenza:
+	\begin{align*}
+		\text{La Serie è \textbf{Limitata}} \quad &\bydef \quad \text{La Successione delle Somme Parziali è \textbf{Limitata}}\\
+		\text{La Serie è \textbf{Illimitata}} \quad &\bydef \quad \text{La Successione delle Somme Parziali è \textbf{Illimitata}}\\
+		\text{La Serie è \textbf{Convergente}} \quad &\bydef \quad \text{La Successione delle Somme Parziali è \textbf{Convergente}}
+	\end{align*}
+\end{observation}
+\begin{observation}
+	Data una qualsiasi \textbf{Successione} $s_n$, questa può essere vista come una \textbf{Successione delle Somme Parziali} di una Serie $x_n$ i cui termini sono così definiti induttivamente:
+	\begin{align*}
+		x_0 &= s_0 = x_0\\
+		x_1 &= s_1 - s_0 = (x_0 + x_1) - x_0 = x_1\\
+		x_2 &= s_2 - s_1 = (x_0 + x_1 + x_2) - (x_0 + x_1) = x_2\\
+		&\;\;\vdots\\
+		x_n &= s_n - s_{n - 1}
+	\end{align*}
+	Quindi ogni definizione o proposizione enunciata in relazione alle successioni ha un \textit{alter ego} relativa alle serie e viceversa. Non sempre per entrambe le versioni di una definizione o proposizione sono equivalentemente interessanti. Vedasi \fullref{def:AAAAAAAAA}.
+\end{observation}
+\begin{observation}
+	Successioni e Serie di Funzioni possono essere viste come:
+	\begin{enumerate}
+		\item Successioni e Serie numeriche dipendenti da un parametro
+		\item un mezzo per approssimare funzioni
+		\item un primo passo verso lo studio di funzioni che a funzioni associano numeri o altre funzioni (questo tipo di funzioni è detto \textit{operatori} o \textit{funzionali})
+	\end{enumerate}
+\end{observation}
+
 \newpage
 \section{Tipi Di Convergenza}
-\subsection{Convergenza Puntuale}
-\definition
-Sia $A\subseteq \R$ e $\brackets{f_n:n\in\N}$ una successione di funzioni definite su $A$ a valori in $ \R$. Sia $B\subseteq A$
-\begin{description}
-	\item[-] la successione $\brackets{f_n:n\N}$ è puntualmente convergente su $B$ se $\forall x \in B$, esiste finito il limite $\lim\limits_{n\to\infty}f_n(x)$. In tal caso la funzione $f:B\to  \R$ definito da $f(x)=\lim\limits_{n\to\infty}f_n(x)$
-	\item[-] la serie $\sum\limits_{n=0}^{\infty}f_n$ è puntualmente convergente su $B$ se $\forall x \in B$, la serie $\sum\limits_{n=0}^{\infty}f_n(x)$ ammette somma finita. In tal caso la funzione $F:B\to  \R$ definito da $F(x)=\sum\limits_{n=0}^{\infty}f_n(x)$ è la somma della serie la serie $\sum\limits_{n=0}^{\infty}f_n$
-\end{description}
-\observation
-La convergenza puntuale su $A$ della successione $f_n$ verso $f$ è indicata con
-\[f_n \pconvarrow f\quad su A\]
-\begin{proposition}[METAPROPOSIZIONE]
-	Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
-	Se $f_n \pconvarrow f$ su $B$ e se $f_n$ ha la proprietà $P$ allora il limite $f$ ha la proprietà $P$.
+\subsection{Convergenza Puntuale}\label{sect:conv_punt}
+Tornando a \fullref{ex:conv_succ_xn}, lo stesso procedimento logico può essere applicato a qualsiasi successione di funzioni $f_n$: si può immaginare di stabilire un valore $\in \R$ per la $x$ e studiare il comportamento della successione numerica dei valori $f_n(x)$ assunti dalle varie $f_n$ in quel punto.\\
+Se la successione numerica della $f_n$ converge, allora si dirà che \textbf{la successione di funzioni $f_n$ converge nel punto $x$}.
+
+Ancora dai risultati di \fullref{ex:conv_succ_xn}, si vede che $f_n$ converge solo per valori $x \in \intervalopcl{-1}{1}$, dunque risulta:
+\[
+	\lim\limits_{n \to +\infty} x^n =
+	\begin{cases}
+		\begin{array}{ll}
+			0 & \text{se } x \in \intervalopen{-1}{1}\\
+			1 & \text{se } x = 1
+		\end{array}
+	\end{cases}
+\]
+Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n$ esiste finito, il limite di $x^n$ è \textbf{rappresentato} da una \textbf{funzione limite puntuale} $f$ del tipo
+\[
+	f(x) =
+	\begin{cases}
+		\begin{array}{ll}
+			0 & \text{se } x \in \intervalopen{-1}{1}\\
+			1 & \text{se } x = 1
+		\end{array}
+	\end{cases}
+\]
+
+\begin{definition}[Successione Puntualmente Convergente]
+	\label{def:succ_punt_conv}
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
+	La \textbf{Successione} $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
+	\[\forall x \in B \qquad \lim\limits_{n \to +\infty} f_n(x) \;\; \exists \text{ finito}\]
+	Se $f_n$ è Puntualmente Convergente, allora esiste una \textbf{Funzione Limite Puntuale} definita come
+	\[\funcdef{f}{B}{\R}{x}{\lim\limits_{n \to +\infty} f_n(x)}\]
+	Cioè la funzione $f$ associa ad ogni punto di $B$ il valore a cui converge la $f_n$ in quel punto.
+
+	\vspace*{\baselineskip}
+	La convergenza puntuale su $A$ della successione $f_n$ verso $f$ è indicata con
+	\[f_n \pconvarrow f \text{ su } A\]
+\end{definition}
+\begin{definition}[Serie Puntualmente Convergente]
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
+	La \textbf{Serie} $s =\sum\limits_{n = 0}^{+\infty}$ associata alla Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
+	\[\forall x \in B \qquad \sum\limits_{n = 0}^{+\infty} \;\; \exists \text{ finita}\]
+	Se $f_n$ è Puntualmente Convergente, allora esiste una \textbf{Funzione Limite Puntuale} definita come
+	\[\funcdef{F}{B}{\R}{x}{\sum\limits_{n = 0}^{+\infty}}\]
+	Cioè la funzione $F$ associa ad ogni punto di $B$ il valore della serie $s$ in quel punto (che poi è la somma di tutti gli $f_n$ della successione, per \fullref{def:serie}).
+\end{definition}
+\begin{observation}
+	Graficamente, si può vedere che $f_n \pconvarrow f$ se, fissato un $x_0 \in A$, per $n \to +\infty$ si ha $f_n(x_0) \to f(x_0)$
+	\begin{figure}[H]
+		\begin{subfigure}{.33\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\pgfmathsetmacro{\xzero}{.5}
+					\begin{axis} [
+						xlabel={$x$},ylabel={$f_n(x)$},
+						axis lines=middle,
+						axis equal,
+						ymax = 1.1,
+						legend pos = outer north east
+					]
+						\pgfplotsinvokeforeach{1,2,...,15} {
+							\addplot [smooth, domain=0:1.3] {pow(x, #1)};
+							\node[circle, fill=black, inner sep=1.2pt] at (\xzero, {pow(\xzero, #1)}) {};
+						}
+
+						\draw[dashed] (\xzero, 0) -- (\xzero, \xzero);
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{$x_0 = \frac{1}{2}$}
+			\label{fig:conv_punt_grap_05}
+		\end{subfigure}
+		\begin{subfigure}{.33\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\pgfmathsetmacro{\xzero}{.75}
+					\begin{axis} [
+						xlabel={$x$},ylabel={$f_n(x)$},
+						axis lines=middle,
+						axis equal,
+						ymax = 1.1,
+						legend pos = outer north east
+					]
+						\pgfplotsinvokeforeach{1,2,...,15} {
+							\addplot [smooth, domain=0:1.3] {pow(x, #1)};
+							\node[circle, fill=black, inner sep=1.2pt] at (\xzero, {pow(\xzero, #1)}) {};
+						}
+
+						\draw[dashed] (\xzero, 0) -- (\xzero, \xzero);
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{$x_0 = \frac{3}{4}$}
+			\label{fig:conv_punt_grap_075}
+		\end{subfigure}
+		\begin{subfigure}{.33\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\pgfmathsetmacro{\xzero}{1}
+					\begin{axis} [
+						xlabel={$x$},ylabel={$f_n(x)$},
+						axis lines=middle,
+						axis equal,
+						ymax = 1.1,
+						legend pos = outer north east
+					]
+						\pgfplotsinvokeforeach{1,2,...,15} {
+							\addplot [smooth, domain=0:1.3] {pow(x, #1)};
+						}
+
+						\node[circle, fill=black, inner sep=1.4pt] at (\xzero, \xzero) {};
+						\draw[dashed] (\xzero, 0) -- (\xzero, \xzero);
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{$x_0 = 1$}
+			\label{fig:conv_punt_grap_1}
+		\end{subfigure}
+		\caption{Si vede che, al crescere di $n$, le $f(x_0)$ convergono a $0$ (in \ref{fig:conv_punt_grap_05} e \ref{fig:conv_punt_grap_075}) o $1$ (in \ref{fig:conv_punt_grap_1})}
+	\end{figure}
+\end{observation}
+
+\begin{example}
+	La successione
+	\[f_n(x)=\frac{1}{n}sin(x)\]
+	è puntualmente convergente a $0$ su tutto il dominio delle $f_n$, cioè $f_n \pconvarrow 0$ su $B = A = \R$, infatti:
+	\[
+		\lim\limits_{n \to \infty} f_n(x) = \lim\limits_{n \to \infty} \frac{1}{n} sin(x) = 0 \quad \forall x \in A
+	\]
+\end{example}
+\begin{example}
+	La successione
+	\[f_n(x)=e^{nx}\]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					xlabel={$x$},ylabel={$f(x)$},
+					axis lines=middle,
+					domain=-1.5:1.5,
+					ymin=-1,ymax=4,
+					legend pos = north east
+				]
+				\addplot[smooth] {1};
+				\addlegendentry{$1$}
+				\addplot[blue, smooth] {e^(2*x)};
+				\addlegendentry{$e^{2x}$}
+				\addplot[red, smooth] {e^(-2*x)};
+				\addlegendentry{$e^{-2x}$}
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	Ha questo comportamento
+	\[
+		\lim\limits_{n \to \infty} e^{nx} =
+		\begin{cases}
+			\begin{array}{ll}
+				0 & x<0\\
+				1 & x=0\\
+				\infty & x>0
+			\end{array}
+		\end{cases}
+	\]
+	Dunque
+	\[f_n \pconvarrow f\quad \text{ su } B = \intervalopcl{-\infty}{0}\]
+\end{example}
+
+\begin{proposition}
+	\label{prop:conv_punt_lim_succ}
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $f:\; B \to \R$. Allora
+	\[
+		f_n \pconvarrow f \text{ su } B \text{ per } n \to +\infty
+		\quad \iff \quad
+		\begin{cases}
+			\forall \varepsilon > 0 \quad \forall x \in B\\
+			\exists \nu \in \N:\; \forall n > \nu \quad \abs{f_n(x) - f(x)} \leq \varepsilon
+		\end{cases}
+	\]
+	\begin{proof}
+		Da \fullref{def:succ_punt_conv} si sa che
+		\[f(x) = \lim\limits_{n \to +\infty} f_n(x) \qquad \forall x \in B\]
+		Dunque, applicando la \fullref{def:lim_succ}
+		\[
+			\forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d \bigl( f_n(x), f(x) \bigr) < \varepsilon  \qquad \forall x \in B
+		\]
+		Essendo in $f_n$ e $f$ a valori in $\R$, la $d$ è Metrica Euclidea, dunque
+		\[
+			\forall\varepsilon > 0 \quad \forall x \in B \quad \exists\nu\in\N:\; \forall n > \nu \quad \abs{f_n(x) - f(x)} < \varepsilon
+		\]
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $F:\; B \to \R$. Allora
+	\[
+		\sum\limits_{n = 0}^{+\infty} f_n \pconvarrow F \text{ su } B
+		\quad \iff \quad
+		\begin{cases}
+			\forall \varepsilon > 0 \quad \forall x \in B\\
+			\exists \nu \in \N:\; \forall n > \nu \quad \abs{\sum\limits_{n = 0}^{k} f_n(x) - F(x)} \leq \varepsilon
+		\end{cases}
+	\]
+	\begin{proof}
+		Analoga alla \fullref{prop:conv_punt_lim_succ} ricordando la definizione di $F$ in \fullref{def:serie}.
+	\end{proof}
 \end{proposition}
 
-\example $f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
-$\lim\limits_{n\to\infty}f_n(x)=\lim\limits_{n\to\infty}\frac{1}{n}sin(x)=0\quad\forall x \in A \implies f_n \pconvarrow 0$ su $A$.
+\begin{proposition}[Metaproposizione sulle Proprietà delle Successioni]
+	Sia $f_n:\; A \to \R$, $B \subseteq A \subseteq \R$, $f:\; B \to \R$\\
+	Se $f_n \pconvarrow f$ su $B$ e se $f_n$ ha la proprietà $P$, allora la funzione limite puntuale $f$ ha a sua volta la proprietà $P$.
+	\begin{note}
+		La continuità (e quindi anche la derivabilità) non è una proprietà che passa alla funzione limite, come visto in \fullref{ex:conv_succ_xn}, dove la $f$ ha un punto di discontinuità in $x = 1$.
+	\end{note}
+	\begin{proof}
+		Verrà svolta per le singole proprietà.
+	\end{proof}
+\end{proposition}
+\begin{exercise}
+	\label{ex:dim_prop_lim_conv_punt}
+	Enunciare rigorosamente e dimostrare:
+	\begin{enumerate}
+		\item Il limite puntuale della somma (prodotto, combinazione lineare) di due successioni di funzioni è la somma (prodotto, combinazione lineare) delle funzioni limiti puntuali
+		\item \label{itm:prop_lim_punt_non_neg} Il limite puntuale di una successione di funzioni non negative è una funzione non negativa
+		\item \label{itm:prop_lim_punt_monotonia} Il limite puntuale di una successione di funzioni debolmente/strettamente crescenti/decrescenti è una funzione debolmente crescente/decrescente
+		\item Il Criterio di Cauchy (da \fullref{def:succ_cau}) per la convergenza puntuale di serie e successioni
+		\item Se la serie $\sum\limits_{n = 0}^{+\infty} f_n(x)$ converge puntualmente in un insieme $B$, allora $f_n \pconvarrow 0$ su $B$
+	\end{enumerate}
+	\begin{solution}~
+		\renewcommand\qedsymbol{$\square$} % To restore the default empty square for the proof environments below
+		\begin{enumerate}
+			\item[\ref*{itm:prop_lim_punt_non_neg}]
+				Sia $f_n:\; A \to \R$, $B \subseteq A \subseteq \R$ e $f:\; B \to A$\\
+				Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è non negativa su $B$, cioè $f_n \geq 0$, allora il limite puntuale $f$ è non negativo, $f \geq 0$, su $B$.
+				\begin{proof}
+					Da \fullref{def:succ_punt_conv}, si sa che
+					\[f(x) = \lim\limits_{n \to \infty} f_n(x) \quad \forall x \in B\]
+					Ma $f_n$ è, per ipotesi, una successione di valori non negativi, quindi il limite esiste ed è non negativo.
 
-\example$f_n(x)=e^{nx}$ con $A\equiv \R$
-\begin{center}
-	\begin{tikzpicture}[scale=1]
-		\begin{axis}[
-			xlabel={$x$},ylabel={$y$},
-			axis lines=middle,
-			samples=41,grid,thick,
-			domain=-1:1,
-			ymin=-1,ymax=4,
-			legend pos=outer north east ]
-			\addplot+[no marks] {1}; \addlegendentry{$1$}
-			\addplot+[no marks] {e^x}; \addlegendentry{$e^x$}
-			\addplot+[no marks]{e^(2*x)}; \addlegendentry{$e^{2x}$}
-			\addplot+[no marks]{e^(3*x)}; \addlegendentry{$e^{3x}$}
-			\end{axis}
-	\end{tikzpicture}
-\end{center}
-\[\lim\limits_{n\to\infty}e^{nx} = \left\{\begin{matrix} 0 && x<0\\1&&x=0\\\infty&&x>0 \end{matrix}\right.\]
-\[f_n \pconvarrow f\quad su B=\left]-\infty,0\right]\]
-\observation
-La continuità non passa al limite come proprietà $P$
+					La dimostrazione è analoga per funzioni non positive.
+				\end{proof}
+			\item[\ref*{itm:prop_lim_punt_monotonia}]
+				Sia $f_n:\; A \to \R$, $B \subseteq A \subseteq \R$ e $f:\; B \to A$\\
+				Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è debolmente crescente su $B$, allora il limite puntuale $f$ è debolmente crescente su $B$.
+				\begin{proof}
+					Il fatto che $f_n$ sia debolmente crescente su $B$ implica che
+					\[\forall x_1, x_2 \in B \quad x_1 \leq x_2 \implies f_n(x_1) \leq f_n(x_2)\]
+					Con $n \to \infty$, essendo nell'insieme $B$, si ha che $f(x_1) \leq f(x_2)$ per definizione di $f$ da \fullref{def:succ_punt_conv}.
 
-\example $f_n(x)=x^n$ con $A\equiv \R$
-\begin{center}
-	\begin{tikzpicture}[scale=1]
-		\begin{axis}[
-			xlabel={$x$},ylabel={$y$},
-			axis lines=middle,
-			samples=41,grid,thick,
-			domain=-2:2,
-			ymin=-2,ymax=2,
-			legend pos=outer north east ]
-			\addplot+[no marks] {1}; \addlegendentry{$1$}
-			\addplot+[no marks] {x}; \addlegendentry{$x$}
-			\addplot+[no marks] {x^2}; \addlegendentry{$x^2$}
-			\addplot+[no marks] {x^3}; \addlegendentry{$x^3$}
+					La dimostrazione è analoga per funzioni debolmente decrescenti e strettamente/debolmente crescenti.
+					\let\qed\relax % In order to avoid having two squares, hide the innermost one
+				\end{proof}
+			% TODO remaining points
+			\vspace*{-2\baselineskip} % To remove the whitespace due to enumerate environment
+		\end{enumerate}
+	\end{solution}
+\end{exercise}
+\begin{observation}
+	In riferimento al punto \ref{itm:prop_lim_punt_non_neg} dell'\fullref{ex:dim_prop_lim_conv_punt}, è necessario sottolineare come non sia invece possibie avere certezze sulla \textbf{stretta} positività/negatività del limite puntuale di una successione di funzioni strettamente positive/negative.\\
+	Ad esempio, $-\frac{e^x}{n}$ con $x \in \intervalclop{0}{1}$ è strettamente negativa, ma il limite puntuale è costante $0$.
+\end{observation}
+\begin{observation}
+	In riferimento al punto \ref{itm:prop_lim_punt_monotonia} dell'\fullref{ex:dim_prop_lim_conv_punt}, è necessario sottolineare come non sia invece possibie avere certezze sulla \textbf{stretta} crescenza/decrescenza del limite puntuale.\\
+	Come esempio, vedasi \fullref{ex:conv_succ_xn} in cui si studia la successione strettamente crescente $x^n$, il cui limite puntuale è però costante (dunque non \textbf{strettamente} crescente) in $B = \intervalclop{0}{1}$.
+\end{observation}
+
+\cbstart
+\subsection{L'Insufficienza della Convergenza Puntuale}
+\setcounter{theorem}{0} % Reset counter to fix numbering for equation outside theorem envs
+La Convergenza Uniforme si può rivelare insufficiente per diverse ragioni, tra cui:
+\begin{itemize}
+	\item
+		Può spesso esser comodo utilizzare una successione $f_n$ convergente puntualmente a $f$ nel caso in cui $f$ non sia ottenibile in modo esplicito (ad esempio nella soluzione di un'equazione differenziale). Però, come visto in \fullref{ex:conv_succ_xn}, la convergenza puntuale non trasferisce necessariamente proprietà come Continuità, Limitatezza o Derivabilità alla funzione limite puntuale.
+		La successione $f_n = x^n$ di \fullref{ex:conv_succ_xn}, ad esempio, è formata da funzioni $\in \cntclass{\infty}(\intervalclose{0}{1}; \R)$, però la funzione limite puntuale
+		\[
+			f =
+			\begin{cases}
+				\begin{array}{ll}
+					0 & \text{se } x \in \intervalopen{-1}{1}\\
+					1 & \text{se } x = 1
+				\end{array}
+			\end{cases}
+		\]
+		non è né continua né, tantomeno, derivabile nello stesso intervallo.
+		\begin{figure}[H]
+			\begin{subfigure}{.49\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							xlabel={$x$},ylabel={$f_n(x)$},
+							axis lines=middle,
+							axis equal,
+							ymax = 1.1,
+							legend pos = outer north east
+						]
+							\pgfplotsinvokeforeach{0,1,...,15} {
+								\addplot [smooth, domain=0:1.3] {pow(x, #1)};
+							}
+						\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{$f_n(x) = x^n \quad 0 \leq n \leq 15$}
+			\end{subfigure}
+			\begin{subfigure}{.49\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							xlabel={$x$},ylabel={$f(x)$},
+							axis lines=middle,
+							axis equal,
+							ymax = 1.1,
+							legend pos = outer north east
+						]
+							\addplot [smooth, line width=2pt, domain=0:1] {0};
+							\addplot [color=black, fill=white, only marks, mark=*] coordinates {(1,0)};
+							\addplot [color=black, only marks, mark=*] coordinates {(1,1)};
+						\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{$f(x) \quad x \in \intervalclose{0}{1}$}
+			\end{subfigure}
+			\caption{$f_n(x) \in \cntclass{\infty}(\intervalclose{0}{1}; \R)$, mentre la funzione limite puntuale $f$ è discontinua.}
+			\label{fig:cont_fn_non_passa_a_f}
+		\end{figure}
+	\item
+		Supponendo di voler calcolare l'integrale
+		\begin{equation}
+			\label{eq:insuf_conv_punt_int_f}
+			\int_a^b f(x) \integrald{x}
+		\end{equation}
+		Ma con $f$ non integrabile (o magari anche solo $f$ non integrabile in modo elementare). Si cercherebbe dunque di approssimarlo con una successione di integrali tipo
+		\begin{equation}
+			\label{eq:insuf_conv_punt_int_fn}
+			\int_a^b f_n(x) \integrald{x}
+		\end{equation}
+		Potrebbe venire naturale di prendere una successione $f_n$ Puntualmente Convergente a $f$ e quindi considerare gli integrali delle $f_n$ della \cref{eq:insuf_conv_punt_int_fn} come approssimazioni dell'integrale \cref{eq:insuf_conv_punt_int_f}. Questo ragionamento è però valido solo nel caso in cui valga
+		\begin{equation}
+			\label{eq:conv_punt_pass_lim_integrale}
+			\lim\limits_{n \to +\infty} \int_a^b f_n(x) \integrald{x} = \int_a^b \lim\limits_{n \to +\infty} f_n(x) \integrald{x} = \int_a^b f(x) \integrald{x}
+		\end{equation}
+		Cioè eseguendo il \textit{passaggio al limite sotto il segno di integrale}, operazione di cui si è già parlato nell'introduzione al \fullref{chap:int_doppi} specificando che, con gli integrali di Riemann, non è affatto scontato sia possibile.\\
+		Nel caso della convergenza puntuale non son garantite le iptesi necessarie, dunque non è possibile passare al limite sotto l'integrale, come si vede nel successivo \fullref{ex:conv_punt_no_pass_lim_integrale}.
+\end{itemize}
+La Convergenza Puntuale presenta le problematiche evidenziate in quanto non si basa su alcun tipo di concetto di \textbf{distanza tra funzioni}. Infatti, ricordando \fullref{def:succ_punt_conv}, avere convergenza puntuale $f_n \pconvarrow f$ su un certo insieme $A$ significa che, fissato un qualsiasi $x_0 \in A$, si ha
+\[\lim\limits_{n \to +\infty} d \bigl( f_n(x_0), f(x_0) \bigr) = 0\]
+Con $d$ Metrica Euclidea, distanza tra i valori di $f_n$ ed $f$ nel punto $x_0$ precedentemente fissato. In pratica, i valori di $f_n$ e $f$ vengono considerati \textbf{punto per punto} separatamente e la convergenza puntuale non è influenzata da tutti gli altri valori che le funzioni possono assumere in un intorno di $x_0$.
+\begin{example}
+	\label{ex:conv_punt_no_pass_lim_integrale}
+	La successione
+	\[
+		\funcdef{f_n}{\intervalclose{0}{1}}{\R}{x}{
+			\begin{cases}
+				\begin{array}{ll}
+					0 & \text{se } x \in \brackets{0} \cup \intervalopcl{\frac{1}{n}}{1}\\
+					-n^2x + n & \text{se } x \in \intervalopcl{0}{\frac{1}{n}}
+				\end{array}
+			\end{cases}
+		}
+	\]
+	converge puntualmente alla funzione $f(x) = 0$ su $\intervalclose{0}{1}$. Infatti, essendo $\frac{1}{n} \to 0$ per $n \to +\infty$, un qualsiasi $x \in \intervalclose{0}{1}$ cadrà nell'intervallo $\intervalopcl{\frac{1}{n}}{1}$ in cui $f_n$ è definita essere $0$. Quindi $\lim\limits_{n \to +\infty} f_n(x) = 0$.
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis} [
+				clip mode = individual,
+				xlabel={$x$},ylabel={$f_n(x)$},
+				axis lines=middle,
+				xmax=1.2, ymax=5.5,
+				yticklabels={,,}, xticklabels={,,}
+			]
+				\addplot [color=black, only marks, mark=*] coordinates {(0,0)};
+				\pgfplotsinvokeforeach{2, 3, 5} {
+					\addplot [thick, domain=0:(1/#1)] {-pow(#1, 2)*x + #1};
+					\addplot [color=black, fill=white, only marks, mark=*] coordinates {(0,#1)};
+				}
+				\addplot [line width=2pt, domain=(1/5):1] {0}; % We need only a single line on x axis, the one starting at the smallest 1/n
+				\node [below] at (1, -.2) {$1$};
+				\node [below] at (1/5, -.2) {$\frac{1}{n}$};
+				\node [left] at (-.02, 2) {$n$};
 			\end{axis}
-	\end{tikzpicture}
-\end{center}
-\[\lim\limits_{n\to\infty}x^{n} = \brackets{\begin{matrix}+\infty&&x\in\left]1,+\infty\right[\\ 1 && x\in\left\{1}\\0&&x\in\left]-1,1\right[\\\nexists &&x\in\left]-\infty,-1\right] \end{matrix}\right.\]
-\[f_n \pconvarrow f\quad su B=\left]-1,1\right]\]
-\proposition PROPRIETÀ P:MONOTONIA\\
-Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
-Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è debolmente crescente su $B$ allora il limite $f$ è debolmente crescente su $B$.
-\begin{proof}
-	Dire che $f_n$ è debolmente crescente su $B$ significa che \[\forall x_1,x_2\in B \quad x_1 \leq x_2 \implies fn(x_1) \leq f_n(x_2)\]
-	se si fa tendere $n\to\infty$ si ha che $f(x_1) \leq f(x_2)$, e questo nell'insieme $B$ dove i limiti puntuali delle funzioni esistono per ipotesi
-\end{proof}
-\observation
-Questo vale anche nel caso di funzioni debolmente decrescenti
-\observation
-se $f_n$ è strettamente crescente/decrescente con le stesse ipotesi non possiamo concludere che il limite puntuale mantenga la stessa proprietà\\
-\example $x^n$ con $x\in\left[0,1\right[$ è strettamente crescente ma il limite putuale è costante uguale a zero.
-\proposition PROPRIETÀ P:NON NEGATIVA\\
-Sia $f_n:A\to \R$, $B\subseteq A$, $A\subseteq \R$, $f:B\to A$\\
-Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è non negativa, $f_n \geq 0$, su $B$ allora il limite $f$ è non negativo, $f \geq 0$, su $B$.
-\begin{proof}
-	Sappiamo che $f(x)=\lim\limits_{n\to\infty}f_n(x)$ $\forall x\in B$.
-	Ma $f_n$ è una successione di valori non negativi quindi il limite esiste ed è non negativo.
-\end{proof}
-\observation
-Questo vale anche nel caso di funzioni non positive
-\observation
-Questa proposizione non può essere estesa al caso di funzioni strettamente positive/negative.\\
-\example $	-\frac{e^x}{n}$ con $x\in\left[0,1\right[$ è strettamente negativa ma il limite è costante uguale a zero.
-\proposition
-Siano $A\subseteq \R, B\subseteq A$, $\brackets{f_n:n\in\N}$ una successione di funzioni definite su $A$ con valori in $ \R$. sia $f:B\to \R$ una funzione\\
-$f_n \pconvarrow f$ su $B$ per $n\to\infty \iff \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{f_n(x)-f(x)} \leq \epsilon$
-\begin{proof}
-	direttamene dalla definizione...
-\end{proof}
-\proposition
-Siano $A\subseteq \R, B\subseteq A$, $\brackets{f_n:n\in\N}$ una successione di funzioni definite su $A$ con valori in $ \R$. Sia $F:B\to \R$ una funzione\\
-$\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \forall x\in B,\forall \epsilon >0,\exists\nu\in\N:\forall n>\nu \quad \abs{\sum\limits_{k=0}^{\infty}f_k(x)-F(x)} \leq \epsilon$
-\begin{proof}
-	direttamene dalla definizione...
-\end{proof}
+		\end{tikzpicture}
+	\end{center}
+	Gli integrali delle $f_n$ sono:
+	\begin{align*}
+		&\int_0^1 f_n(x) \integrald{x} =\\
+		&= \int_0^{\frac{1}{n}} \left( -n^2x + n \right)\integrald{x} + \int_{\frac{1}{n}}^1 0 \integrald{x}\\
+		&= \left[ -\frac{n^2}{2}x^2 + nx \right]_0^{\frac{1}{n}}\\
+		&= -\frac{n^2}{2}\frac{1}{n^2} + n \frac{1}{n}\\
+		&= \frac{1}{2}
+	\end{align*}
+	L'integrale della funzione limite puntuale $f$ sarebbe, ovviamente, $0$, essendo stato dimostrato prima che $f_n \pconvarrow 0$, dunque l'uguaglianza di \cref{eq:conv_punt_pass_lim_integrale} non vale.
+\end{example}
+\cbend
 
 \subsection{Convergenza Uniforme}\label{sect:conv_unif}
 \begin{definition}[Convergenza Uniforme]
@@ -141,6 +525,10 @@ $\sum\limits_{n=0}^{\infty}f_n \pconvarrow F$ su $B$ per $n\to\infty \iff \foral
 	\label{ex:BBBBBBBBBB}
 	%TODO Esempio 19.36 dal libro
 \end{example}
+\begin{definition}
+	\label{def:AAAAAAAAA}
+	% TODO Definizione 19.42 dal libro
+\end{definition}
 
 
 \proposition
@@ -333,7 +721,7 @@ $\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$ $\implies$  $\sum\li
 \observation
 Per le serie:\\
 Convergenza Totale $\implies$ Convergenza Uniforme $\implies$ Convergenza Puntuale.
-\subsection{Convergenza Quadratica}
+\subsection{Convergenza Quadratica}\label{sect:conv_quadr}
 % TODO This subsection is a stub
 \begin{proposition}
 	\label{def:dist_quadratica}
@@ -348,12 +736,15 @@ Convergenza Totale $\implies$ Convergenza Uniforme $\implies$ Convergenza Puntua
 \end{proposition}
 
 \newpage
-\section{Serie di Funzioni Particolari}
+\section{Serie di Funzioni Particolari}\label{sect:ser_funz_particol}
 Questa sezione è dedicata ad alcune tecniche di approssimazione  basate su serie di funzioni particolari\\
 In generale, un'approssimazione si riconduce ad una formula del tipo
 \[\left[\text{quantità da calcolare}\right]=\left[\text{quantità approssimante}\right]+ errore\]
 La qualità dell'approssimazione è descritta dal senso in cui l'errore è piccolo.
 \subsection{Serie di Potenze}
+\begin{exercise} % TODO Esercizio 20.11 dal libro
+	\label{ex:conv_ser_piu_var}
+\end{exercise}
 \definition
 Siano $\brackets{a_n:n\in\N}$ una successione con $a_n:\N\to\C$ e $z_0\in\C$.\\
 Si dice serie di potenze centrata in $z_0 \bydef \sum\limits_{n=0}^{+\infty}a_n\left(z-z_0\right)^n$
@@ -582,14 +973,10 @@ Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Ques
 \begin{exercise}
 	\label{ex:deriv_func_with_taylor}
 	Determinare le derivate delle funzioni
-	\begin{itemize}
-		\vspace*{-4ex} % I've no idea WTF is wrong with these equations, but the spacing is atrocious without this ugly fix
+	\begin{itemize}[noitemsep]
 		\item $x \to \sin x$
-		\vspace*{-5ex}
 		\item $x \to \cos x$
-		\vspace*{-5ex}
 		\item $x \to e^x$
-		\vspace*{-4ex}
 	\end{itemize}
 	utilizzando \fullref{ex:tay_series_examples}, il \fullref{lemma:taylor_rad_convergency} ed il \fullref{coro:deriv_series_series_of_deriv}.
 \end{exercise}
