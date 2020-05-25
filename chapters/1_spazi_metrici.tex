@@ -176,17 +176,19 @@ Unendo le due definizioni si giunge naturalmente a
 				$X$ è l'insieme delle infinite funzioni continue nell'intervallo $\intervalclose{a}{b}$.
 			\end{note}
 			\begin{center}
-				\begin{tikzpicture}[scale=1]
+				\begin{tikzpicture}
 					\begin{axis}[
 						xlabel={$x$},ylabel={$y$},
 						axis lines=middle,
-						samples=41,grid,thick,
+						thick,
 						domain=-1:1,
-						ymin=-1,ymax=4,
-						legend pos=outer north east ]
-						\addplot+[no marks] {e^-(abs(x*x))}; \addlegendentry{$f(x)$}
-						\addplot+[no marks] {-0.5}; \addlegendentry{$g(x)$}
-						\draw[<->,line width=1mm, color=green] (axis cs:0,-0.5) -- (axis cs:0,1);
+						ymin=-1,ymax=2
+						]
+						\addplot[smooth, blue] {e^-(abs(x*x))};
+						\addlegendentry{$f(x)$}
+						\addplot[smooth, red] {-0.5};
+						\addlegendentry{$g(x)$}
+						\draw[<->, line width=2pt, color=green, shorten >=2pt, shorten <=2pt] (0,-0.5) -- (0,1);
 					\end{axis}
 				\end{tikzpicture}
 			\end{center}
@@ -404,10 +406,10 @@ Unendo le due definizioni si giunge naturalmente a
 		\begin{tikzpicture}
 			\draw plot[smooth, tension=.7] coordinates
 				{(-3.5,0.5) (-3,2.5) (-1,3.5) (1.5,3) (4,3.5) (5,2.5) (5,0.5) (2.5,-2) (0,-0.5) (-3,-2) (-3.5,0.5)};
-			\node[circle, fill=black, inner sep=1pt, label=north east:$R$] at (0,-1.5) {};
-			\node[circle, fill=black, inner sep=1pt, label=north east:$P$] at (-2,0) {};
-			\node[circle, fill=black, inner sep=1pt, label=east:$Q$] at (5,.5) {};
-			\node at (2,2) {$A$};
+			\node[circle, fill=black, inner sep=1.2pt, label=north east:$R$] at (0,-1.5) {};
+			\node[circle, fill=black, inner sep=1.2pt, label=north east:$P$] at (-1.5,1) {};
+			\node[circle, fill=black, inner sep=1.2pt, label=east:$Q$] at (5,.5) {};
+			\node at (3.5,2.5) {$A$};
 		\end{tikzpicture}
 	\end{center}
 	Si hanno:
@@ -1805,12 +1807,12 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 						axis on top=true,
 						legend style={empty legend}
 					]
-						\addplot [domain=-3:-2.5,samples=10] {-x-2};
-						\addplot [domain=-2.5:-1.5,samples=10] {x+3};
-						\addplot [domain=-1.5:-.5,samples=10] {-x};
-						\addplot [domain=-.5:1,samples=10] {x+1};
-						\addplot [domain=1:1.5,samples=10] {-x+3};
-						\addplot [domain=1.5:3,samples=10] {x};
+						\addplot [domain=-3:-2.5] {-x-2};
+						\addplot [domain=-2.5:-1.5] {x+3};
+						\addplot [domain=-1.5:-.5] {-x};
+						\addplot [domain=-.5:1] {x+1};
+						\addplot [domain=1:1.5] {-x+3};
+						\addplot [domain=1.5:3] {x};
 					\end{axis}
 				\end{tikzpicture}
 			}
