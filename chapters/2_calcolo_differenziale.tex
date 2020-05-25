@@ -1773,11 +1773,11 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 				legend style = {at={(.65,0.6)},anchor=south west}
 			]
 				\addplot[domain=-3:2, smooth, thick, forget plot] {curve(x)};
-				\addplot[domain=-3:.5, color=blue!50]{(x+2.5)*derivative(-2.5) + curve(-2.5)};
+				\addplot[domain=-3:.5, color=blue]{(x+2.5)*derivative(-2.5) + curve(-2.5)};
 				\addlegendentry{tangente 1}
-				\addplot[domain=-3:.5, color=green!50]{(x+2)*derivative(-2) + curve(-2)};
+				\addplot[domain=-3:.5, color=green]{(x+2)*derivative(-2) + curve(-2)};
 				\addlegendentry{tangente 2}
-				\addplot[domain=-3:.5, color=red!50]{(x+1.5)*derivative(-1.5) + curve(-1.5)};
+				\addplot[domain=-3:.5, color=red]{(x+1.5)*derivative(-1.5) + curve(-1.5)};
 				\addlegendentry{tangente 3}
 			\end{axis}
 		\end{tikzpicture}

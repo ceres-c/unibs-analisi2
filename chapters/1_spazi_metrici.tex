@@ -157,20 +157,20 @@ Unendo le due definizioni si giunge naturalmente a
 			$
 				\begin{array}{l}
 					X = \cntclass{0}(\intervalclose{a}{b};\R)\; a,b \in \R,\; a < b\\
-					d_\infty(f,g) = \sup\limits_{x \in \intervalclose{a}{b}} \abs{g(x) - f(x)}
+					d_{\cntclass{0}}(f,g) = \sup\limits_{x \in \intervalclose{a}{b}} \abs{g(x) - f(x)}
 				\end{array}
 			$
 			\hfill
 			{
 				\footnotesize
 				\begin{tabular}{c}
-					\textbf{Distanza della Convergenza Infinita}\\[-1ex]
+					\textbf{Distanza Infinito}\\[-1ex]
 					o\\[-1ex]
 					\textbf{Distanza della Convergenza Uniforme}
 				\end{tabular}
 			}
 			\begin{note}
-				La metrica viene trattata in \fullref{def:conv_unif}
+				La metrica è spiegata in \fullref{sect:dist_funz} ed utilizzata in \fullref{sect:conv_unif}.
 			\end{note}
 			\begin{note}
 				$X$ è l'insieme delle infinite funzioni continue nell'intervallo $\intervalclose{a}{b}$.
@@ -194,7 +194,7 @@ Unendo le due definizioni si giunge naturalmente a
 			\end{center}
 			\begin{enumerate}[label=\arabic*.]
 				\item \label{itm:dist_conv_unif_geq_0} $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\intervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\intervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{ex:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
-				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_\infty(f,g) = 0 \iff \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
+				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_{\cntclass{0}}(f,g) = 0 \iff \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
 				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
 					\[\abs{g(x)-f(x)} \leq \abs{g(x)-h(x)}+\abs{h(x)-f(x)}\]
@@ -287,6 +287,9 @@ Unendo le due definizioni si giunge naturalmente a
 				Dalla questa definizione di norma segue che $\norm{x}^2 = \sum\limits_{i=1}^{n}x_i^2 = x \cdot x$
 			\end{note}
 		\item $\cntclass{0}(\intervalclose{0}{1};\R)$ con $\norm{f} = \sup\limits_{x \in \intervalclose{0}{1}} \abs{f(x)}$
+			\begin{note}
+				Dimostrazione in \fullref{ex:dim_dist_inf}.
+			\end{note}
 	\end{enumerate}
 \end{example}
 
@@ -351,7 +354,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\begin{align*}
 		d_1(x,y) \;\; &= \;\; \abs{y_1 - x_1} + \abs{y_2 - x_2}\\
 		d(x,y) \;\; &= \;\; \sqrt{(y_1 - x_1)^2 + (y_2 - x_2)^2}\\
-		d_\infty(x,y) \;\; &= \;\; \max (\abs{y_1 - x_1}, \abs{y_2 - x_2})
+		d_{\cntclass{0}}(x,y) \;\; &= \;\; \max (\abs{y_1 - x_1}, \abs{y_2 - x_2})
 	\end{align*}
 	sono tutte equivalenti tra di loro.
 \end{example}
@@ -1868,7 +1871,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					\end{axis}
 				\end{tikzpicture}
 			}
-			\caption{No lips.\newline (Sì unif. cont.)}
+			\caption{No lips.\\(Sì unif. cont.)}
 		\end{subfigure}
 	\end{figure}
 \end{example}
@@ -2001,7 +2004,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	Sia $f:\R^n \to \R^n$ una funzione lineare. Allora è Lipschitziana (rispetto alla metrica Euclidea). Suggerimento: utilizzare la \fullref{prop:proprieta_norm_matr}
+	Sia $f:\R^n \to \R^n$ una funzione lineare. Allora è Lipschitziana (rispetto alla Metrica Euclidea). Suggerimento: utilizzare la \fullref{prop:proprieta_norm_matr}
 	\begin{note}
 		In spazi più generali di $\R^n$ (spazi di dimensione \textit{infinita}) l'affermazione contenuta in questo esercizio può essere falsa. Vedasi \fullref{prop:dist_lin_non_cont}
 	\end{note}

@@ -131,20 +131,20 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 \begin{definition}[Successione Puntualmente Convergente]
 	\label{def:succ_punt_conv}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
-	La \textbf{Successione} $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
+	La Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
 	\[\forall x \in B \qquad \lim\limits_{n \to +\infty} f_n(x) \;\; \exists \text{ finito}\]
 	Se $f_n$ è Puntualmente Convergente, allora esiste una \textbf{Funzione Limite Puntuale} definita come
 	\[\funcdef{f}{B}{\R}{x}{\lim\limits_{n \to +\infty} f_n(x)}\]
 	Cioè la funzione $f$ associa ad ogni punto di $B$ il valore a cui converge la $f_n$ in quel punto.
 
 	\vspace*{\baselineskip}
-	La convergenza puntuale su $A$ della successione $f_n$ verso $f$ è indicata con
-	\[f_n \pconvarrow f \text{ su } A\]
+	La convergenza puntuale su $B$ della successione $f_n$ verso $f$ è indicata con
+	\[f_n \pconvarrow f \text{ su } B\]
 \end{definition}
 \begin{definition}[Serie Puntualmente Convergente]
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
-	La \textbf{Serie} $s =\sum\limits_{n = 0}^{+\infty}$ associata alla Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
-	\[\forall x \in B \qquad \sum\limits_{n = 0}^{+\infty} \;\; \exists \text{ finita}\]
+	La \textbf{Serie} $s = \sum\limits_{n = 0}^{+\infty} f_n(x)$ associata alla Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
+	\[\forall x \in B \qquad \sum\limits_{n = 0}^{+\infty} f_n(x) \;\; \exists \text{ finita}\]
 	Se $f_n$ è Puntualmente Convergente, allora esiste una \textbf{Funzione Limite Puntuale} definita come
 	\[\funcdef{F}{B}{\R}{x}{\sum\limits_{n = 0}^{+\infty}}\]
 	Cioè la funzione $F$ associa ad ogni punto di $B$ il valore della serie $s$ in quel punto (che poi è la somma di tutti gli $f_n$ della successione, per \fullref{def:serie}).
@@ -298,11 +298,11 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 		\[f(x) = \lim\limits_{n \to +\infty} f_n(x) \qquad \forall x \in B\]
 		Dunque, applicando la \fullref{def:lim_succ}
 		\[
-			\forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d \bigl( f_n(x), f(x) \bigr) < \varepsilon  \qquad \forall x \in B
+			\forall \varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d \bigl( f_n(x), f(x) \bigr) < \varepsilon  \qquad \forall x \in B
 		\]
 		Essendo in $f_n$ e $f$ a valori in $\R$, la $d$ è Metrica Euclidea, dunque
 		\[
-			\forall\varepsilon > 0 \quad \forall x \in B \quad \exists\nu\in\N:\; \forall n > \nu \quad \abs{f_n(x) - f(x)} < \varepsilon
+			\forall \varepsilon > 0 \quad \forall x \in B \quad \exists\nu\in\N:\; \forall n > \nu \quad \abs{f_n(x) - f(x)} < \varepsilon
 		\]
 	\end{proof}
 \end{proposition}
@@ -380,9 +380,12 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 \end{observation}
 
 \cbstart
+\begingroup
+% This group is used to alter equation numbering, since there are equations outside environments
+\renewcommand\theequation{\arabic{section}.\arabic{equation}}
+\setcounter{equation}{0} % Reset counter to fix numbering for equation outside theorem envs
 \subsection{L'Insufficienza della Convergenza Puntuale}
-\setcounter{theorem}{0} % Reset counter to fix numbering for equation outside theorem envs
-La Convergenza Uniforme si può rivelare insufficiente per diverse ragioni, tra cui:
+La Convergenza Puntuale si può rivelare insufficiente per diverse ragioni, tra cui:
 \begin{itemize}
 	\item
 		Può spesso esser comodo utilizzare una successione $f_n$ convergente puntualmente a $f$ nel caso in cui $f$ non sia ottenibile in modo esplicito (ad esempio nella soluzione di un'equazione differenziale). Però, come visto in \fullref{ex:conv_succ_xn}, la convergenza puntuale non trasferisce necessariamente proprietà come Continuità, Limitatezza o Derivabilità alla funzione limite puntuale.
@@ -396,7 +399,7 @@ La Convergenza Uniforme si può rivelare insufficiente per diverse ragioni, tra 
 				\end{array}
 			\end{cases}
 		\]
-		non è né continua né, tantomeno, derivabile nello stesso intervallo.
+		non è né continua né, dunque, derivabile nello stesso intervallo.
 		\begin{figure}[H]
 			\begin{subfigure}{.49\textwidth}
 				\centering
@@ -486,7 +489,10 @@ Con $d$ Metrica Euclidea, distanza tra i valori di $f_n$ ed $f$ nel punto $x_0$ 
 				xlabel={$x$},ylabel={$f_n(x)$},
 				axis lines=middle,
 				xmax=1.2, ymax=5.5,
-				yticklabels={,,}, xticklabels={,,}
+				xtick = {1/2, 1},
+				xticklabels = {$\frac{1}{n}$, $1$},
+				ytick = {2},
+				yticklabels = {$n$}
 			]
 				\addplot [color=black, only marks, mark=*] coordinates {(0,0)};
 				\pgfplotsinvokeforeach{2, 3, 5} {
@@ -494,9 +500,6 @@ Con $d$ Metrica Euclidea, distanza tra i valori di $f_n$ ed $f$ nel punto $x_0$ 
 					\addplot [color=black, fill=white, only marks, mark=*] coordinates {(0,#1)};
 				}
 				\addplot [line width=2pt, domain=(1/5):1] {0}; % We need only a single line on x axis, the one starting at the smallest 1/n
-				\node [below] at (1, -.2) {$1$};
-				\node [below] at (1/2, -.1) {$\frac{1}{n}$};
-				\node [left] at (-.02, 2) {$n$};
 			\end{axis}
 		\end{tikzpicture}
 	\end{center}
@@ -510,30 +513,241 @@ Con $d$ Metrica Euclidea, distanza tra i valori di $f_n$ ed $f$ nel punto $x_0$ 
 	\end{align*}
 	L'integrale della funzione limite puntuale $f$ sarebbe, ovviamente, $0$, essendo stato dimostrato prima che $f_n \pconvarrow 0$, dunque l'uguaglianza di \cref{eq:conv_punt_pass_lim_integrale} non vale.
 \end{example}
+
+\subsection{Distanze tra Funzioni}\label{sect:dist_funz}
+La nozione di distanza si basa, generalmente, su una preesistente nozione di "grandezza": stabilito il modo per valutare la grandezza di un ente, è ragionevole ritenere che due oggetti siano tanto più vicini quanto più è "piccola" la differenza tra essi. Cioè la distanza può essere vista come la "grandezza" della differenza (ovviamente, quando è ammessa la differenza tra gli oggetti). Si è vista l'applicazione di questo criterio in molti esempi di \fullref{ex:metriche}.
+
+Dovendo valutare la distanza tra funzioni, è dunque necessario prima stabilire come valutare la "grandezza" delle funzioni stesse.
+
+Quale delle seguenti funzioni ha senso definire "più grande"?
+\begin{figure}[H]
+	\begin{subfigure}{.49\textwidth}
+		\centering
+		\resizebox{\linewidth}{!}{
+			\begin{tikzpicture}
+				\begin{axis} [
+					xlabel={$x$},ylabel={$f(x)$},
+					axis lines=center,
+					axis on top = true,
+					axis equal,
+					xmin = -4, xmax = 4,
+					ymin = -.5, ymax = 6,
+					xtick = {-3, 3},
+					xticklabels = {$a$, $b$}
+				]
+					\addplot [name path=f, smooth, domain=-5:5, samples=50] {exp(-10*x^2)*5};
+					\path[name path=axis] (\pgfkeysvalueof{/pgfplots/xmin},0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
+					\addplot[black!30] fill between[of=f and axis, soft clip={domain=-3:3}];
+				\end{axis}
+			\end{tikzpicture}
+		}
+		\caption{Curva gaussiana}
+		\label{pic:grand_funz_gauss}
+	\end{subfigure}
+	\begin{subfigure}{.49\textwidth}
+		\centering
+		\resizebox{\linewidth}{!}{
+			\begin{tikzpicture}
+				\begin{axis} [
+					xlabel = $x$, ylabel = {$f(x)$},
+					axis lines = center,
+					axis on top = true,
+					axis equal,
+					xmin = -4, xmax = 4,
+					ymin = -.5, ymax = 6,
+					xtick = {-3, 3},
+					xticklabels = {$a$, $b$}
+				]
+					\addplot [name path=f, smooth, domain=-5:5, samples=50] {-(4/7*x)^2+3};
+					\path[name path=axis] (\pgfkeysvalueof{/pgfplots/xmin},0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
+					\addplot[black!30] fill between[of=f and axis, soft clip={domain=-3:3}];
+				\end{axis}
+			\end{tikzpicture}
+		}
+		\caption{Parabola rovesciata}
+		\label{pic:grand_funz_parab}
+	\end{subfigure}
+	\caption{Diversi parametri per valutare la "grandezza" di una funzione}
+\end{figure}
+
+Ovviamente dipende dall'aspetto che si intende considerare. La \ref{pic:grand_funz_gauss} potrebbe essere "più grande" perché ha massimo maggiore rispetto a \ref{pic:grand_funz_parab}, che però d'altro canto ha una maggiore area sottesa.
+
+Questi erano solo due esempi di "grandezza" di una funzione, definiti con le seguenti metriche
+\[
+	\norm{f}_{\cntclass{0}} = \sup\limits_{x \in \intervalclose{a}{b}} \abs{f(x)}
+	\qquad\qquad\qquad\qquad\qquad
+	\norm{f}_1 = \int_a^b \abs{f(x)} \integrald{x}
+\]
+Quella di sinistra è la \textbf{Norma Infinito} o \textbf{Norma del} $\boldsymbol{\sup}$, mentre a destra \textbf{Norma Indice} $\boldsymbol{1}$. In aggiunta, si definisce anche la \textbf{Norma Indice} $\boldsymbol{2}$, che sarà usata in \fullref{sect:conv_quadr}:
+\[\norm{f}_2 = \sqrt{ \int_a^b \left[f(x)\right]^2 \integrald{x} }\]
+
+Le distanze indotte dalle seguenti norme saranno dunque
+\[
+	d_{\cntclass{0}} (f, g) = \norm{f - g}_{\cntclass{0}}
+	\qquad\qquad\qquad
+	d_1 = \norm{f - g}_1
+	\qquad\qquad\qquad
+	d_2 = \norm{f - g}_2
+\]
+E si parla di \textbf{Distanza Infinito} (o \textbf{Distanza del} $\boldsymbol{\sup}$), \textbf{Distanza Indice} $\boldsymbol{1}$ e \textbf{Distanza Indice} $\boldsymbol{2}$.
+
+\begin{figure}[H]
+	\begin{subfigure}{.49\textwidth}
+		\centering
+		\resizebox{\linewidth}{!}{
+			\begin{tikzpicture}[
+				declare function = {
+					f(\x) = sqrt(\x)*(sin(deg(\x))+1);
+					g(\x) = sqrt(\x);
+				},
+				> = stealth
+			]
+			\begin{axis} [
+				xlabel={$x$},ylabel={$y$},
+				axis lines=middle,
+				ymax=9,
+				legend style = {at={(.1,.95)}, anchor = north west}
+			]
+				\addplot [thick, name path=f, smooth, domain=0:10, samples=50] {f(x)};
+				\addlegendentry{$f$};
+				\addplot [color=blue, thick, name path=g, smooth, domain=0:10, samples=100] {g(x)};
+				\addlegendentry{$g$};
+				\pgfplotsinvokeforeach{.25,.5,...,10} {
+					\draw[thin, black!60] (#1, {f(#1)}) -- (#1, {g(#1)});
+				}
+				% Mark thicker the sup
+				\draw[thick] (8, {g(8)}) -- (8,{f(8)});
+				\node (text_sup_dist) [align=center] at (6.5,8) {$\sup \abs{f(x) - g(x)}$};
+				\draw[thin, ->, shorten >=4pt] (text_sup_dist.south) to [out=-90, in=90](8,{f(8)});
+
+				\addplot[brown!30] fill between[of=f and g];
+				\addlegendentry{$d_1$};
+			\end{axis}
+		\end{tikzpicture}
+		}
+		\caption{Significato grafico di\\Distanza Infinito e Distanza Indice $1$}
+	\end{subfigure}
+	\begin{subfigure}{.49\textwidth}
+		\centering
+		\resizebox{\linewidth}{!}{
+			\begin{tikzpicture}[
+				declare function = {
+					f(\x) = sqrt(\x)*(sin(deg(\x))+1);
+					g(\x) = sqrt(\x);
+				},
+				> = stealth
+			]
+				\begin{axis} [
+					xlabel={$x$},ylabel={$y$},
+					axis lines=middle,
+					axis on top = true,
+					ymax=9,
+					legend style = {at={(.1,.95)}, anchor = north west}
+				]
+					\addplot [thick, name path=f, smooth, domain=0:10, samples=100] {(f(x)-g(x))^2};
+					\addlegendentry{$\bigl[ f(x) - g(x) \bigr]^2$};
+					\path[name path=axis] (\pgfkeysvalueof{/pgfplots/xmin},0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
+					\addplot[brown!30] fill between[of=f and axis];
+					\addlegendentry{$d_2$};
+				\end{axis}
+			\end{tikzpicture}
+		}
+		\caption{Significato grafico (a meno della radice) di\\Distanza Indice $2$}
+	\end{subfigure}
+\end{figure}
 \cbend
+\endgroup
 
 \subsection{Convergenza Uniforme}\label{sect:conv_unif}
-\begin{definition}[Convergenza Uniforme]
-	\label{def:conv_unif}
-	Siano $A\subseteq \R$, $B\subseteq A$ e $\brackets{f_n:n\in\N}$ una successione di funzioni definite su $A$ a valori in $\R$.
-	\begin{itemize}
-		\item La \textbf{successione} $\brackets{f_n:n\in \N}$ è uniformemente convergente su $B$ se esiste una funzione $f:B\to \R$ tale che:
-		\[\lim\limits_{n \to +\infty} \sup\limits_{x\in B}\abs{f_n(x)-f(x)}=0\]\\
-		La funzione $f$ è il \textbf{limite uniforme della successione} $f_n$
-		\item La \textbf{serie} $\sum\limits_{n=0}^{+\infty}f_n$ è uniformemente convergente su $B$ se esiste una funzione $F:B\to \R$ tale che:
-		\[\lim\limits_{n\to +\infty} \sup\limits_{x\in B}\abs{F(x)-\sum\limits_{k=0}^n f_k(x)}=0\]
-		la funzione $F$ è il \textbf{limite uniforme della serie} $\sum\limits_{n=0}^{\infty}f_n$
-	\end{itemize}
-	La convergenza uniforme su $B$ della successione $f_n$ verso $f$ è indicata con "$f_n \uconvarrow f$ su $B$".
+Si chiama convergenza uniforme la convergenza di una Successione rispetto alla distanza $d_{\cntclass{0}}$.
+
+\begin{definition}[Successione Uniformemente Convergente]
+	\label{def:succ_unif_conv}
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
+	La Successione $f_n$ è \textbf{Uniformemente Convergente} su $B$ se esiste la \textbf{Funzione Limite Uniforme} $f:\; B \to \R$ tale che:
+	\[\lim\limits_{n \to +\infty} \sup\limits_{B} \abs{f_n(x) - f(x)} = 0\]
+	\begin{note}
+		Nella \fullref{def:succ_punt_conv} la $f$ associava ogni punto al valore a cui convergeva la successione in quel punto.\\
+		In questo caso invece la $f$ è una funzione \textit{tale per cui} la distanza massima (per via del $\sup$ di $d_{\cntclass{0}}$) tra $f_n$ e $f$ è $0$. Questo vuol dire che la funzione "coincide con la $f_n$ su tutto $B$", in quel senso \textit{Uniformemente}.
+	\end{note}
+	La convergenza uniforme su $B$ della successione $f_n$ verso $f$ è indicata con
+	\[f_n \uconvarrow f \text{ su } B\]
+\end{definition}
+\begin{definition}[Serie Uniformemente Convergente]
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
+	La \textbf{Serie} $s = \sum\limits_{n = 0}^{+\infty} f_n(x)$ associata alla Successione $f_n$ è \textbf{Uniformemente Convergente} su $B$ se esiste la \textbf{Funzione Limite Uniforme} $F:\; B \to \R$ tale che:
+	\[\lim\limits_{n \to +\infty} \sup\limits_{B} \abs{\sum\limits_{n = 0}^{+\infty} f_n(x) - F(x)} = 0\]
 \end{definition}
 \begin{observation}
 	\label{obs:dist_conv_unif}
-	la convergenza uniforme equivale alla convergenza rispetto alla distanza $d_{\cntclass{0}}(f,g)=\sup\limits_{x\in A}\abs{g(x)-f(x)}$ ogniqualvolta questa distanza sia definita. La definizione di $d_{\cntclass{0}}(f,g)$ come \textit{distanza} è dimostrata in \hyperref[ex:dim_dist_conv_unif]{\cref*{ex:metriche} (\nameref*{ex:metriche})}\\
+	La convergenza uniforme equivale alla convergenza rispetto alla distanza $d_{\cntclass{0}}(f,g)=\sup\limits_{x\in A}\abs{g(x)-f(x)}$ ogniqualvolta questa distanza sia definita. La definizione di $d_{\cntclass{0}}(f,g)$ come \textit{distanza} è dimostrata in \hyperref[ex:dim_dist_conv_unif]{\cref*{ex:metriche} (\nameref*{ex:metriche})}\\
 	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 	La $d_{\cntclass{0}}(f,g)$ può anche essere definita attraverso la \textbf{norma} $\norm{k}_{\cntclass{0}}=\sup\limits_{x\in A}\abs{k}$ con $k = f-g$ in quanto, in $\R$ norma e valore assoluto coincidono.
 \end{observation}
+\begin{exercise}
+	\label{ex:dim_dist_inf}
+	Sia $K \in \R$ un \textbf{Compatto}. Verificare che:
+	\begin{enumerate}
+		\item $\norm{\;\cdot\;}_{\cntclass{0}}$ è una norma su $\cntclass{0}(K; \R)$
+		\item \label{itm:dim_dist_inf_dist} $d_{\cntclass{0}}$ è una distanza su $\cntclass{0}(K; \R)$
+		\item La convergenza rispetto alla distanza $d_{\cntclass{0}}$ equivale alla convergenza uniforme su $K$
+	\end{enumerate}
+	\begin{solution}~
+		\begin{enumerate}
+			\item[\ref{itm:dim_dist_inf_dist}] Dimostrata in \hyperref[ex:dim_dist_conv_unif]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
+			% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+		\end{enumerate}
+		% TODO remaining points proof
+	\end{solution}
+\end{exercise}
+\begin{proposition}
+	\label{prop:conv_unif_lim_succ}
+	Siano $B \subseteq A \subseteq \R$ e $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$. Sia $f:\; B \to \R$ una funzione:
+	\[
+		f_n \uconvarrow f \text{ su } B \text{ per } n \to +\infty
+		\quad \iff \quad
+		\begin{cases}
+			\forall \varepsilon > 0 \quad \exists \nu \in \N:\\
+			\forall n > \nu \quad \forall x \in B \quad \abs{f_n(x) - f(x)} \leq \varepsilon
+		\end{cases}
+	\]
+	\begin{solution}
+		Da \fullref{def:succ_unif_conv} si sa che
+		\[\lim\limits_{n \to +\infty} \sup\limits_{B} \abs{f_n(x) - f(x)} = 0\]
+		Dunque, applicando la \fullref{def:lim_succ}
+		\[
+			\forall \varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d \bigl( \abs{f_n(x) - f(x)}, 0 \bigr) < \varepsilon  \qquad \forall x \in B
+		\]
+		Essendo in $f_n$ e $f$ a valori in $\R$, la $d$ è Metrica Euclidea, dunque
+		\[
+			\forall \varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad \forall x \in B \quad \bigl| \abs{f_n(x) - f(x)} - 0 \bigr| < \varepsilon
+		\]
+	\end{solution}
+\end{proposition}
+\begin{proposition}
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $F:\; B \to \R$. Allora
+	\[
+		\sum\limits_{n = 0}^{+\infty} f_n \uconvarrow F \text{ su } B
+		\quad \iff \quad
+		\begin{cases}
+			\forall \varepsilon > 0 \quad \exists \nu \in \N:\\
+			\forall n > \nu \quad \forall x \in B \quad \abs{\sum\limits_{n = 0}^{k} f_n(x) - F(x)} \leq \varepsilon
+		\end{cases}
+	\]
+	\begin{proof}
+		Analoga alla \fullref{prop:conv_unif_lim_succ} ricordando la definizione di $F$ in \fullref{def:serie}.
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	Siano $B \subseteq A \subseteq \R$ e $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$. Sia $f:\; B \to \R$ una funzione
+	\[f_n \uconvarrow f \text{ su } B \quad \implies \quad  f_n \pconvarrow f \text{ su } B\]
+	\begin{proof}
+		Da \fullref{prop:conv_unif_lim_succ}  si sa che valgono condizioni analoghe, ma più restrittive, rispetto a quelle di \fullref{prop:conv_punt_lim_succ}, dunque sicuramente è valida l'implicazione $\impliedby$ di \fullref{prop:conv_punt_lim_succ}.
+	\end{proof}
+\end{corollary}
 \begin{proposition}
 	\label{prop:dist_lin_non_cont}
+	% TODO Proposizione 19.34
 \end{proposition}
 \begin{example}
 	\label{ex:BBBBBBBBBB}
@@ -624,7 +838,7 @@ La successione $\brackets{ f_n:n\in\N }$ soddisfa alla condizione di Cauchy per 
 		$f_n$ sono di Cauchy rispetto alla convergenza uniforme su $A$
 		$\implies f_n:A\to \R$ e $f_n \uconvarrow f$ su $A$ e $f$ è continua\\ $\implies\left(f\in \cntclass{0}(A; \R)\right)$\\
 		$\implies\lim\limits_{n\to\infty}f_n=f$ in $\cntclass{0}(A; \R)$\\
-		$\implies\lim\limits_{n\to\infty}d_{\infty}(fn,f)=0\quad \implies f_n\to f\in \cntclass{0}(A; \R)$
+		$\implies\lim\limits_{n\to\infty}d_{\cntclass{0}}(fn,f)=0\quad \implies f_n\to f\in \cntclass{0}(A; \R)$
 	\end{proof}
 \end{proposition}
 \begin{corollary} % TODO dimostrare il corollario 19.26 con C di arrivo delle f chiuso
@@ -633,7 +847,7 @@ La successione $\brackets{ f_n:n\in\N }$ soddisfa alla condizione di Cauchy per 
 
 ESEMPIO:: In dimensione finita non vi è differenza tra "chiuso e limitato" e "compatto", in dimensione infinita cambiamo molte cose.
 Prensiamo un insieme chiuso e limitato ma non compatto.\\
-In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_\infty(f,g)=\sup_{\left[0,1\right]}\abs{g(x)-f(x)}$, prendiamo l'insieme
+In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_{\cntclass{0}}(f,g)=\sup_{\left[0,1\right]}\abs{g(x)-f(x)}$, prendiamo l'insieme
 \[C=\overline{B(0,1)}=\brackets{f\in \cntclass{0}(\left[0,1\right]; \R):\abs{f(x)} \leq 1, \forall x \in\left[0,1\right]}\]
 \begin{description}
 	\item[1] $C$ è limitato: ha diametro finito.
