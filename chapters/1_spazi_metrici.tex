@@ -24,7 +24,7 @@
 		\item $d(x,z) \leq d(x,y)+d(y,z) \quad \forall x,y,z\in X$ \quad(\textit{disuguaglianza triangolare})
 	\end{enumerate}
 	\begin{note}
-		D'ora in poi, quando si userà $d$ come metrica, dove non diversamente specificato, si intenderà la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})} % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+		D'ora in poi, quando si userà $d$ come metrica, dove non diversamente specificato, si intenderà la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\fullref*{ex:metriche}} % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 	\end{note}
 \end{definition}
 
@@ -313,7 +313,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\end{enumerate}
 	\end{proof}
 	\begin{note}
-		Nel caso in cui $V = \R^n$, la metrica indotta è ovviamente la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
+		Nel caso in cui $V = \R^n$, la metrica indotta è ovviamente la \textbf{Metrica Euclidea} di \hyperref[ex:dist_eucl]{\fullref*{ex:metriche}}
 		% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 		\[d(x,y) = \sqrt{\sum\limits_{i=1}^{n} (y_i-x_i)^2 }\]
 	\end{note}
@@ -551,7 +551,7 @@ Unendo le due definizioni si giunge naturalmente a
 	% TODO soluzione
 \end{exercise}
 \begin{proposition}
-	Sia $(X,d)$ lo spazio metrico con la Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}).\\
+	Sia $(X,d)$ lo spazio metrico con la Metrica Discreta (da \hyperref[ex:dist_discr]{\fullref*{ex:metriche}}).\\
 	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 	Allora, preso un $x_0 \in X$ ed un $r > 0$, l'inclusione $\overline{B(x_0,r)} \subseteq \brackets{x \in X:\; d(x,x_0) \leq r}$ è stretta se e soltanto se $r = 1$
 \end{proposition}
@@ -579,7 +579,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\begin{enumerate}
 		\item $\R$ con $d(x,y) = \abs{y-x}$ è uno spazio metrico illimitato. Inoltre se $A \subseteq \R$ con $A \neq \emptyset$, allora $\diam(A) = \sup A - \inf A$
 		\item $\R$ con $d(x,y) = \frac{\abs{y-x}}{1-\abs{y-x}}$ è uno spazio metrico limitato di diametro $1$ (la distanza massima tra due punti con questa metrica è $1$)
-		\item Sia $X$ un insieme con almeno $2$ elementi munito della Metrica Discreta (da \hyperref[ex:dist_discr]{\cref*{ex:metriche} (\nameref*{ex:metriche})}) è uno spazio metrico limitato di diametro $1$ % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+		\item Sia $X$ un insieme con almeno $2$ elementi munito della Metrica Discreta (da \hyperref[ex:dist_discr]{\fullref*{ex:metriche}}) è uno spazio metrico limitato di diametro $1$ % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 		\item $\cntclass{0}(\intervalclose{0}{1}; \R)$ con $d(f,g) = \sup\limits_{\intervalclose{0}{1}} \abs{g(x)-f(x)}$ è uno spazio metrico illimitato utilizzato in \fullref{sect:conv_unif}
 	\end{enumerate}
 \end{example}
@@ -1153,7 +1153,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	% TODO solution
 \end{exercise}
 \begin{example}
-	Sia $(X,d)$ lo spazio $\R^n$ munito della distanza Euclidea. Sia $d_p$ come in \hyperref[ex:dist_parigi]{\cref*{ex:metriche} (\nameref*{ex:metriche})} con $p \in \R^n$\\
+	Sia $(X,d)$ lo spazio $\R^n$ munito della distanza Euclidea. Sia $d_p$ come in \hyperref[ex:dist_parigi]{\fullref*{ex:metriche}} con $p \in \R^n$\\
 	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise	
 	È interessante notare che in $(X,d)$, $d_p$ stessa non è continua e quindi gli insiemi aperti (chiusi) rispetto a $d_p$, possono non essere aperti (chiusi) rispetto alla distanza Euclidea. Di conseguenza son proprietà diverse nei due spazi metrici: convergenza di successioni, continuità di funzioni, connessione, compattezza, essere o meno punto di accumulazione, punto interno, punto esterno\dots
 \end{example}
