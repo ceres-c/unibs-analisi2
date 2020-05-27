@@ -626,6 +626,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{solution}
 \end{exercise}
 \begin{exercise}
+	\label{ex:sfere_e_limitatezza}
 	Dimostrare che in uno spazio metrico $(X,d)$:
 	\begin{enumerate}
 		\item Se $x_0 \in X$ e $r > 0$, allora $\diam \bigl( B(x_0, r) \bigr) \leq 2r$ (si veda \fullref{ex:diam_sp_metr})
@@ -1112,7 +1113,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Suggerimento: utilizzare il caso $n = 1$ e la e la \fullref{prop:succ_conv_se_comp_conv}
 \end{exercise}
 \begin{exercise}
-	Confrontare la dimostrazione della \fullref{prop:compat_chius_lim_Rn} con \fullref{ex:BBBBBBBBBB}
+	Confrontare la dimostrazione della \fullref{prop:compat_chius_lim_Rn} con \fullref{ex:ins_chius_lim_non_compl}
 \end{exercise}
 \cbend
 \begin{exercise}
@@ -2008,7 +2009,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	Sia $f:\R^n \to \R^n$ una funzione lineare. Allora è Lipschitziana (rispetto alla Metrica Euclidea). Suggerimento: utilizzare la \fullref{prop:proprieta_norm_matr}
+	\label{ex:se_f_in_R_lin_then_lips}
+	Sia $f:\R^n \to \R^n$ una funzione \textbf{Lineare}. Allora è \textbf{Lipschitziana} (rispetto alla Metrica Euclidea). Suggerimento: utilizzare la \fullref{prop:proprieta_norm_matr}
 	\begin{note}
 		In spazi più generali di $\R^n$ (spazi di dimensione \textit{infinita}) l'affermazione contenuta in questo esercizio può essere falsa. Vedasi \fullref{prop:operat_D_non_cont}
 	\end{note}
@@ -2259,7 +2261,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{example}
 \begin{example}
 	Se $T$ è \textit{quasi} una contrazione possono non esserci punti fissi:\\
-	Sia $X = \R$ e sia $T:X \to X$ data da $T(x) = x + \frac{\pi}{2} - \arctan x$. Grazie al Teorema di Lagrange (da Analisi 1, essendo in $\R$) si può facilmente dimostrare che $\forall x', x'' \in X$
+	Sia $X = \R$ e sia $T:X \to X$ data da $T(x) = x + \frac{\pi}{2} - \arctan x$. Grazie \fullref{teo:lagrange} (da Analisi 1, essendo in $\R$) si può facilmente dimostrare che $\forall x', x'' \in X$
 	\[\abs{T(x'') - T(x')} < \abs{x'' - x'}\]
 	però $T$ non è una contrazione ed infatti non ammette punti fissi.
 \end{example}

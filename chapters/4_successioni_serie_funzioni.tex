@@ -11,7 +11,7 @@ Grazie alla dispensa di Sergio Rolando per la spiegazione chiara e dettagliata a
 	\url{http://calvino.polito.it/~rolando/An2s_04_Successioni.Funzioni.pdf}
 \end{center}
 
-\section{Preliminari}
+\section{Preliminari}\label{sect:prelim_serie_succ_funz}
 Innanzitutto si ricorda la \fullref{def:succ}, cioè, dato un insieme $X \neq \emptyset$, una \textbf{Successione} è una funzione $x: \N \to X$ che associa ad ogni valore di $\N$ un elemento di $X$.
 
 Si consideri ora la successione $x_n = x^n$, i cui termini sono
@@ -90,7 +90,7 @@ Si giunge dunque alla seguente definizione, tutt'altro che formale
 		&\;\;\vdots\\
 		x_n &= s_n - s_{n - 1}
 	\end{align*}
-	Quindi ogni definizione o proposizione enunciata in relazione alle successioni ha un \textit{alter ego} relativa alle serie e viceversa. Non sempre per entrambe le versioni di una definizione o proposizione sono equivalentemente interessanti. Vedasi \fullref{def:AAAAAAAAA}.
+	Quindi ogni definizione o proposizione enunciata in relazione alle successioni ha un \textit{alter ego} relativa alle serie e viceversa. Non sempre per entrambe le versioni di una definizione o proposizione sono equivalentemente interessanti. Vedasi \fullref{def:serie_totalm_conv}.
 \end{observation}
 \begin{observation}
 	Successioni e Serie di Funzioni possono essere viste come:
@@ -239,11 +239,12 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 \end{observation}
 
 \begin{example}
-	La successione
-	\[f_n(x)=\frac{1}{n}sin(x)\]
+	\label{ex:1_over_n_sin_x_punt_conv}
+	La successione di Funzioni con $x \in A \equiv \R$
+	\[f_n(x)=\frac{1}{n} \sin(x)\]
 	è puntualmente convergente a $0$ su tutto il dominio delle $f_n$, cioè $f_n \pconvarrow 0$ su $B = A = \R$, infatti:
 	\[
-		\lim\limits_{n \to \infty} f_n(x) = \lim\limits_{n \to \infty} \frac{1}{n} sin(x) = 0 \quad \forall x \in A
+		\lim\limits_{n \to \infty} f_n(x) = \lim\limits_{n \to \infty} \frac{1}{n} \sin(x) = 0 \quad \forall x \in A
 	\]
 \end{example}
 \begin{example}
@@ -382,6 +383,25 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 	In riferimento al punto \ref{itm:prop_lim_punt_monotonia} dell'\fullref{ex:dim_prop_lim_conv_punt}, è necessario sottolineare come non sia invece possibie avere certezze sulla \textbf{stretta} crescenza/decrescenza del limite puntuale.\\
 	Come esempio, vedasi \fullref{ex:conv_succ_xn} in cui si studia la successione strettamente crescente $x^n$, il cui limite puntuale è però costante (dunque non \textbf{strettamente} crescente) in $B = \intervalclop{0}{1}$.
 \end{observation}
+\begin{exercise}
+	Verificare che il limite puntuale di funzoni \textbf{Continue} e \textbf{Derivabili}, quando esiste, può essere una funzione \textbf{Continua} e \textbf{non Derivabile}.\\
+	Considerare ad esempio $f_n:\; \R \to \R$ data da $f_n(x) = \sqrt{x^2 + \frac{1}{n}}$ visibile in \cref{fig:fn_sqrt_x2_1_over_n}.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Verificare che il limite puntuale di funzoni \textbf{Continue} e \textbf{Derivabili}, quando esiste, può essere una funzione \textbf{non Continua}.\\
+	Considerare ad esempio $f_n:\; \R \to \R$ data da $f_n(x) = \arctan(nx)$ visibile in \cref{fig:fn_sqrt_x2_1_over_n}.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Determinare, se possibile, sotto quali ipotesi sulla funzione $f:\; \R \to \R$ le seguenti successioni di funzioni risultano Puntualmente Convergenti:
+	\begin{alignat*}{2}
+		f_n(x) &= f(x) + n \hspace*{.35\linewidth} & f_n(x) &= f(x + n)\\
+		f_n(x) &= f(x) + \frac{1}{n} & f_n(x) &= f(x + \frac{1}{n})\\
+		f_n(x) &= nf(x) & f_n(x) &= \frac{f(x)}{n}\\
+		f_n(x) &= f(nx) & f_n(x) &= f(\frac{x}{n})
+	\end{alignat*}
+\end{exercise}
 
 \cbstart
 \begingroup
@@ -729,6 +749,22 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 	La $d_{\cntclass{0}}(f,g)$ può anche essere definita attraverso la \textbf{norma} $\norm{k}_{\cntclass{0}}=\sup\limits_{x\in A}\abs{k}$ con $k = f-g$ in quanto, in $\R$ norma e valore assoluto coincidono.
 \end{observation}
+\begin{example}
+	Come già visto in \fullref{ex:1_over_n_sin_x_punt_conv}, la Successione di Funzioni con $x \in A \equiv \R$
+	\[f_n(x) = \frac{1}{n} \sin(x)\]
+	è $f_n \pconvarrow 0$ su $A$. Questa stessa Successionione è anche Uniformemente Convergente su $A$, infatti:
+	\[
+		\lim\limits_{n \to +\infty} \sup\limits_{A} \abs{f_n(x) - 0} =
+		\lim\limits_{n \to +\infty} \sup\limits_{A} \abs{\frac{1}{n} \sin(x)}
+	\]
+	Osservando che $\abs{a \cdot \sin(x)} \leq \abs{a}$, si può conclduere
+	\[
+		\lim\limits_{n \to +\infty} \sup\limits_{\R} \abs{\frac{1}{n} \sin(x)} \leq
+		\lim\limits_{n \to +\infty} \frac{1}{n}=0
+	\]
+	Allora $f_n \uconvarrow f$ su $A$
+\end{example}
+
 \begin{exercise}
 	\label{ex:dim_dist_inf}
 	Sia $K \in \R$ un \textbf{Compatto}. Verificare che:
@@ -1049,11 +1085,12 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 	\end{proof}
 \end{proposition}
 \begin{corollary}
-	\label{coro:operat_I_conv_unif_succ}
+	\label{coro:succ_integ_conv_ad_integ}
 	Fissati $a, b \in \R$ con $a < b$, se la successione
 	\[f_n \text{ \textbf{Converge Uniformemente} a } f \text{ in } \cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)\]
 	allora la successione
 	\[\int_{a}^{b} f_n(x) \integrald{x} \text{ \textbf{Converge} a } \int_{a}^{b} f(x) \integrald{x}\]
+	Cioè se una successione di funzioni $f_n$ converge a $f$, allora la successione delle funzioni integrali $\int_{a}^{b} f_n$ convergerà a $\int_{a}^{b} f$.
 	\begin{note}
 		Esprimendo in altro modo lo stesso concetto
 		\[
@@ -1080,12 +1117,12 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 		(sotto opportune ipotesi)
 	\end{note}
 	\begin{proof}
-		Immediata da \fullref{coro:operat_I_conv_unif_succ} per \fullref{def:serie}.
+		Immediata da \fullref{coro:succ_integ_conv_ad_integ} per \fullref{def:serie}.
 	\end{proof}
 \end{corollary}
 \begin{exercise}
 	\label{ex:verif_imporanz_limit_dom_integr}
-	Verificare che la limitatezza del dominio delle funzion $f_n$ è essenziale nel \fullref{coro:operat_I_conv_unif_succ} e dunque anche nella \fullref{prop:operat_I_linear_lips}.\\
+	Verificare che la limitatezza del dominio delle funzione $f_n$ è essenziale nel \fullref{coro:succ_integ_conv_ad_integ} e dunque anche nella \fullref{prop:operat_I_linear_lips}.\\
 	Considerare ad esempio la successione di funzioni $f_n:\; \intervalclop{0}{+\infty} \to \R$ date da $\displaystyle f_n = \frac{1}{n}\chi_{\intervalclose{0}{n^2}}$.
 	\begin{solution}
 		La necessità di limitatezza del dominio è intimamente legata all'uso degli integrali. La convergenza su intervalli illimitati presenta sostanziali differenze.
@@ -1116,7 +1153,7 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 		}
 	\]
 	Determinare se $f_n$ ammette limite puntuale o uniforme su $\intervalclose{0}{1}$ e calcolare $\lim\limits_{n \to +\infty} \int_{0}^{1} f_n$.\\
-	Com'è legato questo esercizio al \fullref{coro:operat_I_conv_unif_succ}?
+	Com'è legato questo esercizio al \fullref{coro:succ_integ_conv_ad_integ}?
 	% TODO solution
 \end{exercise}
 
@@ -1173,135 +1210,266 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 	\begin{proof}
 		La linearità di $D$ segue dalle regole di derivazione studiate nel corso di Analisi 1 che garantiscono la linearità della derivata.
 
-		Per verificare la non continuità, sia $f_n(x) = \frac{1}{n} \sin(n^2 x)$. Allora, rispetto alla metrica $d_{\cntclass{0}}$ della Convergenza Uniforme, $\lim\limits_{n \to +\infty} f_n = 0$, ma
+		Per verificare la non continuità, sia $f_n(x) = \frac{1}{n} \sin(n^2 x)$. Allora, utilizzando la metrica $d_{\cntclass{0}}$ della Convergenza Uniforme nel $\lim$, sicuramente $\lim\limits_{n \to +\infty} f_n = 0$, ma
 		\[\lim\limits_{n \to +\infty} Df_n = \lim\limits_{n \to +\infty} f'_n \quad \nexists\]
-		% TODO verify this proof
+		Essendo un Operatore, $D$ associa $f$ a $f'$. Se in un punto $x$ con $n \to +\infty$ la $f$ esiste ed $f'$ no, allora sicuramente $D$ non sarà continua, perché è ovviamente richiesta l'esistenza prima di poter valutare la continuità.
 	\end{proof}
 \end{proposition}
-
-\begin{example}
-	\label{ex:BBBBBBBBBB}
-	%TODO Esempio 19.36 dal libro
+\begin{exercise}
+	Confrontare l'\fullref{ex:se_f_in_R_lin_then_lips} con \fullref{prop:operat_D_non_cont}.
+	% TODO solution - Vedere nota a ex:se_f_in_R_lin_then_lips sul fatto che lo spazio di prop:operat_D_non_cont sia infinito
+\end{exercise}
+\begin{example}[Insieme Chiuso e Limitato, ma non Compatto]
+	\label{ex:ins_chius_lim_non_compl}
+	In $\cntclass{0} \bigl( \intervalclose{0}{1}; \R \bigr)$ con la distanza $d_{\cntclass{0}}$ della Convergenza Uniforme, sia
+	\[C = \overline{B(0, 1)} = \brackets{f \in \cntclass{0}\bigl( \intervalclose{0}{1}; \R \bigr):\; \sup\limits_{\intervalclose{0}{1}} \abs{f} \leq 1}\]
+	$C$ è Chiuso per definizione, infatti $C = \overline{B(0, 1)} = \overline{C}$, verificando \fullref{def:chiuso}.\\
+	$C$ è Limitato da \fullref{ex:sfere_e_limitatezza}\\
+	$C$ non è Compatto, infatti la successione $f_n(x) = x^n$ è contenuta in $C$, ma non ha sottosuccessioni uniformemente convergenti. Se esistesse na sottosuccessione uniformemente convergente, questa convergerebbe al limite puntuale $f$ dell'intera successione, ma $f$ è discontinua in $1$, quindi la sottosuccessione non può essere uniformemente convergente.
 \end{example}
-\begin{definition}
-	\label{def:AAAAAAAAA}
-	% TODO Definizione 19.42 dal libro
-\end{definition}
+\begin{exercise}
+	Confrontare la \fullref{prop:compat_chius_lim} con \fullref{ex:ins_chius_lim_non_compl}.
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	Verificare che il limite uniforme di funzioni derivabili può non essere derivabile. Considerare la successione di funzioni $f_n:\; \R \to \R$ date da $f_n(x) = \sqrt{x^2 + \frac{1}{n}}$ e visibili in \cref{fig:fn_sqrt_x2_1_over_n}
 
-\proposition
-Sia $f_n:A\subseteq \R\to \R$ e $\overline{f},f:B\subseteq A\to \R$\\
-se $f_n \uconvarrow f$ su $B$ e $f_n \uconvarrow \overline{f}$ su $B$ allora $f=\overline{f}$
-\begin{proof}
-	$f_n \uconvarrow f$ e $f_n \uconvarrow \overline{f}$, quindi è anche vero che $f_n \pconvarrow f$ e $f_n \pconvarrow \overline{f}$ ma il limite puntuale è unico poichè è il limite di una successione. Allora $f=\overline{f}$
-\end{proof}
-\example
-$f_n(x)=\frac{1}{n}sin(x)$ con $A\equiv \R$\\
-Abbiamo gia calcolato che $f_n \pconvarrow 0$ su $A$.\\
-Sia ha anche convergenza uniforme :
-\[\lim\limits_{n\to\infty}\sup{ \R}\abs{f_n(x)-0} = \lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)}\]
-Osservo che $\abs{asin(x)} \leq \abs{a}$ quindi
-\[\lim\limits_{n\to\infty}\sup\limits_{ \R}\abs{\frac{1}{n}sin(x)} \leq \lim\limits_{n\to\infty}\frac{1}{n}=0\]
-Allora $f_n \uconvarrow f$ su $A$
+	\begin{figure}[H]
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend},
+						xticklabels={,,},
+						xmin= -1.5, xmax = 1.5,
+						ymin= 0, ymax = 2
+					]
+						\addplot [smooth, forget plot, samples=50] {sqrt(x^2 + 1)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{$n = 1$}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend},
+						xticklabels={,,},
+						xmin= -1.5, xmax = 1.5,
+						ymin= 0, ymax = 2
+					]
+						\addplot [smooth, forget plot, samples=50] {sqrt(x^2 + 1/3)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{$n = 3$}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend},
+						xticklabels={,,},
+						xmin= -1.5, xmax = 1.5,
+						ymin= 0, ymax = 2
+					]
+						\addplot [smooth, forget plot, samples=50] {sqrt(x^2 + 1/10)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{$n = 10$}
+		\end{subfigure}
+		\begin{subfigure}{.24\textwidth}
+			\centering
+			\resizebox{\linewidth}{!}{
+				\begin{tikzpicture}
+					\begin{axis} [
+						axis lines = center,
+						axis on top=true,
+						legend style={empty legend},
+						xticklabels={,,},
+						xmin= -1.5, xmax = 1.5,
+						ymin= 0, ymax = 2
+					]
+						\addplot [forget plot, domain=-2:0, samples=50] {sqrt(x^2 + 1/1000)};
+						\addplot [forget plot, domain=0:2, samples=50] {sqrt(x^2 + 1/1000)};
+					\end{axis}
+				\end{tikzpicture}
+			}
+			\caption{$n = 1000$}
+		\end{subfigure}
+		\caption{La funzione $f_n = \sqrt{x^2 + \frac{1}{n}}$ con diversi $n$}
+		\label{fig:fn_sqrt_x2_1_over_n}
+	\end{figure}
+\end{exercise}
+\begin{exercise}
+	Verificare che una successione di derivate $f'_n$ può convergere uniformemente senza che le funzioni $f_n$ convergano neppure puntualmente.\\
+	Considerare, ad esempio $f_n(x) = n$.
+\end{exercise}
 
-\example $f_n(x)=sin\left(\frac{1}{n}x\right)$ con $A\equiv \R$
-..........\\
-..........\\
-\example $f_n(x)=\sqrt{x^2+\frac{1}{n}}$ con $A\equiv \R$\\
-%$f_n$ è continua $\forall n$ perchè compositione di funzioni continue.\\
-%Il limite puntuale di questa successione di funzioni è $f\left( x \right)=\abs{x}$ su $A$\\
-%Si può verificare che $f\left(x\right)=\abs{x}$ è anche limite uniforme su $A$ poichè
-%\[ \lim\limits_{n\to\infty}\sup\limits_{x\in A} \abs{\sqrt{x^2+\frac{1}{n}}-\left|x}\right| \]
-%analizzando il contenuto del modulo si trova che la sua derivata vale $\frac{1}{2\sqrt{x^2+\frac{1}{n}}}-sgn\left(x\right)$ che si annulla in $x=\pm\sqrt{\frac{1}{4}-\frac{1}{n}}$
-..........\\
-..........\\
-
-
-ESEMPIO:: In dimensione finita non vi è differenza tra "chiuso e limitato" e "compatto", in dimensione infinita cambiamo molte cose.
-Prensiamo un insieme chiuso e limitato ma non compatto.\\
-In $\cntclass{0}(\left[0,1\right]; \R)$ con $d_{\cntclass{0}}(f,g)=\sup_{\left[0,1\right]}\abs{g(x)-f(x)}$, prendiamo l'insieme
-\[C=\overline{B(0,1)}=\brackets{f\in \cntclass{0}(\left[0,1\right]; \R):\abs{f(x)} \leq 1, \forall x \in\left[0,1\right]}\]
-\begin{description}
-	\item[1] $C$ è limitato: ha diametro finito.
-	\item[2] $C$ è chiuso: contiene tutti i sui punti di accumualazione
-\end{description}
-Se c'è una successione $f_n \uconvarrow f$ su $\left[0,1\right]$ allora voglio mostrare che $f\in C$\\
-Se $f_n \uconvarrow f$ su $\left[0,1\right]$ allora $f_n \pconvarrow f$ su $\left[0,1\right]$.
-Sappiamo che $\forall n\in\N$ e $\forall x\in \left[0,1\right]$ vale che $-1 \leq f_n(x) \leq 1$.\\
-Mandando $n$ al limite si ha che $-1 \leq f_(x) \leq 1$.\\
-Inolte $f$ è continua perché limite uniforme di una successione di funzioni continue allora $f\in C$ poiché è una funzione continua compresa tra $-1$ e $1$
-\begin{description}
-	\item[3] $C$ non è compatto, cioè esiste almeno una successione dalla quale non è possibie estrarre una sottosuccessione convergente nello stesso spazio.
-\end{description}
-Se ad esempio $f_n(x) = x^n$\\
-so che $f_n \pconvarrow f$ su $\left[0,1\right]$ e $f(x)=\brackets{\begin{matrix}0&&x\in\left[0,1\right]\\1&&x\in\left\{1}\end{matrix}\right.$\\
-Tutta la successione di funzioni $f_n$ converge puntualmente a $f$ quindi se estraggo una sottosuccessione comunque venga scelta questa sottosuccessione converge ancora a $f$ puntualmente. Ma la $f$ non è continua mentre il limite uniforme di funzioni continue è una funzione continua allora nessuna sottosuccessione ammette limite uniforme.
-
-\proposition convergono le derivare allora convergono le funzioni\\
-Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\brackets{f_n:n\in\N}$ con $f_n:\left[a,b\right]\to \R$
-\begin{enumerate}
-	\item $\forall n\in\N, f_n\in \cntclass{1}(\left[a,b\right]; \R)$
-	\item $\exists x_0\in\left[a,b\right]: \lim\limits_{n\to\infty}f_n(x_0)=l\in \R$
-	\item $\exists g \in \cntclass{0}(\left[a,b\right]; \R):f'_n \uconvarrow g$ su $\left[a,b\right]$
-\end{enumerate}
-Allora
-\begin{enumerate}
-	\item $\exists f\in \cntclass{1}(\left[a,b\right]; \R)$
-	\item $f_n \uconvarrow f$ su $\left[a,b\right]$
-	\item $f'(x)=g(x)$ $\forall x\in\left[a,b\right]$
-\end{enumerate}
-\begin{proof}
-	Per il teorema fondamentale del calcolo integrale
-	\[f_n(x)=f_n(x_0)+\int_{x_0}^{x}f_n'(t)\integrald{t}\]
-	per $n\to\infty$
-	\[f(x)=l+\int_{x_0}^{x}g(t)\integrald{t}\]
-	Quindi le $f_n$ convergono puntualmente alla funzione $f(x)$, per la convergenza uniforme calcolo:
-	\[ \lim\limits_{n\to+\infty}\sup\limits_{\left[a,b\right]}\abs{f_n(x)-f(x)} \leq \lim\limits_{n\to+\infty}(\abs{f_n(x_0)-f(x_0)}+\abs{\int_{x_0}^x \abs{f_n'(t)-g(t)}\integrald{t}}) \leq \]
-	\[\lim\limits_{n\to+\infty}\left[ \abs{f_n(x_0)-f(x_0)}+\abs{b-a}\sup\limits_{\left[a,b\right]}\abs{f_n'(x)-g(x)} \right] = \]
-	Questo perché per ipotesi $f'_n=g$ e il limite fa $0$.
-	Allora $f_n \uconvarrow f$ su $\left[a,b\right]$\\
-	Inoltre si sa che $f_n\in \cntclass{1}$ allora $f_n'\in \cntclass{0}$ allora il limite uniforme di funzioni continue è una funzione continua allora $g$ è una funzione continua.\\
-	La $f$ è l'integrale di una funzione continua allora la $f$ è derivabile con derivata continua quindi $f'=g$
-\end{proof}
-\observation
-Necessaria l'ipotesi $f_n(x_0)\to l$.......
-
+\begin{proposition}
+	\label{prop:conv_unif_succ_integ_su_integ}
+	Fissati $a, b \in \R$ con $a < b$, si consideri una \textbf{Successione di Funzioni} $\brackets{f_n:\; n \in \N}$ con $f_n:\; \intervalclose{a}{b} \to \R$. Allora
+	\[
+		\left.
+			\begin{array}{c}
+				\forall n \in \N \quad f_n \in \cntclass{1} \bigl( \intervalclose{a}{b}; \R \bigr)\\
+				\exists x_0 \in \intervalclose{a}{b}: \quad \lim\limits_{n \to +\infty} f_n(x_0) \in \R\\
+				\exists g \in \cntclass{0} \bigl( \intervalclose{a}{b}; \R \bigr): \quad f'_n \uconvarrow g \text{ su } \intervalclose{a}{b}
+			\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				\exists f \in \cntclass{1} \bigl( \intervalclose{a}{b}; \R \bigr): \quad f_n \uconvarrow f \text{ su } \intervalclose{a}{b}\\
+				e\\
+				f' = g
+			\end{array}
+		\end{cases}
+	\]
+	Cioè, se le funzioni $f_n$ sono in $\cntclass{1} \bigl( \intervalclose{a}{b}; \R \bigr)$ ed esiste una $g$ in $\cntclass{0} \bigl( \intervalclose{a}{b}; \R \bigr)$ a cui converge uniformemente la successione delle derivate $f'_n$, allora esiste anche una $f$ in $\cntclass{1} \bigl( \intervalclose{a}{b}; \R \bigr)$ a cui la successione $f_n$ converge e $f' = g$. Quindi la derivata di una successione è la successione delle derivate
+	\begin{proof}
+		Per il \fullref{teo:fondament_calcolo_integ}
+		\begin{align*}
+			f_n(x) &= f_n(x_0) + \int_{x_0}^{x} f'_n(\xi) \integrald{\xi}
+			\shortintertext{Grazie al \fullref{coro:succ_integ_conv_ad_integ} ora si passa il limite al segno d'integrale ed essendo, per ipotesi $f'_n \uconvarrow g$}
+			\lim\limits_{n \to +\infty} f_n(x) &=
+			\underbrace{
+				\left( \lim\limits_{n \to +\infty} f_n(x_0) \right)
+			}_{
+				\mathclap{
+					\text{
+						\footnotesize
+						\begin{tabular}{c}
+							$= l \in \R$ per ipotesi\\[-1ex]
+							valore dipendente solo da $x$,\\[-1ex]
+							essendo un $\lim$ per $n \to +\infty$
+						\end{tabular}
+					}
+				}
+			} + \int_{x_0}^{x} g(\xi) \integrald{\xi}
+		\end{align*}
+		Quindi le $f_n$ convergono puntualmente ad una funzione $f$ definita come 
+		\[f(x) = f(x_0) + \int_{x_0}^{x} g(\xi) \integrald{\xi}\]
+		Sempre dalla definizione di $f$, segue che $f \in \cntclass{1} \bigl( \intervalclose{a}{b}; \R \bigr)$ e che $f' = g$. Infine, sottraendo membro a membro le definizioni di $f_n$ e $f$:
+		\begin{align*}
+			f_n(x) - f(x) &= f_n(x_0) - f(x_0) + \int_{x_0}^{x} f'_n(\xi) \integrald{\xi} - \int_{x_0}^{x} g(\xi) \integrald{\xi}\\
+			f_n(x) - f(x) &= f_n(x_0) - f(x_0) + \int_{x_0}^{x} \Bigl( f'_n(\xi) - g(\xi) \Bigr) \integrald{\xi}
+			\shortintertext{Passando al valore assoluto ed applicando la disuguaglianza triangolare}
+			\abs{f_n(x) - f(x)} &\leq \abs{f_n(x_0) - f(x_0)} + \abs{\int_{x_0}^{x} \Bigl( f'_n(\xi) - g(\xi) \Bigr) \integrald{\xi}}
+			\shortintertext{Grazie a \fullref{prop:operat_I_linear_lips} è ora sicuramente possibile minorare con}
+			&\leq \abs{f_n(x_0) - f(x_0)} + (b - a) \cdot \sup\limits_{\intervalclose{a}{b}} \abs{f'_n(\xi) - g(\xi)}
+		\end{align*}
+		Passando ora al limite
+		\[\lim\limits_{n \to +\infty} \abs{f_n(x) - f(x)} \leq \lim\limits_{n \to +\infty} \abs{f_n(x_0) - f(x_0)} + (b - a) \cdot \sup\limits_{\intervalclose{a}{b}} \abs{f'_n(\xi) - g(\xi)}\]
+		Visto che $f_n \pconvarrow f$, come dimostrato prima, e $f'_n \uconvarrow g$ per ipotesi, i due addendi $\to 0$, verificando \fullref{def:succ_unif_conv}.
+	\end{proof}
+\end{proposition}
 \begin{corollary}
-	\label{coro:deriv_series_series_of_deriv}
-	Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\brackets{f_n:n\in\N}$ con $f_n:\left[a,b\right]\to \R$
-	\begin{enumerate}
-		\item $\forall n\in\N, f_n\in \cntclass{1}(\left[a,b\right]; \R)$
-		\item $\exists x_0\in\left[a,b\right]: \sum\limits_{n=0}^{+\infty}f_n(x_0)=L\in \R$
-		\item $\exists g \in \cntclass{0}(\left[a,b\right]; \R): \sum\limits_{n=0}^{+\infty}f'_n \uconvarrow g$ su $\left[a,b\right]$
-	\end{enumerate}
-	Allora
-	\begin{enumerate}
-		\item $\exists f\in \cntclass{1}(\left[a,b\right]; \R)$
-		\item $\sum\limits_{n=0}^{+\infty}f_n \uconvarrow f$ su $\left[a,b\right]$
-		\item $f'(x)=g(x)$ $\forall x\in\left[a,b\right]$
-	\end{enumerate}
+	\label{coro:deriv_serie_e_serie_derivate}
+	Fissati $a, b \in \R$ con $a < b$, si consideri una \textbf{Successione di Funzioni} $\brackets{f_n:\; n \in \N}$ con $f_n:\; \intervalclose{a}{b} \to \R$. Allora
+	\[
+		\left.
+			\begin{array}{c}
+				\forall n \in \N \quad f_n \in \cntclass{1} \bigl( \intervalclose{a}{b}; \R \bigr)\\
+				\exists x_0 \in \intervalclose{a}{b}: \quad \sum\limits_{n = 0}^{+\infty} f_n(x_0) \in \R\\
+				\exists g \in \cntclass{0} \bigl( \intervalclose{a}{b}; \R \bigr): \quad \sum\limits_{n = 0}^{+\infty} f'_n \uconvarrow g \text{ su } \intervalclose{a}{b}
+			\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				\exists f \in \cntclass{1} \bigl( \intervalclose{a}{b}; \R \bigr): \quad \sum\limits_{n = 0}^{+\infty} f_n \uconvarrow f \text{ su } \intervalclose{a}{b}\\
+				e\\
+				f' = g
+			\end{array}
+		\end{cases}
+	\]
+	Cioè la derivata di una serie è la serie delle derivate.
+	\begin{note}
+		Esprimendo in altro modo lo stesso concetto
+		\[
+			\left( \sum\limits_{n = 0}^{+\infty} f_n \right)' =
+			\sum\limits_{n = 0}^{+\infty} f'_n
+		\]
+		(sotto opportune ipotesi)
+	\end{note}
+	\begin{proof}
+		Immediata da \fullref{prop:conv_unif_succ_integ_su_integ} per \fullref{def:serie}.
+	\end{proof}
 \end{corollary}
-\observation
-In altre parole questa proposizione afferma che sotto opportune ipotesi
-\[\left(\sum\limits_{n=0}^{+\infty} f_n \right)' =  \sum\limits_{n=0}^{+\infty}f_n'\]
-\definition
-Siano $A\subseteq  \R$ e $\brackets{f_n:n\in\N}$ una successione di funzioni con $f_n:A\to \R$\\
-$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A \bydef \sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}<+\infty$(è convergente)
-\observation
-la $\sum\limits_{n=0}^{+\infty}\sup\limits_{A}\abs{f_n(x)}$ è una serie numerica
-\proposition
-Siano $A\subseteq \R$ e $\brackets{f_n:n\in\N}$ una successione di funzioni con $f_n:A\to \R$\\
-$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$ $\implies$  $\sum\limits_{n=0}^{+\infty}f_n$ converge uniformemente su $A$
-\begin{proof}
-	$\sum\limits_{n=0}^{+\infty}f_n$ converge totalmente su $A$\\
-	$\implies \sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\abs{f_n(x)}<+\infty$\\
-	$\implies \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sum\limits_{n=0}^{+\infty}\sup\limits_{x\in A}\abs{f_n}<\epsilon$\\
-	$\implies \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\sum\limits_{n=0}^{+\infty}\abs{f_n}<\epsilon$\\
-	$\implies \forall\epsilon>0, \exists\nu\in\N: \forall n,m\in\N$ con $m>n>\nu$ vale $\sup\limits_{x\in A}\abs{\sum\limits_{n=0}^{+\infty}f_n}<\epsilon$\\
-	$\implies \sum\limits_{n=0}^{+\infty}f_n$ soddisfa la condizione di Cauchy per la convergenza uniforme su $A$.
-\end{proof}
-\observation
-Per le serie:\\
-Convergenza Totale $\implies$ Convergenza Uniforme $\implies$ Convergenza Puntuale.
+\begin{definition}[Serie Totalmente Convergente]
+	\label{def:serie_totalm_conv}
+	Siano $A \subseteq \R$ e $\brackets{f_n:\; n \in \N}$ con $f_n:\; A \to \R$ una \textbf{Successione di Funzioni}. Allora:
+	\[
+		\sum\limits_{n = 0}^{+\infty} f_n \text{ \textbf{Converge Totalmente} su } A
+		\bydef
+		\sum\limits_{n = 0}^{+\infty} \sup\limits_{A} \abs{f_n} \text{ è \textbf{Convergente}}
+	\]
+	\begin{note}
+		$\sum\limits_{n = 0}^{+\infty} \sup\limits_{A} \abs{f_n}$ è una serie numerica.
+	\end{note}
+	\begin{note}
+		Il fatto $\sum\limits_{n = 0}^{+\infty} \sup\limits_{A} \abs{f_n}$ sia Convergente, può anche essere reso con $\sum\limits_{n = 0}^{+\infty} \sup\limits_{A} \abs{f_n} \;\; \exists \in \R$, cioè "$\neq +\infty$".
+	\end{note}
+	\begin{note}
+		Raramente si trova un uso nel caso delle Successioni del corrispettivo di questa definizione. Vedere \fullref{ex:succ_totalm_conv} per l'enunciato.
+	\end{note}
+\end{definition}
+\begin{proposition}~
+	\begin{note}
+		La \fullref{def:serie_totalm_conv} è una proprietà di una serie, a priori slegata dalla convergenza ad un limite. Questa proposizione dimostra tuttavia che la convergenza totale garantisce l'esistenza di un limite unico.
+	\end{note}
+	Siano $A \subseteq \R$ e $\brackets{f_n:\; n \in \N}$ con $f_n:\; A \to \R$ una \textbf{Successione di Funzioni}. Allora:
+	\[
+		\sum\limits_{n = 0}^{+\infty} f_n \text{ \textbf{Converge Totalmente} su } A
+		\implies
+		\sum\limits_{n = 0}^{+\infty} f_n \text{ \textbf{Converge Uniformemente} su } A
+	\]
+	\begin{proof}
+		\begin{align*}
+			&\sum\limits_{n = 0}^{+\infty} f_n \text{ Converge Totalmente su } A\\
+			\implies &\forall \varepsilon > 0,\; \exists \nu \in \N: \;\; \forall n, m \in \N \text{ con } m > n > \nu,
+			\text{ vale } \sum\limits_{k = n}^{m} \sup\limits_{A} \abs{f_n} < \varepsilon\\
+			\implies &\forall \varepsilon > 0,\; \exists \nu \in \N: \;\; \forall n, m \in \N \text{ con } m > n > \nu,
+			\text{ vale } \sup\limits_{A} \sum\limits_{k = n}^{m} \abs{f_n} < \varepsilon\\
+			\implies &\forall \varepsilon > 0,\; \exists \nu \in \N: \;\; \forall n, m \in \N \text{ con } m > n > \nu,
+			\text{ vale } \sup\limits_{A} \abs{\sum\limits_{k = n}^{m} f_n} < \varepsilon\\
+			\implies &\sum\limits_{n = 0}^{+\infty} f_n \text{ per \fullref{prop:succ_funz_cau_allora_esiste_f_conv_unif} Converge Uniformemente su } A
+		\end{align*}
+	\end{proof}
+\end{proposition}
+\begin{observation}
+	Per le serie:
+	\begin{center}
+		\textbf{Convergenza Totale} $\implies$ \textbf{Convergenza Uniforme} $\implies$ \textbf{Convergenza Puntuale}
+	\end{center}
+\end{observation}
+\begin{exercise}
+	Molti dei risultati di questo paragrafo valgono anche per funzioni $f:\; A \to \R^m$, oppure per funzioni $f:\; A \to \C$ con $A \subseteq \R^n$.\\
+	Determinarli, enunciarli e dimostrarli.
+	% TODO solution (maybe)
+\end{exercise}
+\begin{exercise}
+	Che relazione c'è tra convergenza totale e convergenza assoluta?
+	% TODO solution
+\end{exercise}
+\begin{exercise}
+	\label{ex:succ_totalm_conv}
+	Enunciare un analogo della \fullref{def:serie_totalm_conv} per le Successioni di Funzioni sfruttando quanto descritto in \fullref{sect:prelim_serie_succ_funz}.
+	% TODO solution
+\end{exercise}
+
 \subsection{Convergenza Quadratica}\label{sect:conv_quadr}
 % TODO This subsection is a stub
 \begin{proposition}
@@ -1559,7 +1727,7 @@ Quando abbiamo due variabili, non si può parlare di raggio di convergenza. Ques
 		\item $x \to \cos x$
 		\item $x \to e^x$
 	\end{itemize}
-	utilizzando \fullref{ex:tay_series_examples}, il \fullref{lemma:taylor_rad_convergency} ed il \fullref{coro:deriv_series_series_of_deriv}.
+	utilizzando \fullref{ex:tay_series_examples}, il \fullref{lemma:taylor_rad_convergency} ed il \fullref{coro:deriv_serie_e_serie_derivate}.
 \end{exercise}
 
 \subsection{Serie di Fourier}
