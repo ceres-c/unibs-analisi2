@@ -130,7 +130,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 
 \begin{definition}[Successione Puntualmente Convergente]
 	\label{def:succ_punt_conv}
-	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
 	\[\forall x \in B \qquad \lim\limits_{n \to +\infty} f_n(x) \;\; \exists \text{ finito}\]
 	Se $f_n$ è Puntualmente Convergente, allora esiste una \textbf{Funzione Limite Puntuale} definita come
@@ -142,7 +142,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 	\[f_n \pconvarrow f \text{ su } B\]
 \end{definition}
 \begin{definition}[Serie Puntualmente Convergente]
-	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La \textbf{Serie} $s = \sum\limits_{n = 0}^{+\infty} f_n(x)$ associata alla Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
 	\[\forall x \in B \qquad \sum\limits_{n = 0}^{+\infty} f_n(x) \;\; \exists \text{ finita}\]
 	Se $f_n$ è Puntualmente Convergente, allora esiste una \textbf{Funzione Limite Puntuale} definita come
@@ -284,7 +284,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 
 \begin{proposition}
 	\label{prop:conv_punt_lim_succ}
-	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $f:\; B \to \R$. Allora
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $f:\; B \to \R$. Allora
 	\[
 		f_n \pconvarrow f \text{ su } B \text{ per } n \to +\infty
 		\quad \iff \quad
@@ -304,10 +304,14 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 		\[
 			\forall \varepsilon > 0 \quad \forall x \in B \quad \exists\nu\in\N:\; \forall n > \nu \quad \abs{f_n(x) - f(x)} < \varepsilon
 		\]
+		\vspace*{-\baselineskip}
+		\begin{note}
+			È possibile spostare $\forall x \in B$ "a sinistra dei $:$", in quanto, per definizione di $f$ dalla \fullref{def:succ_punt_conv}, $\forall x \in B \quad f(x) = \lim$, quindi la relazione è sempre valida, a prescindere dalla scelta di $x$.
+		\end{note}
 	\end{proof}
 \end{proposition}
 \begin{proposition}
-	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $F:\; B \to \R$. Allora
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $F:\; B \to \R$. Allora
 	\[
 		\sum\limits_{n = 0}^{+\infty} f_n \pconvarrow F \text{ su } B
 		\quad \iff \quad
@@ -344,7 +348,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 	\begin{solution}~
 		\renewcommand\qedsymbol{$\square$} % To restore the default empty square for the proof environments below
 		\begin{enumerate}
-			\item[\ref*{itm:prop_lim_punt_non_neg}]
+			\item[\ref{itm:prop_lim_punt_non_neg}.]
 				Sia $f_n:\; A \to \R$, $B \subseteq A \subseteq \R$ e $f:\; B \to A$\\
 				Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è non negativa su $B$, cioè $f_n \geq 0$, allora il limite puntuale $f$ è non negativo, $f \geq 0$, su $B$.
 				\begin{proof}
@@ -354,7 +358,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 
 					La dimostrazione è analoga per funzioni non positive.
 				\end{proof}
-			\item[\ref*{itm:prop_lim_punt_monotonia}]
+			\item[\ref{itm:prop_lim_punt_monotonia}.]
 				Sia $f_n:\; A \to \R$, $B \subseteq A \subseteq \R$ e $f:\; B \to A$\\
 				Se $f_n \pconvarrow f$ su $B$ e se $f_n$ è debolmente crescente su $B$, allora il limite puntuale $f$ è debolmente crescente su $B$.
 				\begin{proof}
@@ -384,7 +388,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 % This group is used to alter equation numbering, since there are equations outside environments
 \renewcommand\theequation{\arabic{section}.\arabic{equation}}
 \setcounter{equation}{0} % Reset counter to fix numbering for equation outside theorem envs
-\subsection{L'Insufficienza della Convergenza Puntuale}
+\subsection{L'Insufficienza della Convergenza Puntuale}\label{sect:insuff_conv_punt}
 La Convergenza Puntuale si può rivelare insufficiente per diverse ragioni, tra cui:
 \begin{itemize}
 	\item
@@ -663,21 +667,62 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 
 \begin{definition}[Successione Uniformemente Convergente]
 	\label{def:succ_unif_conv}
-	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La Successione $f_n$ è \textbf{Uniformemente Convergente} su $B$ se esiste la \textbf{Funzione Limite Uniforme} $f:\; B \to \R$ tale che:
 	\[\lim\limits_{n \to +\infty} \sup\limits_{B} \abs{f_n(x) - f(x)} = 0\]
 	\begin{note}
 		Nella \fullref{def:succ_punt_conv} la $f$ associava ogni punto al valore a cui convergeva la successione in quel punto.\\
-		In questo caso invece la $f$ è una funzione \textit{tale per cui} la distanza massima (per via del $\sup$ di $d_{\cntclass{0}}$) tra $f_n$ e $f$ è $0$. Questo vuol dire che la funzione "coincide con la $f_n$ su tutto $B$", in quel senso \textit{Uniformemente}.
+		In questo caso invece la $f$ è una funzione \textit{tale per cui} la distanza massima (per via del $\sup$ di $d_{\cntclass{0}}$) tra $f_n$ e $f$ è $0$. Questo vuol dire che la funzione "coincide con la $f_n$ su tutto $B$", in quel senso \textit{Uniformemente}. Vedasi \fullref{obs:diff_conv_unif_e_conv_punt}.
 	\end{note}
 	La convergenza uniforme su $B$ della successione $f_n$ verso $f$ è indicata con
 	\[f_n \uconvarrow f \text{ su } B\]
 \end{definition}
 \begin{definition}[Serie Uniformemente Convergente]
-	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La \textbf{Serie} $s = \sum\limits_{n = 0}^{+\infty} f_n(x)$ associata alla Successione $f_n$ è \textbf{Uniformemente Convergente} su $B$ se esiste la \textbf{Funzione Limite Uniforme} $F:\; B \to \R$ tale che:
 	\[\lim\limits_{n \to +\infty} \sup\limits_{B} \abs{\sum\limits_{n = 0}^{+\infty} f_n(x) - F(x)} = 0\]
 \end{definition}
+
+\begin{example}~
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[
+			declare function = {
+				f_n(\x) = sqrt(\x)*(1/4*(sin(deg(\x))+4));
+				f(\x) = sqrt(\x);
+			},
+			> = stealth
+		]
+			\begin{axis} [
+				xlabel={$x$},ylabel={$y$},
+				axis lines=middle,
+				axis on top = true,
+				ymax=9,
+				legend style = {at={(.1,.95)}, anchor = north west}
+			]
+				\addplot [thick, name path=f_n, smooth, domain=0:10, samples=50] {f_n(x)};
+				\addlegendentry{$f_n$};
+				\addplot [color=blue, thick, smooth, domain=0:10, samples=100] {f(x)};
+				\addlegendentry{$f$};
+				\addplot [color=red, name path=f_plus, smooth, domain=0:10, samples=100] {f(x) + 1.2};
+				\addlegendentry{$f + \varepsilon$};
+				\addplot [color=green, name path=f_minus, smooth, domain=0:10, samples=100] {f(x) - 1.2};
+				\addlegendentry{$f - \varepsilon$};
+				\pgfplotsinvokeforeach{.25,.5,...,10} {
+					\draw[thin, black!60] (#1, {f_n(#1)}) -- (#1, {f(#1)});
+				}
+				% Mark thicker the sup
+				\draw[thick] (8, {f(8)}) -- (8,{f_n(8)});
+				\node (text_sup_dist) [align=center] at (7,6.5) {$\sup \abs{f_n(x) - f(x)} < \varepsilon$};
+				\draw[thin, ->, shorten >=2pt] (text_sup_dist.south) to [out=-90, in=90](8,{f_n(8)});
+
+				\addplot[brown!30, forget plot] fill between[of=f_plus and f_minus];
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Significato grafico della Convergenza Uniforme\\Come si vedrà in {\protect\fullref{prop:conv_unif_lim_succ}}}
+	\end{figure}
+\end{example}
+
 \begin{observation}
 	\label{obs:dist_conv_unif}
 	La convergenza uniforme equivale alla convergenza rispetto alla distanza $d_{\cntclass{0}}(f,g)=\sup\limits_{x\in A}\abs{g(x)-f(x)}$ ogniqualvolta questa distanza sia definita. La definizione di $d_{\cntclass{0}}(f,g)$ come \textit{distanza} è dimostrata in \hyperref[ex:dim_dist_conv_unif]{\cref*{ex:metriche} (\nameref*{ex:metriche})}\\
@@ -694,7 +739,7 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 	\end{enumerate}
 	\begin{solution}~
 		\begin{enumerate}
-			\item[\ref{itm:dim_dist_inf_dist}] Dimostrata in \hyperref[ex:dim_dist_conv_unif]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
+			\item[\ref{itm:dim_dist_inf_dist}.] Dimostrata in \hyperref[ex:dim_dist_conv_unif]{\cref*{ex:metriche} (\nameref*{ex:metriche})}
 			% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 		\end{enumerate}
 		% TODO remaining points proof
@@ -702,7 +747,7 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 \end{exercise}
 \begin{proposition}
 	\label{prop:conv_unif_lim_succ}
-	Siano $B \subseteq A \subseteq \R$ e $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$. Sia $f:\; B \to \R$ una funzione:
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$. Sia $f:\; B \to \R$ una funzione:
 	\[
 		f_n \uconvarrow f \text{ su } B \text{ per } n \to +\infty
 		\quad \iff \quad
@@ -722,10 +767,13 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 		\[
 			\forall \varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad \forall x \in B \quad \bigl| \abs{f_n(x) - f(x)} - 0 \bigr| < \varepsilon
 		\]
+		\begin{note}
+			A differenza di quanto fatto in \fullref{prop:conv_punt_lim_succ}, non è possibile spostare $\forall x \in B$ "a sinistra dei $:$". La scelta di $x$ non è \textit{"a prescindere"}, ma subordinata alla scelta di $\varepsilon$ e $\nu$. Dato dunque un certo $\nu$, allora, per ogni $n$ e $x$, vale il limite. Vedasi \fullref{obs:diff_conv_unif_e_conv_punt}.
+		\end{note}
 	\end{solution}
 \end{proposition}
 \begin{proposition}
-	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $F:\; B \to \R$. Allora
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} con $f_n:\; A \to \R$ e $F:\; B \to \R$. Allora
 	\[
 		\sum\limits_{n = 0}^{+\infty} f_n \uconvarrow F \text{ su } B
 		\quad \iff \quad
@@ -738,17 +786,399 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 		Analoga alla \fullref{prop:conv_unif_lim_succ} ricordando la definizione di $F$ in \fullref{def:serie}.
 	\end{proof}
 \end{proposition}
-\begin{corollary}
-	Siano $B \subseteq A \subseteq \R$ e $\brackets{f_n:\; n \to \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$. Sia $f:\; B \to \R$ una funzione
+\begin{observation}
+	\label{obs:diff_conv_unif_e_conv_punt}
+	La differenza tra \fullref{prop:conv_unif_lim_succ} e \fullref{prop:conv_punt_lim_succ} (e rispettive proposizioni sulle Serie) giustifica il fatto che la continuità non passi alla Funzione Limite Puntuale, come spiegato in \fullref{sect:insuff_conv_punt}.
+
+	Infatti qui $\nu$ dipende solo dalla scelta di $\varepsilon$ e le $x$ "si guardano tutte insieme", nella Convergenza Puntuale invece $\nu$ dipendeva, oltre che dalla $\varepsilon$, anche dalla $x$. Questo portava ad osservare le $x$ una alla volta.
+\end{observation}
+\begin{corollary}[Relazione tra Convergenza Uniforme e Puntuale]
+	\label{coro:if_unif_conv_then_punt_conv}
+	Siano $B \subseteq A \subseteq \R$ e $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$. Sia $f:\; B \to \R$ una funzione
 	\[f_n \uconvarrow f \text{ su } B \quad \implies \quad  f_n \pconvarrow f \text{ su } B\]
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Questo significa che la Convergenza Uniforme ha tutte le proprietà della Convergenza Puntuale.
+	\end{note}
+	\begin{note}
+		L'implicazione inversa non è possibile, come si vede in \fullref{ex:conv_punt_nimplies_conv_unif}.
+	\end{note}
 	\begin{proof}
-		Da \fullref{prop:conv_unif_lim_succ}  si sa che valgono condizioni analoghe, ma più restrittive, rispetto a quelle di \fullref{prop:conv_punt_lim_succ}, dunque sicuramente è valida l'implicazione $\impliedby$ di \fullref{prop:conv_punt_lim_succ}.
+		Da \fullref{prop:conv_unif_lim_succ}  si sa che valgono condizioni analoghe, ma più restrittive, rispetto a quelle di \fullref{prop:conv_punt_lim_succ} (vedere note alle due Proposizioni), dunque sicuramente è valida l'implicazione $\impliedby$ di \fullref{prop:conv_punt_lim_succ}.
+	\end{proof}
+\end{corollary}
+\begin{example}[La Convergenza Puntuale non implica Convergenza Uniforme]
+	\label{ex:conv_punt_nimplies_conv_unif}
+	Sia $f_n:\; \R \to \R$ data da $f_n(x) = x^n$, allora:
+	\[
+		f_n \pconvarrow f \text{ su } \intervalopcl{-1}{1}
+		\qquad \text{dove} \qquad
+		f(x) = \begin{cases}
+			\begin{array}{ll}
+				0 & \text{per } x \in \intervalopen{-1}{1}\\
+				1 & \text{per } x = 1
+			\end{array}
+		\end{cases}
+	\]
+	Ma su $\intervalopcl{-1}{1}$ non c'è convergenza uniforme e nemmeno su $\intervalopen{-1}{1}$.
+\end{example}
+\begin{exercise}
+	È possibile costruire una successione di funzioni $f_n$ uniformemente convergenti ad una successione $f$ non limitata?
+	\begin{solution}
+		No, perché, come visto in \fullref{coro:if_unif_conv_then_punt_conv} $f_n \uconvarrow f \implies f_n \pconvarrow f$, ma per \fullref{def:succ_punt_conv} $\nexists$ successione puntualmente convergente a $f$ non limitata.
+		% TODO controllare soluzione
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Determinare, se possibile, sotto quali ipotesi sulla funzione $f:\; \R \to \R$ le seguenti successioni di funzioni sono Uniformemente Convergenti:
+	\begin{alignat*}{2}
+		f_n(x) &= f(x) + n \hspace*{.35\linewidth} & f_n(x) &= f(x + n)\\
+		f_n(x) &= f(x) + \frac{1}{n} & f_n(x) &= f(x + \frac{1}{n})\\
+		f_n(x) &= nf(x) & f_n(x) &= \frac{f(x)}{n}\\
+		f_n(x) &= f(nx) & f_n(x) &= f(\frac{x}{n})
+	\end{alignat*}
+\end{exercise}
+\begin{definition}[Successione di Funzioni di Cauchy per la Convergenza Uniforme]
+	\label{def:succ_funz_cau}
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$
+	\begin{center}
+		La Successione $\brackets{f_n:\; n \in \N}$ soddisfa alla \textbf{Condizione di Cauchy}\\
+		per la \textbf{Convergenza Uniforme} su $B$\\
+		$\bydef$\\
+		$
+			\forall \varepsilon > 0 \quad \exists \nu \in \N: \quad \forall n, m > \nu \quad \forall x \in B %
+			\qquad \text{vale} \qquad \abs{f_n(x) - f(x)} < \varepsilon
+		$
+	\end{center}
+\end{definition}
+\begin{proposition}
+	\label{prop:in_compat_succ_funz_cau_corrisp_a_succ_cau}
+	Nel caso in cui $B$ sia \textbf{Compatto}, la \fullref{def:succ_funz_cau} coincide alla \fullref{def:succ_cau}.
+	\begin{proof}
+		Dalla \fullref{def:compatto}, si sa che ogni successione ammette una sottosuccessione avente limite in $B$, dunque si arriva ad avere la distanza $d \left( \lim\limits_{n \to +\infty}f_n(x), f(x) \right)$ tra due elementi di $K$.
+	\end{proof}
+\end{proposition}
+\begin{definition}[Serie di Funzioni di Cauchy per la Convergenza Uniforme]
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$
+	\begin{center}
+		La Serie $\sum\limits_{n = 0}^{+\infty}$ associata alla Successione $f_n$ soddisfa alla \textbf{Condizione di Cauchy}\\
+		per la \textbf{Convergenza Uniforme} di serie su $B$\\
+		$\bydef$\\
+		$
+			\forall \varepsilon > 0 \quad \exists \nu \in \N:\; \forall n, m > \nu \quad \forall x \in B %
+			\qquad \text{vale} \qquad \abs{ \sum\limits_{k = n}^{m} f_k(x) } < \varepsilon
+		$
+	\end{center}
+\end{definition}
+
+\begin{proposition}
+	\label{prop:succ_funz_cau_allora_esiste_f_conv_unif}
+	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$
+	\[
+		\left.
+			\begin{array}{c}
+				\text{La Successione } f_n \text{ soddisfa}\\
+				\text{alla \textbf{Condizione di Cauchy}}\\
+				\text{per la \textbf{Convergenza Uniforme} su } B
+			\end{array}
+		\right\}
+		\implies
+		\begin{cases}
+			\begin{array}{c}
+				\text{Esiste una funzione}\\
+				f:\; B \to \R\\
+				\text{tale che } f_n \uconvarrow f \text{ su } B
+			\end{array}
+		\end{cases}
+	\]
+	\begin{proof}
+		Se la successione $\brackets{f_n:\; n \in \N}$ soddisfa la \fullref{def:succ_funz_cau} su $B$\\
+		$\implies$ ogni successione $\brackets{f_n(x):\; n \in \N},\; \forall x \in B$, è di Cauchy in $\R$\\
+		$\implies$ essendo $\R$ Completo, per \fullref{def:completo} ogni successione
+		\[\brackets{f_n(x):\; n \in \N},\; \forall x \in B\]
+		avrà limite in $\R$. Sia posta ora $f(x)$ la funzione che associa ad ogni $x$ il limite della $f_n(x)$.
+
+		Si verifica che $f$ è la Funzione Limite Uniforme della successione $\brackets{f_n(x):\; n \in \N}$ su $B$. Infatti, posto $\varepsilon > 0$, sia $\nu \in \N$ tale che $\sup\limits_{B} \abs{f_h - f_k} < \varepsilon$ per ogni $h, k \in B$. Allora si ha:
+		\begin{align*}
+			&\sup\limits_{B} \abs{f_h - f_k} < \varepsilon \quad \forall h, k > \nu
+			\shortintertext{Essendo $\sup\limits_{B} < \varepsilon$, sicuramente si può concludere che $\forall x \in B$}
+			\implies &\forall x \in B \quad \abs{f_h(x) - f_k(x)} < \varepsilon \quad \forall h, k > \nu
+			\shortintertext{Essendo questa forma valida $\forall h, k > \nu$, è possibile andare al $\lim$ per $k \to +\infty$}
+			\implies &\forall x \in B \quad \lim\limits_{k \to +\infty} \abs{f_h(x) - f_k(x)} < \varepsilon \quad \forall h > \nu
+			\shortintertext{Per come è stata definita prima $f$, $\lim\limits_{k \to +\infty} f_k(x) = f(x)$}
+			\implies &\forall x \in B \quad \abs{f_h(x) - f(x)} < \varepsilon \quad \forall h > \nu
+			\shortintertext{Tornando ora al $\sup$}
+			\implies &\sup\limits_{B} \abs{f_h(x) - f(x)} < \varepsilon \quad \forall h > \nu
+			\shortintertext{Che poi è la \fullref{def:succ_unif_conv}, dunque}
+			\implies &f_n \uconvarrow f \text{ su } B
+		\end{align*}
+	\end{proof}
+\end{proposition}
+\begin{proposition}[Mantenimento della Continuità per la Funzione Limite Uniforme]
+	\label{prop:cont_f_di_succ_unif_conv}
+	Siano $A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni}, $f_n:\; A \to \R$ e $f:\; A \to \R$
+	\[
+		\left.
+			\begin{array}{c}
+				f_n \in \cntclass{0}(A; \R) \quad \forall n \in \N\\
+				f_n \uconvarrow f \text{ su } A
+			\end{array}
+		\right\}
+		\implies
+		f \in \cntclass{0}(A; \R)
+	\]
+	\begin{proof}
+		Partendo dalla \fullref{def:succ_unif_conv}, fissato $x_0 \in A$ ed $\varepsilon > 0$, sia $\nu \in \N$ tale che
+		\[\sup\limits_{A} \abs{f_n - f} < \varepsilon \quad \forall n > \nu\]
+		Essendo, per ipotesi, $f_n \in \cntclass{0} \quad \forall n \in \N$, dato un $k > \nu$, anche la funzione $f_k$ sarà continua. A questo punto, fissato un $k$, in $x_0$ la $f_k$ avrà un certo $\delta$ come suo Modulo di Continuità (definito in \fullref{def:funz_cont}). Allora per $d(x, x_0) < \delta$
+		\begin{align*}
+			&\abs{f(x) - f(x_0)}
+			\shortintertext{Sommando e sottraendo}
+			= &\abs{f(x) - f_k(x) + f_k(x) - f_k(x_0) + f_k(x_0) - f(x_0)}
+			\shortintertext{Applicando ora la Disuguaglianza Triangolare}
+			\leq &
+				\underbrace{\abs{f(x) - f_k(x)}}_{\text{(1)}} +
+				\underbrace{\abs{f_k(x) - f_k(x_0)}}_{\text{(2)}} +
+				\underbrace{\abs{f_k(x_0) - f(x_0)}}_{\text{(3)}}
+			\shortintertext{Si ha ora che (1) e (2) sono $< \varepsilon$ per \fullref{def:succ_unif_conv}, mentre (2) è $< \varepsilon$, direttamente da \fullref{def:funz_cont}, essendo stato posto $d(x, x_0) < \delta$}
+			\leq & 3 \varepsilon
+		\end{align*}
+		Dunque la $f$ è continua da \fullref{def:funz_cont}.
+	\end{proof}
+\end{proposition}
+\begin{observation}
+	La \fullref{prop:cont_f_di_succ_unif_conv} è il motivo per cui in \fullref{sect:insuff_conv_punt} si è sottolineata l'insufficienza della Convergenza Puntuale. Grazie a questa proprietà della Funzione Limite Uniforme si possono ottenere risultati molto più interessanti.
+\end{observation}
+\begin{corollary}
+	Siano $A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni}, $f_n:\; A \to \R$ e $F:\; A \to \R$
+	\[
+		\left.
+			\begin{array}{c}
+				f_n \in \cntclass{0}(A; \R) \quad \forall n \in \N\\
+				\sum\limits_{n = 0}^{+\infty} f_n \uconvarrow f \text{ su } A
+			\end{array}
+		\right\}
+		\implies
+		F \in \cntclass{0}(A; \R)
+	\]
+	\begin{proof}
+		$F$ è somma di funzioni che son continue per \fullref{prop:cont_f_di_succ_unif_conv}, dunque è continua.
 	\end{proof}
 \end{corollary}
 \begin{proposition}
-	\label{prop:dist_lin_non_cont}
-	% TODO Proposizione 19.34
+	\label{prop:compat_allora_C0_dC0_sp_metr_compl}
+	Sia $K \subseteq \R$ un \textbf{Compatto}. Si prenda ora l'insieme di funzioni $\cntclass{0}(K; \R)$ e la distanza $d_{\cntclass{0}} = \sup\limits_{K} \abs{g(x) - f(x)}$.\\
+	Allora $\bigl( \cntclass{0}(K; \R), d_{\cntclass{0}} \bigr)$ è uno Spazio Metrico \textbf{Completo}.
+	\begin{note}
+		Da \fullref{ex:compat_chius_lim_Rn}, $K$ deve essere Chiuso e Limitato essendo $K \subseteq \R$
+	\end{note}
+	\begin{note}
+		$d_{\cntclass{0}}$ è la la Distanza della Convergenza Uniforme introdotta in \fullref{sect:dist_funz}.
+	\end{note}
+	\begin{proof}~
+		\begin{note}
+			La dimostrazione è analoga a quella di \fullref{prop:X_compat_allora_X_compl}.
+		\end{note}
+		È già stato dimostrato che $d_{\cntclass{0}}$ è una distanza in \hyperref[ex:dim_dist_conv_unif]{\cref*{ex:metriche} (\nameref*{ex:metriche})}.
+		% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+
+		Presa una successione $f_n$ di Cauchy in $\cntclass{0}(K; \R)$, allora questa successione soddisfa anche la \fullref{def:succ_funz_cau}, come osservato in \fullref{prop:in_compat_succ_funz_cau_corrisp_a_succ_cau}.
+		A questo punto, grazie a \fullref{prop:succ_funz_cau_allora_esiste_f_conv_unif}, deve esistere una funzione $f:\; K \to \R$ tale che $f_n \uconvarrow f$ su $K$.
+
+		Infine, avendo scelto per ipotesi $f_n$ nell'insieme $\cntclass{0}$, per \fullref{prop:cont_f_di_succ_unif_conv}, $f$ è a sua volta Continua.
+	\end{proof}
 \end{proposition}
+\begin{exercise}
+	Nella \fullref{prop:compat_allora_C0_dC0_sp_metr_compl}, dove è stata usata l'ipotesi di compatteza di $K$?
+	\begin{solution}
+		L'ipotesi è richiesta per poter applicare \fullref{prop:in_compat_succ_funz_cau_corrisp_a_succ_cau}. Vedasi la dimostrazione di questa proposizione per una spiegazione più dettagliata.
+	\end{solution}
+\end{exercise}
+\begin{observation}
+	Nella \fullref{prop:compat_allora_C0_dC0_sp_metr_compl}, la \textbf{Compattezza} di $K$ assicura anche che tutte le funzioni in $\cntclass{0}(K; \R)$ siano \fullref{def:funz_unif_cont}, come da \fullref{teo:cantor}.
+\end{observation}
+\begin{corollary}
+	La \textbf{Funzione Limite Uniforme} $f$ di una \textbf{Successione} di funzioni \textbf{continue} definite su un \textbf{Compatto} è una funzione \textbf{Uniformemente Continua}.
+	\begin{proof}
+		Grazie alla \fullref{prop:cont_f_di_succ_unif_conv} si sa che $f$ è continua. Essendo funzione continua in un compatto, allora per \fullref{teo:cantor} è uniformemente continua.
+	\end{proof}
+\end{corollary}
+\begin{corollary}
+	\label{prop:compl_dist_spm_compl}
+	Siano $K \subseteq \R^n$ un \textbf{Compatto} e $C \subseteq \R$ un \textbf{Chiuso}.\\
+	Allora l'insieme delle funzioni di classe $\cntclass{0}(K; C)$ che assumono valori in $C$ è uno spazio metrico \textbf{Completo} con la distanza $d_{\cntclass{0}} = \sup\limits_{K} \abs{g(x) - f(x)}$.
+	\begin{proof}
+		$\bigl( \cntclass{0}(K; \R), d_{\cntclass{0}} \bigr)$ è uno Spazio Metrico perché, come dimostrato in \hyperref[ex:dim_dist_conv_unif]{\cref*{ex:metriche} (\nameref*{ex:metriche})}, $d_{\cntclass{0}}$ è una distanza su $\cntclass{0}(K; \R)$.
+		% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+
+		Grazie alla chiusura di $C$, si può applicare la \fullref{prop:compat_allora_C0_dC0_sp_metr_compl} ed ottenere la completezza di $\bigl( \cntclass{0}(K; \R), d_{\cntclass{0}} \bigr)$. La chiusura è necessaria per utilizzare \fullref{prop:subset_compl_e_compl}.
+	\end{proof}
+\end{corollary}
+
+\begin{definition}[Operatore]
+	Una funzione che agisce su fuzioni è chiamata \textbf{Operatore} o \textbf{Funzionale}.
+\end{definition}
+
+\begin{proposition}
+	\label{prop:operat_I_linear_lips}
+	Fissati $a, b \in \R$ con $a < b$, si consideri $\cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)$ con la distanza $d_{\cntclass{0}} = \sup\limits_{\intervalclose{a}{b}} \abs{g(x) - f(x)}$. Definito l'Operatore
+	\[
+		\funcdef{I}{
+			\cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)
+		}{\R}{f}{
+			\int_{a}^{b} f(x) \integrald{x}
+		}
+	\]
+	Si verifichi che $I$ è \textbf{Lineare} e \textbf{Lipschitziana} con costante $L = b - a$.
+	\begin{proof}
+		La linearità di $I$ segue dalle regole d'integrazione studiate nel corso di Analisi 1 che garantiscono la linearità dell'integrale.
+
+		Scelte due funzioni $f, g \in \cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)$, allora:
+		\begin{align*}
+			\abs{I(f) - I(g)} &= \abs{\int_{a}^{b} f(x) \integrald{x} - \int_{a}^{b} g(x) \integrald{x}}\\
+			&= \abs{\int_{a}^{b} f(x) - g(x) \integrald{x}}
+			\shortintertext{Come si vede in \fullref{ex:cau_loc_abs_of_norm}, è ora possibile minorare}
+			&\leq \int_{a}^{b} \abs{f(x) - g(x)} \integrald{x}
+			\shortintertext{Passando alla $d_{\cntclass{0}}$, cioè il  $\sup$ di $\abs{f(x) - g(x)}$, si ha la certezza di poter minorare nuovamente}
+			&\leq \int_{a}^{b} d_{\cntclass{0}}(f, g) \integrald{x}
+			\shortintertext{Non avendo più dipendenza diretta da $x$, è possibile estrarre la distanza}
+			&= d_{\cntclass{0}}(f, g) \; \int_{a}^{b} \integrald{x}\\
+			&= d_{\cntclass{0}}(f, g) \; (b - a)
+		\end{align*}
+		Dunque $L = b - a$
+	\end{proof}
+\end{proposition}
+\begin{corollary}
+	\label{coro:operat_I_conv_unif_succ}
+	Fissati $a, b \in \R$ con $a < b$, se la successione
+	\[f_n \text{ \textbf{Converge Uniformemente} a } f \text{ in } \cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)\]
+	allora la successione
+	\[\int_{a}^{b} f_n(x) \integrald{x} \text{ \textbf{Converge} a } \int_{a}^{b} f(x) \integrald{x}\]
+	\begin{note}
+		Esprimendo in altro modo lo stesso concetto
+		\[
+			\int_{a}^{b} \left( \lim\limits_{n \to +\infty} f_n \right) (x) \integrald{x} =
+			\lim\limits_{n \to +\infty} \int_{a}^{b} f_n(x) \integrald{x}
+		\]
+		Intendendo il membro di sinistra come Convergenza Uniforme
+	\end{note}
+	\begin{proof}
+		Essendo le $f_n \in \cntclass{0}$ per iptesi, è possibie applicare la \fullref{prop:cont_e_cont_per_succ} e passare il limite fuori dal segno di integrale. Cio è consentito solo perché l'operatore $I$ è stato dimostrato Lineare in \fullref{prop:operat_I_linear_lips}.
+	\end{proof}
+\end{corollary}
+\begin{corollary}
+	Fissati $a, b \in \R$ con $a < b$, se la serie
+	\[\sum\limits_{n = 0}^{+\infty} f_n \text{ \textbf{Converge Uniformemente} a } F \text{ su } \intervalclose{a}{b} \text{ ed inoltre } f_n \in \cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)\]
+	allora
+	\[\lim\limits_{N \to +\infty} \int_{a}^{b} \sum\limits_{n = 0}^{N} f_n(x) \integrald{x} = \int_{a}^{b} F(x) \integrald{x}\]
+	\begin{note}
+		Esprimendo in altro modo lo stesso concetto
+		\[
+			\int_{a}^{b} \sum\limits_{n = 0}^{+\infty} f_n(x) \integrald{x} =
+			\sum\limits_{n = 0}^{+\infty} \int_{a}^{b} f_n(x) \integrald{x}
+		\]
+		(sotto opportune ipotesi)
+	\end{note}
+	\begin{proof}
+		Immediata da \fullref{coro:operat_I_conv_unif_succ} per \fullref{def:serie}.
+	\end{proof}
+\end{corollary}
+\begin{exercise}
+	\label{ex:verif_imporanz_limit_dom_integr}
+	Verificare che la limitatezza del dominio delle funzion $f_n$ è essenziale nel \fullref{coro:operat_I_conv_unif_succ} e dunque anche nella \fullref{prop:operat_I_linear_lips}.\\
+	Considerare ad esempio la successione di funzioni $f_n:\; \intervalclop{0}{+\infty} \to \R$ date da $\displaystyle f_n = \frac{1}{n}\chi_{\intervalclose{0}{n^2}}$.
+	\begin{solution}
+		La necessità di limitatezza del dominio è intimamente legata all'uso degli integrali. La convergenza su intervalli illimitati presenta sostanziali differenze.
+		% TODO improve this solution
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Esibire un esempio di una successione di funzioni $f_n \in \cntclass{0} \bigl( \intervalclop{0}{+\infty}; \R \bigr)$ tali che per $n \to +\infty$ valgano
+	\[f_n \uconvarrow 0 \qquad \text{e} \qquad \int_{0}^{+\infty} f_n \to +\infty\]
+	\begin{solution}
+		Suggerimento: Modificare \fullref{ex:verif_imporanz_limit_dom_integr}.
+		% TODO actual solution
+	\end{solution}
+\end{exercise}
+\begin{exercise}
+	Data per $n \geq 3$ la successione di funzioni
+	\[
+		\funcdef{f_n}{
+			\intervalclose{0}{1}
+		}{\R}{x}{
+			\begin{cases}
+				\begin{array}{ll}
+					n^3 x & \text{se } x \in \intervalclose{0}{\frac{1}{n}}\\
+					2n^2 - n^3 x & \text{se } x \in \intervalopen{\frac{1}{n}}{\frac{2}{n}}\\
+					0 & \text{se } x \in \intervalclose{\frac{2}{n}}{1}
+				\end{array}
+			\end{cases}
+		}
+	\]
+	Determinare se $f_n$ ammette limite puntuale o uniforme su $\intervalclose{0}{1}$ e calcolare $\lim\limits_{n \to +\infty} \int_{0}^{1} f_n$.\\
+	Com'è legato questo esercizio al \fullref{coro:operat_I_conv_unif_succ}?
+	% TODO solution
+\end{exercise}
+
+\begin{proposition}
+	Fissati $a, b \in \R$ con $a < b$, si consideri $\cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)$ con la distanza $d_{\cntclass{0}} = \sup\limits_{\intervalclose{a}{b}} \abs{g(x) - f(x)}$. Definito l'Operatore
+	\[
+		\funcdef{P}{
+			\cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)
+		}{
+			\cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)
+		}{f}{F}
+	\]
+	dove
+	\[F(x) = \int_{a}^{x} f(t) \integrald{t}\]
+	Si verifichi che $P$ è \textbf{Lineare} e \textbf{Lipschitziana} con costante $L = b - a$.
+	\begin{proof}~
+		\begin{note}
+			La dimostrazione è analoga a quella di \fullref{prop:operat_I_linear_lips}.
+		\end{note}
+		La linearità di $P$ segue dalle regole d'integrazione studiate nel corso di Analisi 1 che garantiscono la linearità dell'integrale.
+
+		Scelte due funzioni $f, g \in \cntclass{0}\bigl( \intervalclose{a}{b}; \R \bigr)$, allora:
+		\begin{align*}
+			d\bigl( P(f), P(g) \bigr) &= \sup\limits_{\intervalclose{a}{b}} \bigl| P(g) - P(f) \bigr|\\
+			&= \sup\limits_{\intervalclose{a}{b}} \abs{ \int_{a}^{x} g(t) \integrald{t} - \int_{a}^{x} f(t) \integrald{t} }\\
+			&= \sup\limits_{\intervalclose{a}{b}} \abs{ \int_{a}^{x} g(t) - f(t) \integrald{t} }
+			\shortintertext{Come si vede in \fullref{ex:cau_loc_abs_of_norm}, è ora possibile minorare}
+			&\leq \sup\limits_{\intervalclose{a}{b}} \int_{a}^{x} \abs{g(t) - f(t)} \integrald{t}
+			\shortintertext{Ingrandendo l'intervallo d'integrazione, essendo l'argomento dell'integrale dentro il valore assoluto, è possibile minorare ulteriormente}
+			&\leq \int_{a}^{b} \abs{g(t) - f(t)} \integrald{t}
+			\shortintertext{Passando alla $d_{\cntclass{0}}$, cioè il  $\sup$ di $\abs{f(x) - g(x)}$, si ha la certezza di poter minorare nuovamente}
+			&\leq \int_{a}^{b} d_{\cntclass{0}}(f, g) \integrald{t}
+			\shortintertext{Non avendo più dipendenza diretta da $t$, è possibile estrarre la distanza}
+			&= d_{\cntclass{0}}(f, g) \; \int_{a}^{b} \integrald{t}\\
+			&= d_{\cntclass{0}}(f, g) \; (b - a)
+		\end{align*}
+		Dunque $L = b - a$
+	\end{proof}
+\end{proposition}
+\begin{proposition}
+	\label{prop:operat_D_non_cont}
+	Nello \textbf{Spazio Metrico} $\Bigl( \cntclass{0}\bigl( \intervalclose{0}{1}; \R \bigr), d_{\cntclass{0}} \Bigr)$ con $d_{\cntclass{0}} = \sup\limits_{\intervalclose{0}{1}} \abs{g(x) - f(x)}$, si definisce l'Operatore
+	\[
+		\funcdef{D}{
+			\cntclass{1}\bigl( \intervalclose{0}{1}; \R \bigr)
+		}{
+			\cntclass{0}\bigl( \intervalclose{0}{1}; \R \bigr)
+		}{f}{f'}
+	\]
+	Si verifichi che $D$ è \textbf{Lineare}, ma non è \textbf{Continua}.
+	\begin{note}
+		Essendo $f$ una funzione a valori in $\R^1$, si utilizza la  notazione di derivata $f'$ di Analisi 1.
+	\end{note}
+	\begin{proof}
+		La linearità di $D$ segue dalle regole di derivazione studiate nel corso di Analisi 1 che garantiscono la linearità della derivata.
+
+		Per verificare la non continuità, sia $f_n(x) = \frac{1}{n} \sin(n^2 x)$. Allora, rispetto alla metrica $d_{\cntclass{0}}$ della Convergenza Uniforme, $\lim\limits_{n \to +\infty} f_n = 0$, ma
+		\[\lim\limits_{n \to +\infty} Df_n = \lim\limits_{n \to +\infty} f'_n \quad \nexists\]
+		% TODO verify this proof
+	\end{proof}
+\end{proposition}
+
 \begin{example}
 	\label{ex:BBBBBBBBBB}
 	%TODO Esempio 19.36 dal libro
@@ -758,22 +1188,6 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 	% TODO Definizione 19.42 dal libro
 \end{definition}
 
-
-\proposition
-sia $f_n:n\in\N$ con $f:A\subseteq \R\to \R$ e $f:B\subseteq A \to  \R$\\
-$f_n \uconvarrow f$ su $B$ per$n\to\infty \iff \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{f_n(x)-f(x)} \leq \epsilon$
-\proposition
-sia $f_n:n\in\N$ con $f:A\subseteq \R\to \R$ e $F:B\subseteq A \to  \R$\\
-$\sum\limits_{n=0}^{\infty}f_n \uconvarrow F$ su $B\iff \forall\epsilon >0, \exists\nu\in\N$  t.c: $\forall n>\nu, \forall x\in B$ vale che $\abs{F(x)-\sum\limits_{k=0}^{n}f_k(x)} \leq \epsilon$
-\observation
-La differenza tra queste due proposizioni e le due proposizioni analoghe nel caso di convergenza puntuale giustifica il fatto che la continuità non passa al limite puntuale. Infatti qui $\nu$ dipende solo dalla scelta di $\epsilon$ e le $x$ si guardano tutte insieme, prima invece $\nu$ dipendeva oltre che alla $\epsilon$ anche dalla $x$ questo porta a osservare le $x$ una alla volta.
-\proposition Relazione tra convergenza uniforme e puntuale.\\
-Sia $f_n:A\subseteq \R\to \R$ e $f:B\subseteq A\to \R$\\
-Se $fn \uconvarrow f$ su $B$ allora $fn \pconvarrow f$ su $B$.
-\begin{proof}
-	se $f_n \uconvarrow f$ su $b$ allora vale che:
-	$\forall\epsilon, \exists\nu : \forall n>\nu, \forall x\in B $ vale $\abs{f_n(x)-f(x)} \leq \epsilon$ in questo modo si trova un $\nu$ che soddisfa la condizione $\forall x \in B$ quindi $\forall x\in B, \forall\epsilon, \exists\nu : \forall n>\nu $ vale $\abs{f_n(x)-f(x)} \leq \epsilon$ quindi $f_n \pconvarrow f$ su B
-\end{proof}
 \proposition
 Sia $f_n:A\subseteq \R\to \R$ e $\overline{f},f:B\subseteq A\to \R$\\
 se $f_n \uconvarrow f$ su $B$ e $f_n \uconvarrow \overline{f}$ su $B$ allora $f=\overline{f}$
@@ -792,17 +1206,6 @@ Allora $f_n \uconvarrow f$ su $A$
 \example $f_n(x)=sin\left(\frac{1}{n}x\right)$ con $A\equiv \R$
 ..........\\
 ..........\\
-\proposition
-Siano $A\subseteq \R$, $\brackets{f_n:A\to \R:n\in\N}$ una successione di funzioni e $f:A\to \R$\\
-$f_n \uconvarrow f$ su $A$ e $f_n\in \cntclass{0}(A; \R)\,\,\forall n\in\N$ allora $f\in \cntclass{0}(A; \R)$
-\begin{proof}
-	DISEGNO\\
-	DISEGNO\\
-	DISEGNO\\
-	DISEGNO\\
-	GIURO CHE LA FAROò
-	(a distanza di tre anni non son sicurissimo che lo farò)
-\end{proof}
 \example $f_n(x)=\sqrt{x^2+\frac{1}{n}}$ con $A\equiv \R$\\
 %$f_n$ è continua $\forall n$ perchè compositione di funzioni continue.\\
 %Il limite puntuale di questa successione di funzioni è $f\left( x \right)=\abs{x}$ su $A$\\
@@ -811,39 +1214,7 @@ $f_n \uconvarrow f$ su $A$ e $f_n\in \cntclass{0}(A; \R)\,\,\forall n\in\N$ allo
 %analizzando il contenuto del modulo si trova che la sua derivata vale $\frac{1}{2\sqrt{x^2+\frac{1}{n}}}-sgn\left(x\right)$ che si annulla in $x=\pm\sqrt{\frac{1}{4}-\frac{1}{n}}$
 ..........\\
 ..........\\
-\definition
-Siano $A\subseteq \R$, $B\subseteq A$ e $\brackets{f_n:A\to \R:n\in\N}$ una successione di funzioni.\\
-La successione $\brackets{f_n:n\in\N}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B \bydef \forall\epsilon>0, \exists\nu\in\N: \forall n,m>\nu, \forall x \in B$ vale $\abs{f_n(n)-f_m(x)}<\epsilon$
-\proposition
-(Una successione di Cauchy per la convergenza uniforme è uniformemente convergente).\\
-Siano $A\subseteq \R$, $B\subseteq A$ e $\brackets{ f_n:A\to \R:n\in\N }$ una successione di funzioni.\\
-La successione $\brackets{ f_n:n\in\N }$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\exists$ una funzione $f:B\to \R$ t.c.: $f_n \uconvarrow f$ su $B$
-\begin{proof}
-	La successione $\brackets{ f_n:n\in\N}$ soddisfa alla condizione di Cauchy per la convergenza uniforme su $B$ allora $\forall x\in B$ la successione $\brackets{ f_n(x) :n\in\N }$ è di Cauchyin $ \R$ allora $\forall x \in B$ la successione $\brackets{ f_n(x):n\in\N }$ ha limite in $ \R$.(cioè c'è il limite puntuale).\\
-	Sia $f(x)$ questo limite, $f$ è anche il limite uniforme della successione $\brackets{ f_n:n\in\N }$, infatti:
-	\[\forall\epsilon>0, \exists\nu\in\N: \forall h,k>\nu \forall x\in B \quad \abs{f_h-f_k}<\epsilon\]
-	\[\sup\limits_B\abs{f_h(x)-f_k(x)}, \forall h,k>\nu\]
-	\[\implies \abs{f_h(x)-f_k}<\epsilon,\forall h.k>\nu, \forall x \in B\]
-	a questo punto si passa al limite e la disuguaglianza diventa debole.
-	\[\implies \lim\limits_{n\to\infty}\abs{f_h(x)-f_k(x)} \leq \epsilon, \forall h>\nu, \forall x\in B\]
-	\[\implies \abs{f_h(x)-f(x)} \leq \epsilon, \forall h>\nu, \forall x\in B\]
-	\[\implies \sup\limits_B\abs{f_h-f} \leq \epsilon, \forall h>\nu\]
-	\[\implies f_n \uconvarrow f\quad su B\]
-\end{proof}
-\begin{proposition}
-	\label{prop:dist_unif_sp_metr_compl}
-	Sia $A$ un compatto in $ \R$. In $\cntclass{0}(A; \R)$ sia $d_{\cntclass{0}}=\sup_A\abs{g(x)-f(x)}$. Allora $\left( \cntclass{0}\left(A; \R\right);d_{\cntclass{0}}\right)$ è uno spazio metrico completo.
-	\begin{proof}
-		prendo $f_n\in \cntclass{0}(A; \R)$ successione di Cauchy in $\cntclass{0}(A; \R)$
-		$f_n$ sono di Cauchy rispetto alla convergenza uniforme su $A$
-		$\implies f_n:A\to \R$ e $f_n \uconvarrow f$ su $A$ e $f$ è continua\\ $\implies\left(f\in \cntclass{0}(A; \R)\right)$\\
-		$\implies\lim\limits_{n\to\infty}f_n=f$ in $\cntclass{0}(A; \R)$\\
-		$\implies\lim\limits_{n\to\infty}d_{\cntclass{0}}(fn,f)=0\quad \implies f_n\to f\in \cntclass{0}(A; \R)$
-	\end{proof}
-\end{proposition}
-\begin{corollary} % TODO dimostrare il corollario 19.26 con C di arrivo delle f chiuso
-	\label{prop:compl_dist_spm_compl}
-\end{corollary}
+
 
 ESEMPIO:: In dimensione finita non vi è differenza tra "chiuso e limitato" e "compatto", in dimensione infinita cambiamo molte cose.
 Prensiamo un insieme chiuso e limitato ma non compatto.\\
@@ -865,21 +1236,6 @@ Se ad esempio $f_n(x) = x^n$\\
 so che $f_n \pconvarrow f$ su $\left[0,1\right]$ e $f(x)=\brackets{\begin{matrix}0&&x\in\left[0,1\right]\\1&&x\in\left\{1}\end{matrix}\right.$\\
 Tutta la successione di funzioni $f_n$ converge puntualmente a $f$ quindi se estraggo una sottosuccessione comunque venga scelta questa sottosuccessione converge ancora a $f$ puntualmente. Ma la $f$ non è continua mentre il limite uniforme di funzioni continue è una funzione continua allora nessuna sottosuccessione ammette limite uniforme.
 
-ESEMPIO:: OPERATORE DERIVATA 0\\
-\[D\]
-
-ESEMPIO:: OPERATORE DERIVATA 1\\
-\[D\]
-
-ESEMPIO:: OPERATORE INTEGRALE\\
-\[I\]
-
-\proposition
-fissati $a,b\in \R$ con $a<b$ se la successione $\brackets{f_n:n\in\N}$ in $\cntclass{0}(\left[a,b\right], \R) \uconvarrow f$ su $\left[a,b\right]$\\
-$f_n$ e $f$ sono integrabili secondo Rimmmmmmmn allora lasuccessione $\brackets{\int_a^bf_n(x)\integrald{x}:n\in\N}$ converge a $\int_a^bf(x)\integrald{x}$
-\observation
-La convergenza uniforme passa sotto il segno di integrale
-\[\int_a^b\left(\lim\limits_{n\to\infty}fn\right)(x)\integrald{x}=\lim\limits_{n\to\infty}\left(\int_a^bfn(x)\integrald{x}\right)\]
 \proposition convergono le derivare allora convergono le funzioni\\
 Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\brackets{f_n:n\in\N}$ con $f_n:\left[a,b\right]\to \R$
 \begin{enumerate}
@@ -908,10 +1264,7 @@ Allora
 \end{proof}
 \observation
 Necessaria l'ipotesi $f_n(x_0)\to l$.......
-\observation
-Serve $\left[a,b\right]$ limitato .......\\
-.............................\\
-................................\\
+
 \begin{corollary}
 	\label{coro:deriv_series_series_of_deriv}
 	Fissati $a,b\in \R$ con $a<b$, si consideri una successione di funzioni $\brackets{f_n:n\in\N}$ con $f_n:\left[a,b\right]\to \R$

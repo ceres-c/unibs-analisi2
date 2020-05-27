@@ -68,7 +68,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\label{ex:metriche}
 	Si dimostri che le seguenti funzioni sono distanze:
 	\begin{note}
-		Si noti che alcuni degli esempi sottostanti sono relativi a metriche trattate molto più avanti e dunque potrebbe essere conveniente ignorarli temporaneamente per tornare qui quando saranno stati fatti i successivi argomenti.
+		Si noti che alcuni degli esempi sottostanti sono relativi a metriche trattate molto più avanti e dunque potrebbe essere conveniente ignorarli temporaneamente per tornare qui quando saranno stati studiati i successivi argomenti.
 	\end{note}
 	\begin{enumerate}
 		\item $X=\R^2,\quad d(x,y) = d\bigl((x_1,x_2),(y_1,y_2)\bigr) = \sqrt{(y_1-x_1)^2+(y_2-x_2)^2}$
@@ -884,7 +884,7 @@ Unendo le due definizioni si giunge naturalmente a
 			$X$ è uno spazio metrico completo in cui le uniche successioni convergenti son le successioni \textbf{definitivamente costanti} (cioè costanti da un certo indice in poi).
 		\item $\cntclass{0}(\intervalclose{0}{1}; \R)$ è uno spazio metrico completo con la distanza
 			\[d(f,g) = \sup\limits_{\intervalclose{0}{1}}\abs{g(x) - f(x)}\]
-			Vedasi \fullref{prop:dist_unif_sp_metr_compl} per la dimostrazione.
+			Vedasi \fullref{prop:compat_allora_C0_dC0_sp_metr_compl} per la dimostrazione.
 		\item $\cntclass{0}(\intervalclose{0}{1}; \R)$ è uno spazio metrico \textit{non} completo con la distanza
 			\[d(f,g) = \sqrt{\int_0^1 \left[ g(x) - f(x) \right]^2 \integrald{x}}\]
 			Vedasi \fullref{prop:dist_quad_sp_metr_non_compl} per la dimostrazione.
@@ -1133,6 +1133,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{proposition}
+	\label{prop:X_compat_allora_X_compl}
 	Sia $(X,d)$ uno spazio metrico. Allora
 	\[X \text{ è \textbf{Compatto}} \implies X \text{ è \textbf{Completo}}\]
 	\begin{proof}
@@ -1304,6 +1305,9 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Inoltre
 	\[f \text{ è \textbf{Continua} in } A \quad \bydef \quad f \text{ è \textbf{continua in ogni punto} di } A\]
 	\vspace*{-\baselineskip}
+	\begin{note}
+		Il $\delta$ è talvolta denominato \textbf{Modulo di Continuità}.
+	\end{note}
 	\begin{note}
 		Non andrebbe detto semplicemente "$f$ \textit{è continua}" perché la continuità dipende in modo essenziale dall'insieme di punti su cui la funzione viene considerata. In assenza di ulteriori specificazioni, spesso si sottointende che l'insieme in esame è l'intero dominio della funzione.
 	\end{note}
@@ -1705,8 +1709,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 \begin{proposition}
 	\label{prop:if_unif_cont_then_conf}
-	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \to Y$ con $A \subseteq X$.\\
-	Se $f$ è \textbf{uniformemente continua} in $A$, allora $f$ è \textbf{continua} in $A$.
+	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \to Y$ con $A \subseteq X$.
+	\[f \text{ \textbf{Uniformemente Continua} in } A \implies f \text{ \textbf{Continua} in } A\]
 	\begin{proof}
 		Deriva da \fullref{ex:cont_unif_cont_comparision} in quanto, se è possibile scegliere un qualsiasi $x_0$ quando $\varepsilon$ è già stato fissato, sicuramente sarà possibile fare questa scelta anche in ordine inverso (la continuità è condizione meno stringente).
 	\end{proof}
@@ -2006,7 +2010,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{exercise}
 	Sia $f:\R^n \to \R^n$ una funzione lineare. Allora è Lipschitziana (rispetto alla Metrica Euclidea). Suggerimento: utilizzare la \fullref{prop:proprieta_norm_matr}
 	\begin{note}
-		In spazi più generali di $\R^n$ (spazi di dimensione \textit{infinita}) l'affermazione contenuta in questo esercizio può essere falsa. Vedasi \fullref{prop:dist_lin_non_cont}
+		In spazi più generali di $\R^n$ (spazi di dimensione \textit{infinita}) l'affermazione contenuta in questo esercizio può essere falsa. Vedasi \fullref{prop:operat_D_non_cont}
 	\end{note}
 	% TODO solution
 \end{exercise}
@@ -2409,7 +2413,11 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \cbend
 
 \newpage
-\section{Funzioni a Valori in \texorpdfstring{\MakeLowercase{$\protect \R^n$}}{Rn}}
+\section{Funzioni a Valori in \texorpdfstring{$\protect \R^n$}{R\textasciicircum n}}
+\markright{FUNZIONI A VALORI IN $\R^n$}
+% \markright is used to change section headings to force the "n" in R^n to lowercase.
+% The same couldn't be performed simply by using \MakeLowerCase in section's name since it was broken in TOC.
+
 In tutto questo paragrafo si hanno $n \in \N$ e $n \geq 1$. Con $\R^n$ viene indicato lo spazio metrico $\R$ dotato dell'usuale \textbf{Metrica Euclidea}: $d(x,y) = \sqrt{\sum\limits_{i = 1}^{k} (y_i - x_i)^2}$ da \fullref{ex:metriche}.\\
 Questo spazio si dice anche \fullref{def:sp_vett_normato}.
 \begin{note}
