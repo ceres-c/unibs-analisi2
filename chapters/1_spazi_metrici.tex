@@ -4,6 +4,7 @@
 % TODO definzione campo
 
 \begin{definition}[Spazio Vettoriale]
+	\index{Spazio!Vettoriale}
 	Siano $K$ un \textbf{campo} e $V$ un \textbf{insieme}. Si dice che \textbf{Spazio Vettoriale} sul campo $K$ se sono definite due operazioni:
 	\begin{enumerate}
 		\item \textbf{Somma}, operazione interna binaria
@@ -15,6 +16,8 @@
 \end{definition}
 
 \begin{definition}[Spazio Metrico]
+	\index{Spazio!Metrico}
+	\index{Metrica}
 	\label{def:sp_metrico}
 	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{Distanza} (o \textbf{Metrica}), vale a dire una funzione $d: X \times X \to \R$ con le seguenti proprietà:
 	\begin{enumerate}
@@ -30,6 +33,7 @@
 
 Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Spazio Vettoriale Metrico]
+	\index{Spazio!Vettoriale Metrico}
 	\label{def:sp_vett_normato}
 	Uno \textbf{Spazio Vettoriale Metrico} è uno spazio vettoriale $V$ su cui è definito un prodotto scalare $<\cdot,\cdot·>$ definito positivo, la sua \textbf{Metrica}.
 	\begin{note}
@@ -38,6 +42,8 @@ Unendo le due definizioni si giunge naturalmente a
 \end{definition}
 
 \begin{definition}[Metrica Indotta]
+	\index{Metrica!Indotta}
+	\index{Distanza!Indotta}
 	\label{def:metr_indotta}
 	Siano $(X,d)$ spazio metrico e $S \subseteq X$ con $S \neq \emptyset$\\
 	Allora $d_{|S} = d_{|S \times S}$ è una metrica su $S$, cioè la metrica $d_{|S}$ è la \textbf{Metrica Indotta}, definita come la \textbf{restrizione} della metrica $d$ ai soli elementi di $S$. Si definisce formalmente come
@@ -45,6 +51,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{definition}
 
 \begin{definition}[Sottospazio Metrico]
+	\index{Sottospazio Metrico}
 	Siano $(X,d)$ spazio metrico e $S \subseteq X$ con $S \neq \emptyset$\\
 	Allora $(S,d_{|S})$ con la \fullref{def:metr_indotta} è a sua volta Spazio Metrico ed è chiamato \textbf{Sottospazio Metrico di $(X,d)$}
 	\begin{proof}
@@ -121,7 +128,8 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ in quanto
 					\[d(x,y) = \abs{x-y} = \abs{x-z+z-y} \leq \abs{x-z} + \abs{z-y} = d(x,z) + d(z,y)\]
 			\end{enumerate}
-		\item \label{ex:dist_eucl}
+		\item \label{ex:dist_eucl}\index{Metrica!Euclidea}
+\index{Distanza!Euclidea}
 			$\begin{array}{l}
 				X=\R^n \text{ con } x=(x_1,\ldots,x_n),\; y=(y_1,\ldots,y_n)\\
 				d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}
@@ -141,7 +149,8 @@ Unendo le due definizioni si giunge naturalmente a
 					\end{array}
 				\end{cases}
 			$
-			\hfill {\footnotesize\textbf{Metrica Discreta}}
+			\hfill {\footnotesize\textbf{Metrica Discreta}}\index{Metrica!Discreta}
+\index{Distanza!Discreta}
 			\begin{enumerate}[label=\arabic*.]
 				\item $d(x,y) \geq 0$ per definizione della metrica
 				\item $d(x,y) = 0 \iff x = y$ per definizione della metrica
@@ -153,7 +162,8 @@ Unendo le due definizioni si giunge naturalmente a
 						\item $2$ se $x \neq y \neq z$, quindi sicuramente $d(x,y) \leq d(x,z) + d(z,y)$
 					\end{itemize}
 			\end{enumerate}
-		\item \label{ex:dim_dist_conv_unif}
+		\item \label{ex:dim_dist_conv_unif}\index{Metrica!Infinito}
+\index{Distanza!Infinito}
 			$
 				\begin{array}{l}
 					X = \cntclass{0}(\intervalclose{a}{b};\R)\; a,b \in \R,\; a < b\\
@@ -203,7 +213,8 @@ Unendo le due definizioni si giunge naturalmente a
 			\begin{note}
 				Si sottolinea che queste conclusioni sono valide finché $\intervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più l'\fullref{ex:weier_analisi_1} che è necessario per il punto \ref{itm:dist_conv_unif_geq_0}. % TODO Serve un controesempio
 			\end{note}
-		\item \label{ex:dist_parigi}
+		\item \label{ex:dist_parigi}\index{Metrica!di Parigi}
+\index{Distanza!di Parigi}
 			$
 				\begin{array}{l}
 					X=\R^2,\; d \text{ Metrica Euclidea e } P \in X \text{ punto arbitrario }\\
@@ -231,7 +242,8 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y)=d(y,x)$ essendo bassata sulla Metrica Euclidea
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo bassata sulla Metrica Euclidea
 			\end{enumerate}
-		\item \label{ex:dim_dist_quadratica}
+		\item \label{ex:dim_dist_quadratica}\index{Metrica!Quadratica}
+\index{Distanza!Quadratica}
 			$
 				\begin{array}{l}
 					X=\cntclass{0}(\intervalclose{a}{b},\R)\;a,b\in\R,\;a<b\\
@@ -257,6 +269,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{example}
 
 \begin{definition}[Norma]
+	\index{Norma}
 	\label{def:norma}
 	Dato uno spazio vettoriale $V$ sul campo $\mathbb{K}$, si definisce \textbf{Norma} una funzione $\norm{\cdot}:V \to \R$ con le proprietà:
 	\begin{enumerate}
@@ -270,6 +283,7 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{note}
 \end{definition}
 \begin{definition}[Spazio Normato]
+	\index{Spazio!Normato}
 	Uno \textbf{Spazio Normato} è uno spazio vettoriale $V$ sul campo $\mathbb{K}$ \textbf{in cui è definita una norma}.
 	\begin{note}
 		Nel seguito verranno considerati esclusivamente spazi vettoriali su $\R$ o su $\C$, cioè $\mathbb{K} = \R$ o $\mathbb{K} = \C$
@@ -294,6 +308,8 @@ Unendo le due definizioni si giunge naturalmente a
 \end{example}
 
 \begin{proposition}[Metrica Indotta da una Norma]
+	\index{Metrica!Indotta da una Norma}
+	\index{Distanza!Indotta da una Norma}
 	\label{prop:dist_sp_norm}
 	Sia $V$ uno spazio normato. Allora $(V,d)$ è uno spazio metrico con la distanza
 	\[d(x,y) = \norm{y-x}\]
@@ -320,6 +336,8 @@ Unendo le due definizioni si giunge naturalmente a
 \end{proposition}
 
 \begin{definition}[Metriche Equivalenti]
+	\index{Metrica!Equivalente}
+	\index{Distanza!Equivalente}
 	\label{def:metr_equiv}
 	Siano $d_1$ e $d_2$ due distanze sullo stesso insieme $X$.
 	\begin{equation*}
@@ -360,6 +378,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{example}
 
 \begin{definition}[Sfera]
+	\index{Sfera}
 	Sia $(X,d)$ uno spazio metrico e siano $x_0 \in X$, $r > 0$. Si dice \textbf{Sfera} (o \textbf{Bolla}, o ancora \textbf{Palla}) \textbf{Aperta} di centro $x_0$ e raggio $r$ l'insieme:
 	\[B(x_0,r)=\brackets{x\in X : d(x,y)<r}\]
 \end{definition}
@@ -380,10 +399,16 @@ Unendo le due definizioni si giunge naturalmente a
 \end{exercise}
 
 \begin{definition}[Intorno]
+	\index{Intorno}
 	Sia $(X,d)$ uno spazio metrico e sia $x \in X$. \textbf{Intorno di} $\boldsymbol{x}$ è un qualunque sottoinsieme di $X$ che contenga una sfera aperta contentente $x$
 \end{definition}
 
 \begin{definition}[Punti e Spazi Metrici]
+	\index{Punto!Interno}
+	\index{Punto!Esterno}
+	\index{Punto!di Frontiera}
+	\index{Punto!Isolato}
+	\index{Punto!di Accumulazione}
 	\label{def:pti_e_spa_metr}
 	Siano $(X,d)$ uno Spazio Metrico, $A \subseteq X$ e $x_0 \in X$:
 	\begin{itemize}
@@ -424,6 +449,9 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{itemize}
 \end{example}
 \begin{definition}[Topologia Spazi Metrici]
+	\index{Insieme!Parte Interna}
+	\index{Insieme!Frontiera}
+	\index{Insieme!Chiusura}
 	\label{def:topologia_spa_metri}
 	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$. Si definiscono:
 	\begin{itemize}
@@ -516,11 +544,13 @@ Unendo le due definizioni si giunge naturalmente a
 \end{exercise}
 
 \begin{definition}[Insieme Aperto]
+	\index{Insieme!Aperto}
 	\label{def:aperto}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
 	\[A\text{ è \textbf{Aperto}} \quad \bydef \quad A=\emptyset\quad\text{oppure}\quad A=\circdot{A}\]
 \end{definition}
 \begin{definition}[Insieme Chiuso]
+	\index{Insieme!Chiuso}
 	\label{def:chiuso}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
 	\[A\text{ è \textbf{Chiuso}} \quad \bydef \quad A=\emptyset\quad\text{oppure}\quad A=\bar{A}\]
@@ -562,11 +592,13 @@ Unendo le due definizioni si giunge naturalmente a
 \end{exercise}
 
 \begin{definition}[Diametro Spazio Metrico]
+	\index{Diametro}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
 	\[\boldsymbol{\diam}(A) \quad = \quad \sup\limits_{x,y \in A} d(x,y)\]
 	Cioè la "distanza massima" tra due suoi qualsiasi elementi.
 \end{definition}
 \begin{definition}[Spazio Metrico Limitato]
+	\index{Spazio!Limitato}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Allora
 	\begin{align*}
 		A \text{ è \textbf{Limitato}} \quad &\bydef \quad \diam(A) \text{ è finito}\\
@@ -669,6 +701,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{exercise}
 
 \begin{definition}[Insieme Finito ed Infinito]
+	\index{Insieme!Finito ed Infinito}
 	Un insieme si dice \textbf{Finito} se il numero dei suoi elementi è finito.\\
 	Un insieme si dice \textbf{Ininito} se non è finito.
 \end{definition}
@@ -679,6 +712,7 @@ Unendo le due definizioni si giunge naturalmente a
 \newpage
 \section{Successioni e Completezza}\label{sect:succ_compl}
 \begin{definition}[Successione]
+	\index{Successione}
 	\label{def:succ}
 	Sia $X$ un insieme non vuoto. \textbf{Successione} in $X$ è una funzione $x: \N \to X$.
 	\begin{note}
@@ -687,10 +721,12 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{note}
 \end{definition}
 \begin{definition}[Successione Limitata e Illimtata]
+	\index{Successione!Limitata e Illimtata}
 	Una successione $x: \N \to X$ di elementi di uno spazio metrico $(X,d)$ si dice \textbf{Limitata} se il suo codominio $x(\N)$ è limitato.\\
 	Una successione è \textbf{Illimitata} se il suo codominio $x(\N)$ è illimitato.
 \end{definition}
 \begin{definition}[Limite per Successioni] % TODO la definizione di limite per successioni va modificata per offrire la classica distanza delta-epsilon
+	\index{Limite!per Successioni}
 	\label{def:lim_succ}
 	Data una successione $x: \N \to X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
 	\[\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0\]
@@ -713,6 +749,8 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{proof}
 \end{proposition}
 \begin{theorem}[di Unicità del Limite per Successioni]
+	\index{Teorema!di Unicità del Limite per Successioni}
+	\index{Unicità!del Limite per Successioni}
 	Sia $(X,d)$ uno spazio metrico e siano $x_\infty, x^\infty$ elementi di $X$ e $x: \N \to X$ una successione in $X$.
 	\begin{equation*}
 		\left.
@@ -759,6 +797,7 @@ Unendo le due definizioni si giunge naturalmente a
 	% TODO soluzione
 \end{exercise}
 \begin{proposition}[Caratterizzazione dei Punti di Accumulazione]
+	\index{Caratterizzazione Punti di Accumulazione}
 	\label{prop:caratteriz_pti_accumul}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $x_* \in X$. Allora
 	\[
@@ -822,6 +861,8 @@ Unendo le due definizioni si giunge naturalmente a
 \end{corollary}
 
 \begin{definition}[Successione di Cauchy]
+	\index{Successione!di Cauchy}
+	\index{Condizione!di Cauchy per Successioni}
 	\label{def:succ_cau}
 	Sia $(X,d)$ uno spazio metrico e $x: \N \to X$ una successione d in $X$.
 	\begin{equation*}
@@ -855,6 +896,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{proposition}
 
 \begin{definition}[Spazio Metrico Completo]
+	\index{Spazio!Completo}
 	\label{def:completo}
 	Uno Spazio Metrico $(X,d)$ si dice \textbf{Completo} se e solo se \textbf{ogni successione di Cauchy in $X$ ammette limite in $X$ stesso}.
 \end{definition}
@@ -983,10 +1025,12 @@ Unendo le due definizioni si giunge naturalmente a
 \subsection{Insiemi Connessi}
 Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare una definizione formale conviene prima caratterizzare gli insiemi formati \textit{da più pezzi} e poi definire come connessi quelli \textit{non} formati \textit{da più pezzi}.
 \begin{definition}[Insiemi Separati]
+	\index{Insieme!Separato}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $B \subseteq X$
 	\[A \text{ e } B \text{ sono \textbf{Separati}} \bydef \overline{A} \cap B = \emptyset \text{ e } A \cap \overline{B} = \emptyset\]
 \end{definition}
 \begin{definition}[Insiemi Connessi e Sconnessi]
+	\index{Insieme!Connesso e Sconnesso}
 	\label{def:connesso}
 	Un insieme è \textbf{Sconnesso} se e solo se è \textbf{unione} di due insiemi \textbf{separati}.\\
 	Un insieme è \textbf{Connesso} se e solo se \textbf{non è Sconnesso}.
@@ -1029,6 +1073,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{proposition}
 \begin{proposition}[Poligonale Congiungente due Punti]
+	\index{Poligonale}
 	\label{prop:polig_in_aperto_connesso}
 	In $\R^n$ con la distanza Euclidea, sia $A$ un \textbf{aperto connesso}. Allora, comunque scelti $x$ e $y$ in $A$, esiste una \textbf{poligonale} interamente contenuta in $A$ con i lati paralleli agli assi e congiungente $x$ a $y$.
 	% TODO disegno
@@ -1045,6 +1090,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \subsection{Insiemi Compatti}
 \begin{definition}[Insieme Compatto]
+	\index{Insieme!Compatto}
 	\label{def:compatto}
 	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$. $A$ è \textbf{Compatto} se e solo se \textbf{ogni successione di elementi di $A$ ammette una sottosuccessione avente limite in $A$}.
 	\begin{note}
@@ -1167,6 +1213,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \newpage
 \section{Limiti e Continuità}
 \begin{definition}[Limite per Funzione]
+	\index{Limite!per Funzione}
 	\label{def:lim_funz}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -1196,6 +1243,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{theorem}[di Unicità del Limite per Funzioni]
+	\index{Teorema!di Unicità del Limite per Funzioni}
+	\index{Unicità!del Limite per Funzioni}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \to Y$ una funzione e $l', l'' \in Y$
 	\begin{equation*}
 		\left.
@@ -1234,6 +1283,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{theorem}
 
 \begin{proposition}[Continuità per Successioni]
+	\index{Continuità!per Successioni}
 	\label{prop:funz_cont_per_succ}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici, $A \subseteq X$, $x_0$ di accumulazione per $A$, $f: A \to Y$ e $l \in Y$
 	\begin{equation*}
@@ -1295,6 +1345,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{definition}[Funzione Continua]
+	\index{Continuità}
+	\index{Funzione!Continua}
 	\label{def:funz_cont}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
@@ -1380,6 +1432,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{proposition}[Continuità e Continuità per Successioni]
+	\index{Continuità!e Continuità per Successioni}
 	\label{prop:cont_e_cont_per_succ}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
@@ -1466,6 +1519,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{corollary}
 
 \begin{proposition}[Continuità di $f$ in un Insieme]
+	\index{Continuità!in un Insieme}
 	\label{prop:funz_cont_per_succ_in_ins}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$.
 	\begin{equation*}
@@ -1485,6 +1539,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{proposition}[Continuità Funzioni Composte]
+	\index{Continuità!delle Funzioni Composte}
 	Siano $(X,d_X)$, $(Y,d_Y)$ e $(Z,d_Z)$ spazi metrici e siano:
 	\begin{itemize}[noitemsep]
 		\item $f: A \to Y$ con $A \subseteq X$
@@ -1528,6 +1583,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{theorem}[Generale di Weierstrass]
+	\index{Teorema!Generale di Weierstrass}
 	\label{teo:weier_generale}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \to Y$ con $K \subseteq X$.
 	\begin{equation*}
@@ -1612,6 +1668,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \subsection{Uniforme Continuità}
 \begin{definition}[Funzione Uniformemente Continua]
+	\index{Funzione!Uniformemente Continua}
+	\index{Continuità!Uniforme}
 	\label{def:funz_unif_cont}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:A \to Y$ con $A \subseteq X$.
 	\begin{equation*}
@@ -1738,6 +1796,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{example}
 
 \begin{theorem}[di Cantor]
+	\index{Teorema!di Cantor}
 	\label{teo:cantor}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \to Y$ con $K \subseteq X$.
 	\begin{equation*}
@@ -1778,6 +1837,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \subsection{Lipschitzianità}
 \begin{definition}[Funzione Lipschitziana]
+	\index{Funzione!Lipschitziana}
 	\label{def:lips}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -1798,6 +1858,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{note}
 \end{definition}
 \begin{definition}[Costante di Lipschitz]
+	\index{Costante di Lipschitz}
 	\label{def:cost_lips}
 	Fissate le distanze $d_X$ e $d_Y$ e la funzione $f$, allora la più piccola $L$ positiva soddisfacente
 	\[d_Y\bigl(f(x''),f(x')\bigr)\leq L \cdot d_X(x'',x') \qquad \forall x',x'' \in X\]
@@ -1966,6 +2027,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{definition}[Norma di Matrice]
+	\index{Norma!di Matrice}
 	\label{def:norm_matr}
 	Sia $A \in \mat (m \times n)$. \textbf{Norma} di $A$ è la quantità
 	\[\norm{A} = \;\; \max\limits_{\raisebox{-1ex}{${\scriptstyle x \in \overline{B(0,1)} }$}} \; \norm{A \; x}\]
@@ -2026,6 +2088,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \newpage
 \section{Il Teorema delle Contrazioni}
 \begin{definition}[Contrazione]
+	\index{Contrazione}
 	\label{def:contrazione}
 	Sia $(X, d)$ uno spazio metrico. Si dice \textbf{Contrazione} una funzione $T:\; X \to X$ soddisfacente a:
 	\begin{equation}
@@ -2083,12 +2146,14 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{definition}[Punto Fisso]
+	\index{Punto!Fisso}
 	\label{def:punto_fisso}
 	Sia $X$ un insieme e $f: X \to X$. Un \textbf{Punto Fisso} di $f$ è un elemento $x \in X$ tale che:
 	\[x=f(x)\]
 \end{definition}
 
 \begin{theorem}[delle Contrazioni]\leavevmode\vspace*{-\baselineskip}
+	\index{Teorema!delle Contrazioni}
 	\label{teo:contrazioni}
 	\begin{note}
 		Questo teorema è anche noto come \textit{Teorema di Banach-Cacioppoli}
@@ -2293,6 +2358,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{observation}
 
 \begin{definition}[Contrazione con Parametro]
+	\index{Contrazione!con Parametro}
 	\label{def:contrazione_parametro}
 	Siano $(X,d)$ uno \textbf{Spazio Metrico} e $P$ un \textbf{Insieme}
 	\begin{equation}
@@ -2308,6 +2374,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \cbstart
 \begin{theorem}[delle Contrazioni con Parametro]
+	\index{Teorema!delle Contrazioni con Parametro}
 	\label{teo:contrazioni_con_para}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -2339,6 +2406,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{theorem}
 
 \begin{definition}[Contrazione Lipschitziana in Parametro]
+	\index{Contrazione!Lipschitziana in Parametro}
 	\label{def:contr_lips_para}
 	Siano $(X,d_X)$ e $(P,d_P)$ spazi metrici
 	\begin{equation*}
@@ -2386,6 +2454,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 
 \begin{definition}[Funzione Iterata]
+	\index{Funzione!Iterata}
 	\label{def:iterata}
 	Data $F:X \to X$, si dice \textbf{Funzione Iterata} $n$ volte di $F$ la $F^n$ che corrisponde all'\textbf{applicazione} $n$ volte di $F$ \textbf{su sè stessa}. Formalmente:
 	\[f^{n+1} = f \circ f^n \quad \forall n \in \N\setminus\brackets{0}\]
@@ -2393,6 +2462,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{definition}
 
 \begin{theorem}[dell'Iterata Contrazione]
+	\index{Teorema!dell'Iterata Contrazione}
 	\label{teo:iterata_contraz}
 	Sia $(X,d_X)$ uno spazio metrico completo e sia $T:X \to X : \exists n \in \N, T^n$ \textbf{Iterata} è contrazione.\\
 	Allora $T$ ammette un unico punto fisso in $X$
@@ -2530,6 +2600,7 @@ Questo spazio si dice anche \fullref{def:sp_vett_normato}.
 
 \subsection{Il Caso Reale}
 \begin{theorem}[del Confronto]
+	\index{Teorema!del Confronto}
 	\label{teo:confronto}
 	Siano
 	\begin{itemize}[noitemsep]
@@ -2559,6 +2630,7 @@ Questo spazio si dice anche \fullref{def:sp_vett_normato}.
 	% TODO solution
 \end{exercise}
 \begin{theorem}[dei Due Carabinieri]
+	\index{Teorema!dei Due Carabinieri}
 	\label{teo:carabinieri}
 	Siano
 	\begin{itemize}[noitemsep]
@@ -2813,6 +2885,7 @@ Questo spazio si dice anche \fullref{def:sp_vett_normato}.
 	Il \fullref{coro:f_in_conn_passa_per_0}, nel corso di Analisi Matematica 1, viene spesso dimostrato attraverso il metodo di bisezione. Questo metodo è applicabile ad un generico spazio metrico?
 \end{exercise}
 \begin{theorem}[della Permanenza del Segno]
+	\index{Teorema!della Permanenza del Segno}
 	\label{teo:perman_segno}
 	Siano $(X,d)$ spazio metrico, $A \subseteq X$, $x_0 \in A$ e $f:\; A \to \R$ \textbf{Continua}, allora
 	\[

@@ -13,6 +13,10 @@ La base canonica di $R^n$ è indicata con $(e_1,\:\dotsc\:,e_n)$ dove $e_i$ è i
 Nel caso $n=2$ è usata la notazione $(x,y)=xi+yj$. Nel caso $n=3$ è usata la notazione $(x,y,z)=xi+yj+zk$.
 
 \vspace*{\baselineskip}
+\index{Funzione!Reale}
+\index{Curva}
+\index{Campo!Scalare}
+\index{Campo!Vettoriale}
 Alcune classi di funzioni $f:A\subseteq\R^n \to\R^m$ hanno nomi particolari:
 \begin{itemize}
 	\item $n=1$, $m=1$: $f$ è una \textit{funzione reale di una variabile reale};
@@ -30,6 +34,8 @@ Partendo dalla nozione di Analisi 1 di Derivata, cioè:
 si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensionali} mediante le seguenti definizioni.
 
 \begin{definition}[Derivata Direzionale]
+	\index{Derivata!Direzionale}
+	\index{Funzione!Derivabile}
 	\label{def:deriv_direz}
 	Sia $A \subseteq \R^n$, $f: A \to \R^m$, $x_0 \in \circdot{A}$ e $v \in \R^n$ un vettore non nullo. Quando il limite
 	\[\lim\limits_{t \to 0} \frac{(x_0 + tv) - f(x_0)}{t}\]
@@ -45,6 +51,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 	\end{note}
 \end{definition}
 \begin{definition}[Derivata Parziale]
+	\index{Derivata!Parziale}
 	\label{def:deriv_parz}
 	Dalla \fullref{def:deriv_direz}, nel caso in cui $v = e_i$ della base canonica, allora $\boldsymbol{D_{e_i} f(x_0)}$ è detta \textbf{Derivata Parziale $\boldsymbol{i}$\textit{-esima}}. Può anche essere indicata con $\boldsymbol{\frac{\partial f}{\partial x_i}(x_0)}$.\\
 	Quindi le derivate parziali sono \textit{un caso particolare} delle derivate direzionali.
@@ -270,6 +277,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 \newpage
 \section{Derivata Totale}
 \begin{theorem}[di Lagrange]\leavevmode\vspace*{-\baselineskip}
+	\index{Teorema!di Lagrange}
 	\label{teo:lagrange}
 	\begin{note}
 		Questo teorema viene trattato approfonditamente nel corso di Analisi 1 e si applica solo a funzioni $\R^1 \to \R^1$, qui verrà solo riportato rapidamente l'enunciato
@@ -283,6 +291,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 	\[\xi \in \intervalopen{0}{1} : f'(x_0 + \xi h) = \frac{f(x_0 + h)-f(x_0)}{h}\]
 \end{theorem}
 \begin{definition}[o piccolo]
+	\index{o piccolo}
 	\label{def:o_piccolo}
 	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. Siano $f,g: A \to \R^m$ due funzioni.
 	\[f=o(g) \text{ per } x \to x_0 \qquad \bydef \qquad \lim\limits_{x \to x_0} \frac{\norm{f(x)}}{\norm{g(x)}} = 0\]
@@ -323,13 +332,14 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 \vspace*{\baselineskip}
 La seguente definizione è da ritenersi già nota da Analisi 1
 \begin{definition}[Derivata in $\R$]
+	\index{Derivata!in $\R$}
 	Siano $A \subseteq \R$ e $x_0 \in \circdot{A}$. Sia $f: A \to \R$
 	\[f \text{ \textbf{Derivabile} in } x_0 \quad \bydef \quad \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \text{  esiste finito}\]
 \end{definition}
 
 \begin{samepage}
 Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente relazione tra derivata e coefficiente angolare della retta tangente in un punto
-\begin{proposition}[Derivata Analisi 1]
+\begin{proposition}
 	\label{prop:deriv_analisi_1}
 	Siano $A \subseteq \R$ e $x_0 \in \circdot{A}$. Sia $f: A \to \R$
 	\begin{equation*}
@@ -356,6 +366,9 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 
 \noindent Analogamente a quanto fatto nella \fullref{prop:deriv_analisi_1}, si definisce
 \begin{definition}[Differenziale]
+	\index{Differenziale}
+	\index{Derivata!Totale}
+	\index{Funzione!Differenziabile}
 	\label{def:differenz}
 	Siano $A \subseteq \R^n$ e $x_0 \in \circdot{A}$. Sia $f: A \to \R^m$
 	\begin{equation*}
@@ -371,6 +384,9 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\end{note}
 \end{definition}
 \begin{observation}[Matrici Derivata Totale Particolari]
+	\index{Matrice!Jacobiana}
+	\index{Gradiente}
+	\index{Vettore Tangente}
 	\label{obs:matr_deriv_tot}
 	Data la matrice $Df(x_0)$ con $m$ righe e $n$ colonne:
 	\begin{itemize}
@@ -391,6 +407,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	Allora $f$ è differenziabile ovunqe e per ogni $x_0 \in \R$ si ha $Df(x_0) = M$
 \end{example}
 \begin{proposition}[Unicità della Derivata Totale]
+	\index{Unicità!Derivata Totale}
 	\label{prop:unic_deriv_tot}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$, $f: A \to \R^m$ e $M_1, M_2 \in \mat(m \times n)$
 	\begin{equation*}
@@ -577,6 +594,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \end{exercise}
 
 \begin{theorem}[del Differenziale Totale]
+	\index{Teorema!del Differenziale Totale}
 	\label{teo:diff_tot}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \to \R^m$.
 	\[
@@ -700,6 +718,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \end{exercise}
 
 \begin{definition}[Funzioni di Classe $\cntclass{1}$]
+	\index{Classe!$\cntclass{1}$}
 	\label{def:cnt_class_1}
 	Sia $A \subseteq \R^n$ un \textbf{Aperto}.
 	\begin{center}
@@ -739,6 +758,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	In questa sezione per forme tipo $(f + g)(x_0)$ oppure $(f \cdot g)(x_0)$ si intendono, ad esempio, la somma o il prodotto delle due funzioni nel punto $x_0$, quindi $f(x_0) + g(x_0)$ e così via.
 \end{note}
 \begin{proposition}[Differenziale del Prodotto per Scalare]
+	\index{Differenziale!Prodotto per Scalare}
 	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f:\; A \to \R^m$ e $\lambda \in \R$, allora
 	\[
 		f \text{ \textbf{Differenziabile} in } x_0 \implies
@@ -759,6 +779,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\end{proof}
 \end{proposition}
 \begin{proposition}[Differenziale della Somma di Funzioni]
+	\index{Differenziale!Somma di Funzioni}
 	\label{prop:diff_somma_funz}
 	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f, g:\; A \to \R^m$, allora
 	\[
@@ -792,6 +813,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\end{proof}
 \end{proposition}
 \begin{proposition}[Differenziale del Prodotto Scalare]
+	\index{Differenziale!Prodotto Scalare}
 	\label{prop:diff_prod_scal}
 	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f, g:\; A \to \R^m$, allora
 	\[
@@ -870,6 +892,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \end{exercise}
 
 \begin{proposition}[Differenziale della Funzione Composta]
+	\index{Differenziale!Funzione Composta}
 	\label{prop:diff_funz_comp}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -989,6 +1012,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 
 \subsection{La Formula degli Accrescimenti Finiti}
 \begin{definition}[Segmento]
+	\index{Segmento}
 	\label{def:segmento}
 	Siano $x_0,x_1 \in \R^n$, si dice \textbf{Segmento} di estremi $x_0$ e $x_1$ l'insieme che li unisce, cioè
 	\[S = \brackets{tx_1+(1-t)x_0 \in \R^n:\; t \in \intervalclose{0}{1}}\]
@@ -1014,6 +1038,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\end{solution}
 \end{exercise}
 \begin{theorem}[degli Accrescimenti Finiti]
+	\index{Teorema!degli Accrescimenti Finiti}
 	\label{teo:accresc_fin}
 	Sia $f \in \cntclass{1}(A;\R^m)$, con $A \subseteq \R^n$. Siano $x_0, x_1 \in \circdot{A}$ tali che il \textbf{Segmento} $S$ di estremi $x_0$ e $x_1$ sia \textbf{interamente contenuto} in $\circdot{A}$. Allora
 	\begin{equation}
@@ -1117,6 +1142,7 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 \end{exercise}
 
 \begin{definition}[Insieme Convesso]
+	\index{Insieme!Convesso}
 	\label{def:convesso}
 	Sia $C \subseteq \R^n$
 	\begin{equation*}
@@ -1184,6 +1210,7 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 \end{exercise}
 
 \begin{definition}[Funzione Convessa]
+	\index{Funzione!Convessa}
 	Sia $I$ un intervallo reale e $f:\; I \to \R$.
 	\begin{equation*}
 		f \text{ è \textbf{Convessa}}
@@ -1196,6 +1223,7 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 	Cioè se il segmento che congiunge due qualsiasi punti del suo grafico si trova al di sopra del grafico stesso.
 \end{definition}
 \begin{exercise}
+	\index{Epigrafo}
 	Verificare che $f$ è \textbf{Convessa} se e solo se il suo \textbf{Epigrafo} (cioè l'insieme di punti che stanno al di sopra o sul grafico della funzione)
 	è un sottoinsieme \textbf{Convesso} di $\R^2$ nel senso della \fullref{def:convesso}.
 	% TODO solution
@@ -1215,7 +1243,7 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 	\]
 	\vspace*{-\baselineskip}
 	\begin{note}
-		Si sta parlando di insiemi Co\textbf{nn}essi
+		Si sta parlando di insiemi \textbf{Connessi}
 	\end{note}
 	\begin{proof}
 		Sia $x_0 \in A$. Per la \fullref{prop:polig_in_aperto_connesso}, ogni punto $x \in A$ può essere unito a $x_0$ con una poligonale interamente contenuta in $A$ dai lati paralleli agli assi. A questo punto è possibile applicare il \fullref{teo:accresc_fin} ad ogni segmento della poligonale ed, essendo $\nabla f(x) = 0$, come in \fullref{coro:convess_nabla_0_f_const}, la $f$ è costante.
@@ -1226,6 +1254,7 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 \section{Derivate Seconde}
 Quanto detto circa le derivate prime può essere ripetuto introducendo derivate di ordine superiore.
 \begin{definition}[Derivate Parziali Seconde]
+	\index{Derivata!Parziali Seconde}
 	Sia $f: A \to \R^m$ con $A \subseteq \R^n$ derivabile parzialmente in $x_0$ lungo $e_i$.\\
 	Se la funzione $\frac{\partial f}{\partial x_i}$ è a sua volta derivabile parzialmente in $x_0$, questa volta lungo $e_j$, allora la quantità
 	\[
@@ -1261,6 +1290,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 \end{exercise}
 
 \begin{definition}[Differenziale Seconda]
+	\index{Differenziale!Seconda}
 	\label{def:differenz_second}
 	Siano $A \subseteq \R^n$, $f:A \to \R^m$ e $x_0 \in \circdot{A}$
 	\[
@@ -1286,6 +1316,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 \end{definition}
 
 \begin{definition}[Matrice Hessiana]
+	\index{Matrice!Hessiana}
 	\label{def:hessiana}
 	Siano $A \subseteq \R^n$, $f:A \to \R^m$ e $x_0 \in \circdot{A}$, inoltre $f$ ammette tutte le Derivate Parziali Seconde in $x_0$.\\
 	La matrice di queste derivate seconde si chiama \textbf{Matrice Hessiana} di $f$ in $x_0$ e si indica con $\boldsymbol{H_f(x_0)}$
@@ -1305,6 +1336,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 
 \subsection{Il Lemma di Schwarz}
 \begin{lemma}[di Schwarz]
+	\index{Lemma!di Schwarz}
 	\label{lemma:schwarz}
 	Siano $A \subseteq \R^2$, $f:A \to \R^m$ e $(x_0, y_0) \in \circdot{A}$. Se $\frac{\partial^2 f}{\partial x \partial y}$ e $\frac{\partial^2 f}{\partial y \partial x}$ \textbf{esistono} in un intorno di $(x_0, y_0)$ e sono \textbf{Continue} in $(x_0, y_0)$, allora
 	\[\frac{\partial^2 f}{\partial x \partial y} \quad = \quad \frac{\partial^2 f}{\partial y \partial x}\]
@@ -1401,6 +1433,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 \end{corollary}
 
 \begin{definition}[Funzioni di Classe $\cntclass{2}$]
+	\index{Classe!$\cntclass{2}$}
 	Sia $A \subseteq \R^n$ un \textbf{Aperto}.
 	\begin{center}
 		$\cntclass{1}(A; \R^m)$ è l'insieme delle funzioni $f:A \to \R^m$\\
@@ -1444,6 +1477,7 @@ Come nel caso Analisi 1, gli \textbf{Sviluppi di Taylor} permettono di approssim
 \cbstart
 La seguente sezione affiancata da una banda verde non è richiesta, in quanto non presente nel testo di riferimento. È però necessaria per chiarire i concetti con cui si sta lavorando, deve quindi essere considerata come un approfondimento da leggere.
 \begin{definition}[Polinomio di Taylor]
+	\index{Polinomio di Taylor}
 	\label{def:pol_taylor}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -1476,6 +1510,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 	Il Polinomio di Taylor è caratterizzato dall’avere in comune con la funzione $f$ il valore di tutte le derivate fino all’ordine $n-1$ nel punto $x_0$.
 \end{observation}
 \begin{theorem}[di Taylor]
+	\index{Teorema!di Taylor}
 	\label{teo:taylor}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -1493,6 +1528,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 \end{theorem}
 
 \begin{definition}[Resto di Peano]
+	\index{Resto!di Peano}
 	\label{def:resto_peano}
 	Nelle ipotesi del \fullref{teo:taylor}, dalla \fullref{def:o_piccolo} si definisce il \textbf{resto} nella forma \textbf{di Peano}:
 	\[R_n(f, x_0, h) = \frac{1}{n!} D^nf(x_0; h) + o\left( \norm{h}^2 \right)\]
@@ -1500,6 +1536,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 \end{definition}
 
 \begin{definition}[Resto di Lagrange]
+	\index{Resto!di Lagrange}
 	Nelle ipotesi del \fullref{teo:taylor}, ma con $f \in \cntclass{n}(A;\R^{\boldsymbol{1}})$ si definisce il \textbf{resto} nella forma \textbf{di Lagrange}
 	\[\exists \theta \in \intervalclose{0}{1}: \quad R_n(f, x_0, h) = \frac{1}{n!} D^nf(x_0; \theta h) = \frac{D^n f(x + \theta h)}{n!} (x + \theta h)\]
 	Cioè che esiste un punto (senza sapere quale sia) all'interno del segmento di estremi $x_0$ e $x_0 + h$ in cui si ha un'equivalenza precisa tra la funzione ed il polinomio.
@@ -1512,6 +1549,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 
 \noindent Passando ora al caso specifico degli sviluppi del secondo ordine
 \begin{proposition}[Sviluppo di Taylor al Secondo Ordine con resto di Peano]
+	\index{Sviluppo di Taylor!con Resto di Peano}
 	\label{prop:svil_tay_2_peano}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -1531,6 +1569,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 \end{proposition}
 
 \begin{proposition}[Sviluppo di Taylor al Secondo Ordine con resto di Lagrange]
+	\index{Sviluppo di Taylor!con Resto di Lagrange}
 	Siano:
 	\begin{itemize}[noitemsep]
 		\item $f \in \cntclass{2}(A;\R)$ con $A \subseteq \R^n$
@@ -1578,6 +1617,8 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 
 \subsection{Derivate di Ordine Superiore}
 \begin{definition}
+	\index{Classe!$\cntclass{n}$}
+	\index{Classe!$\cntclass{\infty}$}
 	Sia $k \in \N$ e sia $A \subseteq \R^n$ un \textbf{Aperto}. $\cntclass{0}(A;\R^m)$ è l'insieme delle funzioni continue su $A$ con valori in $\R^m$. Se $k \geq 1$, $\cntclass{k}(A;\R^m)$ è l'insieme delle funzioni continue su $A$ con valori in $\R^m$ con tutte le derivate parziali prime di classe $\cntclass{k-1}$ su $A$.\\
 	Inoltre
 	\[\cntclass{\infty}(A;\R^m) = \bigcap\limits_{k \in \N}\cntclass{k}(A;\R^m)\]
@@ -1592,6 +1633,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 \section{Il Teorema della Funzione Implicita}
 I risultati esposti in questo paragrafo permettono di studiare funzioni senza averne l'espressione analitica esplicita a disposizione, fatto estremamente importante per l'utilizzo reale dell'analisi. Non è infatti sempre possibile ottenere la forma analitica di una funzione, ma ci può comunque essere necessità di studiarla.
 \begin{definition}[Funzione Implicita]
+	\index{Funzione!Implicita}
 	\label{def:funz_impl}
 	Dati
 	\begin{itemize}[noitemsep]
@@ -1699,6 +1741,7 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 	% TODO solution
 \end{exercise}
 \begin{example}[Equazione di Keplero]
+	\index{Equazione!di Keplero}
 	Nella meccanica orbitale, l'\textbf{Equazione di Keplero} è un importante risultato che mette in relazione varie proprietà dell'orbita di un oggetto soggetto ad una forza centrale fornendo la legge oraria del suo moto. Dati
 	\begin{itemize}[noitemsep]
 		\item \makebox[2ex]{$M$\hfill} \textit{Anomalia Media}: frazione di periodo orbitale trascorsa dall'ultimo passaggio al pericentro $z$, espressa come angolo.
@@ -1716,6 +1759,7 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 \vspace*{\baselineskip}
 Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice inversione di una matrice.
 \begin{theorem}[della Funzione Implicita - Caso Lineare]
+	\index{Teorema!della Funzione Implicita - Caso Lineare}
 	\label{teo:funz_impl_lin}
 	Siano:
 	\begin{itemize}[noitemsep]
@@ -1746,6 +1790,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 \end{theorem}
 
 \begin{observation}[Metodo di Newton, o delle Tangenti]~
+	\index{Metodo di Newton}
 	\label{obs:metodo_newton}
 	\vspace*{-\baselineskip}
 	\begin{note}
@@ -1785,6 +1830,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 \end{observation}
 
 \begin{theorem}[della Funzione Implicita]~
+	\index{Teorema!della Funzione Implicita}
 	\label{teo:funz_impl}
 	\vspace*{-\baselineskip}
 	\begin{note}
@@ -2023,6 +2069,8 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 \subsection{Il Teorema della Funzione Inversa}
 Data una funzione $f$, poterla invertire significa poter risolvere in un unico modo l'equazione (o sistema) $f(x) = y$ determinando l'incognita $x$ in funzione del parametro $y$, cioè ottenere $x = f^{-1}(y)$.
 \begin{theorem}[della Funzione Inversa - Caso Lineare]
+	\index{Teorema!della Funzione Inversa - Caso Lineare}
+	\index{Funzione!Inversa}
 	Sia $f: \R^n \to \R^m$ data da $f(x) = Mx$ e $ M \in \mat(m\times n)$
 	\[f \text{ è invertibile} \quad \iff \quad n = m \text{ e } \det M \ne 0\]
 	\begin{proof}
@@ -2035,6 +2083,7 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 	\end{proof}
 \end{theorem}
 \begin{theorem}[della Funzione Inversa]
+	\index{Teorema!della Funzione Inversa}
 	\label{teo:funz_inv}
 	Siano
 	\begin{itemize}[noitemsep]
@@ -2168,6 +2217,8 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 \newpage
 \section{Massimi e Minimi Liberi}
 \begin{definition}[Massimi e Minimi]
+	\index{Massimo di una Funzione}\index{Minimo di una Funzione}
+	\index{Punto!di Massimo}\index{Punto!di Minimo}
 	\label{def:max_min}
 	Siano $(X,d)$ uno \textbf{Spazio Metrico}, $A \subseteq X$, $x_0 \in A$ e $f: A \to \R$. Con $B \subseteq A$ e $m, M \in \R$, si dicono:
 	\begin{itemize}
@@ -2421,6 +2472,7 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 	\end{proof}
 \end{proposition}
 \begin{theorem}[di Fermat]
+	\index{Teorema!di Fermat}
 	\label{teo:fermat}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$, allora
 	\[
@@ -2441,6 +2493,7 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 	\end{proof}
 \end{theorem}
 \begin{definition}[Punto Stazionario]
+	\index{Punto!Stazionario}
 	\label{def:pto_staz}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f: A \to \R$
 	\[
@@ -2625,6 +2678,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 	Quanto detto è in accordo con la \fullref{def:max_min}, che infatti non esclude il caso di punti di estremo vincolati alla frontiera di un insieme.
 \end{note}
 \begin{theorem}[dei Moltiplicatori di Lagrange]
+	\index{Teorema!dei Moltiplicatori di Lagrange}
 	\label{teo:molt_lagr_gen}
 	Sia $A \subseteq \R^n$ un \textbf{Aperto} e siano
 	\begin{itemize}[noitemsep]
@@ -2702,6 +2756,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 \end{example}
 \cbstart
 \begin{definition}[Funzione Lagrangiana] % Come definita su https://en.wikipedia.org/wiki/Lagrange_multiplier
+	\index{Funzione!Lagrangiana}
 	\label{def:funz_lagr}
 	Sia $A \subseteq \R^n$ un \textbf{Aperto}, $x \in A$, $\lambda \in \R^p$ con $p < n$, allora si definisce la
 	\[\mathcal{L}(x, \lambda) = f(x) - \lambda \varphi(x)\]
@@ -2826,17 +2881,20 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 \section{Il Caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
 Quanto esposto in questa sezione può essere esteso al caso $n > 2$ a patto di notevoli cambiamenti nella terminologia geometrica.
 \begin{definition}[Grafico]
+	\index{Grafico}
 	Siano $A \subseteq \R^2$ e $f: A \to \R$. La superficie di equazione
 	\[z = f(x,y)\]
 	è il \textbf{Grafico} di $f$
 \end{definition}
 \begin{definition}[Curva di Livello]
+	\index{Curva!di Livello}
 	\label{def:curv_liv}
 	Siano $A \subseteq \R^2$, $f: A \to \R$ e $c \in \R$. L'insieme
 	\[f^{-1}(c) = \brackets{(x,y) \in A:\; f(x,y) = c}\]
 	è la \textbf{Curva di Livello} $\boldsymbol{c}$ di $f$
 \end{definition}
 \begin{definition}[Piano Tangente]
+	\index{Piano Tangente}
 	Siano $A \subseteq \R^2$, $f: A \to \R$, $f$ \textbf{Differenziabile} in $(x_0, y_0) \in \circdot{A}$. Allora
 	\begin{align*}
 		z &=
@@ -2877,6 +2935,7 @@ Quanto esposto in questa sezione può essere esteso al caso $n > 2$ a patto di n
 \subsection{Il Significato Geometrico del Gradiente}
 In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la funzione stessa. Il \textbf{Gradiente} di una funzione in un punto indica infatti la direzione in cui si ha la \textbf{massima variazione} del valore di $f$ con \textbf{verso} dell'\textbf{incremento positivo} di $f$.
 \begin{proposition}[Significato del Gradiente]
+	\index{Gradiente!Significato Geometrico}
 	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$, $f: A \to \R$ con $f$ \textbf{Differenziabile} in $(x_0, y_0)$.\\
 	L'incremento $f(x_0 + h, y_0 + k) - f(x_0, y_0)$ è
 	\begin{itemize}[noitemsep]
@@ -2931,6 +2990,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 	\end{proof}
 \end{proposition}
 \begin{proposition}[Il Gradiente è Perpendicolare alle Curve di Livello]
+	\index{Gradiente!Perpendicolare alle Curve di Livello}
 	\label{prop:curv_liv_perp_grad}
 	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$ e $f: A \to \R$, se:
 	\begin{itemize}
@@ -2992,6 +3052,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 	\end{proof}
 \end{proposition}
 \begin{definition}[Piano Tangente ad una Curva]
+	\index{Piano Tangente ad una Curva}
 	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$, $f: A \to \R$ e $f \in \cntclass{1}(A; \R)$, allora l'\textbf{Equazione del Piano Tangente} alla curva nel punto $(x_0, y_0)$ è:
 	\begin{align*}
 		z &= f(x_0, y_0) + \nabla f(x_0, y_0) \begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}\\
@@ -3010,6 +3071,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 \subsection{I Moltiplicatori di Lagrange}
 Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_gen}, dunque molte note sono omesse in questo enunciato.
 \begin{theorem}[dei Moltiplicatori di Lagrange - $n=2$, $m=1$]
+	\index{Teorema!dei Moltiplicatori di Lagrange - $n=2$, $m=1$}
 	\label{teo:molt_lagr_n2_m1}
 	Sia $A \subseteq \R^2$ un \textbf{Aperto} e siano
 	\begin{itemize}[noitemsep]
@@ -3116,6 +3178,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 \cbstart
 \section{Derivate e Integrali}
 \begin{theorem}[Fondamentale del Calcolo Integrale]
+	\index{Teorema!Fondamentale del Calcolo Integrale}
 	\label{teo:fondament_calcolo_integ}
 	Sia $I\subseteq \R$ un \textbf{Intervallo} e sia $x_0\in I$. Data $f\in \cntclass{0}(I;R)$ la funzione:
 	\[\funcdef{F}{I}{\R}{x}{\displaystyle\int_{x_0}^{x}f(t)\integrald{t}}\]
@@ -3126,6 +3189,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 \end{theorem}
 \begin{proposition}
 	\label{prop:f_C0_allora_F_C0}
+	\index{Funzione!definita tramite un integrale}
 	Siano $A \subseteq \R^n$ un \textbf{Aperto} e $f \in \cntclass{0}(A \times \R;\R)$, allora la funzione
 	\[\funcdef{F}{\R \times \R \times A}{\R}{\alpha, \beta, x}{\displaystyle\int_{\alpha}^{\beta} f(x,t)\integrald{t}}\]
 	è di classe $\cntclass{0}(\R \times \R \times A;\R)$
@@ -3157,6 +3221,8 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 \end{proposition}
 \begin{proposition}
 	\label{prop:f_C1_allora_F_C1}
+	\index{Continuità!funzioni definite tramite un integrale}
+	\index{Derivata!di funzioni definite tramite un integrale}
 	Siano $A \subseteq \R^n$ un \textbf{Aperto} e $f \in \cntclass{1}(A \times \R;\R)$, allora la funzione
 	\[\funcdef{F}{\R \times \R \times A}{\R}{\alpha, \beta, x}{\displaystyle\int_{\alpha}^{\beta} f(x,t)\integrald{t}}\]
 	è di classe $\cntclass{1}(\R \times \R \times A;\R)$ ed inoltre, per ogni $(\alpha, \beta, x) \in \R \times \R \times A$ e per ogni $i = 1,\:\dotsc\:,n$ si ha
@@ -3280,6 +3346,7 @@ Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \to \C$ può essere identific
 	% TODO solution
 \end{exercise}
 \begin{definition}[Funzione Esponenziale con Esponente Complesso]
+	\index{Funzione!Esponenziale con Esponente Complesso}
 	\label{def:exp_complesso}
 	La \textbf{Funzione Esponenziale con Esponente Complesso} è così definita:
 	\[e^{x+iy} = e^x \cdot (\cos y + i \sin y)\]

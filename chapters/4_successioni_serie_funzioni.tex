@@ -44,6 +44,7 @@ Cambiando però, dal punto di vista concettuale, i ruoli di $x$ ed $n$, cioè fi
 \end{note}
 Si giunge dunque alla seguente definizione, tutt'altro che formale
 \begin{definition}[Successione di Funzioni]
+	\index{Successione!di Funzioni}
 	\label{def:succ_funz}
 	Si definisce \textbf{Successione di Funzioni} l'insieme
 	\[\brackets{f_n:\; n \in \N} \text{ di funzioni } f_n:\; A \to \R\]
@@ -51,6 +52,7 @@ Si giunge dunque alla seguente definizione, tutt'altro che formale
 \end{definition}
 
 \begin{definition}[Successione delle Somme Parziali]
+	\index{Successione!delle Somme Parziali}
 	\label{def:succ_somm_parz}
 	Sia $X$ uno \textbf{Spazio Vettoriale} su $\R$ o su $\C$. Data una \textbf{Successione} $\brackets{x_n:\; n \in \N}$ di elementi di $X$, per ogni indice $k$ della successione si definisce una \textbf{Successione delle Somme Parziali}. Cioè il $k$\textit{-esimo} termine di $s$ è la somma dei termini da $0$ a $k$ della successione $x_n$:
 	\[s_k = \sum\limits_{n = 0}^{k} x_n\]
@@ -64,6 +66,7 @@ Si giunge dunque alla seguente definizione, tutt'altro che formale
 \end{definition}
 
 \begin{definition}[Serie]
+	\index{Serie}
 	\label{def:serie}
 	Sia $X$ uno \textbf{Spazio Vettoriale} su $\R$ o su $\C$. Data una \textbf{Successione} $\brackets{x_n:\; n \in \N}$ di elementi di $X$, si definisce \textbf{Serie associata alla Successione} $x_n$ la somma di tutti i termini della successione:
 	\[s = \sum\limits_{n = 0}^{+\infty} x_n = x_0 + x_1 + \dots\]
@@ -103,7 +106,7 @@ Si giunge dunque alla seguente definizione, tutt'altro che formale
 
 \newpage
 \section{Tipi Di Convergenza}
-\subsection{Convergenza Puntuale}\label{sect:conv_punt}
+\subsection{Convergenza Puntuale}\label{sect:conv_punt}\index{Convergenza!Puntuale}
 Tornando a \fullref{ex:conv_succ_xn}, lo stesso procedimento logico può essere applicato a qualsiasi successione di funzioni $f_n$: si può immaginare di stabilire un valore $\in \R$ per la $x$ e studiare il comportamento della successione numerica dei valori $f_n(x)$ assunti dalle varie $f_n$ in quel punto.\\
 Se la successione numerica della $f_n$ converge, allora si dirà che \textbf{la successione di funzioni $f_n$ converge nel punto $x$}.
 
@@ -129,6 +132,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 \]
 
 \begin{definition}[Successione Puntualmente Convergente]
+	\index{Successione!Puntualmente Convergente}
 	\label{def:succ_punt_conv}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
@@ -142,6 +146,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 	\[f_n \pconvarrow f \text{ su } B\]
 \end{definition}
 \begin{definition}[Serie Puntualmente Convergente]
+	\index{Serie!Puntualmente Convergente}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La \textbf{Serie} $s = \sum\limits_{n = 0}^{+\infty} f_n(x)$ associata alla Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
 	\[\forall x \in B \qquad \sum\limits_{n = 0}^{+\infty} f_n(x) \;\; \exists \text{ finita}\]
@@ -603,9 +608,15 @@ Questi erano solo due esempi di "grandezza" di una funzione, definiti con le seg
 	\norm{f}_1 = \int_a^b \abs{f(x)} \integrald{x}
 \]
 Quella di sinistra è la \textbf{Norma Infinito} o \textbf{Norma del} $\boldsymbol{\sup}$, mentre a destra \textbf{Norma Indice} $\boldsymbol{1}$. In aggiunta, si definisce anche la \textbf{Norma Indice} $\boldsymbol{2}$, che sarà usata in \fullref{sect:conv_quadr}:
+\index{Norma!Infinito}
+\index{Norma!Indice 1}
+\index{Norma!Indice 2}
 \[\norm{f}_2 = \sqrt{ \int_a^b \left[f(x)\right]^2 \integrald{x} }\]
 
 Le distanze indotte dalle seguenti norme saranno dunque
+\index{Distanza!Infinito}\index{Metrica!Infinito}
+\index{Distanza!Indice 1}\index{Metrica!Indice 1}
+\index{Distanza!Indice 2}\index{Metrica!Indice 2}
 \[
 	d_{\cntclass{0}} (f, g) = \norm{f - g}_{\cntclass{0}}
 	\qquad\qquad\qquad
@@ -682,10 +693,11 @@ E si parla di \textbf{Distanza Infinito} (o \textbf{Distanza del} $\boldsymbol{\
 \cbend
 \endgroup
 
-\subsection{Convergenza Uniforme}\label{sect:conv_unif}
+\subsection{Convergenza Uniforme}\label{sect:conv_unif}\index{Convergenza!Uniforme}
 Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni rispetto alla distanza $d_{\cntclass{0}}$.
 
 \begin{definition}[Successione Uniformemente Convergente]
+	\index{Successione!Uniformemente Convergente}
 	\label{def:succ_unif_conv}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La Successione $f_n$ è \textbf{Uniformemente Convergente} su $B$ se esiste la \textbf{Funzione Limite Uniforme} $f:\; B \to \R$ tale che:
@@ -698,6 +710,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 	\[f_n \uconvarrow f \text{ su } B\]
 \end{definition}
 \begin{definition}[Serie Uniformemente Convergente]
+	\index{Serie!Uniformemente Convergente}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La \textbf{Serie} $s = \sum\limits_{n = 0}^{+\infty} f_n(x)$ associata alla Successione $f_n$ è \textbf{Uniformemente Convergente} su $B$ se esiste la \textbf{Funzione Limite Uniforme} $F:\; B \to \R$ tale che:
 	\[\lim\limits_{n \to +\infty} \sup\limits_{B} \abs{\sum\limits_{n = 0}^{+\infty} f_n(x) - F(x)} = 0\]
@@ -875,6 +888,8 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 	\end{alignat*}
 \end{exercise}
 \begin{definition}[Successione di Funzioni di Cauchy per la Convergenza Uniforme]
+	\index{Successione!di Funzioni di Cauchy per la Convergenza Uniforme}
+	\index{Condizione!di Cauchy per Successioni di Funzioni}
 	\label{def:succ_funz_cau}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$
 	\begin{center}
@@ -895,6 +910,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 	\end{proof}
 \end{proposition}
 \begin{definition}[Serie di Funzioni di Cauchy per la Convergenza Uniforme]
+	\index{Serie!di Funzioni di Cauchy per la Convergenza Uniforme}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$
 	\begin{center}
 		La Serie $\sum\limits_{n = 0}^{+\infty}$ associata alla Successione $f_n$ soddisfa alla \textbf{Condizione di Cauchy}\\
@@ -1052,6 +1068,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 \end{corollary}
 
 \begin{definition}[Operatore]
+	\index{Operatore}
 	Una funzione che agisce su fuzioni è chiamata \textbf{Operatore} o \textbf{Funzionale}.
 \end{definition}
 
@@ -1405,6 +1422,8 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 	\end{proof}
 \end{corollary}
 \begin{definition}[Serie Totalmente Convergente]
+	\index{Convergenza!Totale}
+	\index{Serie!Totalmente Convergente}
 	\label{def:serie_totalm_conv}
 	Siano $A \subseteq \R$ e $\brackets{f_n:\; n \in \N}$ con $f_n:\; A \to \R$ una \textbf{Successione di Funzioni}. Allora:
 	\[
@@ -1466,9 +1485,10 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 	% TODO solution
 \end{exercise}
 
-\subsection{Convergenza Quadratica}\label{sect:conv_quadr}
+\subsection{Convergenza Quadratica}\label{sect:conv_quadr}\index{Convergenza!Quadratica}
 Si chiama Convergenza Quadratica la convergenza di una Successione di Funzioni rispetto alla distanza $d_2$.
 \begin{definition}[Norma Indice 2]
+	\index{Norma!Indice 2}
 	Sia $K$ un \textbf{Intervallo Compatto} in $\R$ di estremi $a, b$. Allora, data $f \in \cntclass{0}(K; \R)$, si definisce
 	\[\norm{f}_2 = \sqrt{\int_{K} \abs{f(x)}^2 \integrald{x}} = \sqrt{\int_{a}^{b} \abs{f(x)}^2 \integrald{x}}\]
 	\begin{note}
@@ -1476,6 +1496,8 @@ Si chiama Convergenza Quadratica la convergenza di una Successione di Funzioni r
 	\end{note}
 \end{definition}
 \begin{proposition}[Distanza Quadratica]
+	\index{Metrica!Quadratica}
+	\index{Distanza!Quadratica}
 	\label{def:dist_quadratica}
 	Sia $K$ un \textbf{Intervallo Compatto} in $\R$. In $\cntclass{0}(K; \R)$ la funzione $f \mapsto \norm{f}_2$ è una norma che introduce la distanza
 	\[d_2(f, g) = \sqrt{\int_{K} \abs{g(x) - f(x)}^2 \integrald{x}} = \sqrt{\int_{a}^{b} \abs{g(x) - f(x)}^2 \integrald{x}}\]
@@ -2210,6 +2232,7 @@ Sia $f(x)=\frac{a_0}{2}+\sum\liminf_{n=1}^{+\infty}\left(a_ncos(nx)+b_ncos(nx)\r
 ESEMPIO
 Esempio:::$B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}4f(x)sin(3x)\integrald{x}=4b_3$\\
 \begin{definition}[Funzione Continua a Tratti]
+	\index{Funzione!Continua a Tratti}
 	Siano $a,b\in \R$ con $a<b$, una funzione $f:\intervalclose{a}{b} \to \R$. Allora $f$ è \textbf{continua a tratti} se esiste un numero finito di punti $x_1,x_2,\dotsc,x_n$ tali che:
 	\begin{enumerate}
 		\item In ogni punto di $\intervalclose{a}{b}\setminus\brackets{x_1,x_2,\dotsc,x_n}$ f è continua

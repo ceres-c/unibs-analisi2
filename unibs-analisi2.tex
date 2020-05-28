@@ -1,6 +1,7 @@
 % !TEX encoding = UTF-8 Unicode
 \documentclass[a4paper,twoside,italian,11pt]{book}
 \usepackage{unibs-analisi2}
+\makeindex
 
 \hfuzz=3pt % To relax LaTeX about hbox overfullness
 
@@ -86,6 +87,9 @@ Gli appunti non sono stati validati dal professore, dunque non si escludono erro
 \include{./chapters/8_appendici}
 
 \backmatter
-% bibliography, glossary and index would go here.
+\phantomsection
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Indice Analitico}
+\printindex
 
 \end{document}

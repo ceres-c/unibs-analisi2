@@ -8,6 +8,7 @@ Equazione \textbf{Funzionale} è un’equazione le cui incognite sono funzioni.
 Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale) che stabilisce una relazione tra la funzione incognita e le sue derivate.
 
 \begin{definition}[Equazione Differenziale Ordinaria]
+	\index{Equazione!Differenziale Ordinaria}
 	\label{def:equaz_diff}
 	Si dice \textbf{Equazione Differenziale Ordinaria} (\textit{Ordinary Differential Equation, ODE}) \textbf{di ordine $n$} nella funzione incognita $x\in \R^k$ un espressione del tipo:
 	\begin{equation}
@@ -65,6 +66,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{solution}
 \end{exercise}
 \begin{definition}[Equazione Differenziale Ordinaria in Forma Normale]
+	\index{Equazione!Differenziale Ordinaria!in Forma Normale}
 	Un'equazione differenziale è in \textbf{Forma Normale} se e solo se si presenta nella forma 
 	\[x^{(n)} = g(t,x, x',\:\dotsc\:,x^{(n-1)})\]
 	Cioè se la derivata di ordine più alto è isolata al primo membro.
@@ -102,6 +104,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{example}
 
 \begin{definition}[Problema di Cauchy del Primo Ordine]
+	\index{Problema di Cauchy!del Primo Ordine}
 	\label{def:prob_cauchy_ord_1}
 	Si dice Problema di Cauchy del Primo Ordine il problema di determinare una soluzione di un'equazione differenziale ordinaria del primo ordine, soddisfacente ad una condizione iniziale.
 	\[\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\]
@@ -124,6 +127,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{note}
 
 \begin{definition}[Problema di Cauchy di Ordine $n$]
+	\index{Problema di Cauchy!di Ordine $n$}
 	Si dice problema di Cauchy di ordine $n$ il seguente problema:\\
 	Determinare una soluzione di un'equazione differenziale ordinaria di ordine $n$ soddisfacente a $n$ condizioni iniziali:
 	\[\begin{cases}
@@ -168,6 +172,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{proof}
 \end{proposition}
 \begin{definition}[Equazione di Volterra]
+	\index{Equazione!di Volterra}
 	\label{def:equaz_volterra}
 	La \cref{eq:volterra} viene denominata \textbf{equazione integrale di Volterra}.
 \end{definition}
@@ -304,6 +309,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{samepage}
 \begin{observation}[Problema ben posto nel senso di Hadamard]
 	\label{obs:hadamard}
+	\index{Problema Ben Posto}
 	in generale un problema si dice \textbf{ben posto} o \textbf{ben posto nel senso di Hadamard} ogniqualvolta la soluzione:
 	\begin{enumerate}
 		\item esiste
@@ -316,6 +322,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \newpage
 \section{Teoria Locale}
 \begin{definition}[Funzione Localmente Lipschitziana]
+	\index{Funzione!Localmente Lipschitziana}
 	\label{def:loc_lips}
 	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{Localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t \in I$ se
 	\[\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I\]
@@ -431,7 +438,8 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{proposition}
 
 \subsection{Esistenza e Unicità}
-\begin{proposition}[Teorema di Peano]
+\begin{theorem}[Teorema di Peano]
+	\index{Teorema!di Peano}
 	\label{teo:peano}
 	Si consideri il seguente problema di Cauchy:
 	\[\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.\]
@@ -454,9 +462,10 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\begin{proof}
 		Non richiesta
 	\end{proof}
-\end{proposition}
+\end{theorem}
 \begin{example}[Il Baffo/Pennello di Peano]
 	\label{ex:pennello_peano}
+	\index{Baffo di Peano}
 	Trovare le soluzioni del Problema di Cauchy
 	\begin{equation*}
 		\begin{cases}
@@ -608,6 +617,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{example}
 
 \begin{theorem}[di Cauchy Locale - Prima Parte]
+	\index{Teorema!di Cauchy Locale - Prima Parte}
 	\label{teo:cau_locale_part_1}
 	Si consideri il problema di Cauchy:
 	\[\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\]
@@ -861,6 +871,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \subsection{Dipendenza Continua}
 Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di Cauchy è quello del valore assunto da una determinata grandezza fisica, diciamo $u_0$, misurata al tempo $t=t_0$. Poiché la misura di una grandezza fisica comporta inevitabilmente un errore di rilevazione (per quanto piccolo), è importante caratterizzare quei problemi di Cauchy tali che a fronte di piccole discrepanze $u_0 \neq v_0$ producano soluzioni $(I,u)\,(J,v)$ che differiscano ”poco” in $I\cap J$.
 \begin{lemma}[Lemma di Gronwall]
+	\index{Lemma!di Gronwall}
 	\label{lemma:gronwall}
 	Dati $a,b\in \R$ con $a < b$, siano:
 	\begin{itemize}[noitemsep]
@@ -919,6 +930,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{exercise}
 
 \begin{theorem}[di Cauchy Locale - Seconda Parte]
+	\index{Teorema!di Cauchy Locale - Seconda Parte}
 	\label{teo:cau_locale_part_2}
 	Si considerino i seguenti problemi di Cauchy con condizione iniziale individuata nello stesso istante:
 	\begin{equation}
@@ -1154,6 +1166,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \cbstart
 \subsection{Il Caso Lipschitziano}
 \begin{theorem}[di Cauchy Globale per Lipschitziane]
+	\index{Teorema!di Cauchy Globale per Lipschitziane}
 	\label{teo:cau_glob_lips}
 	Data la funzione $f:I \times \R^n \to \R^n$, se:
 	\begin{itemize}[noitemsep]
@@ -1232,6 +1245,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 
 \subsection{Il Caso Sublineare}
 \begin{definition}[Funzione Sublineare]
+	\index{Funzione!Sublineare}
 	\label{def:sublineare}
 	Una funzione $f:I\times\R^n\to \R^n$ con $I$ intervallo in $\R$, si dice \textbf{sublineare} se esistono due costanti $A, B:\; \forall t \in I,\;\forall x \in \R^n$ vale:
 	\[\norm{f(t,x)}\leq A + B \norm{x}\]
@@ -1297,6 +1311,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{solution}
 \end{exercise}
 \begin{theorem}[di Cauchy Globale per Sublineari]
+	\index{Teorema!di Cauchy Globale per Sublineari}
 	\label{teo:cau_globale}
 	Data la funzione $f: I \times \R^n \to \R^n$, se
 	\begin{enumerate}
@@ -1428,6 +1443,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \newpage
 \section{Equazioni Autonome}
 \begin{definition}[Equazione Autonoma]
+	\index{Equazione!Autonoma}
 	\label{def:equaz_diff_auton}
 	Un'\textbf{equazione differenziale ordinaria} si dice \textbf{autonoma} se e solo se la variabile indipendente (solitamente il tempo) non vi compare esplicitamente.
 	\begin{note}
@@ -1470,6 +1486,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{proof}
 \end{proposition}
 \begin{proposition}[Teorema dell'Energia Cinetica]
+	\index{Teorema!dell'Energia Cinetica}
 	\label{teo:ene_cinetica}
 	Un punto materiale non vincolato $P$ di massa $m$, si muove sotto l'azione di una forza $F$ che dipende solo dalla posizione di $P$.\\
 	Allora la variazione di Energia Cinetica di $P$ è uguale al lavoro compiuto su $P$ da questa forza.
@@ -1511,6 +1528,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \section{Equazioni Differenziali Lineari}
 Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{sect:fun_in_C}, in particolare \fullref{ex:ext_def_in_C}
 \begin{definition}[Equazione Differenziale Ordinaria Lineare]
+	\index{Equazione!Differenziale Ordinaria!Lineare}
 	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f \quad : I \to \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
 	\[x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)\]
 	Se $f = 0$ l'equazione si dice \textbf{Omogenea}.
@@ -1647,10 +1665,12 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \end{note}
 
 \begin{definition}[Sistema Fondamentale di Soluzioni]
+	\index{Sistema Fondamentale di Soluzioni}
 	Dato $\ker L$, lo spazio vettoriale delle soluzioni, una base di $\ker L$ è \textbf{Sistema Fondamentale di Soluzioni} dell'equazione omogenea
 	\[x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = 0\]
 \end{definition}
 \begin{definition}[Soluzione Particolare]
+	\index{Soluzione Particolare}
 	\textbf{Soluzione Particolare} dell'equazione lineare non omogenea
 	\[x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = f(t)\]
 	è una qualunque soluzione di questa equazione.
@@ -1689,6 +1709,8 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \newpage
 \section{Equazioni Lineari a Coefficienti Costanti}
 \begin{definition}[Equazione Differenziale Ordinaria Lineare a Coefficienti Costanti]
+	\index{Equazione!Differenziale Ordinaria!Lineare a Coefficienti Costanti}
+	\index{Equazione!Caratteristica}
 	Dati i coefficienti $a_0,\:a_1,\:\dotsc\:,a_{n-1},b \in \C$ si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine $\boldsymbol{n}$ a Coefficienti Costanti} l'equazione differenziale
 	\[x^{(n)} + a_{n-1} \cdot x^{(n-1)} +\:\ldots\:+ a_1 \cdot x' + a_0 \cdot x = b\]
 	Se $b=0$, l'equazione si dice \textbf{omogenea}.\\
