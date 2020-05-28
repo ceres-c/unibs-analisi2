@@ -683,7 +683,7 @@ E si parla di \textbf{Distanza Infinito} (o \textbf{Distanza del} $\boldsymbol{\
 \endgroup
 
 \subsection{Convergenza Uniforme}\label{sect:conv_unif}
-Si chiama convergenza uniforme la convergenza di una Successione rispetto alla distanza $d_{\cntclass{0}}$.
+Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni rispetto alla distanza $d_{\cntclass{0}}$.
 
 \begin{definition}[Successione Uniformemente Convergente]
 	\label{def:succ_unif_conv}
@@ -1221,7 +1221,7 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 \end{exercise}
 \begin{example}[Insieme Chiuso e Limitato, ma non Compatto]
 	\label{ex:ins_chius_lim_non_compl}
-	In $\cntclass{0} \bigl( \intervalclose{0}{1}; \R \bigr)$ con la distanza $d_{\cntclass{0}}$ della Convergenza Uniforme, sia
+	In $\cntclass{0} \bigl( \intervalclose{0}{1}; \R \bigr)$ con la distanza $d_{\cntclass{0}}$ della Convergenza Uniforme, si definisce $C$ attraverso il punto \ref{itm:chiusura_sfera} di \fullref{ex:ins_aperti_chiusi}:
 	\[C = \overline{B(0, 1)} = \brackets{f \in \cntclass{0}\bigl( \intervalclose{0}{1}; \R \bigr):\; \sup\limits_{\intervalclose{0}{1}} \abs{f} \leq 1}\]
 	$C$ è Chiuso per definizione, infatti $C = \overline{B(0, 1)} = \overline{C}$, verificando \fullref{def:chiuso}.\\
 	$C$ è Limitato da \fullref{ex:sfere_e_limitatezza}\\
@@ -1242,7 +1242,6 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 					\begin{axis} [
 						axis lines = center,
 						axis on top=true,
-						legend style={empty legend},
 						xticklabels={,,},
 						xmin= -1.5, xmax = 1.5,
 						ymin= 0, ymax = 2
@@ -1260,7 +1259,6 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 					\begin{axis} [
 						axis lines = center,
 						axis on top=true,
-						legend style={empty legend},
 						xticklabels={,,},
 						xmin= -1.5, xmax = 1.5,
 						ymin= 0, ymax = 2
@@ -1278,7 +1276,6 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 					\begin{axis} [
 						axis lines = center,
 						axis on top=true,
-						legend style={empty legend},
 						xticklabels={,,},
 						xmin= -1.5, xmax = 1.5,
 						ymin= 0, ymax = 2
@@ -1296,7 +1293,6 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 					\begin{axis} [
 						axis lines = center,
 						axis on top=true,
-						legend style={empty legend},
 						xticklabels={,,},
 						xmin= -1.5, xmax = 1.5,
 						ymin= 0, ymax = 2
@@ -1471,18 +1467,150 @@ Si chiama convergenza uniforme la convergenza di una Successione rispetto alla d
 \end{exercise}
 
 \subsection{Convergenza Quadratica}\label{sect:conv_quadr}
-% TODO This subsection is a stub
-\begin{proposition}
+Si chiama Convergenza Quadratica la convergenza di una Successione di Funzioni rispetto alla distanza $d_2$.
+\begin{definition}[Norma Indice 2]
+	Sia $K$ un \textbf{Intervallo Compatto} in $\R$ di estremi $a, b$. Allora, data $f \in \cntclass{0}(K; \R)$, si definisce
+	\[\norm{f}_2 = \sqrt{\int_{K} \abs{f(x)}^2 \integrald{x}} = \sqrt{\int_{a}^{b} \abs{f(x)}^2 \integrald{x}}\]
+	\begin{note}
+		Da \fullref{ex:compat_chius_lim_Rn}, $K$ deve essere Chiuso e Limitato essendo $K \subseteq \R$
+	\end{note}
+\end{definition}
+\begin{proposition}[Distanza Quadratica]
 	\label{def:dist_quadratica}
-	% TODO Proposizione 19.49 dal libro
+	Sia $K$ un \textbf{Intervallo Compatto} in $\R$. In $\cntclass{0}(K; \R)$ la funzione $f \mapsto \norm{f}_2$ è una norma che introduce la distanza
+	\[d_2(f, g) = \sqrt{\int_{K} \abs{g(x) - f(x)}^2 \integrald{x}} = \sqrt{\int_{a}^{b} \abs{g(x) - f(x)}^2 \integrald{x}}\]
+	che, a sua volta, rende $\bigl( \cntclass{0}(K; \R), d_2 \bigr)$ uno \textbf{Spazio Metrico}. Inoltre $d_2$ è invariante per traslazioni ed omogenea.
 
-	La definizione di $d_2(f,g)$ come \textit{distanza} è dimostrata in \hyperref[ex:dim_dist_quadratica]{\fullref*{ex:metriche}}
-	% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+	\begin{proof}
+		Essendo $d_2(f,g)$ una distanza, come dimostrato in \hyperref[ex:dim_dist_quadratica]{\fullref*{ex:metriche}},
+		% NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
+		per \fullref{prop:dist_sp_norm} $\bigl( \cntclass{0}(K; \R), d_2 \bigr)$ è uno Spazio Metrico. Sempre dalla stessa proposizione discendono le proprietà di invarianza ed omogeneità.
+	\end{proof}
 \end{proposition}
+\begin{example}
+	\label{ex:d2_deve_essere_di_f_C0}
+	Nella \fullref{def:dist_quadratica} l'ipotesi di continuità è essenziale, altrimento $d_2$ non sarebbe una distanza.\\
+	Infatti, se due funzioni $f$ e $g$ fossero differenti in un numero finito di punti, allora $d_2(f,g) = 0$, però $f \neq g$.
+\end{example}
+\begin{observation}
+	Nonostante quanto sostenuto in \fullref{ex:d2_deve_essere_di_f_C0}, la Distanza Quadratica può essere estesa all'insieme delle funzioni $f:\; A \to \R$ con $A \subseteq \R$, tali che
+	\[f^2 \text{ sia "integrabile" (in senso opportuno) su } A \text{ e } \int_{A} f^2(x) \integrald{x} < +\infty\]
+\end{observation}
 \begin{proposition}
 	\label{prop:dist_quad_sp_metr_non_compl}
-	% TODO Proposizione 19.52 dal libro
+	Lo spazio metrico $\bigl( \cntclass{0}(K; \R), d_2 \bigr)$ definito in \fullref{def:dist_quadratica} non è \textbf{Completo}.
+	\begin{proof}
+		La successione
+		\[
+			f_n(x) =
+			\begin{cases}
+				\begin{array}{ll}
+					\sqrt{1-n^2x^2} & \text{se } n^2x^2 \leq 1\\
+					0 & \text{se } n^2x^2 > 1
+				\end{array}
+			\end{cases}
+		\]
+		è di Cauchy, ma non ha limite in $\cntclass{0}$.
+
+		\begin{figure}[H]
+			\begin{subfigure}{.24\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							axis equal = true,
+							ytick={1},
+							xmin= -1.1, xmax = 1.1,
+							ymin = 0
+						]
+							\addplot [smooth, forget plot, domain=-1:-.8] {sqrt(1 - x^2)};
+							\addplot [smooth, forget plot, domain=-.8:.8] {sqrt(1 - x^2)};
+							\addplot [smooth, forget plot, domain=.8:1] {sqrt(1 - x^2)};
+					\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{$n = 1$}
+			\end{subfigure}
+			\begin{subfigure}{.24\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							axis equal = true,
+							ytick={1},
+							xmin= -.5, xmax = .5,
+							ymax = 1.1
+						]
+						\addplot [smooth, forget plot, domain=-.21:-.18, samples=100] {sqrt(1 - 5^2*x^2)};
+						\addplot [smooth, forget plot, domain=-.18:.18] {sqrt(1 - 5^2*x^2)};
+						\addplot [smooth, forget plot, domain=.18:.21, samples=100] {sqrt(1 - 5^2*x^2)};
+					\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{$n = 5$}
+			\end{subfigure}
+			\begin{subfigure}{.24\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							ytick={1},
+							xmin= -.5, xmax = .5,
+							ymax = 1.1
+						]
+						\addplot [smooth, forget plot, domain=-.1:.1] {sqrt(1 - 10^2*x^2)};
+						\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{$n = 10$}
+			\end{subfigure}
+			\begin{subfigure}{.24\textwidth}
+				\centering
+				\resizebox{\linewidth}{!}{
+					\begin{tikzpicture}
+						\begin{axis} [
+							axis lines = center,
+							axis on top=true,
+							ytick={1},
+							xtick={-.05,  .05},
+							xticklabels={{$-0,05$}, {$0,05$}},
+							xmin= -.1, xmax = .1,
+							ymax = 1.1
+						]
+						\addplot [smooth, forget plot, domain=-.1:.1] {sqrt(1 - 100^2*x^2)};
+						\end{axis}
+					\end{tikzpicture}
+				}
+				\caption{$n = 1000$}
+			\end{subfigure}
+			\caption{La funzione $f_n = \sqrt{1 - n^2x^2}$ con diversi $n$}
+		\end{figure}
+
+	\end{proof}
 \end{proposition}
+\begin{exercise}
+	Completare la dimostrazione della \fullref{prop:dist_quad_sp_metr_non_compl}.
+	% TODO solution
+\end{exercise}
+\begin{observation}
+	\label{obs:prod_scal_dist_quadr}
+	È noto che la Norma Euclidea e la Metrica Euclidea in $\R^n$ sono legate al prodotto scalare in $\R^n$. Analogamente, la Norma Indice 2 e la Distanza Indice 2 (Quadratiche) definite nella \fullref{def:dist_quadratica} sono legate al seguente "prodotto scalare"
+	\[f \cdot g = \int_{K} f(x) \; g(x) \integrald{x}\]
+\end{observation}
+\begin{exercise}
+	Verificare che il prodotto scalare definito nell'\fullref{obs:prod_scal_dist_quadr} soddisfa le solite proprietà:
+	\[f \cdot (g + h) = f \cdot g + f \cdot h\]
+	\[(\lambda f) \cdot g = \lambda (f \cdot g) = f \cdot (\lambda g)\]
+	ed è inolte legato alla Norma Indice 2 dalla relazione
+	\[\norm{f}_2 = \sqrt{f \cdot f}\]
+	% TODO solution
+\end{exercise}
 
 \newpage
 \section{Serie di Funzioni Particolari}\label{sect:ser_funz_particol}
