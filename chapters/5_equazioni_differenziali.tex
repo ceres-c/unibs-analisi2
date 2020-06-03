@@ -79,7 +79,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{note}
 \begin{proposition}
 	\label{prop:equaz_n_equival_1}
-	ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$, cioè in cui compaiono solamente derivate prime.
+	Ogni equazione differenziale ordinaria in forma normale di ordine $n$ è equivalente a una equazione differenziale ordinaria in forma normale di ordine $1$, cioè in cui compaiono solamente derivate prime.
 	\begin{proof}
 		Data l'equazione
 		\[x^{(n)} = g(t,x, x', x'',\:\dotsc\:,x^{(n-1)})\]
@@ -87,7 +87,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\[y_1=x\qquad y_2= x'\qquad y_3= x''\qquad \dots\qquad y_n=x^{(n-1)}\]
 		ed al contempo
 		\[y_1'= x'=y_2\qquad y_2'= x''=y_3\qquad y_3'= x'''=y_4\qquad\cdots\qquad y_{n-1}'=x^{(n-1)}=y_n\]
-		Cioè, differenziando l'$i$\textit{-esimo} elemento (funzione) del vettore $y$, mi "sposto" all'elemento (funzione) $i+1$ di $y$. A questo punto tutti gli elementi di $y$ sono equazioni differenziali del primo ordine.\\
+		Cioè, differenziando l'$i$\textit{-esimo} elemento (che è una funzione) del vettore $y$, mi "sposto" all'elemento $i+1$ di $y$. A questo punto tutti gli elementi di $y$ sono equazioni differenziali del primo ordine.\\
 		Quindi l'equazione può essere scritta come il seguente sistema del primo ordine
 		\[\begin{cases}
 			y_1'\quad=\quad y_2\\
@@ -99,7 +99,8 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{proposition}
 \begin{example}
 	Posto $n=2$, si ha $x''=f(t, x, x')$.
-	Come nella dimostrazione della \fullref{prop:equaz_n_equival_1}, si pongono $X'= \begin{bmatrix} x'\\ x'' \end{bmatrix}$ e $X=\begin{bmatrix}x\\ x'\end{bmatrix}$\\
+	Come nella dimostrazione della \fullref{prop:equaz_n_equival_1}, si pongano
+	\[X'= \begin{bmatrix} x'\\ x'' \end{bmatrix} \qquad \text{e} \qquad X=\begin{bmatrix}x\\ x'\end{bmatrix}\]
 	Da cui $X'=f(t,X)$
 \end{example}
 
@@ -208,8 +209,8 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					axis lines = center,
 					ymin = -2, ymax = 2
 				]
-					\addplot[domain=-2:0] {1};
-					\addplot[domain=0:2] {-1};
+					\addplot[domain=-2:0, thick] {1};
+					\addplot[domain=0:2, thick] {-1};
 					\addplot[color=black, only marks, mark=*] coordinates {(0, -1)};
 					\addplot[color=black, fill=white, only marks, mark=*] coordinates {(0, 1)};
 				\end{axis}
@@ -625,13 +626,17 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\begin{enumerate}
 		\item $t_0\in \circdot{I},\:x_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
 		\item $f\in \cntclass{0}(I\times A; \R^n)$ 
-		\item $f$ è localmente Lipschitziana in $x\in A$ uniformemente rispetto a $t\in I$
+		\item $f$ è \textbf{localmente Lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t\in I$
 	\end{enumerate}
 	\begin{note}
 		Le prime due ipotesi garantiscono l'esistenza, grazie al \fullref{teo:peano}. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
 	\end{note}
 		\begin{note}
-		Per verificare l'ultima ipotesi si ricordino \fullref{prop:fc1_loc_lips} e \hyperlink{note:if_lips_then_loclips}{se $f$ \textbf{lips.} $\implies f$ \textbf{loc. lips.}}
+		Per verificare l'ultima ipotesi si ricordi, alternativamente, che:
+		\begin{itemize}[nolistsep]
+			\item \hyperlink{note:if_lips_then_loclips}{se $f$ \textbf{lips.} $\implies f$ \textbf{loc. lips.}}
+			\item \fullref{prop:fc1_loc_lips}, che garantisce la Lipschitzianità dalla continuità delle derivate parziali.
+		\end{itemize}
 	\end{note}
 	Allora ho i seguenti risultati:
 	\begin{enumerate}
@@ -859,7 +864,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{exercise}
 	Perchè il \fullref{teo:cau_locale_part_1} è chiamato Teorema di Cauchy \textbf{locale}?
 	\begin{solution}
-		È dovuto al fatto che il teorema fornisce informazioni solo in un intorno della condizione iniziale $t_0$, non è assicurata l'esistenza di un'unica funzione risolvente in un intervallo arbitrario.
+		È dovuto al fatto che il teorema fornisce informazioni sull'esistenza/unicità di una soluzione solo in un intorno della condizione iniziale $t_0$. Non son fornite indicazioni sull'ampiezza di questo intervallo e se possa essere esteso a tutto $I$, intervallo di definizione della variabile indipendente $t$.
 	\end{solution}
 \end{exercise}
 

@@ -10,12 +10,13 @@
 \usepackage{enumitem}
 \usepackage{amsthm,amssymb}
 \usepackage{imakeidx}
+\makeindex % makeindex has to be here as it conflicts with tikz externalization and must be issued before tikz extern lib is loaded
 \usepackage[makeroom]{cancel} % Used for cancelled math formulas
 \usepackage{xcolor}
 \usepackage{mathtools,thmtools}
 \usepackage{shellesc} % Used to embed TikZ external with LuaLaTeX
 \usepackage{tikz}
-\usetikzlibrary{external,matrix,fit,quotes,angles} % external requires --shell-escape LaTeX compiler switch
+\usetikzlibrary{external,matrix,fit,quotes,babel,angles} % external requires --shell-escape LaTeX compiler switch
 \tikzexternalize[prefix=build/]
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}

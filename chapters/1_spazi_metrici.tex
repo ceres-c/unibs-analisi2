@@ -18,6 +18,7 @@
 \begin{definition}[Spazio Metrico]
 	\index{Spazio!Metrico}
 	\index{Metrica}
+	\index{Distanza}
 	\label{def:sp_metrico}
 	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{Distanza} (o \textbf{Metrica}), vale a dire una funzione $d: X \times X \to \R$ con le seguenti proprietà:
 	\begin{enumerate}
@@ -128,8 +129,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ in quanto
 					\[d(x,y) = \abs{x-y} = \abs{x-z+z-y} \leq \abs{x-z} + \abs{z-y} = d(x,z) + d(z,y)\]
 			\end{enumerate}
-		\item \label{ex:dist_eucl}\index{Metrica!Euclidea}
-\index{Distanza!Euclidea}
+		\item \label{ex:dist_eucl}\index{Metrica!Euclidea}\index{Distanza!Euclidea}
 			$\begin{array}{l}
 				X=\R^n \text{ con } x=(x_1,\ldots,x_n),\; y=(y_1,\ldots,y_n)\\
 				d(x,y)=\sqrt{\sum\limits_{i=1}^{n}{\left(y_i-x_i\right)}^2}
@@ -149,8 +149,7 @@ Unendo le due definizioni si giunge naturalmente a
 					\end{array}
 				\end{cases}
 			$
-			\hfill {\footnotesize\textbf{Metrica Discreta}}\index{Metrica!Discreta}
-\index{Distanza!Discreta}
+			\hfill {\footnotesize\textbf{Metrica Discreta}}\index{Metrica!Discreta}\index{Distanza!Discreta}
 			\begin{enumerate}[label=\arabic*.]
 				\item $d(x,y) \geq 0$ per definizione della metrica
 				\item $d(x,y) = 0 \iff x = y$ per definizione della metrica
@@ -162,8 +161,7 @@ Unendo le due definizioni si giunge naturalmente a
 						\item $2$ se $x \neq y \neq z$, quindi sicuramente $d(x,y) \leq d(x,z) + d(z,y)$
 					\end{itemize}
 			\end{enumerate}
-		\item \label{ex:dim_dist_conv_unif}\index{Metrica!Infinito}
-\index{Distanza!Infinito}
+		\item \label{ex:dim_dist_conv_unif}\index{Metrica!Infinito}\index{Distanza!Infinito}
 			$
 				\begin{array}{l}
 					X = \cntclass{0}(\intervalclose{a}{b};\R)\; a,b \in \R,\; a < b\\
@@ -213,8 +211,7 @@ Unendo le due definizioni si giunge naturalmente a
 			\begin{note}
 				Si sottolinea che queste conclusioni sono valide finché $\intervalclose{a}{b}$ chiuso e limitato, altrimenti non varrebbe più l'\fullref{ex:weier_analisi_1} che è necessario per il punto \ref{itm:dist_conv_unif_geq_0}. % TODO Serve un controesempio
 			\end{note}
-		\item \label{ex:dist_parigi}\index{Metrica!di Parigi}
-\index{Distanza!di Parigi}
+		\item \label{ex:dist_parigi}\index{Metrica!di Parigi}\index{Distanza!di Parigi}
 			$
 				\begin{array}{l}
 					X=\R^2,\; d \text{ Metrica Euclidea e } P \in X \text{ punto arbitrario }\\
@@ -242,8 +239,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y)=d(y,x)$ essendo bassata sulla Metrica Euclidea
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo bassata sulla Metrica Euclidea
 			\end{enumerate}
-		\item \label{ex:dim_dist_quadratica}\index{Metrica!Quadratica}
-\index{Distanza!Quadratica}
+		\item \label{ex:dim_dist_quadratica}\index{Metrica!Quadratica}\index{Distanza!Quadratica}
 			$
 				\begin{array}{l}
 					X=\cntclass{0}(\intervalclose{a}{b},\R)\;a,b\in\R,\;a<b\\

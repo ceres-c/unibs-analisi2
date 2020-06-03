@@ -1564,12 +1564,13 @@ Si chiama Convergenza Quadratica la convergenza di una Successione di Funzioni r
 							axis on top=true,
 							axis equal = true,
 							ytick={1},
+							xtick={-.4, -.2, .2, .4},
 							xmin= -.5, xmax = .5,
 							ymax = 1.1
 						]
-						\addplot [smooth, forget plot, domain=-.21:-.18, samples=100] {sqrt(1 - 5^2*x^2)};
+						\addplot [smooth, forget plot, domain=-.1999:-.18, samples=100] {sqrt(1 - 5^2*x^2)};
 						\addplot [smooth, forget plot, domain=-.18:.18] {sqrt(1 - 5^2*x^2)};
-						\addplot [smooth, forget plot, domain=.18:.21, samples=100] {sqrt(1 - 5^2*x^2)};
+						\addplot [smooth, forget plot, domain=.18:.1999, samples=100] {sqrt(1 - 5^2*x^2)};
 					\end{axis}
 					\end{tikzpicture}
 				}
@@ -1586,7 +1587,7 @@ Si chiama Convergenza Quadratica la convergenza di una Successione di Funzioni r
 							xmin= -.5, xmax = .5,
 							ymax = 1.1
 						]
-						\addplot [smooth, forget plot, domain=-.1:.1] {sqrt(1 - 10^2*x^2)};
+						\addplot [smooth, forget plot, domain=-.0999:.0999] {sqrt(1 - 10^2*x^2)};
 						\end{axis}
 					\end{tikzpicture}
 				}
@@ -1605,7 +1606,7 @@ Si chiama Convergenza Quadratica la convergenza di una Successione di Funzioni r
 							xmin= -.1, xmax = .1,
 							ymax = 1.1
 						]
-						\addplot [smooth, forget plot, domain=-.1:.1] {sqrt(1 - 100^2*x^2)};
+						\addplot [smooth, forget plot, domain=-.01:.01] {sqrt(1 - 100^2*x^2)};
 						\end{axis}
 					\end{tikzpicture}
 				}
