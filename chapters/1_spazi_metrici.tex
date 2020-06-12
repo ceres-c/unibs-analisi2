@@ -336,13 +336,11 @@ Unendo le due definizioni si giunge naturalmente a
 	\index{Distanza!Equivalente}
 	\label{def:metr_equiv}
 	Siano $d_1$ e $d_2$ due distanze sullo stesso insieme $X$.
-	\begin{equation*}
-		\begin{gathered}
-			d_1 \text{ e } d_2 \text{ sono \textbf{equivalenti}}\\
-			\bydef\\
-			\exists c,C \in \intervalopen{0}{+\infty}:\; \forall x,y \in X \quad c \cdot d_1(x,y) \leq d_2 (x,y) \leq C \cdot d_1 (x,y)
-		\end{gathered}
-	\end{equation*}
+	\begin{gather*}
+		d_1 \text{ e } d_2 \text{ sono \textbf{equivalenti}}\\
+		\bydef\\
+		\exists c,C \in \intervalopen{0}{+\infty}:\; \forall x,y \in X \quad c \cdot d_1(x,y) \leq d_2 (x,y) \leq C \cdot d_1 (x,y)
+	\end{gather*}
 	Cioè se è sempre possibile "limitare" una metrica con l'altra (moltiplicata per un opportuno coefficiente). Questo implica che distanze infinite per una metrica devono esserlo anche per l'altra.
 	\begin{note}
 		Dato uno spazio metrico $(X,d)$, passare dalla distanza $d$ ad un'altra ad essa equivalente è concettualmente analogo ad un cambio di unità di misura. Come esempio si veda \fullref{ex:dist_eqiv}
@@ -423,8 +421,7 @@ Unendo le due definizioni si giunge naturalmente a
 			\end{note}
 	\end{itemize}
 \end{definition}
-\newpage % TODO always check this does not generates too much whitespace
-\begin{example} % This exercise was split between two pages, thus the above \newpage
+\begin{example}
 	Dato l'insieme $A \subset \R^2$ munito della Distanza Euclidea e rappresentato in figura
 	\begin{center}
 		\begin{tikzpicture}
@@ -512,6 +509,7 @@ Unendo le due definizioni si giunge naturalmente a
 		\end{enumerate}
 \end{proposition}
 \begin{proposition}[Condizione Punti Accumulazione]
+	\index{Punto!di Accumulazione!Condizione}
 	\label{prop:condiz_punt_accumulaz}
 	Siano $(X,d)$ uno spazio metrico, $x_0 \in X$ e $A \subseteq X$, $A \neq \emptyset$. Allora
 	\begin{equation*}
@@ -2482,10 +2480,11 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \cbend
 
 \newpage
+\markright{FUNZIONI A VALORI IN $\R^n$} % To mark current page, in case it's a right page
 \section{Funzioni a Valori in \texorpdfstring{$\protect \R^n$}{R\textasciicircum n}}
-\markright{FUNZIONI A VALORI IN $\R^n$}
+\markright{FUNZIONI A VALORI IN $\R^n$} % To mark all the following pages, overriding \section's default mark
 % \markright is used to change section headings to force the "n" in R^n to lowercase.
-% The same couldn't be performed simply by using \MakeLowerCase in section's name since it was broken in TOC.
+% The same couldn't be performed simply by using \MakeLowercase in section's name since it was broken in TOC.
 
 In tutto questo paragrafo si hanno $n \in \N$ e $n \geq 1$. Con $\R^n$ viene indicato lo spazio metrico $\R$ dotato dell'usuale \textbf{Metrica Euclidea}: $d(x,y) = \sqrt{\sum\limits_{i = 1}^{k} (y_i - x_i)^2}$ da \fullref{ex:metriche}.\\
 Questo spazio si dice anche \fullref{def:sp_vett_normato}.

@@ -229,7 +229,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 					]
 						\addplot[color=blue!70, smooth] {parabola(x)};
 				
-						\pgfplotsinvokeforeach{-4.4,-3,-2,-1,0,1,2,3,4.4} {
+						\pgfplotsinvokeforeach{-4.4,-3,-2,-1,1,2,3,4.4} {
 							\node at (#1, {parabola(#1)}) {$1$};
 						}
 				
@@ -564,6 +564,9 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			f(x_0 + h) - f(x_0) - Mh = o(h) \text{ per } h \to 0
 		\end{gathered}
 	\end{equation*}
+	\begin{note}
+		Questo corollario formalizza la relazione tra le Derivate Parziali e la Matrice Derivata Totale $M$
+	\end{note}
 	\begin{proof}
 		Direttamente dalla \fullref{def:differenz}, per mezzo del \fullref{coro:se_diff_deriv_parz}.
 	\end{proof}
@@ -1483,7 +1486,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 	\begin{itemize}[noitemsep]
 		\item $f \in \cntclass{n}(A;\R^m)$ con $A \subseteq \R^n$
 		\item $x_0 \in \circdot{A}$
-		\item $h \in \R^n$
+		\item $h \in \R^n \setminus \brackets{0}$
 		\item Il segmento di estremi $x_0$ e $x_0 + h$ è interamente contenuto in $A$
 	\end{itemize}
 	Allora
@@ -1495,16 +1498,18 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 	\end{equation}
 	si dice \textbf{Polinomio di Taylor} di grado $n-1$ della funzione $f$ centrato nel punto $x_0$.
 
-	\begin{note}
-		Nella \cref{eq:pol_taylor}, con la forma $D^if(x_0; h)$ si intende lo \textit{scalare} ottenuto applicando all’incremento $h$ il differenziale $i$\textit{-esimo} calcolato in $x_0$.\\
-		Supponendo $f: R^n \to \R^1$, la $D^if(x_0; h)$ diventa, ad esempio:
-		\begin{itemize}
-			\item $i = 1 \qquad Df(x_0; h) = \nabla f(x_0) \cdot h$
-			\item $i = 2 \qquad D^2f(x_0; h) = h^T \cdot H_f(x_0) \cdot h$ \quad dove $h^T$ è $h$ trasposto e $H_f$ è la \fullref{def:hessiana}
-		\end{itemize}
-		Con $\; \cdot \;$, in questo caso, si intende il prodotto righe per colonne.\\
-		Vedasi \fullref{obs:matr_deriv_tot} per le possibile "forme" assunte dalla $Df(x_0; h)$ in base ai valori di $n$ e $m$.
-	\end{note}
+	\begin{samepage}
+		\begin{note}
+			Nella \cref{eq:pol_taylor}, con la forma $D^if(x_0; h)$ si intende lo \textit{scalare} ottenuto applicando all’incremento $h$ il differenziale $i$\textit{-esimo} calcolato in $x_0$.\\
+			Supponendo $f: R^n \to \R^1$, la $D^if(x_0; h)$ diventa, ad esempio:
+			\begin{itemize}
+				\item $i = 1 \qquad Df(x_0; h) = \nabla f(x_0) \cdot h$
+				\item $i = 2 \qquad D^2f(x_0; h) = h^T \cdot H_f(x_0) \cdot h$ \quad dove $h^T$ è $h$ trasposto e $H_f$ è la \fullref{def:hessiana}
+			\end{itemize}
+			Con $\; \cdot \;$, in questo caso, si intende il prodotto righe per colonne.\\
+			Vedasi \fullref{obs:matr_deriv_tot} per le possibile "forme" assunte dalla $Df(x_0; h)$ in base ai valori di $n$ e $m$.
+		\end{note}
+	\end{samepage}
 \end{definition}
 \begin{observation}
 	Il Polinomio di Taylor è caratterizzato dall’avere in comune con la funzione $f$ il valore di tutte le derivate fino all’ordine $n-1$ nel punto $x_0$.
@@ -1516,11 +1521,11 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 	\begin{itemize}[noitemsep]
 		\item $f \in \cntclass{n}(A;\R^m)$ con $A \subseteq \R^n$
 		\item $x_0 \in \circdot{A}$
-		\item $h \in \R^n$
-		\item Il segmento di estremi $x_0$ e $x_0 + h$ è interamente contenuto in $A$
+		\item $h \in \R^n \setminus \brackets{0}$
+		\item Il segmento di estremi $x_0$ e $x_0 + h$ è interamente contenuto in $\circdot{A}$
 	\end{itemize}
-	Allora
-	\[f(x) = T_{n-1}(f, x_0) + R_n(f, x_0, h) \qquad \text{per } x \to x_0\]
+	Allora, posto $x = x_0 + h$
+	\[f(x) = T_{n-1}(f, x_0) + R_n(f, x_0, h) \qquad \text{per } x \to x_0 \text{ (cioè } h \to 0\text{)}\]
 	Dove $R_n(f, x_0, h)$ è \textbf{Resto} espresso nella forma di Peano o di Lagrange.
 	\begin{proof}
 		Omessa.
@@ -1532,7 +1537,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 	\label{def:resto_peano}
 	Nelle ipotesi del \fullref{teo:taylor}, dalla \fullref{def:o_piccolo} si definisce il \textbf{resto} nella forma \textbf{di Peano}:
 	\[R_n(f, x_0, h) = \frac{1}{n!} D^nf(x_0; h) + o\left( \norm{h}^2 \right)\]
-	Cioè che la differenza tra la funzione ed il polinomio tende a zero quando la $x$ tende al centro dello sviluppo, cioè $x_0$
+	Cioè che la differenza tra la funzione ed il polinomio tende a zero quando la $x$ tende ad $x_0$, centro dello sviluppo.
 \end{definition}
 
 \begin{definition}[Resto di Lagrange]
@@ -1548,25 +1553,41 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 \cbend
 
 \noindent Passando ora al caso specifico degli sviluppi del secondo ordine
-\begin{proposition}[Sviluppo di Taylor al Secondo Ordine con resto di Peano]
-	\index{Sviluppo di Taylor!con Resto di Peano}
-	\label{prop:svil_tay_2_peano}
-	Siano:
-	\begin{itemize}[noitemsep]
-		\item $f \in \cntclass{2}(A;\R^m)$ con $A \subseteq \R^n$
-		\item $x_0 \in \circdot{A}$
-		\item $h \in \R^n$
-		\item Il segmento di estremi $x_0$ e $x = x_0 + h$ è interamente contenuto in $A$
-	\end{itemize}
-	Allora
-	\[f(x) = f(x_0) + Df(x_0)h + \frac{1}{2} h^T D^2f(x_0) h + o\left( \norm{h}^2 \right)\]
-	\begin{note}
-		$h^T$ è il vettore riga trasposto del vettore colonna $h$.
-	\end{note}
-	\begin{proof}
-		Omessa in aula.
-	\end{proof}
-\end{proposition}
+
+\begin{samepage}
+	\begin{proposition}[Sviluppo di Taylor al Secondo Ordine con resto di Peano]
+		\index{Sviluppo di Taylor!con Resto di Peano}
+		\label{prop:svil_tay_2_peano}
+		Siano:
+		\begin{itemize}[noitemsep]
+			\item $f \in \cntclass{2}(A;\R^m)$ con $A \subseteq \R^n$
+			\item $x_0 \in \circdot{A}$
+			\item $h \in \R^n \setminus \brackets{0}$
+			\item Il segmento di estremi $x_0$ e $x = x_0 + h$ è interamente contenuto in $\circdot{A}$
+		\end{itemize}
+		Allora, posto $x = x_0 + h$
+		\[
+			f(x) = f(x_0) + Df(x_0)h + \frac{1}{2} h^T D^2f(x_0) h + o\left( \norm{h}^2 \right)
+			\qquad
+			\text{per } x \to x_0 \text{ (cioè } h \to 0\text{)}
+		\]
+		\begin{note}
+			$h^T$ è il vettore riga trasposto del vettore colonna $h$.
+		\end{note}
+		Alternativamente, la formula precedente si può anche esprimere in questo modo, con $t \in \R$ e $x = x_0 + th$
+		\[
+			f(x) = f(x_0) + t Df(x_0) h + \frac{1}{2} t^2 h^T D^2f(x_0) h + o\left( t^2 \right)
+			\qquad \text{per } t \to 0
+		\]
+		\begin{proof}
+			Omessa in aula.
+
+			\cbstart
+			Eseguire lo sviluppo di Taylor centrato in $t = 0$ della funzione di variabile reale $\varphi(t) = f(x_0 + th)$ con Resto di Peano.
+			\cbend
+		\end{proof}
+	\end{proposition}
+\end{samepage}
 
 \begin{proposition}[Sviluppo di Taylor al Secondo Ordine con resto di Lagrange]
 	\index{Sviluppo di Taylor!con Resto di Lagrange}
@@ -1574,45 +1595,45 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 	\begin{itemize}[noitemsep]
 		\item $f \in \cntclass{2}(A;\R)$ con $A \subseteq \R^n$
 		\item $x_0 \in \circdot{A}$
-		\item $h \in \R^n$
-		\item Il segmento di estremi $x_0$ e $x_0 + h$ è interamente contenuto in $A$
+		\item $h \in \R^n \setminus \brackets{0}$
+		\item Il segmento di estremi $x_0$ e $x_0 + h$ è interamente contenuto in $\circdot{A}$
 	\end{itemize}
-	Allora
-	\[f(x) = f(x_0) + Df(x_0)h + \frac{1}{2} h^T D^n f(x + \theta h) h\] % TODO chehck this formula
+	Allora, posto $x = x_0 + h$, esiste un $\theta \in \intervalclose{0}{1}$ tale che
+	\[f(x) = f(x_0) + Df(x_0)h + \frac{1}{2} h^T D^2 f(x_0 + \theta h) h\]
 	\begin{note}
-		Come detto in \fullref{obs:resto_lagr_Rn}, il resto di lagrange si può applicare solo a funzioni in $\R$.
+		Come detto in \fullref{obs:resto_lagr_Rn}, il Resto di Lagrange dà un risultato esatto, ma si può applicare solo a funzioni in $\R$.
 	\end{note}
 	\begin{proof}
 		Omessa in aula.
+
+		\cbstart
+		Eseguire lo sviluppo di Taylor centrato in $\theta = 0$ della funzione di variabile reale $\varphi(\theta) = f(x_0 + \theta h)$ con Resto di Lagrange.
+		\cbend
 	\end{proof}
 \end{proposition}
 
 \begin{exercise}
 	Sfruttando i noti sviluppi di funzioni reali di una variabile reale, scrivere lo sviluppo di Taylor al secondo ordine centrato nell'origine delle seguenti funzioni:
-	\begin{itemize}
-		\begin{minipage}{0.33\linewidth}
-			\item $(x,y) \mapsto 2x^2 + 3xy + 4xy^3$
-			\item $(x,y) \mapsto \sin(xy)$
-			\item $(x,y,z) \mapsto (x+z) \cos (2x+3y)$
-		\end{minipage}
-		\begin{minipage}{0.33\linewidth}
-			\item $(x,y) \mapsto e^{x-y^2} \ln(1+x+y^2)$
-			\item $(x,y,z) \mapsto \sqrt{1+2x+3y+4z}$
-			\item $(x,y) \mapsto \begin{bmatrix}
-					\cos(x^2 + y^2)\\
-					\sin(x^2 - y^2)
-				\end{bmatrix}$
-		\end{minipage}
-		\begin{minipage}{0.33\linewidth}
-			\item $(x,y,z) \mapsto \sin(x + 3z) \cos(z - y)$
-			\item $(x,y) \mapsto \frac{x+y^2}{\cos (x+y)}$
-			\item $(x,y,z) \mapsto \begin{bmatrix}
-					z \ln (1 + xy)\\
-					\frac{y}{1+x+z}\\
-					(y + z) \sin x
-				\end{bmatrix}$
-		\end{minipage}
-	\end{itemize}
+	\begin{align*}
+		(x,y) &\mapsto 2x^2 + 3xy + 4xy^3 &
+		(x,y) &\mapsto e^{x-y^2} \ln(1+x+y^2) &
+		(x,y,z) &\mapsto \sin(x + 3z) \cos(z - y) \\
+		%
+		(x,y) &\mapsto \sin(xy) &
+		(x,y,z) &\mapsto \sqrt{1+2x+3y+4z} &
+		(x,y) &\mapsto \frac{x+y^2}{\cos (x+y)} \\
+		%
+		(x,y,z) &\mapsto (x+z) \cos (2x+3y) &
+		(x,y) &\mapsto \begin{bmatrix}
+			\cos(x^2 + y^2)\\
+			\sin(x^2 - y^2)
+		\end{bmatrix} &
+		(x,y,z) &\mapsto \begin{bmatrix}
+			z \ln (1 + xy)\\
+			\frac{y}{1+x+z}\\
+			(y + z) \sin x
+		\end{bmatrix}
+	\end{align*}
 \end{exercise}
 
 \subsection{Derivate di Ordine Superiore}
@@ -1853,7 +1874,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\end{note}
 	\begin{note}
 		Il punto \ref{itm:ipot_funz_impl_5} delle ipotesi richiede che la matrice $D_yf$ sia invertibile, cioè quadrata e con $\det(D_yf) \neq 0$. Il fatto che sia quadrata è garantito per ipotesi, in quanto $Y \subseteq \R^m$ e $f$ è a valori in $\R^m$\\
-		Nel caso molto comune di $f: \R^1 \times \R^1 \to \R^1$, bisogna verificare che $\frac{\partial f}{\partial y} \neq 0$, cioè che la derivata parziale rispetto ad $y$ non sia nulla.
+		Nel caso molto comune di $f: \R^1 \times \R^1 \to \R^1$, bisogna verificare che $\frac{\partial f}{\partial y} \neq 0$, cioè che la derivata parziale rispetto ad $y$ non sia nulla, come si vede in \fullref{coro:diff_primo_funz_impl_n1_m1}.
 	\end{note}
 	Allora
 	\begin{enumerate}
@@ -1953,11 +1974,11 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	Come mai il \fullref{teo:funz_impl} è stato ambientato in $\R^n$ e non in un generico spazio metrico?
 	% TODO solution
 \end{exercise}
-\begin{theorem}
-	\label{teo:funz_impl_diff}
+\begin{theorem}[Differenziale Primo della Funzione Implicita]
+	\label{teo:diff_primo_funz_impl}
 	Nelle stesse ipotesi del \fullref{teo:funz_impl} ed aggiungendo $f \in \cntclass{1}$, allora $\varphi \in \cntclass{1}$ e vale
 	\begin{equation}
-		\label{eq:teo_funz_se_deriv_allora_deriv_tesi}
+		\label{eq:diff_primo_funz_impl}
 		D\varphi(x) = - \Bigl[ D_yf \bigl( x, \varphi(x) \bigr) \Bigr]^{-1} \cdot D_xf \bigl( x, \varphi(x) \bigr)
 	\end{equation}
 	\begin{proof}
@@ -1973,7 +1994,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 		\[A(x) = - \Bigl( D_yf \bigl( x, \varphi(x) \bigr) \Bigr)^{-1} \cdot D_xf \bigl( x, \varphi(x) \bigr)\]
 		Resta dunque da verificare che
 		\begin{equation}
-			\label{eq:teo_funz_se_deriv_allora_deriv_omega_x}
+			\label{eq:diff_primo_funz_impl_omega_x}
 			\omega_x(h) = \varphi(x + h) - \varphi(x) - A(x) \cdot h \qquad \text{allora} \qquad \omega_x(h) = o(h) \text{ per } h \to 0
 		\end{equation}
 		Infatti
@@ -1985,14 +2006,21 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 		\end{align*}
 		Quindi
 		\[\omega_x(h) = \left[ D_yf \bigl( x, \varphi(x) \bigr) \right]^{-1} o \left( \sqrt{ \norm{h}^2 + \norm{A(x) \cdot h + \omega_x(h)}^2 } \;\; \right)\]
-		Dalla definzione di $\omega_x$ in \cref{eq:teo_funz_se_deriv_allora_deriv_omega_x}, segue che la funzione $h \mapsto \omega_x(h)$ è Lipschtziana (da \fullref{ex:comp_funz_lips}). Ciò implica che non possa andare a $0$ più lentamente di $h \to h$, dunque ne segue che
+		Dalla definzione di $\omega_x$ in \cref{eq:diff_primo_funz_impl_omega_x}, segue che la funzione $h \mapsto \omega_x(h)$ è Lipschtziana (da \fullref{ex:comp_funz_lips}). Ciò implica che non possa andare a $0$ più lentamente di $h \to h$, dunque ne segue che
 		\[\omega_x(h) = \left[ D_yf \bigl( x, \varphi(x) \bigr) \right]^{-1} o(\norm{h}) = o(\norm{h})\]
 		\cbend
 	\end{proof}
 \end{theorem}
-\begin{corollary}[Caso $n=1$, $m=1$]
-	Il \fullref{teo:funz_impl_diff} nel caso caso $\boldsymbol{n=1}$, $\boldsymbol{m=1}$, la \cref{eq:teo_funz_se_deriv_allora_deriv_tesi} diventa
-	\[D\varphi(x) = -\frac{\frac{\partial f}{\partial x}\bigl( x, \varphi(x) \bigr)}{\frac{\partial f}{\partial y}\bigl( x, \varphi(x) \bigr)}\]
+\begin{corollary}[Differenziale Primo della Funzione Implicita - Caso $n=1$, $m=1$]
+	\label{coro:diff_primo_funz_impl_n1_m1}
+	Il \fullref{teo:diff_primo_funz_impl} nel caso caso $\boldsymbol{n=1}$, $\boldsymbol{m=1}$, la \cref{eq:diff_primo_funz_impl} diventa
+	\[
+		D\varphi(x) = -\frac{
+			\frac{\partial f}{\partial x} \bigl( x, \varphi(x) \bigr)
+		}{
+			\frac{\partial f}{\partial y} \bigl( x, \varphi(x) \bigr)
+		}
+	\]
 	\begin{proof}
 		Dalla tesi del \fullref{teo:funz_impl}, si ha
 		\[f(x,y) = 0 \iff y = \varphi(x)\]
@@ -2006,9 +2034,149 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 		Da cui, spostando, la tesi.
 	\end{proof}
 \end{corollary}
+\cbstart
+\begin{corollary}[Differenziale Secondo della Funzione Implicita - Caso $n=1$, $m=1$]
+	Nelle stesse ipotesi del \fullref{teo:funz_impl} ed aggiungendo $f \in \cntclass{2}$, allora $\varphi \in \cntclass{2}$ e vale
+	\begin{equation}
+		\label{eq:diff_sec_funz_impl}
+		D^2\varphi(x) = -
+		\frac{
+			\frac{\partial^2 f}{\partial x \partial x} (\dots)
+			\left( \frac{\partial f}{\partial y} (\dots) \right)^2 -
+			2 \frac{\partial f}{\partial x} (\dots)
+			\frac{\partial f}{\partial y} (\dots)
+			\frac{\partial^2 f}{\partial x \partial y} (\dots) +
+			\frac{\partial^2 f}{\partial y \partial y} (\dots)
+			\left( \frac{\partial f}{\partial x} (\dots) \right)^2
+		}{
+			\Bigl( D_yf (\dots) \Bigr)^3
+		}
+	\end{equation}
+	\begin{note}
+		Gli argomenti $(\dots)$ delle funzioni nella \cref{eq:diff_sec_funz_impl} stanno per $\bigl( x, \varphi(x) \bigr)$.
+	\end{note}
+	\begin{note}
+		Si noti che in questa formula compaiono derivate seconde e derivate prime (anche elevate al quadrato). È necessario far attenzione nello svolgimento.
+	\end{note}
+	\begin{proof}
+		Omessa. Il seguente svolgimento è riportato solamente allo scopo di facilitare la memorizzazione del processo per ricavare la formula di cui sopra.
+		Si inizia derivando ulteriormente il risultato di \fullref{coro:diff_primo_funz_impl_n1_m1}.
+		\begin{gather*}
+			D^2 \varphi(x) =
+			D \left[ - \frac{
+				\frac{\partial f}{\partial x} \bigl( x, \varphi(x) \bigr)
+			}{
+				\frac{\partial f}{\partial y} \bigl( x, \varphi(x) \bigr)
+			} \right] =
+			\shortintertext{Usando la nota regola di derivazione del rapporto di funzioni}
+			- \frac{
+				D \left[ \frac{\partial f}{\partial x} \bigl( x, \varphi(x) \bigr) \right] \;
+				\frac{\partial f}{\partial y} \bigl( x, \varphi(x) \bigr) -
+				\frac{\partial f}{\partial x} \bigl( x, \varphi(x) \bigr) \;
+				D \left[ \frac{\partial f}{\partial y} \bigl( x, \varphi(x) \bigr) \right]
+			}{
+				\left[ \frac{\partial f}{\partial y} (\dots) \right]^2
+			} =
+			\shortintertext{Posto ora per brevità $(\dots) = \bigl( x, \varphi(x) \bigr)$}
+			- \frac{
+				\left[
+					\frac{\partial^2 f}{\partial x \partial x} (\dots) +
+					D\varphi(x) \;
+					\frac{\partial^2 f}{\partial x \partial y} (\dots)
+				\right]
+				\frac{\partial f}{\partial y} (\dots) -
+				\frac{\partial f}{\partial x} (\dots)
+				\left[
+					\frac{\partial^2 f}{\partial y \partial x} (\dots) +
+					D\varphi(x) \;
+					\frac{\partial^2 f}{\partial y \partial y} (\dots)
+				\right]
+			}{
+				\left[ \frac{\partial f}{\partial y} (\dots) \right]^2
+			} =
+			\shortintertext{Sostituendo infine $D\varphi(x)$ con quanto ottenuto in \fullref{coro:diff_primo_funz_impl_n1_m1}}
+			- \frac{
+				\left[
+					\frac{\partial^2 f}{\partial x \partial x} (\dots) -
+					\frac{
+						\frac{\partial f}{\partial x} (\dots)
+					}{
+						\frac{\partial f}{\partial y} (\dots)
+					} \;
+					\frac{\partial^2 f}{\partial x \partial y} (\dots)
+				\right]
+				\frac{\partial f}{\partial y} (\dots) -
+				\frac{\partial f}{\partial x} (\dots)
+				\left[
+					\frac{\partial^2 f}{\partial y \partial x} (\dots) -
+					\frac{
+						\frac{\partial f}{\partial x} (\dots)
+					}{
+						\frac{\partial f}{\partial y} (\dots)
+					} \;
+					\frac{\partial^2 f}{\partial y \partial y} (\dots)
+				\right]
+			}{
+				\left[ \frac{\partial f}{\partial y} (\dots) \right]^2
+			} =\\
+			- \frac{
+				\frac{\partial^2 f}{\partial x \partial x} (\dots) \; \frac{\partial f}{\partial y} (\dots) -
+				%
+				\frac{
+					\frac{\partial f}{\partial x} (\dots)
+				}{
+					\cancel{\frac{\partial f}{\partial y} (\dots)}
+				} \;
+				\frac{\partial^2 f}{\partial x \partial y} (\dots) \;
+				\cancel{\frac{\partial f}{\partial y} (\dots)} -
+				%
+				\frac{\partial f}{\partial x} (\dots) \; \frac{\partial^2 f}{\partial y \partial x} (\dots) +
+				%
+				\frac{\partial f}{\partial x} (\dots) \;
+				\frac{
+					\frac{\partial f}{\partial x} (\dots)
+				}{
+					\frac{\partial f}{\partial y} (\dots)
+				} \;
+				\frac{\partial^2 f}{\partial y \partial y} (\dots)
+			}{
+				\left[ \frac{\partial f}{\partial y} (\dots) \right]^2
+			} =
+			\shortintertext{Sfruttando ora il \fullref{lemma:schwarz}}
+			- \frac{
+				\frac{\partial^2 f}{\partial x \partial x} (\dots) \; \frac{\partial f}{\partial y} (\dots) -
+				%
+				2 \frac{\partial f}{\partial x} (\dots) \; \frac{\partial^2 f}{\partial x \partial y} (\dots) +
+				%
+				\frac{
+					\left[ \frac{\partial f}{\partial x} (\dots) \right]^2
+				}{
+					\frac{\partial f}{\partial y} (\dots)
+				} \;
+				\frac{\partial^2 f}{\partial y \partial y} (\dots)
+			}{
+				\left[ \frac{\partial f}{\partial y} (\dots) \right]^2
+			} =
+			\shortintertext{Forzando ora il raccoglimento di $\frac{\partial f}{\partial y} (\dots)$ si giunge alla tesi}
+			- \frac{
+				\frac{\partial^2 f}{\partial x \partial x} (\dots) \; \left[ \frac{\partial f}{\partial y} (\dots) \right]^2 -
+				%
+				2 \frac{\partial f}{\partial x} (\dots) \;
+				\frac{\partial^2 f}{\partial x \partial y} (\dots) \;
+				\frac{\partial f}{\partial y} (\dots) +
+				%
+				\left[ \frac{\partial f}{\partial x} (\dots) \right]^2 \;
+				\frac{\partial^2 f}{\partial y \partial y} (\dots)
+			}{
+				\left[ \frac{\partial f}{\partial y} (\dots) \right]^3
+			}
+		\end{gather*}
+	\end{proof}
+\end{corollary}
+\cbend
 \begin{exercise}
 	\label{ex:funz_impl_diff_k}
-	Tramite la \cref{eq:teo_funz_se_deriv_allora_deriv_tesi} dimostrare che se $f$ soddisfa le ipotesi del \fullref{teo:funz_impl} ed è di classe $\cntclass{k}$, allora anche la \textbf{Funzione Implicita} è di classe $\cntclass{k}$.
+	Tramite la \cref{eq:diff_primo_funz_impl} dimostrare che se $f$ soddisfa le ipotesi del \fullref{teo:funz_impl} ed è di classe $\cntclass{k}$, allora anche la \textbf{Funzione Implicita} è di classe $\cntclass{k}$.
 	% TODO solution
 \end{exercise}
 \begin{example}
@@ -2093,7 +2261,11 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 		\item $Df(x_0)$ \textbf{Invertibile}
 	\end{itemize}
 	\begin{note}
-		$Df(x_0)$ è Invertibile quando $\det Df(x_0) \neq 0$, visto che $f: \R^{\boldsymbol{n}} \to \R^{\boldsymbol{n}}$
+		Perché una matrice sia Invertibile è richiesto che:
+		\begin{itemize}[nolistsep]
+			\item sia quadrata - vero per ipotesi, essendo $f: \R^{\boldsymbol{n}} \to \R^{\boldsymbol{n}}$
+			\item $\det Df(x_0) \neq 0$ - \textbf{da verificare} caso per caso
+		\end{itemize}
 	\end{note}
 	Allora esiste un \textbf{Aperto} $\mathcal{X} \subseteq X$ tale che:
 	\begin{itemize}[noitemsep]
@@ -2168,12 +2340,12 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 		\end{note}
 		Avendo eseguito l'intersezione, si ha la certezza che nei punti di $\mathcal{X}$, la $f$ sia invertibile e che la $\varphi$ assuma valori validi. Data la relazione tra $f$ e $\varphi$ trovata in \cref{eq:teo_funz_inv_f_phi}, si può concludere che, per i valori in $\mathcal{X}$, la $f$ è sicuramente invertibile e la sua inversa è $\varphi$.
 
-		Inoltre $F$ è funzione di classe $\cntclass{k}$, essendo somma di $f \in \cntclass{k}$ $y \in \cntclass{\infty}$. Son dunque verificate anche le ipotesi del \fullref{teo:funz_impl_diff} (ed \fullref{ex:funz_impl_diff_k}), ciò implica che $\varphi$ sia di classe $\cntclass{k}$.
+		Inoltre $F$ è funzione di classe $\cntclass{k}$, essendo somma di $f \in \cntclass{k}$ $y \in \cntclass{\infty}$. Son dunque verificate anche le ipotesi del \fullref{teo:diff_primo_funz_impl} (ed \fullref{ex:funz_impl_diff_k}), ciò implica che $\varphi$ sia di classe $\cntclass{k}$.
 
 		Infine si ottiene la regola di derivazione:
 		\begin{align*}
 			(Df^{-1})(y) &= D\varphi(y)
-			\shortintertext{Dal \fullref{teo:funz_impl_diff}}
+			\shortintertext{Dal \fullref{teo:diff_primo_funz_impl}}
 			&= -\Bigl[ D_xF \bigl( \varphi(y), y \bigr) \Bigr]^{-1} \cdot D_yF \bigl( \varphi(y), y \bigr)
 			\shortintertext{Per definizione di $F$, la derivata parziale rispetto a $y$ è una costante, cioè la matrice identità}
 			&= -\Bigl[ D_xF \bigl( \varphi(y), y \bigr) \Bigr]^{-1} \cdot (-\id)\\
@@ -2879,7 +3051,12 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 \end{example}
 
 \newpage
+\markright{IL CASO $n=2,\,m=1$} % To mark current page, in case it's a right page
 \section{Il Caso \texorpdfstring{$n=2,\,m=1$}{n=2, m=1}}
+\markright{IL CASO $n=2,\,m=1$} % To mark all the following pages, overriding \section's default mark
+% In this scenario, differently to the "Funzioni a Valori in R^n" section, \MakeLowercase could have been used,
+% as it did not generate any error in the TOC. Anyhow, the same approach was chosen for the sake of consistency.
+
 Quanto esposto in questa sezione può essere esteso al caso $n > 2$ a patto di notevoli cambiamenti nella terminologia geometrica.
 \begin{definition}[Grafico]
 	\index{Grafico}
@@ -2895,7 +3072,7 @@ Quanto esposto in questa sezione può essere esteso al caso $n > 2$ a patto di n
 	è la \textbf{Curva di Livello} $\boldsymbol{c}$ di $f$
 \end{definition}
 \begin{definition}[Piano Tangente]
-	\index{Piano Tangente}
+	\index{Piano!Tangente}
 	Siano $A \subseteq \R^2$, $f: A \to \R$, $f$ \textbf{Differenziabile} in $(x_0, y_0) \in \circdot{A}$. Allora
 	\begin{align*}
 		z &=
@@ -2941,7 +3118,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 	L'incremento $f(x_0 + h, y_0 + k) - f(x_0, y_0)$ è
 	\begin{itemize}[noitemsep]
 		\item \textbf{massimo} quando $\begin{bmatrix}h & k\end{bmatrix} = \lambda \nabla f(x_0, y_0)$ con $\lambda > 0$
-		\item \textbf{massimo} quando $\begin{bmatrix}h & k\end{bmatrix} = \lambda \nabla f(x_0, y_0)$ con $\lambda < 0$
+		\item \textbf{minimo} quando $\begin{bmatrix}h & k\end{bmatrix} = \lambda \nabla f(x_0, y_0)$ con $\lambda < 0$
 	\end{itemize}
 	Cioè $\nabla f(x_0)$ è un vettore diretto verso la direzione di \textbf{massima pendenza}, "verso l'alto."
 	\begin{proof}
@@ -3035,7 +3212,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 				\varphi(x)
 			\end{bmatrix}
 		\]
-		Visto che il differenziale di una funzione in un puno rappresenta il versore tangente alla funzione in quel punto, si passa alle derivate $\begin{bmatrix}1\\\varphi'(x)\end{bmatrix}$, visto che valgono anche le ipotesi del \fullref{teo:funz_impl_diff}. Eseguendo ora il prodotto tra $\nabla f(x_0, y_0)$ e la derivate nel punto $(x_0, y_0)$, si ottiene
+		Visto che il differenziale di una funzione in un puno rappresenta il versore tangente alla funzione in quel punto, si passa alle derivate $\begin{bmatrix}1\\\varphi'(x)\end{bmatrix}$, visto che valgono anche le ipotesi del \fullref{teo:diff_primo_funz_impl}. Eseguendo ora il prodotto tra $\nabla f(x_0, y_0)$ e la derivate nel punto $(x_0, y_0)$, si ottiene
 		\begin{align*}
 			\lefteqn{\nabla f(x_0, y_0) \cdot \begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} =}\\
 			&= \begin{bmatrix}
@@ -3053,7 +3230,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 	\end{proof}
 \end{proposition}
 \begin{definition}[Piano Tangente ad una Curva]
-	\index{Piano Tangente ad una Curva}
+	\index{Piano!Tangente ad una Curva}
 	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$, $f: A \to \R$ e $f \in \cntclass{1}(A; \R)$, allora l'\textbf{Equazione del Piano Tangente} alla curva nel punto $(x_0, y_0)$ è:
 	\begin{align*}
 		z &= f(x_0, y_0) + \nabla f(x_0, y_0) \begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}\\
@@ -3318,6 +3495,8 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 
 \newpage
 \section{Funzioni a Valori in \texorpdfstring{$\protect\C$}{C}}\label{sect:fun_in_C}
+\index{Piano!Complesso}
+\index{Piano!di Gauss}
 Sia $A \subseteq \R^n$ non vuoto. Ogni funzione $A \to \C$ può essere identificata in modo naturale con una funzione $A \to \R^2$ e viceversa.
 \begin{note}
 	Quindi è possibile rappresentare una funzione $A \to \C$ in un piano, detto \textbf{piano complesso} o \textbf{piano di Gauss}

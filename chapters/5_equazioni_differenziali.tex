@@ -328,7 +328,11 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{Localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t \in I$ se
 	\[\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I\]
 	vale che
-	\[\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}\qquad o, ugualmente\qquad\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L\]
+	\[
+		\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}
+		\qquad\text{o, ugualmente}\qquad
+		\frac{\norm{f(t,x_2)-f(t,x_1)}}{\norm{x_2-x_1}}\leq L
+	\]
 	Una funzione è uniformemente lipschitziana (\textbf{unif. lips.}) in un'intervallo $I$ se, in parole povere, è possibile individuare per ogni punto di $I$ una sfera $B$ di raggio $r$ in cui la funzione è lipschitziana.
 \end{definition}
 \begin{note}
@@ -1339,7 +1343,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		È inoltre garantita anche la dipendenza continua, dunque è possibile scegliere un $\delta$ (dalla \fullref{teo:cau_locale_part_2}) grande a piacere
 	\end{note}
 	\begin{proof}
-		Il \fullref{teo:cau_locale_part_1} assicura esistenda ed unicità della soluzione su un intervallo centrato nell'istante iniziale. È necessario dimostrare che la soluzione può essere estesa a tutto l'intervallo $I$ in questione. Come già parzialmente anticipato in \fullref{ex:cau_glob_asint}, questo non è possibile in due casi:
+		Il \fullref{teo:cau_locale_part_1} assicura esistenza ed unicità della soluzione su un intervallo centrato nell'istante iniziale. È necessario dimostrare che la soluzione può essere estesa a tutto l'intervallo $I$ in questione. Come già parzialmente anticipato in \fullref{ex:cau_glob_asint}, questo non è possibile in due casi:
 		\begin{enumerate}
 			\item La soluzione ha asintoto verticale
 			\item La soluzione oscilla intorno ad un punto e non continua oltre
@@ -1534,7 +1538,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 Di seguito verranno utilizzati l'identificazione ed i risultati della \fullref{sect:fun_in_C}, in particolare \fullref{ex:ext_def_in_C}
 \begin{definition}[Equazione Differenziale Ordinaria Lineare]
 	\index{Equazione!Differenziale Ordinaria!Lineare}
-	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f \quad : I \to \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
+	Sia $I \subseteq \R$ un intervallo e $n \in \N$. Date le $n + 1$ funzioni $a_0,\:a_1,\:\dotsc\:,a_{n-1},\:f:\; I \to \C$, si dice \textbf{Equazione Differenziale Ordinaria Lineare di ordine} $\boldsymbol{n}$ l'equazione differenziale
 	\[x^{(n)} + a_{n-1}(t) \cdot x^{(n-1)} + \dotsc + a_{1}(t) \cdot x' + a_{0}(t) \cdot x = f(t)\]
 	Se $f = 0$ l'equazione si dice \textbf{Omogenea}.
 \end{definition}
@@ -1607,10 +1611,10 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 	è lineare
 	\begin{proof}
 		La linearità di $L$ equivale a:
-		\begin{alignat*}{2}
-			L(x_1+x_2) &= L(x_1)+L(x_2) &\quad&\forall x_1,x_2\in \cntclass{n}(I;\C)\\
-			L(\lambda\cdot x) &= \lambda\cdot L(x) &&\forall \lambda\in\C,\;\forall x\in \cntclass{n}(I;\C)
-		\end{alignat*}
+		\begin{align*}
+			L(x_1+x_2) &= L(x_1)+L(x_2) &\forall x_1,x_2\in \cntclass{n}(I;\C)\\
+			L(\lambda\cdot x) &= \lambda\cdot L(x) &\forall \lambda\in\C,\;\forall x\in \cntclass{n}(I;\C)
+		\end{align*}
 		Entrambe le condizioni  seguono dalle regole di derivazione, come da \fullref{sect:fun_in_C}.
 	\end{proof}
 \end{proposition}
