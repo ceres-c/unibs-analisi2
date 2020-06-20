@@ -15,14 +15,14 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\label{eq:equaz_diff}
 		f(t,x, x',\ldots,x^{(n)})=0
 	\end{equation}
+	\vspace*{-\baselineskip}
 	\begin{note}
 		La dipendenza delle $x$ dalla $t$ non è indicata esplicitamente, ma si potrebbe scrivere $x(t)$, rigorosamente nella stessa variabile $t$ per tutte le $x^{(i)}$.
 	\end{note}
-	Nella \cref{eq:equaz_diff}:
+	La \cref{eq:equaz_diff} è $f: A \to \R^m$ con:
 	\begin{itemize}[noitemsep]
 		\item $A\subseteq \R^{1+(1+n)k}$
 		\item $t\in I$ con $I$ intervallo $I \subseteq \R$
-		\item $f: A \to \R^m$
 	\end{itemize}
 	Dimensionalmente, si può osservare che $m$ e $k$ caratterizzano il problema e son dunque libere. La dimensione di partenza $1+(1+n)k$ del problema è obbligata e dovuta alla somma di:
 	\begin{itemize}[noitemsep]
@@ -140,7 +140,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{cases}\]
 \end{definition}
 \begin{note}
-	Le condizioni iniziali devono essere assegnate tutte nello steso istante.
+	Le condizioni iniziali \textbf{devono} essere assegnate tutte nello \textbf{stesso istante}, altrimenti il problema fornito non sarebbe un Problema di Cauchy, stando alla definizione fornita sopra.
 \end{note}
 \begin{example}
 	il problema di Cauchy \[\begin{cases}x'=x\\x(0)=1\end{cases}\]
@@ -255,7 +255,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{observation}
 	Negli esempi precedenti è stata sfruttata la mancanza di regolarità nella dipendenza di $f$ da $x$.
 
-	Viceversa, nella \hyperlink{note:volterra_non_cont}{nota alla \fullref*{def:equaz_volterra}}, si era notato come la dipendenza di $f$ da $t$ sia molto meno critica.
+	Viceversa, nella \hyperlink{note:volterra_non_cont}{\notestyle{} alla \fullref*{def:equaz_volterra}}, si era notato come la dipendenza di $f$ da $t$ sia molto meno critica.
 \end{observation}
 \begin{exercise}
 	Sia $s:\R \to \R$ data da
@@ -293,7 +293,11 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	% TODO soution
 \end{exercise}
 \begin{example}[Un Problema non di Cauchy]
-	Il seguente è un \textbf{Problema ai Valori al Contorno}.
+	Il seguente è un \textbf{Problema ai Valori al Contorno} e non un Problema di Cauchy, in quanto:
+	\begin{itemize}[noitemsep]
+		\item le condizioni iniziali non sono valutate nello stesso istante.
+		\item le condizioni iniziali sono ai margini dell'insieme di definizione della funzione soluzione (che si vedrà sotto)
+	\end{itemize}
 	\begin{equation}
 		\label{eq:probl_val_contorno}
 		\begin{cases}
@@ -304,7 +308,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\end{equation}
 	Questo problema ammette le infinite soluzioni $x(t) = \alpha \cdot \sin t$, al variare di $\alpha \in \R$.
 
-	Sostituendo le condizioni $x(0) = x(\frac{\pi}{2}) = 1$ a quelle nella \cref{eq:probl_val_contorno}, si ottiene l'unica soluzione $x(t) = \sin t + \cos t$. Con $x(0) = x(\pi) = 1$ non ci sono soluzioni.
+	Se venissero sostituite le condizioni di \cref{eq:probl_val_contorno} con $x(0) = x(\frac{\pi}{2}) = 1$ si otterrebbe l'unica soluzione $x(t) = \sin t + \cos t$. Con le $x(0) = x(\pi) = 1$ assegnate, invece, non ci sono soluzioni.
 \end{example}
 
 \begin{samepage}
@@ -326,8 +330,8 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\index{Funzione!Localmente Lipschitziana}
 	\label{def:loc_lips}
 	Una funzione $f:I\times A\to \R^n$, con $I$ intervallo in $\R$ e $A$ aperto in $\R^n$, si dice \textbf{Localmente lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t \in I$ se
-	\[\forall x_0 \in A, \exists r>0 e L>0: \forall x_1,x_2 \in (B(x_0,r)\cap A), \forall t\in I\]
-	vale che
+	\[\forall x_0 \in A,\; \exists r > 0 \text{ e } \exists L > 0:\quad \forall x_1,x_2 \in (B(x_0,r)\cap A),\; \forall t\in I\]
+	\hfil vale che
 	\[
 		\norm{f(t,x_2)-f(t,x_1)}\leq L\cdot\norm{x_2-x_1}
 		\qquad\text{o, ugualmente}\qquad
@@ -337,11 +341,11 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{definition}
 \begin{note}
 	I termini \textit{localmente} e \textit{uniformemente} son giustificati dal fatto che:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item La località è data dalla limitazione di $x_1,x_2$ all'interno di $(B(x_0,r)\cap A)$
 		\item L'uniformità è data da $\forall t\in I$
 	\end{itemize}
-	Quindi la $f$ rimane lips. indipendentemente dalla variazione di $t$ (quindi $\forall t\in I$), ma solo per $x_1,x_2 \in (B(x_0,r)\cap A)$ \textbf{non} $\forall x\in A$.
+	Quindi la $f$ rimane lips. indipendentemente dalla variazione di $t$ (quindi $\forall t\in I$), ma solo per $x_1,x_2 \in (B(x_0,r)\cap A)$, \textbf{non} $\forall x\in A$.
 \end{note}
 \begin{note}
 	\hypertarget{note:if_lips_then_loclips}
@@ -443,27 +447,21 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{proposition}
 
 \subsection{Esistenza e Unicità}
-\begin{theorem}[Teorema di Peano]
+\begin{theorem}[di Peano]
 	\index{Teorema!di Peano}
 	\label{teo:peano}
 	Si consideri il seguente problema di Cauchy:
 	\[\left\{\begin{matrix} x'=f(t,x)\\x(t_0)=x_0\end{matrix}\right.\]
-	con $f:I\times A\in \R^n$ soddisfacente alle ipotesi:
+	con $f:I\times A \to \R^n$ soddisfacente alle ipotesi:
 	\begin{enumerate}
-		\item $t_0\in \circdot{I}, x_0\in \circdot{A}$
-		\item $f\in \cntclass{0}(I\times A;R^n)$
+		\item $I$ intervallo, $I \subseteq \R$ e $A\subseteq \R^n$ per \fullref{def:prob_cauchy_ord_1}
+		\item $t_0\in \circdot{I},\: x_0\in \circdot{A}$
+		\item $f\in \cntclass{0}(I\times A;\R^n)$
 	\end{enumerate}
-	inoltre $I\subseteq \R$ intervallo e $A\subseteq \R^n$, per \fullref{def:prob_cauchy_ord_1}.\\
-	\textbf{Allora} esiste un $\delta>0$ tale che esiste soluzione $x: J\to A$ del problema di Cauchy con $J=\intervalclose{t_0-\delta}{t_0+\delta}$.
+	Allora $\exists \delta > 0$ per cui esista la soluzione $x: J \to A$ del Problema di Cauchy con $J = \intervalclose{t_0-\delta}{t_0+\delta}$.
 	\begin{note}
 		$\delta$ è un valore arbitrario che serve solo ad identificare l'intervallo $J$ a cui appartiene $t_0$, non è dato modo per identificare quel $\delta$
 	\end{note}
-	Inoltre:
-	\begin{itemize}
-		\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota \fullref*{def:equaz_diff}}, dunque $\varphi(J)\subseteq A$
-		\item $\varphi(t_0)=x_0$
-		\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
-	\end{itemize}
 	\begin{proof}
 		Non richiesta
 	\end{proof}
@@ -471,6 +469,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \begin{example}[Il Baffo/Pennello di Peano]
 	\label{ex:pennello_peano}
 	\index{Baffo di Peano}
+	\index{Pennello di Peano}
 	Trovare le soluzioni del Problema di Cauchy
 	\begin{equation*}
 		\begin{cases}
@@ -528,7 +527,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\end{subfigure}
 		\end{figure}
 		\begin{note}
-			Con $t_0 = 0$ l'equazione non dipende da $t$, cioè il sistema è \textbf{Autonomo}. Vedere \fullref{def:equaz_diff_auton} per le implicazioni nelle note.
+			L'equazione differenziale non dipende da $t$, quindi il sistema è \textbf{Autonomo}. Vedere le note a \fullref{def:equaz_diff_auton} per le implicazioni concettuali.
 		\end{note}
 		\begin{note}
 			Con $x_0 = 0$ si ha $x(t)=0$, che è soluzione $\forall t$, si procede però nel cercare altre soluzioni.
@@ -542,14 +541,12 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\end{gathered}
 		\end{equation*}
 		Riunendo $c_1$ e $c_2$ in un'unica costante $b$
-		\begin{equation*}
-			\begin{gathered}
-				2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) + b = t - t_0\\
-				2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) = t - t_0 - b\\
-				x_a(t) = \left( \sqrt{x_0} + \frac{1}{2}(t-t_0-b) \right)^2\\
-				x_a(t) = x_0 + \frac{1}{4}(t-t_0-b)^2
-			\end{gathered}
-		\end{equation*}
+		\begin{gather*}
+			2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) + b = t - t_0\\
+			2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) = t - t_0 - b\\
+			x_a(t) = \left( \sqrt{x_0} + \frac{1}{2}(t-t_0-b) \right)^2\\
+			x_a(t) = x_0 + \frac{1}{4}(t-t_0-b)^2
+		\end{gather*}
 		Aggiungendo anche la soluzione per $x < 0$ (con la costante $a$, stavolta), si ottiene
 		\begin{equation*}
 			x_{a,b}(t) =
@@ -626,14 +623,15 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	\label{teo:cau_locale_part_1}
 	Si consideri il problema di Cauchy:
 	\[\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\]
-	con $f:I\times A \to \R^n$ soddisfacente le ipotesi:
+	con $f:I\times A \to \R^n$ e soddisfacente le ipotesi:
 	\begin{enumerate}
-		\item $t_0\in \circdot{I},\:x_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
-		\item $f\in \cntclass{0}(I\times A; \R^n)$ 
+		\item $I$ intervallo, $I \subseteq \R$ e $A\subseteq \R^n$ per \fullref{def:prob_cauchy_ord_1}
+		\item $t_0\in \circdot{I},\:x_0\in \circdot{A}$
+		\item $f\in \cntclass{0}(I\times A; \R^n)$
 		\item $f$ è \textbf{localmente Lipschitziana} in $x\in A$ \textbf{uniformemente} rispetto a $t\in I$
 	\end{enumerate}
 	\begin{note}
-		Le prime due ipotesi garantiscono l'esistenza, grazie al \fullref{teo:peano}. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
+		Le prime tre ipotesi garantiscono l'esistenza, grazie al \fullref{teo:peano}. La terza ipotesi rende il teorema più restrittivo, ma permette anche di giungere ad una conclusione più forte (ed utile).
 	\end{note}
 		\begin{note}
 		Per verificare l'ultima ipotesi si ricordi, alternativamente, che:
@@ -642,19 +640,14 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\item \fullref{prop:fc1_loc_lips}, che garantisce la Lipschitzianità dalla continuità delle derivate parziali.
 		\end{itemize}
 	\end{note}
-	Allora ho i seguenti risultati:
+	Allora si hanno i seguenti risultati:
 	\begin{enumerate}
 		\item \textbf{Esistenza}:\\
-		da \fullref{teo:peano} $\exists \delta>0$, con cui si identifica un $J=\intervalclose{t_0-\delta}{t_0+\delta}$. Inoltre $\exists\,\varphi : J \to \R^n$ è soluzione con le proprietà date da Peano:
-		\begin{itemize}
-			\item $J\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota \fullref*{def:equaz_diff}}, dunque $\varphi(J)\subseteq A$
-			\item $\varphi(t_0)=x_0$
-			\item $\varphi$ derivabile e $\varphi'(t)=f(t,\varphi(t))$
-		\end{itemize}
+		Dal \fullref{teo:peano} $\exists \delta>0$, con cui si identifica un $J=\intervalclose{t_0-\delta}{t_0+\delta}$ tale per cui $\varphi : J \to \R^n$ è soluzione del Problema di Cauchy.
 		\item \textbf{Unicità}\\
-		Se $\exists\,J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists\,\varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni con le seguenti proprietà
+		Se $\exists\,J_1,J_2$ intervalli con $J_1\subseteq I,J_2\subseteq I$ e $\exists\,\varphi_1:J_1\to \R^n, \varphi_2:J_2\to \R^n$ soluzioni con le seguenti proprietà:
 		\begin{itemize}
-			\item $J_1\subseteq I$, $J_2\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{nota \fullref*{def:equaz_diff}}, dunque $\varphi_1(J_1)\subseteq A$ e $\varphi_2(J_2)\subseteq A$
+			\item $J_1\subseteq I$, $J_2\subseteq I$ da \hyperlink{note:diff_eq_sol_definit_set}{\notestyle{} 5 \fullref*{def:equaz_diff}}, dunque $\varphi_1(J_1)\subseteq A$ e $\varphi_2(J_2)\subseteq A$
 				\begin{note}
 					Si può osservare che, sicuramente, $J_1\cap J_2\neq\emptyset$, poiché entrambi gli insiemi contengono almeno $t_0$ nella loro parte interna.
 				\end{note}
@@ -690,6 +683,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\end{itemize}
 		Sia ora
 		\[V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\intervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}\]
+		\vspace*{-\baselineskip}
 		\begin{note}
 			V è il maggiore tra i valori assunti dalla derivata prima $\bigl(x'=f(t,x)\bigr)$ di una qualsiasi delle soluzioni $x$ contenute nella sfera $\overline{B(x_0,\rho)}$. È massimo di funzione continua (per ipotesi 2) in un compatto (per ipotesi 1, essendo in $\R^n\times\R^n$ e per \fullref{prop:compat_chius_lim}).
 		\end{note}
@@ -698,8 +692,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\label{eq:cau_delta}
 			\delta<\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}}
 		\end{equation}
+		\vspace*{-\baselineskip}
 		\begin{note}
-			$\delta$ è strettamente minore del $\min$ perché poi servirà a trovare una contrazione, dunque dovrò avere sicuramente $\delta L < 1$
+			$\delta$ è strettamente minore del $\min$ perché poi servirà a trovare una contrazione, dunque sarà necessario avere $\delta L < 1$ strettamente.
 		\end{note}
 		\begin{itemize}
 			\item $\delta_1$ è raggio di un generico intervallo incluso in $I$ di partenza. $\delta$ deve essere minore di $\delta_1$ in quanto non è possibile uscire dall'intervallo $I$
@@ -709,9 +704,10 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\end{itemize}
 		Questo $\delta$, dunque, rappresenta, dal punto di vista concettuale, quale sia la più restrittiva ($\min$) tra tutte le possibili variazioni della $f(x)$ rispetto alla $x$.\\
 		A questo punto, usando $\delta$, definiamo lo spazio $X$, generato da tutte le funzioni continue sul nuovo intervallo a valori entro una sfera centrata in $x_0$ con lo stesso raggio di $\overline{B}$
-		\[X = \brackets{g\in \cntclass{0}(\intervalclose{t_0-\delta}{t_0+\delta};\R^n):\forall t\norm{g(t)-x_0}\leq \rho}\]
+		\[X = \brackets{g\in \cntclass{0} \bigl( \intervalclose{t_0-\delta}{t_0+\delta};\R^n \bigr):\; \norm{g(t)-x_0}\leq \rho \quad \forall t}\]
+		\vspace*{-\baselineskip}
 		\begin{note}
-			Si scelgono le funzioni continue ($\in \cntclass{0}$) perché serve $x$ continua per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{nota alla \fullref*{def:equaz_volterra}} sarebbe possibile sceglierla non continua, ma non si considera il caso.
+			Si scelgono le funzioni continue ($\in \cntclass{0}$) perché è necessaria la continuità di $x$ per rendere valida l'equivalenza della funzione di Volterra con il problema di Cauchy. Stando alla \hyperlink{note:volterra_non_cont}{\notestyle{} alla \fullref*{def:equaz_volterra}} sarebbe possibile sceglierla non continua, ma non si considera il caso.
 		\end{note}
 		Possiamo passare al punto chiave della dimostrazione, verifichiamo le ipotesi del \fullref{teo:contrazioni}:
 		\begin{itemize}
@@ -719,9 +715,14 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			$(X,d_X)$ è spazio metrico completo se considerato con la distanza della convergenza uniforme $d_X = d_{\cntclass{0}}$ per il \fullref{prop:compl_dist_spm_compl}.\qed
 			\item $T$ è \textbf{definita} (è possibile calcolarla)\\
 			L'abbiamo definita all'inizio dall'equazione di Volterra\qed
-			\item $T$ è \boldmath$X \to X$\unboldmath\\
-			L'insieme di partenza è valido in quanto sottoinsieme dell'insieme su cui $f(t,xt)$ era definita.\\
-			Per verificare che $y=T(x)$, bisogna verificare che $y\in \cntclass{0}(\intervalclose{t_0-\delta}{t_0+\delta};\R^n)$ e che $y(t)\in \overline{B(x_0,\rho)}\;\;\forall t \in \intervalclose{t_0-\delta}{t_0+\delta}$
+			\item $T$ è $\boldsymbol{X \to X}$\\
+			L'insieme di partenza è valido, in quanto $X$ è sottoinsieme dell'insieme su cui $f(t,x)$ era definita.\\
+			L'insieme di arrivo deve essere nuovamente $X$. Posto $y=T(x)$, per come è definito $X$, accertarsi che sia $y \in X$ equivale a verificare che:
+			\[
+				y \in \cntclass{0}(\intervalclose{t_0-\delta}{t_0+\delta};\R^n)
+				\qquad \text{e che} \qquad
+				y(t)\in \overline{B(x_0,\rho)} \quad \forall t \in \intervalclose{t_0-\delta}{t_0+\delta}
+			\]
 			\begin{proof}
 				$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fodamentale del Calcolo Integrale.\\
 				La seconda condizione si verifica prendendo la \cref{eq:cauch_proof_T} e calcolando la norma di entrambi i termini
@@ -731,9 +732,9 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					&\leq \abs{\int_{t_0}^t \norm{f(\tau,x(\tau))}\integrald{\tau} } \tageq\label{eq:cau_loc_abs_of_norm}
 					\intertext{$\norm{f(\tau,x(\tau))}$ è sicuramente minorato da $V$ per definizione di quest'ultimo, dunque si ha integrale di costante}
 					&\leq V \cdot \abs{t-t_0}
-					\intertext{$\abs{t-t_0}\leq \delta$ per definizione di $\delta$}
+					\intertext{$\abs{t - t_0} \leq \delta$ perché $t \in \intervalclose{t_0 - \delta}{t_0 + \delta}$}
 					&\leq V \cdot \delta\\
-					\intertext{nel caso in cui $\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}} = \frac{\rho}{V}$, allora minorato strettamente da $\rho$ per definizione di $\delta$, altrimenti sicuramente minore per $\min$}
+					\intertext{nel caso in cui $\min\brackets{\delta_1,\frac{\rho}{V},\frac{1}{L}} = \frac{\rho}{V}$, allora quest'ultima forma è minorata strettamente da $\rho$, altrimenti sarà sicuramente "ancora più piccola" per via del $\min$, ma sicuramente rimane sempre valido che}
 					&< \rho
 				\end{align*}
 			\end{proof}
@@ -752,19 +753,19 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 				\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t)} \tageq\label{eq:cau_loc_verif_contraz_norm} &\leq \abs{\int_{t_0}^t
 				\norm{f\bigl(\tau,x_2(\tau)\bigr) - f\bigl(\tau,x_1(\tau)\bigr)}
 				\integrald{\tau}}\\
-				\intertext{Per \fullref{def:loc_lips} passo alle funzioni incognite $x_i$ di $f$ (che son le soluzioni dell'equazione differenziale), minorando}
+				\intertext{Per \fullref{def:loc_lips} è possibile passare alle funzioni incognite $x_i$ di $f$ (che son le soluzioni dell'equazione differenziale), minorando}
 				&\leq \abs{\int_{t_0}^t
 					L\cdot\norm{x_2(\tau)-x_1(\tau)}
 					\integrald{\tau}}\\
 				\intertext{Dalla \fullref{obs:dist_conv_unif}, $\norm{f-g}_{\cntclass{0}} = \sup_A \abs{f-g} = d_{\cntclass{0}}(f,g)$}
-				&= \abs{\int_{t_0}^t % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
+				&= \abs{\int_{t_0}^t % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non pare aver senso
 					L\cdot d_X(x_2,x_1)
 					\integrald{\tau}}\\
-				&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{eq:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non so perché
+				&= L \cdot \abs{t-t_0} \cdot d_X(x_2,x_1) \tageq\label{eq:cau_loc_verif_contraz_fine} % WARNING qui nella dimostrazione sul libro c'è un <=, anche se non pare aver senso
 			\end{align*}
 			Quindi, concludendo, possiamo passare dal primo membro della \cref{eq:cau_loc_verif_contraz_norm} alla distanza $d_X$, semplicemente per definizione della distanza, cioè
 			\[\norm{\bigl(T(x_2)\bigr)(t) - \bigl(T(x_2)\bigr)(t)} = d_X\bigl(T(x_2),T(x_1)\bigr)\]
-			Minoriamo questa distanza con la forma appena trovata \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\intervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
+			Minoriamo questa distanza con la forma appena trovata in \cref{eq:cau_loc_verif_contraz_fine}. Per quanto riguarda $\abs{t-t_0}$, passiamo al $\sup$ di $t$ nell'intervallo $\intervalclose{t_0-\delta}{t_0+\delta}$, cioè $\delta$ stesso
 			\[d_X\bigl(T(x_2),T(x_1)\bigr) \leq (\delta \cdot L) \cdot d_X(x_2,x_1)\]
 			Essendo, per definizione, $\delta$ al più pari ad $\frac{1}{L} \implies \delta\cdot L<1 \implies T$ è contrazione per \fullref{def:contrazione}.
 			\end{proof}
@@ -775,30 +776,37 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\begin{itemize}
 			\item Se $(J_1 \cap J_2) \subseteq \intervalclose{t_0-\delta}{t_0+\delta}$, allora $x_1 = x_2$ in quanto esiste unico punto fisso, come dimostrato sopra.
 			\item Se $(J_1 \cap J_2) \supset \intervalclose{t_0-\delta}{t_0+\delta}$, allora poniamo
-				\begin{equation}
-					t_M = \sup \brackets{t \in (J_1 \cap J_2): \forall \tau \in \intervalclose{t_0}{t}, x_1(\tau)=x_2(\tau)}\label{eq:cau_loc_tM_J1J2_supset}
-				\end{equation}
+				\[
+					t_M = \sup \brackets{t \in (J_1 \cap J_2):\; \forall \tau \in \intervalclose{t_0}{t},\; x_1(\tau)=x_2(\tau)}\label{eq:cau_loc_tM_J1J2_supset}
+				\]
 				\[x_M = x_1(t_M) = x_2(t_M)\]
 				Quindi $t_M$ è l'\textit{ultimo istante} in cui $x_1$ e $x_2$ coincidono.
 
-				Essendo
-				\begin{itemize}
-					\item $t_M \in \circdot{J_1},\,t_M \in \circdot{J_2} \implies t_M \in \circdot{I}$ da \hyperlink{note:diff_eq_sol_definit_set}{nota \fullref*{def:equaz_diff}}
-					\item $x_M \in \circdot{A}$ per \hyperlink{def:equaz_diff_sol}{nota \fullref*{def:equaz_diff}}
-				\end{itemize}
-				ci ritroviamo nelle ipotesi di quanto appena dimostrato, solo che con dei nuovi $t$ ed $x$. Possiamo dunque giungere alla conclusione che il problema di Cauchy
-				\[\begin{cases}x'=f(t,x)\\x(t_M)=x_M\end{cases}\]
+				\begin{samepage}
+					Essendo
+					\begin{itemize}
+						\item $t_M \in \circdot{J_1},\,t_M \in \circdot{J_2} \implies t_M \in \circdot{I}$ da \hyperlink{note:diff_eq_sol_definit_set}{\notestyle{} 5 \fullref*{def:equaz_diff}}
+						\item $x_M \in \circdot{A}$ per \hyperlink{def:equaz_diff_sol}{\notestyle{} 3 \fullref*{def:equaz_diff}}
+					\end{itemize}
+				\end{samepage}
+				ci si trova nuovamente ipotesi di quanto appena dimostrato, semplicemente con dei diversi $t$ ed $x$. È possibile dunque giungere alla conclusione che il problema di Cauchy
+				\[
+					\begin{cases}
+						x'=f(t,x)\\
+						x(t_M)=x_M
+					\end{cases}
+				\]
 				ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\intervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
 				\[t_M = \min \brackets{\sup J_1, \sup J_2}\]
 				Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
 				\[t_m = \max \brackets{\inf J_1, \inf J_2}\]
-				Quindi, prendendo $\intervalclose{t_m}{t_M}$, abbiamo identificato $J_1 \cap J_2$ stessa.
+				Quindi, prendendo l'intervallo $\intervalclose{t_m}{t_M}$ questo corrisponde con $J_1 \cap J_2$.
 		\end{itemize}
-		Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalla relazione tra intersezione e intervallo.
+		Dunque $x_1$ e $x_2$ coincidono in $J_1 \cap J_2$, indipendente dalle dimensioni di intersezione e intervallo.
 	\end{proof}
 	\begin{note}
 		La scelta di $\delta$ in \cref{eq:cau_delta} potrebbe essere migliorata utilizzando il \fullref{teo:iterata_contraz} e scegliendo $\delta<\min\brackets{\delta_1,\frac{\rho}{V}}$, indipendentemente dalla costante di lips. della $f$
-		% TODO magari la dimostrazione?
+		% TODO proof
 	\end{note}
 \end{theorem}
 
@@ -820,14 +828,15 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 							xlabel = $x$,
 							ylabel = {$f(x)$}
 						]
-							\addplot [name path=f, domain=0:7, samples=100, color=red] {10*sin(deg(x))/(1+x)};
+							\addplot [name path=f, domain=0:7, samples=100] {10*sin(deg(x))/(1+x)};
 							\addlegendentry{\raisebox{.5ex}{$10\cdot\frac{\sin{x}}{1+x}$}}
 
 							\path[name path=axis] (\pgfkeysvalueof{/pgfplots/xmin},0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
-							\addplot[red!30] fill between[of=f and axis, soft clip={domain=0:6}];
+							\addplot[black!30] fill between[of=f and axis, soft clip={domain=0:6}];
 						\end{axis}
 					\end{tikzpicture}
 				}
+				\caption{$\norm{\int_0^6 10\cdot\frac{\sin{x}}{1+x} \integrald{x}} = 4,9413$}
 			\end{subfigure}
 			\begin{subfigure}{.49\textwidth}
 				\centering
@@ -841,32 +850,28 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 							xlabel = $x$,
 							ylabel = {$g(x)$}
 						]
-							\addplot [name path=g, domain=0:7, samples=200, color=blue] {abs(10*sin(deg(x))/(1+x))};
+							\addplot [name path=g, domain=0:7, samples=200] {abs(10*sin(deg(x))/(1+x))};
 							\addlegendentry{\raisebox{1ex}{$\norm{10\cdot\frac{\sin{x}}{1+x}}$}}
 
 							\path[name path=axis] (\pgfkeysvalueof{/pgfplots/xmin},0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
-							\addplot[blue!30] fill between[of=g and axis, soft clip={domain=0:6}];
+							\addplot[black!30] fill between[of=g and axis, soft clip={domain=0:6}];
 						\end{axis}
 					\end{tikzpicture}
 				}
+				\caption{$\abs{\int_0^6 \norm{10\cdot\frac{\sin{x}}{1+x}} \integrald{x}} = 11,935$}
 			\end{subfigure}
+			\caption{Aree sottese alle due diverse funzioni}
 		\end{figure}
-
-		\noindent I cui integrali (le aree sottese) assumono questi valori
-		\begin{equation*}
-			f(x) = \norm{\int_0^6 10\cdot\frac{\sin{x}}{1+x} \integrald{x}} = 4,9413
-			\qquad\qquad
-			g(x) = \abs{\int_0^6 \norm{10\cdot\frac{\sin{x}}{1+x}} \integrald{x}} = 11,935
-		\end{equation*}
-		Nella $f$, viene calcolata la norma del risultato dell'integrazione definita.\\
-		Nella $g$ si ha invece la norma della funzione, cioè la parte "sotto l'asse $x$" della funzione viene ribaltata sopra l'asse dall'operatore norma, come si può vedere dal grafico. Questo implica che, sicuramente, $g \geq f$, in quanto $\int g$ è somma di soli infinitesimi positivi.
-
+		\begin{itemize}
+			\item A sinistra è calcolata la norma del risultato dell'integrazione definita.
+			\item A destra si ha invece la norma della funzione, cioè la parte "sotto l'asse $x$" della funzione viene ribaltata sopra l'asse dall'operatore norma, come si può vedere dal grafico. Questo implica che, sicuramente, $g \geq f$, in quanto $\int g$ è somma di soli infinitesimi positivi.
+		\end{itemize}
 		Infine, il valore assoluto nella \cref{eq:cau_loc_abs_of_norm} è necessario per evitare che, scambiando gli estremi d'integrazione, si ottenga un valore negativo, che non potrebbe mai essere risultato del primo integrale
 	\end{solution}
 \end{exercise}
 
 \begin{exercise}
-	Perchè il \fullref{teo:cau_locale_part_1} è chiamato Teorema di Cauchy \textbf{locale}?
+	Perchè il \fullref{teo:cau_locale_part_1} è chiamato Teorema di Cauchy \textit{locale}?
 	\begin{solution}
 		È dovuto al fatto che il teorema fornisce informazioni sull'esistenza/unicità di una soluzione solo in un intorno della condizione iniziale $t_0$. Non son fornite indicazioni sull'ampiezza di questo intervallo e se possa essere esteso a tutto $I$, intervallo di definizione della variabile indipendente $t$.
 	\end{solution}
@@ -874,7 +879,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 
 \begin{exercise}
 	Confrontare l'\textbf{unicità} della soluzione di un'equazione differenziale (\fullref{teo:cau_locale_part_1}) con l'\textbf{unicità} della funzione implicita (\fullref{teo:funz_impl})
-	% TODO magari la soluzione?
+	% TODO solution
 \end{exercise}
 
 \subsection{Dipendenza Continua}
@@ -903,7 +908,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 				\begin{align*}
 					\frac{d}{dt}\ln{\bigl(\Delta(t)\bigr)} &= \frac{\Delta'(t)}{\Delta(t)}\\
 					&= \frac{\frac{d}{dt}\delta_0 + \frac{d}{dt}\int_{a}^{t}k(\tau)\delta(\tau)\integrald{\tau}}{\Delta(t)}
-					\intertext{Il primo addendo è derivata di costante, il secondo corrisponde all'argomento dell'integrale per teorema fondamentale del calcolo integrale}
+					\intertext{Il primo addendo è derivata di costante, il secondo corrisponde all'argomento dell'integrale per \fullref{teo:fondament_calcolo_integ}}
 					&= \frac{0+k(t)\delta(t)}{\Delta(t)} = k(t)\frac{\delta(t)}{\Delta(t)}
 					\intertext{Essendo poi, per ipotesi, $\delta(t)\leq\Delta(t)\implies\frac{\delta(t)}{\Delta(t)}\leq 1$}
 					&\leq k(t)
@@ -944,18 +949,20 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	Si considerino i seguenti problemi di Cauchy con condizione iniziale individuata nello stesso istante:
 	\begin{equation}
 		\label{eq:ipot_cau_part_2}
-		(1)\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}\qquad
+		(1)\begin{cases}x'=f(t,x)\\x(t_0)=x_0\end{cases}
+		\qquad\qquad
 		(2)\begin{cases}y'=g(t,y)\\y(t_0)=y_0\end{cases}
 	\end{equation}
 	con $f,g:I\times A \to \R^n$ e soddisfacenti le ipotesi di \fullref{teo:cau_locale_part_1}, cioè:
 	\begin{enumerate}
-		\item $t_0\in \circdot{I},\:x_0,y_0\in \circdot{A}$. Inoltre da \fullref{def:equaz_diff} e note successive: $I$ intervallo e $I\subseteq \R^n$, inoltre $A\subseteq \R^n$
+		\item $I$ intervallo, $I \subseteq \R$ e $A\subseteq \R^n$ per \fullref{def:prob_cauchy_ord_1}
+		\item $t_0\in \circdot{I},\:x_0, y_0\in \circdot{A}$
 		\item $f,g\in \cntclass{0}(I\times A; \R^n)$
-		\item $f,g$ sono localmente Lipschitziane in $x\in A$ uniformemente rispetto a $t\in I$
+		\item $f,g$ sono \textbf{localmente Lipschitziane} in $x\in A$ \textbf{uniformemente} rispetto a $t\in I$
 	\end{enumerate}
-	Allora esiste un $\delta >0$ tale che sull'intervallo $\intervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ t.c. $\forall t\in \intervalclose{t_0-\delta}{t_0+\delta}$ vale:
+	Allora esiste un $\delta >0$ tale che sull'intervallo $\intervalclose{t_0-\delta}{t_0+\delta}$ sono definite una soluzione $\varphi$ di (1) ed una soluzione $\psi$ di (2). Inoltre esiste $L>0$ tale che $\forall t\in \intervalclose{t_0-\delta}{t_0+\delta}$ vale:
 	\[\norm{\varphi(t)-\psi(t)}  \leq (\norm{x_0-y_0}+\delta\norm{f-g}_{\cntclass{0}})e^{L\abs{t-t_0}}\]
-	dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$
+	dove $\norm{f-g}_{\cntclass{0}}=\sup\limits_{I\times A}\norm{f(t,x)-g(t,x)}$ Distanza Infinito, definita in \fullref{sect:dist_funz}.
 	\begin{note}
 		Questo significa che, con problemi diversi tra loro, se ($x_0$ e $y_0$), ($f$ e $g$) sono vicine tra loro ("a coppie"), allora sono vicine anche le soluzioni, ma per $t$ vicine.
 		Pensando $t$ come tempo, cioè una delle applicazioni più classiche, questo implica che non si possano fare previsioni a lungo termine con sistemi diversi.
@@ -968,11 +975,11 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\end{itemize}
 		Sia dunque $\delta = \min\brackets{\delta_f,\delta_g}$, da cui $J=\intervalclose{t_0-\delta}{t_0+\delta}$ e, d'ora in poi, $t \in J$.\\
 		Gli insiemi $\varphi(J)$ e $\psi(J)$ sono compatti perché per \fullref{teo:weier_generale}, essendo $J$ compatto. La loro unione è dunque un compatto, come da \fullref{ex:unione_compatti}.\\
-		Utilizzando \fullref{def:equaz_volterra}, passiamo alle equazioni integrali delle \cref{eq:ipot_cau_part_2}
-		\begin{equation}
+		Utilizzando \fullref{def:equaz_volterra}, si passa alle equazioni integrali delle \cref{eq:ipot_cau_part_2}
+		\[
 			(1)\;\varphi(t)=x_0+\int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr)\Bigr)\integrald{\tau}\qquad
 			(2)\;\psi(t)=y_0+\int_{t_0}^{t}\Bigl(g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}
-		\end{equation}
+		\]
 		Sottraiamo ora la (1) alla (2) (in norma)
 		\begin{align*}
 			\tageq\label{eq:cau_dip_cont_diff_norm} \norm{\varphi(t)-\psi(t)} &= \norm{x_0 - y_0 + \int_{t_0}^{t}\Bigl(f\bigl(\tau,\varphi(\tau)\bigr)\Bigr)\integrald{\tau} - \int_{t_0}^{t}\Bigl(g\bigl(\tau,\psi(\tau)\bigr)\Bigr)\integrald{\tau}}\\
@@ -1089,17 +1096,17 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \begin{example}[Un Problema di Cauchy senza soluzione globale]
 	\label{ex:cau_glob_asint}
 	Si trovi la soluzione del Problema di Cauchy
-	\begin{equation}
+	\[
 		\begin{cases}
 			x' = x^2\\
 			x(0) = 1
 		\end{cases}
-	\end{equation}
+	\]
 	Essendo a variabili separabili, procediamo
 	\begin{align*}
-		\frac{dx}{dt} &= x^2(t)\\
-		\frac{dx}{x^2(t)} &= dt\\
-		\int_0^t \frac{dx}{x^2(\tau)} \integrald{\tau} &= \int_0^t \integrald{\tau}
+		\frac{\integrald{x}}{\integrald{t}} &= x^2(t)\\
+		\frac{\integrald{x}}{x^2(t)} &= \integrald{t}\\
+		\int_0^t \frac{\integrald{x}}{x^2(\tau)} \integrald{\tau} &= \int_0^t \integrald{\tau}
 		\intertext{Applicando al primo membro le normali regole d'integrazione delle funzioni composte otteniamo}
 		-\frac{1}{x(t)} + 1 &= t
 	\end{align*}
@@ -1153,22 +1160,22 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 \end{example}
 \begin{example}[Un Problema di Cauchy con soluzione globale]
 	Il Problema di Cauchy
-	\begin{equation}
+	\[
 		\begin{cases}
 			x' = \sin(x^2)\\
 			x(0) = x_0
 		\end{cases}
-	\end{equation}
+	\]
 	ammette soluzione globale $\forall x_0 \in \R$, pur non soddisfacendo alle ipotesi del \fullref{teo:cau_glob_lips}
 \end{example}
 \begin{example}
 	Il Problema di Cauchy
-	\begin{equation}
+	\[
 		\begin{cases}
 			x' = x^2 - 1\\
 			x(0) = x_0
 		\end{cases}
-	\end{equation}
+	\]
 	ammette soluzione globale per $x \in \intervalclose{-1}{1}$, ma non per $x \in R \setminus \intervalclose{-1}{1}$
 \end{example}
 
@@ -1181,7 +1188,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\begin{itemize}[noitemsep]
 		\item $I \subset \R$ è \textbf{intervallo compatto}
 		\item $f$ è \textbf{continua} su $I \times \R^n$
-		\item f è (globalmente) \hyperref[def:lips]{\textbf{Lipschitziana}} in $x \in \R^n$ \textbf{uniformemente} rispetto a $t \in I$
+		\item $f$ è (globalmente) \hyperref[def:lips]{\textbf{Lipschitziana}} in $x \in \R^n$ \textbf{uniformemente} rispetto a $t \in I$
 	\end{itemize}
 	Allora il Problema di Cauchy
 	\begin{equation}
@@ -1288,7 +1295,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\begin{itemize}
 		\begin{minipage}{0.49\linewidth}
 			\item $x\cdot \sin(x)$: Sublineare
-			\item $sin(x^2)$: Sublineare
+			\item $\sin(x^2)$: Sublineare
 			\item $\frac{\arctan x^{12}}{x}$: Sublineare
 		\end{minipage}
 		\begin{minipage}{0.49\linewidth}
@@ -1303,13 +1310,12 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	Dimostrare che se una funzione $f:\R^n\to \R^n$ è \textbf{(globalmente) Lipschitziana}, allora è \textbf{sublineare}
 	\begin{solution}
 		\begin{align*}
-			&\norm{f(x)} =\\
-			= &\norm{f(0) + f(x) - f(0)}\\
-			\leq &\norm{f(0)} + \norm{f(x) - f(0)}
+			\norm{f(x)} &= \norm{f(0) + f(x) - f(0)}\\
+			&\leq \norm{f(0)} + \norm{f(x) - f(0)}
 			\intertext{Per \fullref{def:lips} minoriamo}
-			\leq &\norm{f(0)} + L\norm{x}
+			&\leq \norm{f(0)} + L\norm{x}
 			\intertext{Ponendo ora $A = \norm{f(0)}$ e $B = L$, si ottiene}
-			= &A + B\norm{x}
+			&= A + B\norm{x}
 		\end{align*}
 	\end{solution}
 \end{exercise}
@@ -1324,10 +1330,10 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\label{teo:cau_globale}
 	Data la funzione $f: I \times \R^n \to \R^n$, se
 	\begin{enumerate}
-		\item $I \subseteq \R$ è un \textbf{intervallo}
-		\item $f$ è \textbf{continua} su $I\times \R^n$
-		\item $f$ è \textbf{loc. lips.} in $x  \in \R^n$ \textbf{uniformemente} rispetto a $t \in I$
-		\item $f$ è \textbf{sublineare}
+		\item $I \subseteq \R$ è un \textbf{Intervallo}
+		\item $f$ è \textbf{Continua} su $I\times \R^n$
+		\item $f$ è \textbf{Localmente Lipschitziana} in $x  \in \R^n$ \textbf{Uniformemente} rispetto a $t \in I$
+		\item $f$ è \textbf{Sublineare}
 	\end{enumerate}
 	Allora il Problema di Cauchy
 	\begin{equation}

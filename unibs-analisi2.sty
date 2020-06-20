@@ -7,6 +7,7 @@
 \usepackage{babel}
 \usepackage[babel,italian=quotes]{csquotes} % Change quotation marks to italian ones
 \usepackage[toc,page]{appendix}
+\usepackage{epigraph}
 \usepackage{enumitem}
 \usepackage{amsthm,amssymb}
 \usepackage{imakeidx}
@@ -157,6 +158,18 @@
 	}%
 }
 
+% Same as the above command, but "Inverted"
+% Will yeald something like: Funzione Continua (Definizione 1.1)
+\newcommand*{\reffull}[1]{%
+	\hyperref[{#1}]{%
+		\if\vcenter\getrefbykeydefault{#1}{name}{}\vcenter
+		\else
+			\nameref*{#1}%
+		\fi
+		~(\autoref*{#1})%
+	}%
+}
+
 % This command is a helper to formally declare functions
 \newcommand{\funcdef}[5]{%
 	\begin{array}{ccccc}
@@ -164,6 +177,9 @@
 				&		&	{#4}	& \mapsto	& {#5} \\
 	\end{array}
 }
+
+% Display text "Nota" as in note environment heading
+\newcommand*{\notestyle}{{\itshape\bfseries Nota}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %              Translation settings               %

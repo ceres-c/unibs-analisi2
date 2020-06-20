@@ -12,7 +12,7 @@ Per queste ragioni nell'Analisi è passati alla teoria dell'integrale secondo Le
 	\centering
 	% Thanks to https://it.wikipedia.org/wiki/File:RandLintegrals.svg
 	\includegraphics[width=.4\linewidth]{2d-riemann-lebesgue-integral}
-	\caption{Sopra, integrale di Riemann\\Sotto, integrale di Lebesgue}
+	\caption{\\Sopra: integrale di Riemann\\Sotto: integrale di Lebesgue}
 \end{figure}
 
 Il concetto di Integrale è quindi molto legato ad area e volume. La teoria di Lebesgue riparte da assiomi come questi definendoli e caratterizzandoli per in maniera sistematica e rigorosa cosa si possa e cosa non si possa integrare e dove abbia senso parlare di superfici, volumi, ipervolumi\dots
@@ -38,8 +38,8 @@ Le seguenti formule permettono di ricondurre il calcolo di integrali doppi a que
 		\draw[->] (8,0) -- (8,4) node[anchor=south east] {$y$};
 		\draw[dotted] (8,.5) node[left] {$c$} -- (12,.5);
 		\draw[dotted] (8,3.5) node[left] {$d$} -- (12,3.5);
-		\draw[domain=.5:3.5, smooth, variable=\y] plot ({8 + sin(\y r) + 3}, {\y}) node[right, xshift=17, yshift=-10] {$x=\gamma(y)$};
-		\draw[domain=.5:3.5, smooth, variable=\y] plot ({8 + (1/15)*\y*\y + (1/10)*cos(2*\y r) + 0.5},{\y}) node[yshift=-75] {$x=\delta(y)$};
+		\draw[domain=.5:3.5, smooth, variable=\y] plot ({8 + sin(\y r) + 3}, {\y}) node[right, xshift=17, yshift=-10] {$x=\delta(y)$};
+		\draw[domain=.5:3.5, smooth, variable=\y] plot ({8 + (1/15)*\y*\y + (1/10)*cos(2*\y r) + 0.5},{\y}) node[yshift=-75] {$x=\gamma(y)$};
 		\node at (10.2, 2) {$A$};
 	\end{tikzpicture}
 	\caption{Integrali doppi}
@@ -130,14 +130,18 @@ Spesso può essere comodo eseguire un cambiamento delle variabili per calcolare 
 		Poste $\phi = a \:\rho \cos(\theta)$ e $\psi = b \:\rho \sin(\theta)$ si ha
 		\begin{align*}
 			\det D\Phi(\rho, \theta)
-			&= \begin{bmatrix}
-				\partial_\rho \phi & \partial_\theta \phi\\
-				\partial_\rho \psi & \partial_\theta \psi
-			\end{bmatrix}\\
-			&= \begin{bmatrix}
-				a \cos(\theta) & - a \:\rho \sin(\theta)\\
-				b \sin(\theta) & b \:\rho \cos(\theta)
-			\end{bmatrix}\\
+			&= \left|
+				\begin{matrix}
+					\partial_\rho \phi & \partial_\theta \phi\\
+					\partial_\rho \psi & \partial_\theta \psi
+				\end{matrix}
+			\right|\\
+			&= \left|
+				\begin{matrix}
+					a \cos(\theta) & - a \:\rho \sin(\theta)\\
+					b \sin(\theta) & b \:\rho \cos(\theta)
+				\end{matrix}
+			\right|\\
 			&= ab \:\rho \cos^2(\theta) + ab \:\rho \sin^2(\theta)\\
 			&= ab \:\rho (\cos^2(\theta) + \sin^2(\theta))\\
 			&= ab \:\rho

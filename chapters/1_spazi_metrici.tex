@@ -721,6 +721,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{definition}
 \begin{definition}[Limite per Successioni] % TODO la definizione di limite per successioni va modificata per offrire la classica distanza delta-epsilon
 	\index{Limite!per Successioni}
+	\index{Successione!Convergente}
 	\label{def:lim_succ}
 	Data una successione $x: \N \to X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
 	\[\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0\]
@@ -949,6 +950,7 @@ Unendo le due definizioni si giunge naturalmente a
 		Si giunge dunque alla \fullref{def:completo}
 	\end{proof}
 	\begin{note}
+		\hypertarget{note:subset_compl_e_compl}{}
 		La chiusura di $C$ è fondamentale perché diversamente non sarebbe applicabile il \fullref{coro:succ_conv_sse_x_in_chius_A} e dunque non si avrebbe certezza sulla convergenza in $C$ delle successioni.
 	\end{note}
 \end{proposition}
@@ -1003,7 +1005,7 @@ Unendo le due definizioni si giunge naturalmente a
 	Siano $(X,d)$ uno spazio metrico completo, $A \subseteq X$ chiuso e non vuoto. Allora, detta $d_{|A}$ la restrizione di $d$ ad $A$, $(A,d_{|A})$ è uno spazio metrico completo.\\
 	È indispensabile l'ipotesi "\textit{$A$ chiuso}"?
 	\begin{solution}
-		Vedere nota alla \fullref{prop:subset_compl_e_compl}
+		Vedere \hyperlink{note:subset_compl_e_compl}{\notestyle{} alla \fullref*{prop:subset_compl_e_compl}}.
 	\end{solution}
 \end{exercise}
 \begin{exercise}
@@ -1492,6 +1494,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{proposition}
 \begin{corollary}
+	\index{Passaggio al limite per funzione continua}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x: \N \in X$ una successione in $A$
 	\begin{equation*}
 		\left.
@@ -1577,7 +1580,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{theorem}[Generale di Weierstrass]
-	\index{Teorema!Generale di Weierstrass}
+	\index{Teorema!di Weierstrass!Generale}
 	\label{teo:weier_generale}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:K \to Y$ con $K \subseteq X$.
 	\begin{equation*}
@@ -1616,6 +1619,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{theorem}
 \begin{exercise}[Teorema di Weierstrass - Analisi 1]
+	\index{Teorema!di Weierstrass!di Analisi 1}
 	\label{ex:weier_analisi_1}
 	Cosa c'entra il \fullref{teo:weier_generale} con il "vecchio" Teorema di Weierstrass di Analisi 1?
 	\begin{note}
@@ -2312,7 +2316,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{exercise}
 	I passaggi da \cref{eq:teo_contraz_disug_dist_mn} a \cref{eq:teo_contraz_disug_dist_01} sono necessari?
 	\begin{solution}
-		Vedere \hyperlink{note:teo_contraz_note}{nota alla dimostrazione del \fullref*{teo:contrazioni}}
+		Vedere \hyperlink{note:teo_contraz_note}{\notestyle{} alla dimostrazione del \fullref*{teo:contrazioni}}
 	\end{solution}
 \end{exercise}
 \begin{example}

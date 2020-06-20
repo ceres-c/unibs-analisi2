@@ -7,7 +7,7 @@ Generalmente, effettuata una dimostrazione per $m = 1$ è abbastanza semplice pa
 In $\R^n$ verranno usate le (note) strutture vettoriale con la metrica Euclidea di \hyperref[ex:dist_eucl]{\fullref*{ex:metriche}} % NOTE The \fullref command was not used on purpose to point this link straight to the right part of the aforementioned exercise
 
 \vspace*{\baselineskip}
-La base canonica di $R^n$ è indicata con $(e_1,\:\dotsc\:,e_n)$ dove $e_i$ è il vettore di $R^n$ con tutte le componenti nulle tranne la $i$\textit{-esima} che è posta ad $1$. È dunque possibile scrivere un generico vettore $x$ come combinazione lineare dei vettori della base canonica $x=\sum\limits_{i=1}^{n} x_i e_i$.
+La base canonica di $\R^n$ è indicata con $(e_1,\:\dotsc\:,e_n)$ dove $e_i$ è il vettore di $\R^n$ con tutte le componenti nulle tranne la $i$\textit{-esima} che è posta ad $1$. È dunque possibile scrivere un generico vettore $x$ come combinazione lineare dei vettori della base canonica $x=\sum\limits_{i=1}^{n} x_i e_i$.
 
 \vspace*{\baselineskip}
 Nel caso $n=2$ è usata la notazione $(x,y)=xi+yj$. Nel caso $n=3$ è usata la notazione $(x,y,z)=xi+yj+zk$.
@@ -20,7 +20,7 @@ Nel caso $n=2$ è usata la notazione $(x,y)=xi+yj$. Nel caso $n=3$ è usata la n
 Alcune classi di funzioni $f:A\subseteq\R^n \to\R^m$ hanno nomi particolari:
 \begin{itemize}
 	\item $n=1$, $m=1$: $f$ è una \textit{funzione reale di una variabile reale};
-	\item $n=1$, $m>1$: $f$ è una \textit{curva} in $R^m$ (purché $f$ sia almeno continua e $A$ sia un intervallo)
+	\item $n=1$, $m>1$: $f$ è una \textit{curva} in $\R^m$ (purché $f$ sia almeno continua e $A$ sia un intervallo)
 	\item $n>1$, $m=1$: $f$ è un \textit{campo scalare}
 	\item $n>1$, $m>1$: $f$ è un \textit{campo vettoriale} (soprattutto nei casi $n=m=2$ e $n=m=3$)
 \end{itemize}
@@ -300,6 +300,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		Scrivere $f(x) = o(x^k)$ per $x \to 0$ significa che $f = o(g)$ con $g = x^k$
 	\end{note}
 	\begin{note}
+		\hypertarget{note:o_piccolo_to_0}{}
 		Con $o(1)$ per $x \to x_0$ si intende una qualunque funzione tendente a $0$ per $x \to x_0$.
 	\end{note}
 \end{definition}
@@ -356,7 +357,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			\iff & \exists m \in \R:\; \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} = m\\
 			\iff & \exists m \in \R:\; \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} - m = 0\\
 			\iff & \exists m \in \R:\; \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0) -mh}{h} = 0
-			\shortintertext{Per la nota alla \fullref{def:o_piccolo}}
+			\shortintertext{Per la \hyperlink{note:o_piccolo_to_0}{\notestyle{} 2 alla \fullref*{def:o_piccolo}}}
 			\iff & \exists m \in \R:\; f(x_0 + h) - f(x_0) -mh = o(h) \text{ per } h \to 0\\
 			\iff & \exists m \in \R:\; f(x_0 + h) = f(x_0) -mh + o(h) \text{ per } h \to 0
 		\end{align*}
@@ -1131,7 +1132,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\end{note}
 		Sostituendo dunque in \cref{eq:accr_fin_norm} si ottiene
 		\[\norm{\frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \bigl( f(x_1) - f(x_0) \bigr) \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
-		Dalla \hyperlink{note:ex_sp_norm_Rn}{nota al punto \ref*{itm:ex_sp_norm_Rn} di \fullref*{ex:sp_norm}}, si ottiene
+		Dalla \hyperlink{note:ex_sp_norm_Rn}{\notestyle{} al punto \ref*{itm:ex_sp_norm_Rn} di \fullref*{ex:sp_norm}}, si ottiene
 		\[\norm{\frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \norm{f(x_1) - f(x_0)}^2} \leq \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
 		Da cui
 		\[\norm{f(x_1) - f(x_0)} \leq \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}\]
@@ -1714,10 +1715,10 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 	\begin{note}
 		$\varphi_1$ non avrebbe potuto essere definita $\intervalopen{-1}{1} \to \intervalopcl{0}{1}$ perché sarebbe contrario al punto 2 della \fullref{def:funz_impl}, non essendo $\mathcal{Y}$ un aperto, in questo caso. Estendendo $\mathcal{Y}$ a $\R^+$ si ha un aperto contenente tutti i valori assunti da $\varphi_1$.
 	\end{note}
-	Un primo problema nasce dalla scelta degli insiemi $\mathcal{X}$ e $\mathcal{Y}$, per esempio sarebbero stati altrettanto accettabili $\mathcal{X} = \intervalopen{-\frac{1}{2}}{\frac{1}{2}}$ e $\mathcal{Y} = R^+ $. Un secondo problema è la scelta del punto nel cui intorno si cercherà la funzione implicita: sarebbe stato possibile scegliere il punto $(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})$ oppure ancora $(-\frac{1}{2},-\frac{\sqrt{3}}{2})$. Sicuramente $(1,0)$ non è un punto valido, dato che non si verifica il punto 3 della \fullref{def:funz_impl}, perché una eventuale relazione come $\varphi_3$ da \autoref{fig:ese_funz_impl_cerchio} non sarebbe una funzione.
 	\begin{note}
 		La $\varphi_1$ di \cref{eq:ese_funz_impl_cerchio} potrebbe essere scritta in funzione di $y$ poiché, a priori, non c'è distinzione tra le variabili.
 	\end{note}
+	Un primo problema nasce dalla scelta degli insiemi $\mathcal{X}$ e $\mathcal{Y}$, per esempio sarebbero stati altrettanto accettabili $\mathcal{X} = \intervalopen{-\frac{1}{2}}{\frac{1}{2}}$ e $\mathcal{Y} = R^+ $. Un secondo problema è la scelta del punto nel cui intorno si cercherà la funzione implicita: sarebbe stato possibile scegliere il punto $(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})$ oppure ancora $(-\frac{1}{2},-\frac{\sqrt{3}}{2})$. Sicuramente $(1,0)$ non è un punto valido, dato che non si verifica il punto 3 della \fullref{def:funz_impl}, perché una eventuale relazione come $\varphi_3$ da \autoref{fig:ese_funz_impl_cerchio} non sarebbe una funzione.
 	~
 	\begin{figure}[H]
 		\centering
@@ -2436,11 +2437,13 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 	\label{obs:inf_pti_max_min_abs}
 	Una funzione ha \textbf{unico massimo/minimo}, ma può avere \textbf{infiniti punti di massimo/minimo assoluto}.
 	\begin{itemize}
-		\item Il massimo di $f$ ($\max f$) è un valore nell'insieme di arrivo della funzione ed è unico per definizione di $\max$.
-		\item Il punto di estremo assoluto $x_0$ è, per definizione, il punto appartenente all'insieme di partenza della $f$ per cui $f$ assume il suo valore massimo. Questa definizione appena data non è influenzata dall'unicità di $\max f$, in quanto possono esistere più valori di $x$ per cui $f(x) = \max f$, il quale $\max f$ sarà però unico.
+		\item Un estremo di $f$ ($\max f$ o $\min f$) è un punto in $\R$, insieme di arrivo della $f$, ed è il valore massimo o minimo assunto dalla $f$ stessa. È unico per definizione di $\max$ e $\min$.
+		\item Un punto di estremo assoluto $x_0$ è un punto in $A$, insieme di partenza della $f$, per cui $f$ assume il suo valore massimo o minimo.
 	\end{itemize}
+	La non unicità dei \textit{punti di estremo} non è in conflitto con l'unicità degli \textit{estremi}, in quanto possono esistere diversi $x_1, x_2,\:\dotsc\: x_n$ per cui,ad esempio, $f(x_i) = \max f$, ma $\max f$ è sempre lo stesso.\\
 	Vedere \fullref{ex:f_con_inf_pti_max_min_abs} e \fullref{ex:uniq_max_min_abs}.
 \end{observation}
+\newpage % WARNING Check this is not generating too much whitespace
 \begin{exercise}
 	Formulare le definizioni di Massimo/Minimo Assoluto Forte e di Estremo Locale/Assoluto Forte e non.
 	\begin{solution}\leavevmode
@@ -2449,6 +2452,11 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 				$\bydef \quad \forall x \in A \;\; f(x_0) > f(x)$
 			\item \makebox[21em][l]{$x_0$ punto di \textbf{Minimo Assoluto Forte} per $f$}
 				$\bydef \quad \forall x \in A \;\; f(x_0) < f(x)$
+		\end{itemize}
+		\begin{note}
+			Queste due definizioni son diverse rispetto a quelle dei punti di Massimo/Minimo Assoluto date in \fullref{def:max_min} perché ora si implica unicità di $x_0$.
+		\end{note}
+		\begin{itemize}
 			\item \makebox[21em][l]{$x_0$ punto di \textbf{Estremo Locale} per $f$}
 				$\bydef \quad
 				\begin{cases}
@@ -2494,13 +2502,10 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 \end{exercise}
 \begin{exercise}
 	Esibire esempi di funzioni con infiniti punti di massimo/minimo assoluti.
-	\begin{solution}\hfill\\
-		\begin{minipage}{0.49\linewidth}
-			$$f(x) = 1$$
-		\end{minipage}
-		\begin{minipage}{0.49\linewidth}
-			$$f(x) = \sin(x)$$
-		\end{minipage}
+	\begin{solution}
+		\begin{align*}
+			f(x) &= 1 &f(x) &= \sin(x)
+		\end{align*}
 	\end{solution}
 \end{exercise}
 \begin{exercise}
@@ -2586,17 +2591,19 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 	\end{solution}
 \end{exercise}
 \begin{exercise}
+	\index{Estremo Superiore/Inferiore di un Insieme}
+	\index{Unicità!Massimi e Minimi Assoluti}
 	\label{ex:uniq_max_min_abs}
-	Formulare e dimostrare l'unicità del massimo/minimo assoluto.
+	Formulare e dimostrare l'\textbf{unicità} del Massimo/Minimo Assoluto.
 	\begin{note}
-		Notare che è richiesta l'unicità del \textbf{massimo/minimo assoluto}, non dei punti di massimo/minimo. Si ricorda l'\fullref{obs:inf_pti_max_min_abs}.
+		Notare che è richiesta l'unicità del \textit{massimo/minimo assoluto}, non dei \textit{punti di massimo/minimo}. Si ricorda l'\fullref{obs:inf_pti_max_min_abs}.
 	\end{note}
 	\begin{solution}
-		Per definizione, $x = \max X$ se $x = \sup X$ e $x \in X$. Se poi $x = \sup X$, allora $x$ è per definizione il più piccolo dei maggioranti di $X$.\\
-		Il $\sup$ di un insieme è unico, si dimostra per assurdo:
+		Si definisce un punto $x = \max X$, \textit{Massimo} di un insieme, quando $x = \sup X$ e $x \in X$.\\
+		Essendo $x = \sup X$, dalla definizione di $\sup$, \textit{Estremo Superiore}, segue che $x$ sia il più piccolo dei maggioranti di $X$. L'unicità del $\sup$ si dimostra per assurdo:
 		\begin{proof}
 			\renewcommand\qedsymbol{$\square$} % To restore the default empty square for this proof environment
-			Dati $A \subseteq \R$ e $B \subseteq A$, si supponga esistano $M_1, M_2 \in A$ con $M_1 \neq M_2$, due $\sup$ diversi di $B$. Applicando la definizione di maggiorante:
+			Dati $A \subseteq \R$ e $B \subseteq A$, si supponga esistano $M_1, M_2 \in A$ con $M_1 \neq M_2$, due $\sup$ diversi dell'insieme $B$. Applicando la definizione di maggiorante:
 			\[\forall x \in B,\; x \leq M_1 \qquad \text{e} \qquad \forall x \in B,\; x \leq M_2\]
 			Si può ora supporre che sia $M_1 > M_2$ senza perdere generalità, però questo significa che $M_1$ non sia $\sup$, (non è il più piccolo dei maggioranti), negando l'ipotesi - \textit{Assurdo}
 		\end{proof}
@@ -2612,13 +2619,14 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 \end{exercise}
 
 \subsection{Condizioni Necessarie}
+Le seguenti condizioni permettono di identificare dei punti \textit{potenzialmente} estremanti, ma sarà poi necessario verificare che effettivamente lo siano studiando la funzione in un loro intorno.
 \begin{proposition}
 	\label{prop:f_deriv_pto_estr_deriv_direz_nulla}
-	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$, $f: A \to \R$ e $v \in \R^n \setminus {0}$, allora
+	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$, $f: A \to \R$ e $v \in \R^n \setminus \brackets{0}$, allora
 	\[
 		\left.
 			\begin{array}{c}
-				f \text{ \textbf{derivabile} in } x_0 \text{ lungo } v\\
+				f \text{ \textbf{Derivabile} in } x_0 \text{ lungo } v\\
 				x_0 \text{ punto \textbf{di estremo} per } f
 			\end{array}
 		\right\}
@@ -2659,8 +2667,8 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 	\]
 	\begin{proof}
 		Dalla \fullref{prop:se_diff_deriv_dir}, si sa che, se $f$ è differenziabile, allora
-		\[\forall v \in \R^n \setminus {0} \quad D_vf(x_0) = Df(x_0) v\]
-		Quindi $\forall v \in \R^n \setminus {0}$ si può applicare la \fullref{prop:f_deriv_pto_estr_deriv_direz_nulla}. Visto poi che la $f$ è a valori in $\R^1$, da \fullref{obs:matr_deriv_tot} si sa che $Df(x_0) = \nabla f(x_0)$, dunque la tesi:
+		\[\forall v \in \R^n \setminus \brackets{0} \quad D_vf(x_0) = Df(x_0) v\]
+		Quindi $\forall v \in \R^n \setminus \brackets{0}$ si può applicare la \fullref{prop:f_deriv_pto_estr_deriv_direz_nulla}. Visto poi che la $f$ è a valori in $\R^1$, da \fullref{obs:matr_deriv_tot} si sa che $Df(x_0) = \nabla f(x_0)$, dunque la tesi:
 		\[0 = D_vf(x_0) = Df(x_0) = \nabla f(x_0)\]
 	\end{proof}
 \end{theorem}
@@ -2680,7 +2688,7 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 		\end{cases}
 	\]
 	\begin{note}
-		Nella definizione si usa $\nabla f$ in luogo di $Df$ perché la $f$ è a valori in $\R$, dunque come visto in \fullref{obs:matr_deriv_tot} $Df$ è $\in \mat(1 \times n)$, cioè $Df = \nabla f$ per definizione di gradiente.
+		Nella definizione è usato $\nabla f$ in luogo di $Df$ perché la $f$ è a valori in $\R^1$, dunque come visto in \fullref{obs:matr_deriv_tot} $Df$ è $\in \mat(1 \times n)$, cioè $Df = \nabla f$ per definizione di gradiente.
 	\end{note}
 \end{definition}
 \begin{observation}
@@ -2716,7 +2724,7 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 		\implies
 		\begin{cases}
 			\nabla f(x_0) = 0\\
-			D^2f(x_0) = H_f(x_0) \text{ \textbf{Semidefinita Negativa}}
+			D^2f(x_0) = H_f(x_0) \quad \text{\textbf{Semidefinita Negativa}}
 		\end{cases}
 	\]
 	\begin{proof}
@@ -2754,7 +2762,7 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 		\implies
 		\begin{cases}
 			\nabla f(x_0) = 0\\
-			D^2f(x_0) = H_f(x_0) \text{ \textbf{Semidefinita Positiva}}
+			D^2f(x_0) = H_f(x_0) \quad \text{\textbf{Semidefinita Positiva}}
 		\end{cases}
 	\]
 	\begin{proof}
@@ -2849,6 +2857,22 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 \begin{note}
 	Quanto detto è in accordo con la \fullref{def:max_min}, che infatti non esclude il caso di punti di estremo vincolati alla frontiera di un insieme.
 \end{note}
+
+\cbstart
+\begin{definition}[Funzione Lagrangiana] % Come definita su https://en.wikipedia.org/wiki/Lagrange_multiplier
+	\index{Funzione!Lagrangiana}
+	\label{def:funz_lagr}
+	Sia $A \subseteq \R^n$ un \textbf{Aperto}, $x \in A$, $\lambda \in \R^p$ con $p < n$, allora si definisce la
+	\[\mathcal{L}(x, \lambda) = f(x) - \lambda \varphi(x)\]
+	cioè, "espandendo" le variabili per chiarezza
+	\[\mathcal{L}(x_1,\:\dotsc\:,x_n, \lambda_1,\:\dotsc\:,\lambda_p) = f(x_1,\:\dotsc\:,x_n) - \sum\limits_{i = 1}^{p} \lambda_i \varphi_i (x_1,\:\dotsc\:,x_n)\]
+	$\mathcal{L}$ è una funzione ausiliaria, nota come \textbf{Funzione Lagrangiana}, che lega la $f$ ed il vincolo $\varphi$.
+
+	\noindent I punti stazionari \textbf{Vincolati} della $f$ sono i punti stazionari \textbf{Liberi} della Lagrangiana.
+\end{definition}
+\cbend
+
+\newpage % WARNING Check this is not generating too much whitespace
 \begin{theorem}[dei Moltiplicatori di Lagrange]
 	\index{Teorema!dei Moltiplicatori di Lagrange}
 	\index{Moltiplicatori di Lagrange}
@@ -2858,10 +2882,10 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 		\item $f: A \to \R$
 		\item $\varphi: A \to \R^p$ con $p < n$ e $\varphi^{-1}(0) \subset A$
 	\end{itemize}
-	\begin{note}
-		$\varphi$, vincolo, è funzione di $p$ funzioni $\varphi_i$ per $i = 1,\:\dotsc\:,p$.
-	\end{note}
 	due funzioni $\in \cntclass{1}$.
+	\begin{note}
+		$\varphi$, vincolo, è una funzione a valori in $\R^p$, dunque è possibile vederla come $p$ funzioni $\varphi_i$ per $i = 1,\:\dotsc\:,p$.
+	\end{note}
 	Se:
 	\begin{itemize}[noitemsep]
 		\item $x_0$ è un punto di \textbf{estremo relativo} per $f$ \textbf{vincolata} a $\varphi = 0$
@@ -2869,7 +2893,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 	\end{itemize}
 	\begin{note}
 		\hypertarget{note:teo_molt_lagr_gen}{}
-		Essendo $\varphi$ funzione di funzioni, $D\varphi(x_0)$ è una matrice costituita:
+		Essendo $\varphi$ funzione a valori vettoriali (vettore di lunghezza $p$), $D\varphi(x_0)$ è una matrice costituita:
 		\[
 			D\varphi(x_0) =
 			\begin{bmatrix}
@@ -2880,8 +2904,10 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 			\end{bmatrix}
 		\]
 		In cui ogni riga è il gradiente della $i$\textit{-esima} funzione, $\nabla \varphi_i$.\\
-		Richiedere $\rank \bigl( D\varphi(x_0) \bigr) = p$ significa imporre che i $p$ vincoli siano tutti linearmente indipendenti, cioè che siano tutti "indicativi" (è inutile avere 2 vincoli uguali).\\
-		Inoltre la condizione garantisce che, per ogni vincolo, almeno una delle derivate parziali sia non nulla. Se infatti tutte le derivate parziali di una $\varphi_i$ fossero nulle, il rango della matrice non sarebbe più $p$.
+		Richiedere $\rank \bigl( D\varphi(x_0) \bigr) = p$ significa imporre che i $p$ vincoli siano tutti linearmente indipendenti, cioè che siano tutti "indicativi" (è inutile avere 2 vincoli uguali). Inoltre la condizione garantisce che, per ogni vincolo, almeno una delle derivate parziali sia non nulla. Se infatti tutte le derivate parziali di una $\varphi_i$ fossero nulle, il rango della matrice non sarebbe più $p$.
+	\end{note}
+	\begin{note}
+		La condizione $\rank \bigl( D\varphi(x_0) \bigr) = p$, nel caso $n = 2, m = 1$ si verifica controllando che $\nabla \varphi (x_0, y_0) \neq 0$.
 	\end{note}
 	Allora esistono $p$ numeri reali $\lambda_1,\; \lambda_2,\:\dotsc\:\lambda_p$ tali che
 	\begin{equation}
@@ -2893,6 +2919,9 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 	\begin{note}
 		La combinazione lineare di vettori è, per definzione, la somma componente per componente dei diversi vettori, ognuno con un appropriato coefficiente $\lambda_i$
 	\end{note}
+	\begin{note}
+		L'\textbf{utilizzo pratico} di questo teorema è mostrato in \fullref{obs:sist_eqiv_lagr} e \fullref{obs:sist_eqiv_lagr_ese}.
+	\end{note}
 	\begin{proof}
 		Omessa. Verrà svolta in seguito per il caso $n = 2, m = 1$ in \fullref{teo:molt_lagr_n2_m1}.
 	\end{proof}
@@ -2900,6 +2929,8 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 \begin{observation}
 	Il \fullref{teo:molt_lagr_gen} può essere visto come una generalizzazione del \fullref{teo:fermat} nella ricerca degli estremi di funzioni vincolate.
 \end{observation}
+
+\newpage % WARNING Check this is not generating too much whitespace
 \begin{observation}[Spiegazione Concetto]~
 	\label{obs:concetto_teo_molt_lagr_gen}
 	\begin{center}
@@ -2916,7 +2947,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 \begin{observation}
 	Si noti che anche nel caso $n = 2$, $p = 1$ nella \cref{eq:eqiv_nabl_molt_lagr} non sarebbe coretto spostare $\lambda$ all'altro termine:
 	\[\lambda \nabla f(x_0, y_0) = \nabla \varphi (x_0, y_0) \tag{\textbf{Errato!}}\]
-	Per quanto questa possa sembrare una semplice divisione per uno scalare, in realtà sarebbe una possibile svista. Il valore di $\nabla f(x_0,y_0)$ infatti non è noto a prescindere e, se fosse nullo, questa scrittura sarebbe in contrasto con l'ipotesi $\nabla \varphi(x_0,y_0) \neq 0$
+	Per quanto questa possa sembrare una semplice divisione per uno scalare, in realtà sarebbe una possibile svista. Il valore di $\nabla f(x_0,y_0)$ infatti non è noto a prescindere e, se fosse nullo, questa scrittura sarebbe in contrasto con l'ipotesi $\nabla \varphi(x_0,y_0) \neq 0$.
 \end{observation}
 \begin{example}
 	\label{ex:max_min_vinc_n2_p1}
@@ -2927,36 +2958,47 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 	\end{itemize}
 	Perché $p < 2$, dunque sicuramente $p = 1$.
 \end{example}
-\cbstart
-\begin{definition}[Funzione Lagrangiana] % Come definita su https://en.wikipedia.org/wiki/Lagrange_multiplier
-	\index{Funzione!Lagrangiana}
-	\label{def:funz_lagr}
-	Sia $A \subseteq \R^n$ un \textbf{Aperto}, $x \in A$, $\lambda \in \R^p$ con $p < n$, allora si definisce la
-	\[\mathcal{L}(x, \lambda) = f(x) - \lambda \varphi(x)\]
-	cioè, "espandendo" le variabili per chiarezza
-	\[\mathcal{L}(x_1,\:\dotsc\:,x_n, \lambda_1,\:\dotsc\:,\lambda_p) = f(x_1,\:\dotsc\:,x_n) - \sum\limits_{i = 1}^{p} \lambda_i \nabla \varphi_i (x_1,\:\dotsc\:,x_n)\]
-	$\mathcal{L}$ è una funzione ausiliaria, nota come \textbf{Funzione Lagrangiana}, che lega la $f$ ed il vincolo $\varphi$.
 
-	\noindent I punti stazionari \textbf{Vincolati} della $f$ sono i punti stazionari \textbf{Liberi} della Lagrangiana.
-\end{definition}
-\cbend
+\begin{samepage}
+	\begin{observation}
+		\label{obs:sist_eqiv_lagr}
+		Mediante il \fullref{teo:molt_lagr_gen}, la ricerca di punti di estremo per $f$ vincolati a $\varphi = 0$ viene dunque ricondotta alla risoluzione del sistema:
+		\begin{equation}
+			\label{eq:teo_molt_lagr_gen_sist_varphi}
+			\begin{cases}
+				\nabla f(x_0) = \sum\limits_{i = 1}^{p} \lambda_i \nabla \varphi_i (x_0)\\
+				\varphi(x_0) = 0
+			\end{cases}
+		\end{equation}
+		\vspace*{-.5\baselineskip}
+		\begin{note}
+			Vedere \fullref{ex:molt_lagr_sist_equiv} per la versione di \cref{eq:teo_molt_lagr_gen_sist_varphi} adattata al caso $n=2,\,m=1$.
+		\end{note}
+	\end{observation}
+\end{samepage}
 \begin{observation}
-	\label{obs:sist_eqiv_lagr}
-	Mediante il \fullref{teo:molt_lagr_gen}, la ricerca di punti di estremo per $f$ vincolati a $\varphi = 0$ viene dunque ricondotta alla risoluzione del sistema:
-	\begin{equation}
-		\label{eq:teo_molt_lagr_gen_sist_varphi}
+	\label{obs:sist_eqiv_lagr_ese}
+	Il sistema di \cref{eq:teo_molt_lagr_gen_sist_varphi} è spesso riportato nella seguente forma, facilmente utilizzabile nello svolgimento degli esercizi
+	\[
 		\begin{cases}
-			\nabla f(x_0) = \sum\limits_{i = 1}^{p} \lambda_i \nabla \varphi_i (x_0)\\
-			\varphi(x_0) = 0
+			\partial_{x_1} \mathcal{L}(x, \lambda) = 0\\
+			\vdots\\
+			\partial_{x_n} \mathcal{L}(x, \lambda) = 0\\
+			\partial_{\lambda_1} \mathcal{L}(x, \lambda) = 0\\
+			\vdots\\
+			\partial_{\lambda_p} \mathcal{L}(x, \lambda) = 0
 		\end{cases}
-	\end{equation}
+	\]
+	Per individuare punti (possibilmente) estremanti è dunque necessario costruire la \fullref{def:funz_lagr} del problema e calcolarne le derivate parziali. Queste son tutte uguagliate a $0$ e messe a sistema tra loro. Le soluzioni del sistema saranno punti di $\R^{n + p}$ del tipo
+	\[\left[ x_1 \quad \dots \quad x_n \quad \lambda_1 \quad \dots \quad \lambda_p \right]\]
+	Infine si verifica se i punti individuati siano di massimo o minimo per $f$, inserendo in $f(x_1,\:\dotsc\:,x_n)$ le $n$ componenti relative alle $x$, cioè scartando i coefficienti lagrangiani.
 \end{observation}
 \begin{exercise}
-	Verificare che, con la notazione del \fullref{teo:molt_lagr_gen}, il sistema \cref{eq:teo_molt_lagr_gen_sist_varphi} è un sistema di $n + p$ equazioni in $n + p$ incognite.
+	Verificare che, con la notazione del \fullref{teo:molt_lagr_gen}, il sistema di \cref{eq:teo_molt_lagr_gen_sist_varphi} è un sistema di $n + p$ equazioni in $n + p$ incognite.
 	\begin{solution}
 		Da \fullref{def:funz_lagr}, calcolando $\nabla \mathcal{L}(x, \lambda) = 0$ si ottiene
 		\[
-			\nabla_{x_1,\:\dotsc\:,x_n, \lambda_1,\:\dotsc\:,\lambda_p} \mathcal{L}(x_1,\:\dotsc\:, x_n, \lambda_1,\:\dotsc\:,\lambda_p)=0
+			\nabla \mathcal{L}(x_1,\:\dotsc\:, x_n, \lambda_1,\:\dotsc\:,\lambda_p) = 0
 			\iff
 			\begin{cases}
 				\nabla f(x) - \sum\limits_{i=1}^{p} {\lambda_i \: \nabla \varphi_i (x)} = 0\\
@@ -2975,7 +3017,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 			\nabla f(x_0,y_0) = \lambda \nabla \varphi(x_0,y_0)\\
 			\varphi(x_0,y_0)=0
 		\end{cases}
-		=
+		= \quad
 		\begin{cases}
 			\partial_xf(x_0,y_0) = \lambda \partial_x \varphi(x_0,y_0)\\
 			\partial_yf(x_0,y_0) = \lambda \partial_y\varphi(x_0,y_0)\\
@@ -2987,7 +3029,7 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 		\begin{note}
 			Questa soluzione è molto simile alla dimostrazione del \fullref{teo:molt_lagr_n2_m1}.
 		\end{note}
-		Per ipotesi del \fullref{teo:molt_lagr_gen}, $\rank \bigl( D\varphi(x_0, y_0) \bigr) = p = 1$, dunque come da \hyperlink{note:teo_molt_lagr_gen}{nota alle ipotesi del \fullref*{teo:molt_lagr_gen}}:
+		Per ipotesi del \fullref{teo:molt_lagr_gen}, $\rank \bigl( D\varphi(x_0, y_0) \bigr) = p = 1$, dunque come da \hyperlink{note:teo_molt_lagr_gen}{\notestyle{} alle ipotesi del \fullref*{teo:molt_lagr_gen}}:
 		\[
 			\begin{bmatrix}
 				\partial_x\varphi(x_0,y_0) & \partial_y\varphi(x_0,y_0)
@@ -3005,10 +3047,10 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 			Verifica ipotesi:
 			\begin{enumerate}
 				\item $A \subseteq \R \times \R$ aperto per ipotesi \fullref{teo:molt_lagr_gen}
-				\item $f \in \cntclass{1}$ per ipotesi \fullref{teo:molt_lagr_gen}, quindi sicuramente continua
+				\item $\varphi \in \cntclass{1}$ per ipotesi \fullref{teo:molt_lagr_gen}, quindi sicuramente continua
 				\item $(x_0, y_0) \in A$ e $\varphi(x_0, y_0) = 0$ per ipotesi \fullref{teo:molt_lagr_gen}
-				\item $f \in \cntclass{1}$ per ipotesi \fullref{teo:molt_lagr_gen}, quindi $D_y f$ esiste continua in $(x_0, y_0)$
-				\item $D_yf(x_0, y_0)$ ammette inversa perché è stato ipotizzato $\partial_y \varphi(x_0,y_0) \neq 0$ poco sopra
+				\item $\varphi \in \cntclass{1}$ per ipotesi \fullref{teo:molt_lagr_gen}, quindi $D_y \varphi$ esiste continua in $(x_0, y_0)$
+				\item $D_y \varphi(x_0, y_0)$ ammette inversa perché è stato ipotizzato $\partial_y \varphi(x_0,y_0) \neq 0$ poco sopra
 			\end{enumerate}
 		\end{note}
 		Grazie al \fullref{teo:funz_impl} si ha che esistono degli intorni $\mathcal{X}$ di $x_0$ e $\mathcal{Y}$ di $y_0$ e, per $x \in \mathcal{X}$ e $y \in \mathcal{Y}$, esiste la
@@ -3071,19 +3113,18 @@ Quanto esposto in questa sezione può essere esteso al caso $n > 2$ a patto di n
 	\[f^{-1}(c) = \brackets{(x,y) \in A:\; f(x,y) = c}\]
 	è la \textbf{Curva di Livello} $\boldsymbol{c}$ di $f$
 \end{definition}
-\begin{definition}[Piano Tangente]
-	\index{Piano!Tangente}
-	Siano $A \subseteq \R^2$, $f: A \to \R$, $f$ \textbf{Differenziabile} in $(x_0, y_0) \in \circdot{A}$. Allora
+
+\begin{definition}[Piano Tangente ad una Curva]
+	\index{Piano!Tangente ad una Curva}
+	Siano $A \subseteq \R^2$, $f: A \to \R$, $f$ \textbf{Differenziabile} in $(x_0, y_0) \in \circdot{A}$. Allora l'\textbf{Equazione del Piano Tangente} alla superficie $x = f(x,y)$ in $(x_0, y_0)$ è:
 	\begin{align*}
-		z &=
-		f(x_0, y_0) +
+		z &= f(x_0, y_0) +
 		\nabla f(x_0, y_0) \cdot
 		\begin{bmatrix}
 			x - x_0\\
 			y - y_0
 		\end{bmatrix}\\
-		&=
-		f(x_0, y_0) +
+		&= f(x_0, y_0) +
 		\begin{bmatrix}
 			\partial_xf(x_0,y_0) & \partial_yf(x_0,y_0)
 		\end{bmatrix}
@@ -3094,11 +3135,20 @@ Quanto esposto in questa sezione può essere esteso al caso $n > 2$ a patto di n
 		\end{bmatrix}\\
 		&= f(x_0, y_0) + \partial_xf(x_0,y_0) \; (x - x_0) + \partial_yf(x_0,y_0) \; (y - y_0)
 	\end{align*}
-	è il \textbf{Piano Tangente} alla superficie $x = f(x,y)$ in $(x_0, y_0)$
+	\vspace*{-\baselineskip}
 	\begin{note}
-		Non c'è ovviamente alcuna differenza tra le tre equazioni sopra.
+		Le tre equazioni sopra sono ovviamente equivalenti.
 	\end{note}
+	Passando alla matrice associata si ottiene la forma del vettore \textbf{Perpendicolare} alla curva in $(x_0, y_0)$, cioè:
+	\[
+		\begin{bmatrix}
+			\partial_x f(x_0, y_0)\\
+			\partial_y f(x_0, y_0)\\
+			-1
+		\end{bmatrix}
+	\]
 \end{definition}
+
 \begin{observation}
 	Il \textbf{Grafico} di $f$ è un \textbf{sottoinsieme} di $\R^3$.\\
 	Il \textbf{Gradiente} e le \textbf{Curve di Livello} "vivono" nell'insieme partenza $A \subseteq \R^2$, come si può vedere dal seguente grafico: il gradiente non esce dall'insieme di definizione.
@@ -3107,7 +3157,7 @@ Quanto esposto in questa sezione può essere esteso al caso $n > 2$ a patto di n
 	\end{center}
 	Spesso è comodo identificare $A$ con l'insieme
 	\[\brackets{(x,y,z) \in \R^3:\; (x,y) \in A \text{ e } z = 0}\]
-	ed in questo caso il gradiente può essere convenzionalmente esteso con una terza coordinata costante $0$.
+	In questo caso il gradiente può essere convenzionalmente esteso con una terza coordinata costante $0$.
 \end{observation}
 
 \subsection{Il Significato Geometrico del Gradiente}
@@ -3171,7 +3221,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 	\index{Gradiente!Perpendicolare alle Curve di Livello}
 	\label{prop:curv_liv_perp_grad}
 	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$ e $f: A \to \R$, se:
-	\begin{itemize}
+	\begin{itemize}[noitemsep]
 		\item $f$ \textbf{Differenziabile} in $(x_0, y_0)$
 		\item $(x_0, y_0)$ \textbf{non Stazionario}
 	\end{itemize}
@@ -3179,21 +3229,19 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 	\[\nabla f(x_0, y_0) \text{ è \textbf{Perpendicolare} alla \textbf{Curva di Livello} } \brackets{(x,y) \in A:\; f(x,y) = c}\]
 	\begin{proof}
 		Essendo, per ipotesi, $(x_0, y_0)$ non Stazionario, da \fullref{def:pto_staz} si sa per certo che $\nabla f(x_0, y_0) \neq 0$, cioè
-		\[
-			\begin{gathered}
-				\nabla f(x_0, y_0) \neq 0\\
-				\iff\\
-				\begin{bmatrix}
-					\partial_x f(x_0, y_0) & \partial_y f(x_0, y_0)
-				\end{bmatrix}
-				\neq 0\\
-				\iff\\
-				\partial_x f(x_0, y_0) \neq 0 \quad \text{oppure} \quad \partial_y f(x_0, y_0) \neq 0
-			\end{gathered}
-		\]
+		\begin{gather*}
+			\nabla f(x_0, y_0) \neq 0\\
+			\iff\\
+			\begin{bmatrix}
+				\partial_x f(x_0, y_0) & \partial_y f(x_0, y_0)
+			\end{bmatrix}
+			\neq 0\\
+			\iff\\
+			\partial_x f(x_0, y_0) \neq 0 \quad \text{oppure} \quad \partial_y f(x_0, y_0) \neq 0
+		\end{gather*}
 		Si supponga dunque $\partial_y f(x_0,y_0) \neq 0$ ed applicando il \fullref{teo:funz_impl} si ha che esistono degli intorni $\mathcal{X}$ di $x_0$ e $\mathcal{Y}$ di $y_0$ e, per $x \in \mathcal{X}$ e $y \in \mathcal{Y}$, esiste la
 		\[\varphi: \mathcal{X} \to \mathcal{Y} \quad \text{tale che} \quad f(x,y) = 0 \iff y = \varphi(x)\]
-		\vspace*{-\baselineskip}
+		\vspace*{-2\baselineskip}
 		\begin{note}
 			Verifica ipotesi:
 			\begin{enumerate}
@@ -3214,7 +3262,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 		\]
 		Visto che il differenziale di una funzione in un puno rappresenta il versore tangente alla funzione in quel punto, si passa alle derivate $\begin{bmatrix}1\\\varphi'(x)\end{bmatrix}$, visto che valgono anche le ipotesi del \fullref{teo:diff_primo_funz_impl}. Eseguendo ora il prodotto tra $\nabla f(x_0, y_0)$ e la derivate nel punto $(x_0, y_0)$, si ottiene
 		\begin{align*}
-			\lefteqn{\nabla f(x_0, y_0) \cdot \begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix} =}\\
+			\nabla f(x_0, y_0) \cdot \begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix}
 			&= \begin{bmatrix}
 				\partial_x f(x_0, y_0) & \partial_y f(x_0, y_0)
 			\end{bmatrix}
@@ -3222,29 +3270,13 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 			\begin{bmatrix}
 				1\\
 				-\frac{\partial_x f(x_0, y_0)}{\partial_y f(x_0, y_0)}
-			\end{bmatrix} =\\
+			\end{bmatrix}\\
 			&= \partial_x f(x_0, y_0) - \partial_x f(x_0, y_0)\\
 			&= 0
 		\end{align*}
 		Dunque, considerando questo come un prodotto scalare, se il risultato è $0$ allora l'angolo tra i due vettori non può che essere $90^\circ$, da cui la tesi.
 	\end{proof}
 \end{proposition}
-\begin{definition}[Piano Tangente ad una Curva]
-	\index{Piano!Tangente ad una Curva}
-	Siano $A \subseteq \R^2$, $(x_0, y_0) \in \circdot{A}$, $f: A \to \R$ e $f \in \cntclass{1}(A; \R)$, allora l'\textbf{Equazione del Piano Tangente} alla curva nel punto $(x_0, y_0)$ è:
-	\begin{align*}
-		z &= f(x_0, y_0) + \nabla f(x_0, y_0) \begin{bmatrix}x - x_0\\y - y_0\end{bmatrix}\\
-		&= f(x_0, y_0) + \partial_x f(x_0, y_0) (x - x_0) + \partial_y f(x_0, y_0) (y - y_0)
-	\end{align*}
-	Passando alla matrice associata si ottiene la forma del vettore \textbf{Perpendicolare} alla curva in $(x_0, y_0)$, cioè:
-	\[
-		\begin{bmatrix}
-			\partial_x f(x_0, y_0)\\
-			\partial_y f(x_0, y_0)\\
-			-1
-		\end{bmatrix}
-	\]
-\end{definition}
 
 \subsection{I Moltiplicatori di Lagrange}
 Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_gen}, dunque molte note sono omesse in questo enunciato.
@@ -3263,9 +3295,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 		\item $\nabla \varphi(x_0, y_0) \neq 0$
 	\end{itemize}
 	Allora esiste un $\lambda$ tale che
-	\begin{equation}
-		\nabla f(x_0, y_0) = \lambda \nabla \varphi(x_0, y_0)
-	\end{equation}
+	\[\nabla f(x_0, y_0) = \lambda \nabla \varphi(x_0, y_0)\]
 	Lo scalare $\lambda$ è chiamato \textbf{Moltiplicatore di Lagrange}.
 	\begin{proof}~
 		\begin{note}
@@ -3334,13 +3364,13 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 	\end{proof}
 \end{theorem}
 \begin{exercise}
-	Dimostrare la \fullref{teo:molt_lagr_n2_m1} nel caso in cui $\partial_x \varphi(x_0, y_0) \neq 0$ e $\partial_y \varphi(x_0, y_0) = 0$
+	Dimostrare il \fullref{teo:molt_lagr_n2_m1} nel caso in cui $\partial_x \varphi(x_0, y_0) \neq 0$ e $\partial_y \varphi(x_0, y_0) = 0$
 	\begin{solution}
 		È sufficiente applicare il \fullref{teo:funz_impl} alla $\partial_x$, gli altri passaggi non variano.
 	\end{solution}
 \end{exercise}
 \begin{exercise}
-	Dare un'interpretazione geometrica della \fullref{teo:molt_lagr_n2_m1} in luce della \fullref{prop:curv_liv_perp_grad}.
+	Dare un'interpretazione geometrica del \fullref{teo:molt_lagr_n2_m1} in luce della \fullref{prop:curv_liv_perp_grad}.
 	\begin{solution}
 		Fornita in \fullref{obs:concetto_teo_molt_lagr_gen}.
 	\end{solution}
@@ -3375,7 +3405,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 		La continuità di $F$ rispetto ad $\alpha$ e $\beta$ segue dal \fullref{teo:fondament_calcolo_integ}.\\
 		Per verificare la continuità di $F$ in $x_0 \in A$, si scelga un $r > 0$ tale per cui $\overline{B(x_0, r)} \subset A$. La $f$ sarà continua in $\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}$, in quanto, per ipotesi:
 		\[f \in \cntclass{0}(\underbrace{A}_{\overline{B(x_0, r)} \subset A} \times \underbrace{\R}_{\intervalclose{\alpha}{\beta} \subset \R};\R)\]
-		Inoltre, da \fullref{prop:compat_chius_lim_Rn} si ottiene che $\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}$ è compatto. Per questo è possibile applicare il \fullref{teo:cantor} ed avere certezza che la $f$ è \fullref{def:funz_unif_cont} in quell'intervallo. Dalla definizione e passando alla metrica Euclidea in $\R^2$ si può desumere che:
+		Inoltre, da \fullref{prop:compat_chius_lim_Rn} si ottiene che $\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}$ è compatto. Per questo è possibile applicare il \fullref{teo:cantor} ed avere certezza che la $f$ è \reffull{def:funz_unif_cont} in quell'intervallo. Dalla definizione e passando alla metrica Euclidea in $\R^2$ si può desumere che:
 		\[\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in \brackets{\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}} \text{ con } \abs{x - x_0} < \delta \quad \text{vale } \abs{f(x, t) - f(x_0, t)} < \varepsilon\]
 		Dunque, sicuramente, passando al $\sup$ resta valido che
 		\begin{equation}

@@ -132,7 +132,7 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 \]
 
 \begin{definition}[Successione Puntualmente Convergente]
-	\index{Successione!Puntualmente Convergente}
+	\index{Successione!Convergente Puntualmente}
 	\label{def:succ_punt_conv}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La Successione $f_n$ è \textbf{Puntualmente Convergente} su $B$ se:
@@ -697,7 +697,7 @@ E si parla di \textbf{Distanza Infinito} (o \textbf{Distanza del} $\boldsymbol{\
 Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni rispetto alla distanza $d_{\cntclass{0}}$.
 
 \begin{definition}[Successione Uniformemente Convergente]
-	\index{Successione!Uniformemente Convergente}
+	\index{Successione!Convergente Uniformemente}
 	\label{def:succ_unif_conv}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$.\\
 	La Successione $f_n$ è \textbf{Uniformemente Convergente} su $B$ se esiste la \textbf{Funzione Limite Uniforme} $f:\; B \to \R$ tale che:
@@ -716,6 +716,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 	\[\lim\limits_{n \to +\infty} \sup\limits_{B} \abs{\sum\limits_{n = 0}^{+\infty} f_n(x) - F(x)} = 0\]
 \end{definition}
 
+\newpage % WARNING Check this is not generating too much whitespace
 \begin{example}~
 	\begin{figure}[H]
 		\centering
@@ -888,7 +889,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 	\end{align*}
 \end{exercise}
 \begin{definition}[Successione di Funzioni di Cauchy per la Convergenza Uniforme]
-	\index{Successione!di Funzioni di Cauchy per la Convergenza Uniforme}
+	\index{Successione!di Funzioni!di Cauchy per la Convergenza Uniforme}
 	\index{Condizione!di Cauchy per Successioni di Funzioni}
 	\label{def:succ_funz_cau}
 	Siano $B \subseteq A \subseteq \R$, $\brackets{f_n:\; n \in \N}$ una \textbf{Successione di Funzioni} e $f_n:\; A \to \R$
@@ -2124,15 +2125,15 @@ ESEMPIO::
 \observation
 I coefficienti di Fourier non possono identificare univocamente puntualmente una funzione.
 \subsubsection{Punto Di Vista Geometrico}
-In $R^2$ Ci sono $2$ vettori $\hat{i},\hat{j}$ della base, se $\underline{v}\in \R^2 \implies \underline{v}=v_1\cdot \hat{i}+v_2\cdot \hat{j}$ con $v_1,v_2$ componenti di $\underline{v}$\\
+In $\R^2$ Ci sono $2$ vettori $\hat{i},\hat{j}$ della base, se $\underline{v}\in \R^2 \implies \underline{v}=v_1\cdot \hat{i}+v_2\cdot \hat{j}$ con $v_1,v_2$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
 \[\underline{v}\cdot \hat{i} = v_1\cdot \hat{i\cdot }\hat{i}+v_2\cdot \hat{j}\cdot \hat{i}=v_1\]
 \[\underline{v}\cdot \hat{j} = v_1\cdot \hat{i}\cdot \hat{j}+v_2\cdot \hat{j}\cdot \hat{j}=v_2\]
 Questo vale perché $\hat{i},\hat{j}$ è una base ortonormale.
-In $R^3$ Ci sono $3$ vettori $\hat{i},\hat{j},\hat{k}$ della base, se $\underline{v}\in \R^3 \implies \underline{v}=v_1\hat{i}+v_2\hat{j}+v_3\hat{k}$ con $v_1,v_2,v_3$ componenti di $\underline{v}$\\
+In $\R^3$ Ci sono $3$ vettori $\hat{i},\hat{j},\hat{k}$ della base, se $\underline{v}\in \R^3 \implies \underline{v}=v_1\hat{i}+v_2\hat{j}+v_3\hat{k}$ con $v_1,v_2,v_3$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
 \[ v_1=\underline{v}\cdot \hat{i}\quad v_2=\underline{v}\cdot \hat{j}\quad v_3=\underline{v}\cdot \hat{k}  \]
-In $R^n$ Ci sono $n$ vettori $e_1,e_2,\dotsc,e_n$ della base, se $\underline{v}\in \R^n \implies \underline{v}=v_1\cdot e_1+v_2\cdot e_2+\ldots+v_n\cdot e_n=\sum\limits_{k=1}^{n}v_k\cdot e_k$ con $v_1,v_2,\dotsc,v_n$ componenti di $\underline{v}$\\
+In $\R^n$ Ci sono $n$ vettori $e_1,e_2,\dotsc,e_n$ della base, se $\underline{v}\in \R^n \implies \underline{v}=v_1\cdot e_1+v_2\cdot e_2+\ldots+v_n\cdot e_n=\sum\limits_{k=1}^{n}v_k\cdot e_k$ con $v_1,v_2,\dotsc,v_n$ componenti di $\underline{v}$\\
 Calcolo delle componenti:
 \[v_k=\underline{v}\cdot e_k\]
 \\
