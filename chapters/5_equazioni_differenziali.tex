@@ -1,6 +1,6 @@
 \chapter{Equazioni Differenziali}
 \section{Preliminari}
-Equazione è un uguaglianza in cui c'è almeno una incognita.\newline
+Equazione è un uguaglianza in cui c'è almeno una incognita.\\
 Equazione \textbf{Funzionale} è un’equazione le cui incognite sono funzioni.
 \begin{note}
 	In un equazione funzionale si cerca l'uguaglianza di: insieme di arrivo, insieme di partenza, corrispondenza.
@@ -123,7 +123,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 	Si considera un intervallo perché l'idea è di studiare l'andamento nel tempo e sarebbe difficile far previsioni con "buchi" di tempo
 \end{note}
 \begin{note}
-	La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la \fullref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione.\newline
+	La condizione $x(t_0) = x_0$ viene spesso definita condizione iniziale, malgrado la \fullref{def:prob_cauchy_ord_1} indichi che $t_0 \in \circdot{I}$, dunque a rigore non dovrebbe essere sulla frontiera di $I$. Questo è dovuto al fatto che, spesso, $t_0$ è proprio all'inizio dell'intervallo in cui si cerca la soluzione dell'equazione.\\
 	Comunque i risultati esposti continuano a valere con piccole modifiche alle dimostrazioni.
 \end{note}
 
@@ -349,7 +349,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{note}
 \begin{note}
 	\hypertarget{note:if_lips_then_loclips}
-	Se $f$ \textbf{lips} su $A\implies f$ \textbf{loc. lips.} su A.\newline
+	Se $f$ \textbf{lips} su $A\implies f$ \textbf{loc. lips.} su A.\\
 	Concettualmente ci si porta nel caso della sfera $B$ con $r$ pari al raggio di $I\times A$ su cui è definita $f$
 \end{note}
 \begin{example}
@@ -373,7 +373,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\end{axis}
 				\end{tikzpicture}
 			}
-			\caption{No Loc. lips.\newline No lips.}
+			\caption{No Loc. lips.\\ No lips.}
 		\end{subfigure}
 		\begin{subfigure}{.24\textwidth}
 			\centering
@@ -389,7 +389,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\end{axis}
 				\end{tikzpicture}
 			}
-			\caption{Sì loc. lips.\newline Sì lips.}
+			\caption{Sì loc. lips.\\ Sì lips.}
 		\end{subfigure}
 		\begin{subfigure}{.24\textwidth}
 			\centering
@@ -405,7 +405,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\end{axis}
 				\end{tikzpicture}
 			}
-			\caption{Sì loc. lips.\newline No lips.}
+			\caption{Sì loc. lips.\\ No lips.}
 		\end{subfigure}
 		\begin{subfigure}{.24\textwidth}
 			\centering
@@ -425,7 +425,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 					\end{axis}
 				\end{tikzpicture}
 			}
-			\caption{Sì loc. lips.\newline No lips.}
+			\caption{Sì loc. lips.\\ No lips.}
 		\end{subfigure}
 	\end{figure}
 \end{example}
@@ -545,16 +545,17 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) + b = t - t_0\\
 			2\bigl(\sqrt{x(t)} - \sqrt{x(t_0)}\bigr) = t - t_0 - b\\
 			x_a(t) = \left( \sqrt{x_0} + \frac{1}{2}(t-t_0-b) \right)^2\\
-			x_a(t) = x_0 + \frac{1}{4}(t-t_0-b)^2
+			x_a(t) = x_0 + \sqrt{x_0} \cdot (t-t_0-b) + \frac{1}{4}(t-t_0-b)^2
 		\end{gather*}
 		Aggiungendo anche la soluzione per $x < 0$ (con la costante $a$, stavolta), si ottiene
 		\begin{equation*}
 			x_{a,b}(t) =
 			\begin{cases}
 				\begin{array}{ll}
-					x_0 - \frac{1}{4}(t-t_0-a)^2 & \text{se } t \in \intervalopcl{-\infty}{a}\\
+					% TODO controllare i segni dell'equazione per t < a. Il primo - serve?
+					x_0 - \sqrt{x_0} \cdot (t-t_0-a) - \frac{1}{4}(t-t_0-a)^2 & \text{se } t \in \intervalopcl{-\infty}{a}\\
 					x_0 & \text{se } t \in \intervalclose{a}{b}\\
-					x_0 + \frac{1}{4}(t-t_0-b)^2 & \text{se } t \in \intervalclop{b}{+\infty}
+					x_0 + \sqrt{x_0} \cdot (t-t_0-b) + \frac{1}{4}(t-t_0-b)^2 & \text{se } t \in \intervalclop{b}{+\infty}
 				\end{array}
 			\end{cases}
 		\end{equation*}
@@ -1102,18 +1103,19 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			x(0) = 1
 		\end{cases}
 	\]
-	Essendo a variabili separabili, procediamo
+	Essendo a variabili separabili, procediamo sostituendo $x' = \frac{\integrald{x}}{\integrald{t}}$
 	\begin{align*}
-		\frac{\integrald{x}}{\integrald{t}} &= x^2(t)\\
-		\frac{\integrald{x}}{x^2(t)} &= \integrald{t}\\
-		\int_0^t \frac{\integrald{x}}{x^2(\tau)} \integrald{\tau} &= \int_0^t \integrald{\tau}
-		\intertext{Applicando al primo membro le normali regole d'integrazione delle funzioni composte otteniamo}
-		-\frac{1}{x(t)} + 1 &= t
+		\frac{\integrald{x}}{\integrald{t}} &= x^2\\
+		\frac{\integrald{x}}{x^2} &= \integrald{t}\\
+		\int \frac{1}{x^2} \integrald{x} &= \int \integrald{t}\\
+		-\frac{1}{x} + c &= t
+		\shortintertext{Sostituendo $t=0$ e $x=1$, provenienti dalla condizione iniziale del Problema dato, si ha $c=1$}
+		-\frac{1}{x} + 1 &= t
 	\end{align*}
-	Da cui si ricava $x(t) = \frac{1}{1-t}$, che è unica soluzione del Problema di Cauchy ed ha asintoto verticale in $t=1$.
+	Da cui si ricava $x = \frac{1}{1-t}$, che è unica soluzione del Problema di Cauchy ed ha asintoto verticale in $t=1$.
 
 	\begin{figure}[H]
-		\begin{subfigure}{.49\textwidth}
+		\begin{subfigure}{.45\textwidth}
 			\centering
 			\resizebox{\linewidth}{!}{
 				\begin{tikzpicture}
@@ -1132,7 +1134,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 				\end{tikzpicture}
 			}
 		\end{subfigure}
-		\begin{subfigure}{.49\textwidth}
+		\begin{subfigure}{.45\textwidth}
 			\centering
 			\resizebox{\linewidth}{!}{
 				\begin{tikzpicture}
@@ -1345,8 +1347,8 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{equation}
 	Ammette un'unica soluzione definita in tutto l'intervallo $I$
 	\begin{note}
-		Non è necessario dimostare l'unicità in quanto la soluzione sarà localmente unica in ogni intorno di un punto e quindi si può espandere ad ogni intorno di ogni punto della soluzione.\newline
-		È inoltre garantita anche la dipendenza continua, dunque è possibile scegliere un $\delta$ (dalla \fullref{teo:cau_locale_part_2}) grande a piacere
+		Non è necessario dimostare l'unicità in quanto la soluzione sarà localmente unica in ogni intorno di un punto e quindi si può espandere ad ogni intorno di ogni punto della soluzione.\\
+		È inoltre garantita anche la dipendenza continua, dunque è possibile scegliere un $\delta$ (dal \fullref{teo:cau_locale_part_2}) grande a piacere.
 	\end{note}
 	\begin{proof}
 		Il \fullref{teo:cau_locale_part_1} assicura esistenza ed unicità della soluzione su un intervallo centrato nell'istante iniziale. È necessario dimostrare che la soluzione può essere estesa a tutto l'intervallo $I$ in questione. Come già parzialmente anticipato in \fullref{ex:cau_glob_asint}, questo non è possibile in due casi:

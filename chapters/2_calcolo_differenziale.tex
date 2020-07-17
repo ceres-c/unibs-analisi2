@@ -269,7 +269,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		È derivabile parzialmente rispetto a $x$ ma non rispetto a $y$ in $(0,0)$, infatti
 		\begin{align*}
 			\partial_x f(0,0) &= \lim\limits_{t \to 0} \frac{f(0+t,0)-f(0,0)}{t} = \frac{t-0}{t} = 1\\
-			\partial_y f(0,0) &= \lim\limits_{t \to 0} \frac{f(0,0+t)-f(0,0)}{t} = \frac{\sqrt{t}-0}{t} = +\infty \implies \nexists \text{ limite finto}
+			\partial_y f(0,0) &= \lim\limits_{t \to 0} \frac{f(0,0+t)-f(0,0)}{t} = \frac{\sqrt{t}-0}{t} = +\infty \quad \implies \quad \nexists \text{ limite finto}
 		\end{align*}
 	\end{solution}
 \end{exercise}
@@ -312,30 +312,22 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 \end{exercise}
 \begin{exercise}
 	Quali tra le seguenti uguaglianze sono vere? (In tutte, $x \to 0$)
-	\begin{itemize}
-		\begin{minipage}{0.33\linewidth}
-			\item $o(x) = o(x) + o(x)$
-			\item $o(x^2) = o(x) \cdot o(x)$
-			\item $o(x^2) = o(x) - o(x)$
-		\end{minipage}
-		\begin{minipage}{0.33\linewidth}
-			\item $\sqrt{x} = o(x)$
-			\item $o(x) = \abs{o(x)}$
-			\item $x = o(\sqrt{x})$
-		\end{minipage}
-		\begin{minipage}{0.33\linewidth}
-			\item $o(x) = 10^6 o(x)$
-			\item $x + x^2 = o(x)$
-			\item $x = o(x + x^2)$
-		\end{minipage}
-	\end{itemize}
+	\begin{align*}
+		o(x) &= o(x) + o(x)			&\sqrt{x} &= o(x)	&o(x) &= 10^6 o(x)\\
+		o(x^2) &= o(x) \cdot o(x)	&o(x) &= \abs{o(x)}	&x + x^2 &= o(x)\\
+		o(x^2) &= o(x) - o(x)		&x &= o(\sqrt{x})	&x &= o(x + x^2)
+	\end{align*}
 \end{exercise}
 \vspace*{\baselineskip}
 La seguente definizione è da ritenersi già nota da Analisi 1
 \begin{definition}[Derivata in $\R$]
 	\index{Derivata!in $\R$}
 	Siano $A \subseteq \R$ e $x_0 \in \circdot{A}$. Sia $f: A \to \R$
-	\[f \text{ \textbf{Derivabile} in } x_0 \quad \bydef \quad \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \text{  esiste finito}\]
+	\[
+		f \text{ \textbf{Derivabile} in } x_0
+		\quad \bydef \quad
+		\lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \text{  esiste finito}
+	\]
 \end{definition}
 
 \begin{samepage}
@@ -418,7 +410,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			M_2 \text{ derivata totale di } f \text{ in } x_0
 		\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		M_1 = M_2
 	\end{equation*}
 	\begin{proof}
@@ -437,7 +429,11 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \end{proposition}
 \begin{proposition}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \to \R^m$
-	\[f \text{ \textbf{Differenziabile} in } x_0 \implies f \text{ \textbf{Continua} in } x_0\]
+	\[
+		f \text{ \textbf{Differenziabile} in } x_0
+		\quad \implies \quad
+		f \text{ \textbf{Continua} in } x_0
+	\]
 	\begin{proof}
 		Per ipotesi $x_0 \in \circdot{A}$, dunque $x_0$ è di accumulazione. A questo punto, grazie alla \fullref{prop:f_cont_se_isol_o_accum} basta verificare che $\lim\limits_{x \to x_0} f(x) = f(x_0)$. Dalla \fullref{def:differenz}
 		\[f(x_0 + h) = f(x_0) + Mh + o(h) \text{ per } h \to 0\]
@@ -450,11 +446,11 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \to \R^m$
 	\[
 		f \text{ \textbf{Differenziabile} in } x_0
-		\implies
+		\quad \implies \quad
 		\begin{cases}
 			\begin{array}{c}
-				f \text{ ammette ogni \textbf{Derivata Direzionale} in } x_0\\[-1ex]
-				e\\[-1ex]
+				f \text{ ammette ogni \textbf{Derivata Direzionale} in } x_0\\
+				e\\
 				\forall v \in \R^n \setminus \brackets{0} \quad D_v f(x_0) = Df(x_0)v
 			\end{array}
 		\end{cases}
@@ -475,7 +471,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \to \R^m$
 	\[
 		f \text{ \textbf{Differenziabile} in } x_0
-		\implies
+		\quad \implies \quad
 		\begin{cases}
 			\begin{array}{c}
 				f \text{ ammette ogni \textbf{Derivata Parziale} in } x_0\\
@@ -550,7 +546,11 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \end{observation}
 \begin{corollary}
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \to \R^m$
-	\[f \text{ \textbf{Differenziabile} in } x_0 \implies f \text{ \textbf{Derivabile} in } x_0\]
+	\[
+		f \text{ \textbf{Differenziabile} in } x_0
+		\quad \implies \quad
+		f \text{ \textbf{Derivabile} in } x_0
+	\]
 	\begin{proof}
 		Mediante il \fullref{coro:se_diff_deriv_parz} si vede immediatamente che rispetta la \fullref{def:deriv_parz}.
 	\end{proof}
@@ -603,16 +603,15 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	Siano $A \subseteq \R^n$, $x_0 \in \circdot{A}$ e $f:A \to \R^m$.
 	\[
 		\left.
-		\text{
-			\begin{tabular}{c}
-				Per $i = 1,\:\dotsc\:,m$ e $j = 1,\:\dotsc\:,n$\\
-				$\frac{\partial f_i}{\partial x_j}$ è \textbf{definita} in un \textbf{intorno} di $x_0$ e \textbf{Continua} in $x_0$
-			\end{tabular}
-		}
+			\begin{array}{c}
+				\text{Per } i = 1,\:\dotsc\:,m \text{ e } j = 1,\:\dotsc\:,n\\
+				\dfrac{\partial f_i}{\partial x_j} \text{ è \textbf{definita} in un intorno di } x_0 \text{ e  \textbf{Continua} in } x_0
+			\end{array}
 		\right\}
-		\implies\\
+		\quad \implies \quad
 		f \text{ è \textbf{Differenziabile} in } x_0
 	\]
+	Cioè la verifica della Differenziabilità in un punto può essere ricondotta alla verifica di esistenza e continuità delle Derivate Parziali.
 	\begin{proof}
 		Si può supporre $n = 2$ e $m = 1$ in quanto il caso più generale è del tutto analogo.\\
 		È necessario verificare la \fullref{def:differenz}, dunque in $\R^n = \R^2$ si ha
@@ -687,21 +686,21 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 				\left( \frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)\right) h
 		\end{align*}
 		Si passa dunque alla norma
-		\begin{align*}
-			&\norm{f(x_0 + h, y_0 + k) - f(x_0, y_0) - Df(x_0, y_0) \begin{bmatrix}h\\k\end{bmatrix}}\\
+		\begin{gather*}
+			\norm{f(x_0 + h, y_0 + k) - f(x_0, y_0) - Df(x_0, y_0) \begin{bmatrix}h\\k\end{bmatrix}}\\
 			\shortintertext{Separando come fatto prima ed applicando la disguguaglianza triangolare}
-			\leq &	\norm{\left( \frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0) \right) k} +
+			\leq 	\norm{\left( \frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0) \right) k} +
 					\norm{\left( \frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)\right) h}
 			\shortintertext{Per proprietà \ref{itm:def_norm_propr_lambda} da \fullref{def:norma}}
-			= & \norm{\frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0)} \abs{k} +
+			=  \norm{\frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0)} \abs{k} +
 				\norm{\frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)} \abs{h}
 			\shortintertext{Presa ora la norma del vettore $(h,k)$, cioè $\norm{(h,k)} = \sqrt{h^2 + k^2}$, sicuramente $\abs{h} \leq \norm{(h,k)}$ e $\abs{k} \leq \norm{(h,k)}$, dunque}
-			\leq &	\norm{\frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0)} \sqrt{h^2 + k^2} +
+			\leq 	\norm{\frac{\partial f}{\partial y} (x_0 + h, y_0 + \beta k) - \frac{\partial f}{\partial y} (x_0 + h, y_0)} \sqrt{h^2 + k^2} +
 					\norm{\frac{\partial f}{\partial x} (x_0 + \alpha h, y_0) - \frac{\partial f}{\partial x} (x_0, y_0)} \sqrt{h^2 + k^2}
 			\shortintertext{Essendo $h,k \to 0$ da \cref{eq:deriv_tot_def_diff} e graze alla continuità delle derivate, le due norme tendono a $0$. Inoltre, per \fullref{def:o_piccolo}}
-			=\; &o(1) \sqrt{h^2 + k^2} \text{ per } \begin{bmatrix}h\\k\end{bmatrix} \to 0\\
-			=\; &o(\sqrt{h^2 + k^2}) \text{ per } \begin{bmatrix}h\\k\end{bmatrix} \to 0
-		\end{align*}
+			=\; o(1) \sqrt{h^2 + k^2} \text{ per } \begin{bmatrix}h\\k\end{bmatrix} \to 0\\
+			=\; o(\sqrt{h^2 + k^2}) \text{ per } \begin{bmatrix}h\\k\end{bmatrix} \to 0
+		\end{gather*}
 		Da cui la tesi, avendo verificato la \fullref{def:differenz}.
 	\end{proof}
 \end{theorem}
@@ -737,7 +736,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \begin{corollary}
 	Sia $A \subseteq \R^n$ un \textbf{Aperto}. Se $f \in \cntclass{1}(A;\R^m)$ allora $f$ è \textbf{Differenziabile} su $A$.
 	\begin{proof}
-		Applicare la \fullref{teo:diff_tot}
+		Applicare il \fullref{teo:diff_tot}.
 	\end{proof}
 \end{corollary}
 \begin{proposition}
@@ -765,7 +764,8 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 	\index{Differenziale!Prodotto per Scalare}
 	Siano $A \subseteq \R^n$ un \textbf{Aperto}, $x_0 \in A$, $f:\; A \to \R^m$ e $\lambda \in \R$, allora
 	\[
-		f \text{ \textbf{Differenziabile} in } x_0 \implies
+		f \text{ \textbf{Differenziabile} in } x_0
+		\quad \implies \quad
 		\begin{cases}
 			\begin{array}{c}
 				\lambda f \text{ \textbf{Differenziabile} in } x_0\\
@@ -793,7 +793,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			g \text{ \textbf{Differenziabile} in } x_0
 		\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		\begin{cases}
 			\begin{array}{c}
 				f + g \text{ \textbf{Differenziabile} in } x_0\\
@@ -827,7 +827,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			g \text{ \textbf{Differenziabile} in } x_0
 		\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		\begin{cases}
 			\begin{array}{c}
 				f \cdot g \text{ \textbf{Differenziabile} in } x_0\\
@@ -938,7 +938,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			(f \circ g)(x_0 + h) &= f \bigl( g(x_0 + h) \bigr)
 			\shortintertext{Sostituendo la \cref{eq:diff_somma_funz_Dg} si ottiene}
 			&= f \bigl( g(x_0) + \underbrace{Dg(x_0)h + o(h)}_{(1)} \bigr)
-			\intertext{Ora è possibile considerare (1) come il $k$ della \cref{eq:diff_somma_funz_Df}, infatti se $h \to 0 \implies k \to 0$. Essendosi ricondotti al primo termine della \cref{eq:diff_somma_funz_Df}, si può anche sostituire $Dg(x_0)h + o(h)$ ai $k$ nel secondo termine e continuare l'uguaglianza. Passando anche l'\textit{o piccolo} a $h$, non avendo più termini in $k$, si ottiene infine:}
+			\intertext{Ora è possibile considerare (1) come il $k$ della \cref{eq:diff_somma_funz_Df}, infatti se $h \to 0 \quad \implies \quad k \to 0$. Essendosi ricondotti al primo termine della \cref{eq:diff_somma_funz_Df}, si può anche sostituire $Dg(x_0)h + o(h)$ ai $k$ nel secondo termine e continuare l'uguaglianza. Passando anche l'\textit{o piccolo} a $h$, non avendo più termini in $k$, si ottiene infine:}
 			&= f\bigl( g(x_0) \bigr) + Df\bigl( g(x_0) \bigr) \bigl(Dg(x_0)h + o(h)\bigr) + o(h) \quad \text{per } h \to 0\\
 			&= f\bigl( g(x_0) \bigr) + Df\bigl( g(x_0) \bigr) Dg(x_0)h + Df\bigl( g(x_0) \bigr) o(h) + o(h) \quad \text{per } h \to 0\\
 			&= f\bigl( g(x_0) \bigr) + Df\bigl( g(x_0) \bigr) Dg(x_0)h + o(h) + o(h) \quad \text{per } h \to 0\\
@@ -1090,6 +1090,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 				\end{axis}
 			\end{tikzpicture}
 		\end{center}
+		Si può notare che, preso l'$M$ identificato graficamente, si ha $\abs{f(x_1) - f(x_0)} \leq M \cdot \abs{x_1 - x_0}$ come da enunciato.
 	\end{note}
 	\begin{proof}
 		Si può dare per scontato che $x_1 \neq x_0$, in quanto, se $x_1 = x_0$ , allora $f(x_1) = f(x_0)$ e la \cref{eq:accresc_fin} diventerebbe $0 \leq 0$. La tesi sarebbe quindi verificata direttamente.\\
@@ -1107,14 +1108,13 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\[v \cdot f(x_1) - v \cdot f(x_0) = v \cdot Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)\]
 		Ricordando che la $F$ è a valori in $\R$, si può calcolare il valore assoluto mantenendo l'uguaglianza
 		\[\abs{v \cdot f(x_1) - v \cdot f(x_0)} = \abs{v \cdot Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)}\]
-		Essendo il secondo membro il valore assoluto di un prodotto scalare, si può applicare ad esso la \textbf{Disuguaglianza di Cauchy-Schwarz} ed ottenere
+		Essendo il secondo membro il valore assoluto di un prodotto scalare, si può applicare ad esso la \reffull{ex:disug_cau_schwa_matr} ed ottenere: \index{Disuguaglianza!Cauchy-Schwarz}
 		\[\abs{v \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \norm{v} \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)}\]
 		Dunque, seaparando ulteriorimente le norme si arriva alla:
 		\begin{equation}
 			\label{eq:accr_fin_norm}
 			\abs{v \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \norm{v} \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}
 		\end{equation}
-
 		Essendo, come detto all'inzio, $f(x_1) \neq f(x_0)$ è ora possibile scegliere un $v$ "comodo", come:
 		\[v = \frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \bigl( f(x_1) - f(x_0) \bigr)\]
 		\begin{note}
@@ -1172,13 +1172,15 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 	Siano $A \subseteq \R^n$ e $f: A \to \R$
 	\[
 		\left.
-			\begin{array}{l}
-				A \text{ \textbf{Aperto Convesso}}\\
-				f \text{ \textbf{Differenziabile} in } A\\
+			\begin{array}{c}
+				A \text{ \textbf{Aperto Convesso}}\\[-1ex]
+				e\\[-0.5ex]
+				f \text{ \textbf{Differenziabile} in } A\\[-1ex]
+				e\\[-0.5ex]
 				\forall x \in A \quad \nabla f(x) = 0
 			\end{array}
 		\right\}
-		\implies\\
+		\quad \implies \quad
 		f \text{ è \textbf{Costante} su } A
 	\]
 	\vspace*{-\baselineskip}
@@ -1236,13 +1238,15 @@ Il seguente esercizio mostra come il \fullref{teo:lagrange} non possa essere est
 	Siano $A \subseteq \R^n$ e $f: A \to \R$
 	\[
 		\left.
-			\begin{array}{l}
-				A \text{ \textbf{Aperto Connesso}}\\
-				f \text{ \textbf{Differenziabile} in } A\\
+			\begin{array}{c}
+				A \text{ \textbf{Aperto Connesso}}\\[-1ex]
+				e\\[-0.5ex]
+				f \text{ \textbf{Differenziabile} in } A\\[-1ex]
+				e\\[-0.5ex]
 				\forall x \in A \quad \nabla f(x) = 0
 			\end{array}
 		\right\}
-		\implies\\
+		\quad \implies \quad
 		f \text{ è \textbf{Costante} su } A
 	\]
 	\vspace*{-\baselineskip}
@@ -1273,7 +1277,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 	\[\boldsymbol{\frac{\partial^2 f}{\partial x_j \partial x_i} (x_0)}\]
 	\vspace*{-\baselineskip}
 	\begin{note}
-		Altre notazioni comunemente utilizzate per le derivate parziali secone sono: $D^2_{x_j x_i} f$, $\partial^2_{ji} f$, $\partial_{x_j x_i} f$, $f_{x_j x_i}$, $f_{ji}$
+		Altre notazioni comunemente utilizzate sono: $D^2_{x_j x_i} f ,\;\; \partial^2_{ji} f ,\;\; \partial_{x_j x_i} f ,\;\; f_{x_j x_i} ,\;\; f_{ji}$
 	\end{note}
 	\begin{note}
 		L'ordine qui utilizzato, cioè
@@ -1293,21 +1297,19 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 	\end{solution}
 \end{exercise}
 
-\begin{definition}[Differenziale Seconda]
-	\index{Differenziale!Seconda}
+\begin{definition}[Differenziale Secondo]
+	\index{Differenziale!Secondo}
 	\label{def:differenz_second}
 	Siano $A \subseteq \R^n$, $f:A \to \R^m$ e $x_0 \in \circdot{A}$
 	\[
 		f \text{ è \textbf{Differenziabile} } 2 \text{ volte in } x_0
 		\quad \bydef \quad
 		\begin{cases}
-			\text{
-				\begin{tabular}{c}
-					$f$ è \textbf{Differenziabile} in un intorno di $x_0$\\
-					\textit{e}\\
-					$f'$ è \textbf{Differenziabile} in $x_0$
-				\end{tabular}
-			}
+			\begin{array}{c}
+				f \text{ è \textbf{Differenziabile} in un intorno di } x_0\\
+				e\\
+				f' \text{ è \textbf{Differenziabile} in } x_0
+			\end{array}
 		\end{cases}
 	\]
 	Dove $f'$ è una funzione definita in un intorno di $x_0$ a valori in $\mat(m \times n) \in \R^{mn}$.
@@ -1466,9 +1468,6 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 \end{exercise}
 
 \subsection{Sviluppo in Serie di Taylor al II Ordine}
-\begin{note}
-	Differentemente da quanto fatto sul libro, tutte le funzioni in esame saranno a valori in $\R^1$, visto che a lezione è trattato solo questo caso e che il Resto di Lagrange non è applicabile nel caso di $f: \R^n \to \R^m$.
-\end{note}
 Fino ad ora son stati visti 2 "livelli" di approssimazione di una funzione $f$ in un intorno del punto $x_0$, appartenente all'insieme di definizione di $f$. Per $x \to x_0$:
 \begin{itemize}
 	\item Livello $0$: \quad $f$ continua \qquad $f(x) = f(x_0) + o(1)$
@@ -1502,7 +1501,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 	\begin{samepage}
 		\begin{note}
 			Nella \cref{eq:pol_taylor}, con la forma $D^if(x_0; h)$ si intende lo \textit{scalare} ottenuto applicando all’incremento $h$ il differenziale $i$\textit{-esimo} calcolato in $x_0$.\\
-			Supponendo $f: R^n \to \R^1$, la $D^if(x_0; h)$ diventa, ad esempio:
+			Supponendo $f: \R^n \to \R^1$, la $D^if(x_0; h)$ diventa, ad esempio:
 			\begin{itemize}
 				\item $i = 1 \qquad Df(x_0; h) = \nabla f(x_0) \cdot h$
 				\item $i = 2 \qquad D^2f(x_0; h) = h^T \cdot H_f(x_0) \cdot h$ \quad dove $h^T$ è $h$ trasposto e $H_f$ è la \fullref{def:hessiana}
@@ -1553,7 +1552,7 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 \end{observation}
 \cbend
 
-\noindent Passando ora al caso specifico degli sviluppi del secondo ordine
+\noindent Si passa ora al caso specifico degli sviluppi del secondo ordine
 
 \begin{samepage}
 	\begin{proposition}[Sviluppo di Taylor al Secondo Ordine con resto di Peano]
@@ -1685,7 +1684,7 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 			f(x,y) = 0
 		\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		y = \varphi(x)
 	\]
 	Con $\varphi$ \textbf{Funzione Implicita} definita da $f(x,y)=0$.
@@ -1718,7 +1717,7 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 	\begin{note}
 		La $\varphi_1$ di \cref{eq:ese_funz_impl_cerchio} potrebbe essere scritta in funzione di $y$ poiché, a priori, non c'è distinzione tra le variabili.
 	\end{note}
-	Un primo problema nasce dalla scelta degli insiemi $\mathcal{X}$ e $\mathcal{Y}$, per esempio sarebbero stati altrettanto accettabili $\mathcal{X} = \intervalopen{-\frac{1}{2}}{\frac{1}{2}}$ e $\mathcal{Y} = R^+ $. Un secondo problema è la scelta del punto nel cui intorno si cercherà la funzione implicita: sarebbe stato possibile scegliere il punto $(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})$ oppure ancora $(-\frac{1}{2},-\frac{\sqrt{3}}{2})$. Sicuramente $(1,0)$ non è un punto valido, dato che non si verifica il punto 3 della \fullref{def:funz_impl}, perché una eventuale relazione come $\varphi_3$ da \autoref{fig:ese_funz_impl_cerchio} non sarebbe una funzione.
+	Un primo problema nasce dalla scelta degli insiemi $\mathcal{X}$ e $\mathcal{Y}$, per esempio sarebbero stati altrettanto accettabili $\mathcal{X} = \intervalopen{-\frac{1}{2}}{\frac{1}{2}}$ e $\mathcal{Y} = \R^+ $. Un secondo problema è la scelta del punto nel cui intorno si cercherà la funzione implicita: sarebbe stato possibile scegliere il punto $\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right)$ oppure ancora $\left(-\frac{1}{2},-\frac{\sqrt{3}}{2}\right)$. Sicuramente $(1,0)$ non è un punto valido, dato che non si verifica il punto 3 della \fullref{def:funz_impl}, perché una eventuale relazione come $\varphi_3$ da \autoref{fig:ese_funz_impl_cerchio} non sarebbe una funzione.
 	~
 	\begin{figure}[H]
 		\centering
@@ -1868,7 +1867,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\end{enumerate}
 	\begin{note}
 		\hypertarget{note:teo_funz_impl_note_ipot1}{}
-		Nel \fullref{teo:funz_impl_lin} si utilizzava direttamente la matrice dell'applicazione lineare, mentre qui si ha la la matrice Derivata Totale. Questo perché il differenziale è la funzione che meglio approssima una funzione in un suo punto, permettendo una pseudo linearità malgrado la $f$ non sia (necessariamente) lineare.
+		Nel \fullref{teo:funz_impl_lin} si utilizzava direttamente la matrice dell'applicazione lineare, mentre qui si ha la matrice Derivata Totale. Questo perché il differenziale è la funzione che meglio approssima una funzione in un suo punto, permettendo una pseudo linearità malgrado la $f$ non sia (necessariamente) lineare.
 	\end{note}
 	\begin{note}
 		Nei punti \ref{itm:ipot_funz_impl_4} e \ref{itm:ipot_funz_impl_5} delle ipotesi si ha $D_yf$ perché si sta cercando una funzione implicita che esprima la $y$, se la si stesse cercando per la $x$ si dovrebbe utilizzare la $D_xf$
@@ -1886,10 +1885,12 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 			\end{equation}
 		\item \label{itm:tesi_funz_impl_1} Se $\varphi_1: \mathcal{X}_1 \to \mathcal{Y}_1$ e $\varphi_2: \mathcal{X}_2 \to \mathcal{Y}_2$ soddisfano alla \cref{eq:teo_funz_impl_f_phi} con $\mathcal{X}_1, \mathcal{X}_2 \subseteq \mathcal{X}$ intorni di $x_0$ e $\mathcal{Y}_1, \mathcal{Y}_2 \subseteq \mathcal{Y}$ intorni di $y_0$, allora
 			\[\varphi_1 = \varphi_2 \quad \text{su} \quad \mathcal{X} \cap \mathcal{X}_1 \cap \mathcal{X}_2\]
+			\vspace*{-1.5\baselineskip}
+			\begin{note}
+				Cioè, prendendo due $\varphi$ definite su intervalli diversi, esse assumeranno gli stessi valori nei punti comuni ad entrambi gli intervalli, nel caso in cui ce ne siano.\\
+				Questa proprietà viene spesso indicata dalla forma "$\varphi$ è unica \textit{localmente}".
+			\end{note}
 	\end{enumerate}
-	\begin{note}
-		Il punto \ref{itm:tesi_funz_impl_1} significa che prendendo due $\varphi$ definite su intervalli diversi, esse assumeranno gli stessi valori nei punti comuni ad entrambi gli intervalli (se esistono). Questa proprietà viene spesso indicata dalla forma "$\varphi$ è unica \textit{localmente}".
-	\end{note}
 	\begin{proof}
 		Analogamente alla \cref{eq:metodo_newton}, passando al caso multidimensionale, si definisce la funzione
 		\begin{equation}
@@ -1976,6 +1977,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	% TODO solution
 \end{exercise}
 \begin{theorem}[Differenziale Primo della Funzione Implicita]
+	\index{Differenziale!Funzione Implicita!Primo}
 	\label{teo:diff_primo_funz_impl}
 	Nelle stesse ipotesi del \fullref{teo:funz_impl} ed aggiungendo $f \in \cntclass{1}$, allora $\varphi \in \cntclass{1}$ e vale
 	\begin{equation}
@@ -1985,7 +1987,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\begin{proof}
 		Omessa a lezione.\\
 		\cbstart
-		$f$ è di classe $\cntclass{1} \implies f$ è Lipschtziana $\implies$ la funzione $T$ definita in \cref{eq:funz_impl_T} è Lipschtziana anche in $x$ (si veda \fullref{ex:comp_funz_lips}) $\implies$ la funzione implicita $y = \varphi(x)$ è Lipschtziana (per \fullref{teo:contr_con_para_lips_definisce_funz_lips}).
+		$f$ è di classe $\cntclass{1} \quad \implies \quad f$ è Lipschtziana $\quad \implies \quad$ la funzione $T$ definita in \cref{eq:funz_impl_T} è Lipschtziana anche in $x$ (si veda \fullref{ex:comp_funz_lips}) $\quad \implies \quad$ la funzione implicita $y = \varphi(x)$ è Lipschtziana (per \fullref{teo:contr_con_para_lips_definisce_funz_lips}).
 
 		Se $\varphi$ è derivabile, allora le regole di derivazione garantiscono che (da \fullref{ex:diff_funz_comp}):
 		\[0 = D \Bigl( f \bigl( x, \varphi(x) \bigr) \Bigr) = D_xf \bigl( x, \varphi(x) \bigr) + D_yf \bigl( x, \varphi(x) \bigr)\]
@@ -2014,6 +2016,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 \end{theorem}
 \begin{corollary}[Differenziale Primo della Funzione Implicita - Caso $n=1$, $m=1$]
 	\label{coro:diff_primo_funz_impl_n1_m1}
+	\index{Differenziale!Funzione Implicita!Primo - Caso $n=1$, $m=1$}
 	Il \fullref{teo:diff_primo_funz_impl} nel caso caso $\boldsymbol{n=1}$, $\boldsymbol{m=1}$, la \cref{eq:diff_primo_funz_impl} diventa
 	\[
 		D\varphi(x) = -\frac{
@@ -2037,20 +2040,21 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 \end{corollary}
 \cbstart
 \begin{corollary}[Differenziale Secondo della Funzione Implicita - Caso $n=1$, $m=1$]
+	\index{Differenziale!Funzione Implicita!Secondo - Caso $n=1$, $m=1$}
 	Nelle stesse ipotesi del \fullref{teo:funz_impl} ed aggiungendo $f \in \cntclass{2}$, allora $\varphi \in \cntclass{2}$ e vale
 	\begin{equation}
 		\label{eq:diff_sec_funz_impl}
 		D^2\varphi(x) = -
 		\frac{
 			\frac{\partial^2 f}{\partial x \partial x} (\dots)
-			\left( \frac{\partial f}{\partial y} (\dots) \right)^2 -
+			\left[ \frac{\partial f}{\partial y} (\dots) \right]^2 -
 			2 \frac{\partial f}{\partial x} (\dots)
 			\frac{\partial f}{\partial y} (\dots)
 			\frac{\partial^2 f}{\partial x \partial y} (\dots) +
 			\frac{\partial^2 f}{\partial y \partial y} (\dots)
-			\left( \frac{\partial f}{\partial x} (\dots) \right)^2
+			\left[ \frac{\partial f}{\partial x} (\dots) \right]^2
 		}{
-			\Bigl( D_yf (\dots) \Bigr)^3
+			\left[ \frac{\partial f}{\partial y} (\dots) \right]^3
 		}
 	\end{equation}
 	\begin{note}
@@ -2258,7 +2262,7 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 	\begin{itemize}[noitemsep]
 		\item $X \subseteq \R^n$ è \textbf{Aperto}
 		\item $x_0 \in X$
-		\item $f \in \cntclass{k}(A;\R^n)$ con $k \geq 1$
+		\item $f \in \cntclass{k}(X;\R^n)$ con $k \geq 1$
 		\item $Df(x_0)$ \textbf{Invertibile}
 	\end{itemize}
 	\begin{note}
@@ -2630,7 +2634,7 @@ Le seguenti condizioni permettono di identificare dei punti \textit{potenzialmen
 				x_0 \text{ punto \textbf{di estremo} per } f
 			\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		D_vf(x_0) = 0
 	\]
 	\begin{proof}
@@ -2662,7 +2666,7 @@ Le seguenti condizioni permettono di identificare dei punti \textit{potenzialmen
 				x_0 \text{ punto \textbf{di estremo} per } f
 			\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		\nabla f(x_0) = 0
 	\]
 	\begin{proof}
@@ -2721,7 +2725,7 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 				x_0 \text{ punto \textbf{di massimo} per } f
 			\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		\begin{cases}
 			\nabla f(x_0) = 0\\
 			D^2f(x_0) = H_f(x_0) \quad \text{\textbf{Semidefinita Negativa}}
@@ -2759,7 +2763,7 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 				x_0 \text{ punto \textbf{di minimo} per } f
 			\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		\begin{cases}
 			\nabla f(x_0) = 0\\
 			D^2f(x_0) = H_f(x_0) \quad \text{\textbf{Semidefinita Positiva}}
@@ -2784,7 +2788,7 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 				D^2f(x_0) = H_f(x_0) \text{ \textbf{Definita Negativa}}
 			\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		x_0 \text{ \textbf{punto di Massimo Locale} per } f
 	\]
 	\begin{proof}
@@ -2811,7 +2815,7 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 				D^2f(x_0) = H_f(x_0) \text{ \textbf{Definita Positiva}}
 			\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		x_0 \text{ \textbf{punto di Minimo Locale} per } f
 	\]
 	\begin{proof}
@@ -3191,7 +3195,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 
 		Si è così dimostrato che l'incremento $f(x_0 + h, y_0 + k) - f(x_0, y_0)$ da \cref{eq:dim_dir_grad} è massimo quando $h$ ha la direzione del gradiente; dunque il gradiente deve avere direzione e verso del massimo incremento.
 
-		Nel caso in cui si abbia verso opposto $\theta = -180^\circ \implies \cos(\theta) = -1$. Quindi con $\lambda < 0$ si ha minimo incremento.
+		Nel caso in cui si abbia verso opposto $\theta = -180^\circ \quad \implies \quad \cos(\theta) = -1$. Quindi con $\lambda < 0$ si ha minimo incremento.
 		\vspace*{\baselineskip}
 		\begin{center}
 			\begin{tikzpicture}[> = stealth]

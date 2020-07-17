@@ -19,6 +19,7 @@
 	\index{Spazio!Metrico}
 	\index{Metrica}
 	\index{Distanza}
+	\index{Disuguaglianza!Triangolare}
 	\label{def:sp_metrico}
 	Si dice Spazio Metrico $(X,d)$ un insieme $X$ non vuoto in cui sia definita una \textbf{Distanza} (o \textbf{Metrica}), vale a dire una funzione $d: X \times X \to \R$ con le seguenti proprietà:
 	\begin{enumerate}
@@ -356,8 +357,11 @@ Unendo le due definizioni si giunge naturalmente a
 			\item $x = n$
 			\item $y = n+1$
 		\end{itemize}
-		Ora, per ogni $n$, si ha $d = 1$, mentre la $d_P = 2n+1$. È dunque impossibile trovare un $C \in \intervalopen{0}{+\infty}$ (quindi finito) tale per cui
-		\[2n+1 = d_P(x,y) \leq C \cdot d(x,y) = n \quad \text{ con } n \to \infty\]
+		Ora, per ogni $n$, si ha $d = 1$, mentre la $d_P = 2n+1$. È dunque impossibile trovare un $C \in \intervalopen{0}{+\infty}$ (quindi \textbf{finito}) tale per cui
+		\begin{gather*}
+			d_P(x,y) \leq C \cdot d(x,y) \quad \text{con } n \to \infty\\
+			2n+1 \leq C \cdot 1 \quad \text{con } n \to \infty
+		\end{gather*}
 	\end{solution}
 \end{example}
 \begin{example}
@@ -371,8 +375,8 @@ Unendo le due definizioni si giunge naturalmente a
 	sono tutte equivalenti tra di loro.
 \end{example}
 
-\begin{definition}[Sfera]
-	\index{Sfera}
+\begin{definition}[Sfera Aperta]
+	\index{Sfera Aperta}
 	Sia $(X,d)$ uno spazio metrico e siano $x_0 \in X$, $r > 0$. Si dice \textbf{Sfera} (o \textbf{Bolla}, o ancora \textbf{Palla}) \textbf{Aperta} di centro $x_0$ e raggio $r$ l'insieme:
 	\[B(x_0,r)=\brackets{x\in X : d(x,y)<r}\]
 \end{definition}
@@ -394,7 +398,7 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{definition}[Intorno]
 	\index{Intorno}
-	Sia $(X,d)$ uno spazio metrico e sia $x \in X$. \textbf{Intorno di} $\boldsymbol{x}$ è un qualunque sottoinsieme di $X$ che contenga una sfera aperta contentente $x$
+	Sia $(X,d)$ uno spazio metrico e sia $x \in X$. \textbf{Intorno} di $x$ è un qualunque sottoinsieme di $X$ che contenga una sfera aperta contentente $x$
 \end{definition}
 
 \begin{definition}[Punti e Spazi Metrici]
@@ -413,18 +417,19 @@ Unendo le due definizioni si giunge naturalmente a
 		\item \makebox[14em][l]{$x_0$ \textbf{di Frontiera} per $A$} $\bydef$ \quad $\forall r > 0,\; B(x_0, r) \nsubseteq A \text{ e } B(x_0, r) \nsubseteq X \setminus A$\newline
 			{\footnotesize Cioè, per qualsiasi $r$, la sfera non appartiene completamente né ad $A$, né a $X \setminus A$}
 		\item \makebox[14em][l]{$x_0$ \textbf{Isolato} per $A$} $\bydef$ \quad $\exists r > 0:\; B(x_0, r) \cap A = \brackets{x_0}$\newline
-			{\footnotesize Cioè è possible trovare un $r$ per cui l'intersezione tra la sfera ed $A$ contiene solo $x_0$\\Esempio: i numeri naturali con $r = 0,5$}
+			{\footnotesize Cioè è possible trovare un $r$ per cui l'intersezione tra la sfera ed $A$ contiene solo $x_0$\\
+			Esempio: $A = \N$, insieme dei numeri naturali, e $r = \frac{1}{2}$}
 		\item \makebox[14em][l]{$x_0$ \textbf{di Accumulazione} per $A$} $\bydef$ \quad $\forall r > 0,\; \bigl( B(x_0, r) \cap A \bigr) \setminus \brackets{x_0} \neq \emptyset$\newline
 			{\footnotesize Cioè, per qualsiasi $r$, l'intersezione tra la sfera ed $A$ è sempre non vuota (non considerando $x_0$ stesso)}
 			\begin{note}
-				$x_0$ non deve necessariamente essere $\in A$, basta che sia indefinitamente vicino a dei punti di $A$.
+				Si è posto $x_0 \in X$, dunque $x_0$ può essere di Accumulazione per $A$ con $x_0 \notin A$. È sufficiente che $x_0$ sia indefinitamente vicino ai punti di $A$.
 			\end{note}
 	\end{itemize}
 \end{definition}
 \begin{example}
 	Dato l'insieme $A \subset \R^2$ munito della Distanza Euclidea e rappresentato in figura
 	\begin{center}
-		\begin{tikzpicture}
+		\begin{tikzpicture}[scale=0.9]
 			\draw plot[smooth, tension=.7] coordinates
 				{(-3.5,0.5) (-3,2.5) (-1,3.5) (1.5,3) (4,3.5) (5,2.5) (5,0.5) (2.5,-2) (0,-0.5) (-3,-2) (-3.5,0.5)};
 			\node[circle, fill=black, inner sep=1.2pt, label=north east:$R$] at (0,-1.5) {};
@@ -458,8 +463,8 @@ Unendo le due definizioni si giunge naturalmente a
 				\text{
 					\small
 					\begin{tabular}{c}
-						\textbf{Appartiene} ad $A$\\[-1ex]
-						\textit{o}\\[-1ex]
+						\textbf{Appartiene} ad $A$\\[-.5ex]
+						\textit{o}\\
 						è \textbf{di Accumulazione} per $A$
 					\end{tabular}
 					}
@@ -503,7 +508,15 @@ Unendo le due definizioni si giunge naturalmente a
 	Siano $(X,d)$ uno spazio metrico, $x_0 \in X$ e $A \subseteq X$, $A \neq \emptyset$. Allora valgono le seguenti relazioni
 	\begin{enumerate}
 		\item $x_0$ \textbf{isolato} per $A \implies x_0 \in A$
-		\item $x_0$ \textbf{isolato} per $A \implies \begin{cases} A = \brackets{x_0}\\\qquad \text{o}\\\inf\limits_{A \setminus \brackets{x_0}} d(x,x_0) > 0\end{cases}$
+		\item $x_0$ \textbf{isolato} per $A \implies
+			\begin{cases}
+				\begin{array}{c}
+					A = \brackets{x_0}\\[-1ex]
+					o\\[-1ex]
+					\inf\limits_{A \setminus \brackets{x_0}} d(x,x_0) > 0
+				\end{array}
+			\end{cases}
+			$
 		\item $x_0$ \textbf{interno} ad $A \implies x_0 \in A$
 		\item $x_0$ \textbf{esterno} ad $A \iff \inf\limits_A d(x,x_0) > 0$
 		\end{enumerate}
@@ -558,7 +571,7 @@ Unendo le due definizioni si giunge naturalmente a
 	L'insieme $C = \brackets{(x,y) \in \R^2:\; x^2+y^2 \leq 1} \setminus \brackets{(1,0)}$ è né aperto né chiuso.
 	\begin{solution}~\newline
 		Non è chiuso in quanto la sua frontiera è $\partial C = \brackets{(x,y) \in \R^2:\; x^2+y^2 = 1}$, dunque $(1,0) \in \partial C$, ma per definizione $(1,0) \notin C$\\
-		Non è aperto in quanto, prendendo $(0,1) \in C$, è impossibile trovare un intorno di $(0,1)$ contenuto completamente in $C$
+		Non è aperto in quanto, scegliendo ad esempio $(1,1) \in C$, è impossibile trovare una sfera $B\bigl( (1,1), r \bigr)$ interamente contenuta in $C$.
 	\end{solution}
 \end{example}
 \begin{exercise}
@@ -588,7 +601,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Diametro Spazio Metrico]
 	\index{Diametro}
 	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
-	\[\boldsymbol{\diam}(A) \quad = \quad \sup\limits_{x,y \in A} d(x,y)\]
+	\[\boldsymbol{\diam}(A) \quad = \quad \sup\limits_{\mathclap{x,y \in A}} d(x,y)\]
 	Cioè la "distanza massima" tra due suoi qualsiasi elementi.
 \end{definition}
 \begin{definition}[Spazio Metrico Limitato]
@@ -697,7 +710,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Insieme Finito ed Infinito]
 	\index{Insieme!Finito ed Infinito}
 	Un insieme si dice \textbf{Finito} se il numero dei suoi elementi è finito.\\
-	Un insieme si dice \textbf{Ininito} se non è finito.
+	Un insieme si dice \textbf{Ininito} se non è Finito.
 \end{definition}
 \begin{observation}
 	Con la metrica Euclidea, ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgono i viceversa.
@@ -724,7 +737,10 @@ Unendo le due definizioni si giunge naturalmente a
 	\index{Successione!Convergente}
 	\label{def:lim_succ}
 	Data una successione $x: \N \to X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
-	\[\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0\]
+	\begin{equation}
+		\label{eq:lim_succ}
+		\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0
+	\end{equation}
 	Se $\lim\limits_{n \to +\infty} = x_\infty$, allora la successione $x_n$ è \textbf{Convergente} a $x_\infty$. Si può scrivere: $x_n \to x_\infty$ per $n \to \infty$.
 
 	Cioè la convergenza della successione $x: \N \to X$ a $x_\infty$ equivale alla convergenza a $0$ della successione di numeri reali $\brackets{d(x_n,x_\infty):\; n \in \N}$
@@ -739,8 +755,14 @@ Unendo le due definizioni si giunge naturalmente a
 	\label{prop:succ_conv_lim}
 	Data la successione $x: \N \to X$ di elementi dello spazio metrico $(X,d)$ e dato $x_\infty\in X$:
 	\[\lim\limits_{n \to+\infty}x_n = x_\infty \quad \iff \quad \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n>\nu \text{ vale } d(x_n,x_\infty)<\varepsilon\]
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Questa definizione coincide con la definizione di Limite di Successione di numeri reali data nel corso di Analisi 1 se $X = \R$ e $d(x, y) = \abs{y - x}$.
+	\end{note}
 	\begin{proof}
-		% TODO dimostrazione
+		L'argomento del limite al secondo membro di \cref{eq:lim_succ} è una una successione del tipo
+		\[y_n = d(x_n,x_\infty)\]
+		Inoltre è successione di numeri reali, per \fullref{def:sp_metrico} infatti $d: X \times X \to \R$. Applicando alla $y_n$ la definizione di Limite di Successione di numeri reali (dal corso di Analisi 1) si giunge alla tesi.
 	\end{proof}
 \end{proposition}
 \begin{theorem}[di Unicità del Limite per Successioni]
@@ -796,16 +818,15 @@ Unendo le due definizioni si giunge naturalmente a
 	\label{prop:caratteriz_pti_accumul}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $x_* \in X$. Allora
 	\[
-		x_* \text{ di accumulazione per } A \iff
-		\begin{cases}
-			\begin{tabular}{c}
-				esiste una successione di elementi di $A$,\\[-.5ex]
-				diversi da $x_*$, convergente a $x_*$
-			\end{tabular}
-		\end{cases}
+		x_* \text{ \textbf{di Accumulazione} per } A
+		\quad \iff \quad
+		\begin{tabular}{c}
+			esiste una \textbf{successione} di elementi di $A$,\\[-.5ex]
+			diversi da $x_*$, \textbf{convergente} a $x_*$
+		\end{tabular}
 	\]
 	\begin{note}
-		La puntualizzazione "diversi da $x_*$" specifica che la successione costante $x = x_n$ non è ammissibile.
+		La puntualizzazione "diversi da $x_*$" specifica che la successione costante $x_n = x_*$ non è ammissibile.
 	\end{note}
 	\begin{proof}~
 		\begin{itemize}
@@ -833,13 +854,14 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{corollary}
 	\label{coro:succ_conv_sse_x_in_chius_A}
 	Siano $(X,d)$ uno Spazio Metrico, $A \subseteq X$ e $x_* \in X$. Allora:
-	\[x_* \in \overline{A} \iff
-	\begin{cases}
+	\[
+		x_* \in \boldsymbol{\overline{A}}
+		\quad \iff \quad
 		\begin{tabular}{c}
-			esiste una successione di elementi di $A$,\\[-.5ex]
-			diversi da $x_*$, convergente a $x_*$
+			esiste una \textbf{successione} di elementi di $A$,\\[-.5ex]
+			diversi da $x_*$, \textbf{convergente} a $x_*$
 		\end{tabular}
-	\end{cases}\]
+	\]
 	\begin{proof}~
 		\begin{itemize}
 			\item[$\implies$] Direttamente dalla \fullref{def:topologia_spa_metri}:
@@ -860,16 +882,14 @@ Unendo le due definizioni si giunge naturalmente a
 	\index{Condizione!di Cauchy per Successioni}
 	\label{def:succ_cau}
 	Sia $(X,d)$ uno spazio metrico e $x: \N \to X$ una successione d in $X$.
-	\begin{equation*}
-		\begin{gathered}
-			x:\N \to X \text{ è \textbf{di Cauchy}}\\
-			\bydef\\
-			\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon
-		\end{gathered}
-	\end{equation*}
+	\begin{gather*}
+		x:\N \to X \text{ è \textbf{di Cauchy}}\\
+		\bydef\\
+		\forall \varepsilon > 0\quad \exists \nu \in \N:\; \forall n,m > \nu \text{ vale } d(x_n, x_m) < \varepsilon
+	\end{gather*}
 	Cioè se la distanza tra due punti qualsiasi della successione, presi dopo un certo valore $\nu$, è minore di un $\varepsilon$ piccolo a piacere.
 	\begin{note}
-		La seconda riga della definizione è nota come \textit{Condizione di Cauchy.}
+		La seconda riga della definizione è nota come \textbf{Condizione di Cauchy.}
 	\end{note}
 	\begin{note}
 		Questa definizione, differentemente dalla \fullref{def:lim_succ}, è \textit{esplicita} e \textit{intrinseca}: dipende esclusivamente dalla successione e dalla distanza definita.
@@ -878,7 +898,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:se_succ_conv_allora_cau}
 	Sia $(X,d)$ uno spazio metrico.
-	\[x: \N \to X \text{ è \textbf{convergente} } \implies x:\N \to X \text{ è \textbf{di Cauchy}}\]
+	\[x: \N \to X \text{ è \textbf{Convergente}} \quad \implies \quad x:\N \to X \text{ è \textbf{di Cauchy}}\]
 	\begin{proof}
 		Sia $x: \N \to X$ convergente a $x_\infty$. Allora
 		\[\lim\limits_{n \to +\infty} x_n \bydef \forall\varepsilon > 0 \quad \exists\nu\in\N:\; \forall n > \nu \quad d(x_n,x_\infty)<\varepsilon\]
@@ -933,9 +953,9 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{exercise}
 	Esibire una successione di Cauchy di numeri razionali non convergente in $\mathbb{Q}$.
 	\begin{solution}
-		La seguente successione
-		\[\lim\limits_{n \to +\infty} \left( 1+ \frac{1}{n} \right)^n\]
-		è convergente a $e \notin \mathbb{Q}$
+		La successione
+		\[x_n = \left( 1+ \frac{1}{n} \right)^n\]
+		Converge a $\lim\limits_{n \to +\infty} x_n = e \notin \mathbb{Q}$
 	\end{solution}
 \end{exercise}
 \begin{proposition}
@@ -957,7 +977,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:se_cau_allora_lim}
 	Sia $(X,d)$ uno spazio metrico. Data la successione $x: \N \to X$ \textbf{di Cauchy}:
-	\[x: \N \to X \text{\textbf{ di Cauchy}} \implies x: \N \to X \text{\textbf{ limitata}}\]
+	\[x: \N \to X \text{\textbf{ di Cauchy}} \quad \implies \quad x: \N \to X \text{ \textbf{Limitata}}\]
 	\begin{proof}
 		\begin{equation*}
 			\begin{gathered}
@@ -969,7 +989,7 @@ Unendo le due definizioni si giunge naturalmente a
 		La dimostrazione prevede di dividere in due "parti" la successione
 		\begin{enumerate}
 			\item Per la definizione di cui sopra è sicuramente possibile individuare un certo $\overline{\nu}$ per cui
-				\[\exists \overline{\nu}:\; \forall n > \overline{\nu} \quad d(x_n, x_{\overline{\nu}}) < 1 \text{ (1 è scelto arbitrariamente)}\]
+				\[\exists \overline{\nu}:\; \forall n > \overline{\nu} \quad d(x_n, x_{\overline{\nu}}) < 1 \qquad \text{(1 è scelto arbitrariamente)}\]
 				In tal modo è stata esplicitata la limitatezza di $x$ \textit{da $\overline{\nu}$ in poi}.
 			\item Si ponga invece $K = \max\limits_{n=0,\: \dotsc \:, \overline{\nu}-1} d(x_n, x_{\overline{\nu}})$, cioè $K$ è la massima tra tutte le distanze $d(x_n, x_{\overline{\nu}})$ con $n < \overline{\nu}$.\\
 				Essendo $n < \overline{\nu}$, $n$ è sicuramente finito, per cui anche $K$ sarà finito. Infatti, avendo un numero finito $n$ di valori $x_n$ assunti dalla successione, anche il massimo di tali valori (cioè $K$) sarà finito.\\
@@ -988,8 +1008,8 @@ Unendo le due definizioni si giunge naturalmente a
 	\end{solution}
 \end{exercise}
 \begin{corollary}
-	Sia $(X,d)$ uno spazio metrico. Data la successione $x: \N \to X$ \textbf{convergente}:
-	\[x: \N \to X \text{\textbf{ convergente}} \implies x: \N \to X \text{\textbf{ limitata}}\]
+	Sia $(X,d)$ uno spazio metrico. Data la successione $x: \N \to X$:
+	\[x \text{ \textbf{Convergente}} \quad \implies \quad x \text{ \textbf{Limitata}}\]
 	\begin{proof}
 		Grazie alla \fullref{prop:se_succ_conv_allora_cau} ed alla \fullref{prop:se_cau_allora_lim}
 		\[\text{convergente } \implies \text{ di Cauchy } \implies \text{ limitata}\]
@@ -1023,7 +1043,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{definition}[Insiemi Separati]
 	\index{Insieme!Separato}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$ e $B \subseteq X$
-	\[A \text{ e } B \text{ sono \textbf{Separati}} \bydef \overline{A} \cap B = \emptyset \text{ e } A \cap \overline{B} = \emptyset\]
+	\[A \text{ e } B \text{ sono \textbf{Separati}} \quad \bydef \quad \overline{A} \cap B = \emptyset \text{ e } A \cap \overline{B} = \emptyset\]
 \end{definition}
 \begin{definition}[Insiemi Connessi e Sconnessi]
 	\index{Insieme!Connesso e Sconnesso}
@@ -1031,7 +1051,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Un insieme è \textbf{Sconnesso} se e solo se è \textbf{unione} di due insiemi \textbf{separati}.\\
 	Un insieme è \textbf{Connesso} se e solo se \textbf{non è Sconnesso}.
 	\begin{note}
-		In uno spazio metrico un insieme può essere alternativamente connesso o sconnesso, ma sicuramente deve essere di un tipo o dell'altro. Ciò differisce con la classificazione Aperto/Chiuso secondo la quale potevano esistere insiemi né aperti né chiusi (vedasi \fullref{ex:ins_non_ap_non_chius})
+		In uno spazio metrico un insieme è alternativamente Connesso o Sconnesso e deve sicuramente essere di un tipo o dell'altro. Questa divisione binaria non è applicabile alla classificazione Aperto/Chiuso, in quanto un insieme può anche essere né aperto né chiuso, vedasi \fullref{ex:ins_non_ap_non_chius}.
 	\end{note}
 \end{definition}
 \begin{example}
@@ -1063,7 +1083,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}
 	\label{prop:in_Rn_connesso_sse_intervallo}
 	In $\R$ con la metrica Euclidea, sia $A \subseteq \R$.
-	\[A \text{ è \textbf{Connesso}} \iff A \text{ è un \textbf{Intervallo}}\]
+	\[A \text{ è \textbf{Connesso}} \quad \iff \quad A \text{ è un \textbf{Intervallo}}\]
 	\begin{proof}
 		Omessa.
 	\end{proof}
@@ -1100,7 +1120,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		Questo teorema è anche noto come \textit{Teorema di Heine-Borel}
 	\end{note}
 	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$
-	\[A \text{ \textbf{compatto}} \implies A \text{ \textbf{chiuso e limitato}}\]
+	\[A \text{ \textbf{Compatto}} \quad \implies \quad A \text{ \textbf{Chiuso} e \textbf{Limitato}}\]
 	\begin{proof}
 		Per assurdo negando una per una le conclusioni.
 		\begin{itemize}
@@ -1138,7 +1158,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}
 	\label{prop:compat_chius_lim_Rn}
 	In $\R^n$ con l'usuale metrica Euclidea, sia $A \subseteq \R^n$. Allora:
-	\[A \text{ è \textbf{Compatto}} \iff A \text{ è \textbf{Chiuso e Limitato}}\]
+	\[A \text{ è \textbf{Compatto}} \quad \iff \quad A \text{ è \textbf{Chiuso} e \textbf{Limitato}}\]
 	\begin{proof}
 		Omessa a lezione.\\
 		\cbstart
@@ -1147,7 +1167,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{proof}
 \end{proposition}
 \begin{note}
-	La \fullref{prop:compat_chius_lim} vale in ogni spazio metrico, mentre la \fullref{prop:compat_chius_lim_Rn} solo in $A \subseteq R^n$
+	La \fullref{prop:compat_chius_lim} vale in ogni spazio metrico, mentre la \fullref{prop:compat_chius_lim_Rn} solo in $A \subseteq \R^n$
 \end{note}
 \cbstart
 \begin{exercise}
@@ -1169,7 +1189,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{exercise}
 \begin{exercise}
 	\label{ex:unione_compatti}
-	Sia $(X,d)$ uno spazio metrico. Siano $K_1$ e $K_2$ due sottoinsiemi compatti di $X$. Allora $K_1 \cup K_2$ è compatto
+	Sia $(X,d)$ uno spazio metrico. Siano $K_1$ e $K_2$ due sottoinsiemi \textbf{Compatti} di $X$. Allora $K_1 \cup K_2$ è \textbf{Compatto}.
 	\begin{solution}
 		Posto $K = K_1 \cup K_2$, per definizione di \textbf{unione}, ogni elemento di $K$ è in $K_1$ o $K_2$.\\
 		Visto che, per ipotesi, $K_1$ e $K_2$ sono compatti, sappiamo che ogni successione in uno dei due avrà una sottosuccessione convergente nello stesso insieme. A questo punto possiamo concludere che ogni successione in $K$ ammetterà una sottosuccessione convergente ad un elemento $x_\infty \in K_1$ oppure $x_\infty \in K_2 \implies x_\infty \in K$
@@ -1179,7 +1199,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}
 	\label{prop:X_compat_allora_X_compl}
 	Sia $(X,d)$ uno spazio metrico. Allora
-	\[X \text{ è \textbf{Compatto}} \implies X \text{ è \textbf{Completo}}\]
+	\[X \text{ è \textbf{Compatto}} \quad \implies \quad X \text{ è \textbf{Completo}}\]
 	\begin{proof}
 		Sia $x: \N \to X$ una successione di Cauchy di elementi di $X$.\\
 		$X$ è compatto quindi, per definizione, esiste una sottosuccessione convergente ad un $x_\infty \in X$. Ciò implica, grazie all'\fullref{ex:sottsucc_conv_succ_conv}, che l'intera successione converga a $x_\infty$, dunque $X$ è completo.
@@ -1187,12 +1207,12 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{proposition}
 
 \begin{observation}
-	Sia $X$ un insieme munito di due distanze tra loro equivalenti $d_1$ e $d_2$ (si veda \fullref{def:metr_equiv}). Allora \textit{ciò che vale in $(X, d_1)$, vale in $(X, d_2)$}\\
-	Il seguente esercizio rende rigorosa questa affermazione
+	Sia $X$ un insieme munito di due \reffull{def:metr_equiv} $d_1$ e $d_2$. Allora \textit{ciò che vale in $(X, d_1)$, vale in $(X, d_2)$}\\
+	Il seguente esercizio rende rigorosa questa affermazione.
 \end{observation}
 \begin{exercise}
 	\label{ex:dist_eqiv}
-	Sia $X$ un insieme munito delle due distanze $d_1$ e $d_2$ tra loro equivalenti. \textbf{Se un insieme è aperto} (chiuso, compatto, connesso, limitato) \textbf{in} $\boldsymbol{(X,d_1)}$, allora \textbf{lo è anche in} $\boldsymbol{(X,d_2)}$.\\
+	Sia $X$ un insieme munito delle due distanze $d_1$ e $d_2$ tra loro equivalenti. Se un insieme è Aperto (Chiuso, Compatto, Connesso, Limitato) \textbf{in} $\boldsymbol{(X,d_1)}$, allora \textbf{lo è anche in} $\boldsymbol{(X,d_2)}$.\\
 	Inoltre, \textbf{se} $\boldsymbol{\lim\limits_{n \to +\infty} x_n = x_\infty}$ \textbf{in} $\boldsymbol{(X,d_1)}$, allora $\boldsymbol{\lim\limits_{n \to +\infty} x_n = x_\infty}$ \textbf{anche in in} $\boldsymbol{(X,d_2)}$
 	% TODO solution
 \end{exercise}
@@ -1202,7 +1222,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	È interessante notare che in $(X,d)$, $d_p$ stessa non è continua e quindi gli insiemi aperti (chiusi) rispetto a $d_p$, possono non essere aperti (chiusi) rispetto alla distanza Euclidea. Di conseguenza son proprietà diverse nei due spazi metrici: convergenza di successioni, continuità di funzioni, connessione, compattezza, essere o meno punto di accumulazione, punto interno, punto esterno\dots
 \end{example}
 \begin{exercise}
-	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$ un \textbf{compatto}. Dimostrare che se $C \subseteq A$ \textbf{è un chiuso}, allora è anche \textbf{compatto}.\\
+	Siano $(X,d)$ uno spazio metrico e $A \subseteq X$ un \textbf{Compatto}. Dimostrare che se $C \subseteq A$ è un \textbf{Chiuso}, allora è anche \textbf{Compatto}.\\
 	L'ipotesi "\textit{$C$ chiuso}" è indispensabile? 
 \end{exercise}
 
@@ -1233,8 +1253,13 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Sarebbe comodo definire
 	\[\lim\limits_{x \to x_0} f(x) = l \quad \bydef \quad \lim\limits_{x \to x_0} d_Y(f(x), l) = 0\]
 	Perché non è corretto farlo?
-	\begin{solution}
-		Non è corretto perché questa definizione implica $l = f(x)$ con $x \to x_0$ per proprietà 2 di \fullref{def:sp_metrico}. Ciò è diverso dalla \fullref{def:lim_funz} ed è inoltre più restrittivo, in quanto, con questa definizione "semplificata", sarebbe richiesto $x_0 \in A$, mentre $x_0$ deve essere solo di accumulazione nell'altro caso. Infatti un punto di accumulazione, per definizione da \fullref{def:pti_e_spa_metr}, non è necessariamente incluso nell'insieme a cui è riferito.
+	\begin{solution}~\vspace*{-\baselineskip}
+		\begin{gather*}
+			d_Y(f(x), l) = 0 \quad \text{per } x \to x_0
+			\shortintertext{Da proprietà \ref{itm:dist_0_iff_x_uguale_y} di \fullref{def:sp_metrico}}
+			\implies f(x) = l \quad \text{per } x \to x_0
+		\end{gather*}
+		Essendo però $f: A \to Y$, per calcolare $f(x_0)$ è necessario che $x_0 \in A$, ma un punto di Accumulazione non è necessariamente incluso nell'insieme a cui è riferito, come da \fullref{def:pti_e_spa_metr}. Le due definizioni sono dunque differenti: quella appena fornita è più restrittiva e non permette di calcolare limiti per valori fuori dall'insieme di definizione della funzione.
 	\end{solution}
 \end{exercise}
 
@@ -1343,12 +1368,13 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{definition}[Funzione Continua]
 	\index{Continuità}
 	\index{Funzione!Continua}
+	\index{Modulo di Continuità}
 	\label{def:funz_cont}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$ e $x_0 \in A$
 	\begin{equation*}
 		\begin{gathered}
 			f \text{ è \textbf{Continua} in } x_0\\
-			\iff\\
+			\bydef\\
 			\forall \varepsilon > 0\;\;\exists \delta > 0:\quad \forall x \in A \text{ con } d_X(x,x_0)<\delta \quad \text{vale} \quad d_Y \bigl(f(x),f(x_0)\bigr) < \varepsilon
 		\end{gathered}
 	\end{equation*}
@@ -1517,7 +1543,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{proposition}[Continuità di $f$ in un Insieme]
 	\index{Continuità!in un Insieme}
-	\label{prop:funz_cont_per_succ_in_ins}
+	\label{prop:funz_cont_in_ins}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f: A \to Y$ con $A \subseteq X$.
 	\begin{equation*}
 		\begin{gathered}
@@ -1589,7 +1615,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		K \text{ \textbf{Compatto}} \\
 		f \text{ \textbf{Continua} su } K
 		\end{array}
-		\right\} \implies
+		\right\}
+		\quad \implies \quad
 		f(K) \text{ \textbf{Compatto}}
 	\end{equation*}
 	\begin{proof}
@@ -1650,7 +1677,8 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		K \text{ \textbf{Connesso}} \\
 		f \text{ \textbf{Continua} su } K
 		\end{array}
-		\right\} \implies
+		\right\}
+		\quad \implies \quad
 		f(K) \text{ \textbf{Connesso}}
 	\end{equation*}
 	\begin{proof}
@@ -1670,14 +1698,19 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\index{Continuità!Uniforme}
 	\label{def:funz_unif_cont}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici e sia $f:A \to Y$ con $A \subseteq X$.
-	\begin{equation*}
-		\begin{gathered}
-			f \text{ è \textbf{Uniformemente Continua} in } A\\
-			\bydef\\
-			\forall \varepsilon > 0 \quad \exists \delta > 0 \text{ tale che } \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale } d_Y\bigl(f(x),f(x_0)\bigr) < \varepsilon
-		\end{gathered}
-	\end{equation*}
-	Cioè è una funzione continua per la quale piccole variazioni della $x$ implicano piccole variazioni di $f(x)$.\\
+	\begin{gather*}
+		f \text{ è \textbf{Uniformemente Continua} in } A\\
+		\bydef\\
+		\forall \varepsilon > 0 \;\; \exists \delta > 0: \quad \forall x,x_0 \in A \text{ con } d_X(x,x_0) < \delta \quad \text{vale} \quad d_Y\bigl(f(x),f(x_0)\bigr) < \varepsilon
+	\end{gather*}
+	\vspace*{-\baselineskip}
+	\begin{note}
+		Una funzione può essere detta Continua in un punto o in un insieme, ma può essere detta Uniformemente Continua \textbf{solo in un insieme}. Non ha senso affermare la Continuità Uniforme in un singolo punto.
+	\end{note}
+	\begin{note}
+		Questa definizione differisce dalla \fullref{prop:funz_cont_in_ins} per la posizione del "$\forall x,x_0 \in A$". In questo caso infatti la scelta di $\delta$ precede quella di $x_0$, quindi si ha la certezza che il $\delta$ scelto rimanga valido per qualsiasi coppia di $x, x_0$ su tutto l'insieme $A$.
+	\end{note}
+	Cioè una funzione è Uniformemente Continua se, per essa, piccole variazioni della $x$ implicano piccole variazioni di $f(x)$.\\
 	Graficamente si può vedere che il grafico "non impenna" e non "oscilla liberamente". Buon indicatore della uniforme continuità è la presenza di asintoti orizzontali.
 \end{definition}
 \begin{example}
@@ -1759,16 +1792,16 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \end{example}
 \begin{exercise}
 	\label{ex:cont_unif_cont_comparision}
-	Confrontare la \fullref{prop:funz_cont_per_succ_in_ins} con la \fullref{def:funz_unif_cont}
+	Confrontare la \fullref{prop:funz_cont_in_ins} con la \fullref{def:funz_unif_cont}
 	\begin{solution}
-		In \fullref{prop:funz_cont_per_succ_in_ins} si definiva la continuità della funzione sull'insieme applicando la \fullref{def:funz_cont} a ogni $x_0 \in A$, cioè ogni punto di $A$. Questo non ha particolari implicazioni sul comportamento della funzione, informa solamente sulla continuità in ogni punto di $A$.\\
+		In \fullref{prop:funz_cont_in_ins} si definiva la continuità della funzione sull'insieme applicando la \fullref{def:funz_cont} a ogni $x_0 \in A$, cioè ogni punto di $A$. Questo non ha particolari implicazioni sul comportamento della funzione, informa solamente sulla continuità in ogni punto di $A$.\\
 		\fullref{def:funz_unif_cont} invece prevede, per definizione, la possibilità di scegliere un qualsiasi $x_0$ quando $\varepsilon$ è già stato scelto. Ciò implica che $\varepsilon$ debba essere valido per ogni $x_0 \in A$, non scelto \textit{a priori}.
 	\end{solution}
 \end{exercise}
 \begin{proposition}
 	\label{prop:if_unif_cont_then_conf}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \to Y$ con $A \subseteq X$.
-	\[f \text{ \textbf{Uniformemente Continua} in } A \implies f \text{ \textbf{Continua} in } A\]
+	\[f \text{ \textbf{Uniformemente Continua} in } A \quad \implies \quad f \text{ \textbf{Continua} in } A\]
 	\begin{proof}
 		Deriva da \fullref{ex:cont_unif_cont_comparision} in quanto, se è possibile scegliere un qualsiasi $x_0$ quando $\varepsilon$ è già stato fissato, sicuramente sarà possibile fare questa scelta anche in ordine inverso (la continuità è condizione meno stringente).
 	\end{proof}
@@ -1803,16 +1836,17 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		K \text{ \textbf{Compatto}} \\
 		f \text{ \textbf{Continua} su } K
 		\end{array}
-		\right\} \implies
+		\right\}
+		\quad \implies \quad
 		f \text{ \textbf{Uniformemente Continua} su } K
 	\end{equation*}
 	\begin{proof} Per assurdo, negando la conclusione
-		\begin{align*}
-			&f \text{ non è uniformemente continua in } K\\
-			\implies & \exists \varepsilon > 0 \text{ tale che } \forall \delta > 0 \quad \exists x', x'' \in K \text{ con } d(x', x'') < \delta \text{ e } d \bigl( f(x'), f(x'') \bigr) > \varepsilon
+		\begin{gather*}
+			f \text{ non è uniformemente continua in } K\\
+			\implies \exists \varepsilon > 0 \text{ tale che } \forall \delta > 0 \quad \exists x', x'' \in K \text{ con } d(x', x'') < \delta \text{ e } d \bigl( f(x'), f(x'') \bigr) > \varepsilon
 			\intertext{Ponendo $\delta = \frac{1}{n+1}$ si passa alla successione convergente a $0$, dunque compatibile con il $\delta$ precedente}
-			\implies & \exists \varepsilon > 0 \text{ tale che } \forall n \in \N \quad \exists x_n', x_n'' \in K \text{ con } \underbrace{d(x_n', x_n'') < \frac{1}{n+1}}_{\text{(1)}} \text{ e } \underbrace{d \bigl( f(x_n'), f(x_n'') \bigr) > \varepsilon}_{\text{(2)}} \tageq\label{eq:th_cantor}
-		\end{align*}
+			\implies \exists \varepsilon > 0 \text{ tale che } \forall n \in \N \quad \exists x_n', x_n'' \in K \text{ con } \underbrace{d(x_n', x_n'') < \frac{1}{n+1}}_{\text{(1)}} \text{ e } \underbrace{d \bigl( f(x_n'), f(x_n'') \bigr) > \varepsilon}_{\text{(2)}} \tageq\label{eq:th_cantor}
+		\end{gather*}
 		Essendo $K$ compatto per ipotesi, per le due successioni $x_n'$ e $x_n''$ esistono due sottosuccessioni $x_{n_k}'$ e $x_{n_k}''$ convergenti a $x_\infty', x_\infty'' \in K$.\\
 		Da (1) di \cref{eq:th_cantor} si sa che $\lim\limits_{n \to +\infty} d(x_n', x_n'') = 0$, dunque $x_\infty' = x_\infty''$ per $n \to +\infty$\\
 		Da (2) di \cref{eq:th_cantor}, d'altro canto, è esplicitato che $d \bigl( f(x_n'), f(x_n'') \bigr)$ rimane sempre $> \varepsilon$ strettamente positivo, dunque è negata la \fullref{def:funz_cont} in $x_\infty' = x_\infty''$. Così è negata l'ipotesi sulla continuità della funzione.
@@ -1858,9 +1892,9 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{definition}[Costante di Lipschitz]
 	\index{Costante di Lipschitz}
 	\label{def:cost_lips}
-	Fissate le distanze $d_X$ e $d_Y$ e la funzione $f$, allora la più piccola $L$ positiva soddisfacente
+	Fissate le distanze $d_X$ e $d_Y$ e la funzione $f$, allora \textbf{la più piccola} $L$ positiva soddisfacente
 	\[d_Y\bigl(f(x''),f(x')\bigr)\leq L \cdot d_X(x'',x') \qquad \forall x',x'' \in X\]
-	si definisce \textbf{Costante di Lipschitz} della funzione $f$ in $X$
+	si definisce \textbf{Costante di Lipschitz} della funzione $f$ in $X$.
 \end{definition}
 \begin{example}
 	\label{ex:lips_graphs}
@@ -2016,7 +2050,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 \begin{proposition}
 	Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici. Sia $f:A \to \R^n$ con $A \subseteq X$.
 	\begin{equation*}
-		f \text{ è \textbf{Lipschitziana}} \iff \text{\textbf{ogni componente di} } f \text{ \textbf{è Lipschitziana}}
+		f \text{ è \textbf{Lipschitziana}} \quad \iff \quad \text{\textbf{ogni componente di} } f \text{ \textbf{è Lipschitziana}}
 	\end{equation*}
 	\begin{proof}
 		Immediata.
@@ -2077,9 +2111,15 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	\end{note}
 	% TODO solution
 \end{exercise}
-\begin{exercise}
+\begin{exercise}[Disuguaglianza di Cauchy-Schwarz]
+	\label{ex:disug_cau_schwa_matr}
+	\index{Disuguaglianza!Cauchy-Schwarz}
 	Se $A$ e $B$ sono matrici tali che se ne possa fare il prodotto (regole del prodotto righe per colonne), dimostrare che
 	\[\norm{A \cdot B} \leq \norm{A} \cdot \norm{B}\]
+	\vspace*{-1.5\baselineskip}
+	\begin{note}
+		Questa è una forma specifica per le matrici della Disuguaglianza di Cauchy-Schwarz, che è più generale ed applicabile anche ad altri enti.
+	\end{note}
 	% TODO solution
 \end{exercise}
 
@@ -2091,7 +2131,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 	Sia $(X, d)$ uno spazio metrico. Si dice \textbf{Contrazione} una funzione $T:\; X \to X$ soddisfacente a:
 	\begin{equation}
 		\label{eq:def_contrazione}
-		\exists K \in [0, 1[ \text{ tale che } \forall x',x'' \in X \quad \text{vale} \quad d_X \bigl( T(x''), T(x') \bigr) \leq K \cdot d_X(x'', x')
+		\exists K \in [0, 1[ \;: \quad \forall x',x'' \in X \quad \text{vale} \quad d_X \bigl( T(x''), T(x') \bigr) \leq K \cdot d_X(x'', x')
 	\end{equation}
 	Una contrazione è quindi una funzione con insieme di partenza e di arrivo coincidenti e Lipschitziana con costante di Lipschitz strettamente minore di $1$.\\
 	È generalmente inutile considerare contrazioni definite tra spazi diversi. Infatti, data una funzione $T: X \to Y$ Lipschitziana, sarebbe sempre possibile riscalare la distanza in uno dei due spazi $X$ o $Y$ per ottenere una costante di Lipschitz minore di $1$.
@@ -2152,6 +2192,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{theorem}[delle Contrazioni]\leavevmode\vspace*{-\baselineskip}
 	\index{Teorema!delle Contrazioni}
+	\index{Teorema!di Banach-Cacioppoli}
 	\label{teo:contrazioni}
 	\begin{note}
 		Questo teorema è anche noto come \textit{Teorema di Banach-Cacioppoli}
@@ -2164,7 +2205,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 				T \text{ \textbf{Contrazione}}
 			\end{array}
 		\right\}
-		\implies
+		\quad \implies \quad
 		\exists! \; x_* \in X: \quad T(x_*) = x_*
 	\end{equation*}
 	Cioè esiste un \textbf{unico Punto Fisso} di $T$ in $X$.
@@ -2200,20 +2241,20 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					K^n \cdot d(x_0, x_{m-n}) &\leq K^n \cdot \Bigl( d(x_0, x_1) + d(x_1, x_2) + \dotsc + d(x_{m-n-1}, x_{m-n}) \Bigr)
 					\shortintertext{Applicando ora quanto ottenuto in \cref{eq:teo_contraz_disug_dist_mn} a tutti gli addendi}
 					&\leq K^n \cdot \Bigl( K^0 \cdot d(x_0, x_1) + K^1 \cdot d(x_0, x_1) + \dotsc + K^{m-n-1} \cdot d(x_0, x_1) \Bigr)\\
-					&\leq K^n \cdot (1 + K + \dotsc + K^{m-n-1}) \cdot d(x_0, x_1)
+					&\leq K^n \cdot \Bigl( 1 + K + \dotsc + K^{m-n-1} \Bigr) \cdot d(x_0, x_1)
 				\end{align*}
 				Quindi riassumento, partendo dal primo membro dalla \cref{eq:teo_contraz_disug_dist_mn}, si è arrivati a
 				\begin{equation}
 					\label{eq:teo_contraz_disug_dist_mn_fin}
-					d(x_n, x_m) \leq K^n \cdot (\underbrace{1 + K + \dotsc + K^{m-n-1}}_{\text{(1)}}) \cdot d(x_0, x_1)
+					d(x_n, x_m) \leq K^n \cdot \Bigl( \underbrace{1 + K + \dotsc + K^{m-n-1}}_{\text{(1)}} \Bigr) \cdot d(x_0, x_1)
 				\end{equation}
-		
+
 				Posta ora la (1) di \cref{eq:teo_contraz_disug_dist_mn_fin} come $s$ si ha:
 				\[s = 1 + K + \dotsc + K^{m-n-1} \qquad \text{e, moltiplicando per } K \text{,} \qquad K \cdot s = K + K^2 + \dotsc + K^{m-n}\]
 				Da cui, eseguendo la differenza tra $s$ e $K \cdot s$
 				\begin{align*}
 					&s - K \cdot s\\
-					= &(1 + \cancel{K} + \cancel{\dotsc} + K^{m-n-1}) - (\cancel{K} + \cancel{K^2} + \cancel{\dotsc} + K^{m-n})\\
+					= &\Bigl( 1 + \cancel{K} + \cancel{\dotsc} + \cancel{K^{m-n-1}} \Bigr) - \Bigl( \cancel{K} + \cancel{K^2} + \cancel{\dotsc} + K^{m-n} \Bigr)\\
 					= &1 - K^{m-n}
 				\end{align*}
 				si ottiene l'equivalenza

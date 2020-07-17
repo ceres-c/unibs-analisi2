@@ -645,7 +645,7 @@ E si parla di \textbf{Distanza Infinito} (o \textbf{Distanza del} $\boldsymbol{\
 			]
 				\addplot [thick, name path=f, smooth, domain=0:10, samples=50] {f(x)};
 				\addlegendentry{$f$};
-				\addplot [color=blue, thick, name path=g, smooth, domain=0:10, samples=100] {g(x)};
+				\addplot [color=blue!60, thick, name path=g, smooth, domain=0:10, samples=100] {g(x)};
 				\addlegendentry{$g$};
 				\pgfplotsinvokeforeach{.25,.5,...,10} {
 					\draw[thin, black!60] (#1, {f(#1)}) -- (#1, {g(#1)});
@@ -736,7 +736,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 			]
 				\addplot [thick, name path=f_n, smooth, domain=0:10, samples=50] {f_n(x)};
 				\addlegendentry{$f_n$};
-				\addplot [color=blue, thick, smooth, domain=0:10, samples=100] {f(x)};
+				\addplot [color=blue!60, thick, smooth, domain=0:10, samples=100] {f(x)};
 				\addlegendentry{$f$};
 				\addplot [color=red, name path=f_plus, smooth, domain=0:10, samples=100] {f(x) + 1.2};
 				\addlegendentry{$f + \varepsilon$};
@@ -2206,7 +2206,7 @@ Esempio::: Una funzione può ammettere tutti i coefficienti di Fourier finiti ed
 \[\begin{array}{rcl} f: \left[-\pi,\pi\right] & \to &  \R \\
 x & \to & \left\{\begin{matrix} -1 && x<0\\1&&x>0 \end{matrix}\right. \end{array}\]
 ha coefficienti di Fourier
-\[a_k=0\quad\forall k,\quad\quad \left\{\begin{matrix}0 && k\text{ dispari }\\ \frac{4}{k\pi}&& k \text{ pari } \end{matrix}\right.\]
+\[a_k=0\quad\forall k,\qquad \left\{\begin{matrix}0 && k\text{ dispari }\\ \frac{4}{k\pi}&& k \text{ pari } \end{matrix}\right.\]
 e serie di Fourier
 \[ F_f(x)= \frac{4}{\pi}\sum\limits_{k=0}^{+\infty}\frac{sin(2h+1)x}{2h+1} \]
 questa serie converge puntualmente in $0$ ma $F_f(0)\ne f(0)$\\
