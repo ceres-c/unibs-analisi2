@@ -26,3 +26,5 @@ Per compilare questo documento è necessario aggiungere l'opzione `--shell-escap
 
 # Disclaimer #
 Questi appunti non son stati né revisionati né approvati dal professore del corso.
+
+La parte sulle serie di funzioni necessita di una aggiustata. Un'anima pia potrebbe dare un'occhiata. Per ora è l'unica sezione da considerarsi ancora un work in progress.
