@@ -423,3 +423,165 @@ Grazie alle seguenti proposizioni viene fornito un metodo più rapido per verifi
 	% TODO solution
 \end{exercise}
 \end{appendices}
+
+\newpage
+\section{Formule Trigonometriche}\label{sect:for_trigo}
+Si riportano di seguito diverse formule trigonometriche utilizzate in alcune dimostrazioni.\\
+La maggior parte di queste sono particolarmente utili nello svolgimento di svariati esercizi.
+
+\subsection{Definizione e derivazione di funzioni basilari}\label{sect:funz_gon_basilari}
+Sia data la circonferenza unitaria
+\begin{center}
+	\begin{tikzpicture}[scale=4,cap=round,>=latex]
+		\draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
+		\draw[->] (0cm,-1.5cm) -- (0cm,1.5cm) node[above,fill=white] {$y$};
+
+		\draw[thick] (0cm,0cm) circle(1cm); % circonferenza unitaria
+
+		\coordinate (O) at (0cm,0cm);
+		\coordinate (P) at (30:1cm);
+		\coordinate (R) at (0:0.866cm);
+		\coordinate (Q) at (90:0.5cm);
+		\coordinate (T) at (1cm,0.57735cm);
+		\coordinate (S) at (0:1cm);
+
+		\draw[smooth] (O) -- (T); % OT
+		\filldraw[black] (O) circle(0.4pt) node[anchor=north east]{O}; % origin O
+		\filldraw[black] (P) circle(0.4pt) node[anchor=south]{P}; % punto P sulla circonferenza
+		\filldraw[black] (R) circle(0.4pt) node[anchor=north]{R}; % proiezione di P su x
+		\filldraw[black] (Q) circle(0.4pt) node[anchor=east]{Q}; % proiezione di P su y
+		\filldraw[black] (T) circle(0.4pt) node[anchor=north west]{T}; % punto T della tangente
+		\filldraw[black] (S) circle(0.4pt) node[anchor=north west]{S}; % proiezione di T su x
+		\draw[smooth,dashed] (R) -- (P); % RP
+		\draw[smooth,dashed] (Q) -- (P); % QP
+		\draw[smooth] (T) -- (S); % TS
+		\draw pic[draw,->,angle radius=1cm, "$\theta$" shift={(0.7cm,0.2cm)}] {angle=R--O--P}; % angle theta
+	\end{tikzpicture}
+\end{center}
+Il segmento $\overline{OP} = r$ è il raggio della circonferenza, in questo caso unitario.
+In generale, tutti i risultati seguenti sono ottenibili riscalando per $r$.
+
+\par
+Definiamo la funzione seno $\sin(\theta) = y_Q$ la proiezione di $r$ sull'asse delle ordinate.\\
+Definiamo la funzione coseno $\cos(\theta) = x_R$ la proiezione di $r$ sull'asse delle ascisse.\\
+Definiamo la funzione tangente $\tan(\theta) = y_T$ l'ordinata del punto d'intersezione fra il prolungamento di $r$ e la tangente alla circonferenza in $(1,0)$.
+La funzione non è definita per $\theta = \brackets{\frac{\pi}{2}, \frac{3 \pi}{2}} $.
+
+\begin{proposition}\label{prop:tan}
+	La funzione $\tan(\theta)$, dove definita, può essere anche definita come $\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}$.
+	\begin{proof}
+		Si considerino i triangoli simili $\overset{\triangle}{TOS}, \overset{\triangle}{POR}$.
+		Dunque $ \frac{\overline{TS}}{\overline{OS}} = \frac{\overline{PR}}{\overline{OR}} $.\\
+		Poiché la circonferenza è di raggio unitario, allora $\overline{OS}=r$ e si ha $ \overline{TS} = \frac{\overline{PR}}{\overline{OR}} $,
+		da cui la tesi in quanto $ \sin(\theta) = \overline{PR}, \cos(\theta) = \overline{OR}$.
+	\end{proof}
+\end{proposition}
+
+
+\subsection{Elenco Formule Trigonometriche}\label{sect:elenco_formule_trigo}
+La presente sezione presenta diversi risultati dimostrabili mediante pochi passaggi attraverso l'uso della circonferenza goniometrica e relazioni fra i triangoli.
+Per questa ragione si è preferito riportare solo le formule riunite in unico punto.
+Alcune dimostrazioni esemplificative per le altre sono riportate in seguito.
+Si suggerisce caldamente di dimostrarle tutte per evitare di memorizzarle e confondersi.\\
+
+\textbf{Relazioni fra Funzioni Trigonometriche}
+\[\arraycolsep=5pt\def\arraystretch{2}
+	\begin{array}{ccc}
+		\sin^2(\theta) + \cos^2(\theta) = 1\\
+		\sin(\theta) = -\sin(\theta) & \quad & \cos(\theta) = \cos(-\theta)\\
+		\sin(\frac{\pi}{2} - \theta) = \sin(\frac{\pi}{2} + \theta) = \cos(\theta) & \quad &
+		\cos(\frac{\pi}{2} - \theta) = -\cos(\frac{\pi}{2} + \theta) = \sin(\theta)\\
+		\sin(\pi - \theta) = -\sin(\pi + \theta) = \sin(\theta) & \quad & \cos(\pi - \theta) = \cos(\pi + \theta) = -\cos(\theta)\\
+		\sin^2(\theta) = \frac{\tan^2(\theta)}{1 + \tan^2(\theta)} & \quad & \cos^2(\theta) = \frac{1}{1 + \tan^2(\theta)}\\
+	\end{array}
+\]
+
+\textbf{Formula di Addizione e Sottrazione}
+\[\arraycolsep=5pt\def\arraystretch{2}
+	\begin{array}{ccc}
+		\sin(\alpha + \beta) = \sin(\alpha) \cos(\beta) + \cos(\alpha) \sin(\beta) & \quad &
+		\sin(\alpha - \beta) = \sin(\alpha) \cos(\beta) - \cos(\alpha) \sin(\beta)\\
+		\cos(\alpha + \beta) = \cos(\alpha) \cos(\beta) - \sin(\alpha) \sin(\beta) & \quad &
+		\cos(\alpha - \beta) = \cos(\alpha) \cos(\beta) + \sin(\alpha) \sin(\beta)\\
+		\tan(\alpha + \beta) = \frac{\tan(\alpha) + \tan(\beta)}{1 - \tan(\alpha)\tan(\beta)} & \quad &
+		\tan(\alpha - \beta) = \frac{\tan(\alpha) - \tan(\beta)}{1 + \tan(\alpha)\tan(\beta)}\\
+	\end{array}
+\]
+
+\textbf{Formula di Duplicazione e Bisezione}
+\[\arraycolsep=5pt\def\arraystretch{2}
+	\begin{array}{ccc}
+		\sin(2\theta) = 2 \sin(\theta) \cos(\theta) & \quad & \cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)\\
+		\sin(\frac{\theta}{2}) = \sqrt{\frac{1 - \cos(\theta)}{2}}, \quad \theta \in (0, 2\pi) & \quad &
+		\cos(\frac{\theta}{2}) = \sqrt{\frac{1 + \cos(\theta)}{2}}, \quad \theta \in (-\pi, \pi)\\
+		\tan(\frac{\theta}{2}) = \sqrt{\frac{1 - \cos(\theta)}{1 + \cos(\theta)}}
+		= \frac{1 - \cos(\theta)}{\sin(\theta)} = \frac{\sin(\theta)}{1 + \cos(\theta)}, \quad \theta \in (0, \pi)
+	\end{array}
+\]
+
+\textbf{Formule di Prostaferesi}
+\[\arraycolsep=5pt\def\arraystretch{2}
+	\begin{array}{ccc}
+		\sin(\alpha) + \sin(\beta) = 2 \sin(\frac{\alpha + \beta}{2}) \cos(\frac{\alpha - \beta}{2}) & \quad &
+		\sin(\alpha) - \sin(\beta) = 2 \cos(\frac{\alpha + \beta}{2}) \sin(\frac{\alpha - \beta}{2})\\
+		\cos(\alpha) + \cos(\beta) = 2 \cos(\frac{\alpha + \beta}{2}) \cos(\frac{\alpha - \beta}{2}) & \quad &
+		\cos(\alpha) - \cos(\beta) = -2 \sin(\frac{\alpha + \beta}{2}) \sin(\frac{\alpha - \beta}{2})\\
+		\tan(\alpha) \pm \tan(\beta) = \frac{\sin(\alpha \pm \beta)}{\cos(\alpha) \sin(\beta)}
+	\end{array}
+\]
+
+\begin{proposition}
+	$\sin^2(\theta) + \cos^2(\theta) = 1$.
+	\begin{proof}
+		Noto che il raggio della circonferenza è $r = 1$ e le proiezioni sulle
+		ascisse $\cos(\theta)$ e ordinate $\sin(\theta)$ sono i cateti di $\overset{\triangle}{PRO}$.\\
+		Dunque, sfruttando il Teorema di Pitagora si ha $ \cos^2(\theta) + \sin^2(\theta) = 1 $.
+	\end{proof}
+\end{proposition}
+
+\begin{proposition}
+	$\sin(\frac{\pi}{2} - \theta) = \sin(\frac{\pi}{2} + \theta) = \cos(\theta)$.
+	\begin{proof}
+		Si parta dall'uguaglianza a sinistra
+		Si noti che $\frac{\pi}{2}$ è esattamente sovrapposto all'asse delle ordinate.
+		Le espressioni $\sin(\frac{\pi}{2} - \theta), \sin(\frac{\pi}{2} + \theta)$ corrispondono rispettivamente a un identico
+		spostamento a sinistra e destra dall'asse delle ordinate.
+		Dunque la proiezione sull'asse stessa è identica ed è verificato $\sin(\frac{\pi}{2} - \theta) = \sin(\frac{\pi}{2} + \theta)$.\\
+
+		Si considerino ora il lato più a sinistra e più a destra facendo riferimento al seguente grafico ($ \phi = \frac{\pi}{2} - \theta $)
+		\begin{center}
+			\begin{tikzpicture}[scale=2,cap=round,>=latex]
+				\draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
+				\draw[->] (0cm,-1.5cm) -- (0cm,1.5cm) node[above,fill=white] {$y$};
+		
+				\draw[thick] (0cm,0cm) circle(1cm); % circonferenza unitaria
+		
+				\coordinate (O) at (0cm,0cm);
+				\coordinate (P) at (30:1cm);
+				\coordinate (R) at (0:0.866cm);
+				\coordinate (Q) at (60:1cm);
+				\coordinate (S) at (90:0.866cm);
+
+				\draw[smooth] (O) -- (P); % OP
+				\draw[smooth] (O) -- (Q); % OQ
+				\filldraw[black] (O) circle(0.4pt) node[anchor=north east]{O}; % origin O
+				\filldraw[black] (P) circle(0.4pt) node[anchor=south]{P}; % punto P sulla circonferenza
+				\filldraw[black] (R) circle(0.4pt) node[anchor=north]{R}; % proiezione di P su x
+				\filldraw[black] (Q) circle(0.4pt) node[anchor=south]{Q}; % punto Q sulla circonferenza
+				\filldraw[black] (S) circle(0.4pt) node[anchor=east]{S}; % proiezione di Q su x
+				\draw[smooth,dashed] (R) -- (P); % RP
+				\draw[smooth,dashed] (S) -- (Q); % SQ
+				\draw pic[draw,->,angle radius=0.6cm, "$\theta$" shift={(0.4cm,0.1cm)}] {angle=R--O--P}; % angle theta
+				\draw pic[draw,->,angle radius=0.6cm, "$\theta$" shift={(0.1cm,0.45cm)}] {angle=Q--O--S}; % angle theta
+				\draw pic[draw,->,angle radius=1.1cm, "$\phi$" shift={(0.6cm,0.15cm)}] {angle=R--O--Q}; % angle pi/2 - theta
+			\end{tikzpicture}
+		\end{center}
+		I due triangoli $ \overset{\triangle}{PRO}, \overset{\triangle}{QSO} $ sono entrambi rettangoli per costruzione.
+		Sempre per costruzione hanno un angolo $\theta$ identico e dunque anche il terzo angolo è identico. Sono dunque triangoli simili.\\
+		Inoltre si ha l'ipotenusa $ r = \overline{OP} = \overline{OQ} $.\\
+		Ciò è sufficiente per asserire che i due triangoli sono equivalenti e dunque il cateto adiacente $\theta$ ha la stessa lunghezza.\\
+		Tale cateto per il triangolo $\overset{\triangle}{PRO}$ è la proiezione di $r$ sulle ascisse ovvero $\cos(\theta)$,
+		mentre per $\overset{\triangle}{QSO}$ è la proiezione di $r$ sulle ordinate ovvero $\sin(\frac{\pi}{2} - \theta)$.\\
+		Dunque $ \sin(\frac{\pi}{2} - \theta) = \cos(\theta) $ è verificato.
+	\end{proof}
+\end{proposition}
