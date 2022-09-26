@@ -1,13 +1,114 @@
 \renewcommand{\thesection}{\Alph{section}} % Using letters for appendix sections
 \begin{appendices}
 \section{Geometria Analitica}
-% TODO this section is a placeholder
+Tutto ciò che è contenuto nella seguente appendice dovrebbe essere già noto dal corso di Algebra e Geometria. I contenuti sono riportati per completezza.
+
+\par
+Si assume per tutta la sezione che il sistema di riferimento sia una base \emph{ortonormale},
+cioè un sistema di vettori linearmente indipendenti a 2 a 2 ortogonali e ciascuno di norma 1.
+
 \subsection{Geometria nel Piano}\label{sect:geom_piano}
-% TODO this subsection is a placeholder
+\begin{definition}[Norma]
+	\index{Norma}
+	Detta anche modulo o intensità di un vettore $ v = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} $, un esempio di norma è
+	\[ \norm{v} = \sqrt{v_1^2 + v_2^2} \]
+\end{definition}
+\begin{definition}[Prodotto Scalare Canonico]
+	\index{Prodotto Scalare Canonico}
+	Dati due vettori $ v = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix},  u = \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} $, il Prodotto Scalare Canonico
+	\[ v \cdot u = v_1 u_1 + v_2 u_2 = \norm{v} \norm{u} \cos \theta \]
+	Inoltre
+	\[
+		\begin{array}{lcccc}
+			v \perp u & \iff & v \cdot u = 0 & \iff & v_1 u_1 + v_2 u_2 = 0\\
+			v \parallel u & \iff & \det\begin{bmatrix} v&u \end{bmatrix} = 0 & \iff & \det \begin{bmatrix} v_1&u_1 \\ v_2&u_2 \end{bmatrix} = 0,
+		\end{array}
+	\]
+	dove la condizione per il parallelismo indica che i vettori sono linearmente dipendenti.
+\end{definition}
+
+\par
+Le \emph{equazioni parametriche} di una retta si presentano nella forma
+\[
+	\begin{cases}
+		x = x_0 + v_1 t\\
+		y = y_0 + v_2 t
+	\end{cases}	
+\]
+dove $ (x_0, y_0) $ sono le coordinate di un punto della retta,
+$ v = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} $ sono le componenti di un suo vettore direttore t.c. $ \norm{v} \neq 0 $ e $t$ è il parametro.
+
+\par
+L'\emph{equazione cartesiana} implicita di una retta si presenta nella forma
+\[ ax + by + c = 0 \]
+con $ \begin{bmatrix} -b \\ a \end{bmatrix} $ vettore direttore della retta
+mentre $ \begin{bmatrix} a \\ b \end{bmatrix} $ è un vettore perpendicolare alla retta.
+
+\par
+L'\emph{equazione cartesiana} esplicita di una retta si presenta nella forma
+\[ y = mx + q \]
+dove $m$ è il coefficiente angolare e $q$ il termine noto.
+
+\subsection{Geometria nello Spazio}\label{sect:geom_spazio}
+\begin{definition}[Norma]
+	\index{Norma}
+	Detta anche modulo o intensità di un vettore $ v = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} $, un esempio di norma è
+	\[ \norm{v} = \sqrt{v_1^2 + v_2^2 + v_3^2} \]
+\end{definition}
+\begin{definition}[Prodotto Scalare Canonico]
+	\index{Prodotto Scalare Canonico}
+	Dati due vettori $ v = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix},  u = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix} $, il Prodotto Scalare Canonico
+	\[ v \cdot u = v_1 u_1 + v_2 u_2 + v_3 u_3 = \norm{v} \norm{u} \cos \theta. \]
+	Inoltre \[ v \perp u \iff v \cdot u = 0 \iff v_1 u_1 + v_2 u_2 + v_3 u_3 = 0 \]
+\end{definition}
+
+\begin{definition}[Prodotto Vettoriale]
+	\index{Prodotto Vettoriale}
+	Dati due vettori $ v = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix},  u = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix} $, il Prodotto Vettoriale
+	\[ v \times u = \begin{bmatrix}
+		v_2 u_3 - v_3 u_2 \\
+		v_3 u_1 - v_1 u_3 \\
+		v_1 u_2 - v_2 u_1
+	\end{bmatrix}. \]
+	Inoltre
+	\[ v \parallel u \iff v \times u = 0 \iff \rank \begin{bmatrix} v_1 & u_1 \\ v_2 & u_2 \\ v_3 & u_3 \end{bmatrix} = 1, \]
+	ovvero i vettori sono linearmente dipendenti.
+\end{definition}
+
+\par
+Le \emph{equazioni parametriche di una retta} si presentano nella forma
+\[
+	\begin{cases}
+		x = x_0 + v_1 t\\
+		y = y_0 + v_2 t\\
+		z = z_0 + v_3 t
+	\end{cases}	
+\]
+dove $ (x_0, y_0, z_0) $ sono le coordinate di un punto della retta,
+$ v = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} $ sono le componenti di un suo vettore direttore $ v : \norm{v} \neq 0 $ e $t$ è il parametro.
+
+\par
+L'\emph{equazione cartesiana} di una retta si presenta nella forma
+\[ ax + by + cz + d = 0 \]
+con $ \begin{bmatrix} a \\ b \\ c \end{bmatrix} $ è un vettore perpendicolare al piano.
+
+\par
+Le \emph{equazioni parametriche di un piano} si presentano nella forma
+\[
+	\begin{cases}
+		x = x_0 + u_1 s + v_1 t\\
+		y = y_0 + u_2 s + v_2 t\\
+		z = z_0 + u_3 s + v_3 t
+	\end{cases}	
+\]
+dove $ (x_0, y_0, z_0) $ sono le coordinate di un punto del piano,
+$ v = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} $ e $ u = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix} $
+sono le componenti di vettori direttori paralleli al piano t.c. $ \norm{v} \neq 0, \norm{u} \neq 0 $ e $s, t$ i parametri.
 
 \newpage
 \section{Forme Quadratiche}\label{sect:for_quadr}
-In questa sezione saranno riportati solo i risultati più importanti sulle forme quadratiche, quelli necessari alla ricerca di punti estremanti di funzioni a più variabili. Nel dettaglio, si vedrà come stabilire il segno di una forma quadratica.
+In questa sezione saranno riportati solo i risultati più importanti sulle forme quadratiche,
+quelli necessari alla ricerca di punti estremanti di funzioni a più variabili. Nel dettaglio, si vedrà come stabilire il segno di una forma quadratica.
 
 Per un'esposizione dettagliata e completa si rimanda ad un libro di Algebra Lineare.
 
@@ -46,7 +147,8 @@ Per un'esposizione dettagliata e completa si rimanda ad un libro di Algebra Line
 			\item $q(\lambda x) = (\lambda x)^T Q \: (\lambda x) = \lambda^2 x^T Q \: x = \lambda^2 q(x)$
 			\item $q(0) = q(0 \cdot 0)$, prendendo poi dal punto precedente, $q(0 \cdot 0) = 0^2 \; q(0) = 0$
 			\item Si dimostra la contronominale (cioè la negazione dell'implicazione inversa)\\
-				$q$ non identicamente nulla $\implies \exists x \in \R^n:\; q(x) \neq 0 \implies \forall \lambda \in \R \quad q(\lambda x) = \lambda^2 q(x) \implies q$ non limitata
+				$q$ non identicamente nulla
+				$\implies \exists x \in \R^n:\; q(x) \neq 0 \implies \forall \lambda \in \R \quad q(\lambda x) = \lambda^2 q(x) \implies q$ non limitata
 		\end{enumerate}
 	\end{proof}
 \end{proposition}
@@ -60,9 +162,13 @@ Per un'esposizione dettagliata e completa si rimanda ad un libro di Algebra Line
 			\label{eq:form_quadr_M}
 			\abs{q(x)} = \abs{q \left( \norm{x} \frac{x}{\norm{x}} \right)} = \norm{x}^2 \; \abs{q \left( \frac{x}{\norm{x}} \right)}
 		\end{equation}
-		$\frac{x}{\norm{x}}$ è il \textbf{Versore} di $x$ (il vettore direzione con norma $= 1$) quindi, $\forall x \in \R^n$, si sta lavorando soltanto sui punti appartenenti a $\partial B(0,1)$: la frontiera della sfera di raggio $1$.\\
-		Sia dunque $M = \max\limits_{\partial B(0,1)} q(x)$. $\partial B(0,1)$ è un compatto, essendo insieme chiuso e limitato in $\R^n$ (vedasi \fullref{prop:compat_chius_lim}). Grazie alla regolarità di $q$ ed alla compattezza di $\partial B(0,1)$, si può applicare l'\fullref{ex:weier_analisi_1} ed avere la certezza dell'esistenza di un $M$ finito.\\
-		Verificata l'esistenza di $M$, massimo sulla $\partial B(0,1)$, è sicuramente possibile minorare l'ultimo termine di \cref{eq:form_quadr_M} ed ottenere la tesi
+		$\frac{x}{\norm{x}}$ è il \textbf{Versore} di $x$ (il vettore direzione con norma $= 1$) quindi, $\forall x \in \R^n$,
+		si sta lavorando soltanto sui punti appartenenti a $\partial B(0,1)$: la frontiera della sfera di raggio $1$.\\
+		Sia dunque $M = \max\limits_{\partial B(0,1)} q(x)$. $\partial B(0,1)$ è un compatto, essendo insieme chiuso e limitato
+		in $\R^n$ (vedasi \fullref{prop:compat_chius_lim}). Grazie alla regolarità di $q$ ed alla compattezza di $\partial B(0,1)$,
+		si può applicare l'\fullref{ex:weier_analisi_1} ed avere la certezza dell'esistenza di un $M$ finito.\\
+		Verificata l'esistenza di $M$, massimo sulla $\partial B(0,1)$, è sicuramente possibile minorare l'ultimo termine di \cref{eq:form_quadr_M}
+		ed ottenere la tesi
 		\[\abs{q(x)} = \norm{x}^2 \; \abs{q \left( \frac{x}{\norm{x}} \right)} \leq M \norm{x}^2\]
 	\end{proof}
 \end{proposition}
@@ -70,7 +176,8 @@ Per un'esposizione dettagliata e completa si rimanda ad un libro di Algebra Line
 	Data $q$ forma quadratica su $\R^n$, allora:
 	\[\forall \alpha \in \intervalclop{0}{2} \qquad q(x) = o(\norm{x}^\alpha) \text{ per } x \to 0\]
 	\begin{proof}
-		Immediata dalla \fullref{prop:form_quadr_M} perché si ha già dimostrato che esista un certo $M$ per cui $q(x) \leq M \norm{x}^2$. Basta applicare la \fullref{def:o_piccolo} a $x \to 0$ per arrivare alla tesi.
+		Immediata dalla \fullref{prop:form_quadr_M} perché si ha già dimostrato che esista un certo $M$ per cui $q(x) \leq M \norm{x}^2$.
+		Basta applicare la \fullref{def:o_piccolo} a $x \to 0$ per arrivare alla tesi.
 	\end{proof}
 \end{corollary}
 \begin{proposition}
@@ -190,7 +297,8 @@ Per un'esposizione dettagliata e completa si rimanda ad un libro di Algebra Line
 					\label{eq:form_quadr_def_pos}
 					q(x) = q \left( \norm{x} \frac{x}{\norm{x}} \right) = \norm{x}^2 \; q \left( \frac{x}{\norm{x}} \right)
 				\end{equation}
-				Per gli stessi motivi dell'altra dimostrazione, si può porre $m = \min\limits_{\partial B(0,1)} q(x)$ ed avere la certezza che esista finito. Inoltre, sicuramente $m \geq 0$ perché $q$ è definita positiva per ipotesi.\\
+				Per gli stessi motivi dell'altra dimostrazione, si può porre $m = \min\limits_{\partial B(0,1)} q(x)$
+				ed avere la certezza che esista finito. Inoltre, sicuramente $m \geq 0$ perché $q$ è definita positiva per ipotesi.\\
 				È dunque sicuramente possibile maggiorare l'ultimo termine di \cref{eq:form_quadr_def_pos} ed ottenere la tesi
 				\[q(x) = \norm{x}^2 \; q \left( \frac{x}{\norm{x}} \right) \geq m \norm{x}^2\]
 			\item[$\impliedby$] Immediata.
@@ -218,7 +326,8 @@ Grazie alle seguenti proposizioni viene fornito un metodo più rapido per verifi
 	\[Q_1 \qquad \frac{\det Q_2}{\det Q_1} \qquad \frac{\det Q_3}{\det Q_2} \qquad \dotsc \qquad \frac{\det Q_n}{\det Q_{n-1}}\]
 	dove $Q_i$ è la matrice costituita dalle prime $i$ righe ed $i$ colonne di $Q$ ("come negli orlati").
 	\begin{note}
-		Non è necessario conoscere il sistema di coordinate in cui è valida l'uguaglianza, ai fini dello studio di una Forma Quadratica è sufficiente sapere che esso esiste e che l'uguaglianza è valida.
+		Non è necessario conoscere il sistema di coordinate in cui è valida l'uguaglianza, ai fini dello studio di
+		una Forma Quadratica è sufficiente sapere che esso esiste e che l'uguaglianza è valida.
 	\end{note}
 	\begin{center}
 		\begin{tikzpicture} [
@@ -263,12 +372,15 @@ Grazie alle seguenti proposizioni viene fornito un metodo più rapido per verifi
 		Omessa.
 	\end{proof}
 	\begin{note}
-		Questa enunciazione dell'ortogonalizzazione di Gram-Schmidt sembra privilegiare le sottomatrici costituite dalle prime righe e dalle prime colonne. È però possibile enunciare una versione di questa proposizione in cui tutte le sottomatrici quadrate costruite attorno alla diagonale hanno gli stessi \textit{privilegi}.
+		Questa enunciazione dell'ortogonalizzazione di Gram-Schmidt sembra privilegiare le sottomatrici costituite dalle prime
+		righe e dalle prime colonne. È però possibile enunciare una versione di questa proposizione in cui tutte le sottomatrici
+		quadrate costruite attorno alla diagonale hanno gli stessi \textit{privilegi}.
 	\end{note}
 \end{proposition}
 \begin{observation}
 	Nella \fullref{prop:gram_schm}, l'ipotesi che $q$ sia definita assicura che le diverse $Q_i$ per $i = 1,\:\dotsc\:,n$ siano non nulle.\\
-	Nel caso in cui $q$ non fosse definita sarebbe ancora possibile diagonalizzare $q$ ottenendo una matrice diagonale con gli "ultimi" elementi della diagonale nulli.
+	Nel caso in cui $q$ non fosse definita sarebbe ancora possibile diagonalizzare $q$ ottenendo una matrice diagonale con gli "ultimi" elementi
+	della diagonale nulli.
 \end{observation}
 \begin{corollary}
 	\label{coro:def_pos_neg_segni_Q}
@@ -295,7 +407,8 @@ Grazie alle seguenti proposizioni viene fornito un metodo più rapido per verifi
 	\end{align*}
 	dove $Q_i$ è la matrice costituita dalle prime $i$ righe ed $i$ colonne di $Q$ ("come negli orlati").
 
-	Cioè se tutte le sottomatrici hanno determinante positivo, allora la $Q$ è Definita Positiva. Se invece i determinanti hanno segni alternati (partendo da una negativa), allora è Definita Negativa.
+	Cioè se tutte le sottomatrici hanno determinante positivo, allora la $Q$ è Definita Positiva. Se invece i determinanti hanno segni alternati
+	(partendo da una negativa), allora è Definita Negativa.
 	\begin{proof}
 		Omessa.
 	\end{proof}
