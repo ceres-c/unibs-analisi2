@@ -20,6 +20,7 @@ Per compilare questo documento è necessario aggiungere l'opzione `--shell-escap
 
 # Authors #
 - [Federico Cerutti](https://ceres-c.it): Riscrittura del documento al fine di mantenerlo il più possibile vicino alla dispensa di riferimento. Integrazioni da appunti di più studenti
+- [Alberto Tamburini](https://github.com/Tambup/): Riscrittura Capitolo 6 e Appendici A, C
 - [Mauro Conte](https://github.com/GoldMyr1994): Autore originale del LaTeX: tutto ciò che è presente nel primo commit è opera sua. Collaboratore nelle versioni successive
 - [Giuliana Beretta](https://www.linkedin.com/in/giuliana-beretta-578b4914b/): Autrice del manoscritto originale, sorgente per la stesura della prima versione di questo documento
 - [Rinaldo M. Colombo](http://rinaldo-colombo.unibs.it/): Autore della dispensa di riferimento a cui questi appunti cercano di attenersi

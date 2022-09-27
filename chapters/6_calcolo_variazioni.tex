@@ -29,19 +29,19 @@ Allora:
 \[ \partial_\beta F(\alpha,\beta,x)=f(x,\beta)\]
 \[ \nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)\integrald{t}\]
 \begin{proof}
-	L'integrale di una funzione $ f \in \cntclass{1} $ continua ad appartenere a $ \cntclass{1} $ (già dimostrato).\\
+	L'integrale di una funzione $ f \in \cntclass{1} $ continua ad appartenere a $ \cntclass{1} $ (già dimostrato).
 	Sia $ \varphi(x(t),t) $ la primitiva di $ f(x(t),t) $ rispetto a $ t $,
 	ovvero $ \partial_t \varphi(x(t),t) = \varphi'(x(t),t)*x'(t) = f(x(t),t) $.\\
-	Formalizziamo anzitutto la soluzione generica di un integrale definito come:\\
-	\[F(\alpha,\beta,x) = \varphi(x(\beta),\beta) - \varphi(x(\alpha),\alpha) \]\\
-	Si risolvano dunque i singoli integrali con le derivate parziali, partendo da $ \alpha $:\\
+	Formalizziamo anzitutto la soluzione generica di un integrale definito come:
+	\[F(\alpha,\beta,x) = \varphi(x(\beta),\beta) - \varphi(x(\alpha),\alpha) \]
+	Si risolvano dunque i singoli integrali con le derivate parziali, partendo da $ \alpha $:
 	\begin{align*}
 		\partial_\alpha F(\alpha,\beta,x) &= \partial_\alpha \left[\varphi(x(\beta),\beta) - \varphi(x(\alpha),\alpha)\right]\\
 		&= \partial_\alpha \varphi(x(\beta),\beta) - \partial_\alpha \varphi(x(\alpha),\alpha)\\
 		&= 0 - f(x(\alpha),\alpha)\\
 		&= - f(x(\alpha),\alpha)
 	\end{align*}
-	seguendo con $ \beta $:\\
+	seguendo con $ \beta $:
 	\begin{align*}
 		\partial_\beta F(\alpha,\beta,x) &= \partial_\beta \left[\varphi(x(\beta),\beta) - \partial_\beta \varphi(x(\alpha),\alpha)\right]\\
 		&= \partial_\beta \varphi(x(\beta),\beta) - \partial_\beta \varphi(x(\alpha),\alpha)\\
@@ -57,7 +57,7 @@ Allora:
 \end{note}
 \begin{note}
 	La proposizione appena esposta non è strettamente inerente a questo capitolo. Tuttavia, è riportata in quanto esplicita il risultato di un integrale
-	data la derivazione parziale rispetto ad uno degli estremi di integrazione o rispetto alle variabili di integrazione ($ t $ escluso). 
+	data la derivazione parziale rispetto a uno degli estremi d'integrazione o rispetto alle variabili d'integrazione ($ t $ escluso). 
 \end{note}
 
 \newpage
@@ -119,15 +119,15 @@ Allora:
 Sia $f\in \cntclass{0}(\left[a,b\right]; \R ^n)$ tale che $\forall v\in \cntclass{0}(\left[a,b\right]; \R ^n)$
 con $v(0)=v(1)=0$ si abbia $\int_0^1f(x)\bullet v(x)\integrald{x}=0$ allora $f(x)\equiv \vec{0}$ $\forall x\in \left[0,1\right]$.
 \begin{proof}
-	Per questa dimostrazione si osservano componente per componente.\\
-	$\forall i=1,2,\ldots,n$ scelgo $v_j(x)=\left\{\begin{matrix}0&&j\ne i\\v_i(x)&&j=i \end{matrix}\right.$\\
+	Per questa dimostrazione si osservano componente per componente.
+	\[\forall i=1,2,\ldots,n \text{ scelgo } v_j(x)=\left\{\begin{matrix}0&&j\ne i\\v_i(x)&&j=i \end{matrix}\right.\]
 	A questo punto applico il lemma fondamentale alla componente $i$-esima $f_i$ di $f$.
 \end{proof}
 \corollary
 Sia $f\in \cntclass{0}(\left[a,b\right]; \R )$ e $k\in\mathbb{N}$ tale che $\forall v\in \cntclass{k}(\left[a,b\right]; \R ^n)$ con $v(0)=v(1)=0$
 si abbia $\int_0^1f(x)v(x)\integrald{x}=0$ allora $f(x)\equiv \vec{0}$ $\forall x\in \left[0,1\right]$.
 \begin{proof}
-	\'E sempre lo stesso lemma con l'aggiunta che la funzione $v$ sia di classe $\cntclass{k}$.\\
+	È sempre lo stesso lemma con l'aggiunta che la funzione $v$ sia di classe $\cntclass{k}$.
 	\begin{center}
 		\begin{tikzpicture}[scale=1]
 			\draw[->] (0,0) -- (1.2,0) node[anchor=north west] {$x$};
@@ -145,12 +145,12 @@ si abbia $\int_0^1f(x)v(x)\integrald{x}=0$ allora $f(x)\equiv \vec{0}$ $\forall 
 	Se si chiama $v$ la funzione blu e $u$ la funzione rossa.\\
 	Si osservi che $v$ è una funzione più regolare di $u$.\\
 	Tutte le funzioni $ v \in \cntclass{k} $ a loro volta sono t.c $ v \in \cntclass{0} $.
-	Dunque le ipotesi di \ref{lemma:fond_calc_var} sono soddisfatte ed è dimostrato.
+	Dunque le ipotesi del \fullref{lemma:fond_calc_var} sono soddisfatte ed è dimostrato.
 \end{proof}
 \observation
 Il Teorema seguente è concettualmente analogo al Teorema di Fermat nel capitolo sulla differenziabilità.
 Infatti, esso fornisce una condizione \textbf{NECESSARIA MA NON SUFFICIENTE} al primo ordine per punti di minimo o massimo locali.
-\begin{theorem}[EQUAZIONE DI EULERO]
+\begin{theorem}[Equazione di Eulero]
 	\index{Teorema!Equazione di Eulero}
 	\label{teo:equazione_eulero}
 	Sia $f\in \cntclass{2}\left(\left[ 0,1 \right]\times \R^n\times \R^n; \R \right)$ e fissati i valori $x_0, x_1 \in \R^n$.\\
@@ -166,8 +166,8 @@ Infatti, esso fornisce una condizione \textbf{NECESSARIA MA NON SUFFICIENTE} al 
 	\[ x_\ast\in X \text{ è t.c. } F(x_\ast)=\min\brackets{F(x):x\in X }\]
 	Allora
 	\[\partial_xf(t,x_\ast(t), x_\ast'(t))-\frac{d}{\integrald{t}}\partial_{ x'}f(t,x_\ast(t), x_\ast'(t))=0 \]
-	Quest'ultima equzione è detta equazione di Eulero-Lagrange del Funzionale $F$ o a volte detta variazione prima del funzionale $F$.
-	\'E un sistema di $n$ equazioni differenziali ordinarie del secondo ordine nella funzione incognita $x_\ast$.\\
+	Quest'ultima equazione è detta equazione di Eulero-Lagrange del Funzionale $F$ o a volte detta variazione prima del funzionale $F$.
+	È un sistema di $n$ equazioni differenziali ordinarie del secondo ordine nella funzione incognita $x_\ast$.\\
 	Analogamente esiste un enunciato per i punti di massimo.
 	\begin{proof}
 		Sia $x$ di minimo per $F$. Si definisca una funzione qualunque
@@ -179,7 +179,7 @@ Infatti, esso fornisce una condizione \textbf{NECESSARIA MA NON SUFFICIENTE} al 
 			&= \int_0^1 f(t, x + hv, x' + h\dot{v})\integrald{t}
 		\end{align*}
 		si ha un minimo in $ h = 0 $, in quanto $ F(x + 0) = F(x) $ il quale è di minimo per com'è stato scelto.\\
-		$\varphi$ è derivabile rispetto ad $h$, dunque, se si considera la derivata direzionale lungo
+		$\varphi$ è derivabile rispetto a $h$, dunque, se si considera la derivata direzionale lungo
 		$ \vec{v} = \begin{bmatrix}
 			v \\
 			\dot{v}
@@ -203,7 +203,7 @@ Infatti, esso fornisce una condizione \textbf{NECESSARIA MA NON SUFFICIENTE} al 
 		\end{align*}
 		e quindi sostituendo il risultato appena ottenuto con il secondo addendo
 		\[ \varphi'(0) = \int_0^1 \left(\frac{\partial f}{\partial x}(t, x, x') - \frac{d}{dt}\frac{\partial f}{\partial x'}(t, x, x') \right)v \integrald{t} \]
-		Ricordando che $\varphi(0)$ è un punto singolare, e dunque $\varphi'(0) = 0$, sono dunque soddisfatte le ipotesi di \ref{lemma:fond_calc_var} e si ha
+		Ricordando che $\varphi(0)$ è un punto singolare, e dunque $\varphi'(0) = 0$, sono dunque soddisfatte le ipotesi del \fullref{lemma:fond_calc_var} e si ha
 		\[ \frac{\partial f}{\partial x}(t, x, x') - \frac{d}{dt}\frac{\partial f}{\partial x'}(t, x, x') = 0 \]
 		ovvero la tesi.
 	\end{proof}
@@ -243,12 +243,9 @@ Una curva $\gamma : \intervalclose{a}{b} \to \R^n$ si dice rettificabile $\bydef
 \label{prop:lunghezza_curva_integrale}
 Se $\gamma\in \cntclass{1}(\intervalclose{a}{b}; \R ^n)\implies l(\gamma)=\int_a^b\norm{\gamma'(t)}\integrald{t}$.
 \observation
-Se $\gamma$ è la traiettoria di un punto materiale, allora $l(\gamma)$ è lo spazio che si percorre e $\norm{\gamma'}$ è la norma della velocità istantanea.\\
-Infatti, lo spazio percorso è l'integrale della velocità valutato tra due istanti di tempo $a$ e $b$ (estremi di integrazione).
-\doublespacing
-\par
-Si prenda ora come \textbf{caso di studio il \textcolor{red}{piano}} (anziché la sfera o altre figure).\\
-Si fissi l'origine in uno dei due punti, sia $A(x_A,y_A)$ l'altro. Posto il funzionale
+Se $\gamma$ è la traiettoria di un punto materiale, allora $l(\gamma)$ è lo spazio che si percorre e $\norm{\gamma'}$ è la norma della velocità istantanea. Infatti, lo spazio percorso è l'integrale della velocità valutato tra due istanti di tempo $a$ e $b$ (estremi di integrazione).
+
+Si prenda ora come \textbf{caso di studio il \textcolor{red}{piano}} (anziché la sfera o altre figure). Si fissi l'origine in uno dei due punti, sia $A(x_A,y_A)$ l'altro. Posto il funzionale
 \[
 	X = \brackets{
 		\varphi \in \cntclass{1}\left(\left[ 0,1 \right]; \R^2\right) : 
@@ -263,7 +260,7 @@ data la lunghezza di una curva $l(\varphi)$, il problema consiste nel determinar
 \[ l(\varphi) = \min\brackets{l(\varphi) : \varphi \in X}. \]
 Avendo preso come caso di studio il piano si ha $n = 2$,
 dunque le componenti di $\varphi(t)$ sono $ \left(x(t),y(t)\right) $.\\
-La lunghezza della curva definita in \ref{prop:lunghezza_curva_integrale}, data la definizione di $X$ in questo caso di studio diviene
+La lunghezza della curva definita in \fullref{prop:lunghezza_curva_integrale}, data la definizione di $X$ in questo caso di studio diviene
 \[ l(\varphi)=\int_0^1 \norm{\varphi'(t)}\integrald{t} \]
 e dunque $f$ dipende solo da $x' \text{ e } y'$. Ipotizzando di utilizzare la norma euclidea si ha dunque
 \[ f(t; x, t; x', y') = \sqrt{x'^2 + y'^2}. \]
@@ -302,13 +299,15 @@ Quindi, la curva che rende minima $l$ ha il suo versore tangente \textbf{sempre}
 
 \section{La Brachistocrona}
 Il problema della Brachistocrona è il seguente: determinare la curva congiungente due punti assegnati lungo cui sia minimo il tempo di caduta
-di un oggetto puntiforme dotato di massa soggetto alla sola forza di gravità.\\
-\par
-Si utilizzerà come sistema di riferimento l'asse $x$ orizzontale e $y$ verticale orientato verso il basso e l'origine nel punto di partenza.\\
-Sia $(\bar{x}, \bar{y})$ il punto finale.\\
-Sia $ y = y(x) $ l'equazione della curva cercata.\\
-Sia $ x \in \left[0, \bar{x}\right]$, ovvero appartenente a un intervallo.\\
-Per il Principio di Conservazione dell'Energia si ha, ad una data quota $y$, il modulo della velocità è pari a $ \sqrt{2gy(x)} $.\\
+di un oggetto puntiforme dotato di massa soggetto alla sola forza di gravità.
+
+Si utilizzerà come sistema di riferimento l'asse $x$ orizzontale e $y$ verticale orientato verso il basso e l'origine nel punto di partenza. Siano:
+\begin{itemize}[noitemsep]
+	\item $(\bar{x}, \bar{y})$ il punto finale.
+	\item $ y = y(x) $ l'equazione della curva cercata.
+	\item $ x \in \left[0, \bar{x}\right]$, ovvero appartenente a un intervallo.
+\end{itemize}
+Per il Principio di Conservazione dell'Energia si ha, a una data quota $y$, il modulo della velocità è pari a $ \sqrt{2gy(x)} $.\\
 Lo spazio infinitesimo percorso sulla curva, dato un tratto infinitesimo percorso sull'asse $x$,
 è dato da $ \integrald{s} = \sqrt{1 + (y')^2} \integrald{x} $.
 Tale valore è meglio intelligibile se visto come modulo della quantità di spazio percorso sulla curva $y$ dato uno spostamento sull'asse $x$
@@ -317,63 +316,55 @@ Si constata che $x$, in quanto variabile indipendente è esattamente la bisettri
 dunque si ha $ \frac{\integrald{s}}{\integrald{x}} = \sqrt{1 + (y')^2} $.\\
 Noto che la velocità è spazio su tempo, il tempo infinitesimo di percorrenza è $ \integrald{t} = \frac{\sqrt{1 + (y')^2}}{\sqrt{2gy(x)}} \integrald{x} $.\\
 Il tempo totale per compiere il tragitto è dunque
-\[ T(y) = \int_0^{\bar{x}} \sqrt{\frac{1 + (y')^2}{2gy(x)} \integrald{x}. \]
+\[ T(y) = \int_0^{\bar{x}} \sqrt{\frac{1 + (y')^2}{2gy(x)} \integrald{x}.} \]
 Si consideri il funzionale
-\[ F(x) = \int_{t_0}^{t_1} \varphi(x) \cdot \sqrt{1 + (x')^2 \integrald{x} \]
+\[ F(x) = \int_{t_0}^{t_1} \varphi(x) \cdot \sqrt{1 + (x')^2 \integrald{x}} \]
 e la sostituzione
-\[ \psi(x') = \sqrt{1 + (x')^2 \]
-l'Equazione di Eulero \ref{teo:equazione_eulero} corrispondente moltiplicando a destra e sinistra per $x'$
-\[
-	\begin{align*}
-		x' \cdot \left(\frac{\partial f}{\partial x} - \frac{d}{dt}\frac{\partial f}{\partial x'}\right) &= 0\\
-		x' \cdot \left[\varphi'(x)\psi(x') - \frac{d}{dt}\left(\varphi(x)\psi'(x')\right)\right] &= 0\\
-		x' \cdot \left[\frac{d}{dt}\frac{\varphi(x)}{x'}\psi(x') - \frac{d}{dt}\left(\varphi(x)\psi'(x')\right)\right] &= 0\\
-		\frac{d}{dt}\left[ \varphi(x)\psi(x') - x'\varphi(x)\psi'(x') \right] &= 0\\
-		\frac{d}{dt}\left[ \varphi(x)(\psi(x') - x'\psi'(x')) \right] &= 0
-	\end{align*}
-\]
+\[ \psi(x') = \sqrt{1 + (x')^2} \]
+l'\reffull{teo:equazione_eulero} corrispondente moltiplicando a destra e sinistra per $x'$
+\begin{align*}
+	x' \cdot \left(\frac{\partial f}{\partial x} - \frac{d}{dt}\frac{\partial f}{\partial x'}\right) &= 0\\
+	x' \cdot \left[\varphi'(x)\psi(x') - \frac{d}{dt}\left(\varphi(x)\psi'(x')\right)\right] &= 0\\
+	x' \cdot \left[\frac{d}{dt}\frac{\varphi(x)}{x'}\psi(x') - \frac{d}{dt}\left(\varphi(x)\psi'(x')\right)\right] &= 0\\
+	\frac{d}{dt}\left[ \varphi(x)\psi(x') - x'\varphi(x)\psi'(x') \right] &= 0\\
+	\frac{d}{dt}\left[ \varphi(x)(\psi(x') - x'\psi'(x')) \right] &= 0
+\end{align*}
 dato
-\[
-	\begin{align*}
-		\psi(x') - x'\psi'(x') &= \sqrt{1 + (x')^2} - x' \frac{x'}{\sqrt{1 + (x')^2}}\\
-		&= \sqrt{1 + (x')^2} - \frac{(x')^2}{\sqrt{1 + (x')^2}}\\
-		&= \frac{1 + (x')^2 - (x')^2}{\sqrt{1 + (x')^2}}\\
-		&= \frac{1}{\sqrt{1 + (x')^2}}
-	\end{align*}
-\]
+\begin{align*}
+	\psi(x') - x'\psi'(x') &= \sqrt{1 + (x')^2} - x' \frac{x'}{\sqrt{1 + (x')^2}}\\
+	&= \sqrt{1 + (x')^2} - \frac{(x')^2}{\sqrt{1 + (x')^2}}\\
+	&= \frac{1 + (x')^2 - (x')^2}{\sqrt{1 + (x')^2}}\\
+	&= \frac{1}{\sqrt{1 + (x')^2}}
+\end{align*}
 e dunque sostituendo
-\[
-	\begin{align*}
-		\frac{d}{dt}\left[ \varphi(x)\frac{1}{\sqrt{1 + (x')^2}} \right] &= 0\\
-		\frac{d}{dt} \frac{\varphi(x)}{\sqrt{1 + (x')^2}} &= 0.
-	\end{align*}
-\]
+\begin{align*}
+	\frac{d}{dt}\left[ \varphi(x)\frac{1}{\sqrt{1 + (x')^2}} \right] &= 0\\
+	\frac{d}{dt} \frac{\varphi(x)}{\sqrt{1 + (x')^2}} &= 0.
+\end{align*}
 L'equazione di Eulero per $T(y)$ nella forma appena individuata è
-\[
-	\begin{align*}
-		\frac{d}{dx} \frac{1}{\sqrt{2gy} \cdot \sqrt{1 + (y')^2}} &= 0\\
-		\frac{d}{dx} \frac{1}{\sqrt{2gy \cdot (1 + (y')^2)}} &= 0\\
-	\end{align*}
-\]
+\begin{align*}
+	\frac{d}{dx} \frac{1}{\sqrt{2gy} \cdot \sqrt{1 + (y')^2}} &= 0\\
+	\frac{d}{dx} \frac{1}{\sqrt{2gy \cdot (1 + (y')^2)}} &= 0\\
+\end{align*}
 Sapendo che l'unica funzione con derivata sempre nulla è la funzione costante si ha
-\[ \frac{1}{\sqrt{2gy \cdot (1 + (y')^2)}} &= k \]
-\[ \sqrt{2gy \cdot (1 + (y')^2)} &= \frac{1}{k} \]
-\[ 2gy \cdot (1 + (y')^2) &= \frac{1}{k^2} \]
-\[ y \cdot (1 + (y')^2) &= \frac{1}{2gk^2} \]
+\[ \frac{1}{\sqrt{2gy \cdot (1 + (y')^2)}} = k \]
+\[ \sqrt{2gy \cdot (1 + (y')^2)} = \frac{1}{k} \]
+\[ 2gy \cdot (1 + (y')^2) = \frac{1}{k^2} \]
+\[ y \cdot (1 + (y')^2) = \frac{1}{2gk^2} \]
 
 \begin{note}
-	Nei prossimi passaggi verranno usate diverse relazioni trigonometriche facilmente dimostrabili. Se non note, fare riferimento a \ref{sect:for_trigo}.
+	Nei prossimi passaggi verranno usate diverse relazioni trigonometriche facilmente dimostrabili. Se non note, fare riferimento alla \fullref{sect:for_trigo}.
 \end{note}
 
 Sostituendo $ y' = \frac{dy}{dx} = \left[ \tan(\theta/2) \right]^{-1} $ si ottiene
 \[ y \cdot (1 + \frac{1}{\tan^2(\theta/2)} ) = \frac{1}{2gk^2} \]
-\[ y \cdot \frac{\tan^2(\theta/2) + 1}{\tan^2(\theta/2)} &= \frac{1}{2gk^2} \]
+\[ y \cdot \frac{\tan^2(\theta/2) + 1}{\tan^2(\theta/2)} = \frac{1}{2gk^2} \]
 \[ y = \frac{1}{2gk^2} \cdot \frac{\tan^2(\theta/2)}{\tan^2(\theta/2) + 1} \]
 \[ y = \frac{1}{2gk^2} \cdot \sin^2(\theta/2) \]
 \[ y = \frac{1}{2gk^2} \cdot \sqrt{\frac{1 - \cos \theta}{2}} \sqrt{\frac{1 - \cos \theta}{2}} \]
 \[ y = \frac{1}{2gk^2} \cdot \frac{1 - \cos \theta}{2} \]
 \[ y = \frac{1}{4gk^2} \cdot \left(1 - \cos \theta\right) \]
-la parametrizzazione rispetto a $x$ si ottiene considerando la funzione inversa di quella appena usata per effettuare la sostitituzione, ovvero
+la parametrizzazione rispetto a $x$ si ottiene considerando la funzione inversa di quella appena usata per effettuare la sostituzione, ovvero
 $ \frac{dx}{dy} = \tan(\theta/2) = \frac{1 - \cos \theta}{\sin \theta} $
 \[ \frac{dy}{d\theta} = \frac{1}{4gk^2} \cdot \left(\sin \theta\right) \]
 \[ \frac{dx}{dy} \frac{dy}{d\theta} = \frac{1 - \cos \theta}{\sin \theta} \frac{1}{4gk^2} \cdot \left(\sin \theta\right) \]
