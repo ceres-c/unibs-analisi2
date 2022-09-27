@@ -379,15 +379,47 @@ e dunque, riassumendo, le equazioni parametriche sono
 \]
 con $k$ determinata da $ y(\bar{x}) = \bar{y} $.\\
 La curva trovata è un arco di Cicloide, ovvero una curva generata dalla rotazione di una circonferenza.\\
-In questo caso il raggio corrisponde a $ r = \frac{1}{4gk^2} $.\\
-\newpage
-\begin{figure}[h]
+In questo caso il raggio corrisponde a $ r = \frac{1}{4gk^2} $.
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=2.5,cap=round,>=latex]
+		\draw[->] (-1.5cm,0cm) -- (4cm,0cm) node[right,fill=white] {$x$};
+
+		% circonferenza a sinistra
+		\draw[smooth] (0cm,0.4cm) circle(0.4cm);
+		\filldraw[black] (0cm,0cm) circle(0.4pt) node[anchor=north]{P};
+		\draw[smooth] (0cm,0.4cm) -- +(270:0.4cm);
+
+		% circonferenza in centro
+		\draw[smooth] (pi*0.4cm,0.4cm) circle(0.4cm);
+		\filldraw[black] (pi*0.4cm,0.8cm) circle(0.4pt) node[anchor=south]{P};
+		\draw[smooth] (pi*0.4cm,0.4cm) -- +(90:0.4cm);
+
+		% circonferenza a destra
+		\draw[smooth] (2*pi*0.4cm,0.4cm) circle(0.4cm);
+		\filldraw[black] (2*pi*0.4cm,0cm) circle(0.4pt) node[anchor=north]{P};
+		\draw[smooth] (2*pi*0.4cm,0.4cm) -- +(270:0.4cm);
+
+		% non usare smooth. La funzione diviene appunto smooth e si perdono le cuspidi
+		\draw[domain=-1*pi:3*pi,very thick,blue,samples=100,variable=\t] plot ({0.4*(\t - sin(deg(\t)))}, {0.4*(1 - cos(deg(\t)))});
+	\end{tikzpicture}
 	\caption{Una Cicloide}
-	\centering
-	\includegraphics[width=0.5\textwidth]{images/Cicloide.png}
 \end{figure}
-\begin{figure}[h]
-	\caption{Brachistocrona fra due punti a diverse altezze (in rosso)}
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/Brachistochrone.png}
+	\begin{tikzpicture}[scale=3,cap=round,>=latex]
+		\coordinate (O) at (0cm,0cm);
+		\coordinate (P) at (3cm,-1cm);
+
+		\filldraw[black] (O) circle(0.4pt) node[anchor=south]{$(0,0)$};
+		\filldraw[black] (P) circle(0.4pt) node[anchor=west]{$(\overline{x},\overline{y})$};
+
+		\draw[smooth,blue,thin] (O) -- (P);
+		\draw[smooth,blue,thin] (O) -- (0cm,-1cm);
+		\draw[smooth,blue,thin] (0cm,-1cm) -- (P);
+
+		% non usare smooth. La funzione diviene appunto smooth e si perdono le cuspidi
+		\draw[domain=0:1.288*pi,very thick,red,samples=20,variable=\t] plot ({0.621*(\t - sin(deg(\t)))}, {-0.621*(1 - cos(deg(\t)))});
+	\end{tikzpicture}
+	\caption{Brachistocrona fra due punti a diverse altezze (in rosso)}
 \end{figure}
