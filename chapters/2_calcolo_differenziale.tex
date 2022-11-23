@@ -2980,6 +2980,37 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 		\end{note}
 	\end{observation}
 \end{samepage}
+
+\cbstart
+\begin{observation}
+	La presente osservazione può essere vista come un collegamento al corso di Ricerca Operativa.
+	Infatti, dal punto di vista della matematica applicata, la ricerca dei punti estremanti non è altro che un problema di ottimizzazione.
+	I problemi reali hanno tipicamente dei vincoli da soddisfare, ad esempio i vincoli di capacità di un impianto, esattamente ciò che viene trattato in questa sezione.
+	Infatti, se si vuole trovare un punto di minimo, il problema può essere riscritto come
+	\[
+		\begin{array}{ll}
+			\min &f(x)\\
+			\text{vincolato a } &\varphi(x) = 0\\
+			& x \in \R^n
+		\end{array}
+		\qquad oppure \qquad
+		\begin{array}{c}
+			\displaystyle\min_{x \in \R^n} \brackets{f(x) | \varphi(x) = 0}
+		\end{array}
+	\]
+	notazioni di largo uso nella Ricerca Operativa.
+	Per identificare un punto estremante, definito $\lambda = [ \lambda_1,\; \lambda_2,\:\dotsc\:\lambda_p ]^T$, allora \ref{eq:teo_molt_lagr_gen_sist_varphi} si può riscrivere come
+	\[
+		\begin{cases}
+			\nabla f(x) - \nabla \varphi (x)^T \lambda &= 0\\
+			-\varphi (x) &= 0.
+		\end{cases}
+	\]
+	Sia $f$ convessa, $\varphi$ una funzione affine, allora ogni estremante locale è anche globale e un metodo quale \fullref{obs:metodo_newton} ne permette la risuoluzione efficientemente.
+	Nel caso in cui fra i vincoli siano presenti disuguaglianze di funzioni convesse (ivi incluse eventuali altre funzioni affini), allora possono essere utilizzati metodi più avanzati, sempre ispirati al metodo di Newton, detti Interior Point Methods.
+\end{observation}
+\cbend
+
 \begin{observation}
 	\label{obs:sist_eqiv_lagr_ese}
 	Il sistema di \cref{eq:teo_molt_lagr_gen_sist_varphi} è spesso riportato nella seguente forma, facilmente utilizzabile nello svolgimento degli esercizi
