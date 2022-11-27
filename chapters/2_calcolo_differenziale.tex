@@ -2937,19 +2937,29 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 \newpage % WARNING Check this is not generating too much whitespace
 \begin{observation}[Spiegazione Concetto]~
 	\label{obs:concetto_teo_molt_lagr_gen}
-	\begin{center}
+	\begin{figure}
 		% Thanks to https://it.wikipedia.org/wiki/Metodo_dei_moltiplicatori_di_Lagrange
 		\includegraphics[width=.49\linewidth]{3d-lagrange-multipliers}
 		\includegraphics[width=.49\linewidth]{2d-lagrange-multipliers}
-	\end{center}
-	Data una certa $f: A \mapsto \R$, le sue \fullref{def:curv_liv} sono i luoghi dei punti soddisfacenti l'equazione $f(x) = d$, con $x \in A$ e $d \in \R$ generico. Si sta ora cercando di massimizzare la $f$ \textit{rispettando il vincolo} $\varphi(x)$, o, detto in modo diverso, di massimizzarla \textit{lungo il vincolo} $\varphi(x)$.\\
-	Le Curve di Livello di $\varphi$ saranno a loro volta luoghi dei punti tali per cui $\varphi(\xi) = c$, con $\xi \in A$ e $c \in \R$ generico.
+		\caption{A sinistra in blu vediamo $f$, in rosso i punti di $f$ che soddisfano un certo vincolo $\varphi(x,y) = c$. A destra in blu le curve di livello di $f$, in rosso la curva $\varphi(x,y) = c$.}
+	\end{figure}
+	Si consideri una generica funzione $f: A \mapsto \R$ sulla quale si desidera trovare i punti estremi che soddisfano un vincolo $\varphi: B \mapsto \R$ (nel caso generale possono essere $n$ vincoli e quindi $\varphi: B \mapsto \R^n$) con $B \subset A$.
+	Ciò significa che si desidera trovare i punti estremanti di $f$ su quei punti del dominio di $f$ che soddisfano $\varphi(x) = c, c \in R$. Nel caso in cui $c \neq 0$ basta considerare come vincolo $\varphi(x) - c = 0$.
+	
+	Ora, il vincolo $\varphi(x) - c = 0$ esprime certamente una \fullref{def:curv_liv}.
+	Poiché una curva di livello ha valore costante, si può verificare che il gradiente in ogni punto è sempre perpendicolare alla tangente nel punto stesso (\fullref{prop:curv_liv_perp_grad}), ovvero graficamente "punta" verso altre curve di livello "concentriche".
 
-	Le Curve di Livello di $f$ e $\varphi$ sono, in generale, distinte, dunque le C.D.L. di $f$ possono benissimo intersecare una qualsiasi $\varphi(\xi) = c$. Per definizione di C.D.L., muovendosi lungo una C.D.L. di $\varphi$, il valore assunto dalla $\varphi$ rimarrà costante, mentre il valore di $f$ può variare, come appena detto. Nel caso però in cui $\varphi(\xi) = c$ è \textbf{tangente} ad una C.D.L. di $f$, allora spostandosi lungo la C.D.L. di $\varphi$, rimarrà costante anche la $f$.\\
-	Come visto in \fullref{def:pto_staz}, $f$ è costante quando $\nabla f(x_0) = 0$ e, come si vedrà in \fullref{prop:curv_liv_perp_grad} la C.D.L è $\perp \nabla f$. Quanto detto fino ad ora però permette di aggiungere che la $f$ sia costante anche quando $\nabla f \parallel \nabla \varphi$, cioè quando $\nabla f$ è \textbf{Combinazione Lineare} delle $\nabla \varphi_i$.
+	Partendo da quanto appena detto, il teorema può essere interpretato in due modi che di fatto sono equivalenti ma sfruttano due punti di vista differenti:
+	\begin{enumerate}
+		\item Ricordando che il gradiente di $f$ indica la "direzione di miglioramento" di $f$, si noti che tale direzione non può essere perseguita in alcun modo rispettando il vincolo $\varphi$ quando $\nabla f(x) \parallel \nabla \varphi(x)$. In altre parole, tali punti sono \textbf{candidati} ad essere punti estremanti;
+		\item I punti di $f$ che rispettano $\varphi$ e sono tangenti ad una curva di livello di $f$, ovvero non la secano (a meno di flessi e punti sella), sono quei punti tali per cui la tangente della curva di livello di $f$ e di $\varphi$ si equivalgono (appunto in quanto tangenti). Come detto prima i gradienti delle curve di livello sono ortogonali alle tangenti (ma non necessariamente con stesso verso e magnitudine) e quindi saranno anche i gradienti paralleli fra loro, ossia $\nabla f(x) \parallel \nabla \varphi(x)$.
+	\end{enumerate}
+	Si noti che $\nabla f(x) \parallel \nabla \varphi(x)$ significa che sono combinazione lineare uno dell'altro, ovvero $\nabla f(x) = \lambda \nabla \varphi(x)$, ovvero la tesi.
+	Si noti anche che quanto detto fa costante uso della continuità delle funzioni $f, \varphi$ e delle loro derivate parziali ($\implies \in C^1$).
+	Ma perché essi sono solo candidati? Per il semplice fatto che esistono punti quali i flessi a tangente orizzontale e punti sella. Più formalmente, le condizioni al primo ordine (derivate prime) non permettono di trovare punti estremi, per questo servirebbero le condizioni al secondo ordine (derivate seconde) come per i punti estremanti non vincolati, ed infatti esse sono condizioni necessarie.
 \end{observation}
 \begin{observation}
-	Si noti che anche nel caso $n = 2$, $p = 1$ nella \cref{eq:eqiv_nabl_molt_lagr} non sarebbe coretto spostare $\lambda$ all'altro termine:
+	Si noti che anche nel caso $n = 2$, $p = 1$ nella \cref{eq:eqiv_nabl_molt_lagr} non sarebbe corretto spostare $\lambda$ all'altro termine:
 	\[\lambda \nabla f(x_0, y_0) = \nabla \varphi (x_0, y_0) \tag{\textbf{Errato!}}\]
 	Per quanto questa possa sembrare una semplice divisione per uno scalare, in realtà sarebbe una possibile svista. Il valore di $\nabla f(x_0,y_0)$ infatti non è noto a prescindere e, se fosse nullo, questa scrittura sarebbe in contrasto con l'ipotesi $\nabla \varphi(x_0,y_0) \neq 0$.
 \end{observation}
@@ -3006,8 +3016,10 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 			-\varphi (x) &= 0.
 		\end{cases}
 	\]
-	Sia $f$ convessa, $\varphi$ una funzione affine, allora ogni estremante locale è anche globale e un metodo quale \fullref{obs:metodo_newton} ne permette la risuoluzione efficientemente.
+	Sia $f$ convessa, $\varphi$ una funzione affine, allora ogni estremante locale è anche globale e un metodo quale \fullref{obs:metodo_newton} ne permette la risoluzione efficientemente.
 	Nel caso in cui fra i vincoli siano presenti disuguaglianze di funzioni convesse (ivi incluse eventuali altre funzioni affini), allora possono essere utilizzati metodi più avanzati, sempre ispirati al metodo di Newton, detti Interior Point Methods.
+
+	Visto quanto detto, possiamo dire in prima approssimazione che la Ricerca Operativa non si occupa d'altro che di trovare metodi di calcolo automatizzabili (algoritmi) per la ricerca di punti estremanti.
 \end{observation}
 \cbend
 
