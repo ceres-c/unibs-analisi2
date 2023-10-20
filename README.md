@@ -18,6 +18,8 @@ Gli appunti non sono stati validati dal professore, dunque non si escludono erro
 # Building #
 Per compilare questo documento è necessario aggiungere l'opzione `--shell-escape` ai parametri del compilatore LaTeX. L'argomento è necessario perché i grafici TikZ sono configurati per essere buildati solo la prima volta e mantenuti in cache nella cartella `build`. Per via della loro natura temporanea non sono parte del repo.
 
+Su Arch Linux, sono necessari i seguenti pacchetti `texlive texlive-luatex texlive-langitalian`.
+
 # Authors #
 - [Federico Cerutti](https://ceres-c.it): Riscrittura del documento al fine di mantenerlo il più possibile vicino alla dispensa di riferimento. Integrazioni da appunti di più studenti
 - [Alberto Tamburini](https://github.com/Tambup/): Riscrittura Capitolo 6 e Appendici A, C

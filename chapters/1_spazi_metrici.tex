@@ -2241,7 +2241,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					K^n \cdot d(x_0, x_{m-n}) &\leq K^n \cdot \Bigl( d(x_0, x_1) + d(x_1, x_2) + \dotsc + d(x_{m-n-1}, x_{m-n}) \Bigr)
 					\shortintertext{Applicando ora quanto ottenuto in \cref{eq:teo_contraz_disug_dist_mn} a tutti gli addendi}
 					&\leq K^n \cdot \Bigl( K^0 \cdot d(x_0, x_1) + K^1 \cdot d(x_0, x_1) + \dotsc + K^{m-n-1} \cdot d(x_0, x_1) \Bigr)\\
-					&\leq K^n \cdot \Bigl( 1 + K + \dotsc + K^{m-n-1} \Bigr) \cdot d(x_0, x_1)
+					&= K^n \cdot \Bigl( 1 + K + \dotsc + K^{m-n-1} \Bigr) \cdot d(x_0, x_1)
 				\end{align*}
 				Quindi riassumento, partendo dal primo membro dalla \cref{eq:teo_contraz_disug_dist_mn}, si è arrivati a
 				\begin{equation}
@@ -2346,7 +2346,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 				\end{equation}
 				Però
 				\begin{itemize}
-					\item $1-k > 0$ strettamente positivo perché, per \fullref{def:contrazione} $k \in \intervalclop{0}{1}$
+					\item $1-K > 0$ strettamente positivo perché, per \fullref{def:contrazione} $K \in \intervalclop{0}{1}$
 					\item $d(x_0, y_0) \geq 0$ per \fullref{def:sp_metrico}
 				\end{itemize}
 				Allora deve essere per forza $d(x_0, y_0) = 0$ per non contraddire la \cref{eq:teo_contraz_unicita}, dunque, per proprietà \ref{itm:dist_0_iff_x_uguale_y} delle distanze (\fullref{def:sp_metrico}), $x_0 = y_0$.
