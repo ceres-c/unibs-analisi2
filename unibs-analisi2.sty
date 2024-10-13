@@ -30,10 +30,11 @@
 \usepackage{accents}
 \usepackage{luatex85} % These bindings are needed for the changebar package
 \usepackage[xcolor, outerbars]{changebar}
-\usepackage[type={CC},modifier={by-nc-sa},version={4.0}]{doclicense}
 \usepackage[stretch=10]{microtype} % Better impagination due to micro font shrinking and stretching
 \usepackage[pdfencoding=auto]{hyperref} % Hyperref has to be the latest loaded package
-\usepackage[capitalise]{cleveref} % Except for cleverref, which requires hyperref
+% Except for doclicense and cleverref, which require hyperref
+\usepackage[type={CC},modifier={by-nc-sa},version={4.0}]{doclicense}
+\usepackage[capitalise]{cleveref} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Content formatting and theorem numbering rules  %

@@ -125,7 +125,7 @@ si estende il concetto di derivata alle funzioni in spazi $n$\textit{-dimensiona
 		\lim\limits_{t \to 0} \frac{f(x_1,\:\dotsc\:,x_i+t,\:\dotsc\:,x_n) - f(x_1,\:\dotsc\:,x_i,\:\dotsc\:,x_n)}{t}
 	\end{equation}
 	\begin{proof}
-		Da \fullref{def:deriv_direz}, sceglendo $v = e_i$ della base canonica, si ottiene la \cref{eq:deriv_i_esima}.
+		Da \fullref{def:deriv_direz}, scegliendo $v = e_i$ della base canonica, si ottiene la \cref{eq:deriv_i_esima}.
 	\end{proof}
 \end{proposition}
 \begin{exercise}
@@ -397,7 +397,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 \end{exercise}
 \begin{example}
 	Siano $M \in \mat(m \times n)$ una matrice fissata, $f: \R^n \to \R^m$ data da $f(x) = Mx$.\\
-	Allora $f$ è differenziabile ovunqe e per ogni $x_0 \in \R$ si ha $Df(x_0) = M$
+	Allora $f$ è differenziabile ovunque e per ogni $x_0 \in \R$ si ha $Df(x_0) = M$
 \end{example}
 \begin{proposition}[Unicità della Derivata Totale]
 	\index{Unicità!Derivata Totale}
@@ -886,7 +886,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 			\bigl( f(x), g(x) \bigr)
 		}
 	\]
-	Dimostrare che $F$ è \textbf{Differenziabile} in $x_0$ e detminarne la derivata totale.
+	Dimostrare che $F$ è \textbf{Differenziabile} in $x_0$ e determinarne la derivata totale.
 	% TODO solution
 \end{exercise}
 \begin{exercise}
@@ -1110,12 +1110,12 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		\[\abs{v \cdot f(x_1) - v \cdot f(x_0)} = \abs{v \cdot Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)}\]
 		Essendo il secondo membro il valore assoluto di un prodotto scalare, si può applicare ad esso la \reffull{ex:disug_cau_schwa_matr} ed ottenere: \index{Disuguaglianza!Cauchy-Schwarz}
 		\[\abs{v \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \norm{v} \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr) (x_1 - x_0)}\]
-		Dunque, seaparando ulteriorimente le norme si arriva alla:
+		Dunque, separando ulteriormente le norme si arriva alla:
 		\begin{equation}
 			\label{eq:accr_fin_norm}
 			\abs{v \cdot \bigl( f(x_1) - f(x_0) \bigr)} \leq \norm{v} \cdot \norm{Df\bigl( cx_1 + (1-c)x_0 \bigr)} \cdot \norm{x_1 - x_0}
 		\end{equation}
-		Essendo, come detto all'inzio, $f(x_1) \neq f(x_0)$ è ora possibile scegliere un $v$ "comodo", come:
+		Essendo, come detto all'inizio, $f(x_1) \neq f(x_0)$ è ora possibile scegliere un $v$ "comodo", come:
 		\[v = \frac{1}{\norm{f(x_1) - f(x_0)}} \cdot \bigl( f(x_1) - f(x_0) \bigr)\]
 		\begin{note}
 			La norma di $v$, grazie poi alla proprietà \ref{itm:def_norm_propr_lambda} da \fullref{def:norma}, è
@@ -1314,7 +1314,7 @@ Quanto detto circa le derivate prime può essere ripetuto introducendo derivate 
 	\]
 	Dove $f'$ è una funzione definita in un intorno di $x_0$ a valori in $\mat(m \times n) \in \R^{mn}$.
 	\begin{note}
-		Questa definizione è utilizzata comunemenete nel linguaggio parlato, ma viene raramente formalizzata come definizione.
+		Questa definizione è utilizzata comunemente nel linguaggio parlato, ma viene raramente formalizzata come definizione.
 	\end{note}
 	\begin{note}
 		Avendo una funzione	\textit{scalare} $f: A \to \R$ con $A \subseteq \boldsymbol{\R^n}$, la sua derivata prima è un \textit{vettore}. La derivata seconda sarà una \textit{matrice} e così via.
@@ -1511,9 +1511,9 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 		\end{note}
 	\end{samepage}
 \end{definition}
-\begin{observation}
-	Il Polinomio di Taylor è caratterizzato dall’avere in comune con la funzione $f$ il valore di tutte le derivate fino all’ordine $n-1$ nel punto $x_0$.
-\end{observation}
+% \begin{observation}
+% 	Il Polinomio di Taylor è caratterizzato dall'avere in comune con la funzione $f$ il valore di tutte le derivate fino all’ordine $n-1$ nel punto $x_0$.
+% \end{observation}
 \begin{theorem}[di Taylor]
 	\index{Teorema!di Taylor}
 	\label{teo:taylor}
@@ -1690,7 +1690,7 @@ I risultati esposti in questo paragrafo permettono di studiare funzioni senza av
 	Con $\varphi$ \textbf{Funzione Implicita} definita da $f(x,y)=0$.
 
 	\vspace*{\baselineskip}
-	Cioè la Funzione Implicita associa un sottoinsieme delle variabili dell'equazione alle variabili rimanenti. Da questo deriva il nome \textit{implicita}, in quanto la $f$ definisce "implicitamente" la $\varphi$, perchè l'immagine di $f$ è influenzata da tutte le variabili della funzione, che dunque son legate tra loro.
+	Cioè la Funzione Implicita associa un sottoinsieme delle variabili dell'equazione alle variabili rimanenti. Da questo deriva il nome \textit{implicita}, in quanto la $f$ definisce "implicitamente" la $\varphi$, perché l'immagine di $f$ è influenzata da tutte le variabili della funzione, che dunque son legate tra loro.
 	\begin{note}
 		La \textbf{Funzione Inversa} di una qualche funzione è anche \textbf{Funzione Implicita} di questa funzione.
 	\end{note}
@@ -1987,7 +1987,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 	\begin{proof}
 		Omessa a lezione.\\
 		\cbstart
-		$f$ è di classe $\cntclass{1} \quad \implies \quad f$ è Lipschtziana $\quad \implies \quad$ la funzione $T$ definita in \cref{eq:funz_impl_T} è Lipschtziana anche in $x$ (si veda \fullref{ex:comp_funz_lips}) $\quad \implies \quad$ la funzione implicita $y = \varphi(x)$ è Lipschtziana (per \fullref{teo:contr_con_para_lips_definisce_funz_lips}).
+		$f$ è di classe $\cntclass{1} \quad \implies \quad f$ è Lipschitziana $\quad \implies \quad$ la funzione $T$ definita in \cref{eq:funz_impl_T} è Lipschitziana anche in $x$ (si veda \fullref{ex:comp_funz_lips}) $\quad \implies \quad$ la funzione implicita $y = \varphi(x)$ è Lipschitziana (per \fullref{teo:contr_con_para_lips_definisce_funz_lips}).
 
 		Se $\varphi$ è derivabile, allora le regole di derivazione garantiscono che (da \fullref{ex:diff_funz_comp}):
 		\[0 = D \Bigl( f \bigl( x, \varphi(x) \bigr) \Bigr) = D_xf \bigl( x, \varphi(x) \bigr) + D_yf \bigl( x, \varphi(x) \bigr)\]
@@ -2009,7 +2009,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 		\end{align*}
 		Quindi
 		\[\omega_x(h) = \left[ D_yf \bigl( x, \varphi(x) \bigr) \right]^{-1} o \left( \sqrt{ \norm{h}^2 + \norm{A(x) \cdot h + \omega_x(h)}^2 } \;\; \right)\]
-		Dalla definzione di $\omega_x$ in \cref{eq:diff_primo_funz_impl_omega_x}, segue che la funzione $h \mapsto \omega_x(h)$ è Lipschtziana (da \fullref{ex:comp_funz_lips}). Ciò implica che non possa andare a $0$ più lentamente di $h \to h$, dunque ne segue che
+		Dalla definizione di $\omega_x$ in \cref{eq:diff_primo_funz_impl_omega_x}, segue che la funzione $h \mapsto \omega_x(h)$ è Lipschitziana (da \fullref{ex:comp_funz_lips}). Ciò implica che non possa andare a $0$ più lentamente di $h \to h$, dunque ne segue che
 		\[\omega_x(h) = \left[ D_yf \bigl( x, \varphi(x) \bigr) \right]^{-1} o(\norm{h}) = o(\norm{h})\]
 		\cbend
 	\end{proof}
@@ -2292,7 +2292,7 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 			\item[\ref{itm:ipot_funz_impl_2}.] è verificato perché $F$ somma di funzioni continue nell'intervallo scelto
 			\item[\ref{itm:ipot_funz_impl_3}.] Dalla definizione di $F$, $F(x_0, y_0) = 0 \iff y_0 = f(x_0)$
 			\item[\ref{itm:ipot_funz_impl_4}.] è verificato per ipotesi
-			\item[\ref{itm:ipot_funz_impl_5}.] è verificato per definizione dell'insieme $\Omega$. $D_xF(x,y) = Df(x)$ perchè, derivando parzialmente rispetto ad $x$, la derivata di $y$ è $0$, essendo $y$ assimilabile ad una costante.
+			\item[\ref{itm:ipot_funz_impl_5}.] è verificato per definizione dell'insieme $\Omega$. $D_xF(x,y) = Df(x)$ perché, derivando parzialmente rispetto ad $x$, la derivata di $y$ è $0$, essendo $y$ assimilabile ad una costante.
 		\end{enumerate}
 		Esiste dunque una funzione $\varphi: I \to J$, con $I$ intorno di $y_0$ e $J$ intorno di $x_0$, tale che:
 		\begin{equation}
@@ -2384,11 +2384,11 @@ Data una funzione $f$, poterla invertire significa poter risolvere in un unico m
 \begin{exercise}
 	Date due qualunque funzioni $f \in \cntclass{1}(\R^2;\R)$ e $g \in \cntclass{1}(\R;\R^2)$, verificare che alla funzione $g \circ f$ non può essere applicato il \fullref{teo:funz_inv}.\\
 	Esibire un esempio di funzioni $f \in \cntclass{1}(\R^2;\R)$ e $g \in \cntclass{1}(\R;\R^2)$ tali che la funzione $f \circ g$ invece soddisfi le ipotesi del \fullref{teo:funz_inv}.
-	% TODO soluton
+	% TODO solution
 \end{exercise}
 \begin{exercise}
 	La funzione $f \in \cntclass{1}(\R^n;\R)$ soddisfa alle ipotesi del \fullref{teo:funz_inv} in $x_0$ e la funzione $g \in \cntclass{1}(\R^n; \R^n)$ soddisfa alle ipotesi del \fullref{teo:funz_inv} in $f(x_0)$. Verificare che la funzione $g \circ f$ soddisfa alle ipotesi del \fullref{teo:funz_inv} in $x_0$.
-	% TODO soluton
+	% TODO solution
 \end{exercise}
 
 \newpage
@@ -2823,7 +2823,7 @@ Nelle seguenti proposizioni verranno usate la \fullref{def:differenz_second} e l
 	\end{proof}
 \end{corollary}
 \begin{exercise}
-	Applicare, quando possibile, le proposizioni di questa sezione e della precdente alle seguenti funzioni, tutte definite su $\R^2$\\
+	Applicare, quando possibile, le proposizioni di questa sezione e della precedente alle seguenti funzioni, tutte definite su $\R^2$\\
 	\begin{minipage}{0.49\linewidth}
 		\begin{align*}
 			f(x,y) &= x^2 + y^2\\
@@ -2918,10 +2918,10 @@ Dunque si possono individuare gli estremi in due insiemi diversi in due passaggi
 		\label{eq:eqiv_nabl_molt_lagr}
 		\nabla f(x_0) = \sum\limits_{i = 1}^{p} \lambda_i \nabla \varphi_i (x_0)
 	\end{equation}
-	Gli scalari $\lambda_i$ sono comunemenete chiamati \textbf{Moltiplicatori di Lagrange} e i $\nabla \varphi_i (x_0)$ sono i gradienti delle $p$ funzioni vincolo che compongono $\varphi$.\\
+	Gli scalari $\lambda_i$ sono comunemente chiamati \textbf{Moltiplicatori di Lagrange} e i $\nabla \varphi_i (x_0)$ sono i gradienti delle $p$ funzioni vincolo che compongono $\varphi$.\\
 	Cioè la combinazione lineare di tutti i $\nabla \varphi_i$ corrisponde a $\nabla f$.
 	\begin{note}
-		La combinazione lineare di vettori è, per definzione, la somma componente per componente dei diversi vettori, ognuno con un appropriato coefficiente $\lambda_i$
+		La combinazione lineare di vettori è, per definizione, la somma componente per componente dei diversi vettori, ognuno con un appropriato coefficiente $\lambda_i$
 	\end{note}
 	\begin{note}
 		L'\textbf{utilizzo pratico} di questo teorema è mostrato in \fullref{obs:sist_eqiv_lagr} e \fullref{obs:sist_eqiv_lagr_ese}.
@@ -3219,7 +3219,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 	\end{itemize}
 	Cioè $\nabla f(x_0)$ è un vettore diretto verso la direzione di \textbf{massima pendenza}, "verso l'alto."
 	\begin{proof}
-		Utilizzando la \fullref{def:differenz}, declinata nel caso $n = 2$ si ottine
+		Utilizzando la \fullref{def:differenz}, declinata nel caso $n = 2$ si ottiene
 		\begin{equation}
 			\label{eq:dim_dir_grad}
 			f(x_0 + h, y_0 + k) -
@@ -3307,7 +3307,7 @@ In questo paragrafo si vedrà la relazione "geometrica" tra il gradiente e la fu
 				\varphi(x)
 			\end{bmatrix}
 		\]
-		Visto che il differenziale di una funzione in un puno rappresenta il versore tangente alla funzione in quel punto, si passa alle derivate $\begin{bmatrix}1\\\varphi'(x)\end{bmatrix}$, visto che valgono anche le ipotesi del \fullref{teo:diff_primo_funz_impl}. Eseguendo ora il prodotto tra $\nabla f(x_0, y_0)$ e la derivate nel punto $(x_0, y_0)$, si ottiene
+		Visto che il differenziale di una funzione in un punto rappresenta il versore tangente alla funzione in quel punto, si passa alle derivate $\begin{bmatrix}1\\\varphi'(x)\end{bmatrix}$, visto che valgono anche le ipotesi del \fullref{teo:diff_primo_funz_impl}. Eseguendo ora il prodotto tra $\nabla f(x_0, y_0)$ e la derivate nel punto $(x_0, y_0)$, si ottiene
 		\begin{align*}
 			\nabla f(x_0, y_0) \cdot \begin{bmatrix}1\\\varphi'(x_0)\end{bmatrix}
 			&= \begin{bmatrix}
@@ -3502,7 +3502,7 @@ Il seguente teorema è una versione più specifica del \fullref{teo:molt_lagr_ge
 			\label{eq:deriv_integ_F_alfa_beta_C1}
 			\sup\limits_{\overline{B(x_0, r)} \times \intervalclose{\alpha}{\beta}} \underbrace{\abs{\partial_{x_i} f(x, t) - \partial_{x_i} f(x_0, t)} < \varepsilon}_{\text{(1)}}
 		\end{equation}
-		A questo punto, utilizzando si riconduce la terza uguaglianza ad una forma simile alla (1) spostando il termine di destra al primo membro e calcolanone il valore assoluto:
+		A questo punto, utilizzando si riconduce la terza uguaglianza ad una forma simile alla (1) spostando il termine di destra al primo membro e calcolandone il valore assoluto:
 		\begin{align*}
 			&\abs{
 				\partial_{x_i} F(\alpha, \beta, x) -

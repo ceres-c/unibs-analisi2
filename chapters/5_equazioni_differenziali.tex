@@ -290,7 +290,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\end{cases}
 		\end{align*}
 	\end{minipage}
-	% TODO soution
+	% TODO solution
 \end{exercise}
 \begin{example}[Un Problema non di Cauchy]
 	Il seguente è un \textbf{Problema ai Valori al Contorno} e non un Problema di Cauchy, in quanto:
@@ -680,7 +680,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 		\begin{itemize}
 			\item $\delta_1>0$ tale che $\intervalclose{t_0-\delta_1}{t_0+\delta_1}\subseteq I$
 			\item $\rho>0$ tale che $\overline{B(x_0,\rho)}\subseteq A$
-			\item $L$ costante di Lipshitz di $f$ in $\intervalclose{t_0-\delta_1}{t_0+\delta_1}\times\overline{B(x_0,\rho)}$. È possibile individuare $L$ in quanto $f$ loc. lips. per ipotesi in $I\times A$, e dunque \textbf{loc. lips. in sottointervalli/insiemi}
+			\item $L$ costante di Lipschitz di $f$ in $\intervalclose{t_0-\delta_1}{t_0+\delta_1}\times\overline{B(x_0,\rho)}$. È possibile individuare $L$ in quanto $f$ loc. lips. per ipotesi in $I\times A$, e dunque \textbf{loc. lips. in sottointervalli/insiemi}
 		\end{itemize}
 		Sia ora
 		\[V = \sup\brackets{\norm{f(t,x)}\,:\,t\in\intervalclose{t_0-\delta_1}{t_0+\delta_1},x\in\overline{B(x_0,\rho)}}\]
@@ -725,7 +725,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 				y(t)\in \overline{B(x_0,\rho)} \quad \forall t \in \intervalclose{t_0-\delta}{t_0+\delta}
 			\]
 			\begin{proof}
-				$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fodamentale del Calcolo Integrale.\\
+				$y\in \cntclass{0}$ nell'intervallo specificato per il Teorema Fondamentale del Calcolo Integrale.\\
 				La seconda condizione si verifica prendendo la \cref{eq:cauch_proof_T} e calcolando la norma di entrambi i termini
 				\begin{align*}
 					\norm{y(t)-x_0} &= \norm{\int_{t_0}^t f(\tau,x(\tau))\integrald{\tau} }
@@ -742,7 +742,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 			\item $T$ è \textbf{contrazione}\\
 			Occorre verificare la \cref{eq:def_contrazione}
 			\begin{proof}
-			Per definizione della $T$ e per la proprietà addittiva degli integrali
+			Per definizione della $T$ e per la proprietà additiva degli integrali
 			\begin{align*}
 				\bigl(T(x_2)\bigr)(t) - \bigl(T(x_1)\bigr)(t) =
 				\int_{t_0}^t \Bigl(
@@ -797,7 +797,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 						x(t_M)=x_M
 					\end{cases}
 				\]
-				ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\intervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioé $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
+				ammetta unica soluzione definita in un intorno di $t_M$ del tipo $\intervalclose{t_M-\delta}{\boldsymbol{t_M+\delta}}$, cioè $x_1$ e $x_2$ coincidono in un intorno di $t_M$. Il fatto che esista un'unica soluzione oltre $t_M$ (vedere parte in grassetto dell'intorno sopra) contraddice la \cref{eq:cau_loc_tM_J1J2_supset}, perché non dovrebbe essere possibile trovare una soluzione in comune \textit{oltre} $t_M$ per come è definito. Ripetendo iterativamente questo procedimento si può semplificare la definizione di $t_M$ a
 				\[t_M = \min \brackets{\sup J_1, \sup J_2}\]
 				Ripetendo quanto fatto con il \textit{primo istante} $t_m$ in cui $x_1$ e $x_2$ coincidono, si ottiene
 				\[t_m = \max \brackets{\inf J_1, \inf J_2}\]
@@ -872,7 +872,7 @@ Equazione \textbf{Differenziale} è un particolare tipo di equazione (funzionale
 \end{exercise}
 
 \begin{exercise}
-	Perchè il \fullref{teo:cau_locale_part_1} è chiamato Teorema di Cauchy \textit{locale}?
+	Perché il \fullref{teo:cau_locale_part_1} è chiamato Teorema di Cauchy \textit{locale}?
 	\begin{solution}
 		È dovuto al fatto che il teorema fornisce informazioni sull'esistenza/unicità di una soluzione solo in un intorno della condizione iniziale $t_0$. Non son fornite indicazioni sull'ampiezza di questo intervallo e se possa essere esteso a tutto $I$, intervallo di definizione della variabile indipendente $t$.
 	\end{solution}
@@ -1014,7 +1014,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 		\begin{note}
 			Il procedimento è analogo nel caso opposto e verrà integrato sotto.
 		\end{note}
-		Applichamo le seguenti sostituzioni nella formula del \fullref{lemma:gronwall}:
+		Applichiamo le seguenti sostituzioni nella formula del \fullref{lemma:gronwall}:
 		\begin{itemize}
 			\item $k(\tau) = L$
 			\item $\delta(\tau) = \norm{\varphi(\tau) - \psi(\tau)}$
@@ -1208,7 +1208,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			\item $T$ definita come la \cref{eq:cauch_proof_T}, cioè
 			\[\funcdef{T}{X}{X}{ \bigl(T(x)\bigr)(t) }{ x_0+\int_{t_0}^tf\bigl(\tau,x(\tau)\bigr)\integrald{\tau} }\]
 		\end{itemize}
-		I punti fissi di $T$ sono tutte e sole le soluzioni di \cref{eq:cau_glob_thesis}. Grazie al \fullref{teo:iterata_contraz}, per dimostare l'esistenza di un unico punto fisso, basta dimostrare che un'iterata di $T$ (\fullref{def:iterata}) è contrazione.\\
+		I punti fissi di $T$ sono tutte e sole le soluzioni di \cref{eq:cau_glob_thesis}. Grazie al \fullref{teo:iterata_contraz}, per dimostrare l'esistenza di un unico punto fisso, basta dimostrare che un'iterata di $T$ (\fullref{def:iterata}) è contrazione.\\
 		Nel dettaglio andremo a dimostrare per induzione la seguente forma:
 		\[\norm{\bigl(T^m(x_2)\bigr)(t) - \bigl(T^m(x_1)\bigr)(t)} \leq \frac{\bigl(L \cdot \abs{t-t_0}\bigr)^m}{m!} \cdot d_X(x_2,x_1)\]
 		Dove $L$ è costante di Lipschitzianità di $f$
@@ -1347,7 +1347,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	\end{equation}
 	Ammette un'unica soluzione definita in tutto l'intervallo $I$
 	\begin{note}
-		Non è necessario dimostare l'unicità in quanto la soluzione sarà localmente unica in ogni intorno di un punto e quindi si può espandere ad ogni intorno di ogni punto della soluzione.\\
+		Non è necessario dimostrare l'unicità in quanto la soluzione sarà localmente unica in ogni intorno di un punto e quindi si può espandere ad ogni intorno di ogni punto della soluzione.\\
 		È inoltre garantita anche la dipendenza continua, dunque è possibile scegliere un $\delta$ (dal \fullref{teo:cau_locale_part_2}) grande a piacere.
 	\end{note}
 	\begin{proof}
@@ -1397,7 +1397,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 			&\leq \sup \limits_{t \in \intervalclop{t_0}{T_M}} \norm{f(t,x)} \tageq\label{eq:cau_glob_dfi_sup}
 		\end{align*}
 		Quindi sia $\varphi(t)$ che $\varphi'(t)$ sono limitate, dunque la $\varphi$ è \textbf{uniformemente continua} su $\intervalclop{t_0}{T_M}$, come da \fullref{prop:convesso_deriv_par_lim_allora_lips}.
-		Da \fullref{prop:if_unif_cont_then_conf}, se la $\varphi(t)$ è uniformemente continua, allora è \textbf{continua}, cioò implica che $\lim \limits_{t \to T_M^-}\varphi(t) = \varphi(T_M)$.
+		Da \fullref{prop:if_unif_cont_then_conf}, se la $\varphi(t)$ è uniformemente continua, allora è \textbf{continua}, cioè implica che $\lim \limits_{t \to T_M^-}\varphi(t) = \varphi(T_M)$.
 
 		Essendo $\varphi(T_M) \in \R^n$, posso usare questo punto come condizione iniziale del seguente Problema di Cauchy
 		\begin{equation}
@@ -1531,7 +1531,7 @@ Nelle applicazioni fisiche, il ruolo della condizione iniziale di un problema di
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	Come viene modificata la \fullref{teo:ene_cinetica} se la forza $F$ diopende anche dalla velocità $\mathbf{x}'$?
+	Come viene modificata la \fullref{teo:ene_cinetica} se la forza $F$ dipende anche dalla velocità $\mathbf{x}'$?
 	% TODO solution
 \end{exercise}
 \begin{exercise}
@@ -1696,7 +1696,7 @@ La locuzione \textbf{Lineare}, attribuita alle equazioni differenziali analizzat
 \begin{proposition}
 	Nota una soluzione particolare $\overline{x}$ dell'equazione non omogenea
 	\[x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = f(t)\]
-	e noto un sistema fondamentale di soluzioni $(x_1,\:\dotsc\:,x_n)$ dell'equazione imogenea
+	e noto un sistema fondamentale di soluzioni $(x_1,\:\dotsc\:,x_n)$ dell'equazione omogenea
 	\[x^{(n)} + a_{a-1}(t) \cdot x^{(n-1)} +\:\ldots\:+ a_1(t) \cdot x' + a_0(t) \cdot x = 0\]
 	ogni soluzione $x$ dell'equazione non omogenea può essere scritta come
 	\[x = \overline{x} + \sum\limits_{k=1}^n \alpha_k x_k\]

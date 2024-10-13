@@ -1,7 +1,7 @@
 \chapter{Spazi Metrici}
 
 \section{Preliminari}
-% TODO definzione campo
+% TODO definizione campo
 
 \begin{definition}[Spazio Vettoriale]
 	\index{Spazio!Vettoriale}
@@ -204,7 +204,7 @@ Unendo le due definizioni si giunge naturalmente a
 			\begin{enumerate}[label=\arabic*.]
 				\item \label{itm:dist_conv_unif_geq_0} $d(x,y) \geq 0$ per definizione, il valore è sicuramente appartenente a $\intervalclose{0}{+\infty}$, ma $+\infty$ non è un valore accettabile, in quanto la metrica è definita come funzione a valori in $\R$ e $+\infty \notin \R$. D'alto canto, si nota che $X$ è definito come l'insieme delle funzioni continue definite su un intervallo \textbf{chiuso e limitato} a valori in $\R$ ($\cntclass{0}(\intervalclose{a}{b},\R)$). Questa definizione permette di applicare il \fullref{ex:weier_analisi_1} ed avere la certezza che esista $\sup$ finito.
 				\item $d(x,y) = 0 \iff x = y$ per definizione, $d_{\cntclass{0}}(f,g) = 0 \iff \sup\limits_{x\in\intervalclose{a}{b}}\abs{g(x)-f(x)} = 0$, cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
-				\item $d(x,y)=d(y,x)$ semplicmente $d_{\infty}(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
+				\item $d(x,y)=d(y,x)$ semplicemente $d_{\infty}(f,g) = \sup\limits_{x\in\intervalclose{a}{b}}\abs{f-g} = \sup\limits_{x\in\intervalclose{a}{b}}\abs{g-f} = d_{\infty}(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ dalla disuguaglianza triangolare per $\abs{\;\cdot\;}$ si ottiene
 					\[\abs{g(x)-f(x)} \leq \abs{g(x)-h(x)}+\abs{h(x)-f(x)}\]
 					Applicando il sup la disuguaglianza resta vera.
@@ -237,8 +237,8 @@ Unendo le due definizioni si giunge naturalmente a
 			\begin{enumerate}[label=\arabic*.]
 				\item $d(x,y) \geq 0$ per definizione della metrica
 				\item $d(x,y) = 0 \iff x = y$ per definizione della metrica
-				\item $d(x,y)=d(y,x)$ essendo bassata sulla Metrica Euclidea
-				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo bassata sulla Metrica Euclidea
+				\item $d(x,y)=d(y,x)$ essendo basata sulla Metrica Euclidea
+				\item $d(x,y) \leq d(x,z) + d(z,y)$ essendo basata sulla Metrica Euclidea
 			\end{enumerate}
 		\item \label{ex:dim_dist_quadratica}\index{Metrica!Quadratica}\index{Distanza!Quadratica}
 			$
@@ -259,7 +259,7 @@ Unendo le due definizioni si giunge naturalmente a
 				\item $d(x,y) = 0 \iff x = y$ Per definizione della metrica:
 				\[d_2(f,g) = 0 \iff \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}} = 0\]
 				cioè se e solo se le due funzioni hanno lo stesso dominio e, per ogni punto di esso, la stessa immagine.
-				\item $d(x,y)=d(y,x)$ semplicmente $d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}} = \sqrt{\int_a^b\left[f(x)-g(x)\right]^2 \integrald{x}} = d_2(g,f)$
+				\item $d(x,y)=d(y,x)$ semplicemente $d_2(f,g) = \sqrt{\int_a^b\left[g(x)-f(x)\right]^2 \integrald{x}} = \sqrt{\int_a^b\left[f(x)-g(x)\right]^2 \integrald{x}} = d_2(g,f)$
 				\item $d(x,y) \leq d(x,z) + d(z,y)$ ... % TODO Spiegare questo punto
 			\end{enumerate}
 	\end{enumerate}
@@ -398,7 +398,7 @@ Unendo le due definizioni si giunge naturalmente a
 
 \begin{definition}[Intorno]
 	\index{Intorno}
-	Sia $(X,d)$ uno spazio metrico e sia $x \in X$. \textbf{Intorno} di $x$ è un qualunque sottoinsieme di $X$ che contenga una sfera aperta contentente $x$
+	Sia $(X,d)$ uno spazio metrico e sia $x \in X$. \textbf{Intorno} di $x$ è un qualunque sottoinsieme di $X$ che contenga una sfera aperta contenente $x$
 \end{definition}
 
 \begin{definition}[Punti e Spazi Metrici]
@@ -704,13 +704,13 @@ Unendo le due definizioni si giunge naturalmente a
 	% TODO soluzione
 \end{exercise}
 \begin{exercise}
-	Esibire in $\R$, $\R^2$ ed in $\cntclass{0}(\intervalclose{0}{1}; \R)$ (con le metriche usuali) esempi di insiemi aperti/chiusi e limitati/illimtati.
+	Esibire in $\R$, $\R^2$ ed in $\cntclass{0}(\intervalclose{0}{1}; \R)$ (con le metriche usuali) esempi di insiemi aperti/chiusi e limitati/illimitati.
 \end{exercise}
 
 \begin{definition}[Insieme Finito ed Infinito]
 	\index{Insieme!Finito ed Infinito}
 	Un insieme si dice \textbf{Finito} se il numero dei suoi elementi è finito.\\
-	Un insieme si dice \textbf{Ininito} se non è Finito.
+	Un insieme si dice \textbf{Infinito} se non è Finito.
 \end{definition}
 \begin{observation}
 	Con la metrica Euclidea, ogni insieme finito è limitato e ogni insieme illimitato è infinito. Non valgono i viceversa.
@@ -783,11 +783,11 @@ Unendo le due definizioni si giunge naturalmente a
 		\[d(x_\infty, x^\infty) \leq d(x_\infty, x_n) + d(x_n, x^\infty)\]
 		Passando al $\lim$ per $n \to +\infty$
 		\[
-			\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x^\infty)}_{\begin{tabular}{c}\geq 0\\{\small Per def. distanza}\end{tabular}}
+			\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x^\infty)}_{\begin{tabular}{c}$\geq 0$\\{\small Per def. distanza}\end{tabular}}
 			\leq
-			\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x_n)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
+			\underbrace{\lim\limits_{n \to +\infty}d(x_\infty, x_n)}_{\begin{tabular}{c}$\leq \varepsilon$\\{\small Per def. lim succ.}\end{tabular}}
 			+
-			\underbrace{\lim\limits_{n \to +\infty}d(n, x^\infty)}_{\begin{tabular}{c}\leq \varepsilon\\{\small Per def. lim succ.}\end{tabular}}
+			\underbrace{\lim\limits_{n \to +\infty}d(n, x^\infty)}_{\begin{tabular}{c}$\leq \varepsilon$\\{\small Per def. lim succ.}\end{tabular}}
 			\leq 2 \varepsilon
 		\]
 		Dovendo essere questa forma valida $\forall \varepsilon > 0$, si concludere che non può esser altro che
@@ -798,7 +798,7 @@ Unendo le due definizioni si giunge naturalmente a
 \end{theorem}
 \begin{proposition}
 	\label{prop:succ_conv_se_comp_conv}
-	Sia $p \in \N,\; p \geq 2$. In $\R^p$, con $d(x,y) = \norm{y-x}$, una successione $x: \N \to X$ converge a $x_\infty$ se e solo se le $è$ successioni delle componenti convergono alle rispettive componenti di $x_\infty$.
+	Sia $p \in \N,\; p \geq 2$. In $\R^p$, con $d(x,y) = \norm{y-x}$, una successione $x: \N \to X$ converge a $x_\infty$ se e solo se le $p$ successioni delle componenti convergono alle rispettive componenti di $x_\infty$.
 	\begin{proof}
 		Applicare la \fullref{def:lim_succ} ricordando che
 		\[\abs{y_i} \leq \norm{y} \leq \abs{\sum\limits_{i = 1}^p \abs{y_i}} \qquad \forall y \in \R^p \text{ e per } i = 1,\:\dotsc\:,p\]
@@ -1385,7 +1385,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		Il $\delta$ è talvolta denominato \textbf{Modulo di Continuità}.
 	\end{note}
 	\begin{note}
-		Non andrebbe detto semplicemente "$f$ \textit{è continua}" perché la continuità dipende in modo essenziale dall'insieme di punti su cui la funzione viene considerata. In assenza di ulteriori specificazioni, spesso si sottointende che l'insieme in esame è l'intero dominio della funzione.
+		Non andrebbe detto semplicemente "$f$ \textit{è continua}" perché la continuità dipende in modo essenziale dall'insieme di punti su cui la funzione viene considerata. In assenza di ulteriori specificazioni, spesso si sottintende che l'insieme in esame è l'intero dominio della funzione.
 	\end{note}
 	\begin{note}
 		Ha senso valutare la continuità di una funzione esclusivamente nell'insieme in cui è definita. Quindi una frase come:\\
@@ -1394,7 +1394,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 		\textit{la funzione} $x \mapsto \frac{1}{x}$ \textit{non può essere estesa ad una funzione definita e continua anche in} $0$.
 	\end{note}
 	\begin{note}
-		La continuità di una funzione dipende in modo esssenziale anche dalla distanza adottata, tuttavia è prassi sottointendere questa precisazione, soprattutto per funzioni $\R^n \to \R^n$, se la distanza adottata è quella Euclidea.
+		La continuità di una funzione dipende in modo essenziale anche dalla distanza adottata, tuttavia è prassi sottintendere questa precisazione, soprattutto per funzioni $\R^n \to \R^n$, se la distanza adottata è quella Euclidea.
 	\end{note}
 \end{definition}
 \begin{observation}
@@ -2192,10 +2192,10 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 
 \begin{theorem}[delle Contrazioni]\leavevmode\vspace*{-\baselineskip}
 	\index{Teorema!delle Contrazioni}
-	\index{Teorema!di Banach-Cacioppoli}
+	\index{Teorema!di Banach-Caccioppoli}
 	\label{teo:contrazioni}
 	\begin{note}
-		Questo teorema è anche noto come \textit{Teorema di Banach-Cacioppoli}
+		Questo teorema è anche noto come \textit{Teorema di Banach-Caccioppoli}
 	\end{note}
 	Sia $(X, d)$ uno spazio metrico e $T: X \to X$. Allora
 	\begin{equation*}
@@ -2243,7 +2243,7 @@ Concettualmente, un insieme è connesso se è \textit{un pezzo solo}. Per dare u
 					&\leq K^n \cdot \Bigl( K^0 \cdot d(x_0, x_1) + K^1 \cdot d(x_0, x_1) + \dotsc + K^{m-n-1} \cdot d(x_0, x_1) \Bigr)\\
 					&= K^n \cdot \Bigl( 1 + K + \dotsc + K^{m-n-1} \Bigr) \cdot d(x_0, x_1)
 				\end{align*}
-				Quindi riassumento, partendo dal primo membro dalla \cref{eq:teo_contraz_disug_dist_mn}, si è arrivati a
+				Quindi riassumendo, partendo dal primo membro dalla \cref{eq:teo_contraz_disug_dist_mn}, si è arrivati a
 				\begin{equation}
 					\label{eq:teo_contraz_disug_dist_mn_fin}
 					d(x_n, x_m) \leq K^n \cdot \Bigl( \underbrace{1 + K + \dotsc + K^{m-n-1}}_{\text{(1)}} \Bigr) \cdot d(x_0, x_1)

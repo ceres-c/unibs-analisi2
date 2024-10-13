@@ -48,7 +48,7 @@ Si giunge dunque alla seguente definizione, tutt'altro che formale
 	\label{def:succ_funz}
 	Si definisce \textbf{Successione di Funzioni} l'insieme
 	\[\brackets{f_n:\; n \in \N} \text{ di funzioni } f_n:\; A \to \R\]
-	dipendenti da un indice naturale $n$ (oltre cheda una variabile reale $x$) e definite su un \textbf{dominio comune} $A$.
+	dipendenti da un indice naturale $n$ (oltre che da una variabile reale $x$) e definite su un \textbf{dominio comune} $A$.
 \end{definition}
 
 \begin{definition}[Successione delle Somme Parziali]
@@ -381,20 +381,20 @@ Da questa formula si vede che, nei punti in cui $\lim\limits_{n \to +\infty} x^n
 	\end{solution}
 \end{exercise}
 \begin{observation}
-	In riferimento al punto \ref{itm:prop_lim_punt_non_neg} dell'\fullref{ex:dim_prop_lim_conv_punt}, è necessario sottolineare come non sia invece possibie avere certezze sulla \textbf{stretta} positività/negatività del limite puntuale di una successione di funzioni strettamente positive/negative.\\
+	In riferimento al punto \ref{itm:prop_lim_punt_non_neg} dell'\fullref{ex:dim_prop_lim_conv_punt}, è necessario sottolineare come non sia invece possibile avere certezze sulla \textbf{stretta} positività/negatività del limite puntuale di una successione di funzioni strettamente positive/negative.\\
 	Ad esempio, $-\frac{e^x}{n}$ con $x \in \intervalclop{0}{1}$ è strettamente negativa, ma il limite puntuale è costante $0$.
 \end{observation}
 \begin{observation}
-	In riferimento al punto \ref{itm:prop_lim_punt_monotonia} dell'\fullref{ex:dim_prop_lim_conv_punt}, è necessario sottolineare come non sia invece possibie avere certezze sulla \textbf{stretta} crescenza/decrescenza del limite puntuale.\\
+	In riferimento al punto \ref{itm:prop_lim_punt_monotonia} dell'\fullref{ex:dim_prop_lim_conv_punt}, è necessario sottolineare come non sia invece possibile avere certezze sulla \textbf{stretta} crescenza/decrescenza del limite puntuale.\\
 	Come esempio, vedasi \fullref{ex:conv_succ_xn} in cui si studia la successione strettamente crescente $x^n$, il cui limite puntuale è però costante (dunque non \textbf{strettamente} crescente) in $B = \intervalclop{0}{1}$.
 \end{observation}
 \begin{exercise}
-	Verificare che il limite puntuale di funzoni \textbf{Continue} e \textbf{Derivabili}, quando esiste, può essere una funzione \textbf{Continua} e \textbf{non Derivabile}.\\
+	Verificare che il limite puntuale di funzioni \textbf{Continue} e \textbf{Derivabili}, quando esiste, può essere una funzione \textbf{Continua} e \textbf{non Derivabile}.\\
 	Considerare ad esempio $f_n:\; \R \to \R$ data da $f_n(x) = \sqrt{x^2 + \frac{1}{n}}$ visibile in \cref{fig:fn_sqrt_x2_1_over_n}.
 	% TODO solution
 \end{exercise}
 \begin{exercise}
-	Verificare che il limite puntuale di funzoni \textbf{Continue} e \textbf{Derivabili}, quando esiste, può essere una funzione \textbf{non Continua}.\\
+	Verificare che il limite puntuale di funzioni \textbf{Continue} e \textbf{Derivabili}, quando esiste, può essere una funzione \textbf{non Continua}.\\
 	Considerare ad esempio $f_n:\; \R \to \R$ data da $f_n(x) = \arctan(nx)$ visibile in \cref{fig:fn_sqrt_x2_1_over_n}.
 	% TODO solution
 \end{exercise}
@@ -492,7 +492,7 @@ La Convergenza Puntuale si può rivelare insufficiente per diverse ragioni, tra 
 			\lim\limits_{n \to +\infty} \int_a^b f_n(x) \integrald{x} = \int_a^b \lim\limits_{n \to +\infty} f_n(x) \integrald{x} = \int_a^b f(x) \integrald{x}
 		\end{equation}
 		Cioè eseguendo il \textit{passaggio al limite sotto il segno di integrale}, operazione di cui si è già parlato nell'introduzione al \fullref{chap:int_doppi} specificando che, con gli integrali di Riemann, non è affatto scontato sia possibile.\\
-		Nel caso della convergenza puntuale non son garantite le iptesi necessarie, dunque non è possibile passare al limite sotto l'integrale, come si vede nel successivo \fullref{ex:conv_punt_no_pass_lim_integrale}.
+		Nel caso della convergenza puntuale non son garantite le ipotesi necessarie, dunque non è possibile passare al limite sotto l'integrale, come si vede nel successivo \fullref{ex:conv_punt_no_pass_lim_integrale}.
 \end{itemize}
 La Convergenza Puntuale presenta le problematiche evidenziate in quanto non si basa su alcun tipo di concetto di \textbf{distanza tra funzioni}. Infatti, ricordando \fullref{def:succ_punt_conv}, avere convergenza puntuale $f_n \pconvarrow f$ su un certo insieme $A$ significa che, fissato un qualsiasi $x_0 \in A$, si ha
 \[\lim\limits_{n \to +\infty} d \bigl( f_n(x_0), f(x_0) \bigr) = 0\]
@@ -766,12 +766,12 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 \begin{example}
 	Come già visto in \fullref{ex:1_over_n_sin_x_punt_conv}, la Successione di Funzioni con $x \in A \equiv \R$
 	\[f_n(x) = \frac{1}{n} \sin(x)\]
-	è $f_n \pconvarrow 0$ su $A$. Questa stessa Successionione è anche Uniformemente Convergente su $A$, infatti:
+	è $f_n \pconvarrow 0$ su $A$. Questa stessa Successione è anche Uniformemente Convergente su $A$, infatti:
 	\[
 		\lim\limits_{n \to +\infty} \sup\limits_{A} \abs{f_n(x) - 0} =
 		\lim\limits_{n \to +\infty} \sup\limits_{A} \abs{\frac{1}{n} \sin(x)}
 	\]
-	Osservando che $\abs{a \cdot \sin(x)} \leq \abs{a}$, si può conclduere
+	Osservando che $\abs{a \cdot \sin(x)} \leq \abs{a}$, si può concludere
 	\[
 		\lim\limits_{n \to +\infty} \sup\limits_{\R} \abs{\frac{1}{n} \sin(x)} \leq
 		\lim\limits_{n \to +\infty} \frac{1}{n}=0
@@ -1042,7 +1042,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 	\end{proof}
 \end{proposition}
 \begin{exercise}
-	Nella \fullref{prop:compat_allora_C0_dC0_sp_metr_compl}, dove è stata usata l'ipotesi di compatteza di $K$?
+	Nella \fullref{prop:compat_allora_C0_dC0_sp_metr_compl}, dove è stata usata l'ipotesi di compattezza di $K$?
 	\begin{solution}
 		L'ipotesi è richiesta per poter applicare \fullref{prop:in_compat_succ_funz_cau_corrisp_a_succ_cau}. Vedasi la dimostrazione di questa proposizione per una spiegazione più dettagliata.
 	\end{solution}
@@ -1070,7 +1070,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 
 \begin{definition}[Operatore]
 	\index{Operatore}
-	Una funzione che agisce su fuzioni è chiamata \textbf{Operatore} o \textbf{Funzionale}.
+	Una funzione che agisce su funzioni è chiamata \textbf{Operatore} o \textbf{Funzionale}.
 \end{definition}
 
 \begin{proposition}
@@ -1118,7 +1118,7 @@ Si chiama Convergenza Uniforme la convergenza di una Successione di Funzioni ris
 		Intendendo il membro di sinistra come Convergenza Uniforme
 	\end{note}
 	\begin{proof}
-		Essendo le $f_n \in \cntclass{0}$ per iptesi, è possibie applicare la \fullref{prop:cont_e_cont_per_succ} e passare il limite fuori dal segno di integrale. Cio è consentito solo perché l'operatore $I$ è stato dimostrato Lineare in \fullref{prop:operat_I_linear_lips}.
+		Essendo le $f_n \in \cntclass{0}$ per ipotesi, è possibile applicare la \fullref{prop:cont_e_cont_per_succ} e passare il limite fuori dal segno di integrale. Cio è consentito solo perché l'operatore $I$ è stato dimostrato Lineare in \fullref{prop:operat_I_linear_lips}.
 	\end{proof}
 \end{corollary}
 \begin{corollary}
@@ -1512,7 +1512,7 @@ Si chiama Convergenza Quadratica la convergenza di una Successione di Funzioni r
 \end{proposition}
 \begin{example}
 	\label{ex:d2_deve_essere_di_f_C0}
-	Nella \fullref{def:dist_quadratica} l'ipotesi di continuità è essenziale, altrimento $d_2$ non sarebbe una distanza.\\
+	Nella \fullref{def:dist_quadratica} l'ipotesi di continuità è essenziale, altrimenti $d_2$ non sarebbe una distanza.\\
 	Infatti, se due funzioni $f$ e $g$ fossero differenti in un numero finito di punti, allora $d_2(f,g) = 0$, però $f \neq g$.
 \end{example}
 \begin{observation}
@@ -1631,7 +1631,7 @@ Si chiama Convergenza Quadratica la convergenza di una Successione di Funzioni r
 	Verificare che il prodotto scalare definito nell'\fullref{obs:prod_scal_dist_quadr} soddisfa le solite proprietà:
 	\[f \cdot (g + h) = f \cdot g + f \cdot h\]
 	\[(\lambda f) \cdot g = \lambda (f \cdot g) = f \cdot (\lambda g)\]
-	ed è inolte legato alla Norma Indice 2 dalla relazione
+	ed è inoltre legato alla Norma Indice 2 dalla relazione
 	\[\norm{f}_2 = \sqrt{f \cdot f}\]
 	% TODO solution
 \end{exercise}
@@ -1657,7 +1657,7 @@ ESEMPIO::$\sum\limits_{n=0}^{+\infty}\frac{x^n}{n!}=1+x+\frac{1}{2} x^2+\ldots+\
 ESEMPIO::$\sum\limits_{n=0}^{+\infty}x^n=1+x+x^2+\ldots+x^n=\frac{1}{1-x}$
 \proposition
 Siano $\brackets{a_n:n\in\N}$ una successione in $\C$ e $w\in\C$.\\
-La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cioè $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quandi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\abs{w}$\\
+La serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge in $w$ (cioè $\sum\limits_{n=0}^{+\infty}a_nw^n$ converge) quindi abbiamo la convergenza nella sfera aperta di centro l'origine e raggio $\abs{w}$\\
 Allora $\forall r$ con $0<r<\abs{w}$, la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$ converge totalmente in $B(0,r)$
 \begin{proof}
 	TIKZPICTURE:::::\\
@@ -1690,13 +1690,13 @@ Allora $\forall z\in\C$ con $\abs{z}>\abs{w}$ la serie di potenze $\sum\limits_{
 \end{proof}
 \observation
 Come è fatto l'insieme su cui si ha convergenza??\\
-segue da queste due ultime proposizioni che se $\brackets{a_n:n\in\N}$ è una successione in $\C$ allora l'insieme $\brackets{z\in\C:\sum\limits_{n=0}^{+\infty}a_nz^n converge}$ è un cerchio.\\Sulla circonferenza non ci soffermaiamo a capire cosa accade poiché tutto può accadere.
+segue da queste due ultime proposizioni che se $\brackets{a_n:n\in\N}$ è una successione in $\C$ allora l'insieme $\brackets{z\in\C:\sum\limits_{n=0}^{+\infty}a_nz^n converge}$ è un cerchio.\\Sulla circonferenza non ci soffermiamo a capire cosa accade poiché tutto può accadere.
 \definition
 Raggio di convergenza della serie $\sum\limits_{n=0}^{+\infty}a_nz^n\bydef \rho=\sup\brackets{r \geq 0 :\sum\limits_{n=0}^{+\infty}a_nz^n converge su B(0,r)}$
 \observation
 Il raggio di convergenza di una serie di potenze può essere $0$, un numero reale positivo o $+\infty$.
 \observation
-una definizione come $\rho=\inf\brackets{r \geq 0 :\sum\limits_{n=0}^{+\infty}a_nz^n non converge su B(0,r)}$ non sta in piedi poiché questo insieme potrebbe essere vuoto, mentre quello sopra non è mai vuoto, poerché $r=0$ c'è sempre poiché in $0$ si ha sempre convergenza. Ilsecondo potrebbe essere vuoto perché ci sono serie che convergono su tuttoil piano complesso e quindi non si avrebbe nessun $r$ fuori da quale non sia ha convergenza.\\
+una definizione come $\rho=\inf\brackets{r \geq 0 :\sum\limits_{n=0}^{+\infty}a_nz^n non converge su B(0,r)}$ non sta in piedi poiché questo insieme potrebbe essere vuoto, mentre quello sopra non è mai vuoto, perché $r=0$ c'è sempre poiché in $0$ si ha sempre convergenza. Il secondo potrebbe essere vuoto perché ci sono serie che convergono su tutto il piano complesso e quindi non si avrebbe nessun $r$ fuori da quale non sia ha convergenza.\\
 \proposition CRITERIO DELLA RADICE.\\
 Data la serie di potenze $\sum\limits_{n=0}^{+\infty}a_nz^n$, sia $l=\lim\limits_{n\to+\infty}\sqrt[n]{\abs{a_n}}$.\\
 Se questo limite esiste, allora il raggio di convergenza è
@@ -1741,7 +1741,7 @@ $\\
 ...\\
 ESEMPIO:: $e^{iy}$ con $y\in \R$
 \[e^{iy} = \sum\limits_{n=0}^{+\infty}\frac{1}{n!}(iy)^n = \sum\limits_{n=0}^{+\infty}\frac{1}{(2n)!}(iy)^{2n} + \sum\limits_{n=0}^{+\infty}\frac{1}{(2n+1)!}(iy)^{2n+1} = \]
-\[ = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n)!}(y)^{2n} + i\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n+1)!}(y)^{2n+1} = cos(y)+isin(y)\]
+\[ = \sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n)!}(y)^{2n} + i\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}{(2n+1)!}(y)^{2n+1} = cos(y)+i sin(y)\]
 \begin{enumerate}
 	\item $i^{2n}=\left(i^2\right)^n=(-1)^n$
 	\item $i^{2n+1}=i\left(i^2\right)^n=i(-1)^n$
@@ -1751,8 +1751,8 @@ ESEMPIO:: $\sum\limits_{n=0}^{+\infty}z^n=\frac{1}{1-z}$ con $\rho=1$
 ESEMPIO:: Sia $f(x)=\frac{1}{1+x^2}=\frac{1}{1-(-x^2)} = \sum\limits_{n=0}^{+\infty}(-x^2)^n=\sum\limits_{n=0}^{+\infty}(-1)^nx^{2n}$\\
 QUI GRAFICO ..............\\
 ..........................\\
-Questa serieconverge esclusivamente per $\abs{x}<1$, mentre la funzione $f$ è definita su tutto $ \R$, $f\in \cntclass{\infty}( \R; \R)$\\
-In $\C$, lafunzione $f(z)=\frac{1}{1+z^2}$ è la somma della serie $\sum\limits_{n=0}^{+\infty}(-1)^nz^{2n}$ che ha raggio di convergenza  $\rho=1$. Infatti, $f(z)$ è singolare sia in $z=i$ sia in $z=-i$.\\
+Questa serie converge esclusivamente per $\abs{x}<1$, mentre la funzione $f$ è definita su tutto $ \R$, $f\in \cntclass{\infty}( \R; \R)$\\
+In $\C$, la funzione $f(z)=\frac{1}{1+z^2}$ è la somma della serie $\sum\limits_{n=0}^{+\infty}(-1)^nz^{2n}$ che ha raggio di convergenza  $\rho=1$. Infatti, $f(z)$ è singolare sia in $z=i$ sia in $z=-i$.\\
 ALTRO GRAFICO::::::::::::::::\\
 ................................\\
 
@@ -1789,7 +1789,7 @@ La serie delle derivate $\sum\limits_{n=0}^{+\infty}na_nx^{n-1}$ converge totalm
 \[\sum\limits_{n=0}^{+\infty}fn(0)\to f(0), f_n\in ????????????\]
 Allora la serie delle derivate converge alla derivata della serie
 \[\implies \in \cntclass{1}(\left]-r,r\right[; \R),\quad a_1=f'(0)\]
-Questo ragionmento può essere ripetuto:
+Questo ragionamento può essere ripetuto:
 \[\implies \forall k\in\N,\quad f\in \cntclass{k}(\left]-r,+r\right[),\quad a_k=k!f^{(k)}(0)\]
 e analogamente
 \[f\in \cntclass{\infty}(\left]-r,r\right[; \R),\quad f(x)=\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
@@ -1819,7 +1819,7 @@ ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{mat
 \end{enumerate}
 \begin{enumerate}
 	\item Vediamo se è $\cntclass{0}$, quindi calcolo $\lim\limits_{x\to 0^{+}}f(x)=\lim\limits_{x\to 0^{-}}f(x)=0=f(0)\implies f\in \cntclass{0}( \R; \R)$.\\
-	Ora calcoliamo la derivata fuori dallo zero, ne facciamo il limite per $x\to 0$ da destra e da sinitra e vediamo cosa succede.\\
+	Ora calcoliamo la derivata fuori dallo zero, ne facciamo il limite per $x\to 0$ da destra e da sinistra e vediamo cosa succede.\\
 	Se $x\ne 0$, $f'(x)=\frac{2}{x^3}e^{-\frac{1}{x^3}}$ e $\lim\limits_{x\to 0^{+}}f'(x)=\lim\limits_{x\to 0^{-}} = 0 \implies f\in \cntclass{1}( \R; \R)$\\
 	..........\\
 	ancora una derivata.......\\
@@ -1830,13 +1830,13 @@ ESEMPIO:: $f(x)=\left\{\begin{matrix}0&& x=0\\e^{-\frac{1}{x^2}}&&x\ne 0\end{mat
 	\item In (1) abbiamo visto  che tutte le derivate nello zero si annullavano, cioè
 	\[\forall n\in\N, f^{(n)}(0)=0 \implies \sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
 	è la serie identicamente nulla  che banalmente converge totalmente su tutto $ \R$
-	\item Anche osservandoil grafico è chiaro che la $f$ non è la funzione identicamente nulla cioè è diversa dal suo sviluppo in serie
+	\item Anche osservandoli grafico è chiaro che la $f$ non è la funzione identicamente nulla cioè è diversa dal suo sviluppo in serie
 	\[f(x)\ne\sum\limits_{n=0}^{+\infty}\frac{1}{n!}f^{(n)}(0)x^n\]
 \end{enumerate}
 Il Problema nasce dall'$o(x^n)$ che scriviamo alla fine dello sviluppo n-esimo di questa funzione, perché l'intorno in cui si ha $o(x^n)$ diventa sempre più piccolo.
 GRAFICO...\\
 GRAFICO...\\
-Mandando l'ordine $n$ all'infinito, l'intervallo su cui si ha l'o piccolo tende a diventare un punto (lo zero). Quindi abbiamo l'ugualianza tra la funzione e il suo sviluppo solo nell'origine.????????NON COMPRESA????\\
+Mandando l'ordine $n$ all'infinito, l'intervallo su cui si ha l'o piccolo tende a diventare un punto (lo zero). Quindi abbiamo l'uguaglianza tra la funzione e il suo sviluppo solo nell'origine.????????NON COMPRESA????\\
 ????????NON COMPRESA????\\
 ????????NON COMPRESA????\\
 ????????NON COMPRESA????\\
@@ -1943,12 +1943,12 @@ Con i polinomi di Taylor ........\\
 ........\\
 \definition
 Dati $2n+1$ numeri reali $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n$ si dice polinomio trigonometrico di coefficienti $a_0,a_1,\dotsc,a_n,b_1,\dotsc,b_n$ la funzione:
-\[\begin{array}{rcl} p: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{N}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}\]
+\[\begin{array}{rcl} p: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{N}\left(a_n cos(nx)+b_n sin(nx)\right) \end{array}\]
 \observation
 Essendo un'approssimazione, si deve aggiungere l'errore. Come è fatto?. Per far uscire conti giusti e comodi andrebbe usata la distanza quadratica , ma questo prevede una lunga parte introduttiva, noi allora lo stimiamo con la distanza infinita.
 \definition
-Date due successioni di numeri reali $\brackets{a_n:n\in\N}$,$\brackets{b_n:n\in\N\setminus\brackets{0}}$, si defininisce serie trigonometrica di coefficienti  $\brackets{a_n:n\in\N}$,$\brackets{b_n:n\in\N\setminus\brackets{0}}$ la serie
-\[\begin{array}{rcl} \mathfrak{F}: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right) \end{array}\]
+Date due successioni di numeri reali $\brackets{a_n:n\in\N}$,$\brackets{b_n:n\in\N\setminus\brackets{0}}$, si definisce serie trigonometrica di coefficienti  $\brackets{a_n:n\in\N}$,$\brackets{b_n:n\in\N\setminus\brackets{0}}$ la serie
+\[\begin{array}{rcl} \mathfrak{F}: \left[-\pi,\pi\right] & \to &  \R \\ x & \to & \frac{a_0}{2}+\sum\limits_{k=1}^{+\infty}\left(a_n cos(nx)+b_n sin(nx)\right) \end{array}\]
 LEMMA::\\
 Se $h,k\in\N$ valgono le seguenti uguaglianze:
 \begin{description}
@@ -1977,16 +1977,16 @@ con $f\in \cntclass{1}$:
 \[\partial_\alpha F(\alpha,\beta,x)=-f(x,\alpha)\integrald{t}\]
 \[\partial_\beta F(\alpha,\beta,x)=f(x,\beta)\integrald{t}\]
 \[\nabla_x F(\alpha,\beta,x)=\int_{\alpha}^{\beta}\nabla_xf(x,t)\integrald{t}\]
-Qudindi applicando al nostro caso otteniamo
+Quindi applicando al nostro caso otteniamo
 \[\partial_{a_0}\varphi = \int_{-\pi}^{\pi}\partial_{a_0}\left(\left[\trigonpol{n}{1}{N}-f(x)\right]^2\right)\integrald{x}=\]
 \[ = \int_{-\pi}^{\pi} \frac{1}{2}2\left(\trigonpol{n}{1}{N}-f(x)\right)\integrald{x}=\]
 \[ =  \int_{-\pi}^{\pi} \frac{a_0}{2}\integrald{x} + \]
 \[\int_{-\pi}^{\pi} a_1cos(x)\integrald{x} +
 \ldots +
-\int_{-\pi}^{\pi} a_Ncos(Nx)\integrald{x} + \]
+\int_{-\pi}^{\pi} a_N cos(Nx)\integrald{x} + \]
 \[\int_{-\pi}^{\pi} b_1sin(x)\integrald{x} +
 \ldots +
-\int_{-\pi}^{\pi} b_Nsin(Nx)\integrald{x} - \]
+\int_{-\pi}^{\pi} b_N sin(Nx)\integrald{x} - \]
 \[ \int_{-\pi}^{\pi} f(x)\integrald{x} = \]
 L'integrale di una sinusoide su un multiplo intero del periodo è $0$ quindi
 \[=\pi a_0-\int_{-\pi}^{\pi}f(x)\integrald{x}\]
@@ -1998,14 +1998,14 @@ Calcolando direttamente anche le derivate seconde si ottiene che
 \[ =  \cancel{\int_{-\pi}^{\pi} a_0cos(kx)\integrald{x}} + \]
 \[\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)cos(kx)\integrald{x}} +
 \ldots +
-\int_{-\pi}^{\pi} 2a_kcos(kx)cos(kx)\integrald{x}
+\int_{-\pi}^{\pi} 2a_k cos(kx)cos(kx)\integrald{x}
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)cos(kx)\integrald{x}} + \]
+\cancel{\int_{-\pi}^{\pi} 2a_N cos(Nx)cos(kx)\integrald{x}} + \]
 \[\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)cos(kx)\integrald{x}} +
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2b_ksin(kx)cos(kx)}\integrald{x}
+\cancel{\int_{-\pi}^{\pi} 2b_k sin(kx)cos(kx)}\integrald{x}
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)cos(kx)\integrald{x}} - \]
+\cancel{\int_{-\pi}^{\pi} 2b_N sin(Nx)cos(kx)\integrald{x}} - \]
 \[\int_{-\pi}^{\pi} 2f(x)cos(kx)\integrald{x} = \]
 E anche applicando il lemma
 \[=2\pi\left[a_k-\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\right]\]
@@ -2021,14 +2021,14 @@ Calcolando direttamente anche le derivate seconde si ottiene che
 \[ =  \cancel{\int_{-\pi}^{\pi} a_0sin(kx)\integrald{x}} + \]
 \[\cancel{\int_{-\pi}^{\pi} 2a_1cos(x)sin(kx)\integrald{x}} +
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2a_kcos(kx)sin(kx)}\integrald{x}
+\cancel{\int_{-\pi}^{\pi} 2a_k cos(kx)sin(kx)}\integrald{x}
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2a_Ncos(Nx)sin(kx)\integrald{x}} + \]
+\cancel{\int_{-\pi}^{\pi} 2a_N cos(Nx)sin(kx)\integrald{x}} + \]
 \[\cancel{\int_{-\pi}^{\pi} 2b_1sin(x)sin(kx)\integrald{x}} +
 \ldots +
-\int_{-\pi}^{\pi} 2b_ksin(kx)sin(kx)\integrald{x}
+\int_{-\pi}^{\pi} 2b_k sin(kx)sin(kx)\integrald{x}
 \ldots +
-\cancel{\int_{-\pi}^{\pi} 2b_Nsin(Nx)sin(kx)\integrald{x}} - \]
+\cancel{\int_{-\pi}^{\pi} 2b_N sin(Nx)sin(kx)\integrald{x}} - \]
 \[\int_{-\pi}^{\pi} 2f(x)sin(kx)\integrald{x} = \]
 E anche applicando il lemma
 \[=2\pi\left[b_k-\int_{-\pi}^{\pi}f(x)cos(kx)\integrald{x}\right]\]
@@ -2068,14 +2068,14 @@ sia $f(x)=\trigonpol{n}{1}{+\infty}$. Allora:\\
 \[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}\trigonpol{n}{1}{+\infty}\integrald{x}=\]
 \[
 = \frac{1}{\pi}\int_{-\pi}^{\pi}\frac{a_0}{2} +
-\frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} a_ncos(nx)\right)\integrald{x} +
-\frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} b_ncos(nx)\right)\integrald{x}
+\frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} a_n cos(nx)\right)\integrald{x} +
+\frac{1}{\pi}\int_{-\pi}^{\pi}\left(\sum\limits_{n=1}^{+\infty} b_n cos(nx)\right)\integrald{x}
 \]
 Poiché si ha convergenza uniforme si può portare l'integrale dentro la sommatoria.
 \[
 = \frac{1}{\pi}\int_{-\pi}^{\pi}\frac{a_0}{2} +
-\cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} a_ncos(nx)\integrald{x}} +
-\cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} b_ncos(nx)\integrald{x}}=
+\cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} a_n cos(nx)\integrald{x}} +
+\cancel{\frac{1}{\pi}\sum\limits_{n=1}^{+\infty}\int_{-\pi}^{\pi} b_n cos(nx)\integrald{x}}=
 \]
 \[=\frac{1}{\pi}\frac{a_0}{2}\left(\pi-(-\pi)\right)=a_0\]
 
@@ -2151,7 +2151,7 @@ Con le Serie di Fourier su esegue la stessa operazione sullo spazi $\cntclass{0}
 \end{enumerate}
 Si possono osservare due cose:
 \begin{enumerate}
-	\item Sono tutte funzioni linearmente indipendenti, poiché l'unica combinazione lineare di questi elementi che da l'elemento nullo è quella a coefficenti tutti nulli.
+	\item Sono tutte funzioni linearmente indipendenti, poiché l'unica combinazione lineare di questi elementi che da l'elemento nullo è quella a coefficienti tutti nulli.
 \end{enumerate}
 \definition
 Il prodotto scalare in $\cntclass{0} \bydef \left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)\integrald{x}$
@@ -2222,10 +2222,10 @@ Sia $f$ una funzione pari $\implies bn=0 \forall n=1,2,\dotsc,+\infty$
 Sia $f$ una funzione dispari $\implies an=0 \forall n=0,1,,\dotsc,+\infty$
 \observation
 Siano
-\[f(x)=\frac{a_0}{2}+\sum\limits_{n=}^{+\infty}\left(a_ncos(nx)+b_nsin(nx)\right)\]
+\[f(x)=\frac{a_0}{2}+\sum\limits_{n=}^{+\infty}\left(a_n cos(nx)+b_n sin(nx)\right)\]
 \[\varphi(x)=\frac{\alpha_0}{2}+\sum\limits_{n=}^{+\infty}\left(\alpha_ncos(nx)+\beta_nsin(nx)\right)\]
 Allora
-\[ F(x)=(f+\varphi)(x)=\frac{A_0}{2}+\sum\limits_{n=}^{+\infty}\left(A_ncos(nx)+B_nsin(nx)\right)\]
+\[ F(x)=(f+\varphi)(x)=\frac{A_0}{2}+\sum\limits_{n=}^{+\infty}\left(A_n cos(nx)+B_n sin(nx)\right)\]
 con $A_n=a_n+\alpha_n$. $B_n=b_n+\beta_n$.
 cioè i coefficienti di Fourier dipendono linearmente dalla funzione.\\
 Esempio::: $B_3=\frac{1}{\pi}\int_{-\pi}^{\pi}F(x)sin(3x)\integrald{x}=\frac{1}{\pi}\int_{-\pi}^{\pi}(f(x)+\varphi(x))sin(3x)\integrald{x}=$\\
