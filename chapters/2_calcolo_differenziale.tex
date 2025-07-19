@@ -414,7 +414,7 @@ Direttamente dalla nozione di Analisi 1 di derivata, si ottiene la seguente rela
 		M_1 = M_2
 	\end{equation*}
 	\begin{proof}
-		Sia $t \in \R$ e sia fissato un vettore $e_i$ della base canonica di $\R^n$. Il \textit{prodotto per scalare} $e_i t$ è ancora un vettore in $\R^n$ con l'$i$-esima componente uguale a $t$.
+		Sia $t \in \R$ e sia fissato un vettore $e_i$ della base canonica di $\R^n$. Il prodotto \textit{vettore per scalare} $e_i t$ è ancora un vettore in $\R^n$ con l'$i$-esima componente uguale a $t$.
 		\begin{align*}
 			\shortintertext{Si esegua ora}
 			M_2 e_i - M_1 e_1 &=
@@ -1511,9 +1511,9 @@ La seguente sezione affiancata da una banda verde non è richiesta, in quanto no
 		\end{note}
 	\end{samepage}
 \end{definition}
-% \begin{observation}
-% 	Il Polinomio di Taylor è caratterizzato dall'avere in comune con la funzione $f$ il valore di tutte le derivate fino all’ordine $n-1$ nel punto $x_0$.
-% \end{observation}
+\begin{observation}
+	Il Polinomio di Taylor è caratterizzato dall'avere in comune con la funzione $f$ il valore di tutte le derivate fino all'ordine $n-1$ nel punto $x_0$.
+\end{observation}
 \begin{theorem}[di Taylor]
 	\index{Teorema!di Taylor}
 	\label{teo:taylor}
@@ -1932,7 +1932,7 @@ Per funzioni lineari il Teorema della Funzione Implicita si riduce alla semplice
 				Preso un generico $y$, si deve verificare che $\forall y \in \mathcal{Y}:\; T(x,y) \in \mathcal{Y}$ cioè, per come è definito $\mathcal{Y}$, che la distanza tra $T(x,y)$ ed $y_0$, centro della $\overline{B(y_0, r_y)}$, sia minore di $r_y$.\\
 				Applicando la disuguaglianza triangolare
 				\begin{align*}
-					\norm{T(x, y) - y_0} &\leq \norm{\underbrace{T(x, y) - T(x, y_0)}_{\text{(1)}} + \underbrace{\norm{T(x, y_0) - y_0}}_{\text{(2)}}}
+					\norm{T(x, y) - y_0} &\leq \underbrace{\norm{T(x, y) - T(x, y_0)}}_{\text{(1)}} + \underbrace{\norm{T(x, y_0) - y_0}}_{\text{(2)}}
 					\intertext{Applicando nuovamente il \fullref{teo:accresc_fin} ad (1) ed utilizzando la definizione di $T$ per (2)}
 					&\leq \underbrace{\sup\limits_{\xi \in S} \norm{D_y T(\xi)}}_{\text{(3)}} \cdot \underbrace{\norm{y - y_0}}_{\text{(4)}} + \norm{y_0 - [D_yf(x_0, y_0)]^{-1} \cdot f(x, y_0) - y_0}
 					\shortintertext{Come dimostrato prima (3) è minorato da $\frac{1}{2}$, mentre (4) corrisponde a $r_y$}
