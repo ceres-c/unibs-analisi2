@@ -489,7 +489,7 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{proposition}
 	\label{prop:chius_sp_metr}
 	Siano $(X,d)$ uno spazio metrico, $A \subseteq X$, $A \neq \emptyset$. Allora
-	\[\overline{A} = \brackets{x \in A \text{ è \textbf{isolato} per } A} \cup \brackets{x \in A: x \text{ è \textbf{di accumulazione} per } A}\]
+	\[\overline{A} = \brackets{x \in A \text{ è \textbf{isolato} per } A} \cup \brackets{x \in X: x \text{ è \textbf{di accumulazione} per } A}\]
 	% WARNING Nel secondo elemento dell'unione, sul libro, è riportato x \in X, non x \in A. Non mi sembrava sensato, dunque l'ho cambiato in questo modo.
 	\begin{proof}
 		Un punto isolato, per definizione, appartiene ad $A$, e rientra quindi automaticamente nella definizione di $\overline{A}$. È dunque necessario dimostrare solo il caso $x_*$ di accumulazione per $A$.\\
@@ -499,7 +499,7 @@ Unendo le due definizioni si giunge naturalmente a
 			\implies &x_* \in A \text{ e \textbf{non} } [ \exists r > 0:\; B(x_*, r) \cap A = \brackets{x_*} ]\\
 			\implies &x_* \in A \text{ e } [ \forall r > 0:\; B(x_*, r) \cap A \neq \brackets{x_*} ]
 			\intertext{Questo significa che in $B \cap A$ ci son sicuramente altri punti, che poi è come dire}
-			\implies &x_* \in A \text{ e } \underbrace{B(x_*, r) \cap A \setminus X \neq \emptyset}_{\mathclap{\text{Definizione di punto di accumulazione}}}
+			\implies &x_* \in A \text{ e } \underbrace{\left( B(x_*, r) \cap A \right) \setminus \brackets{x_*} \neq \emptyset}_{\mathclap{\text{Definizione di punto di accumulazione}}}
 		\end{align*}
 	\end{proof}
 \end{proposition}
@@ -553,13 +553,13 @@ Unendo le due definizioni si giunge naturalmente a
 \begin{definition}[Insieme Aperto]
 	\index{Insieme!Aperto}
 	\label{def:aperto}
-	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
+	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $X \neq \emptyset$. Si definisce
 	\[A\text{ è \textbf{Aperto}} \quad \bydef \quad A=\emptyset\quad\text{oppure}\quad A=\circdot{A}\]
 \end{definition}
 \begin{definition}[Insieme Chiuso]
 	\index{Insieme!Chiuso}
 	\label{def:chiuso}
-	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $A \neq \emptyset$. Si definisce
+	Siano $(X,d)$ uno spazio metrico e $A\subseteq X$, $X \neq \emptyset$. Si definisce
 	\[A\text{ è \textbf{Chiuso}} \quad \bydef \quad A=\emptyset\quad\text{oppure}\quad A=\bar{A}\]
 \end{definition}
 \begin{observation}
@@ -739,9 +739,9 @@ Unendo le due definizioni si giunge naturalmente a
 	Data una successione $x: \N \to X$ di elementi di uno spazio metrico $(X,d)$ e dato $x_\infty \in X$
 	\begin{equation}
 		\label{eq:lim_succ}
-		\lim\limits_{n \to +\infty} = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0
+		\lim\limits_{n \to +\infty} x_n = x_\infty \quad \bydef \quad \lim\limits_{n \to +\infty} d(x_n,x_\infty) = 0
 	\end{equation}
-	Se $\lim\limits_{n \to +\infty} = x_\infty$, allora la successione $x_n$ è \textbf{Convergente} a $x_\infty$. Si può scrivere: $x_n \to x_\infty$ per $n \to \infty$.
+	Se $\lim\limits_{n \to +\infty} x_n = x_\infty$, allora la successione $x_n$ è \textbf{Convergente} a $x_\infty$. Si può scrivere: $x_n \to x_\infty$ per $n \to \infty$.
 
 	Cioè la convergenza della successione $x: \N \to X$ a $x_\infty$ equivale alla convergenza a $0$ della successione di numeri reali $\brackets{d(x_n,x_\infty):\; n \in \N}$
 	\begin{note}
